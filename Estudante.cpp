@@ -17,3 +17,7 @@ void Estudante::addTurma(UCTurma turma) {
 const string &Estudante::getName() const {
     return name;
 }
+
+const list<UCTurma> &Estudante::getTurmas() const {
+    return turmas;
+}

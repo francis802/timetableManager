@@ -11,6 +11,8 @@ class UCTurma{
 public:
     UCTurma(string codUc, string codTurma);
 
+    const string &getCodUc() const;
+
 private:
     string codUC;
     string codTurma;
