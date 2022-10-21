@@ -57,6 +57,9 @@ list<UCTurma> GestaoHor::getDataAula(string filename){
                 to_return.push_back(ucclass);
             }
             classes.clear();
+            temp = UCTurma(classcode, uccode);
+            temp.addAula(aula);
+            classes.push_back(temp);
         }
     }
     return to_return;
