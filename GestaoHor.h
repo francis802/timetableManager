@@ -13,7 +13,7 @@ public:
     GestaoHor();
 
     void addStudent(Estudante s);
-    void getDataStudent(string filename);
+    void getDataStudent(string filename1, string filename2);
 
     const set<Estudante> &getStudents() const;
 

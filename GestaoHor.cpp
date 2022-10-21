@@ -6,8 +6,8 @@ void GestaoHor::addStudent(Estudante s) {
     students.insert(s);
 }
 
-void GestaoHor::getDataStudent(string filename) {
-    ifstream in(filename);
+void GestaoHor::getDataStudent(string filename1, string filename2) {
+    ifstream in(filename1);
     string line;
     getline(in, line);
     bool first = true;
@@ -24,16 +24,19 @@ void GestaoHor::getDataStudent(string filename) {
         if (first){
             temp = Estudante(stoi(num), name);
             temp.addTurma(ucturma);
+            ucturma.getDataAula(filename2);
             first = false;
             continue;
         }
         if (temp.getName() == name){
             temp.addTurma(ucturma);
+            ucturma.getDataAula(filename2)
         }
         else{
             students.insert(temp);
             temp = Estudante(stoi(num), name);
             temp.addTurma(ucturma);
+            ucturma.getDataAula(filename2);
         }
 
     }

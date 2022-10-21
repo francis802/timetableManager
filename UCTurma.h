@@ -13,6 +13,8 @@ public:
 
     const string &getCodUc() const;
 
+    void getDataAula(string filename);
+
 private:
     string codUC;
     string codTurma;

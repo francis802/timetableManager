@@ -5,4 +5,6 @@ UCTurma::UCTurma(string codUc, string codTurma) : codUC(codUc), codTurma(codTurm
 const string &UCTurma::getCodUc() const {
     return codUC;
 }
+void UCTurma::getDataAula(string filename) {
 
+}
