@@ -36,10 +36,10 @@ list<UCTurma> GestaoHor::getDataAula(string filename){
             first = false;
             continue;
         }
-        if (last_uccode == uccode){
+        if (last_uccode.compare(uccode) == 0){
             exists = false;
             for (UCTurma& ucclass: classes){
-                if(ucclass.getCodTurma() == classcode) {
+                if(ucclass.getCodTurma().compare(classcode) == 0) {
                     ucclass.addAula(aula);
                     exists = true;
                     break;
@@ -80,23 +80,19 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
         if (first){
             temp = Estudante(stoi(num), name);
             for (UCTurma ucturma: my_classes){
-                if ((ucturma.getCodTurma() == classcode) && (ucturma.getCodUc() == uccode))
+                if ((ucturma.getCodTurma().compare(classcode) == 0) && (ucturma.getCodUc().compare(uccode) == 0))
                     temp.addTurma(ucturma);
             }
             first = false;
             continue;
         }
 
-        if (temp.getName() != name){
+        if (temp.getName().compare(name) != 0){
             students.insert(temp);
             temp = Estudante(stoi(num), name);
         }
         for (UCTurma ucturma: my_classes){
-            cout << ucturma.getCodTurma() << "=" << classcode << '\n';
-            cout << ucturma.getCodUc() << "=" << uccode << '\n';
-            cout <<'\n';
-            if ((ucturma.getCodTurma() == classcode) && (ucturma.getCodUc() == uccode)){
-                cout << "bog";
+            if ((ucturma.getCodTurma().compare(classcode) == 0) && (ucturma.getCodUc().compare(uccode) == 0)){
                 temp.addTurma(ucturma);
             }
         }

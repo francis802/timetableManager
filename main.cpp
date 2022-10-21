@@ -5,7 +5,9 @@ using namespace std;
 
 int main() {
     GestaoHor gestao = GestaoHor();
-    gestao.getDataStudent("../students_classes.csv","../classes.csv");
-
+    list<UCTurma> turmas = gestao.getDataAula("../classes.csv");
+    for (UCTurma uc: turmas){
+        cout << uc.getCodUc() << '|' << uc.getCodTurma() << '\n';
+    }
     return 0;
 }
