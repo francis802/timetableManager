@@ -8,6 +8,9 @@ using namespace std;
 
 class Estudante{
 public:
+    Estudante(int code, const string &name);
+
+    bool operator<(const Estudante &s) const;
 
 private:
     int code;

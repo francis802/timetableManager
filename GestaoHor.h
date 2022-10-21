@@ -7,6 +7,12 @@
 using namespace std;
 
 class GestaoHor{
+public:
+    GestaoHor();
+
+    void addStudent(Estudante s);
+
+private:
     set<Estudante> students;
 };
 
