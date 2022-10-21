@@ -1,10 +1,21 @@
 #include "UCTurma.h"
 
-UCTurma::UCTurma(string codUc, string codTurma) : codUC(codUc), codTurma(codTurma) {}
+UCTurma::UCTurma(string codTurma, string codUC) : codTurma(codTurma), codUC(codUC) {}
 
 const string &UCTurma::getCodUc() const {
     return codUC;
 }
-void UCTurma::getDataAula(string filename) {
 
+UCTurma::UCTurma() {}
+
+void UCTurma::addAula(Aula aula) {
+    timetable.push_back(aula);
+}
+
+const string &UCTurma::getCodTurma() const {
+    return codTurma;
+}
+
+const list<Aula> &UCTurma::getTimetable() const {
+    return timetable;
 }

@@ -9,11 +9,16 @@ using namespace std;
 
 class UCTurma{
 public:
-    UCTurma(string codUc, string codTurma);
+    UCTurma(string codTurma, string codUC);
 
+    UCTurma();
+
+    void addAula(Aula aula);
     const string &getCodUc() const;
 
-    void getDataAula(string filename);
+    const string &getCodTurma() const;
+
+    const list<Aula> &getTimetable() const;
 
 private:
     string codUC;

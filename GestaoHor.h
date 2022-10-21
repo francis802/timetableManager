@@ -14,7 +14,7 @@ public:
 
     void addStudent(Estudante s);
     void getDataStudent(string filename1, string filename2);
-
+    list<UCTurma> getDataAula(string filename);
     const set<Estudante> &getStudents() const;
 
 private:
