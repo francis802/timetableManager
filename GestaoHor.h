@@ -2,6 +2,8 @@
 #define PROJECT_AED_GESTAOHOR_H
 
 #include <set>
+#include <fstream>
+#include <sstream>
 #include "Estudante.h"
 
 using namespace std;
@@ -11,9 +13,12 @@ public:
     GestaoHor();
 
     void addStudent(Estudante s);
+    void getDataStudent(string filename);
+
+    const set<Estudante> &getStudents() const;
 
 private:
     set<Estudante> students;
 };
 
-#endif //PROJECT_AED_GESTAOHOR_H
+#endif //PROJECT_AED_GESTHOR_H

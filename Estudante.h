@@ -10,7 +10,14 @@ class Estudante{
 public:
     Estudante(int code, const string &name);
 
+    Estudante();
+
     bool operator<(const Estudante &s) const;
+
+    void addTurma(UCTurma turma);
+
+    const string &getName() const;
+
 
 private:
     int code;
