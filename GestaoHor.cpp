@@ -79,7 +79,7 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
         getline(iss, num, ',');
         getline(iss, name, ',');
         getline(iss, uccode, ',');
-        getline(iss, classcode);
+        getline(iss, classcode, '\r');
         if (first){
             temp = Estudante(stoi(num), name);
             for (UCTurma ucturma: my_classes){
