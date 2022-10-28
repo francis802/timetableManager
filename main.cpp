@@ -1,5 +1,6 @@
 #include <iostream>
 #include "GestaoHor.h"
+#include <fstream>
 
 using namespace std;
 
@@ -132,6 +133,27 @@ bool ocupacaoMenu(){
     return true;
 }
 
+void printHorario(Estudante student){
+    string s = "../" + student.getName() + "_horario.txt";
+    ofstream out(s);
+    for (UCTurma turma : student.getTurmas()){
+        cout << "UC: " << turma.getCodUc() << " | Turma: " << turma.getCodTurma() << endl;
+        out << "UC: " << turma.getCodUc() << " | Turma: " << turma.getCodTurma() << endl;
+        for (Aula aula : turma.getTimetable()){
+            cout << '\t' << aula.getWeekday();
+            cout << ' ' << aula.getStartHour();
+            cout << ' ' << aula.getDuration();
+            cout << ' ' << aula.getType() << '\n';
+            out << '\t' << aula.getWeekday();
+            out << ' ' << aula.getStartHour();
+            out << ' ' << aula.getDuration();
+            out << ' ' << aula.getType() << '\n';
+        }
+    }
+    cout << '\n';
+    out.close();
+}
+
 void searchHorarioByNum(){
     int num;
     cout << "Número de Estudante: ";
@@ -143,16 +165,7 @@ void searchHorarioByNum(){
         cout << "Student not found\n";
     }
     else{
-        for (UCTurma turma : student->getTurmas()){
-            cout << "UC: " << turma.getCodUc() << " | Turma: " << turma.getCodTurma() << endl;
-            for (Aula aula : turma.getTimetable()){
-                cout << '\t' << aula.getWeekday();
-                cout << ' ' << aula.getStartHour();
-                cout << ' ' << aula.getDuration();
-                cout << ' ' << aula.getType() << '\n';
-            }
-        }
-        cout << '\n';
+        printHorario(*student);
     }
 }
 
@@ -162,15 +175,8 @@ void searchHorarioByName(){
     cin >> name;
     for (Estudante student : gestao.getStudents()){
         if (student.getName() == name){
-            for (UCTurma turma : student.getTurmas()){
-                cout << "UC: " << turma.getCodUc() << " | Turma: " << turma.getCodTurma() << endl;
-                for (Aula aula : turma.getTimetable()){
-                    cout << '\t' << aula.getWeekday();
-                    cout << ' ' << aula.getStartHour();
-                    cout << ' ' << aula.getDuration();
-                    cout << ' ' << aula.getType() << '\n';
-                }
-            }
+            printHorario(student);
+            break;
         }
     }
 }
