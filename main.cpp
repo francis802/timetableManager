@@ -30,7 +30,7 @@ bool ocupacaoTurmasMenu(){
         cout << "==================================================\n";
 
         string option;
-        cin >> option;
+        getline(cin, option);
         if (option == "1") ocupacaoDeterminadaTurma();
         else if (option == "2") ocupacaoTurmasAno();
         else if (option == "3") ocupacaoTurmas();
@@ -61,7 +61,7 @@ bool ocupacaoAnosMenu(){
         cout << "==================================================\n";
 
         string option;
-        cin >> option;
+        getline(cin, option);
         if (option == "1") ocupacaoDeterminadoAno();
         else if (option == "2") ocupacaoAnos();
         else if (option == "q") return true;
@@ -96,7 +96,7 @@ bool ocupacaoUCMenu(){
         cout << "==================================================\n";
 
         string option;
-        cin >> option;
+        getline(cin, option);
         if (option == "1") ocupacaoDeterminadaUC();
         else if (option == "2") ocupacaoUCsAno();
         else if (option == "3") ocupacaoUCs();
@@ -120,7 +120,7 @@ bool ocupacaoMenu(){
         cout << "==================================================\n";
 
         string option;
-        cin >> option;
+        getline(cin, option);
         if (option == "1") exit = ocupacaoTurmasMenu();
         else if (option == "2") exit = ocupacaoAnosMenu();
         else if (option == "3") exit = ocupacaoUCMenu();
@@ -155,11 +155,10 @@ void printHorario(Estudante student){
 }
 
 void searchHorarioByNum(){
-    int num;
+    string num;
     cout << "Número de Estudante: ";
-    cin >> num;
+    getline(cin, num);
     Estudante temp = Estudante();
-    temp.setCode(num);
     auto student = gestao.getStudents().find(temp);
     if (student == gestao.getStudents().end()){
         cout << "Student not found\n";
@@ -172,13 +171,14 @@ void searchHorarioByNum(){
 void searchHorarioByName(){
     string name;
     cout << "Nome do Estudante: ";
-    cin >> name;
+    getline(cin, name);
     for (Estudante student : gestao.getStudents()){
         if (student.getName() == name){
             printHorario(student);
             break;
         }
     }
+    cout << "Student not found\n";
 }
 
 bool horarioMenu(){
@@ -191,7 +191,7 @@ bool horarioMenu(){
         cout << "==================================================\n";
 
         string option;
-        cin >> option;
+        getline(cin, option);
         if (option == "1") searchHorarioByNum();
         else if (option == "2") searchHorarioByName();
         else if (option == "q") return true;
@@ -225,7 +225,7 @@ bool estudantesMenu(){
         cout << "==================================================\n";
 
         string option;
-        cin >> option;
+        getline(cin, option);
         if (option == "1") estudantesTurma();
         else if (option == "2") estudantesAno();
         else if (option == "3") estudantesUC();
@@ -250,7 +250,7 @@ int main() {
         cout << "\n type 'q' to quit\n";
         cout << "==================================================\n";
 
-        cin >> option;
+        getline(cin, option);
         if (option == "1") exit = ocupacaoMenu();
         else if (option == "2") exit = horarioMenu();
         else if (option == "3") exit = estudantesMenu();
