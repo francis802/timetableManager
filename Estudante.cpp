@@ -21,3 +21,7 @@ const string &Estudante::getName() const {
 const list<UCTurma> &Estudante::getTurmas() const {
     return turmas;
 }
+
+void Estudante::setCode(int code) {
+    Estudante::code = code;
+}

@@ -3,6 +3,8 @@
 
 using namespace std;
 
+GestaoHor gestao = GestaoHor();
+
 void ocupacaoDeterminadaTurma(){
 
 }
@@ -134,20 +136,49 @@ void searchHorarioByNum(){
     int num;
     cout << "Número de Estudante: ";
     cin >> num;
-    // no need to check for exception
-
+    Estudante temp = Estudante();
+    temp.setCode(num);
+    auto student = gestao.getStudents().find(temp);
+    if (student == gestao.getStudents().end()){
+        cout << "Student not found\n";
+    }
+    else{
+        for (UCTurma turma : student->getTurmas()){
+            cout << "UC: " << turma.getCodUc() << " | Turma: " << turma.getCodTurma() << endl;
+            for (Aula aula : turma.getTimetable()){
+                cout << '\t' << aula.getWeekday();
+                cout << ' ' << aula.getStartHour();
+                cout << ' ' << aula.getDuration();
+                cout << ' ' << aula.getType() << '\n';
+            }
+        }
+        cout << '\n';
+    }
 }
 
 void searchHorarioByName(){
     string name;
     cout << "Nome do Estudante: ";
     cin >> name;
+    for (Estudante student : gestao.getStudents()){
+        if (student.getName() == name){
+            for (UCTurma turma : student.getTurmas()){
+                cout << "UC: " << turma.getCodUc() << " | Turma: " << turma.getCodTurma() << endl;
+                for (Aula aula : turma.getTimetable()){
+                    cout << '\t' << aula.getWeekday();
+                    cout << ' ' << aula.getStartHour();
+                    cout << ' ' << aula.getDuration();
+                    cout << ' ' << aula.getType() << '\n';
+                }
+            }
+        }
+    }
 }
 
 bool horarioMenu(){
     while (true) {
         cout << "-> HORÁRIO\n\n";
-        cout << "\t1 - Pesquisa por número de estudante\n";
+        cout << "\t1 - Pesquisa por número de estudante (recomendado)\n";
         cout << "\t2 - Pesquisa por nome\n";
 
         cout << "\n type 'q' to quit, 'r' to return\n";
@@ -201,7 +232,6 @@ bool estudantesMenu(){
 }
 
 int main() {
-    GestaoHor gestao = GestaoHor();
     gestao.getDataStudent("../students_classes.csv", "../classes.csv");
     bool exit = false;
     string option;

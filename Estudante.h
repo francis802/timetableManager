@@ -20,6 +20,8 @@ public:
 
     const list<UCTurma> &getTurmas() const;
 
+    void setCode(int code);
+
 private:
     int code;
     string name;
