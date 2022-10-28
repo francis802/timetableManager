@@ -3,4 +3,4 @@ project(project_aed)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(project_aed main.cpp Aula.h Estudante.h GestaoHor.h UCTurma.h Aula.cpp UCTurma.cpp GestaoHor.cpp Estudante.cpp)
+add_executable(project_aed main.cpp Aula.h Estudante.h GestaoHor.h UCTurma.h Aula.cpp UCTurma.cpp GestaoHor.cpp Estudante.cpp Menu.cpp Menu.h)
