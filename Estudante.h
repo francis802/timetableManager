@@ -22,6 +22,8 @@ public:
 
     void setCode(int code);
 
+    int getCode() const;
+
 private:
     int code;
     string name;
