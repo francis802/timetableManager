@@ -232,7 +232,7 @@ void Menu::searchHorarioByName(){
     for (Estudante student : gestao.getStudents()){
         if (student.getName() == name){
             printHorario(student);
-            break;
+            return;
         }
     }
     cout << "Student not found\n";
