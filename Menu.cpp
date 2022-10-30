@@ -28,12 +28,17 @@ void Menu::start() {
 
 Menu::Menu(const GestaoHor &gestao) : gestao(gestao) {}
 
-void Menu::ocupacaoDeterminadaTurma(){
-    /*
-     * MEANINGLESS??
-     * apenas interessa saber a ocupaçao de uma determinada turma numa uc
-     * ja que uma turma tem pessoas diferentes em diferentes ucs
-     */
+int Menu::ocupacaoDeterminadaTurmaUC(string turma, string uc){
+    int ocupacao = 0;
+    for (Estudante e: gestao.getStudents()){
+        for (UCTurma t: e.getTurmas()){
+            if (t.getCodUc() == uc && t.getCodTurma() == turma)
+                ocupacao++;
+        }
+    }
+    cout << uc << '\n';
+    cout << '\t' << turma << ": " << ocupacao << " alunos\n";
+    return ocupacao;
 }
 
 void Menu::ocupacaoTurmasAno(){
@@ -54,20 +59,26 @@ bool Menu::ocupacaoTurmasMenu(){
     while (true) {
         cout << "-> OCUPAÇÃO\n\n";
         cout << "\t-> Turmas\n";
-        cout << "\t\t 1 - Determinada Turma\n";
+        cout << "\t\t 1 - Determinada Turma a determinada UC\n";
         cout << "\t\t 2 - Turmas de um determinado ano\n";
         cout << "\t\t 3 - Todas as turmas\n";
 
         cout << "\ntype 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
 
-        string option;
-        getline(cin, option);
-        if (option == "1") ocupacaoDeterminadaTurma();
-        else if (option == "2") ocupacaoTurmasAno();
-        else if (option == "3") ocupacaoTurmas();
-        else if (option == "q") return true;
-        else if (option == "r") return false;
+        string option1, option2, option3;
+        getline(cin, option1);
+        if (option1 == "1") {
+            cout << "Turma: ";
+            getline(cin, option2);
+            cout << "UC: ";
+            getline(cin, option3);
+            ocupacaoDeterminadaTurmaUC(option2, option3);
+        }
+        else if (option1 == "2") ocupacaoTurmasAno();
+        else if (option1 == "3") ocupacaoTurmas();
+        else if (option1 == "q") return true;
+        else if (option1 == "r") return false;
         else {
             cout << "invalid input\n\n";
         }
@@ -259,11 +270,16 @@ bool Menu::horarioMenu(){
     }
 }
 
-void Menu::estudantesTurma() {
-    /*
-     * INFORMAÇÃO INUTIL JA QUE AS TURMAS PODEM SER DIFERENTES PARA UCs DIFERENTES
-     * MUDAR PARA estudantesTurmaUC
-     */
+void Menu::estudantesTurmaUC(string turma, string uc) {
+    cout << uc << " | " << turma << '\n';
+    for (Estudante e: gestao.getStudents()){
+        for(UCTurma t: e.getTurmas()){
+            if (t.getCodUc() == uc && t.getCodTurma() == turma){
+                cout << e.getCode() << " - " << e.getName() << '\n';
+                break;
+            }
+        }
+    }
 }
 
 void Menu::estudantesAno(string ano) {
@@ -301,16 +317,22 @@ void Menu::estudantesUC(string codUC) {
 bool Menu::estudantesMenu(){
     while (true) {
         cout << "-> ESTUDANTES\n\n";
-        cout << "\t1 - Estudantes em determinada turma\n";
+        cout << "\t1 - Estudantes em determinada turma a determinada UC\n";
         cout << "\t2 - Estudantes em determinado ano\n";
         cout << "\t3 - estudantes em determinada UC\n";
 
         cout << "\n type 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
 
-        string option1, option2;
+        string option1, option2, option3;
         getline(cin, option1);
-        if (option1 == "1") estudantesTurma();
+        if (option1 == "1") {
+            cout << "Turma: ";
+            getline(cin, option2);
+            cout << "UC: ";
+            getline(cin, option3);
+            estudantesTurmaUC(option2, option3);
+        }
         else if (option1 == "2") {
             cout << "Ano: ";
             getline(cin, option2);

@@ -18,7 +18,7 @@ public:
 
     void start();
 
-    void ocupacaoDeterminadaTurma();
+    int ocupacaoDeterminadaTurmaUC(string turma, string uc);
     void ocupacaoTurmasAno();
     void ocupacaoTurmas();
     bool ocupacaoTurmasMenu();
@@ -34,7 +34,7 @@ public:
     void searchHorarioByNum();
     void searchHorarioByName();
     bool horarioMenu();
-    void estudantesTurma();
+    void estudantesTurmaUC(string turma, string uc);
     void estudantesAno(string ano);
     void estudantesUC(string codUC);
     bool estudantesMenu();
