@@ -19,10 +19,9 @@ public:
     void start();
 
     int ocupacaoDeterminadaTurmaUC(string turma, string uc);
-    void ocupacaoTurmasAno();
-    void ocupacaoTurmas();
+    void ocupacaoTurmasUC(string uc);
     bool ocupacaoTurmasMenu();
-    void ocupacaoDeterminadoAno();
+    void ocupacaoDeterminadoAno(string ano);
     void ocupacaoAnos();
     bool ocupacaoAnosMenu();
     void ocupacaoDeterminadaUC(std::string codUC);

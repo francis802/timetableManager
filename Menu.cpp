@@ -2,6 +2,7 @@
 // Created by francis802 on 28-10-2022.
 //
 
+#include <vector>
 #include "Menu.h"
 
 
@@ -41,18 +42,41 @@ int Menu::ocupacaoDeterminadaTurmaUC(string turma, string uc){
     return ocupacao;
 }
 
-void Menu::ocupacaoTurmasAno(){
-    /*
-     * SAME AS ABOVE
-     */
-    //NAO USAR OCUPACAO DETERMINADATURMA AQUI DENTRO
-    //VECTORS<Pair>
-}
+void Menu::ocupacaoTurmasUC(string uc){
+    if (uc.size() != 8){
+        cout << "UC not found\n";
+    }
+    string basis;
+    cout << uc[6] << uc[7];
+    basis.push_back(uc[6]);
+    basis.push_back(uc[7]);
+    int aux = stoi(basis);
+    if (aux < 10) basis = "1LEIC";
+    else if (aux < 20) basis = "2LEIC";
+    else basis = "3LEIC";
+    vector<pair<int, string>> ocupacao;
+    for (int i = 1; i <= 15; i++){
+        if (i < 10){
+            ocupacao.push_back({0,basis + "0" + to_string(i)});
+        } else ocupacao.push_back({0,basis + to_string(i)});
+    }
 
-void Menu::ocupacaoTurmas(){
-    /*
-     * SAME AS ABOVE
-     */
+    for (Estudante e: gestao.getStudents()){
+        for (UCTurma t: e.getTurmas()){
+            if (t.getCodUc() == uc){
+                string turma;
+                turma.push_back(t.getCodTurma()[5]);
+                turma.push_back(t.getCodTurma()[6]);
+                int num_turma = stoi(turma);
+                ocupacao[num_turma - 1].first++;
+                break;
+            }
+        }
+    }
+    cout << uc << endl;
+    for (pair<int,string> a : ocupacao){
+        cout << '\t' << a.second << ": " << a.first << " alunos\n";
+    }
 }
 
 bool Menu::ocupacaoTurmasMenu(){
@@ -60,8 +84,7 @@ bool Menu::ocupacaoTurmasMenu(){
         cout << "-> OCUPAÇÃO\n\n";
         cout << "\t-> Turmas\n";
         cout << "\t\t 1 - Determinada Turma a determinada UC\n";
-        cout << "\t\t 2 - Turmas de um determinado ano\n";
-        cout << "\t\t 3 - Todas as turmas\n";
+        cout << "\t\t 2 - Turmas de uma determinada UC\n";
 
         cout << "\ntype 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
@@ -75,8 +98,11 @@ bool Menu::ocupacaoTurmasMenu(){
             getline(cin, option3);
             ocupacaoDeterminadaTurmaUC(option2, option3);
         }
-        else if (option1 == "2") ocupacaoTurmasAno();
-        else if (option1 == "3") ocupacaoTurmas();
+        else if (option1 == "2"){
+            cout << "UC: ";
+            getline(cin, option2);
+            ocupacaoTurmasUC(option2);
+        }
         else if (option1 == "q") return true;
         else if (option1 == "r") return false;
         else {
@@ -85,15 +111,27 @@ bool Menu::ocupacaoTurmasMenu(){
     }
 }
 
-void Menu::ocupacaoDeterminadoAno(){
-    //TODO
-    // como identificar quem pertence a um determinado ano?
-    // um aluno pode pertencer a mais que um ano? (acho que sim)
+void Menu::ocupacaoDeterminadoAno(string ano){
+    if (ano.size() != 1){
+        cout << "invalid input\n";
+        return;
+    }
+    int ocupacao = 0;
+    for (Estudante e: gestao.getStudents()){
+        for (UCTurma t: e.getTurmas()){
+            if (t.getCodTurma()[0] == ano[0]) {
+                ocupacao++;
+                break;
+            }
+        }
+    }
+    cout << ano << "º ano: " << ocupacao << " alunos\n";
 }
 
 void Menu::ocupacaoAnos(){
-    //TODO
-    //SAME AS ABOVE
+    for (int i = 1; i <= 3; i++){
+        ocupacaoDeterminadoAno(to_string(i));
+    }
 }
 
 bool Menu::ocupacaoAnosMenu(){
@@ -108,7 +146,11 @@ bool Menu::ocupacaoAnosMenu(){
 
         string option;
         getline(cin, option);
-        if (option == "1") ocupacaoDeterminadoAno();
+        if (option == "1") {
+            cout << "Ano: ";
+            getline(cin, option);
+            ocupacaoDeterminadoAno(option);
+        }
         else if (option == "2") ocupacaoAnos();
         else if (option == "q") return true;
         else if (option == "r") return false;
@@ -128,20 +170,47 @@ void Menu::ocupacaoDeterminadaUC(string codUC) {
             }
         }
     }
-    if (ocupacao == 0){
-        cout << "UC not found\n";
-        return;
-    }
     cout << codUC << ": " << ocupacao << " alunos\n";
 }
 
 void Menu::ocupacaoUCsAno(string ano) {
-    //TODO
-    // ver como saber que ucs pertencem a cada ano
+    int lower, upper;
+    if (ano == "1"){
+        lower = 1;
+        upper = 10;
+    } else if (ano == "2"){
+        lower = 11;
+        upper = 20;
+    } else{
+        lower = 21;
+        upper = 30;
+    }
+    vector<pair<int,string>> ocupacao;
+    for (lower; lower < upper; lower++){
+        if (lower < 10) ocupacao.push_back({0, "L.EIC00" + to_string(lower)});
+        else ocupacao.push_back({0, "L.EIC0" + to_string(lower)});
+    }
+    for (Estudante e: gestao.getStudents()){
+        for (UCTurma t: e.getTurmas()){
+            if (t.getCodTurma()[0] == ano[0]){
+                string uc;
+                uc.push_back(t.getCodUc()[6]);
+                uc.push_back(t.getCodUc()[7]);
+                ocupacao[stoi(uc)%10 - 1].first++;
+            }
+        }
+    }
+    for (pair<int,string> a : ocupacao){
+        if (a.first != 0)
+            cout << '\t' << a.second << ": " << a.first << " alunos\n";
+    }
 }
 
 void Menu::ocupacaoUCs() {
-    //TODO
+    for (int i = 1; i <= 3; i++){
+        cout << i << "º ano\n";
+        ocupacaoUCsAno(to_string(i));
+    }
 }
 
 bool Menu::ocupacaoUCMenu(){
