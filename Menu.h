@@ -6,6 +6,7 @@
 #define PROJECT_AED_MENU_H
 
 #include <string>
+#include <vector>
 #include "Estudante.h"
 #include "GestaoHor.h"
 #include <iostream>
@@ -13,6 +14,7 @@
 class Menu {
 private:
     GestaoHor gestao;
+
 public:
     explicit Menu(const GestaoHor &gestao);
 
@@ -25,7 +27,8 @@ public:
     void ocupacaoAnos();
     bool ocupacaoAnosMenu();
     void ocupacaoDeterminadaUC(std::string codUC);
-    void ocupacaoUCsAno(std::string ano);
+    void printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out);
+    vector<pair<int,string>> ocupacaoUCsAno(std::string ano);
     void ocupacaoUCs();
     bool ocupacaoUCMenu();
     bool ocupacaoMenu();

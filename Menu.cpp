@@ -49,7 +49,6 @@ void Menu::ocupacaoTurmasUC(string uc){
         cout << "UC not found\n";
     }
     string basis;
-    cout << uc[6] << uc[7];
     basis.push_back(uc[6]);
     basis.push_back(uc[7]);
     int aux = stoi(basis);
@@ -75,9 +74,15 @@ void Menu::ocupacaoTurmasUC(string uc){
             }
         }
     }
+    string s = "../" + uc + "_ocupacao_turmas.txt";
+    ofstream out(s);
     cout << uc << endl;
+    out << uc << endl;
     for (pair<int,string> a : ocupacao){
-        cout << '\t' << a.second << ": " << a.first << " alunos\n";
+        if (a.first != 0) {
+            cout << '\t' << a.second << ": " << a.first << " alunos\n";
+            out << '\t' << a.second << ": " << a.first << " alunos\n";
+        }
     }
 }
 
@@ -175,7 +180,16 @@ void Menu::ocupacaoDeterminadaUC(string codUC) {
     cout << codUC << ": " << ocupacao << " alunos\n";
 }
 
-void Menu::ocupacaoUCsAno(string ano) {
+void Menu::printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out){
+    for (pair<int,string> a : ocupacao){
+        if (a.first != 0) {
+            cout << '\t' << a.second << ": " << a.first << " alunos\n";
+            out << '\t' << a.second << ": " << a.first << " alunos\n";
+        }
+    }
+}
+
+vector<pair<int,string>> Menu::ocupacaoUCsAno(string ano) {
     int lower, upper;
     if (ano == "1"){
         lower = 1;
@@ -183,10 +197,10 @@ void Menu::ocupacaoUCsAno(string ano) {
     } else if (ano == "2"){
         lower = 11;
         upper = 20;
-    } else{
+    } else if (ano == "3"){
         lower = 21;
         upper = 30;
-    }
+    } else return {{}};
     vector<pair<int,string>> ocupacao;
     for (lower; lower < upper; lower++){
         if (lower < 10) ocupacao.push_back({0, "L.EIC00" + to_string(lower)});
@@ -202,16 +216,16 @@ void Menu::ocupacaoUCsAno(string ano) {
             }
         }
     }
-    for (pair<int,string> a : ocupacao){
-        if (a.first != 0)
-            cout << '\t' << a.second << ": " << a.first << " alunos\n";
-    }
+    return ocupacao;
 }
 
 void Menu::ocupacaoUCs() {
+    string s = "../ocupacao_uc.txt";
+    ofstream out(s);
     for (int i = 1; i <= 3; i++){
         cout << i << "º ano\n";
-        ocupacaoUCsAno(to_string(i));
+        out << i << "º ano\n";
+        printOcupacaoUCs(ocupacaoUCsAno(to_string(i)),out);
     }
 }
 
@@ -236,7 +250,10 @@ bool Menu::ocupacaoUCMenu(){
         else if (option1 == "2") {
             cout << "Ano: ";
             getline(cin, option2);
-            ocupacaoUCsAno(option2);
+            string s = "../ocupacao_ucs_" + option2 + "_ano.txt";
+            ofstream out(s);
+            out << option2 << "ª ano:\n";
+            printOcupacaoUCs(ocupacaoUCsAno(option2),out);
         }
         else if (option1 == "3") ocupacaoUCs();
         else if (option1 == "q") return true;
@@ -432,27 +449,25 @@ bool Menu::alterarMenu() {
         cout << "\n type 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
 
-        string option1, option2, option3;
+        string option1;
         getline(cin, option1);
         if (option1 == "1") {
-            cout << "Turma: ";
-            getline(cin, option2);
-            cout << "UC: ";
-            getline(cin, option3);
-
+            gestao.addPedidos({'r',"abc"});
         }
         else if (option1 == "2") {
-            cout << "Turma: ";
-            getline(cin, option2);
-            cout << "UC: ";
-            getline(cin, option3);
-
+            gestao.addPedidos({'a',"abc"});
         }
         else if (option1 == "3"){
 
         }
-        else if (option1 == "q") return true;
-        else if (option1 == "r") return false;
+        else if (option1 == "q") {
+            gestao.processPedidos();
+            return true;
+        }
+        else if (option1 == "r"){
+            gestao.processPedidos();
+            return false;
+        }
         else {
             cout << "invalid input\n\n";
         }

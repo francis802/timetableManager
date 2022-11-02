@@ -102,6 +102,14 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
     }
 }
 
+void GestaoHor::addPedidos(pair<char, string> pedido) {
+    pedidos.push(pedido);
+}
+
+void GestaoHor::processPedidos() {
+
+}
+
 const set<Estudante> &GestaoHor::getStudents() const {
     return students;
 }
