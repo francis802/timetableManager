@@ -3,6 +3,7 @@
 //
 
 #include <vector>
+#include <algorithm>
 #include "Menu.h"
 
 
@@ -43,7 +44,6 @@ int Menu::ocupacaoDeterminadaTurmaUC(string turma, string uc){
     cout << '\t' << turma << ": " << ocupacao << " alunos\n";
     return ocupacao;
 }
-
 void Menu::ocupacaoTurmasUC(string uc){
     if (uc.size() != 8){
         cout << "UC not found\n";
@@ -78,11 +78,28 @@ void Menu::ocupacaoTurmasUC(string uc){
     ofstream out(s);
     cout << uc << endl;
     out << uc << endl;
+    string sorting;
+    cout << "Ordenação: 1) Turma, 2) Crescente, 3) Decrescente\n";
+    getline(cin, sorting);
+    switch (sorting[0]) {
+        case '2':
+            std::sort(ocupacao.begin(), ocupacao.end());
+            break;
+        case '3':
+            std::sort(ocupacao.rbegin(), ocupacao.rend());
+            break;
+    }
+    int counter = 0;
     for (pair<int,string> a : ocupacao){
         if (a.first != 0) {
+            counter++;
             cout << '\t' << a.second << ": " << a.first << " alunos\n";
             out << '\t' << a.second << ": " << a.first << " alunos\n";
         }
+    }
+    if (counter == 0){
+        cout << '\t' << "Sem alunos\n";
+        out << '\t' << "Sem alunos\n";
     }
 }
 
@@ -181,6 +198,17 @@ void Menu::ocupacaoDeterminadaUC(string codUC) {
 }
 
 void Menu::printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out){
+    string option;
+    cout << "Ordenação: 1) Turma, 2) Crescente, 3) Decrescente\n";
+    getline(cin, option);
+    switch (option[0]) {
+        case '2':
+            sort(ocupacao.begin(),ocupacao.end());
+            break;
+        case '3':
+            sort(ocupacao.rbegin(), ocupacao.rend());
+            break;
+    }
     for (pair<int,string> a : ocupacao){
         if (a.first != 0) {
             cout << '\t' << a.second << ": " << a.first << " alunos\n";
@@ -220,13 +248,43 @@ vector<pair<int,string>> Menu::ocupacaoUCsAno(string ano) {
 }
 
 void Menu::ocupacaoUCs() {
-    string s = "../ocupacao_uc.txt";
+    string s = "../ocupacao_uc.txt", option;
     ofstream out(s);
-    for (int i = 1; i <= 3; i++){
-        cout << i << "º ano\n";
-        out << i << "º ano\n";
-        printOcupacaoUCs(ocupacaoUCsAno(to_string(i)),out);
-    }
+    cout << "Ordenação:\n";
+    cout << "\t1 - Geral\n";
+    cout << "\t2 - Por ano\n";
+    getline(cin, option);
+    vector<pair<int, string>> ocupacao, ocup;
+    if (option == "1"){
+        for (int i = 1; i <= 3; i++){
+            ocup = ocupacaoUCsAno(to_string(i));
+            for (pair<int,string> a : ocup)
+                ocupacao.push_back(a);
+        }
+        cout << "Ordenação: 1) Turma, 2) Crescente, 3) Decrescente\n";
+        getline(cin, option);
+        switch (option[0]) {
+            case '2':
+                sort(ocupacao.begin(),ocupacao.end());
+                break;
+            case '3':
+                sort(ocupacao.rbegin(), ocupacao.rend());
+                break;
+        }
+        for (pair<int,string> a : ocupacao){
+            if (a.first != 0) {
+                cout << '\t' << a.second << ": " << a.first << " alunos\n";
+                out << '\t' << a.second << ": " << a.first << " alunos\n";
+            }
+        }
+
+    } else if (option == "2") {
+        for (int i = 1; i <= 3; i++) {
+            cout << i << "º ano\n";
+            out << i << "º ano\n";
+            printOcupacaoUCs(ocupacaoUCsAno(to_string(i)), out);
+        }
+    } else cout << "invalid input\n\n";
 }
 
 bool Menu::ocupacaoUCMenu(){
