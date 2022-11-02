@@ -15,6 +15,7 @@ void Menu::start() {
         cout << "2 - HORÁRIO\n";
         cout << "3 - ESTUDANTES\n";
 
+        cout << "\n4 - ALTERAR HORÁRIOS\n";
         cout << "\n type 'q' to quit\n";
         cout << "==================================================\n";
 
@@ -22,6 +23,7 @@ void Menu::start() {
         if (option == "1") exit = ocupacaoMenu();
         else if (option == "2") exit = horarioMenu();
         else if (option == "3") exit = estudantesMenu();
+        else if (option == "4") exit = alterarMenu();
         else if (option == "q") break;
         else cout << "invalid input\n\n";
     }
@@ -411,6 +413,43 @@ bool Menu::estudantesMenu(){
             cout << "Código UC: ";
             getline(cin, option2);
             estudantesUC(option2);
+        }
+        else if (option1 == "q") return true;
+        else if (option1 == "r") return false;
+        else {
+            cout << "invalid input\n\n";
+        }
+    }
+}
+
+bool Menu::alterarMenu() {
+    while (true){
+        cout << "-> ALTERAR HORÁRIOs\n\n";
+        cout << "\t1 - Remover estudante de uma turma/UC\n";
+        cout << "\t2 - Adicionar estudante a uma turma/UC\n";
+        cout << "\t3 - \n";
+
+        cout << "\n type 'q' to quit, 'r' to return\n";
+        cout << "==================================================\n";
+
+        string option1, option2, option3;
+        getline(cin, option1);
+        if (option1 == "1") {
+            cout << "Turma: ";
+            getline(cin, option2);
+            cout << "UC: ";
+            getline(cin, option3);
+
+        }
+        else if (option1 == "2") {
+            cout << "Turma: ";
+            getline(cin, option2);
+            cout << "UC: ";
+            getline(cin, option3);
+
+        }
+        else if (option1 == "3"){
+
         }
         else if (option1 == "q") return true;
         else if (option1 == "r") return false;

@@ -37,6 +37,7 @@ public:
     void estudantesAno(string ano);
     void estudantesUC(string codUC);
     bool estudantesMenu();
+    bool alterarMenu();
 };
 
 
