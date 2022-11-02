@@ -315,6 +315,7 @@ void Menu::searchHorarioByNum(){
     cout << "Número de Estudante: ";
     getline(cin, num);
     Estudante temp = Estudante();
+    temp.setCode(stoi(num));
     auto student = gestao.getStudents().find(temp);
     if (student == gestao.getStudents().end()){
         cout << "Student not found\n";
@@ -444,17 +445,21 @@ bool Menu::alterarMenu() {
         cout << "-> ALTERAR HORÁRIOs\n\n";
         cout << "\t1 - Remover estudante de uma turma/UC\n";
         cout << "\t2 - Adicionar estudante a uma turma/UC\n";
-        cout << "\t3 - \n";
+        cout << "\t3 - Alterar turma/UC de um estudante\n";
 
         cout << "\n type 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
 
-        string option1;
+        string option1, option2;
         getline(cin, option1);
         if (option1 == "1") {
-            gestao.addPedidos({'r',"abc"});
+            cout << "Formato: nºestudante/turma /codUC\n";
+            getline(cin, option2);
+            gestao.addPedidos({'r',option2});
         }
         else if (option1 == "2") {
+            cout << "Formato: nºestudante/turma /codUC\n";
+            getline(cin, option2);
             gestao.addPedidos({'a',"abc"});
         }
         else if (option1 == "3"){

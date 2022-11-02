@@ -16,6 +16,8 @@ public:
 
     void addTurma(UCTurma turma);
 
+    void removeTurma(UCTurma turma);
+
     const string &getName() const;
 
     const list<UCTurma> &getTurmas() const;

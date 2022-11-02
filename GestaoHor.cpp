@@ -107,7 +107,26 @@ void GestaoHor::addPedidos(pair<char, string> pedido) {
 }
 
 void GestaoHor::processPedidos() {
+    while (!pedidos.empty()){
+        switch (pedidos.front().first) {
+            case 'r':
+                string pedido = pedidos.front().second;
+                string num = pedido.substr(0,pedido.find_first_of('/'));
+                string turma = pedido.substr(pedido.find_first_of('/')+1, pedido.find_last_of('/')-pedido.find_first_of('/')-1);
+                string uc = pedido.substr(pedido.find_last_of('/')+1);
 
+                Estudante temp = Estudante();
+                temp.setCode(stoi(num));
+                auto it = students.find(temp);
+                temp = *it;
+                students.erase(it);
+                UCTurma t = UCTurma(turma, uc);
+                temp.removeTurma(t);
+                students.insert(temp);
+                break;
+        }
+        pedidos.pop();
+    }
 }
 
 const set<Estudante> &GestaoHor::getStudents() const {

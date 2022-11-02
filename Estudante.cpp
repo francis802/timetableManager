@@ -14,6 +14,17 @@ void Estudante::addTurma(UCTurma turma) {
     turmas.push_back(turma);
 }
 
+void Estudante::removeTurma(UCTurma turma) {
+    auto it = turmas.begin();
+    while (it != turmas.end()){
+        if ((*it).getCodUc() == turma.getCodUc() && (*it).getCodTurma() == turma.getCodTurma()) {
+            turmas.erase(it);
+            return;
+        }
+        it++;
+    }
+}
+
 const string &Estudante::getName() const {
     return name;
 }
