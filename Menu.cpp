@@ -44,7 +44,38 @@ int Menu::ocupacaoDeterminadaTurmaUC(string turma, string uc){
     cout << '\t' << turma << ": " << ocupacao << " alunos\n";
     return ocupacao;
 }
-void Menu::ocupacaoTurmasUC(string uc){
+
+void Menu::printOcupacaoTurmasUC(vector<pair<int, string>> ocupacao, string uc){
+    string s = "../" + uc + "_ocupacao_turmas.txt";
+    ofstream out(s);
+    cout << uc << endl;
+    out << uc << endl;
+    string sorting;
+    cout << "Ordenação: 1) Turma, 2) Crescente, 3) Decrescente\n";
+    getline(cin, sorting);
+    switch (sorting[0]) {
+        case '2':
+            sort(ocupacao.begin(), ocupacao.end());
+            break;
+        case '3':
+            sort(ocupacao.rbegin(), ocupacao.rend());
+            break;
+    }
+    int counter = 0;
+    for (pair<int,string> a : ocupacao){
+        if (a.first != 0) {
+            counter++;
+            cout << '\t' << a.second << ": " << a.first << " alunos\n";
+            out << '\t' << a.second << ": " << a.first << " alunos\n";
+        }
+    }
+    if (counter == 0){
+        cout << '\t' << "Sem alunos\n";
+        out << '\t' << "Sem alunos\n";
+    }
+}
+
+vector<pair<int,string>> Menu::ocupacaoTurmasUC(string uc){
     if (uc.size() != 8){
         cout << "UC not found\n";
     }
@@ -74,33 +105,7 @@ void Menu::ocupacaoTurmasUC(string uc){
             }
         }
     }
-    string s = "../" + uc + "_ocupacao_turmas.txt";
-    ofstream out(s);
-    cout << uc << endl;
-    out << uc << endl;
-    string sorting;
-    cout << "Ordenação: 1) Turma, 2) Crescente, 3) Decrescente\n";
-    getline(cin, sorting);
-    switch (sorting[0]) {
-        case '2':
-            std::sort(ocupacao.begin(), ocupacao.end());
-            break;
-        case '3':
-            std::sort(ocupacao.rbegin(), ocupacao.rend());
-            break;
-    }
-    int counter = 0;
-    for (pair<int,string> a : ocupacao){
-        if (a.first != 0) {
-            counter++;
-            cout << '\t' << a.second << ": " << a.first << " alunos\n";
-            out << '\t' << a.second << ": " << a.first << " alunos\n";
-        }
-    }
-    if (counter == 0){
-        cout << '\t' << "Sem alunos\n";
-        out << '\t' << "Sem alunos\n";
-    }
+    return ocupacao;
 }
 
 bool Menu::ocupacaoTurmasMenu(){
@@ -125,7 +130,7 @@ bool Menu::ocupacaoTurmasMenu(){
         else if (option1 == "2"){
             cout << "UC: ";
             getline(cin, option2);
-            ocupacaoTurmasUC(option2);
+            printOcupacaoTurmasUC(ocupacaoTurmasUC(option2),option2);
         }
         else if (option1 == "q") return true;
         else if (option1 == "r") return false;

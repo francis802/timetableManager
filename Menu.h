@@ -21,7 +21,8 @@ public:
     void start();
 
     int ocupacaoDeterminadaTurmaUC(string turma, string uc);
-    void ocupacaoTurmasUC(string uc);
+    void printOcupacaoTurmasUC(vector<pair<int,string>> ocupacao, string uc);
+    vector<pair<int,string>> ocupacaoTurmasUC(string uc);
     bool ocupacaoTurmasMenu();
     void ocupacaoDeterminadoAno(string ano);
     void ocupacaoAnos();
