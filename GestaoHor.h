@@ -27,22 +27,21 @@ public:
     const set<Estudante, cmp> &getStudentsByname() const;
 
     vector<pair<int,string>> ocupacaoTurmasUC(string uc);
-    void addPedidos(pair<char,Pedido> pedido);
+    void addPedidos(vector<pair<char,Pedido>> pedido);
     void processPedidos();
 
     bool classConflict(Estudante estudante, UCTurma new_uct);
 
+    void removeStudentUCClass(Pedido pedido);
+    bool addStudentUCClass(Pedido pedido);
 private:
     set<UCTurma> aulas;
     set<Estudante> students;
     set<Estudante, cmp>students_byname;
-    queue<pair<char,Pedido>> pedidos;
-    list<pair<char,Pedido>> failed;
+    queue<vector<pair<char,Pedido>>> pedidos;
+    list<vector<pair<char,Pedido>>> failed;
     const static int cap = 30;
 
-    void removeStudentUCClass(Pedido pedido);
-
-    void addStudentUCClass(Pedido pedido);
 };
 
 #endif //PROJECT_AED_GESTHOR_H

@@ -137,23 +137,42 @@ vector<pair<int,string>> GestaoHor::ocupacaoTurmasUC(string uc){
     return ocupacao;
 }
 
-void GestaoHor::addPedidos(pair<char, Pedido> pedido) {
+void GestaoHor::addPedidos(vector<pair<char, Pedido>> pedido) {
     pedidos.push(pedido);
 }
 
 void GestaoHor::processPedidos() {
     while (!pedidos.empty()){
-        Pedido pedido = pedidos.front().second;
+        Pedido ready_pedido = pedidos.front()[0].second;
+        int stuCode = ready_pedido.getCode();
+        Estudante backup = Estudante();
+        backup.setCode(stuCode);
+        auto it1 = students.find(backup);
+        backup = *it1;
+        bool stopLoop = false;
 
-        switch (pedidos.front().first) {
-            case 'r': {
-                removeStudentUCClass(pedido);
-                break;
+        for (pair<char,Pedido> pedido : pedidos.front()){
+            switch (pedido.first) {
+                case 'r': {
+                    removeStudentUCClass(pedido.second);
+                    break;
+                }
+                case 'a':{
+                    if (!addStudentUCClass(pedido.second)){
+                        stopLoop = true;
+                        Estudante del = Estudante();
+                        del.setCode(stuCode);
+                        auto it_del = students.find(del);
+                        auto it_del_name = students_byname.find(del);
+                        students.erase(it_del);
+                        students_byname.erase(it_del_name);
+                        students.insert(backup);
+                        students_byname.insert(backup);
+                    }
+                    break;
+                }
             }
-            case 'a':{
-                addStudentUCClass(pedido);
-                break;
-            }
+            if (stopLoop) break;
         }
         pedidos.pop();
     }
@@ -210,7 +229,7 @@ void GestaoHor::removeStudentUCClass(Pedido pedido) {
     students_byname.insert(temp);
 }
 
-void GestaoHor::addStudentUCClass(Pedido pedido) {
+bool GestaoHor::addStudentUCClass(Pedido pedido) {
     int num = pedido.getCode();
     string turma = pedido.getCodTurma();
     string uc = pedido.getCodUc();
@@ -226,7 +245,7 @@ void GestaoHor::addStudentUCClass(Pedido pedido) {
     }
     if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 4){
         failed.push_back(pedidos.front());
-        return;
+        return false;
     }
 
     Estudante temp = Estudante();
@@ -247,10 +266,11 @@ void GestaoHor::addStudentUCClass(Pedido pedido) {
         students.insert(temp);
         students_byname.insert(temp);
         failed.push_back(pedidos.front());
-        return;
+        return false;
     }
 
     temp.addTurma(t);
     students.insert(temp);
     students_byname.insert(temp);
+    return true;
 }

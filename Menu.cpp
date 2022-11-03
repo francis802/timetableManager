@@ -637,7 +637,8 @@ bool Menu::alterarMenu() {
             getline(cin, codUCStudent);
             Pedido pedido;
             pedido.setCode(stoi(numStudent)); pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
-            gestao.addPedidos({'r',pedido});
+            vector<pair<char,Pedido>> waiting; waiting.push_back({'r',pedido});
+            gestao.addPedidos(waiting);
         }
         else if (option1 == "2") {
             cout << "Nºestudante:";
@@ -648,9 +649,18 @@ bool Menu::alterarMenu() {
             getline(cin, codUCStudent);
             Pedido pedido;
             pedido.setCode(stoi(numStudent)); pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
-            gestao.addPedidos({'a',pedido});
+            vector<pair<char,Pedido>> waiting; waiting.push_back({'a',pedido});
+            gestao.addPedidos(waiting);
         }
         else if (option1 == "3"){
+            cout << "Nºestudante:";
+            getline(cin, numStudent);
+            cout << "Turma/UC a remover:\n";
+            cout << "\tTurma:";
+            getline(cin, classStudent);
+            cout << "\tCódigo UC:";
+            getline(cin, codUCStudent);
+
 
         }
         else if (option1 == "q") {
