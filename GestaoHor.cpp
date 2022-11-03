@@ -1,6 +1,5 @@
 #include <iostream>
 #include "GestaoHor.h"
-#include "Menu.h"
 
 GestaoHor::GestaoHor() {}
 

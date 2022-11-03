@@ -1,6 +1,3 @@
-//
-// Created by francis802 on 28-10-2022.
-//
 
 #include <vector>
 #include <algorithm>
@@ -391,48 +388,119 @@ bool Menu::horarioMenu(){
     }
 }
 
-void Menu::estudantesTurmaUC(string turma, string uc) {
+void Menu::estudantesTurmaUC(string turma, string uc, char sort) {
+    string s = "../estudantes" + turma + "_" + uc + ".txt";
+    ofstream out(s);
     cout << uc << " | " << turma << '\n';
-    for (Estudante e: gestao.getStudents()){
-        for(UCTurma t: e.getTurmas()){
-            if (t.getCodUc() == uc && t.getCodTurma() == turma){
-                cout << e.getCode() << " - " << e.getName() << '\n';
-                break;
+    out << uc << " | " << turma << '\n';
+    bool found = false;
+    switch (sort) {
+        case '1':{
+            for (Estudante e: gestao.getStudents()){
+                for(UCTurma t: e.getTurmas()){
+                    if (t.getCodUc() == uc && t.getCodTurma() == turma){
+                        found = true;
+                        cout << e.getCode() << " - " << e.getName() << '\n';
+                        out << e.getCode() << " - " << e.getName() << '\n';
+                        break;
+                    }
+                }
+            }
+            break;
+        }
+        default:{
+            for (Estudante e: gestao.getStudentsByname()){
+                for(UCTurma t: e.getTurmas()){
+                    if (t.getCodUc() == uc && t.getCodTurma() == turma){
+                        found = true;
+                        cout << e.getName() << " - " << e.getCode() << '\n';
+                        out << e.getName() << " - " << e.getCode() << '\n';
+                        break;
+                    }
+                }
             }
         }
     }
+    if (!found){
+        cout << "No students found\n";
+        out << "No students found\n";
+    }
 }
 
-void Menu::estudantesAno(string ano) {
+void Menu::estudantesAno(string ano, char sort) {
     if (ano.size() != 1){
         cout << "invalid input\n";
         return;
     }
+    string s = "../estudantes_" + ano + "ano.txt";
+    ofstream out(s);
     bool found = false;
-    for (Estudante e: gestao.getStudents()){
-        for (UCTurma t: e.getTurmas()){
-            if (t.getCodTurma()[0] == ano[0]){
-                found = true;
-                cout << e.getCode() << " - " << e.getName() << endl;
-                break;
+    switch (sort) {
+        case '1':{
+            for (Estudante e: gestao.getStudents()){
+                for (UCTurma t: e.getTurmas()){
+                    if (t.getCodTurma()[0] == ano[0]){
+                        found = true;
+                        cout << e.getCode() << " - " << e.getName() << endl;
+                        out << e.getCode() << " - " << e.getName() << endl;
+                        break;
+                    }
+                }
+            }
+            break;
+        } default:{
+            for (Estudante e: gestao.getStudentsByname()){
+                for (UCTurma t: e.getTurmas()){
+                    if (t.getCodTurma()[0] == ano[0]){
+                        found = true;
+                        cout << e.getName() << " - " << e.getCode() << '\n';
+                        out << e.getName() << " - " << e.getCode() << '\n';
+                        break;
+                    }
+                }
             }
         }
     }
-    if (!found) cout << "No students found\n";
+    if (!found){
+        cout << "No students found\n";
+        out << "No students found\n";
+    }
 }
 
-void Menu::estudantesUC(string codUC) {
+void Menu::estudantesUC(string codUC, char sort) {
+    string s = "../estudantes_" + codUC + ".txt";
+    ofstream out(s);
     bool found = false;
-    for (Estudante e: gestao.getStudents()){
-        for (UCTurma t: e.getTurmas()){
-            if (t.getCodUc() == codUC){
-                found = true;
-                cout << e.getCode() << " - " << e.getName() << endl;
-                break;
+    switch (sort) {
+        case '1':{
+            for (Estudante e: gestao.getStudents()){
+                for (UCTurma t: e.getTurmas()){
+                    if (t.getCodUc() == codUC){
+                        found = true;
+                        cout << e.getCode() << " - " << e.getName() << endl;
+                        out << e.getCode() << " - " << e.getName() << endl;
+                        break;
+                    }
+                }
+            }
+            break;
+        }default:{
+            for (Estudante e: gestao.getStudentsByname()){
+                for (UCTurma t: e.getTurmas()){
+                    if (t.getCodUc() == codUC){
+                        found = true;
+                        cout << e.getName() << " - " << e.getCode() << '\n';
+                        out << e.getName() << " - " << e.getCode() << '\n';
+                        break;
+                    }
+                }
             }
         }
     }
-    if (!found) cout << "No students found\n";
+    if (!found){
+        cout << "No students found\n";
+        out << "No students found\n";
+    }
 }
 
 bool Menu::estudantesMenu(){
@@ -445,24 +513,30 @@ bool Menu::estudantesMenu(){
         cout << "\n type 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
 
-        string option1, option2, option3;
+        string option1, option2, option3, sorting;
         getline(cin, option1);
         if (option1 == "1") {
             cout << "Turma: ";
             getline(cin, option2);
             cout << "UC: ";
             getline(cin, option3);
-            estudantesTurmaUC(option2, option3);
+            cout << "Ordenação: 1) Nº Estudante, 2) Nome\n";
+            getline(cin, sorting);
+            estudantesTurmaUC(option2, option3,sorting[0]);
         }
         else if (option1 == "2") {
             cout << "Ano: ";
             getline(cin, option2);
-            estudantesAno(option2);
+            cout << "Ordenação: 1) Nº Estudante, 2) Nome\n";
+            getline(cin, sorting);
+            estudantesAno(option2, sorting[0]);
         }
         else if (option1 == "3"){
             cout << "Código UC: ";
             getline(cin, option2);
-            estudantesUC(option2);
+            cout << "Ordenação: 1) Nº Estudante, 2) Nome\n";
+            getline(cin, sorting);
+            estudantesUC(option2, sorting[0]);
         }
         else if (option1 == "q") return true;
         else if (option1 == "r") return false;

@@ -1,6 +1,3 @@
-//
-// Created by francis802 on 03-11-2022.
-//
 
 #include "Pedido.h"
 

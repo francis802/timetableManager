@@ -1,6 +1,3 @@
-//
-// Created by francis802 on 28-10-2022.
-//
 
 #ifndef PROJECT_AED_MENU_H
 #define PROJECT_AED_MENU_H
@@ -36,9 +33,9 @@ public:
     void searchHorarioByNum();
     void searchHorarioByName();
     bool horarioMenu();
-    void estudantesTurmaUC(string turma, string uc);
-    void estudantesAno(string ano);
-    void estudantesUC(string codUC);
+    void estudantesTurmaUC(string turma, string uc, char sort);
+    void estudantesAno(string ano, char sort);
+    void estudantesUC(string codUC, char sort);
     bool estudantesMenu();
     bool alterarMenu();
 };
