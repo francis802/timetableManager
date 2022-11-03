@@ -163,6 +163,7 @@ void GestaoHor::processPedidos() {
                         Estudante del = Estudante();
                         del.setCode(stuCode);
                         auto it_del = students.find(del);
+                        del = *it_del;
                         auto it_del_name = students_byname.find(del);
                         students.erase(it_del);
                         students_byname.erase(it_del_name);
