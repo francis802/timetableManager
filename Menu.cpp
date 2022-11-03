@@ -503,12 +503,75 @@ void Menu::estudantesUC(string codUC, char sort) {
     }
 }
 
+void Menu::estudantesMaisDeNUCs(std::string n, char sort) {
+    int num = stoi(n);
+    string s = "../estudantes_mais_de_" + n + "_ucs.txt";
+    ofstream out(s);
+    bool found = false;
+    switch (sort) {
+        case '1':{
+            for (Estudante e: gestao.getStudents()){
+                int size = e.getTurmas().size();
+                if (size > num){
+                    found = true;
+                    cout << size << " UCs -> " << e.getCode() << " - " << e.getName() << endl;
+                    out << size << " UCs -> " << e.getCode() << " - " << e.getName() << endl;
+                }
+            }
+            break;
+        }
+        case '2':{
+            for (Estudante e: gestao.getStudentsByname()){
+                int size = e.getTurmas().size();
+                if (size > num){
+                    found = true;
+                    cout << size << " UCs -> " << e.getName() << " - " << e.getCode() << endl;
+                    out << size << " UCs -> " << e.getName() << " - " << e.getCode() << endl;
+                }
+            }
+            break;
+        }
+        default:{
+            struct cmp {
+                bool operator()(const Estudante lhs, const Estudante rhs) const{
+                    if (lhs.getTurmas().size() != rhs.getTurmas().size())
+                        return lhs.getTurmas().size() < rhs.getTurmas().size();
+                    return lhs.getName() < rhs.getName();
+                }
+            };
+            set<Estudante,cmp> estudantes_nucs;
+            for (Estudante e: gestao.getStudents()){
+                if (e.getTurmas().size() > num){
+                    found = true;
+                    estudantes_nucs.insert(e);
+                }
+            }
+            int previous_size = 0;
+            for (Estudante e: estudantes_nucs){
+                int size = e.getTurmas().size();
+                if (size != previous_size) {
+                    cout << size << " UCs:\n";
+                    out << size << " UCs:\n";
+                    previous_size = size;
+                }
+                cout << '\t' << e.getCode() << " - " << e.getName() << endl;
+                out << '\t' << e.getCode() << " - " << e.getName() << endl;
+            }
+        }
+    }
+    if (!found){
+        cout << "No students found\n";
+        out << "No students found\n";
+    }
+}
+
 bool Menu::estudantesMenu(){
     while (true) {
         cout << "-> ESTUDANTES\n\n";
         cout << "\t1 - Estudantes em determinada turma a determinada UC\n";
         cout << "\t2 - Estudantes em determinado ano\n";
-        cout << "\t3 - estudantes em determinada UC\n";
+        cout << "\t3 - Estudantes em determinada UC\n";
+        cout << "\t4 - Estudantes com mais de n UCs\n";
 
         cout << "\n type 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
@@ -520,23 +583,30 @@ bool Menu::estudantesMenu(){
             getline(cin, option2);
             cout << "UC: ";
             getline(cin, option3);
-            cout << "Ordenação: 1) Nº Estudante, 2) Nome\n";
+            cout << "Ordenação: 1) Nº Estudante, 2) Alfabética\n";
             getline(cin, sorting);
             estudantesTurmaUC(option2, option3,sorting[0]);
         }
         else if (option1 == "2") {
             cout << "Ano: ";
             getline(cin, option2);
-            cout << "Ordenação: 1) Nº Estudante, 2) Nome\n";
+            cout << "Ordenação: 1) Nº Estudante, 2) Alfabética\n";
             getline(cin, sorting);
             estudantesAno(option2, sorting[0]);
         }
         else if (option1 == "3"){
             cout << "Código UC: ";
             getline(cin, option2);
-            cout << "Ordenação: 1) Nº Estudante, 2) Nome\n";
+            cout << "Ordenação: 1) Nº Estudante, 2) Alfabética\n";
             getline(cin, sorting);
             estudantesUC(option2, sorting[0]);
+        }
+        else if (option1 == "4"){
+            cout << "Nº limite de UCs: ";
+            getline(cin, option2);
+            cout << "Ordenação: 1) Nº Estudante, 2) Alfabética, 3) Nº UCs\n";
+            getline(cin, sorting);
+            estudantesMaisDeNUCs(option2, sorting[0]);
         }
         else if (option1 == "q") return true;
         else if (option1 == "r") return false;
