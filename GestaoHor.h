@@ -39,6 +39,10 @@ private:
     queue<pair<char,Pedido>> pedidos;
     list<pair<char,Pedido>> failed;
     const static int cap = 30;
+
+    void removeStudentUCClass(Pedido pedido);
+
+    void addStudentUCClass(Pedido pedido);
 };
 
 #endif //PROJECT_AED_GESTHOR_H

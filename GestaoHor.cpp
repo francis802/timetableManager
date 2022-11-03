@@ -143,71 +143,15 @@ void GestaoHor::addPedidos(pair<char, Pedido> pedido) {
 
 void GestaoHor::processPedidos() {
     while (!pedidos.empty()){
+        Pedido pedido = pedidos.front().second;
+
         switch (pedidos.front().first) {
             case 'r': {
-                Pedido pedido = pedidos.front().second;
-                int num = pedido.getCode();
-                string turma = pedido.getCodTurma();
-                string uc = pedido.getCodUc();
-
-                Estudante temp = Estudante();
-                temp.setCode(num);
-                auto it1 = students.find(temp);
-                temp = *it1;
-                auto it2 = students_byname.find(temp);
-                students.erase(it1);
-                students_byname.erase(it2);
-                UCTurma t = UCTurma(turma, uc);
-                temp.removeTurma(t);
-                students.insert(temp);
-                students_byname.insert(temp);
+                removeStudentUCClass(pedido);
                 break;
             }
             case 'a':{
-                Pedido pedido = pedidos.front().second;
-                int num = pedido.getCode();
-                string turma = pedido.getCodTurma();
-                string uc = pedido.getCodUc();
-
-                vector<pair<int,string>> ocupacao = ocupacaoTurmasUC(uc);
-                string num_turma;
-                num_turma.push_back(turma[5]);
-                num_turma.push_back(turma[6]);
-                int min = cap;
-                for (pair<int,string> i : ocupacao){
-                    if (i.first != 0 && i.first < min)
-                        min = i.first;
-                }
-                if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 4){
-                    failed.push_back(pedidos.front());
-                    break;
-                }
-
-                Estudante temp = Estudante();
-                temp.setCode(num);
-                auto it1 = students.find(temp);
-                temp = *it1;
-                auto it2 = students_byname.find(temp);
-                students.erase(it1);
-                students_byname.erase(it2);
-                UCTurma t = UCTurma(turma, uc);
-                auto timetable = aulas.find(t);
-                for(Aula a : timetable->getTimetable()){
-                    t.addAula(a);
-                }
-
-                if (classConflict(temp,t)){
-                    cout << "Class Conflict. Request Denied\n";
-                    students.insert(temp);
-                    students_byname.insert(temp);
-                    failed.push_back(pedidos.front());
-                    break;
-                }
-
-                temp.addTurma(t);
-                students.insert(temp);
-                students_byname.insert(temp);
-
+                addStudentUCClass(pedido);
                 break;
             }
         }
@@ -238,7 +182,7 @@ bool GestaoHor::classConflict(Estudante estudante, UCTurma new_uct) {
                     if (new_aula.getWeekday() == a.getWeekday()){
                         if (new_aula.getStartHour() >= a.getStartHour() && new_aula.getStartHour()<(a.getStartHour()+a.getDuration()))
                             return true;
-                        if ((new_aula.getStartHour() + new_aula.getDuration()) >= a.getStartHour() && (new_aula.getStartHour() + new_aula.getDuration())<(a.getStartHour()+a.getDuration()))
+                        if ((new_aula.getStartHour() + new_aula.getDuration()) >= a.getStartHour() && (new_aula.getStartHour() + new_aula.getDuration())<=(a.getStartHour()+a.getDuration()))
                             return true;
                     }
                 }
@@ -246,4 +190,67 @@ bool GestaoHor::classConflict(Estudante estudante, UCTurma new_uct) {
         }
     }
     return false;
+}
+
+void GestaoHor::removeStudentUCClass(Pedido pedido) {
+    int num = pedido.getCode();
+    string turma = pedido.getCodTurma();
+    string uc = pedido.getCodUc();
+
+    Estudante temp = Estudante();
+    temp.setCode(num);
+    auto it1 = students.find(temp);
+    temp = *it1;
+    auto it2 = students_byname.find(temp);
+    students.erase(it1);
+    students_byname.erase(it2);
+    UCTurma t = UCTurma(turma, uc);
+    temp.removeTurma(t);
+    students.insert(temp);
+    students_byname.insert(temp);
+}
+
+void GestaoHor::addStudentUCClass(Pedido pedido) {
+    int num = pedido.getCode();
+    string turma = pedido.getCodTurma();
+    string uc = pedido.getCodUc();
+
+    vector<pair<int,string>> ocupacao = ocupacaoTurmasUC(uc);
+    string num_turma;
+    num_turma.push_back(turma[5]);
+    num_turma.push_back(turma[6]);
+    int min = cap;
+    for (pair<int,string> i : ocupacao){
+        if (i.first != 0 && i.first < min)
+            min = i.first;
+    }
+    if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 4){
+        failed.push_back(pedidos.front());
+        return;
+    }
+
+    Estudante temp = Estudante();
+    temp.setCode(num);
+    auto it1 = students.find(temp);
+    temp = *it1;
+    auto it2 = students_byname.find(temp);
+    students.erase(it1);
+    students_byname.erase(it2);
+    UCTurma t = UCTurma(turma, uc);
+    auto timetable = aulas.find(t);
+    for(Aula a : timetable->getTimetable()){
+        t.addAula(a);
+    }
+
+    if (classConflict(temp,t)){
+        cout << "Class Conflict. Request Denied\n";
+        students.insert(temp);
+        students_byname.insert(temp);
+        failed.push_back(pedidos.front());
+        return;
+    }
+
+    temp.addTurma(t);
+    students.insert(temp);
+    students_byname.insert(temp);
 }
