@@ -13,6 +13,8 @@ public:
 
     UCTurma();
 
+    bool operator<(const UCTurma &s) const;
+
     void addAula(Aula aula);
     const string &getCodUc() const;
 

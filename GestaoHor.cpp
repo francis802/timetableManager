@@ -8,7 +8,7 @@ void GestaoHor::addStudent(Estudante s) {
     students.insert(s);
 }
 
-list<UCTurma> GestaoHor::getDataAula(string filename){
+void GestaoHor::getDataAula(string filename){
     ifstream in(filename);
     string line;
     getline(in, line);
@@ -17,7 +17,6 @@ list<UCTurma> GestaoHor::getDataAula(string filename){
     UCTurma temp;
     string last_uccode;
     list<UCTurma> classes;
-    list<UCTurma> to_return;
     while(getline(in, line)) {
         istringstream iss(line);
         string uccode, classcode;
@@ -55,7 +54,7 @@ list<UCTurma> GestaoHor::getDataAula(string filename){
         else{
             last_uccode = uccode;
             for (UCTurma ucclass: classes){
-                to_return.push_back(ucclass);
+                aulas.insert(ucclass);
             }
             classes.clear();
             temp = UCTurma(classcode, uccode);
@@ -63,11 +62,11 @@ list<UCTurma> GestaoHor::getDataAula(string filename){
             classes.push_back(temp);
         }
     }
-    return to_return;
+    //adicionar as up?
 }
 
 void GestaoHor::getDataStudent(string filename1, string filename2) {
-    list<UCTurma> my_classes = getDataAula(filename2);
+    getDataAula(filename2);
     ifstream in(filename1);
     string line;
     getline(in, line);
@@ -83,7 +82,7 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
         getline(iss, classcode, '\r');
         if (first){
             temp = Estudante(stoi(num), name);
-            for (UCTurma ucturma: my_classes){
+            for (UCTurma ucturma: aulas){
                 if ((ucturma.getCodTurma().compare(classcode) == 0) && (ucturma.getCodUc().compare(uccode) == 0))
                     temp.addTurma(ucturma);
             }
@@ -95,12 +94,13 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
             students.insert(temp);
             temp = Estudante(stoi(num), name);
         }
-        for (UCTurma ucturma: my_classes){
+        for (UCTurma ucturma: aulas){
             if ((ucturma.getCodTurma().compare(classcode) == 0) && (ucturma.getCodUc().compare(uccode) == 0)){
                 temp.addTurma(ucturma);
             }
         }
     }
+    students.insert(temp);
 }
 
 vector<pair<int,string>> GestaoHor::ocupacaoTurmasUC(string uc){

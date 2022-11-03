@@ -16,13 +16,14 @@ public:
 
     void addStudent(Estudante s);
     void getDataStudent(string filename1, string filename2);
-    list<UCTurma> getDataAula(string filename);
+    void getDataAula(string filename);
     const set<Estudante> &getStudents() const;
     vector<pair<int,string>> ocupacaoTurmasUC(string uc);
     void addPedidos(pair<char,Pedido> pedido);
     void processPedidos();
 
 private:
+    set<UCTurma> aulas;
     set<Estudante> students;
     queue<pair<char,Pedido>> pedidos;
     list<pair<char,Pedido>> failed;
