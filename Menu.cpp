@@ -75,39 +75,6 @@ void Menu::printOcupacaoTurmasUC(vector<pair<int, string>> ocupacao, string uc){
     }
 }
 
-vector<pair<int,string>> Menu::ocupacaoTurmasUC(string uc){
-    if (uc.size() != 8){
-        cout << "UC not found\n";
-    }
-    string basis;
-    basis.push_back(uc[6]);
-    basis.push_back(uc[7]);
-    int aux = stoi(basis);
-    if (aux < 10) basis = "1LEIC";
-    else if (aux < 20) basis = "2LEIC";
-    else basis = "3LEIC";
-    vector<pair<int, string>> ocupacao;
-    for (int i = 1; i <= 15; i++){
-        if (i < 10){
-            ocupacao.push_back({0,basis + "0" + to_string(i)});
-        } else ocupacao.push_back({0,basis + to_string(i)});
-    }
-
-    for (Estudante e: gestao.getStudents()){
-        for (UCTurma t: e.getTurmas()){
-            if (t.getCodUc() == uc){
-                string turma;
-                turma.push_back(t.getCodTurma()[5]);
-                turma.push_back(t.getCodTurma()[6]);
-                int num_turma = stoi(turma);
-                ocupacao[num_turma - 1].first++;
-                break;
-            }
-        }
-    }
-    return ocupacao;
-}
-
 bool Menu::ocupacaoTurmasMenu(){
     while (true) {
         cout << "-> OCUPAÇÃO\n\n";
@@ -130,7 +97,7 @@ bool Menu::ocupacaoTurmasMenu(){
         else if (option1 == "2"){
             cout << "UC: ";
             getline(cin, option2);
-            printOcupacaoTurmasUC(ocupacaoTurmasUC(option2),option2);
+            printOcupacaoTurmasUC(gestao.ocupacaoTurmasUC(option2),option2);
         }
         else if (option1 == "q") return true;
         else if (option1 == "r") return false;
@@ -516,22 +483,22 @@ bool Menu::alterarMenu() {
         string option1, numStudent, classStudent, codUCStudent;
         getline(cin, option1);
         if (option1 == "1") {
-            cout << "Nºestudante:\n";
+            cout << "Nºestudante:";
             getline(cin, numStudent);
-            cout << "Turma:\n";
+            cout << "Turma:";
             getline(cin, classStudent);
-            cout << "Código UC:\n";
+            cout << "Código UC:";
             getline(cin, codUCStudent);
             Pedido pedido;
             pedido.setCode(stoi(numStudent)); pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
             gestao.addPedidos({'r',pedido});
         }
         else if (option1 == "2") {
-            cout << "Nºestudante:\n";
+            cout << "Nºestudante:";
             getline(cin, numStudent);
-            cout << "Turma:\n";
+            cout << "Turma:";
             getline(cin, classStudent);
-            cout << "Código UC:\n";
+            cout << "Código UC:";
             getline(cin, codUCStudent);
             Pedido pedido;
             pedido.setCode(stoi(numStudent)); pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);

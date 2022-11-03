@@ -1,5 +1,6 @@
 #include <iostream>
 #include "GestaoHor.h"
+#include "Menu.h"
 
 GestaoHor::GestaoHor() {}
 
@@ -26,7 +27,7 @@ list<UCTurma> GestaoHor::getDataAula(string filename){
         getline(iss, weekDay, ',');
         getline(iss, startH, ',');
         getline(iss, duration, ',');
-        getline(iss, type);
+        getline(iss, type,'\r');
         Aula aula = Aula(weekDay,stof(startH),stof(duration),type);
         if (first){
             temp = UCTurma(classcode, uccode);
@@ -102,6 +103,36 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
     }
 }
 
+vector<pair<int,string>> GestaoHor::ocupacaoTurmasUC(string uc){
+    string basis;
+    basis.push_back(uc[6]);
+    basis.push_back(uc[7]);
+    int aux = stoi(basis);
+    if (aux < 10) basis = "1LEIC";
+    else if (aux < 20) basis = "2LEIC";
+    else basis = "3LEIC";
+    vector<pair<int, string>> ocupacao;
+    for (int i = 1; i <= 15; i++){
+        if (i < 10){
+            ocupacao.push_back({0,basis + "0" + to_string(i)});
+        } else ocupacao.push_back({0,basis + to_string(i)});
+    }
+
+    for (Estudante e: getStudents()){
+        for (UCTurma t: e.getTurmas()){
+            if (t.getCodUc() == uc){
+                string turma;
+                turma.push_back(t.getCodTurma()[5]);
+                turma.push_back(t.getCodTurma()[6]);
+                int num_turma = stoi(turma);
+                ocupacao[num_turma - 1].first++;
+                break;
+            }
+        }
+    }
+    return ocupacao;
+}
+
 void GestaoHor::addPedidos(pair<char, Pedido> pedido) {
     pedidos.push(pedido);
 }
@@ -109,7 +140,7 @@ void GestaoHor::addPedidos(pair<char, Pedido> pedido) {
 void GestaoHor::processPedidos() {
     while (!pedidos.empty()){
         switch (pedidos.front().first) {
-            case 'r':
+            case 'r': {
                 Pedido pedido = pedidos.front().second;
                 int num = pedido.getCode();
                 string turma = pedido.getCodTurma();
@@ -124,6 +155,29 @@ void GestaoHor::processPedidos() {
                 temp.removeTurma(t);
                 students.insert(temp);
                 break;
+            }
+            case 'a':{
+                Pedido pedido = pedidos.front().second;
+                int num = pedido.getCode();
+                string turma = pedido.getCodTurma();
+                string uc = pedido.getCodUc();
+
+                vector<pair<int,string>> ocupacao = ocupacaoTurmasUC(uc);
+                string num_turma;
+                num_turma.push_back(turma[5]);
+                num_turma.push_back(turma[6]);
+                int min = cap;
+                for (pair<int,string> i : ocupacao){
+                    if (i.first != 0 && i.first < min)
+                        min = i.first;
+                }
+                if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 3){
+                    failed.push_back(pedidos.front());
+                    break;
+                }
+
+                break;
+            }
         }
         pedidos.pop();
     }
