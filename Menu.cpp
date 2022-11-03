@@ -513,17 +513,29 @@ bool Menu::alterarMenu() {
         cout << "\n type 'q' to quit, 'r' to return\n";
         cout << "==================================================\n";
 
-        string option1, option2;
+        string option1, numStudent, classStudent, codUCStudent;
         getline(cin, option1);
         if (option1 == "1") {
-            cout << "Formato: nºestudante/turma /codUC\n";
-            getline(cin, option2);
-            gestao.addPedidos({'r',option2});
+            cout << "Nºestudante:\n";
+            getline(cin, numStudent);
+            cout << "Turma:\n";
+            getline(cin, classStudent);
+            cout << "Código UC:\n";
+            getline(cin, codUCStudent);
+            Pedido pedido;
+            pedido.setCode(stoi(numStudent)); pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
+            gestao.addPedidos({'r',pedido});
         }
         else if (option1 == "2") {
-            cout << "Formato: nºestudante/turma /codUC\n";
-            getline(cin, option2);
-            gestao.addPedidos({'a',"abc"});
+            cout << "Nºestudante:\n";
+            getline(cin, numStudent);
+            cout << "Turma:\n";
+            getline(cin, classStudent);
+            cout << "Código UC:\n";
+            getline(cin, codUCStudent);
+            Pedido pedido;
+            pedido.setCode(stoi(numStudent)); pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
+            gestao.addPedidos({'a',pedido});
         }
         else if (option1 == "3"){
 

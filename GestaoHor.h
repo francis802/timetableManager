@@ -6,6 +6,7 @@
 #include <sstream>
 #include <queue>
 #include "Estudante.h"
+#include "Pedido.h"
 
 using namespace std;
 
@@ -17,12 +18,12 @@ public:
     void getDataStudent(string filename1, string filename2);
     list<UCTurma> getDataAula(string filename);
     const set<Estudante> &getStudents() const;
-    void addPedidos(pair<char,string> pedido);
+    void addPedidos(pair<char,Pedido> pedido);
     void processPedidos();
 
 private:
     set<Estudante> students;
-    queue<pair<char,string>> pedidos;
+    queue<pair<char,Pedido>> pedidos;
 };
 
 #endif //PROJECT_AED_GESTHOR_H

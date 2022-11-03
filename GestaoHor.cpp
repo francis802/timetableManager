@@ -102,7 +102,7 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
     }
 }
 
-void GestaoHor::addPedidos(pair<char, string> pedido) {
+void GestaoHor::addPedidos(pair<char, Pedido> pedido) {
     pedidos.push(pedido);
 }
 
@@ -110,13 +110,13 @@ void GestaoHor::processPedidos() {
     while (!pedidos.empty()){
         switch (pedidos.front().first) {
             case 'r':
-                string pedido = pedidos.front().second;
-                string num = pedido.substr(0,pedido.find_first_of('/'));
-                string turma = pedido.substr(pedido.find_first_of('/')+1, pedido.find_last_of('/')-pedido.find_first_of('/')-1);
-                string uc = pedido.substr(pedido.find_last_of('/')+1);
+                Pedido pedido = pedidos.front().second;
+                int num = pedido.getCode();
+                string turma = pedido.getCodTurma();
+                string uc = pedido.getCodUc();
 
                 Estudante temp = Estudante();
-                temp.setCode(stoi(num));
+                temp.setCode(num);
                 auto it = students.find(temp);
                 temp = *it;
                 students.erase(it);
