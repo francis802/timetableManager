@@ -116,7 +116,7 @@ vector<pair<int,string>> GestaoHor::ocupacaoTurmasUC(string uc){
     else if (aux < 20) basis = "2LEIC";
     else basis = "3LEIC";
     vector<pair<int, string>> ocupacao;
-    for (int i = 1; i <= 15; i++){
+    for (int i = 1; i <= 16; i++){
         if (i < 10){
             ocupacao.push_back({0,basis + "0" + to_string(i)});
         } else ocupacao.push_back({0,basis + to_string(i)});
@@ -178,7 +178,7 @@ void GestaoHor::processPedidos() {
                     if (i.first != 0 && i.first < min)
                         min = i.first;
                 }
-                if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 3){
+                if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 4){
                     failed.push_back(pedidos.front());
                     break;
                 }
