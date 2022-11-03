@@ -234,20 +234,6 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
     string turma = pedido.getCodTurma();
     string uc = pedido.getCodUc();
 
-    vector<pair<int,string>> ocupacao = ocupacaoTurmasUC(uc);
-    string num_turma;
-    num_turma.push_back(turma[5]);
-    num_turma.push_back(turma[6]);
-    int min = cap;
-    for (pair<int,string> i : ocupacao){
-        if (i.first != 0 && i.first < min)
-            min = i.first;
-    }
-    if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 4){
-        failed.push_back(pedidos.front());
-        return false;
-    }
-
     Estudante temp = Estudante();
     temp.setCode(num);
     auto it1 = students.find(temp);
@@ -262,7 +248,6 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
     }
 
     if (classConflict(temp,t)){
-        cout << "Class Conflict. Request Denied\n";
         students.insert(temp);
         students_byname.insert(temp);
         failed.push_back(pedidos.front());
@@ -272,5 +257,20 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
     temp.addTurma(t);
     students.insert(temp);
     students_byname.insert(temp);
+
+    vector<pair<int,string>> ocupacao = ocupacaoTurmasUC(uc);
+    string num_turma;
+    num_turma.push_back(turma[5]);
+    num_turma.push_back(turma[6]);
+    int min = cap;
+    for (pair<int,string> i : ocupacao){
+        if (i.first != 0 && i.first < min)
+            min = i.first;
+    }
+    if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 4){
+        failed.push_back(pedidos.front());
+        return false;
+    }
+
     return true;
 }
