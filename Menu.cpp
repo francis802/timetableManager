@@ -8,6 +8,7 @@
 
 
 void Menu::start() {
+    //! Inicializar menu
     bool exit = false;
     string option;
     while (!exit) {
