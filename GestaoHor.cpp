@@ -183,6 +183,24 @@ void GestaoHor::processPedidos() {
                     break;
                 }
 
+                Estudante temp = Estudante();
+                temp.setCode(num);
+                auto it1 = students.find(temp);
+                temp = *it1;
+                auto it2 = students_byname.find(temp);
+                students.erase(it1);
+                students_byname.erase(it2);
+                UCTurma t = UCTurma(turma, uc);
+                auto timetable = aulas.find(t);
+
+                //TODO Fazer condição para não se repetir turma/UC (talvez meter bst na ligação Estudante-UCTurma-Aula)
+                for(Aula a : timetable->getTimetable()){
+                    t.addAula(a);
+                }
+                temp.addTurma(t);
+                students.insert(temp);
+                students_byname.insert(temp);
+
                 break;
             }
         }
