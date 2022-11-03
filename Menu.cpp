@@ -359,19 +359,21 @@ void Menu::searchHorarioByName(){
     string name;
     cout << "Nome do Estudante: ";
     getline(cin, name);
-    for (Estudante student : gestao.getStudents()){
-        if (student.getName() == name){
-            printHorario(student);
-            return;
-        }
+    Estudante temp = Estudante();
+    temp.setName(name);
+    auto student = gestao.getStudentsByname().find(temp);
+    if (student == gestao.getStudents().end()){
+        cout << "Student not found\n";
     }
-    cout << "Student not found\n";
+    else{
+        printHorario(*student);
+    }
 }
 
 bool Menu::horarioMenu(){
     while (true) {
         cout << "-> HORÁRIO\n\n";
-        cout << "\t1 - Pesquisa por número de estudante (recomendado)\n";
+        cout << "\t1 - Pesquisa por número de estudante\n";
         cout << "\t2 - Pesquisa por nome\n";
 
         cout << "\n type 'q' to quit, 'r' to return\n";

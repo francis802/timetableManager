@@ -14,10 +14,18 @@ class GestaoHor{
 public:
     GestaoHor();
 
+    struct cmp {
+        bool operator()(const Estudante lhs, const Estudante rhs) const{
+            return lhs.getName() < rhs.getName();
+        }
+    };
     void addStudent(Estudante s);
     void getDataStudent(string filename1, string filename2);
     void getDataAula(string filename);
     const set<Estudante> &getStudents() const;
+
+    const set<Estudante, cmp> &getStudentsByname() const;
+
     vector<pair<int,string>> ocupacaoTurmasUC(string uc);
     void addPedidos(pair<char,Pedido> pedido);
     void processPedidos();
@@ -25,6 +33,7 @@ public:
 private:
     set<UCTurma> aulas;
     set<Estudante> students;
+    set<Estudante, cmp>students_byname;
     queue<pair<char,Pedido>> pedidos;
     list<pair<char,Pedido>> failed;
     const static int cap = 30;

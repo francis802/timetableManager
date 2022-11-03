@@ -25,7 +25,7 @@ void Estudante::removeTurma(UCTurma turma) {
     }
 }
 
-const string &Estudante::getName() const {
+const string Estudante::getName() const {
     return name;
 }
 
@@ -39,4 +39,8 @@ void Estudante::setCode(int code) {
 
 int Estudante::getCode() const {
     return code;
+}
+
+void Estudante::setName(const string &name) {
+    Estudante::name = name;
 }

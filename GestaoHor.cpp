@@ -62,7 +62,10 @@ void GestaoHor::getDataAula(string filename){
             classes.push_back(temp);
         }
     }
-    //adicionar as up?
+    classes.push_back(temp);
+    for (UCTurma ucclass: classes){
+        aulas.insert(ucclass);
+    }
 }
 
 void GestaoHor::getDataStudent(string filename1, string filename2) {
@@ -92,6 +95,7 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
 
         if (temp.getName().compare(name) != 0){
             students.insert(temp);
+            students_byname.insert(temp);
             temp = Estudante(stoi(num), name);
         }
         for (UCTurma ucturma: aulas){
@@ -100,6 +104,7 @@ void GestaoHor::getDataStudent(string filename1, string filename2) {
             }
         }
     }
+    students.insert(temp);
     students.insert(temp);
 }
 
@@ -148,12 +153,15 @@ void GestaoHor::processPedidos() {
 
                 Estudante temp = Estudante();
                 temp.setCode(num);
-                auto it = students.find(temp);
-                temp = *it;
-                students.erase(it);
+                auto it1 = students.find(temp);
+                temp = *it1;
+                auto it2 = students_byname.find(temp);
+                students.erase(it1);
+                students_byname.erase(it2);
                 UCTurma t = UCTurma(turma, uc);
                 temp.removeTurma(t);
                 students.insert(temp);
+                students_byname.insert(temp);
                 break;
             }
             case 'a':{
@@ -185,4 +193,8 @@ void GestaoHor::processPedidos() {
 
 const set<Estudante> &GestaoHor::getStudents() const {
     return students;
+}
+
+const set<Estudante, GestaoHor::cmp> &GestaoHor::getStudentsByname() const {
+    return students_byname;
 }

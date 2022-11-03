@@ -18,13 +18,15 @@ public:
 
     void removeTurma(UCTurma turma);
 
-    const string &getName() const;
+    const string getName() const;
 
     const list<UCTurma> &getTurmas() const;
 
     void setCode(int code);
 
     int getCode() const;
+
+    void setName(const string &name);
 
 private:
     int code;
