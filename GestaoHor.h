@@ -30,6 +30,8 @@ public:
     void addPedidos(pair<char,Pedido> pedido);
     void processPedidos();
 
+    bool classConflict(Estudante estudante, UCTurma new_uct);
+
 private:
     set<UCTurma> aulas;
     set<Estudante> students;

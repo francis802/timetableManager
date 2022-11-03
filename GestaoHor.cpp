@@ -192,11 +192,18 @@ void GestaoHor::processPedidos() {
                 students_byname.erase(it2);
                 UCTurma t = UCTurma(turma, uc);
                 auto timetable = aulas.find(t);
-
-                //TODO Fazer condição para não se repetir turma/UC (talvez meter bst na ligação Estudante-UCTurma-Aula)
                 for(Aula a : timetable->getTimetable()){
                     t.addAula(a);
                 }
+
+                if (classConflict(temp,t)){
+                    cout << "Class Conflict. Request Denied\n";
+                    students.insert(temp);
+                    students_byname.insert(temp);
+                    failed.push_back(pedidos.front());
+                    break;
+                }
+
                 temp.addTurma(t);
                 students.insert(temp);
                 students_byname.insert(temp);
@@ -214,4 +221,29 @@ const set<Estudante> &GestaoHor::getStudents() const {
 
 const set<Estudante, GestaoHor::cmp> &GestaoHor::getStudentsByname() const {
     return students_byname;
+}
+
+
+//TODO Em princípio está tudo bem, mas fazer mais testes
+bool GestaoHor::classConflict(Estudante estudante, UCTurma new_uct) {
+    vector<Aula> new_tppl;
+    for (Aula a:new_uct.getTimetable()){
+        if (a.getType() == "TP" || a.getType() == "PL") new_tppl.push_back(a);
+    }
+
+    for (UCTurma uct: estudante.getTurmas()){
+        for (Aula a: uct.getTimetable()){
+            if (a.getType() == "TP" || a.getType() == "PL"){
+                for (Aula new_aula: new_tppl){
+                    if (new_aula.getWeekday() == a.getWeekday()){
+                        if (new_aula.getStartHour() >= a.getStartHour() && new_aula.getStartHour()<(a.getStartHour()+a.getDuration()))
+                            return true;
+                        if ((new_aula.getStartHour() + new_aula.getDuration()) >= a.getStartHour() && (new_aula.getStartHour() + new_aula.getDuration())<(a.getStartHour()+a.getDuration()))
+                            return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
 }
