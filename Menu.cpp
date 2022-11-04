@@ -71,6 +71,7 @@ void Menu::printOcupacaoTurmasUC(vector<pair<int, string>> ocupacao, string uc){
         cout << '\t' << "Sem alunos\n";
         out << '\t' << "Sem alunos\n";
     }
+    out.close();
 }
 
 bool Menu::ocupacaoTurmasMenu(){
@@ -255,6 +256,7 @@ void Menu::ocupacaoUCs() {
             printOcupacaoUCs(ocupacaoUCsAno(to_string(i)), out);
         }
     } else cout << "invalid input\n\n";
+    out.close();
 }
 
 bool Menu::ocupacaoUCMenu(){
@@ -282,6 +284,7 @@ bool Menu::ocupacaoUCMenu(){
             ofstream out(s);
             out << option2 << "ª ano:\n";
             printOcupacaoUCs(ocupacaoUCsAno(option2),out);
+            out.close();
         }
         else if (option1 == "3") ocupacaoUCs();
         else if (option1 == "q") return true;
@@ -426,6 +429,7 @@ void Menu::estudantesTurmaUC(string turma, string uc, char sort) {
         cout << "No students found\n";
         out << "No students found\n";
     }
+    out.close();
 }
 
 void Menu::estudantesAno(string ano, char sort) {
@@ -466,6 +470,7 @@ void Menu::estudantesAno(string ano, char sort) {
         cout << "No students found\n";
         out << "No students found\n";
     }
+    out.close();
 }
 
 void Menu::estudantesUC(string codUC, char sort) {
@@ -502,6 +507,7 @@ void Menu::estudantesUC(string codUC, char sort) {
         cout << "No students found\n";
         out << "No students found\n";
     }
+    out.close();
 }
 
 void Menu::estudantesMaisDeNUCs(std::string n, char sort) {
@@ -564,6 +570,7 @@ void Menu::estudantesMaisDeNUCs(std::string n, char sort) {
         cout << "No students found\n";
         out << "No students found\n";
     }
+    out.close();
 }
 
 bool Menu::estudantesMenu(){
@@ -688,7 +695,7 @@ bool Menu::alterarMenu() {
                 pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
                 waiting.push_back({'r',pedido});
             }
-            cout << "--------------------------------------------";
+            cout << "------------------------------------------------------\n";
             while (true){
                 cout << "Turma/UC a adicionar (Press Enter to continue):\n";
                 cout << "\tTurma:";

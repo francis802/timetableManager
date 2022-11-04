@@ -252,6 +252,15 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
         students.insert(temp);
         students_byname.insert(temp);
         failed.push_back(pedidos.front());
+        ofstream out;
+        out.open("log_failed_changes.txt",std::ios_base::app);
+        cout << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+        out << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+        cout << "\tMotivo: Sobreposição de aulas\n";
+        out << "\tMotivo: Sobreposição de aulas\n";
+        cout << "Não foram efetuadas mudanças\n\n";
+        out << "Não foram efetuadas mudanças\n\n\n";
+        out.close();
         return false;
     }
 
@@ -270,6 +279,14 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
     }
     if (ocupacao[stoi(num_turma) - 1].first > cap || abs(ocupacao[stoi(num_turma) - 1].first - min) >= 4){
         failed.push_back(pedidos.front());
+        ofstream out;
+        out.open("../log_failed_changes.txt",std::ios_base::app);
+        cout << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+        out << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+        cout << "\tMotivo: Desequilibrio/sobrelotação de turmas\n";
+        out << "\tMotivo: Desequilibrio/sobrelotação de turmas\n";
+        cout << "Não foram efetuadas mudanças\n\n";
+        out << "Não foram efetuadas mudanças\n\n\n";
         return false;
     }
 
