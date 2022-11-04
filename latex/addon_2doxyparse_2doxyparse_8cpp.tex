@@ -1,0 +1,1289 @@
+\hypertarget{addon_2doxyparse_2doxyparse_8cpp}{}\doxysection{doxygen/addon/doxyparse/doxyparse.cpp File Reference}
+\label{addon_2doxyparse_2doxyparse_8cpp}\index{doxygen/addon/doxyparse/doxyparse.cpp@{doxygen/addon/doxyparse/doxyparse.cpp}}
+
+
+Code parse based on doxyapp by Dimitri van Heesch.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memberlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_doxyparse}{Doxyparse}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1e109751dbf91eecedb615bafa8ad2d6}{find\+XRef\+Symbols}} (\mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\item 
+static bool \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a4c2071b46c8d3d9d9355b031ed8b0646}{ignore\+Static\+External\+Call}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$context, const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0048ea16e7f0ed820b718eb860429640}{start\+Yaml\+Document}} ()
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7637c9cf99a66e6ebcf8a675593b2300}{print\+File}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} file)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}{print\+Module}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} module)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_af2c8a3011a0d36b9eac565fe59a293f0}{print\+Class\+Information}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} information)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7223ba6f032ac2b19beeff42e8d59327}{print\+Inherits}} ()
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae153b49a33d80e4200fbeb94003ea904}{print\+Inheritance}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} base\+\_\+class)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}{print\+Defines}} ()
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a38cbbdc0682a8c56b5c0e70f7ceef385}{print\+Definition}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} type, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} signature, int line)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}{print\+Protection}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} protection)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a94e7cdee37fc3acbdade31a356e3cc23}{print\+Prototype\+Yes}} ()
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab9d6b27bbf18563bcbf2a2c2d7081f0d}{print\+Number\+Of\+Lines}} (int lines)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aaf02684fc0f251c43e6a811d7bf88ef3}{print\+Number\+Of\+Arguments}} (size\+\_\+t arguments)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a418f6916c279805716deea1c0d8b26c2}{print\+Uses}} ()
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9eac11c8872781d87ef3176dd352d69d}{print\+Reference\+To}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} type, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} signature, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} defined\+\_\+in)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ada13519996675a60aed9a930e58699cd}{print\+Number\+Of\+Conditional\+Paths}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+static int \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a585d12dcb8b2a5b93549f3ba43e288f9}{is\+Part\+Of\+CStruct}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitize\+String}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}})
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}{argument\+Data}} (const \mbox{\hyperlink{struct_argument}{Argument}} \&argument)
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{function\+Signature}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}{reference\+To}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}{protection\+Information}} (\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} protection)
+\item 
+void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}{c\+Module}} (const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static bool \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a4c2f9c0a9bff9514ea0ae5fb283f2aa9}{check\+Override\+Arg}} (const \mbox{\hyperlink{class_argument_list}{Argument\+List}} \&arg\+List, const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae82a4947787790a92f1a9ddc2bdd6f96}{prototype\+Information}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookup\+Symbol}} (const \mbox{\hyperlink{class_definition}{Definition}} $\ast$d)
+\item 
+void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{list\+Members}} (const \mbox{\hyperlink{class_member_list}{Member\+List}} $\ast$ml)
+\item 
+void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a18944f2864679af4b348a643d241613e}{list\+All\+Members}} (const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information}} (const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static bool \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{check\+Language}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} extension)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1ed35698f41bfe49601ba331a623b5e0}{detect\+Programming\+Language}} (\mbox{\hyperlink{class_file_name_linked_map}{File\+Name\+Linked\+Map}} \&fnli)
+\item 
+static void \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols}} ()
+\item 
+int \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}{is\+\_\+c\+\_\+code}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Code parse based on doxyapp by Dimitri van Heesch. 
+
+
+
+Definition in file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}\label{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!argumentData@{argumentData}}
+\index{argumentData@{argumentData}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{argumentData()}{argumentData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} argument\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_argument}{Argument}} \&}]{argument }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188                                                  \{}
+\DoxyCodeLine{00189   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00190   \textcolor{keywordflow}{if} (argument.\mbox{\hyperlink{struct_argument_a1ad588d2b3cc71fe3f74c8272b4ec32e}{type}}.\mbox{\hyperlink{class_q_c_string_ac084f55ab51f8b277cf01bb6e04f16ed}{size}}() > 1)}
+\DoxyCodeLine{00191     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} = \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitizeString}}(argument.\mbox{\hyperlink{struct_argument_a1ad588d2b3cc71fe3f74c8272b4ec32e}{type}}.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00192   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!argument.\mbox{\hyperlink{struct_argument_a334668ce5d1f650c804e69f1bc941a3b}{name}}.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00193     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} = \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitizeString}}(argument.\mbox{\hyperlink{struct_argument_a334668ce5d1f650c804e69f1bc941a3b}{name}}.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00194   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}};}
+\DoxyCodeLine{00195 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{struct_argument_a334668ce5d1f650c804e69f1bc941a3b}{Argument\+::name}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitize\+String()}}, \mbox{\hyperlink{class_q_c_string_ac084f55ab51f8b277cf01bb6e04f16ed}{QCString\+::size()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{struct_argument_a1ad588d2b3cc71fe3f74c8272b4ec32e}{Argument\+::type}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{function\+Signature()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}\label{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!checkLanguage@{checkLanguage}}
+\index{checkLanguage@{checkLanguage}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{checkLanguage()}{checkLanguage()}}
+{\footnotesize\ttfamily static bool check\+Language (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{filename,  }\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{extension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00367}{367}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00367                                                                     \{}
+\DoxyCodeLine{00368   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}.find(extension, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}.size() -\/ extension.size()) != std::string::npos) \{}
+\DoxyCodeLine{00369     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00370   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00371     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00372   \}}
+\DoxyCodeLine{00373 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1ed35698f41bfe49601ba331a623b5e0}{detect\+Programming\+Language()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a4c2f9c0a9bff9514ea0ae5fb283f2aa9}\label{addon_2doxyparse_2doxyparse_8cpp_a4c2f9c0a9bff9514ea0ae5fb283f2aa9}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!checkOverrideArg@{checkOverrideArg}}
+\index{checkOverrideArg@{checkOverrideArg}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{checkOverrideArg()}{checkOverrideArg()}}
+{\footnotesize\ttfamily static bool check\+Override\+Arg (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_argument_list}{Argument\+List}} \&}]{arg\+List,  }\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00268}{268}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268                                                                                \{}
+\DoxyCodeLine{00269   \textcolor{keywordflow}{if}(!md-\/>\mbox{\hyperlink{class_member_def_a5e6ace25ee464a601e1b3f2b8016ddad}{isFunction}}() || argList.\mbox{\hyperlink{class_argument_list_aaa15ddcfdb06a535a3398f1dc73d336d}{empty}}())\{}
+\DoxyCodeLine{00270     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00271   \}}
+\DoxyCodeLine{00272 }
+\DoxyCodeLine{00273   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \mbox{\hyperlink{struct_argument}{Argument}} \&argument : argList) \{}
+\DoxyCodeLine{00274     \textcolor{keywordflow}{if}(md-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}() == argument.name) \{}
+\DoxyCodeLine{00275       \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00276     \}}
+\DoxyCodeLine{00277   \}}
+\DoxyCodeLine{00278 }
+\DoxyCodeLine{00279   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00280 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_argument_list_aaa15ddcfdb06a535a3398f1dc73d336d}{Argument\+List\+::empty()}}, \mbox{\hyperlink{class_member_def_a5e6ace25ee464a601e1b3f2b8016ddad}{Member\+Def\+::is\+Function()}}, and \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}\label{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!classInformation@{classInformation}}
+\index{classInformation@{classInformation}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{classInformation()}{classInformation()}}
+{\footnotesize\ttfamily static void class\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00348}{348}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00348                                                  \{}
+\DoxyCodeLine{00349   \textcolor{keywordflow}{if} (\mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}{is\_c\_code}}) \{}
+\DoxyCodeLine{00350     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}{cModule}}(cd);}
+\DoxyCodeLine{00351   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00352     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}{printModule}}(cd-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00353     \textcolor{keywordflow}{if} (!cd-\/>\mbox{\hyperlink{class_class_def_a38001a11a297629e363c0db5b1968ab3}{baseClasses}}().empty()) \{}
+\DoxyCodeLine{00354       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7223ba6f032ac2b19beeff42e8d59327}{printInherits}}();}
+\DoxyCodeLine{00355       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&bcd : cd-\/>\mbox{\hyperlink{class_class_def_a38001a11a297629e363c0db5b1968ab3}{baseClasses}}()) \{}
+\DoxyCodeLine{00356         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae153b49a33d80e4200fbeb94003ea904}{printInheritance}}(\mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitizeString}}(bcd.classDef-\/>name().data()));}
+\DoxyCodeLine{00357       \}}
+\DoxyCodeLine{00358     \}}
+\DoxyCodeLine{00359     \textcolor{keywordflow}{if}(cd-\/>\mbox{\hyperlink{class_class_def_a12dd6a6b0ac63233a82327a8b2d2d9f2}{isAbstract}}()) \{}
+\DoxyCodeLine{00360       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_af2c8a3011a0d36b9eac565fe59a293f0}{printClassInformation}}(\textcolor{stringliteral}{"{}abstract class"{}});}
+\DoxyCodeLine{00361     \}}
+\DoxyCodeLine{00362     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}{printDefines}}();}
+\DoxyCodeLine{00363     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a18944f2864679af4b348a643d241613e}{listAllMembers}}(cd);}
+\DoxyCodeLine{00364   \}}
+\DoxyCodeLine{00365 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_class_def_a38001a11a297629e363c0db5b1968ab3}{Class\+Def\+::base\+Classes()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}{c\+Module()}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}{is\+\_\+c\+\_\+code}}, \mbox{\hyperlink{class_class_def_a12dd6a6b0ac63233a82327a8b2d2d9f2}{Class\+Def\+::is\+Abstract()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a18944f2864679af4b348a643d241613e}{list\+All\+Members()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_af2c8a3011a0d36b9eac565fe59a293f0}{print\+Class\+Information()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}{print\+Defines()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae153b49a33d80e4200fbeb94003ea904}{print\+Inheritance()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7223ba6f032ac2b19beeff42e8d59327}{print\+Inherits()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}{print\+Module()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitize\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}\label{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!cModule@{cModule}}
+\index{cModule@{cModule}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{cModule()}{cModule()}}
+{\footnotesize\ttfamily void c\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00252}{252}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00252                                  \{}
+\DoxyCodeLine{00253   \textcolor{keyword}{const} \mbox{\hyperlink{class_member_list}{MemberList}}* ml = cd-\/>\mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{getMemberList}}(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ac236492bbb72e2af1802dfdcbd6d3ad8}{MemberListType\_variableMembers}});}
+\DoxyCodeLine{00254   \textcolor{keywordflow}{if} (ml) \{}
+\DoxyCodeLine{00255     \textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd = cd-\/>\mbox{\hyperlink{class_class_def_aed4a0864e51e5a3ac616f6c8e10f56c6}{getFileDef}}();}
+\DoxyCodeLine{00256     \textcolor{keyword}{const} \mbox{\hyperlink{class_member_list}{MemberList}} *fd\_ml = fd-\/>\mbox{\hyperlink{class_file_def_aca0861997f31aa265f0c0078c947fdc9}{getMemberList}}(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ae5d8c38233229e4c743976f97728a19e}{MemberListType\_allMembersList}});}
+\DoxyCodeLine{00257     \textcolor{keywordflow}{if} (!fd\_ml || fd\_ml-\/>\mbox{\hyperlink{class_member_vector_ae48653a9dc8688c02cde84c41b66d9bc}{size}}() == 0) \{}
+\DoxyCodeLine{00258       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}{printModule}}(fd-\/>\mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{getOutputFileBase}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00259       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}{printDefines}}();}
+\DoxyCodeLine{00260     \}}
+\DoxyCodeLine{00261     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&md : *ml) \{}
+\DoxyCodeLine{00262       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a38cbbdc0682a8c56b5c0e70f7ceef385}{printDefinition}}(\textcolor{stringliteral}{"{}variable"{}}, cd-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}() + \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(\textcolor{stringliteral}{"{}::"{}}) + md-\/>name().data(), md-\/>getDefLine());}
+\DoxyCodeLine{00263       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}{protectionInformation}}(md-\/>protection());}
+\DoxyCodeLine{00264     \}}
+\DoxyCodeLine{00265   \}}
+\DoxyCodeLine{00266 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_class_def_aed4a0864e51e5a3ac616f6c8e10f56c6}{Class\+Def\+::get\+File\+Def()}}, \mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{Class\+Def\+::get\+Member\+List()}}, \mbox{\hyperlink{class_file_def_aca0861997f31aa265f0c0078c947fdc9}{File\+Def\+::get\+Member\+List()}}, \mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{File\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ae5d8c38233229e4c743976f97728a19e}{Member\+List\+Type\+\_\+all\+Members\+List}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ac236492bbb72e2af1802dfdcbd6d3ad8}{Member\+List\+Type\+\_\+variable\+Members}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}{print\+Defines()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a38cbbdc0682a8c56b5c0e70f7ceef385}{print\+Definition()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}{print\+Module()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}{protection\+Information()}}, \mbox{\hyperlink{class_member_vector_ae48653a9dc8688c02cde84c41b66d9bc}{Member\+Vector\+::size()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a1ed35698f41bfe49601ba331a623b5e0}\label{addon_2doxyparse_2doxyparse_8cpp_a1ed35698f41bfe49601ba331a623b5e0}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!detectProgrammingLanguage@{detectProgrammingLanguage}}
+\index{detectProgrammingLanguage@{detectProgrammingLanguage}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{detectProgrammingLanguage()}{detectProgrammingLanguage()}}
+{\footnotesize\ttfamily static void detect\+Programming\+Language (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_file_name_linked_map}{File\+Name\+Linked\+Map}} \&}]{fnli }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00377}{377}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00377                                                                \{}
+\DoxyCodeLine{00378   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fn : fnli) \{}
+\DoxyCodeLine{00379     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}} = fn-\/>fileName().str();}
+\DoxyCodeLine{00380     \textcolor{keywordflow}{if} (}
+\DoxyCodeLine{00381         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{checkLanguage}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \textcolor{stringliteral}{"{}.cc"{}}) ||}
+\DoxyCodeLine{00382         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{checkLanguage}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \textcolor{stringliteral}{"{}.cxx"{}}) ||}
+\DoxyCodeLine{00383         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{checkLanguage}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \textcolor{stringliteral}{"{}.cpp"{}}) ||}
+\DoxyCodeLine{00384         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{checkLanguage}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \textcolor{stringliteral}{"{}.java"{}}) ||}
+\DoxyCodeLine{00385         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{checkLanguage}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \textcolor{stringliteral}{"{}.py"{}}) ||}
+\DoxyCodeLine{00386         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{checkLanguage}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \textcolor{stringliteral}{"{}.pyw"{}}) ||}
+\DoxyCodeLine{00387         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{checkLanguage}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \textcolor{stringliteral}{"{}.cs"{}})}
+\DoxyCodeLine{00388        ) \{}
+\DoxyCodeLine{00389       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}{is\_c\_code}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00390     \}}
+\DoxyCodeLine{00391   \}}
+\DoxyCodeLine{00392 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7b2da871e0cb21c97f7c578ae8e2a7d6}{check\+Language()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}{is\+\_\+c\+\_\+code}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a1e109751dbf91eecedb615bafa8ad2d6}\label{addon_2doxyparse_2doxyparse_8cpp_a1e109751dbf91eecedb615bafa8ad2d6}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!findXRefSymbols@{findXRefSymbols}}
+\index{findXRefSymbols@{findXRefSymbols}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{findXRefSymbols()}{findXRefSymbols()}}
+{\footnotesize\ttfamily static void find\+XRef\+Symbols (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089 \{}
+\DoxyCodeLine{00090   \textcolor{comment}{// get the interface to a parser that matches the file extension}}
+\DoxyCodeLine{00091   \textcolor{keyword}{auto} intf=\mbox{\hyperlink{class_doxygen_a2a1b1172d0c1be7df5737a2569e8434a}{Doxygen::parserManager}}-\/>\mbox{\hyperlink{class_parser_manager_a691952e0c5c944e83d4a6e88117471a6}{getCodeParser}}(fd-\/>\mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{getDefFileExtension}}());}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093   \textcolor{comment}{// get the programming language from the file name}}
+\DoxyCodeLine{00094   \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a1b56719a14e986911d90aae56767dd5b}{getLanguageFromFileName}}(fd-\/>\mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{name}}());}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096   \textcolor{comment}{// reset the parsers state}}
+\DoxyCodeLine{00097   intf-\/>resetCodeParserState();}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099   \textcolor{comment}{// create a new backend object}}
+\DoxyCodeLine{00100   \mbox{\hyperlink{class_doxyparse}{Doxyparse}} *\mbox{\hyperlink{namespacedoxmlparser_1_1compound_a4f8e219f4ff3cc03a512a49bfa36fa1e}{parse}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_doxyparse}{Doxyparse}}(fd);}
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102   \textcolor{comment}{// parse the source code}}
+\DoxyCodeLine{00103   intf-\/>parseCode(*\mbox{\hyperlink{namespacedoxmlparser_1_1compound_a4f8e219f4ff3cc03a512a49bfa36fa1e}{parse}}, 0, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{fileToString}}(fd-\/>\mbox{\hyperlink{class_file_def_a800e157b3a9d9d68b3961528e60117d9}{absFilePath}}()), lang, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, 0, fd);}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105   \textcolor{comment}{// dismiss the object.}}
+\DoxyCodeLine{00106   \textcolor{keyword}{delete} \mbox{\hyperlink{namespacedoxmlparser_1_1compound_a4f8e219f4ff3cc03a512a49bfa36fa1e}{parse}};}
+\DoxyCodeLine{00107 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_def_a800e157b3a9d9d68b3961528e60117d9}{File\+Def\+::abs\+File\+Path()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{file\+To\+String()}}, \mbox{\hyperlink{class_parser_manager_a691952e0c5c944e83d4a6e88117471a6}{Parser\+Manager\+::get\+Code\+Parser()}}, \mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{Definition\+::get\+Def\+File\+Extension()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a1b56719a14e986911d90aae56767dd5b}{get\+Language\+From\+File\+Name()}}, \mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{File\+Def\+::name()}}, \mbox{\hyperlink{namespacedoxmlparser_1_1compound_a4f8e219f4ff3cc03a512a49bfa36fa1e}{doxmlparser.\+compound\+::parse()}}, and \mbox{\hyperlink{class_doxygen_a2a1b1172d0c1be7df5737a2569e8434a}{Doxygen\+::parser\+Manager}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}\label{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!functionInformation@{functionInformation}}
+\index{functionInformation@{functionInformation}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{functionInformation()}{functionInformation()}}
+{\footnotesize\ttfamily void function\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00282                                               \{}
+\DoxyCodeLine{00283   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} temp = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00284   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}} = md-\/>\mbox{\hyperlink{class_definition_a0b5313ad11f50b2d056fc62d81db0433}{getEndBodyLine}}() -\/ md-\/>\mbox{\hyperlink{class_definition_ad63d39480ae9ec4e71bedbb749d16a4c}{getStartBodyLine}}() + 1;}
+\DoxyCodeLine{00285   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab9d6b27bbf18563bcbf2a2c2d7081f0d}{printNumberOfLines}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{00286   \textcolor{keyword}{const} \mbox{\hyperlink{class_argument_list}{ArgumentList}} \&argList = md-\/>\mbox{\hyperlink{class_member_def_a515503656a6cffb2d27f60e93c3c780e}{argumentList}}();}
+\DoxyCodeLine{00287   \textcolor{keywordflow}{if} (!argList.\mbox{\hyperlink{class_argument_list_aaa15ddcfdb06a535a3398f1dc73d336d}{empty}}())}
+\DoxyCodeLine{00288   \{}
+\DoxyCodeLine{00289     temp = \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}{argumentData}}(argList.\mbox{\hyperlink{class_argument_list_a3c86608e0790d8d86314bf4bc24936c2}{front}}());}
+\DoxyCodeLine{00290 \textcolor{comment}{// TODO: This is a workaround; better not include "{}void"{} in argList, in the first place.}}
+\DoxyCodeLine{00291     \textcolor{keywordflow}{if} (temp!=\textcolor{stringliteral}{"{}void"{}})}
+\DoxyCodeLine{00292     \{}
+\DoxyCodeLine{00293       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aaf02684fc0f251c43e6a811d7bf88ef3}{printNumberOfArguments}}(argList.\mbox{\hyperlink{class_argument_list_a4d651caeb995400fad17d4ab4a020a3a}{size}}());}
+\DoxyCodeLine{00294     \}}
+\DoxyCodeLine{00295   \}}
+\DoxyCodeLine{00296 }
+\DoxyCodeLine{00297   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ada13519996675a60aed9a930e58699cd}{printNumberOfConditionalPaths}}(md);}
+\DoxyCodeLine{00298   \textcolor{keyword}{auto} refList = md-\/>\mbox{\hyperlink{class_definition_af21ed7be937dbdb153d5ccab3d9abf12}{getReferencesMembers}}();}
+\DoxyCodeLine{00299   \textcolor{keywordflow}{if} (!refList.empty()) \{}
+\DoxyCodeLine{00300     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a418f6916c279805716deea1c0d8b26c2}{printUses}}();}
+\DoxyCodeLine{00301     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&rmd : refList) \{}
+\DoxyCodeLine{00302       \textcolor{keywordflow}{if} (rmd-\/>definitionType() == \mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eae54a4cc05b16b8c03d035d579851f746}{Definition::TypeMember}} \&\& !\mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a4c2071b46c8d3d9d9355b031ed8b0646}{ignoreStaticExternalCall}}(md, rmd) \&\& !\mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a4c2f9c0a9bff9514ea0ae5fb283f2aa9}{checkOverrideArg}}(argList, rmd)) \{}
+\DoxyCodeLine{00303         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}{referenceTo}}(rmd);}
+\DoxyCodeLine{00304       \}}
+\DoxyCodeLine{00305     \}}
+\DoxyCodeLine{00306   \}}
+\DoxyCodeLine{00307 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}{argument\+Data()}}, \mbox{\hyperlink{class_member_def_a515503656a6cffb2d27f60e93c3c780e}{Member\+Def\+::argument\+List()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a4c2f9c0a9bff9514ea0ae5fb283f2aa9}{check\+Override\+Arg()}}, \mbox{\hyperlink{class_argument_list_aaa15ddcfdb06a535a3398f1dc73d336d}{Argument\+List\+::empty()}}, \mbox{\hyperlink{class_argument_list_a3c86608e0790d8d86314bf4bc24936c2}{Argument\+List\+::front()}}, \mbox{\hyperlink{class_definition_a0b5313ad11f50b2d056fc62d81db0433}{Definition\+::get\+End\+Body\+Line()}}, \mbox{\hyperlink{class_definition_af21ed7be937dbdb153d5ccab3d9abf12}{Definition\+::get\+References\+Members()}}, \mbox{\hyperlink{class_definition_ad63d39480ae9ec4e71bedbb749d16a4c}{Definition\+::get\+Start\+Body\+Line()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a4c2071b46c8d3d9d9355b031ed8b0646}{ignore\+Static\+External\+Call()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aaf02684fc0f251c43e6a811d7bf88ef3}{print\+Number\+Of\+Arguments()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ada13519996675a60aed9a930e58699cd}{print\+Number\+Of\+Conditional\+Paths()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab9d6b27bbf18563bcbf2a2c2d7081f0d}{print\+Number\+Of\+Lines()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a418f6916c279805716deea1c0d8b26c2}{print\+Uses()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}{reference\+To()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}, \mbox{\hyperlink{class_argument_list_a4d651caeb995400fad17d4ab4a020a3a}{Argument\+List\+::size()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eae54a4cc05b16b8c03d035d579851f746}{Definition\+::\+Type\+Member}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookup\+Symbol()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}\label{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!functionSignature@{functionSignature}}
+\index{functionSignature@{functionSignature}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{functionSignature()}{functionSignature()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} function\+Signature (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00197                                                  \{}
+\DoxyCodeLine{00198   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} signature = \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitizeString}}(md-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00199   \textcolor{keywordflow}{if}(md-\/>\mbox{\hyperlink{class_member_def_a5e6ace25ee464a601e1b3f2b8016ddad}{isFunction}}())\{}
+\DoxyCodeLine{00200     \textcolor{keyword}{const} \mbox{\hyperlink{class_argument_list}{ArgumentList}} \&argList = md-\/>\mbox{\hyperlink{class_member_def_a515503656a6cffb2d27f60e93c3c780e}{argumentList}}();}
+\DoxyCodeLine{00201     signature += \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{00202     \textcolor{keyword}{auto} it = argList.\mbox{\hyperlink{class_argument_list_acc52d012d093df1adede055164f69dc9}{begin}}();}
+\DoxyCodeLine{00203     \textcolor{keywordflow}{if}(it!=argList.\mbox{\hyperlink{class_argument_list_a215181845c0d9f0525806a4165c4f552}{end}}()) \{}
+\DoxyCodeLine{00204       signature += \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}{argumentData}}(*it);}
+\DoxyCodeLine{00205       \textcolor{keywordflow}{for}(++it; it!=argList.\mbox{\hyperlink{class_argument_list_a215181845c0d9f0525806a4165c4f552}{end}}(); ++it) \{}
+\DoxyCodeLine{00206         signature += \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(\textcolor{stringliteral}{"{},"{}}) + \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}{argumentData}}(*it);}
+\DoxyCodeLine{00207       \}}
+\DoxyCodeLine{00208     \}}
+\DoxyCodeLine{00209     signature += \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00210   \}}
+\DoxyCodeLine{00211   \textcolor{keywordflow}{return} signature;}
+\DoxyCodeLine{00212 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}{argument\+Data()}}, \mbox{\hyperlink{class_member_def_a515503656a6cffb2d27f60e93c3c780e}{Member\+Def\+::argument\+List()}}, \mbox{\hyperlink{class_argument_list_acc52d012d093df1adede055164f69dc9}{Argument\+List\+::begin()}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_argument_list_a215181845c0d9f0525806a4165c4f552}{Argument\+List\+::end()}}, \mbox{\hyperlink{class_member_def_a5e6ace25ee464a601e1b3f2b8016ddad}{Member\+Def\+::is\+Function()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}{sanitize\+String()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookup\+Symbol()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}{reference\+To()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a4c2071b46c8d3d9d9355b031ed8b0646}\label{addon_2doxyparse_2doxyparse_8cpp_a4c2071b46c8d3d9d9355b031ed8b0646}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!ignoreStaticExternalCall@{ignoreStaticExternalCall}}
+\index{ignoreStaticExternalCall@{ignoreStaticExternalCall}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{ignoreStaticExternalCall()}{ignoreStaticExternalCall()}}
+{\footnotesize\ttfamily static bool ignore\+Static\+External\+Call (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{context,  }\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109                                                                                     \{}
+\DoxyCodeLine{00110   \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{class_member_def_a73354ecea5b876ab8d59724b080189b4}{isStatic}}()) \{}
+\DoxyCodeLine{00111     \textcolor{keywordflow}{if}(md-\/>\mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{getFileDef}}() \&\& context-\/>\mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{getFileDef}}()) \{}
+\DoxyCodeLine{00112       \textcolor{keywordflow}{if}(md-\/>\mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{getFileDef}}()-\/>\mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{getOutputFileBase}}() == context-\/>\mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{getFileDef}}()-\/>\mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{getOutputFileBase}}())}
+\DoxyCodeLine{00113         \textcolor{comment}{// TODO ignore prefix of file}}
+\DoxyCodeLine{00114         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00115       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00116         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00117     \}}
+\DoxyCodeLine{00118     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00119       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00120     \}}
+\DoxyCodeLine{00121   \}}
+\DoxyCodeLine{00122   \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00123     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00124   \}}
+\DoxyCodeLine{00125 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{Member\+Def\+::get\+File\+Def()}}, \mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{File\+Def\+::get\+Output\+File\+Base()}}, and \mbox{\hyperlink{class_member_def_a73354ecea5b876ab8d59724b080189b4}{Member\+Def\+::is\+Static()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a585d12dcb8b2a5b93549f3ba43e288f9}\label{addon_2doxyparse_2doxyparse_8cpp_a585d12dcb8b2a5b93549f3ba43e288f9}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!isPartOfCStruct@{isPartOfCStruct}}
+\index{isPartOfCStruct@{isPartOfCStruct}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{isPartOfCStruct()}{isPartOfCStruct()}}
+{\footnotesize\ttfamily static int is\+Part\+Of\+CStruct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00177}{177}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00177                                                  \{}
+\DoxyCodeLine{00178   \textcolor{keywordflow}{return} \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}{is\_c\_code}} \&\& md-\/>\mbox{\hyperlink{class_member_def_a33ff70edee6691aacaeecf40a1146995}{getClassDef}}() != NULL;}
+\DoxyCodeLine{00179 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_member_def_a33ff70edee6691aacaeecf40a1146995}{Member\+Def\+::get\+Class\+Def()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}{is\+\_\+c\+\_\+code}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}{reference\+To()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a18944f2864679af4b348a643d241613e}\label{addon_2doxyparse_2doxyparse_8cpp_a18944f2864679af4b348a643d241613e}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!listAllMembers@{listAllMembers}}
+\index{listAllMembers@{listAllMembers}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{listAllMembers()}{listAllMembers()}}
+{\footnotesize\ttfamily void list\+All\+Members (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00339}{339}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00339                                         \{}
+\DoxyCodeLine{00340   \textcolor{comment}{// methods}}
+\DoxyCodeLine{00341   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{listMembers}}(cd-\/>\mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{getMemberList}}(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19aafe22f3b736c5790d4c8f074d01a4a04}{MemberListType\_functionMembers}}));}
+\DoxyCodeLine{00342   \textcolor{comment}{// constructors}}
+\DoxyCodeLine{00343   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{listMembers}}(cd-\/>\mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{getMemberList}}(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19a52c640c5d7ed3e75d1c186869a00ff32}{MemberListType\_constructors}}));}
+\DoxyCodeLine{00344   \textcolor{comment}{// attributes}}
+\DoxyCodeLine{00345   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{listMembers}}(cd-\/>\mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{getMemberList}}(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ac236492bbb72e2af1802dfdcbd6d3ad8}{MemberListType\_variableMembers}}));}
+\DoxyCodeLine{00346 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{Class\+Def\+::get\+Member\+List()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{list\+Members()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19a52c640c5d7ed3e75d1c186869a00ff32}{Member\+List\+Type\+\_\+constructors}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19aafe22f3b736c5790d4c8f074d01a4a04}{Member\+List\+Type\+\_\+function\+Members}}, and \mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ac236492bbb72e2af1802dfdcbd6d3ad8}{Member\+List\+Type\+\_\+variable\+Members}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}\label{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!listMembers@{listMembers}}
+\index{listMembers@{listMembers}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{listMembers()}{listMembers()}}
+{\footnotesize\ttfamily void list\+Members (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_list}{Member\+List}} $\ast$}]{ml }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00331}{331}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00331                                        \{}
+\DoxyCodeLine{00332   \textcolor{keywordflow}{if} (ml) \{}
+\DoxyCodeLine{00333     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&md : *ml) \{}
+\DoxyCodeLine{00334       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookupSymbol}}((\mbox{\hyperlink{class_definition}{Definition}}*) md);}
+\DoxyCodeLine{00335     \}}
+\DoxyCodeLine{00336   \}}
+\DoxyCodeLine{00337 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookup\+Symbol()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a18944f2864679af4b348a643d241613e}{list\+All\+Members()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}\label{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!listSymbols@{listSymbols}}
+\index{listSymbols@{listSymbols}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{listSymbols()}{listSymbols()}}
+{\footnotesize\ttfamily static void list\+Symbols (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00394}{394}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00394                           \{}
+\DoxyCodeLine{00395   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1ed35698f41bfe49601ba331a623b5e0}{detectProgrammingLanguage}}(*\mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen::inputNameLinkedMap}});}
+\DoxyCodeLine{00396 }
+\DoxyCodeLine{00397   \textcolor{comment}{// iterate over the input files}}
+\DoxyCodeLine{00398   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fn : *\mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen::inputNameLinkedMap}}) \{}
+\DoxyCodeLine{00399     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fd : *fn) \{}
+\DoxyCodeLine{00400       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7637c9cf99a66e6ebcf8a675593b2300}{printFile}}(fd-\/>absFilePath().data());}
+\DoxyCodeLine{00401       \mbox{\hyperlink{class_member_list}{MemberList}} *ml = fd-\/>getMemberList(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ae5d8c38233229e4c743976f97728a19e}{MemberListType\_allMembersList}});}
+\DoxyCodeLine{00402       \textcolor{keywordflow}{if} (ml \&\& ml-\/>\mbox{\hyperlink{class_member_vector_ae48653a9dc8688c02cde84c41b66d9bc}{size}}() > 0) \{}
+\DoxyCodeLine{00403         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}{printModule}}(fd-\/>getOutputFileBase().data());}
+\DoxyCodeLine{00404         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}{printDefines}}();}
+\DoxyCodeLine{00405         \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{listMembers}}(ml);}
+\DoxyCodeLine{00406       \}}
+\DoxyCodeLine{00407 }
+\DoxyCodeLine{00408       \mbox{\hyperlink{build_2doxygen_2src_2classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} visitedClasses;}
+\DoxyCodeLine{00409       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&cd : fd-\/>getClasses()) \{}
+\DoxyCodeLine{00410         \textcolor{keywordflow}{if} (visitedClasses.find(cd)==visitedClasses.end()) \{}
+\DoxyCodeLine{00411           \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{classInformation}}(cd);}
+\DoxyCodeLine{00412           visitedClasses.insert(cd);}
+\DoxyCodeLine{00413         \}}
+\DoxyCodeLine{00414       \}}
+\DoxyCodeLine{00415     \}}
+\DoxyCodeLine{00416   \}}
+\DoxyCodeLine{00417   \textcolor{comment}{// TODO print external symbols referenced}}
+\DoxyCodeLine{00418 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1ed35698f41bfe49601ba331a623b5e0}{detect\+Programming\+Language()}}, \mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen\+::input\+Name\+Linked\+Map}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{list\+Members()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ae5d8c38233229e4c743976f97728a19e}{Member\+List\+Type\+\_\+all\+Members\+List}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}{print\+Defines()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a7637c9cf99a66e6ebcf8a675593b2300}{print\+File()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}{print\+Module()}}, and \mbox{\hyperlink{class_member_vector_ae48653a9dc8688c02cde84c41b66d9bc}{Member\+Vector\+::size()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}\label{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!lookupSymbol@{lookupSymbol}}
+\index{lookupSymbol@{lookupSymbol}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{lookupSymbol()}{lookupSymbol()}}
+{\footnotesize\ttfamily static void lookup\+Symbol (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00315}{315}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00315                                               \{}
+\DoxyCodeLine{00316   \textcolor{keywordflow}{if} (d-\/>\mbox{\hyperlink{class_definition_a526c39074637d4b17a3f67df56d961ff}{definitionType}}() == \mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eae54a4cc05b16b8c03d035d579851f746}{Definition::TypeMember}}) \{}
+\DoxyCodeLine{00317     \textcolor{keyword}{const} \mbox{\hyperlink{class_member_def}{MemberDef}} *md = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_member_def}{MemberDef}}*\textcolor{keyword}{>}(d);}
+\DoxyCodeLine{00318     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} type = md-\/>\mbox{\hyperlink{class_member_def_aca314e25245ec3b08f1a55068c2fbeff}{memberTypeName}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00319     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} signature = \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{functionSignature}}(md);}
+\DoxyCodeLine{00320     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a38cbbdc0682a8c56b5c0e70f7ceef385}{printDefinition}}(type, signature, md-\/>\mbox{\hyperlink{class_definition_a47e34774622704853e238ee2e7ef2334}{getDefLine}}());}
+\DoxyCodeLine{00321     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}{protectionInformation}}(md-\/>\mbox{\hyperlink{class_member_def_ab266b88c02dd8d5089b29d501b412c5d}{protection}}());}
+\DoxyCodeLine{00322     \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{class_member_def_a5e6ace25ee464a601e1b3f2b8016ddad}{isFunction}}() \&\& md-\/>\mbox{\hyperlink{class_member_def_afa756b712f45e7800617808f708c2876}{isPrototype}}()) \{}
+\DoxyCodeLine{00323       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae82a4947787790a92f1a9ddc2bdd6f96}{prototypeInformation}}(md);}
+\DoxyCodeLine{00324     \}}
+\DoxyCodeLine{00325     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{class_member_def_a5e6ace25ee464a601e1b3f2b8016ddad}{isFunction}}()) \{}
+\DoxyCodeLine{00326       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{functionInformation}}(md);}
+\DoxyCodeLine{00327     \}}
+\DoxyCodeLine{00328   \}}
+\DoxyCodeLine{00329 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_definition_a526c39074637d4b17a3f67df56d961ff}{Definition\+::definition\+Type()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{function\+Signature()}}, \mbox{\hyperlink{class_definition_a47e34774622704853e238ee2e7ef2334}{Definition\+::get\+Def\+Line()}}, \mbox{\hyperlink{class_member_def_a5e6ace25ee464a601e1b3f2b8016ddad}{Member\+Def\+::is\+Function()}}, \mbox{\hyperlink{class_member_def_afa756b712f45e7800617808f708c2876}{Member\+Def\+::is\+Prototype()}}, \mbox{\hyperlink{class_member_def_aca314e25245ec3b08f1a55068c2fbeff}{Member\+Def\+::member\+Type\+Name()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a38cbbdc0682a8c56b5c0e70f7ceef385}{print\+Definition()}}, \mbox{\hyperlink{class_member_def_ab266b88c02dd8d5089b29d501b412c5d}{Member\+Def\+::protection()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}{protection\+Information()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae82a4947787790a92f1a9ddc2bdd6f96}{prototype\+Information()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eae54a4cc05b16b8c03d035d579851f746}{Definition\+::\+Type\+Member}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a025a6d9ce7b2d788ae433d52e9669f28}{list\+Members()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{addon_2doxyparse_2doxyparse_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!main@{main}}
+\index{main@{main}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00420}{420}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00420                                \{}
+\DoxyCodeLine{00421   \textcolor{keywordtype}{int} locArgc = argc;}
+\DoxyCodeLine{00422 }
+\DoxyCodeLine{00423   \textcolor{keywordflow}{if} (locArgc == 2)}
+\DoxyCodeLine{00424   \{}
+\DoxyCodeLine{00425     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2examples_2relates_8cpp_a7ceb7d379a52f7e26418e7a446b4a41a}{strcmp}}(argv[1],\textcolor{stringliteral}{"{}-\/-\/help"{}}))}
+\DoxyCodeLine{00426     \{}
+\DoxyCodeLine{00427       printf(\textcolor{stringliteral}{"{}Usage: \%s [source\_file | source\_dir]\(\backslash\)n"{}},argv[0]);}
+\DoxyCodeLine{00428       exit(0);}
+\DoxyCodeLine{00429     \}}
+\DoxyCodeLine{00430     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2examples_2relates_8cpp_a7ceb7d379a52f7e26418e7a446b4a41a}{strcmp}}(argv[1],\textcolor{stringliteral}{"{}-\/-\/version"{}}))}
+\DoxyCodeLine{00431     \{}
+\DoxyCodeLine{00432       printf(\textcolor{stringliteral}{"{}\%s version: \%s\(\backslash\)n"{}},argv[0],\mbox{\hyperlink{build_2doxygen_2libversion_2fullversion_8cpp_a0dc4fbac53e7f3128f3d6501edf4f263}{getFullVersion}}());}
+\DoxyCodeLine{00433       exit(0);}
+\DoxyCodeLine{00434     \}}
+\DoxyCodeLine{00435   \}}
+\DoxyCodeLine{00436 }
+\DoxyCodeLine{00437   \textcolor{keywordflow}{if} (locArgc!=2)}
+\DoxyCodeLine{00438   \{}
+\DoxyCodeLine{00439     printf(\textcolor{stringliteral}{"{}Usage: \%s [source\_file | source\_dir]\(\backslash\)n"{}},argv[0]);}
+\DoxyCodeLine{00440     exit(1);}
+\DoxyCodeLine{00441   \}}
+\DoxyCodeLine{00442 }
+\DoxyCodeLine{00443   \textcolor{comment}{// initialize data structures}}
+\DoxyCodeLine{00444   \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a122070be7aebc9e3ab560b58fdd922c9}{initDoxygen}}();}
+\DoxyCodeLine{00445 }
+\DoxyCodeLine{00446   \textcolor{comment}{// check and finalize the configuration}}
+\DoxyCodeLine{00447   \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a2426bb829c785229969c3052f3e37fb1}{checkConfiguration}}();}
+\DoxyCodeLine{00448   \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjustConfiguration}}();}
+\DoxyCodeLine{00449 }
+\DoxyCodeLine{00450   \textcolor{comment}{// setup the non-\/default configuration options}}
+\DoxyCodeLine{00451 }
+\DoxyCodeLine{00452   \textcolor{comment}{// we need a place to put intermediate files}}
+\DoxyCodeLine{00453   std::ostringstream tmpdir;}
+\DoxyCodeLine{00454   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}} = \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{Portable::pid}}();}
+\DoxyCodeLine{00455   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{stringliteral}{"{}TMP"{}}).isEmpty())}
+\DoxyCodeLine{00456     tmpdir << \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{stringliteral}{"{}TMP"{}}) << \textcolor{stringliteral}{"{}/doxyparse-\/"{}} << \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}};}
+\DoxyCodeLine{00457   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{stringliteral}{"{}TEMP"{}}).isEmpty())}
+\DoxyCodeLine{00458     tmpdir << \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{stringliteral}{"{}TEMP"{}}) << \textcolor{stringliteral}{"{}/doxyparse-\/"{}} << \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}};}
+\DoxyCodeLine{00459   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00460     tmpdir << \textcolor{stringliteral}{"{}doxyparse-\/"{}} << \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}};}
+\DoxyCodeLine{00461 }
+\DoxyCodeLine{00462   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a168f2876d56397a94af9140753974f38}{Config\_updateString}}(OUTPUT\_DIRECTORY,tmpdir.str().c\_str());}
+\DoxyCodeLine{00463   \textcolor{comment}{// enable HTML (fake) output to omit warning about missing output format}}
+\DoxyCodeLine{00464   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(GENERATE\_HTML,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00465   \textcolor{comment}{// disable latex output}}
+\DoxyCodeLine{00466   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(GENERATE\_LATEX,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{00467   \textcolor{comment}{// be quiet}}
+\DoxyCodeLine{00468   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(QUIET,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00469   \textcolor{comment}{// turn off warnings}}
+\DoxyCodeLine{00470   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(WARNINGS,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{00471   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(WARN\_IF\_UNDOCUMENTED,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{00472   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(WARN\_IF\_DOC\_ERROR,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{00473   \textcolor{comment}{// Extract as much as possible}}
+\DoxyCodeLine{00474   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(EXTRACT\_ALL,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00475   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(EXTRACT\_STATIC,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00476   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(EXTRACT\_PRIVATE,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00477   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(EXTRACT\_LOCAL\_METHODS,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00478   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(EXTRACT\_PACKAGE,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00479   \textcolor{comment}{// Extract source browse information, needed}}
+\DoxyCodeLine{00480   \textcolor{comment}{// to make doxygen gather the cross reference info}}
+\DoxyCodeLine{00481   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(SOURCE\_BROWSER,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00482   \textcolor{comment}{// find functions call between modules}}
+\DoxyCodeLine{00483   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(CALL\_GRAPH,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00484   \textcolor{comment}{// loop recursive over input files}}
+\DoxyCodeLine{00485   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\_updateBool}}(RECURSIVE,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00486   \textcolor{comment}{// add file extensions}}
+\DoxyCodeLine{00487   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a77eefd6119ed441632a00d7d274184af}{Config\_updateList}}(FILE\_PATTERNS, \{ \textcolor{stringliteral}{"{}*.cc"{}}, \textcolor{stringliteral}{"{}*.cxx"{}}, \textcolor{stringliteral}{"{}*.cpp"{}}, \textcolor{stringliteral}{"{}*.java"{}},}
+\DoxyCodeLine{00488                                      \textcolor{stringliteral}{"{}*.py"{}}, \textcolor{stringliteral}{"{}*.pyw"{}}, \textcolor{stringliteral}{"{}*.cs"{}}, \textcolor{stringliteral}{"{}*.c"{}}, \textcolor{stringliteral}{"{}*.h"{}}, \textcolor{stringliteral}{"{}*.hh"{}}, \textcolor{stringliteral}{"{}*.hpp"{}}\});}
+\DoxyCodeLine{00489   \textcolor{comment}{// set the input}}
+\DoxyCodeLine{00490   \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} inputList;}
+\DoxyCodeLine{00491   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < argc; i++) \{}
+\DoxyCodeLine{00492     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2examples_2relates_8cpp_a7ceb7d379a52f7e26418e7a446b4a41a}{strcmp}}(argv[i], \textcolor{stringliteral}{"{}-\/"{}}) == 0) \{}
+\DoxyCodeLine{00493       \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}[1024];}
+\DoxyCodeLine{00494       \textcolor{keywordflow}{while} (1) \{}
+\DoxyCodeLine{00495         scanf(\textcolor{stringliteral}{"{}\%s[\string^\(\backslash\)n]"{}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}});}
+\DoxyCodeLine{00496         \textcolor{keywordflow}{if} (feof(stdin)) \{}
+\DoxyCodeLine{00497           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00498         \}}
+\DoxyCodeLine{00499         inputList.push\_back(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}});}
+\DoxyCodeLine{00500       \}}
+\DoxyCodeLine{00501     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00502       inputList.push\_back(argv[i]);}
+\DoxyCodeLine{00503     \}}
+\DoxyCodeLine{00504   \}}
+\DoxyCodeLine{00505   \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a77eefd6119ed441632a00d7d274184af}{Config\_updateList}}(INPUT,inputList);}
+\DoxyCodeLine{00506   \textcolor{keywordflow}{if} (inputList.empty()) \{}
+\DoxyCodeLine{00507     exit(0);}
+\DoxyCodeLine{00508   \}}
+\DoxyCodeLine{00509 }
+\DoxyCodeLine{00510   \textcolor{comment}{// parse the files}}
+\DoxyCodeLine{00511   \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parseInput}}();}
+\DoxyCodeLine{00512 }
+\DoxyCodeLine{00513   \textcolor{comment}{// iterate over the input files}}
+\DoxyCodeLine{00514   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fn : *\mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen::inputNameLinkedMap}}) \{}
+\DoxyCodeLine{00515     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fd : *fn) \{}
+\DoxyCodeLine{00516       \textcolor{comment}{// get the references (linked and unlinked) found in this file}}
+\DoxyCodeLine{00517       \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1e109751dbf91eecedb615bafa8ad2d6}{findXRefSymbols}}(fd.get());}
+\DoxyCodeLine{00518     \}}
+\DoxyCodeLine{00519   \}}
+\DoxyCodeLine{00520 }
+\DoxyCodeLine{00521   \mbox{\hyperlink{class_dir}{Dir}} thisDir;}
+\DoxyCodeLine{00522   \textcolor{comment}{// remove temporary files}}
+\DoxyCodeLine{00523   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_doxygen_a076ed5b2ed20d6f9a7d3a7adc9049f09}{Doxygen::filterDBFileName}}.isEmpty()) thisDir.\mbox{\hyperlink{class_dir_a5a64060f8e1731e8f00da7e8f7051e4b}{remove}}(\mbox{\hyperlink{class_doxygen_a076ed5b2ed20d6f9a7d3a7adc9049f09}{Doxygen::filterDBFileName}}.str());}
+\DoxyCodeLine{00524 }
+\DoxyCodeLine{00525   \textcolor{comment}{// clean up after us}}
+\DoxyCodeLine{00526   thisDir.\mbox{\hyperlink{class_dir_ab0dd8833adb3178d976d3125955fbe8c}{rmdir}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(OUTPUT\_DIRECTORY).str());}
+\DoxyCodeLine{00527 }
+\DoxyCodeLine{00528   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0048ea16e7f0ed820b718eb860429640}{startYamlDocument}}();}
+\DoxyCodeLine{00529   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{listSymbols}}();}
+\DoxyCodeLine{00530 }
+\DoxyCodeLine{00531   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} cleanup\_command = \textcolor{stringliteral}{"{}rm -\/rf "{}};}
+\DoxyCodeLine{00532   cleanup\_command += tmpdir.str();}
+\DoxyCodeLine{00533   \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{system}}(cleanup\_command.c\_str());}
+\DoxyCodeLine{00534 }
+\DoxyCodeLine{00535   exit(0);}
+\DoxyCodeLine{00536 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjust\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a2426bb829c785229969c3052f3e37fb1}{check\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\+\_\+update\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a77eefd6119ed441632a00d7d274184af}{Config\+\_\+update\+List}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a168f2876d56397a94af9140753974f38}{Config\+\_\+update\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}, \mbox{\hyperlink{class_doxygen_a076ed5b2ed20d6f9a7d3a7adc9049f09}{Doxygen\+::filter\+DBFile\+Name}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1e109751dbf91eecedb615bafa8ad2d6}{find\+XRef\+Symbols()}}, \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable\+::getenv()}}, \mbox{\hyperlink{build_2doxygen_2libversion_2fullversion_8cpp_a0dc4fbac53e7f3128f3d6501edf4f263}{get\+Full\+Version()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a122070be7aebc9e3ab560b58fdd922c9}{init\+Doxygen()}}, \mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen\+::input\+Name\+Linked\+Map}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input()}}, \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{Portable\+::pid()}}, \mbox{\hyperlink{class_dir_a5a64060f8e1731e8f00da7e8f7051e4b}{Dir\+::remove()}}, \mbox{\hyperlink{class_dir_ab0dd8833adb3178d976d3125955fbe8c}{Dir\+::rmdir()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0048ea16e7f0ed820b718eb860429640}{start\+Yaml\+Document()}}, \mbox{\hyperlink{build_2doxygen_2examples_2relates_8cpp_a7ceb7d379a52f7e26418e7a446b4a41a}{strcmp()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable\+::system()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_af2c8a3011a0d36b9eac565fe59a293f0}\label{addon_2doxyparse_2doxyparse_8cpp_af2c8a3011a0d36b9eac565fe59a293f0}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printClassInformation@{printClassInformation}}
+\index{printClassInformation@{printClassInformation}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printClassInformation()}{printClassInformation()}}
+{\footnotesize\ttfamily static void print\+Class\+Information (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{information }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00136}{136}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136                                                          \{}
+\DoxyCodeLine{00137   printf(\textcolor{stringliteral}{"{}    information: \%s\(\backslash\)n"{}}, information.c\_str());}
+\DoxyCodeLine{00138 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}\label{addon_2doxyparse_2doxyparse_8cpp_a439a91013b637f66c60e745c51629134}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printDefines@{printDefines}}
+\index{printDefines@{printDefines}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printDefines()}{printDefines()}}
+{\footnotesize\ttfamily static void print\+Defines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00145}{145}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00145                            \{}
+\DoxyCodeLine{00146   printf(\textcolor{stringliteral}{"{}    defines:\(\backslash\)n"{}});}
+\DoxyCodeLine{00147 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}{c\+Module()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a38cbbdc0682a8c56b5c0e70f7ceef385}\label{addon_2doxyparse_2doxyparse_8cpp_a38cbbdc0682a8c56b5c0e70f7ceef385}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printDefinition@{printDefinition}}
+\index{printDefinition@{printDefinition}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printDefinition()}{printDefinition()}}
+{\footnotesize\ttfamily static void print\+Definition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{type,  }\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{signature,  }\item[{int}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148                                                                            \{}
+\DoxyCodeLine{00149   printf(\textcolor{stringliteral}{"{}      -\/ \(\backslash\)"{}\%s\(\backslash\)"{}:\(\backslash\)n"{}}, signature.substr(0, 1022).c\_str());}
+\DoxyCodeLine{00150   printf(\textcolor{stringliteral}{"{}          type: \%s\(\backslash\)n"{}}, type.c\_str());}
+\DoxyCodeLine{00151   printf(\textcolor{stringliteral}{"{}          line: \%d\(\backslash\)n"{}}, line);}
+\DoxyCodeLine{00152 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}{c\+Module()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookup\+Symbol()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a7637c9cf99a66e6ebcf8a675593b2300}\label{addon_2doxyparse_2doxyparse_8cpp_a7637c9cf99a66e6ebcf8a675593b2300}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printFile@{printFile}}
+\index{printFile@{printFile}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printFile()}{printFile()}}
+{\footnotesize\ttfamily static void print\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130                                       \{}
+\DoxyCodeLine{00131   printf(\textcolor{stringliteral}{"{}\%s:\(\backslash\)n"{}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}.c\_str());}
+\DoxyCodeLine{00132 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_ae153b49a33d80e4200fbeb94003ea904}\label{addon_2doxyparse_2doxyparse_8cpp_ae153b49a33d80e4200fbeb94003ea904}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printInheritance@{printInheritance}}
+\index{printInheritance@{printInheritance}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printInheritance()}{printInheritance()}}
+{\footnotesize\ttfamily static void print\+Inheritance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{base\+\_\+class }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00142}{142}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00142                                                    \{}
+\DoxyCodeLine{00143   printf(\textcolor{stringliteral}{"{}      -\/ \(\backslash\)"{}\%s\(\backslash\)"{}\(\backslash\)n"{}}, base\_class.c\_str());}
+\DoxyCodeLine{00144 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a7223ba6f032ac2b19beeff42e8d59327}\label{addon_2doxyparse_2doxyparse_8cpp_a7223ba6f032ac2b19beeff42e8d59327}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printInherits@{printInherits}}
+\index{printInherits@{printInherits}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printInherits()}{printInherits()}}
+{\footnotesize\ttfamily static void print\+Inherits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00139}{139}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139                             \{}
+\DoxyCodeLine{00140   printf(\textcolor{stringliteral}{"{}    inherits:\(\backslash\)n"{}});}
+\DoxyCodeLine{00141 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}\label{addon_2doxyparse_2doxyparse_8cpp_a5ee51b2b7f80718932ce73abea02eff7}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printModule@{printModule}}
+\index{printModule@{printModule}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printModule()}{printModule()}}
+{\footnotesize\ttfamily static void print\+Module (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133                                           \{}
+\DoxyCodeLine{00134   printf(\textcolor{stringliteral}{"{}  \(\backslash\)"{}\%s\(\backslash\)"{}:\(\backslash\)n"{}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a75237d30f908ef839f400a0fe7584f9a}{unescapeCharsInString}}(module.c\_str()).\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00135 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a75237d30f908ef839f400a0fe7584f9a}{unescape\+Chars\+In\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}{c\+Module()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9a2307efbecedac263cf8286e2eb3e10}{list\+Symbols()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_aaf02684fc0f251c43e6a811d7bf88ef3}\label{addon_2doxyparse_2doxyparse_8cpp_aaf02684fc0f251c43e6a811d7bf88ef3}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printNumberOfArguments@{printNumberOfArguments}}
+\index{printNumberOfArguments@{printNumberOfArguments}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printNumberOfArguments()}{printNumberOfArguments()}}
+{\footnotesize\ttfamily static void print\+Number\+Of\+Arguments (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00162}{162}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162                                                      \{}
+\DoxyCodeLine{00163   printf(\textcolor{stringliteral}{"{}          parameters: \%zu\(\backslash\)n"{}}, arguments);}
+\DoxyCodeLine{00164 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae82a4947787790a92f1a9ddc2bdd6f96}{prototype\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_ada13519996675a60aed9a930e58699cd}\label{addon_2doxyparse_2doxyparse_8cpp_ada13519996675a60aed9a930e58699cd}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printNumberOfConditionalPaths@{printNumberOfConditionalPaths}}
+\index{printNumberOfConditionalPaths@{printNumberOfConditionalPaths}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printNumberOfConditionalPaths()}{printNumberOfConditionalPaths()}}
+{\footnotesize\ttfamily static void print\+Number\+Of\+Conditional\+Paths (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00173}{173}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173                                                                \{}
+\DoxyCodeLine{00174   printf(\textcolor{stringliteral}{"{}          conditional\_paths: \%d\(\backslash\)n"{}}, md-\/>\mbox{\hyperlink{class_member_def_a23dc837ee131aa1642a61efd24764032}{numberOfFlowKeyWords}}());}
+\DoxyCodeLine{00175 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_member_def_a23dc837ee131aa1642a61efd24764032}{Member\+Def\+::number\+Of\+Flow\+Key\+Words()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_ab9d6b27bbf18563bcbf2a2c2d7081f0d}\label{addon_2doxyparse_2doxyparse_8cpp_ab9d6b27bbf18563bcbf2a2c2d7081f0d}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printNumberOfLines@{printNumberOfLines}}
+\index{printNumberOfLines@{printNumberOfLines}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printNumberOfLines()}{printNumberOfLines()}}
+{\footnotesize\ttfamily static void print\+Number\+Of\+Lines (\begin{DoxyParamCaption}\item[{int}]{lines }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159                                           \{}
+\DoxyCodeLine{00160   printf(\textcolor{stringliteral}{"{}          lines\_of\_code: \%d\(\backslash\)n"{}}, lines);}
+\DoxyCodeLine{00161 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}\label{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printProtection@{printProtection}}
+\index{printProtection@{printProtection}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printProtection()}{printProtection()}}
+{\footnotesize\ttfamily static void print\+Protection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{protection }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153                                                   \{}
+\DoxyCodeLine{00154   printf(\textcolor{stringliteral}{"{}          protection: \%s\(\backslash\)n"{}}, protection.c\_str());}
+\DoxyCodeLine{00155 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}{protection\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a94e7cdee37fc3acbdade31a356e3cc23}\label{addon_2doxyparse_2doxyparse_8cpp_a94e7cdee37fc3acbdade31a356e3cc23}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printPrototypeYes@{printPrototypeYes}}
+\index{printPrototypeYes@{printPrototypeYes}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printPrototypeYes()}{printPrototypeYes()}}
+{\footnotesize\ttfamily static void print\+Prototype\+Yes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156                                 \{}
+\DoxyCodeLine{00157   printf(\textcolor{stringliteral}{"{}          prototype: yes\(\backslash\)n"{}});}
+\DoxyCodeLine{00158 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae82a4947787790a92f1a9ddc2bdd6f96}{prototype\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a9eac11c8872781d87ef3176dd352d69d}\label{addon_2doxyparse_2doxyparse_8cpp_a9eac11c8872781d87ef3176dd352d69d}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printReferenceTo@{printReferenceTo}}
+\index{printReferenceTo@{printReferenceTo}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printReferenceTo()}{printReferenceTo()}}
+{\footnotesize\ttfamily static void print\+Reference\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{type,  }\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{signature,  }\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{defined\+\_\+in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168                                                                                         \{}
+\DoxyCodeLine{00169   printf(\textcolor{stringliteral}{"{}            -\/ \(\backslash\)"{}\%s\(\backslash\)"{}:\(\backslash\)n"{}}, signature.substr(0, 1022).c\_str());}
+\DoxyCodeLine{00170   printf(\textcolor{stringliteral}{"{}                type: \%s\(\backslash\)n"{}}, type.c\_str());}
+\DoxyCodeLine{00171   printf(\textcolor{stringliteral}{"{}                defined\_in: \(\backslash\)"{}\%s\(\backslash\)"{}\(\backslash\)n"{}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a75237d30f908ef839f400a0fe7584f9a}{unescapeCharsInString}}(defined\_in.c\_str()).\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00172 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a75237d30f908ef839f400a0fe7584f9a}{unescape\+Chars\+In\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}{reference\+To()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a418f6916c279805716deea1c0d8b26c2}\label{addon_2doxyparse_2doxyparse_8cpp_a418f6916c279805716deea1c0d8b26c2}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!printUses@{printUses}}
+\index{printUses@{printUses}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{printUses()}{printUses()}}
+{\footnotesize\ttfamily static void print\+Uses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165                         \{}
+\DoxyCodeLine{00166   printf(\textcolor{stringliteral}{"{}          uses:\(\backslash\)n"{}});}
+\DoxyCodeLine{00167 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}\label{addon_2doxyparse_2doxyparse_8cpp_a19ec2a6a03fe9c0d8f32489e947afc9f}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!protectionInformation@{protectionInformation}}
+\index{protectionInformation@{protectionInformation}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{protectionInformation()}{protectionInformation()}}
+{\footnotesize\ttfamily void protection\+Information (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}}}]{protection }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00237}{237}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00237                                                   \{}
+\DoxyCodeLine{00238   \textcolor{keywordflow}{if} (protection == \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}}) \{}
+\DoxyCodeLine{00239     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}{printProtection}}(\textcolor{stringliteral}{"{}public"{}});}
+\DoxyCodeLine{00240   \}}
+\DoxyCodeLine{00241   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (protection == \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda72414112a6a45ab0b4b73e8b83d0b0f5}{Protected}}) \{}
+\DoxyCodeLine{00242     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}{printProtection}}(\textcolor{stringliteral}{"{}protected"{}});}
+\DoxyCodeLine{00243   \}}
+\DoxyCodeLine{00244   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (protection == \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}}) \{}
+\DoxyCodeLine{00245     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}{printProtection}}(\textcolor{stringliteral}{"{}private"{}});}
+\DoxyCodeLine{00246   \}}
+\DoxyCodeLine{00247   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (protection == \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4dedabd5ca841a2d3757e8aeb3edb88d7d5e6}{Package}}) \{}
+\DoxyCodeLine{00248     \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}{printProtection}}(\textcolor{stringliteral}{"{}package"{}});}
+\DoxyCodeLine{00249   \}}
+\DoxyCodeLine{00250 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4dedabd5ca841a2d3757e8aeb3edb88d7d5e6}{Package}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_abc4063f638e3cd90433c703ba1ac7182}{print\+Protection()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda72414112a6a45ab0b4b73e8b83d0b0f5}{Protected}}, and \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a15606c99a77c1e609b33a5f1810355ff}{c\+Module()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookup\+Symbol()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_ae82a4947787790a92f1a9ddc2bdd6f96}\label{addon_2doxyparse_2doxyparse_8cpp_ae82a4947787790a92f1a9ddc2bdd6f96}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!prototypeInformation@{prototypeInformation}}
+\index{prototypeInformation@{prototypeInformation}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{prototypeInformation()}{prototypeInformation()}}
+{\footnotesize\ttfamily void prototype\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00309}{309}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00309                                                \{}
+\DoxyCodeLine{00310   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a94e7cdee37fc3acbdade31a356e3cc23}{printPrototypeYes}}();}
+\DoxyCodeLine{00311   \textcolor{keyword}{const} \mbox{\hyperlink{class_argument_list}{ArgumentList}} \&argList = md-\/>\mbox{\hyperlink{class_member_def_a515503656a6cffb2d27f60e93c3c780e}{argumentList}}();}
+\DoxyCodeLine{00312   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aaf02684fc0f251c43e6a811d7bf88ef3}{printNumberOfArguments}}(argList.\mbox{\hyperlink{class_argument_list_a4d651caeb995400fad17d4ab4a020a3a}{size}}());}
+\DoxyCodeLine{00313 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_member_def_a515503656a6cffb2d27f60e93c3c780e}{Member\+Def\+::argument\+List()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aaf02684fc0f251c43e6a811d7bf88ef3}{print\+Number\+Of\+Arguments()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a94e7cdee37fc3acbdade31a356e3cc23}{print\+Prototype\+Yes()}}, and \mbox{\hyperlink{class_argument_list_a4d651caeb995400fad17d4ab4a020a3a}{Argument\+List\+::size()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_aa4c33ab9f156126cd1c2e40947af1f70}{lookup\+Symbol()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}\label{addon_2doxyparse_2doxyparse_8cpp_a899f2623b1c95e9145b638c77b4fa9b5}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!referenceTo@{referenceTo}}
+\index{referenceTo@{referenceTo}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{referenceTo()}{referenceTo()}}
+{\footnotesize\ttfamily static void reference\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00214}{214}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214                                              \{}
+\DoxyCodeLine{00215   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} type = md-\/>\mbox{\hyperlink{class_member_def_aca314e25245ec3b08f1a55068c2fbeff}{memberTypeName}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00216   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} defined\_in = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00217   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} signature = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00218   \textcolor{keywordflow}{if} (\mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a585d12dcb8b2a5b93549f3ba43e288f9}{isPartOfCStruct}}(md)) \{}
+\DoxyCodeLine{00219     signature = md-\/>\mbox{\hyperlink{class_member_def_a33ff70edee6691aacaeecf40a1146995}{getClassDef}}()-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}() + \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(\textcolor{stringliteral}{"{}::"{}}) + \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{functionSignature}}(md);}
+\DoxyCodeLine{00220     defined\_in = md-\/>\mbox{\hyperlink{class_member_def_a33ff70edee6691aacaeecf40a1146995}{getClassDef}}()-\/>\mbox{\hyperlink{class_class_def_aed4a0864e51e5a3ac616f6c8e10f56c6}{getFileDef}}()-\/>\mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{getOutputFileBase}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00221   \}}
+\DoxyCodeLine{00222   \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00223     signature = \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{functionSignature}}(md);}
+\DoxyCodeLine{00224     \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{class_member_def_a33ff70edee6691aacaeecf40a1146995}{getClassDef}}()) \{}
+\DoxyCodeLine{00225       defined\_in = md-\/>\mbox{\hyperlink{class_member_def_a33ff70edee6691aacaeecf40a1146995}{getClassDef}}()-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00226     \}}
+\DoxyCodeLine{00227     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{getFileDef}}()) \{}
+\DoxyCodeLine{00228       defined\_in = md-\/>\mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{getFileDef}}()-\/>\mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{getOutputFileBase}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00229     \}}
+\DoxyCodeLine{00230     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (md-\/>\mbox{\hyperlink{class_member_def_a900cace4959b6cad9e6aa58e8283195f}{getNamespaceDef}}()) \{}
+\DoxyCodeLine{00231       defined\_in = md-\/>\mbox{\hyperlink{class_member_def_a900cace4959b6cad9e6aa58e8283195f}{getNamespaceDef}}()-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00232     \}}
+\DoxyCodeLine{00233   \}}
+\DoxyCodeLine{00234   \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9eac11c8872781d87ef3176dd352d69d}{printReferenceTo}}(type, signature, defined\_in);}
+\DoxyCodeLine{00235 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{function\+Signature()}}, \mbox{\hyperlink{class_member_def_a33ff70edee6691aacaeecf40a1146995}{Member\+Def\+::get\+Class\+Def()}}, \mbox{\hyperlink{class_class_def_aed4a0864e51e5a3ac616f6c8e10f56c6}{Class\+Def\+::get\+File\+Def()}}, \mbox{\hyperlink{class_member_def_a5036fd8ee16b186925236105029ee823}{Member\+Def\+::get\+File\+Def()}}, \mbox{\hyperlink{class_member_def_a900cace4959b6cad9e6aa58e8283195f}{Member\+Def\+::get\+Namespace\+Def()}}, \mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{File\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a585d12dcb8b2a5b93549f3ba43e288f9}{is\+Part\+Of\+CStruct()}}, \mbox{\hyperlink{class_member_def_aca314e25245ec3b08f1a55068c2fbeff}{Member\+Def\+::member\+Type\+Name()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a9eac11c8872781d87ef3176dd352d69d}{print\+Reference\+To()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ae99cf04af083919611f4da717066fba5}{function\+Information()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}\label{addon_2doxyparse_2doxyparse_8cpp_acdfb0e85a1a3095faa3948f4a979668b}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!sanitizeString@{sanitizeString}}
+\index{sanitizeString@{sanitizeString}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{sanitizeString()}{sanitizeString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} sanitize\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00181                                          \{}
+\DoxyCodeLine{00182   \mbox{\hyperlink{class_q_c_string}{QCString}} new\_data = \mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}.c\_str());}
+\DoxyCodeLine{00183   new\_data = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(new\_data,\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00184   new\_data = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(new\_data,\textcolor{stringliteral}{"{}\(\backslash\)'"{}}, \textcolor{stringliteral}{"{}"{}}); \textcolor{comment}{// https://github.com/analizo/analizo/issues/138}}
+\DoxyCodeLine{00185   \textcolor{keywordflow}{return} !new\_data.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() ? new\_data.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}() : \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00186 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a0599dcef960418b4d264589bd701c8b4}{argument\+Data()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_ab1543ef672f2517a725b01ea0827f496}{function\+Signature()}}.
+
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a0048ea16e7f0ed820b718eb860429640}\label{addon_2doxyparse_2doxyparse_8cpp_a0048ea16e7f0ed820b718eb860429640}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!startYamlDocument@{startYamlDocument}}
+\index{startYamlDocument@{startYamlDocument}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{startYamlDocument()}{startYamlDocument()}}
+{\footnotesize\ttfamily static void start\+Yaml\+Document (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127                                 \{}
+\DoxyCodeLine{00128   printf(\textcolor{stringliteral}{"{}-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00129 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}\label{addon_2doxyparse_2doxyparse_8cpp_a1a006fb0af933af39fd626e4b34a210d}} 
+\index{doxyparse.cpp@{doxyparse.cpp}!is\_c\_code@{is\_c\_code}}
+\index{is\_c\_code@{is\_c\_code}!doxyparse.cpp@{doxyparse.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_c\_code}{is\_c\_code}}
+{\footnotesize\ttfamily bool is\+\_\+c\+\_\+code = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_source}{doxyparse.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a5ec62ec1ac958448702ac2e5e9219c43}{class\+Information()}}, \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a1ed35698f41bfe49601ba331a623b5e0}{detect\+Programming\+Language()}}, and \mbox{\hyperlink{addon_2doxyparse_2doxyparse_8cpp_a585d12dcb8b2a5b93549f3ba43e288f9}{is\+Part\+Of\+CStruct()}}.
+

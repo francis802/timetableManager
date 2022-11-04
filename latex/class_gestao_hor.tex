@@ -1,29 +1,675 @@
 \hypertarget{class_gestao_hor}{}\doxysection{Gestao\+Hor Class Reference}
 \label{class_gestao_hor}\index{GestaoHor@{GestaoHor}}
+
+
+{\ttfamily \#include $<$Gestao\+Hor.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_gestao_hor_1_1cmp}{cmp}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_gestao_hor_ad9d0d5965377e67d55bac29d505f51aa}\label{class_gestao_hor_ad9d0d5965377e67d55bac29d505f51aa}} 
-void {\bfseries add\+Student} (\mbox{\hyperlink{class_estudante}{Estudante}} s)
+\mbox{\hyperlink{class_gestao_hor_a12fd264b4d8b074eb4e4c0971504840a}{Gestao\+Hor}} ()
 \item 
-\mbox{\Hypertarget{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}\label{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}} 
-void {\bfseries get\+Data\+Student} (string filename1, string filename2)
+void \mbox{\hyperlink{class_gestao_hor_ad9d0d5965377e67d55bac29d505f51aa}{add\+Student}} (\mbox{\hyperlink{class_estudante}{Estudante}} \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
 \item 
-\mbox{\Hypertarget{class_gestao_hor_a282ad15912d1a8843b13519bfe111711}\label{class_gestao_hor_a282ad15912d1a8843b13519bfe111711}} 
-list$<$ \mbox{\hyperlink{class_u_c_turma}{UCTurma}} $>$ {\bfseries get\+Data\+Aula} (string filename)
+void \mbox{\hyperlink{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}{get\+Data\+Student}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}} filename1, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}} filename2)
 \item 
-\mbox{\Hypertarget{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}\label{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}} 
-const set$<$ \mbox{\hyperlink{class_estudante}{Estudante}} $>$ \& {\bfseries get\+Students} () const
+void \mbox{\hyperlink{class_gestao_hor_a9c80ad7f5a19cc5cc8e82d620bdde732}{get\+Data\+Aula}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}} \mbox{\hyperlink{libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}})
 \item 
-\mbox{\Hypertarget{class_gestao_hor_acb083b70ee13122f25388dce9c253ab1}\label{class_gestao_hor_acb083b70ee13122f25388dce9c253ab1}} 
-void {\bfseries add\+Pedidos} (pair$<$ char, string $>$ pedido)
+const set$<$ \mbox{\hyperlink{class_estudante}{Estudante}} $>$ \& \mbox{\hyperlink{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}{get\+Students}} () const
 \item 
-\mbox{\Hypertarget{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}\label{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}} 
-void {\bfseries process\+Pedidos} ()
+const set$<$ \mbox{\hyperlink{class_estudante}{Estudante}}, \mbox{\hyperlink{struct_gestao_hor_1_1cmp}{cmp}} $>$ \& \mbox{\hyperlink{class_gestao_hor_a238cfbf75a19789120e68a9aa2168095}{get\+Students\+Byname}} () const
+\item 
+\mbox{\hyperlink{structvector}{vector}}$<$ pair$<$ int, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}} $>$ $>$ \mbox{\hyperlink{class_gestao_hor_aadaad9010c07a488b445ce5f13c036ec}{ocupacao\+Turmas\+UC}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}} uc)
+\item 
+void \mbox{\hyperlink{class_gestao_hor_a5ebc7ec0265bb67a8b432f958163e9b1}{add\+Pedidos}} (\mbox{\hyperlink{structvector}{vector}}$<$ pair$<$ char, \mbox{\hyperlink{class_pedido}{Pedido}} $>$ $>$ pedido)
+\item 
+void \mbox{\hyperlink{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}{process\+Pedidos}} ()
+\item 
+bool \mbox{\hyperlink{class_gestao_hor_aca65cae895b05f1ac8efbc90f3b138b7}{class\+Conflict}} (\mbox{\hyperlink{class_estudante}{Estudante}} estudante, \mbox{\hyperlink{class_u_c_turma}{UCTurma}} new\+\_\+uct)
+\item 
+void \mbox{\hyperlink{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}{remove\+Student\+UCClass}} (\mbox{\hyperlink{class_pedido}{Pedido}} pedido)
+\item 
+bool \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass}} (\mbox{\hyperlink{class_pedido}{Pedido}} pedido)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+set$<$ \mbox{\hyperlink{class_u_c_turma}{UCTurma}} $>$ \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}}
+\item 
+set$<$ \mbox{\hyperlink{class_estudante}{Estudante}} $>$ \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}
+\item 
+set$<$ \mbox{\hyperlink{class_estudante}{Estudante}}, \mbox{\hyperlink{struct_gestao_hor_1_1cmp}{cmp}} $>$ \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\+\_\+byname}}
+\item 
+queue$<$ \mbox{\hyperlink{structvector}{vector}}$<$ pair$<$ char, \mbox{\hyperlink{class_pedido}{Pedido}} $>$ $>$ $>$ \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}
+\item 
+list$<$ \mbox{\hyperlink{structvector}{vector}}$<$ pair$<$ char, \mbox{\hyperlink{class_pedido}{Pedido}} $>$ $>$ $>$ \mbox{\hyperlink{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}{failed}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}{cap}} = 30
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8h_source_l00013}{13}} of file \mbox{\hyperlink{_gestao_hor_8h_source}{Gestao\+Hor.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gestao_hor_a12fd264b4d8b074eb4e4c0971504840a}\label{class_gestao_hor_a12fd264b4d8b074eb4e4c0971504840a}} 
+\index{GestaoHor@{GestaoHor}!GestaoHor@{GestaoHor}}
+\index{GestaoHor@{GestaoHor}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{GestaoHor()}{GestaoHor()}}
+{\footnotesize\ttfamily Gestao\+Hor\+::\+Gestao\+Hor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004 \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gestao_hor_a5ebc7ec0265bb67a8b432f958163e9b1}\label{class_gestao_hor_a5ebc7ec0265bb67a8b432f958163e9b1}} 
+\index{GestaoHor@{GestaoHor}!addPedidos@{addPedidos}}
+\index{addPedidos@{addPedidos}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{addPedidos()}{addPedidos()}}
+{\footnotesize\ttfamily void Gestao\+Hor\+::add\+Pedidos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvector}{vector}}$<$ pair$<$ char, \mbox{\hyperlink{class_pedido}{Pedido}} $>$ $>$}]{pedido }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140                                                             \{}
+\DoxyCodeLine{00141     \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.push(pedido);}
+\DoxyCodeLine{00142 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_menu_a99312234e7fb43b839b56c11d9393622}{Menu\+::alterar\+Menu()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_ad9d0d5965377e67d55bac29d505f51aa}\label{class_gestao_hor_ad9d0d5965377e67d55bac29d505f51aa}} 
+\index{GestaoHor@{GestaoHor}!addStudent@{addStudent}}
+\index{addStudent@{addStudent}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{addStudent()}{addStudent()}}
+{\footnotesize\ttfamily void Gestao\+Hor\+::add\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_estudante}{Estudante}}}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006                                       \{}
+\DoxyCodeLine{00007     \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{00008 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, and \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.
+
+\mbox{\Hypertarget{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}\label{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}} 
+\index{GestaoHor@{GestaoHor}!addStudentUCClass@{addStudentUCClass}}
+\index{addStudentUCClass@{addStudentUCClass}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{addStudentUCClass()}{addStudentUCClass()}}
+{\footnotesize\ttfamily bool Gestao\+Hor\+::add\+Student\+UCClass (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pedido}{Pedido}}}]{pedido }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00233}{233}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00233                                                \{}
+\DoxyCodeLine{00234     \textcolor{keywordtype}{int} num = pedido.\mbox{\hyperlink{class_pedido_afa8da0a8f51b6cd9d95818c186022607}{getCode}}();}
+\DoxyCodeLine{00235     \textcolor{keywordtype}{string} turma = pedido.\mbox{\hyperlink{class_pedido_a7bc169b1e2b08756e54a4234ca77d0b1}{getCodTurma}}();}
+\DoxyCodeLine{00236     \textcolor{keywordtype}{string} uc = pedido.\mbox{\hyperlink{class_pedido_a749ebae7f872402453d50d618bc98575}{getCodUc}}();}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238     \mbox{\hyperlink{class_estudante}{Estudante}} temp = \mbox{\hyperlink{class_estudante}{Estudante}}();}
+\DoxyCodeLine{00239     temp.\mbox{\hyperlink{class_estudante_a5b872a5cda228e0a55ae63607ea7eeb2}{setCode}}(num);}
+\DoxyCodeLine{00240     \textcolor{keyword}{auto} it1 = \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.find(temp);}
+\DoxyCodeLine{00241     temp = *it1;}
+\DoxyCodeLine{00242     \textcolor{keyword}{auto} it2 = \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.find(temp);}
+\DoxyCodeLine{00243     \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.erase(it1);}
+\DoxyCodeLine{00244     \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.erase(it2);}
+\DoxyCodeLine{00245     \mbox{\hyperlink{class_u_c_turma}{UCTurma}} t = \mbox{\hyperlink{class_u_c_turma}{UCTurma}}(turma, uc);}
+\DoxyCodeLine{00246     \textcolor{keyword}{auto} timetable = \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}}.find(t);}
+\DoxyCodeLine{00247     \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_aula}{Aula}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}} : timetable-\/>getTimetable())\{}
+\DoxyCodeLine{00248         t.\mbox{\hyperlink{class_u_c_turma_a5da3d9006eb721003c0b579428b1fc3d}{addAula}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}});}
+\DoxyCodeLine{00249     \}}
+\DoxyCodeLine{00250 }
+\DoxyCodeLine{00251     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_gestao_hor_aca65cae895b05f1ac8efbc90f3b138b7}{classConflict}}(temp,t))\{}
+\DoxyCodeLine{00252         \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(temp);}
+\DoxyCodeLine{00253         \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.insert(temp);}
+\DoxyCodeLine{00254         \mbox{\hyperlink{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}{failed}}.push\_back(\mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.front());}
+\DoxyCodeLine{00255         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00256     \}}
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258     temp.\mbox{\hyperlink{class_estudante_a0d37885b414b302226ad22656453e226}{addTurma}}(t);}
+\DoxyCodeLine{00259     \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(temp);}
+\DoxyCodeLine{00260     \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.insert(temp);}
+\DoxyCodeLine{00261 }
+\DoxyCodeLine{00262     vector<pair<int,string>> ocupacao = \mbox{\hyperlink{class_gestao_hor_aadaad9010c07a488b445ce5f13c036ec}{ocupacaoTurmasUC}}(uc);}
+\DoxyCodeLine{00263     \textcolor{keywordtype}{string} num\_turma;}
+\DoxyCodeLine{00264     num\_turma.push\_back(turma[5]);}
+\DoxyCodeLine{00265     num\_turma.push\_back(turma[6]);}
+\DoxyCodeLine{00266     \textcolor{keywordtype}{int} min = \mbox{\hyperlink{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}{cap}};}
+\DoxyCodeLine{00267     \textcolor{keywordflow}{for} (pair<int,string> i : ocupacao)\{}
+\DoxyCodeLine{00268         \textcolor{keywordflow}{if} (i.first != 0 \&\& i.first < min)}
+\DoxyCodeLine{00269             min = i.first;}
+\DoxyCodeLine{00270     \}}
+\DoxyCodeLine{00271     \textcolor{keywordflow}{if} (ocupacao[stoi(num\_turma) -\/ 1].first > \mbox{\hyperlink{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}{cap}} || abs(ocupacao[stoi(num\_turma) -\/ 1].first -\/ min) >= 4)\{}
+\DoxyCodeLine{00272         \mbox{\hyperlink{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}{failed}}.push\_back(\mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.front());}
+\DoxyCodeLine{00273         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00274     \}}
+\DoxyCodeLine{00275 }
+\DoxyCodeLine{00276     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00277 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \mbox{\hyperlink{class_u_c_turma_a5da3d9006eb721003c0b579428b1fc3d}{UCTurma\+::add\+Aula()}}, \mbox{\hyperlink{class_estudante_a0d37885b414b302226ad22656453e226}{Estudante\+::add\+Turma()}}, \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}}, \mbox{\hyperlink{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}{cap}}, \mbox{\hyperlink{class_gestao_hor_aca65cae895b05f1ac8efbc90f3b138b7}{class\+Conflict()}}, \mbox{\hyperlink{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}{failed}}, \mbox{\hyperlink{class_pedido_afa8da0a8f51b6cd9d95818c186022607}{Pedido\+::get\+Code()}}, \mbox{\hyperlink{class_pedido_a7bc169b1e2b08756e54a4234ca77d0b1}{Pedido\+::get\+Cod\+Turma()}}, \mbox{\hyperlink{class_pedido_a749ebae7f872402453d50d618bc98575}{Pedido\+::get\+Cod\+Uc()}}, \mbox{\hyperlink{class_gestao_hor_aadaad9010c07a488b445ce5f13c036ec}{ocupacao\+Turmas\+UC()}}, \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}, \mbox{\hyperlink{class_estudante_a5b872a5cda228e0a55ae63607ea7eeb2}{Estudante\+::set\+Code()}}, \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}, and \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\+\_\+byname}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}{process\+Pedidos()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_aca65cae895b05f1ac8efbc90f3b138b7}\label{class_gestao_hor_aca65cae895b05f1ac8efbc90f3b138b7}} 
+\index{GestaoHor@{GestaoHor}!classConflict@{classConflict}}
+\index{classConflict@{classConflict}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{classConflict()}{classConflict()}}
+{\footnotesize\ttfamily bool Gestao\+Hor\+::class\+Conflict (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_estudante}{Estudante}}}]{estudante,  }\item[{\mbox{\hyperlink{class_u_c_turma}{UCTurma}}}]{new\+\_\+uct }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00192                                                                   \{}
+\DoxyCodeLine{00193     vector<Aula> new\_tppl;}
+\DoxyCodeLine{00194     \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_aula}{Aula}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}:new\_uct.\mbox{\hyperlink{class_u_c_turma_abb7b3e9443823a82c56dced176e0476d}{getTimetable}}())\{}
+\DoxyCodeLine{00195         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getType() == \textcolor{stringliteral}{"{}TP"{}} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getType() == \textcolor{stringliteral}{"{}PL"{}}) new\_tppl.push\_back(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}});}
+\DoxyCodeLine{00196     \}}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00198     \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_u_c_turma}{UCTurma}} uct: estudante.\mbox{\hyperlink{class_estudante_aca996d5ce6c0084a7dd8d2f3adf92d10}{getTurmas}}())\{}
+\DoxyCodeLine{00199         \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_aula}{Aula}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}: uct.getTimetable())\{}
+\DoxyCodeLine{00200             \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getType() == \textcolor{stringliteral}{"{}TP"{}} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getType() == \textcolor{stringliteral}{"{}PL"{}})\{}
+\DoxyCodeLine{00201                 \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_aula}{Aula}} new\_aula: new\_tppl)\{}
+\DoxyCodeLine{00202                     \textcolor{keywordflow}{if} (new\_aula.getWeekday() == \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getWeekday())\{}
+\DoxyCodeLine{00203                         \textcolor{keywordflow}{if} (new\_aula.getStartHour() >= \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getStartHour() \&\& new\_aula.getStartHour()<(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getStartHour()+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getDuration()))}
+\DoxyCodeLine{00204                             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00205                         \textcolor{keywordflow}{if} ((new\_aula.getStartHour() + new\_aula.getDuration()) >= \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getStartHour() \&\& (new\_aula.getStartHour() + new\_aula.getDuration())<=(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getStartHour()+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.getDuration()))}
+\DoxyCodeLine{00206                             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00207                     \}}
+\DoxyCodeLine{00208                 \}}
+\DoxyCodeLine{00209             \}}
+\DoxyCodeLine{00210         \}}
+\DoxyCodeLine{00211     \}}
+\DoxyCodeLine{00212     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00213 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \mbox{\hyperlink{class_u_c_turma_abb7b3e9443823a82c56dced176e0476d}{UCTurma\+::get\+Timetable()}}, and \mbox{\hyperlink{class_estudante_aca996d5ce6c0084a7dd8d2f3adf92d10}{Estudante\+::get\+Turmas()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_a9c80ad7f5a19cc5cc8e82d620bdde732}\label{class_gestao_hor_a9c80ad7f5a19cc5cc8e82d620bdde732}} 
+\index{GestaoHor@{GestaoHor}!getDataAula@{getDataAula}}
+\index{getDataAula@{getDataAula}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{getDataAula()}{getDataAula()}}
+{\footnotesize\ttfamily void Gestao\+Hor\+::get\+Data\+Aula (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010                                           \{}
+\DoxyCodeLine{00011     \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{ifstream}} in(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}});}
+\DoxyCodeLine{00012     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{00013     getline(in, line);}
+\DoxyCodeLine{00014     \textcolor{keywordtype}{bool} first = \textcolor{keyword}{true};}
+\DoxyCodeLine{00015     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceghc_1_1filesystem_a2fae220439cf4632ad58c4f0e0a3c54b}{exists}};}
+\DoxyCodeLine{00016     \mbox{\hyperlink{class_u_c_turma}{UCTurma}} temp;}
+\DoxyCodeLine{00017     \textcolor{keywordtype}{string} last\_uccode;}
+\DoxyCodeLine{00018     list<UCTurma> classes;}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{while}(getline(in, line)) \{}
+\DoxyCodeLine{00020         istringstream iss(line);}
+\DoxyCodeLine{00021         \textcolor{keywordtype}{string} uccode, classcode;}
+\DoxyCodeLine{00022         \textcolor{keywordtype}{string} weekDay, startH, duration, type;}
+\DoxyCodeLine{00023         getline(iss, classcode, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00024         getline(iss, uccode, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00025         getline(iss, weekDay, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00026         getline(iss, startH, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00027         getline(iss, duration, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00028         getline(iss, type,\textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00029         \mbox{\hyperlink{class_aula}{Aula}} aula = \mbox{\hyperlink{class_aula}{Aula}}(weekDay,stof(startH),stof(duration),type);}
+\DoxyCodeLine{00030         \textcolor{keywordflow}{if} (first)\{}
+\DoxyCodeLine{00031             temp = \mbox{\hyperlink{class_u_c_turma}{UCTurma}}(classcode, uccode);}
+\DoxyCodeLine{00032             temp.\mbox{\hyperlink{class_u_c_turma_a5da3d9006eb721003c0b579428b1fc3d}{addAula}}(aula);}
+\DoxyCodeLine{00033             classes.push\_back(temp);}
+\DoxyCodeLine{00034             last\_uccode = uccode;}
+\DoxyCodeLine{00035             first = \textcolor{keyword}{false};}
+\DoxyCodeLine{00036             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00037         \}}
+\DoxyCodeLine{00038         \textcolor{keywordflow}{if} (last\_uccode.compare(uccode) == 0)\{}
+\DoxyCodeLine{00039             \mbox{\hyperlink{namespaceghc_1_1filesystem_a2fae220439cf4632ad58c4f0e0a3c54b}{exists}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00040             \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_u_c_turma}{UCTurma}}\& ucclass: classes)\{}
+\DoxyCodeLine{00041                 \textcolor{keywordflow}{if}(ucclass.getCodTurma().compare(classcode) == 0) \{}
+\DoxyCodeLine{00042                     ucclass.addAula(aula);}
+\DoxyCodeLine{00043                     \mbox{\hyperlink{namespaceghc_1_1filesystem_a2fae220439cf4632ad58c4f0e0a3c54b}{exists}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00044                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00045                 \}}
+\DoxyCodeLine{00046             \}}
+\DoxyCodeLine{00047             \textcolor{keywordflow}{if}(!\mbox{\hyperlink{namespaceghc_1_1filesystem_a2fae220439cf4632ad58c4f0e0a3c54b}{exists}})\{}
+\DoxyCodeLine{00048                 temp = \mbox{\hyperlink{class_u_c_turma}{UCTurma}}(classcode, uccode);}
+\DoxyCodeLine{00049                 temp.\mbox{\hyperlink{class_u_c_turma_a5da3d9006eb721003c0b579428b1fc3d}{addAula}}(aula);}
+\DoxyCodeLine{00050                 classes.push\_back(temp);}
+\DoxyCodeLine{00051             \}}
+\DoxyCodeLine{00052         \}}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00054             last\_uccode = uccode;}
+\DoxyCodeLine{00055             \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_u_c_turma}{UCTurma}} ucclass: classes)\{}
+\DoxyCodeLine{00056                 \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}}.insert(ucclass);}
+\DoxyCodeLine{00057             \}}
+\DoxyCodeLine{00058             classes.clear();}
+\DoxyCodeLine{00059             temp = \mbox{\hyperlink{class_u_c_turma}{UCTurma}}(classcode, uccode);}
+\DoxyCodeLine{00060             temp.\mbox{\hyperlink{class_u_c_turma_a5da3d9006eb721003c0b579428b1fc3d}{addAula}}(aula);}
+\DoxyCodeLine{00061             classes.push\_back(temp);}
+\DoxyCodeLine{00062         \}}
+\DoxyCodeLine{00063     \}}
+\DoxyCodeLine{00064     classes.push\_back(temp);}
+\DoxyCodeLine{00065     \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_u_c_turma}{UCTurma}} ucclass: classes)\{}
+\DoxyCodeLine{00066         \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}}.insert(ucclass);}
+\DoxyCodeLine{00067     \}}
+\DoxyCodeLine{00068 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_u_c_turma_a5da3d9006eb721003c0b579428b1fc3d}{UCTurma\+::add\+Aula()}}, \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}}, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2fae220439cf4632ad58c4f0e0a3c54b}{ghc\+::filesystem\+::exists()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}{get\+Data\+Student()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}\label{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}} 
+\index{GestaoHor@{GestaoHor}!getDataStudent@{getDataStudent}}
+\index{getDataStudent@{getDataStudent}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{getDataStudent()}{getDataStudent()}}
+{\footnotesize\ttfamily void Gestao\+Hor\+::get\+Data\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}}}]{filename1,  }\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}}}]{filename2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070                                                                  \{}
+\DoxyCodeLine{00071     \mbox{\hyperlink{class_gestao_hor_a9c80ad7f5a19cc5cc8e82d620bdde732}{getDataAula}}(filename2);}
+\DoxyCodeLine{00072     \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{ifstream}} in(filename1);}
+\DoxyCodeLine{00073     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{00074     getline(in, line);}
+\DoxyCodeLine{00075     \textcolor{keywordtype}{bool} first = \textcolor{keyword}{true};}
+\DoxyCodeLine{00076     \mbox{\hyperlink{class_estudante}{Estudante}} temp;}
+\DoxyCodeLine{00077     \textcolor{keywordflow}{while}(getline(in, line)) \{}
+\DoxyCodeLine{00078         istringstream iss(line);}
+\DoxyCodeLine{00079         \textcolor{keywordtype}{string} num, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{00080         \textcolor{keywordtype}{string} uccode, classcode;}
+\DoxyCodeLine{00081         getline(iss, num, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00082         getline(iss, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00083         getline(iss, uccode, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00084         getline(iss, classcode, \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00085         \textcolor{keywordflow}{if} (first)\{}
+\DoxyCodeLine{00086             temp = \mbox{\hyperlink{class_estudante}{Estudante}}(stoi(num), \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00087             \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_u_c_turma}{UCTurma}} ucturma: \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}})\{}
+\DoxyCodeLine{00088                 \textcolor{keywordflow}{if} ((ucturma.getCodTurma().compare(classcode) == 0) \&\& (ucturma.getCodUc().compare(uccode) == 0))}
+\DoxyCodeLine{00089                     temp.\mbox{\hyperlink{class_estudante_a0d37885b414b302226ad22656453e226}{addTurma}}(ucturma);}
+\DoxyCodeLine{00090             \}}
+\DoxyCodeLine{00091             first = \textcolor{keyword}{false};}
+\DoxyCodeLine{00092             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00093         \}}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095         \textcolor{keywordflow}{if} (temp.\mbox{\hyperlink{class_estudante_abc7ee9ef81b2201ac1a7d9a3431f3ebc}{getName}}().compare(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}) != 0)\{}
+\DoxyCodeLine{00096             \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(temp);}
+\DoxyCodeLine{00097             \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.insert(temp);}
+\DoxyCodeLine{00098             temp = \mbox{\hyperlink{class_estudante}{Estudante}}(stoi(num), \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00099         \}}
+\DoxyCodeLine{00100         \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_u_c_turma}{UCTurma}} ucturma: \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}})\{}
+\DoxyCodeLine{00101             \textcolor{keywordflow}{if} ((ucturma.getCodTurma().compare(classcode) == 0) \&\& (ucturma.getCodUc().compare(uccode) == 0))\{}
+\DoxyCodeLine{00102                 temp.\mbox{\hyperlink{class_estudante_a0d37885b414b302226ad22656453e226}{addTurma}}(ucturma);}
+\DoxyCodeLine{00103             \}}
+\DoxyCodeLine{00104         \}}
+\DoxyCodeLine{00105     \}}
+\DoxyCodeLine{00106     \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(temp);}
+\DoxyCodeLine{00107     \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(temp);}
+\DoxyCodeLine{00108 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_estudante_a0d37885b414b302226ad22656453e226}{Estudante\+::add\+Turma()}}, \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}}, \mbox{\hyperlink{class_gestao_hor_a9c80ad7f5a19cc5cc8e82d620bdde732}{get\+Data\+Aula()}}, \mbox{\hyperlink{class_estudante_abc7ee9ef81b2201ac1a7d9a3431f3ebc}{Estudante\+::get\+Name()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}, and \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\+\_\+byname}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}\label{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}} 
+\index{GestaoHor@{GestaoHor}!getStudents@{getStudents}}
+\index{getStudents@{getStudents}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{getStudents()}{getStudents()}}
+{\footnotesize\ttfamily const set$<$ \mbox{\hyperlink{class_estudante}{Estudante}} $>$ \& Gestao\+Hor\+::get\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00182}{182}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182                                                    \{}
+\DoxyCodeLine{00183     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}};}
+\DoxyCodeLine{00184 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_menu_ad87b758ee52e5d9e28c53a3aa96b3a6d}{Menu\+::estudantes\+Ano()}}, \mbox{\hyperlink{class_menu_aa3dd873dd9fee431df98cc37449c4615}{Menu\+::estudantes\+Mais\+De\+NUCs()}}, \mbox{\hyperlink{class_menu_a5e85eec2b5df2eeab21d4b17c5e145f2}{Menu\+::estudantes\+Turma\+UC()}}, \mbox{\hyperlink{class_menu_a5464bbce5ec661d199994de31d500fe3}{Menu\+::estudantes\+UC()}}, \mbox{\hyperlink{class_menu_a3195c15173e6645e0e38544bdb278531}{Menu\+::ocupacao\+Determinada\+Turma\+UC()}}, \mbox{\hyperlink{class_menu_a3fa92f853f40e614916fa431ba57dd72}{Menu\+::ocupacao\+Determinada\+UC()}}, \mbox{\hyperlink{class_menu_ad8576708b43693f5a232366124e01e5c}{Menu\+::ocupacao\+Determinado\+Ano()}}, \mbox{\hyperlink{class_gestao_hor_aadaad9010c07a488b445ce5f13c036ec}{ocupacao\+Turmas\+UC()}}, \mbox{\hyperlink{class_menu_a81f6411031a840ced4222c60f6df1daa}{Menu\+::ocupacao\+UCs\+Ano()}}, \mbox{\hyperlink{class_menu_add57ada4de3e5405c46cfcbc2f70fb79}{Menu\+::search\+Horario\+By\+Name()}}, and \mbox{\hyperlink{class_menu_aa46a18da985346c439a9eb9772933fac}{Menu\+::search\+Horario\+By\+Num()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_a238cfbf75a19789120e68a9aa2168095}\label{class_gestao_hor_a238cfbf75a19789120e68a9aa2168095}} 
+\index{GestaoHor@{GestaoHor}!getStudentsByname@{getStudentsByname}}
+\index{getStudentsByname@{getStudentsByname}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{getStudentsByname()}{getStudentsByname()}}
+{\footnotesize\ttfamily const set$<$ \mbox{\hyperlink{class_estudante}{Estudante}}, \mbox{\hyperlink{struct_gestao_hor_1_1cmp}{Gestao\+Hor\+::cmp}} $>$ \& Gestao\+Hor\+::get\+Students\+Byname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00186}{186}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186                                                                        \{}
+\DoxyCodeLine{00187     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}};}
+\DoxyCodeLine{00188 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\+\_\+byname}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_menu_ad87b758ee52e5d9e28c53a3aa96b3a6d}{Menu\+::estudantes\+Ano()}}, \mbox{\hyperlink{class_menu_aa3dd873dd9fee431df98cc37449c4615}{Menu\+::estudantes\+Mais\+De\+NUCs()}}, \mbox{\hyperlink{class_menu_a5e85eec2b5df2eeab21d4b17c5e145f2}{Menu\+::estudantes\+Turma\+UC()}}, \mbox{\hyperlink{class_menu_a5464bbce5ec661d199994de31d500fe3}{Menu\+::estudantes\+UC()}}, and \mbox{\hyperlink{class_menu_add57ada4de3e5405c46cfcbc2f70fb79}{Menu\+::search\+Horario\+By\+Name()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_aadaad9010c07a488b445ce5f13c036ec}\label{class_gestao_hor_aadaad9010c07a488b445ce5f13c036ec}} 
+\index{GestaoHor@{GestaoHor}!ocupacaoTurmasUC@{ocupacaoTurmasUC}}
+\index{ocupacaoTurmasUC@{ocupacaoTurmasUC}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{ocupacaoTurmasUC()}{ocupacaoTurmasUC()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvector}{vector}}$<$ pair$<$ int, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}} $>$ $>$ Gestao\+Hor\+::ocupacao\+Turmas\+UC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}}}]{uc }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110                                                              \{}
+\DoxyCodeLine{00111     \textcolor{keywordtype}{string} basis;}
+\DoxyCodeLine{00112     basis.push\_back(uc[6]);}
+\DoxyCodeLine{00113     basis.push\_back(uc[7]);}
+\DoxyCodeLine{00114     \textcolor{keywordtype}{int} aux = stoi(basis);}
+\DoxyCodeLine{00115     \textcolor{keywordflow}{if} (aux < 10) basis = \textcolor{stringliteral}{"{}1LEIC"{}};}
+\DoxyCodeLine{00116     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (aux < 20) basis = \textcolor{stringliteral}{"{}2LEIC"{}};}
+\DoxyCodeLine{00117     \textcolor{keywordflow}{else} basis = \textcolor{stringliteral}{"{}3LEIC"{}};}
+\DoxyCodeLine{00118     vector<pair<int, string>> ocupacao;}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= 16; i++)\{}
+\DoxyCodeLine{00120         \textcolor{keywordflow}{if} (i < 10)\{}
+\DoxyCodeLine{00121             ocupacao.push\_back(\{0,basis + \textcolor{stringliteral}{"{}0"{}} + to\_string(i)\});}
+\DoxyCodeLine{00122         \} \textcolor{keywordflow}{else} ocupacao.push\_back(\{0,basis + to\_string(i)\});}
+\DoxyCodeLine{00123     \}}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125     \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_estudante}{Estudante}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}: \mbox{\hyperlink{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}{getStudents}}())\{}
+\DoxyCodeLine{00126         \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_u_c_turma}{UCTurma}} t: \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}.getTurmas())\{}
+\DoxyCodeLine{00127             \textcolor{keywordflow}{if} (t.getCodUc() == uc)\{}
+\DoxyCodeLine{00128                 \textcolor{keywordtype}{string} turma;}
+\DoxyCodeLine{00129                 turma.push\_back(t.getCodTurma()[5]);}
+\DoxyCodeLine{00130                 turma.push\_back(t.getCodTurma()[6]);}
+\DoxyCodeLine{00131                 \textcolor{keywordtype}{int} num\_turma = stoi(turma);}
+\DoxyCodeLine{00132                 ocupacao[num\_turma -\/ 1].first++;}
+\DoxyCodeLine{00133                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00134             \}}
+\DoxyCodeLine{00135         \}}
+\DoxyCodeLine{00136     \}}
+\DoxyCodeLine{00137     \textcolor{keywordflow}{return} ocupacao;}
+\DoxyCodeLine{00138 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, and \mbox{\hyperlink{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}{get\+Students()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}, and \mbox{\hyperlink{class_menu_af390b677a2ed063d10d07a1a29f34e74}{Menu\+::ocupacao\+Turmas\+Menu()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}\label{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}} 
+\index{GestaoHor@{GestaoHor}!processPedidos@{processPedidos}}
+\index{processPedidos@{processPedidos}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{processPedidos()}{processPedidos()}}
+{\footnotesize\ttfamily void Gestao\+Hor\+::process\+Pedidos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144                                \{}
+\DoxyCodeLine{00145     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.empty())\{}
+\DoxyCodeLine{00146         \mbox{\hyperlink{class_pedido}{Pedido}} ready\_pedido = \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.front()[0].second;}
+\DoxyCodeLine{00147         \textcolor{keywordtype}{int} stuCode = ready\_pedido.\mbox{\hyperlink{class_pedido_afa8da0a8f51b6cd9d95818c186022607}{getCode}}();}
+\DoxyCodeLine{00148         \mbox{\hyperlink{class_estudante}{Estudante}} backup = \mbox{\hyperlink{class_estudante}{Estudante}}();}
+\DoxyCodeLine{00149         backup.\mbox{\hyperlink{class_estudante_a5b872a5cda228e0a55ae63607ea7eeb2}{setCode}}(stuCode);}
+\DoxyCodeLine{00150         \textcolor{keyword}{auto} it1 = \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.find(backup);}
+\DoxyCodeLine{00151         backup = *it1;}
+\DoxyCodeLine{00152         \textcolor{keywordtype}{bool} stopLoop = \textcolor{keyword}{false};}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154         \textcolor{keywordflow}{for} (pair<char,Pedido> pedido : \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.front())\{}
+\DoxyCodeLine{00155             \textcolor{keywordflow}{switch} (pedido.first) \{}
+\DoxyCodeLine{00156                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'r'}: \{}
+\DoxyCodeLine{00157                     \mbox{\hyperlink{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}{removeStudentUCClass}}(pedido.second);}
+\DoxyCodeLine{00158                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00159                 \}}
+\DoxyCodeLine{00160                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'a'}:\{}
+\DoxyCodeLine{00161                     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{addStudentUCClass}}(pedido.second))\{}
+\DoxyCodeLine{00162                         stopLoop = \textcolor{keyword}{true};}
+\DoxyCodeLine{00163                         \mbox{\hyperlink{class_estudante}{Estudante}} del = \mbox{\hyperlink{class_estudante}{Estudante}}();}
+\DoxyCodeLine{00164                         del.\mbox{\hyperlink{class_estudante_a5b872a5cda228e0a55ae63607ea7eeb2}{setCode}}(stuCode);}
+\DoxyCodeLine{00165                         \textcolor{keyword}{auto} it\_del = \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.find(del);}
+\DoxyCodeLine{00166                         del = *it\_del;}
+\DoxyCodeLine{00167                         \textcolor{keyword}{auto} it\_del\_name = \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.find(del);}
+\DoxyCodeLine{00168                         \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.erase(it\_del);}
+\DoxyCodeLine{00169                         \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.erase(it\_del\_name);}
+\DoxyCodeLine{00170                         \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(backup);}
+\DoxyCodeLine{00171                         \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.insert(backup);}
+\DoxyCodeLine{00172                     \}}
+\DoxyCodeLine{00173                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00174                 \}}
+\DoxyCodeLine{00175             \}}
+\DoxyCodeLine{00176             \textcolor{keywordflow}{if} (stopLoop) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00177         \}}
+\DoxyCodeLine{00178         \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}.pop();}
+\DoxyCodeLine{00179     \}}
+\DoxyCodeLine{00180 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}, \mbox{\hyperlink{class_pedido_afa8da0a8f51b6cd9d95818c186022607}{Pedido\+::get\+Code()}}, \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}}, \mbox{\hyperlink{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}{remove\+Student\+UCClass()}}, \mbox{\hyperlink{class_estudante_a5b872a5cda228e0a55ae63607ea7eeb2}{Estudante\+::set\+Code()}}, \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}, and \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\+\_\+byname}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_menu_a99312234e7fb43b839b56c11d9393622}{Menu\+::alterar\+Menu()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}\label{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}} 
+\index{GestaoHor@{GestaoHor}!removeStudentUCClass@{removeStudentUCClass}}
+\index{removeStudentUCClass@{removeStudentUCClass}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{removeStudentUCClass()}{removeStudentUCClass()}}
+{\footnotesize\ttfamily void Gestao\+Hor\+::remove\+Student\+UCClass (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pedido}{Pedido}}}]{pedido }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8cpp_source_l00215}{215}} of file \mbox{\hyperlink{_gestao_hor_8cpp_source}{Gestao\+Hor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00215                                                   \{}
+\DoxyCodeLine{00216     \textcolor{keywordtype}{int} num = pedido.\mbox{\hyperlink{class_pedido_afa8da0a8f51b6cd9d95818c186022607}{getCode}}();}
+\DoxyCodeLine{00217     \textcolor{keywordtype}{string} turma = pedido.\mbox{\hyperlink{class_pedido_a7bc169b1e2b08756e54a4234ca77d0b1}{getCodTurma}}();}
+\DoxyCodeLine{00218     \textcolor{keywordtype}{string} uc = pedido.\mbox{\hyperlink{class_pedido_a749ebae7f872402453d50d618bc98575}{getCodUc}}();}
+\DoxyCodeLine{00219 }
+\DoxyCodeLine{00220     \mbox{\hyperlink{class_estudante}{Estudante}} temp = \mbox{\hyperlink{class_estudante}{Estudante}}();}
+\DoxyCodeLine{00221     temp.\mbox{\hyperlink{class_estudante_a5b872a5cda228e0a55ae63607ea7eeb2}{setCode}}(num);}
+\DoxyCodeLine{00222     \textcolor{keyword}{auto} it1 = \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.find(temp);}
+\DoxyCodeLine{00223     temp = *it1;}
+\DoxyCodeLine{00224     \textcolor{keyword}{auto} it2 = \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.find(temp);}
+\DoxyCodeLine{00225     \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.erase(it1);}
+\DoxyCodeLine{00226     \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.erase(it2);}
+\DoxyCodeLine{00227     \mbox{\hyperlink{class_u_c_turma}{UCTurma}} t = \mbox{\hyperlink{class_u_c_turma}{UCTurma}}(turma, uc);}
+\DoxyCodeLine{00228     temp.\mbox{\hyperlink{class_estudante_a25bd9315a0e25439aac44d98998fe979}{removeTurma}}(t);}
+\DoxyCodeLine{00229     \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}.insert(temp);}
+\DoxyCodeLine{00230     \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}}.insert(temp);}
+\DoxyCodeLine{00231 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_pedido_afa8da0a8f51b6cd9d95818c186022607}{Pedido\+::get\+Code()}}, \mbox{\hyperlink{class_pedido_a7bc169b1e2b08756e54a4234ca77d0b1}{Pedido\+::get\+Cod\+Turma()}}, \mbox{\hyperlink{class_pedido_a749ebae7f872402453d50d618bc98575}{Pedido\+::get\+Cod\+Uc()}}, \mbox{\hyperlink{class_estudante_a25bd9315a0e25439aac44d98998fe979}{Estudante\+::remove\+Turma()}}, \mbox{\hyperlink{class_estudante_a5b872a5cda228e0a55ae63607ea7eeb2}{Estudante\+::set\+Code()}}, \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}}, and \mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\+\_\+byname}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}{process\+Pedidos()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}\label{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}} 
+\index{GestaoHor@{GestaoHor}!aulas@{aulas}}
+\index{aulas@{aulas}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{aulas}{aulas}}
+{\footnotesize\ttfamily set$<$\mbox{\hyperlink{class_u_c_turma}{UCTurma}}$>$ Gestao\+Hor\+::aulas\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8h_source_l00038}{38}} of file \mbox{\hyperlink{_gestao_hor_8h_source}{Gestao\+Hor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}, \mbox{\hyperlink{class_gestao_hor_a9c80ad7f5a19cc5cc8e82d620bdde732}{get\+Data\+Aula()}}, and \mbox{\hyperlink{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}{get\+Data\+Student()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}\label{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}} 
+\index{GestaoHor@{GestaoHor}!cap@{cap}}
+\index{cap@{cap}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{cap}{cap}}
+{\footnotesize\ttfamily const int Gestao\+Hor\+::cap = 30\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8h_source_l00043}{43}} of file \mbox{\hyperlink{_gestao_hor_8h_source}{Gestao\+Hor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}\label{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}} 
+\index{GestaoHor@{GestaoHor}!failed@{failed}}
+\index{failed@{failed}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{failed}{failed}}
+{\footnotesize\ttfamily list$<$\mbox{\hyperlink{structvector}{vector}}$<$pair$<$char,\mbox{\hyperlink{class_pedido}{Pedido}}$>$ $>$ $>$ Gestao\+Hor\+::failed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8h_source_l00042}{42}} of file \mbox{\hyperlink{_gestao_hor_8h_source}{Gestao\+Hor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}\label{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}} 
+\index{GestaoHor@{GestaoHor}!pedidos@{pedidos}}
+\index{pedidos@{pedidos}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{pedidos}{pedidos}}
+{\footnotesize\ttfamily queue$<$\mbox{\hyperlink{structvector}{vector}}$<$pair$<$char,\mbox{\hyperlink{class_pedido}{Pedido}}$>$ $>$ $>$ Gestao\+Hor\+::pedidos\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8h_source_l00041}{41}} of file \mbox{\hyperlink{_gestao_hor_8h_source}{Gestao\+Hor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_a5ebc7ec0265bb67a8b432f958163e9b1}{add\+Pedidos()}}, \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}, and \mbox{\hyperlink{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}{process\+Pedidos()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}\label{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}} 
+\index{GestaoHor@{GestaoHor}!students@{students}}
+\index{students@{students}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{students}{students}}
+{\footnotesize\ttfamily set$<$\mbox{\hyperlink{class_estudante}{Estudante}}$>$ Gestao\+Hor\+::students\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8h_source_l00039}{39}} of file \mbox{\hyperlink{_gestao_hor_8h_source}{Gestao\+Hor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_ad9d0d5965377e67d55bac29d505f51aa}{add\+Student()}}, \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}, \mbox{\hyperlink{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}{get\+Data\+Student()}}, \mbox{\hyperlink{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}{get\+Students()}}, \mbox{\hyperlink{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}{process\+Pedidos()}}, and \mbox{\hyperlink{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}{remove\+Student\+UCClass()}}.
+
+\mbox{\Hypertarget{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}\label{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}} 
+\index{GestaoHor@{GestaoHor}!students\_byname@{students\_byname}}
+\index{students\_byname@{students\_byname}!GestaoHor@{GestaoHor}}
+\doxysubsubsection{\texorpdfstring{students\_byname}{students\_byname}}
+{\footnotesize\ttfamily set$<$\mbox{\hyperlink{class_estudante}{Estudante}}, \mbox{\hyperlink{struct_gestao_hor_1_1cmp}{cmp}}$>$ Gestao\+Hor\+::students\+\_\+byname\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_gestao_hor_8h_source_l00040}{40}} of file \mbox{\hyperlink{_gestao_hor_8h_source}{Gestao\+Hor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{add\+Student\+UCClass()}}, \mbox{\hyperlink{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}{get\+Data\+Student()}}, \mbox{\hyperlink{class_gestao_hor_a238cfbf75a19789120e68a9aa2168095}{get\+Students\+Byname()}}, \mbox{\hyperlink{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}{process\+Pedidos()}}, and \mbox{\hyperlink{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}{remove\+Student\+UCClass()}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Gestao\+Hor.\+h\item 
-Gestao\+Hor.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_gestao_hor_8h}{Gestao\+Hor.\+h}}\item 
+\mbox{\hyperlink{_gestao_hor_8cpp}{Gestao\+Hor.\+cpp}}\end{DoxyCompactItemize}

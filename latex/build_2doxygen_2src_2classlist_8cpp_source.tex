@@ -1,0 +1,122 @@
+\hypertarget{build_2doxygen_2src_2classlist_8cpp_source}{}\doxysection{classlist.\+cpp}
+\label{build_2doxygen_2src_2classlist_8cpp_source}\index{doxygen/build/doxygen/src/classlist.cpp@{doxygen/build/doxygen/src/classlist.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2classlist_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00003}00003 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00005}00005 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00006}00006 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00007}00007 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00008}00008 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00009}00009 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00010}00010 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00011}00011 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00012}00012 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00013}00013 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00014}00014 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00015}00015 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00016}00016 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2classlist_8h}{classlist.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2util_8h}{util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2outputlist_8h}{outputlist.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2language_8h}{language.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2doxygen_8h}{doxygen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2vhdldocgen_8h}{vhdldocgen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2defargs_8h}{defargs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00026}00026 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2arguments_8h}{arguments.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00027}00027 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2groupdef_8h}{groupdef.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00029}\mbox{\hyperlink{class_class_linked_ref_map_a838ce9a0734d262e105e2f59cab41d9c}{00029}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_class_linked_ref_map_a838ce9a0734d262e105e2f59cab41d9c}{ClassLinkedRefMap::declVisible}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac48c7cc368d341ab2c1c9ec3fab9c273}{filter}})\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00030}00030 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00031}00031   \textcolor{keywordtype}{bool} hideUndocClasses = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(HIDE\_UNDOC\_CLASSES);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00032}00032   \textcolor{keywordtype}{bool} extractLocalClasses = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(EXTRACT\_LOCAL\_CLASSES);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00033}00033   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&cd : *\textcolor{keyword}{this})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00034}00034   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00035}00035     \textcolor{keywordflow}{if} (!cd-\/>isAnonymous() \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00036}00036         (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac48c7cc368d341ab2c1c9ec3fab9c273}{filter}}==0 || *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac48c7cc368d341ab2c1c9ec3fab9c273}{filter}}==cd-\/>compoundType())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00037}00037        )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00038}00038     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00039}00039       \textcolor{keywordtype}{bool} isLink = cd-\/>isLinkable();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00040}00040       \textcolor{keywordflow}{if} (isLink ||}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00041}00041           (!hideUndocClasses \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00042}00042            (!cd-\/>isLocal() || extractLocalClasses)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00043}00043           )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00044}00044          )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00045}00045       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00046}00046         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00047}00047       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00049}00049   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00050}00050   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00051}00051 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00053}\mbox{\hyperlink{class_class_linked_ref_map_a1c99c36b0a60cba930a8a4909e2f72cc}{00053}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_class_linked_ref_map_a1c99c36b0a60cba930a8a4909e2f72cc}{ClassLinkedRefMap::writeDeclaration}}(\mbox{\hyperlink{class_output_list}{OutputList}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac48c7cc368d341ab2c1c9ec3fab9c273}{filter}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00054}00054                                       \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&header,\textcolor{keywordtype}{bool} localNames)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00055}00055 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00056}00056   \textcolor{keywordtype}{bool} extractPrivate = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(EXTRACT\_PRIVATE);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00057}00057   \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00058}00058   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&cd : *\textcolor{keyword}{this})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00059}00059   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00060}00060     \textcolor{comment}{//printf("{}  ClassLinkedRefMap::writeDeclaration for \%s\(\backslash\)n"{},cd-\/>name().data());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00061}00061     \textcolor{keywordflow}{if} (!cd-\/>isAnonymous() \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00062}00062         !cd-\/>isExtension() \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00063}00063         (cd-\/>protection()!=\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}} || extractPrivate) \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00064}00064         (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac48c7cc368d341ab2c1c9ec3fab9c273}{filter}}==0 || *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac48c7cc368d341ab2c1c9ec3fab9c273}{filter}}==cd-\/>compoundType())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00065}00065        )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00066}00066     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00067}00067       \textcolor{comment}{//printf("{}writeDeclarationLink()\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00068}00068       cd-\/>writeDeclarationLink(ol,\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}},header,localNames);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00070}00070   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00071}00071   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}) ol.\mbox{\hyperlink{class_output_list_a7c8d844390c3ab106b675144baa48fc7}{endMemberList}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00072}00072 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00074}\mbox{\hyperlink{class_class_linked_ref_map_a1fda9133b91230315ea4dc3b42aac1be}{00074}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_class_linked_ref_map_a1fda9133b91230315ea4dc3b42aac1be}{ClassLinkedRefMap::writeDocumentation}}(\mbox{\hyperlink{class_output_list}{OutputList}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} * container)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00075}00075 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00076}00076   \textcolor{keywordtype}{bool} fortranOpt = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_FOR\_FORTRAN);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00078}00078   \textcolor{keywordtype}{bool} inlineGroupedClasses = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(INLINE\_GROUPED\_CLASSES);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00079}00079   \textcolor{keywordtype}{bool} inlineSimpleClasses = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(INLINE\_SIMPLE\_STRUCTS);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00080}00080   \textcolor{keywordflow}{if} (!inlineGroupedClasses \&\& !inlineSimpleClasses) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00082}00082   \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00084}00084   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&cd : *\textcolor{keyword}{this})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00085}00085   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00086}00086     \textcolor{comment}{//printf("{}\%s:writeDocumentation() \%p linkable=\%d embedded=\%d container=\%p partOfGroups=\%zu\(\backslash\)n"{},}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00087}00087     \textcolor{comment}{//  cd-\/>name().data(),cd-\/>getOuterScope(),cd-\/>isLinkableInProject(),cd-\/>isEmbeddedInOuterScope(),}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00088}00088     \textcolor{comment}{//  container,cd-\/>partOfGroups()-\/>size());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00090}00090     \textcolor{keywordflow}{if} (!cd-\/>isAnonymous() \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00091}00091         cd-\/>isLinkableInProject() \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00092}00092         cd-\/>isEmbeddedInOuterScope() \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00093}00093         !cd-\/>isAlias() \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00094}00094         (container==0 || cd-\/>\mbox{\hyperlink{class_definition_ab91d34cb9d5a993d3cae3356bc97232e}{partOfGroups}}().empty()) \textcolor{comment}{// if container==0 -\/> show as part of the group docs, otherwise only show if not part of a group}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00095}00095        )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00096}00096     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00097}00097       \textcolor{comment}{//printf("{}  showing class \%s\(\backslash\)n"{},cd-\/>name().data());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00098}00098       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00099}00099       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00100}00100         ol.\mbox{\hyperlink{class_output_list_a2203589f0bc276cb3ba01f529b9536a9}{writeRuler}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00101}00101         ol.\mbox{\hyperlink{class_output_list_a08659f3995b246a54846fbcd5da928bd}{startGroupHeader}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00102}00102         ol.\mbox{\hyperlink{class_output_list_adfdcf2ba925f05be8beb8cf43deb168a}{parseText}}(fortranOpt?\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a96a7cdf0b35d6c092875b364bac5f2cf}{trTypeDocumentation}}():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00103}00103             \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a7f2ce6d3f52323d11e2ec9021c1daff1}{trClassDocumentation}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00104}00104         ol.\mbox{\hyperlink{class_output_list_aa655c0592e136ba962ac45bb69482638}{endGroupHeader}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00105}00105         \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00106}00106       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00107}00107       \mbox{\hyperlink{class_class_def_mutable}{ClassDefMutable}} *cdm = \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_a2d0bf73f7801534e7e2b6e5fc03ed6f5}{toClassDefMutable}}(cd);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00108}00108       \textcolor{keywordflow}{if} (cdm)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00109}00109       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00110}00110         cdm-\/>\mbox{\hyperlink{class_class_def_mutable_a51d483e2dfa5353eb539a594e79c8d58}{writeInlineDocumentation}}(ol);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00111}00111       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00112}00112     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00113}00113   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00114}00114 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2classlist_8cpp_source_l00116}00116 }
+
+\end{DoxyCode}

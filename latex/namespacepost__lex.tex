@@ -1,0 +1,106 @@
+\hypertarget{namespacepost__lex}{}\doxysection{post\+\_\+lex Namespace Reference}
+\label{namespacepost__lex}\index{post\_lex@{post\_lex}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacepost__lex_a7687ec9912502a3c4937bacf76e08ead}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacepost__lex_a7687ec9912502a3c4937bacf76e08ead}\label{namespacepost__lex_a7687ec9912502a3c4937bacf76e08ead}} 
+\index{post\_lex@{post\_lex}!main@{main}}
+\index{main@{main}!post\_lex@{post\_lex}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def post\+\_\+lex.\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2post__lex_8py_source_l00019}{19}} of file \mbox{\hyperlink{build_2doxygen_2src_2post__lex_8py_source}{post\+\_\+lex.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019 \textcolor{keyword}{def }\mbox{\hyperlink{namespacepost__lex_a7687ec9912502a3c4937bacf76e08ead}{main}}():}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{if} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(sys.argv)!=6:}
+\DoxyCodeLine{00021         sys.exit(\textcolor{stringliteral}{'Usage: \{0\} <input\_cpp\_file> <output\_cpp\_file> <correction\_file> <original\_lex\_file> <generated\_lex\_file>'}.format(sys.argv[0]))}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023     inp\_cpp\_file, out\_cpp\_file, corr\_cpp\_file, org\_lex, gen\_lex = sys.argv[1:]}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025     quoted\_inp\_cpp\_file = \textcolor{stringliteral}{'"{}'} + inp\_cpp\_file + \textcolor{stringliteral}{'"{}'}}
+\DoxyCodeLine{00026     quoted\_gen\_lex      = \textcolor{stringliteral}{'"{}'} + gen\_lex      + \textcolor{stringliteral}{'"{}'}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028     corr\_list = []}
+\DoxyCodeLine{00029     \textcolor{keywordflow}{if} (os.path.exists(corr\_cpp\_file)):}
+\DoxyCodeLine{00030         \textcolor{comment}{\# read correction file as list of tuples}}
+\DoxyCodeLine{00031         \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(corr\_cpp\_file,\textcolor{stringliteral}{"{}r"{}}) \textcolor{keyword}{as} corr\_file:}
+\DoxyCodeLine{00032             corr\_list = [tuple(map(int, line.split(\textcolor{stringliteral}{' '}))) \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} corr\_file]}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034     \textcolor{keywordflow}{if} (os.path.exists(inp\_cpp\_file)):}
+\DoxyCodeLine{00035         \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(out\_cpp\_file,\textcolor{stringliteral}{"{}w"{}}) \textcolor{keyword}{as} out\_file:}
+\DoxyCodeLine{00036             rule\_correction = \textcolor{keyword}{False}}
+\DoxyCodeLine{00037             \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(inp\_cpp\_file) \textcolor{keyword}{as} in\_file:}
+\DoxyCodeLine{00038                 \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} in\_file:}
+\DoxyCodeLine{00039                     \textcolor{comment}{\# helper function to find the correction needed for the given line number}}
+\DoxyCodeLine{00040                     \textcolor{keyword}{def }get\_line\_correction(line\_no):}
+\DoxyCodeLine{00041                         corr\_cnt = 0}
+\DoxyCodeLine{00042                         \textcolor{keywordflow}{for} elem \textcolor{keywordflow}{in} corr\_list:}
+\DoxyCodeLine{00043                             \textcolor{keywordflow}{if} elem[0] <= line\_no:}
+\DoxyCodeLine{00044                                 corr\_cnt = elem[1]}
+\DoxyCodeLine{00045                         \textcolor{keywordflow}{return} corr\_cnt}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047                     \textcolor{keywordflow}{if} re.search(\textcolor{stringliteral}{r'\string^\#line '}, line): \textcolor{comment}{\# statement added by C-\/preprocessing}}
+\DoxyCodeLine{00048                         inc\_line, inc\_file = line.split()[1:3]}
+\DoxyCodeLine{00049                         \textcolor{keywordflow}{if} inc\_file == quoted\_gen\_lex:}
+\DoxyCodeLine{00050                             line\_cnt = int(inc\_line)}
+\DoxyCodeLine{00051                             line\_cnt -\/= get\_line\_correction(line\_cnt) \textcolor{comment}{\# adjust line number}}
+\DoxyCodeLine{00052                             out\_file.write(\textcolor{stringliteral}{"{}\#line \{0\} \(\backslash\)"{}\{1\}\(\backslash\)"{}\(\backslash\)n"{}}.format(line\_cnt,org\_lex))}
+\DoxyCodeLine{00053                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00054                             out\_file.write(line)}
+\DoxyCodeLine{00055                     \textcolor{keywordflow}{elif} re.search(\textcolor{stringliteral}{r'\string^  /\(\backslash\)* \#line '}, line): \textcolor{comment}{\# statement added by lex-\/preprocessing}}
+\DoxyCodeLine{00056                         inc\_line, inc\_file = line.split()[2:4] \textcolor{comment}{\# first token is `/*` part}}
+\DoxyCodeLine{00057                         out\_file.write(\textcolor{stringliteral}{"{}\#line \{0\} \(\backslash\)"{}\{1\}\(\backslash\)"{}\(\backslash\)n"{}}.format(inc\_line,inc\_file))}
+\DoxyCodeLine{00058                     \textcolor{keywordflow}{elif} re.search(\textcolor{stringliteral}{r'static .* yy\_rule\_linenum'}, line): \textcolor{comment}{\# linenum table generated in debug mode (flex -\/d)}}
+\DoxyCodeLine{00059                         out\_file.write(line)}
+\DoxyCodeLine{00060                         rule\_correction = \textcolor{keyword}{True}}
+\DoxyCodeLine{00061                         \textcolor{comment}{\# read next lines till \} and correct numbers}}
+\DoxyCodeLine{00062                         \textcolor{comment}{\# Assumption structure is like:}}
+\DoxyCodeLine{00063                         \textcolor{comment}{\#   static const flex\_int16\_t yy\_rule\_linenum[26] =}}
+\DoxyCodeLine{00064                         \textcolor{comment}{\#      \{   0,}}
+\DoxyCodeLine{00065                         \textcolor{comment}{\#        981,  985,  989,  995, 1093, 1151, 1153, 1154, 1179, 1182,}}
+\DoxyCodeLine{00066                         \textcolor{comment}{\#       1195, 1198, 1201, 1207, 1211, 1214, 1217, 1223, 1226, 1228,}}
+\DoxyCodeLine{00067                         \textcolor{comment}{\#       1230, 1235, 1236, 1237, 1238}}
+\DoxyCodeLine{00068                         \textcolor{comment}{\#      \} ;}}
+\DoxyCodeLine{00069                     \textcolor{keywordflow}{elif} rule\_correction:}
+\DoxyCodeLine{00070                         \textcolor{keywordflow}{if} re.search(\textcolor{stringliteral}{r'\{'}, line): \textcolor{comment}{\# start of yy\_rule\_linenum array}}
+\DoxyCodeLine{00071                             out\_file.write(line)}
+\DoxyCodeLine{00072                         \textcolor{keywordflow}{elif} re.search(\textcolor{stringliteral}{r'\}'}, line): \textcolor{comment}{\# end of yy\_rule\_linenum array}}
+\DoxyCodeLine{00073                             out\_file.write(line)}
+\DoxyCodeLine{00074                             rule\_correction = \textcolor{keyword}{False}}
+\DoxyCodeLine{00075                         \textcolor{keywordflow}{else}: \textcolor{comment}{\# inside the table}}
+\DoxyCodeLine{00076                             out\_file.write(\textcolor{stringliteral}{"{}    "{}})}
+\DoxyCodeLine{00077                             out\_list = []}
+\DoxyCodeLine{00078                             rule\_list = line.replace(\textcolor{stringliteral}{','},\textcolor{stringliteral}{' '}).\mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}()}
+\DoxyCodeLine{00079                             \textcolor{keywordflow}{for} rule\_cnt \textcolor{keywordflow}{in} rule\_list:}
+\DoxyCodeLine{00080                                 rule\_num = int(rule\_cnt)}
+\DoxyCodeLine{00081                                 rule\_num -\/= get\_line\_correction(rule\_num)}
+\DoxyCodeLine{00082                                 out\_list.append(\textcolor{stringliteral}{"{}\{0:5d\}"{}}.format(rule\_num))}
+\DoxyCodeLine{00083                             out\_file.write(\textcolor{stringliteral}{','}.\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a27784840caff3a70e6dfa44f5341553b}{join}}(out\_list));}
+\DoxyCodeLine{00084                             \textcolor{keywordflow}{if} re.search(\textcolor{stringliteral}{r',\$'}, line): \textcolor{comment}{\# re-\/add trailing comma}}
+\DoxyCodeLine{00085                                 out\_file.write(\textcolor{stringliteral}{"{},"{}})}
+\DoxyCodeLine{00086                             out\_file.write(\textcolor{stringliteral}{"{}\(\backslash\)n"{}})}
+\DoxyCodeLine{00087                     \textcolor{keywordflow}{else}: \textcolor{comment}{\# normal line -\/> just copy}}
+\DoxyCodeLine{00088                         out\_file.write(line)}
+\DoxyCodeLine{00089     \textcolor{keywordflow}{else}: \textcolor{comment}{\# input file does not exist}}
+\DoxyCodeLine{00090         sys.exit(\textcolor{stringliteral}{"{}Input cpp file '\{0\}' does not exist."{}}.format(sys.argv[1]))}
+\DoxyCodeLine{00091         exit(1)}
+\DoxyCodeLine{00092 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a27784840caff3a70e6dfa44f5341553b}{join()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{namespacepost__lex_a7687ec9912502a3c4937bacf76e08ead}{main()}}, \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open()}}, and \mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacepost__lex_a7687ec9912502a3c4937bacf76e08ead}{main()}}.
+

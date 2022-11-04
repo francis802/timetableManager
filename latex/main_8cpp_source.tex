@@ -1,0 +1,49 @@
+\hypertarget{main_8cpp_source}{}\doxysection{main.\+cpp}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_gestao_hor_8h}{GestaoHor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_menu_8h}{Menu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}\mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00008}} \textcolor{keywordtype}{int} \mbox{\hyperlink{doxygen_2build_2doxygen_2src_2main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009     \mbox{\hyperlink{class_gestao_hor}{GestaoHor}} gestao = \mbox{\hyperlink{class_gestao_hor}{GestaoHor}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010     gestao.\mbox{\hyperlink{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}{getDataStudent}}(\textcolor{stringliteral}{"{}../students\_classes.csv"{}}, \textcolor{stringliteral}{"{}../classes.csv"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011     \mbox{\hyperlink{class_menu}{Menu}} menu = \mbox{\hyperlink{class_menu}{Menu}}(gestao);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012     menu.\mbox{\hyperlink{class_menu_ae1ec62e738dda7faaaec850bd0b58ffe}{start}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016 \textcolor{comment}{    list<UCTurma> turmas = gestao.getDataAula("{}../classes.csv"{});}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017 \textcolor{comment}{    for (UCTurma uc: turmas)\{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018 \textcolor{comment}{        cout << uc.getCodUc() << '|' << uc.getCodTurma() << '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019 \textcolor{comment}{        for (Aula a: uc.getTimetable())\{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020 \textcolor{comment}{            cout << '\(\backslash\)t' << a.getWeekday();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021 \textcolor{comment}{            cout << ' ' << a.getStartHour();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022 \textcolor{comment}{            cout << ' ' << a.getDuration();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023 \textcolor{comment}{            cout << ' ' << a.getType() << '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024 \textcolor{comment}{        \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027 \textcolor{comment}{    cout << "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029 \textcolor{comment}{    gestao.getDataStudent("{}../students\_classes.csv"{},"{}../classes.csv"{});}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030 \textcolor{comment}{    for (Estudante e : gestao.getStudents()) \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031 \textcolor{comment}{        cout << e.getName() << '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032 \textcolor{comment}{        for (UCTurma turma : e.getTurmas())\{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033 \textcolor{comment}{            cout << turma.getCodUc() << "{} -\/-\/ "{} << turma.getCodTurma() << '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034 \textcolor{comment}{            for (Aula a : turma.getTimetable())\{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035 \textcolor{comment}{                cout << '\(\backslash\)t' << a.getWeekday();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036 \textcolor{comment}{                cout << ' ' << a.getStartHour();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037 \textcolor{comment}{                cout << ' ' << a.getDuration();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038 \textcolor{comment}{                cout << ' ' << a.getType() << '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040 \textcolor{comment}{        \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044 \}}
+
+\end{DoxyCode}

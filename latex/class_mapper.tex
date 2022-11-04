@@ -1,0 +1,180 @@
+\hypertarget{class_mapper}{}\doxysection{Mapper Class Reference}
+\label{class_mapper}\index{Mapper@{Mapper}}
+
+
+{\ttfamily \#include $<$cmdmapper.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}{map}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_mapper_af6c2f47513d570a88524cbd8da604244}{find}} (const int \mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+\mbox{\hyperlink{class_mapper_af3513047b2c3d6aedc2b429e6cdbc6b5}{Mapper}} (const \mbox{\hyperlink{struct_command_map}{Command\+Map}} $\ast$cm, bool case\+Sensitive)
+\item 
+int \mbox{\hyperlink{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}{map}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_mapper_af6c2f47513d570a88524cbd8da604244}{find}} (const int \mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+\mbox{\hyperlink{class_mapper_af3513047b2c3d6aedc2b429e6cdbc6b5}{Mapper}} (const \mbox{\hyperlink{struct_command_map}{Command\+Map}} $\ast$cm, bool case\+Sensitive)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, int $>$ \mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\+\_\+map}}
+\item 
+bool \mbox{\hyperlink{class_mapper_ac4f2be5125734fbeef19f0463923b3cc}{m\+\_\+cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_class}{Class}} representing a mapping from command names to command IDs. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_source_l00229}{229}} of file \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_source}{cmdmapper.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mapper_af3513047b2c3d6aedc2b429e6cdbc6b5}\label{class_mapper_af3513047b2c3d6aedc2b429e6cdbc6b5}} 
+\index{Mapper@{Mapper}!Mapper@{Mapper}}
+\index{Mapper@{Mapper}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{Mapper()}{Mapper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Mapper\+::\+Mapper (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_command_map}{Command\+Map}} $\ast$}]{cm,  }\item[{bool}]{case\+Sensitive }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8cpp_source_l00266}{266}} of file \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8cpp_source}{cmdmapper.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00266                                                       : \mbox{\hyperlink{class_mapper_ac4f2be5125734fbeef19f0463923b3cc}{m\_cs}}(caseSensitive)}
+\DoxyCodeLine{00267 \{}
+\DoxyCodeLine{00268   \textcolor{keyword}{const} \mbox{\hyperlink{struct_command_map}{CommandMap}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = cm;}
+\DoxyCodeLine{00269   \textcolor{keywordflow}{while} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/>cmdName)}
+\DoxyCodeLine{00270   \{}
+\DoxyCodeLine{00271     \mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\_map}}.insert(std::make\_pair(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/>cmdName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/>cmdId));}
+\DoxyCodeLine{00272     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00273   \}}
+\DoxyCodeLine{00274 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\+\_\+map}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+\mbox{\Hypertarget{class_mapper_af3513047b2c3d6aedc2b429e6cdbc6b5}\label{class_mapper_af3513047b2c3d6aedc2b429e6cdbc6b5}} 
+\index{Mapper@{Mapper}!Mapper@{Mapper}}
+\index{Mapper@{Mapper}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{Mapper()}{Mapper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Mapper\+::\+Mapper (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_command_map}{Command\+Map}} $\ast$}]{cm,  }\item[{bool}]{case\+Sensitive }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mapper_af6c2f47513d570a88524cbd8da604244}\label{class_mapper_af6c2f47513d570a88524cbd8da604244}} 
+\index{Mapper@{Mapper}!find@{find}}
+\index{find@{find}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} Mapper\+::find (\begin{DoxyParamCaption}\item[{const int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8cpp_source_l00256}{256}} of file \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8cpp_source}{cmdmapper.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00257 \{}
+\DoxyCodeLine{00258   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&kv : \mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\_map}})}
+\DoxyCodeLine{00259   \{}
+\DoxyCodeLine{00260     \textcolor{keywordtype}{int} curVal = kv.second;}
+\DoxyCodeLine{00261     \textcolor{keywordflow}{if} (curVal == \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} || (curVal == (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} | \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}}))) \textcolor{keywordflow}{return} kv.first.c\_str();}
+\DoxyCodeLine{00262   \}}
+\DoxyCodeLine{00263   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_q_c_string}{QCString}}();}
+\DoxyCodeLine{00264 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\+\_\+map}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\+\_\+\+BIT}}.
+
+\mbox{\Hypertarget{class_mapper_af6c2f47513d570a88524cbd8da604244}\label{class_mapper_af6c2f47513d570a88524cbd8da604244}} 
+\index{Mapper@{Mapper}!find@{find}}
+\index{find@{find}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} Mapper\+::find (\begin{DoxyParamCaption}\item[{const int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}\label{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}} 
+\index{Mapper@{Mapper}!map@{map}}
+\index{map@{map}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Mapper\+::map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8cpp_source_l00247}{247}} of file \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8cpp_source}{cmdmapper.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00248 \{}
+\DoxyCodeLine{00249   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.isEmpty()) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00250   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}};}
+\DoxyCodeLine{00251   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_mapper_ac4f2be5125734fbeef19f0463923b3cc}{m\_cs}}) \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}=\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.lower();}
+\DoxyCodeLine{00252   \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\_map}}.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{00253   \textcolor{keywordflow}{return} it!=\mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\_map}}.end() ? it-\/>second : 0;}
+\DoxyCodeLine{00254 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_mapper_ac4f2be5125734fbeef19f0463923b3cc}{m\+\_\+cs}}, \mbox{\hyperlink{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}{m\+\_\+map}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_doc_para_ab2dab53dd0a139cb646dcfec1b1b75ef}{Doc\+Para\+::handle\+Command()}}, \mbox{\hyperlink{class_doc_para_a162e967cb48fb2b45f9ef929cb76904e}{Doc\+Para\+::handle\+Html\+End\+Tag()}}, \mbox{\hyperlink{class_doc_para_acf15adeeded3d014c3110c605fdb8462}{Doc\+Para\+::handle\+Html\+Start\+Tag()}}, \mbox{\hyperlink{class_doc_h_ref_abafbc9756ef85e92a53d9cf30c08eb49}{Doc\+HRef\+::parse()}}, \mbox{\hyperlink{class_doc_html_header_ac2eec8f4523c155e9093e6b325c4b2f9}{Doc\+Html\+Header\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_title_adae4fee1f061f16a8ec9df0b3e3fb078}{Doc\+Html\+Desc\+Title\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_list_a790243e50653158983e46f9411a2e719}{Doc\+Html\+Desc\+List\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_a21726903a9116af1fc0db60a6a026777}{Doc\+Html\+List\+::parse()}}, \mbox{\hyperlink{class_doc_para_ad287572fb2dcdc4d2d8edde57aed54c7}{Doc\+Para\+::parse()}}, \mbox{\hyperlink{class_doc_html_cell_a1570aad63992cdd725c506b3ea98e3bd}{Doc\+Html\+Cell\+::parse()}}, \mbox{\hyperlink{class_doc_html_caption_ad57e7de680b7f43187f0a8746487109a}{Doc\+Html\+Caption\+::parse()}}, \mbox{\hyperlink{class_doc_html_row_a3ce36d0ebbf4daab80a263ff326bfde6}{Doc\+Html\+Row\+::parse()}}, \mbox{\hyperlink{class_doc_html_table_a035ec950edb27c36ba1c4f5e3c5e0e87}{Doc\+Html\+Table\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_aa0ad18a7b2e99279c22f4998ff75d03c}{Doc\+Html\+List\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_cell_a33b26ea9de0d68f3083584948b09d68c}{Doc\+Html\+Cell\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_table_a72881068b9099b1e1a8aed91c9199755}{Doc\+Html\+Table\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_row_a31be2781f87ba9d86a722e8a92338f6d}{Doc\+Html\+Row\+::parse\+Xml()}}, and \mbox{\hyperlink{class_doc_param_list_a234b676b5ae951e3cfafa84a07e76588}{Doc\+Param\+List\+::parse\+Xml()}}.
+
+\mbox{\Hypertarget{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}\label{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}} 
+\index{Mapper@{Mapper}!map@{map}}
+\index{map@{map}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Mapper\+::map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{n }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_mapper_ac4f2be5125734fbeef19f0463923b3cc}\label{class_mapper_ac4f2be5125734fbeef19f0463923b3cc}} 
+\index{Mapper@{Mapper}!m\_cs@{m\_cs}}
+\index{m\_cs@{m\_cs}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{m\_cs}{m\_cs}}
+{\footnotesize\ttfamily bool Mapper\+::m\+\_\+cs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_source_l00237}{237}} of file \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_source}{cmdmapper.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}{map()}}.
+
+\mbox{\Hypertarget{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}\label{class_mapper_a4ffb5dae323ef0c4e6f3778426d673ee}} 
+\index{Mapper@{Mapper}!m\_map@{m\_map}}
+\index{m\_map@{m\_map}!Mapper@{Mapper}}
+\doxysubsubsection{\texorpdfstring{m\_map}{m\_map}}
+{\footnotesize\ttfamily std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, int $>$ Mapper\+::m\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_source_l00236}{236}} of file \mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h_source}{cmdmapper.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_mapper_af6c2f47513d570a88524cbd8da604244}{find()}}, \mbox{\hyperlink{class_mapper_a76bc83f0e5310d8c9b201957d341f4b5}{map()}}, and \mbox{\hyperlink{class_mapper_af3513047b2c3d6aedc2b429e6cdbc6b5}{Mapper()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8h}{cmdmapper.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2cmdmapper_8h}{cmdmapper.\+h}}\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2cmdmapper_8cpp}{cmdmapper.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2cmdmapper_8cpp}{cmdmapper.\+cpp}}\end{DoxyCompactItemize}

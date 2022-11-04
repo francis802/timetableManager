@@ -1,0 +1,615 @@
+\hypertarget{build_2doxygen_2src_2portable_8cpp_source}{}\doxysection{portable.\+cpp}
+\label{build_2doxygen_2src_2portable_8cpp_source}\index{doxygen/build/doxygen/src/portable.cpp@{doxygen/build/doxygen/src/portable.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2portable_8h}{portable.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#undef UNICODE}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00010}00010 \textcolor{preprocessor}{\#define \_WIN32\_DCOM}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include <windows.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include <sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include <sys/wait.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include <errno.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00017}00017 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} **\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include <ctype.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2fileinfo_8h}{fileinfo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00027}00027 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2util_8h}{util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00028}00028 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dir_8h}{dir.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00029}00029 \textcolor{preprocessor}{\#ifndef NODEBUG}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00030}00030 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2debug_8h}{debug.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00033}00033 \textcolor{preprocessor}{\#if !defined(\_WIN32) || defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00034}\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{00034}} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{environmentLoaded}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00035}\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{00035}} \textcolor{keyword}{static} std::map<std::string,std::string> \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}} = std::map<std::string,std::string>();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00036}00036 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00038}\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1cf22a076099dc716b95f83698b54182}{00038}} \textcolor{keyword}{static} \textcolor{keywordtype}{double}  \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1cf22a076099dc716b95f83698b54182}{g\_sysElapsedTime}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00039}\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4acb0a5fe2ac2ce53538303ea3552118}{00039}} \textcolor{keyword}{static} std::chrono::steady\_clock::time\_point \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4acb0a5fe2ac2ce53538303ea3552118}{g\_startTime}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00042}\mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{00042}} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable::system}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&command,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&args,\textcolor{keywordtype}{bool} commandHasConsole)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00043}00043 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00045}00045   \textcolor{keywordflow}{if} (command.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00047}00047 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00048}00048   \mbox{\hyperlink{class_q_c_string}{QCString}} commandCorrectedPath = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(command,\textcolor{charliteral}{'/'},\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00049}00049   \mbox{\hyperlink{class_q_c_string}{QCString}} fullCmd=commandCorrectedPath;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00050}00050 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00051}00051   \mbox{\hyperlink{class_q_c_string}{QCString}} fullCmd=command;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00052}00052 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00053}00053   fullCmd=fullCmd.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00054}00054   \textcolor{keywordflow}{if} (fullCmd.\mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(0)!=\textcolor{charliteral}{'"{}'} \&\& fullCmd.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{' '})!=-\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00055}00055   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00056}00056     \textcolor{comment}{// add quotes around command as it contains spaces and is not quoted already}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00057}00057     fullCmd=\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}+fullCmd+\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00058}00058   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00059}00059   fullCmd += \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00060}00060   fullCmd += args;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00061}00061 \textcolor{preprocessor}{\#ifndef NODEBUG}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00062}00062   \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{Debug::ExtCmd}},0,\textcolor{stringliteral}{"{}Executing external command `\%s`\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fullCmd));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00063}00063 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00065}00065 \textcolor{preprocessor}{\#if !defined(\_WIN32) || defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00066}00066   (void)commandHasConsole;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00068}00068   \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}},\mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}}=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00070}00070 \textcolor{preprocessor}{\#ifdef \_OS\_SOLARIS }\textcolor{comment}{// for Solaris we use vfork since it is more memory efficient}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00072}00072   \textcolor{comment}{// on Solaris fork() duplicates the memory usage}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00073}00073   \textcolor{comment}{// so we use vfork instead}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00075}00075   \textcolor{comment}{// spawn shell}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00076}00076   \textcolor{keywordflow}{if} ((\mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}}=vfork())<0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00077}00077   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00078}00078     \mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}}=-\/1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00079}00079   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00080}00080   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}}==0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00081}00081   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00082}00082      execl(\textcolor{stringliteral}{"{}/bin/sh"{}},\textcolor{stringliteral}{"{}sh"{}},\textcolor{stringliteral}{"{}-\/c"{}},fullCmd.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),(\textcolor{keywordtype}{char}*)0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00083}00083      \_exit(127);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00084}00084   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00085}00085   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00086}00086   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00087}00087     \textcolor{keywordflow}{while} (waitpid(\mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}},\&\mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}},0 )<0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00088}00088     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00089}00089       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_ad65a8842cc674e3ddf69355898c0ecbf}{errno}}!=EINTR)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00090}00090       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00091}00091         \mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}}=-\/1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00092}00092         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00093}00093       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00094}00094     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00095}00095   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00096}00096   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00098}00098 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// Other Unices just use fork}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00100}00100   \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}} = fork();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00101}00101   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}}==-\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00102}00102   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00103}00103     perror(\textcolor{stringliteral}{"{}fork error"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00104}00104       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00105}00105   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00106}00106   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}}==0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00107}00107   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00108}00108     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \textcolor{keyword}{const} argv[4] = \{ \textcolor{stringliteral}{"{}sh"{}}, \textcolor{stringliteral}{"{}-\/c"{}}, fullCmd.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(), 0 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00109}00109     execve(\textcolor{stringliteral}{"{}/bin/sh"{}},\textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char} * const*\textcolor{keyword}{>}(argv),\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00110}00110     exit(127);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00111}00111   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00112}00112   \textcolor{keywordflow}{for} (;;)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00113}00113   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00114}00114     \textcolor{keywordflow}{if} (waitpid(\mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}},\&\mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}},0)==-\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00115}00115     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00116}00116       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_ad65a8842cc674e3ddf69355898c0ecbf}{errno}}!=EINTR) \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00117}00117     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00118}00118     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00119}00119     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00120}00120       \textcolor{keywordflow}{if} (WIFEXITED(\mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}}))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00121}00121       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00122}00122         \textcolor{keywordflow}{return} WEXITSTATUS(\mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00123}00123       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00124}00124       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00125}00125       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00126}00126         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{status}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00127}00127       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00128}00128     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00129}00129   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00130}00130 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// !\_OS\_SOLARIS}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00132}00132 \textcolor{preprocessor}{\#else }\textcolor{comment}{// Win32 specific}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00133}00133   \textcolor{keywordflow}{if} (commandHasConsole)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00134}00134   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00135}00135     \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{return ::system}}(fullCmd.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00136}00136   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00137}00137   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00138}00138   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00139}00139     \textcolor{comment}{// Because ShellExecuteEx can delegate execution to Shell extensions}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00140}00140     \textcolor{comment}{// (data sources, context menu handlers, verb implementations) that}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00141}00141     \textcolor{comment}{// are activated using Component Object Model (COM), COM should be}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00142}00142     \textcolor{comment}{// initialized before ShellExecuteEx is called. Some Shell extensions}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00143}00143     \textcolor{comment}{// require the COM single-\/threaded apartment (STA) type.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00144}00144     \textcolor{comment}{// For that case COM is initialized as follows}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00145}00145     CoInitializeEx(NULL, COINIT\_APARTMENTTHREADED | COINIT\_DISABLE\_OLE1DDE);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00147}00147     uint16\_t *commandw = NULL;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00148}00148     \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{recodeUtf8StringToW}}( commandCorrectedPath, \&commandw );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00149}00149     uint16\_t *argsw = NULL;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00150}00150     \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{recodeUtf8StringToW}}( args, \&argsw );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00152}00152     \textcolor{comment}{// gswin32 is a GUI api which will pop up a window and run}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00153}00153     \textcolor{comment}{// asynchronously. To prevent both, we use ShellExecuteEx and}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00154}00154     \textcolor{comment}{// WaitForSingleObject (thanks to Robert Golias for the code)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00155}00155 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00156}00156     SHELLEXECUTEINFOW sInfo = \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00157}00157       \textcolor{keyword}{sizeof}(SHELLEXECUTEINFOW),   \textcolor{comment}{/* structure size */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00158}00158       SEE\_MASK\_NOCLOSEPROCESS | SEE\_MASK\_FLAG\_NO\_UI,  \textcolor{comment}{/* tell us the process}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00159}00159 \textcolor{comment}{                                                       *  handle so we can wait till it's done |}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00160}00160 \textcolor{comment}{                                                       *  do not display msg box if error}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00161}00161 \textcolor{comment}{                                                       */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00162}00162       NULL,                       \textcolor{comment}{/* window handle */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00163}00163       NULL,                       \textcolor{comment}{/* action to perform: open */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00164}00164       (LPCWSTR)commandw,          \textcolor{comment}{/* file to execute */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00165}00165       (LPCWSTR)argsw,             \textcolor{comment}{/* argument list */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00166}00166       NULL,                       \textcolor{comment}{/* use current working dir */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00167}00167       SW\_HIDE,                    \textcolor{comment}{/* minimize on start-\/up */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00168}00168       0,                          \textcolor{comment}{/* application instance handle */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00169}00169       NULL,                       \textcolor{comment}{/* ignored: id list */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00170}00170       NULL,                       \textcolor{comment}{/* ignored: class name */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00171}00171       NULL,                       \textcolor{comment}{/* ignored: key class */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00172}00172       0,                          \textcolor{comment}{/* ignored: hot key */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00173}00173       NULL,                       \textcolor{comment}{/* ignored: icon */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00174}00174       NULL                        \textcolor{comment}{/* resulting application handle */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00175}00175     \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00177}00177     \textcolor{keywordflow}{if} (!ShellExecuteExW(\&sInfo))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00178}00178     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00179}00179       \textcolor{keyword}{delete}[] commandw;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00180}00180       \textcolor{keyword}{delete}[] argsw;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00181}00181       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00182}00182     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00183}00183     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sInfo.hProcess)      \textcolor{comment}{/* executable was launched, wait for it to finish */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00184}00184     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00185}00185       WaitForSingleObject(sInfo.hProcess,INFINITE);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00186}00186       \textcolor{comment}{/* get process exit code */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00187}00187       DWORD exitCode;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00188}00188       \textcolor{keywordtype}{bool} retval = GetExitCodeProcess(sInfo.hProcess,\&exitCode);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00189}00189       CloseHandle(sInfo.hProcess);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00190}00190       \textcolor{keyword}{delete}[] commandw;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00191}00191       \textcolor{keyword}{delete}[] argsw;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00192}00192       \textcolor{keywordflow}{if} (!retval) \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00193}00193       \textcolor{keywordflow}{return} exitCode;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00194}00194     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00195}00195   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00196}00196 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00197}00197   \textcolor{keywordflow}{return} 1; \textcolor{comment}{// we should never get here}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00199}00199 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00200}00200 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00201}\mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{00201}} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{Portable::pid}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00202}00202 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00203}00203   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00204}00204 \textcolor{preprocessor}{\#if !defined(\_WIN32) || defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00205}00205   \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}} = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\textcolor{keyword}{>}(getpid());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00206}00206 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00207}00207   \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}} = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\textcolor{keyword}{>}(GetCurrentProcessId());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00208}00208 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00209}00209   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{pid}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00210}00210 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00211}00211 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00212}00212 \textcolor{preprocessor}{\#if !defined(\_WIN32) || defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00213}\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{00213}} \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{loadEnvironment}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00214}00214 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00215}00215   \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}} != NULL)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00216}00216   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00217}00217     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00218}00218     \textcolor{keywordtype}{char}* current = \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}}[i];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00219}00219 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00220}00220     \textcolor{keywordflow}{while}(current != NULL)                            \textcolor{comment}{// parse all strings contained by environ til the last element (NULL)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00221}00221     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00222}00222       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} env\_var(current);                   \textcolor{comment}{// load current environment variable string}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00223}00223       \textcolor{keywordtype}{size\_t} pos = env\_var.find(\textcolor{stringliteral}{"{}="{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00224}00224       \textcolor{keywordflow}{if}(pos != std::string::npos)                    \textcolor{comment}{// only parse the variable, if it is a valid environment variable...}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00225}00225       \{                                               \textcolor{comment}{// ...which has to contain an equal sign as delimiter by definition}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00226}00226         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} = env\_var.substr(0,pos);     \textcolor{comment}{// the string til the equal sign contains the name}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00227}00227         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} value = env\_var.substr(pos + 1);  \textcolor{comment}{// the string from the equal sign contains the value}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00228}00228 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00229}00229         \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}] = value;                       \textcolor{comment}{// save the value by the name as its key in the classes map}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00230}00230       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00231}00231       i++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00232}00232       current = \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}}[i];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00233}00233     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00234}00234   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00235}00235 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00236}00236   \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{environmentLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00237}00237 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00238}00238 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00239}00239 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00240}\mbox{\hyperlink{namespace_portable_abd244447df22d110ad410b69c357fdf3}{00240}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_abd244447df22d110ad410b69c357fdf3}{Portable::setenv}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&value)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00241}00241 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00242}00242 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00243}00243     SetEnvironmentVariable(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.data(),!value.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() ? value.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}() : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00244}00244 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00245}00245     \textcolor{keywordflow}{if}(!\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{environmentLoaded}}) \textcolor{comment}{// if the environment variables are not loaded already...}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00246}00246     \{                                 \textcolor{comment}{// ...call loadEnvironment to store them in class}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00247}00247       \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{loadEnvironment}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00248}00248     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00249}00249 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00250}00250     \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str()] = value.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(); \textcolor{comment}{// create or replace existing value}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00251}00251 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00252}00252 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00253}00253 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00254}\mbox{\hyperlink{namespace_portable_ac2e29048cffc72c3bed439cff5b02cd4}{00254}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_ac2e29048cffc72c3bed439cff5b02cd4}{Portable::unsetenv}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&variable)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00255}00255 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00256}00256 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00257}00257     SetEnvironmentVariable(variable.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00258}00258 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00259}00259     \textcolor{comment}{/* Some systems don't have unsetenv(), so we do it ourselves */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00260}00260     \textcolor{keywordflow}{if} (variable.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() || variable.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{'='})!=-\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00261}00261     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00262}00262       \textcolor{keywordflow}{return}; \textcolor{comment}{// not properly formatted}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00263}00263     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00264}00264 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00265}00265     \textcolor{keyword}{auto} it = \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}.find(variable.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00266}00266     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}.end())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00267}00267     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00268}00268       \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}.erase(it);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00269}00269     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00270}00270 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00271}00271 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00272}00272 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00273}\mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{00273}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&variable)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00274}00274 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00275}00275 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00276}00276     \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{return ::getenv}}(variable.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00277}00277 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00278}00278     \textcolor{keywordflow}{if}(!\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{environmentLoaded}}) \textcolor{comment}{// if the environment variables are not loaded already...}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00279}00279     \{                      \textcolor{comment}{// ...call loadEnvironment to store them in class}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00280}00280       \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{loadEnvironment}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00281}00281     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00282}00282 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00283}00283     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}.find(variable.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()) != \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}.end())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00284}00284     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00285}00285       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}[variable.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()]);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00286}00286     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00287}00287     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00288}00288     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00289}00289       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_q_c_string}{QCString}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00290}00290     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00291}00291 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00292}00292 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00293}00293 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00294}\mbox{\hyperlink{namespace_portable_a508bfa22b32f24c3920ab65097fd9d59}{00294}} \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}} \mbox{\hyperlink{namespace_portable_a508bfa22b32f24c3920ab65097fd9d59}{Portable::fseek}}(FILE *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},\mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae8293bdb39668d0bafde58b6c1d836f0}{offset}}, \textcolor{keywordtype}{int} whence)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00295}00295 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00296}00296 \textcolor{preprocessor}{\#if defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00297}00297   \textcolor{keywordflow}{return} fseeko64(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae8293bdb39668d0bafde58b6c1d836f0}{offset}},whence);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00298}00298 \textcolor{preprocessor}{\#elif defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00299}00299   \textcolor{keywordflow}{return} \_fseeki64(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae8293bdb39668d0bafde58b6c1d836f0}{offset}},whence);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00300}00300 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00301}00301   \textcolor{keywordflow}{return} fseeko(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae8293bdb39668d0bafde58b6c1d836f0}{offset}},whence);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00302}00302 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00303}00303 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00304}00304 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00305}\mbox{\hyperlink{namespace_portable_aa76fa3c0c598edac56b9fd5aa2aa1c30}{00305}} \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}} \mbox{\hyperlink{namespace_portable_aa76fa3c0c598edac56b9fd5aa2aa1c30}{Portable::ftell}}(FILE *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00306}00306 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00307}00307 \textcolor{preprocessor}{\#if defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00308}00308   \textcolor{keywordflow}{return} ftello64(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00309}00309 \textcolor{preprocessor}{\#elif defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00310}00310   \textcolor{keywordflow}{return} \_ftelli64(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00311}00311 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00312}00312   \textcolor{keywordflow}{return} ftello(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00313}00313 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00314}00314 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00315}00315 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00316}\mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{00316}} FILE *\mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{Portable::fopen}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00317}00317 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00318}00318 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00319}00319   uint16\_t *fn = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00320}00320   \textcolor{keywordtype}{size\_t} fn\_len = \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{recodeUtf8StringToW}}(fileName,\&fn);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00321}00321   uint16\_t *m  = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00322}00322   \textcolor{keywordtype}{size\_t} m\_len = \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{recodeUtf8StringToW}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}},\&m);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00323}00323   FILE *result = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00324}00324   \textcolor{keywordflow}{if} (fn\_len!=(\textcolor{keywordtype}{size\_t})-\/1 \&\& m\_len!=(\textcolor{keywordtype}{size\_t})-\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00325}00325   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00326}00326     result = \_wfopen((\textcolor{keywordtype}{wchar\_t}*)fn,(\textcolor{keywordtype}{wchar\_t}*)m);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00327}00327   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00328}00328   \textcolor{keyword}{delete}[] fn;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00329}00329   \textcolor{keyword}{delete}[] m;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00330}00330   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00331}00331 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00332}00332   \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{return ::fopen}}(fileName.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}}.data());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00333}00333 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00334}00334 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00335}00335 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00336}\mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{00336}} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{Portable::fclose}}(FILE *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00337}00337 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00338}00338   \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{return ::fclose}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00339}00339 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00340}00340 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00341}\mbox{\hyperlink{namespace_portable_a0f30be3f0aed0b88804816f3e6310ee4}{00341}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespace_portable_a0f30be3f0aed0b88804816f3e6310ee4}{Portable::pathSeparator}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00342}00342 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00343}00343 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00344}00344   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00345}00345 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00346}00346   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00347}00347 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00348}00348 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00349}00349 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00350}\mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{00350}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{Portable::pathListSeparator}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00351}00351 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00352}00352 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00353}00353   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00354}00354 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00355}00355   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00356}00356 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00357}00357 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00358}00358 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00359}\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}{00359}} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}{ExistsOnPath}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00360}00360 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00361}00361   \mbox{\hyperlink{class_file_info}{FileInfo}} fi1(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00362}00362   \textcolor{keywordflow}{if} (fi1.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}()) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00363}00363 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00364}00364   \mbox{\hyperlink{class_q_c_string}{QCString}} paths = \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{stringliteral}{"{}PATH"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00365}00365   \textcolor{keywordtype}{char} listSep = \mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{Portable::pathListSeparator}}()[0];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00366}00366   \textcolor{keywordtype}{char} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}} = \mbox{\hyperlink{namespace_portable_a0f30be3f0aed0b88804816f3e6310ee4}{Portable::pathSeparator}}()[0];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00367}00367   \textcolor{keywordtype}{int} strt = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00368}00368   \textcolor{keywordtype}{int} idx;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00369}00369   \textcolor{keywordflow}{while} ((idx = paths.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(listSep,strt)) != -\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00370}00370   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00371}00371     \mbox{\hyperlink{class_q_c_string}{QCString}} locFile(paths.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(strt,idx-\/strt));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00372}00372     locFile += \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00373}00373     locFile += fileName;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00374}00374     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(locFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00375}00375     \textcolor{keywordflow}{if} (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}()) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00376}00376     strt = idx + 1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00377}00377   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00378}00378   \textcolor{comment}{// to be sure the last path component is checked as well}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00379}00379   \mbox{\hyperlink{class_q_c_string}{QCString}} locFile(paths.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(strt));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00380}00380   \textcolor{keywordflow}{if} (!locFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00381}00381   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00382}00382     locFile += \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00383}00383     locFile += fileName;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00384}00384     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(locFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00385}00385     \textcolor{keywordflow}{if} (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}()) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00386}00386   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00387}00387   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00388}00388 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00389}00389 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00390}\mbox{\hyperlink{namespace_portable_a39228795dec07d8121645b0348e91712}{00390}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_portable_a39228795dec07d8121645b0348e91712}{Portable::checkForExecutable}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00391}00391 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00392}00392 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00393}00393   \textcolor{keywordtype}{char} *extensions[] = \{\textcolor{stringliteral}{"{}.bat"{}},\textcolor{stringliteral}{"{}.com"{}},\textcolor{stringliteral}{"{}.exe"{}}\};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00394}00394   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \textcolor{keyword}{sizeof}(extensions) / \textcolor{keyword}{sizeof}(*extensions); i++)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00395}00395   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00396}00396     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}{ExistsOnPath}}(fileName + extensions[i])) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00397}00397   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00398}00398   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00399}00399 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00400}00400   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}{ExistsOnPath}}(fileName);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00401}00401 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00402}00402 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00403}00403 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00404}\mbox{\hyperlink{namespace_portable_a4c4c43977edb27e33f873fbacf11d528}{00404}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespace_portable_a4c4c43977edb27e33f873fbacf11d528}{Portable::ghostScriptCommand}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00405}00405 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00406}00406 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00407}00407     \textcolor{keyword}{static} \textcolor{keywordtype}{char} *gsexe = NULL;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00408}00408     \textcolor{keywordflow}{if} (!gsexe)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00409}00409     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00410}00410         \textcolor{keywordtype}{char} *gsExec[] = \{\textcolor{stringliteral}{"{}gswin32c.exe"{}},\textcolor{stringliteral}{"{}gswin64c.exe"{}}\};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00411}00411         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \textcolor{keyword}{sizeof}(gsExec) / \textcolor{keyword}{sizeof}(*gsExec); i++)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00412}00412         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00413}00413             \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}{ExistsOnPath}}(gsExec[i]))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00414}00414         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00415}00415                 gsexe = gsExec[i];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00416}00416                 \textcolor{keywordflow}{return} gsexe;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00417}00417             \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00418}00418         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00419}00419         gsexe = gsExec[0];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00420}00420         \textcolor{keywordflow}{return} gsexe;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00421}00421     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00422}00422     \textcolor{keywordflow}{return} gsexe;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00423}00423 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00424}00424     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}gs"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00425}00425 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00426}00426 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00427}00427 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00428}\mbox{\hyperlink{namespace_portable_acf75def6ec394875d4a3c380ffc301b7}{00428}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespace_portable_acf75def6ec394875d4a3c380ffc301b7}{Portable::commandExtension}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00429}00429 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00430}00430 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00431}00431     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}.exe"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00432}00432 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00433}00433     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00434}00434 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00435}00435 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00436}00436 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00437}\mbox{\hyperlink{namespace_portable_a8c6ba49e769f2990693fa40528d3c50e}{00437}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_portable_a8c6ba49e769f2990693fa40528d3c50e}{Portable::fileSystemIsCaseSensitive}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00438}00438 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00439}00439 \textcolor{preprocessor}{\#if defined(\_WIN32) || defined(macintosh) || defined(\_\_MACOSX\_\_) || defined(\_\_APPLE\_\_) || defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00440}00440   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00441}00441 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00442}00442   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00443}00443 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00444}00444 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00445}00445 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00446}\mbox{\hyperlink{namespace_portable_a15b92ac03be9e8f4d95d5e881342d83c}{00446}} FILE * \mbox{\hyperlink{namespace_portable_a15b92ac03be9e8f4d95d5e881342d83c}{Portable::popen}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&type)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00447}00447 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00448}00448 \textcolor{preprocessor}{  \#if defined(\_MSC\_VER) || defined(\_\_BORLANDC\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00449}00449   return ::\_popen(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.data(),type.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00450}00450 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00451}00451   \mbox{\hyperlink{namespace_portable_a15b92ac03be9e8f4d95d5e881342d83c}{return ::popen}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.data(),type.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00452}00452 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00453}00453 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00454}00454 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00455}\mbox{\hyperlink{namespace_portable_a6cde8cab8c3dc3397ea5c6030fbf6e84}{00455}} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_portable_a6cde8cab8c3dc3397ea5c6030fbf6e84}{Portable::pclose}}(FILE *stream)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00456}00456 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00457}00457 \textcolor{preprocessor}{  \#if defined(\_MSC\_VER) || defined(\_\_BORLANDC\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00458}00458   return ::\_pclose(stream);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00459}00459 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00460}00460   \mbox{\hyperlink{namespace_portable_a6cde8cab8c3dc3397ea5c6030fbf6e84}{return ::pclose}}(stream);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00461}00461 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00462}00462 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00463}00463 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00464}\mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{00464}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable::sysTimerStart}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00465}00465 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00466}00466   \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4acb0a5fe2ac2ce53538303ea3552118}{g\_startTime}} = std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00467}00467 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00468}00468 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00469}\mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{00469}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00470}00470 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00471}00471   std::chrono::steady\_clock::time\_point endTime = std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00472}00472   \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1cf22a076099dc716b95f83698b54182}{g\_sysElapsedTime}}+= \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::chrono::duration\_cast<}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00473}00473                          std::chrono::microseconds>(endTime -\/ \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4acb0a5fe2ac2ce53538303ea3552118}{g\_startTime}}).count())/1000000.0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00474}00474 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00475}00475 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00476}\mbox{\hyperlink{namespace_portable_a248b5a87e07edc01e5ae424b6597142f}{00476}} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_portable_a248b5a87e07edc01e5ae424b6597142f}{Portable::getSysElapsedTime}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00477}00477 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00478}00478   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1cf22a076099dc716b95f83698b54182}{g\_sysElapsedTime}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00479}00479 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00480}00480 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00481}\mbox{\hyperlink{namespace_portable_a7e7faa33c4307edc0f95a742bad3a736}{00481}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_a7e7faa33c4307edc0f95a742bad3a736}{Portable::sleep}}(\textcolor{keywordtype}{int} ms)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00482}00482 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00483}00483 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00484}00484   Sleep(ms);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00485}00485 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00486}00486   usleep(1000*ms);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00487}00487 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00488}00488 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00489}00489 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00490}\mbox{\hyperlink{namespace_portable_a08dc4d7f652408d7fc2eaba792796cb1}{00490}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_portable_a08dc4d7f652408d7fc2eaba792796cb1}{Portable::isAbsolutePath}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00491}00491 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00492}00492   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fn = fileName.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00493}00493 \textcolor{preprocessor}{\# ifdef \_WIN32}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00494}00494   \textcolor{keywordflow}{if} (fileName.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()>1 \&\& \mbox{\hyperlink{namespacereg_a10c804e03b6d547a3748c3042fd5120b}{isalpha}}(fileName[0]) \&\& fileName[1]==\textcolor{charliteral}{':'}) fn+=2;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00495}00495 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00496}00496   \textcolor{keywordtype}{char} \textcolor{keyword}{const} fst = fn[0];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00497}00497   \textcolor{keywordflow}{if} (fst == \textcolor{charliteral}{'/'}) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00498}00498 \textcolor{preprocessor}{\# ifdef \_WIN32}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00499}00499   \textcolor{keywordflow}{if} (fst == \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00500}00500 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00501}00501   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00502}00502 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00503}00503 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00509}\mbox{\hyperlink{namespace_portable_a7b0d9dbb919f445905c42fabb783c6f9}{00509}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_a7b0d9dbb919f445905c42fabb783c6f9}{Portable::correct\_path}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00510}00510 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00511}00511 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00512}00512   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{stringliteral}{"{}PATH"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00513}00513   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.isEmpty()) \textcolor{keywordflow}{return}; \textcolor{comment}{// no path nothing to correct}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00514}00514   \mbox{\hyperlink{class_q_c_string}{QCString}} result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}},\textcolor{stringliteral}{"{}/"{}},\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00515}00515   \textcolor{keywordflow}{if} (result!=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}) \mbox{\hyperlink{namespace_portable_abd244447df22d110ad410b69c357fdf3}{Portable::setenv}}(\textcolor{stringliteral}{"{}PATH"{}},result.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00516}00516 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00517}00517 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00518}00518 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00519}\mbox{\hyperlink{namespace_portable_a394e935b6fd1899b26f8987f89a4cbfb}{00519}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_a394e935b6fd1899b26f8987f89a4cbfb}{Portable::unlink}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00520}00520 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00521}00521 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00522}00522   \_unlink(fileName.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00523}00523 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00524}00524   \mbox{\hyperlink{namespace_portable_a394e935b6fd1899b26f8987f89a4cbfb}{::unlink}}(fileName.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00525}00525 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00526}00526 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00527}00527 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00528}\mbox{\hyperlink{namespace_portable_aff6714c1d9aaed257fc48a7a535b1fd5}{00528}} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_portable_aff6714c1d9aaed257fc48a7a535b1fd5}{Portable::setShortDir}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00529}00529 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00530}00530 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00531}00531   \textcolor{keywordtype}{long}     length = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00532}00532   TCHAR*   buffer = NULL;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00533}00533   \textcolor{comment}{// First obtain the size needed by passing NULL and 0.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00534}00534   length = GetShortPathName(\mbox{\hyperlink{class_dir_a0f62ab07068c5f966bca7ce280f4ed49}{Dir::currentDirPath}}().c\_str(), NULL, 0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00535}00535   \textcolor{comment}{// Dynamically allocate the correct size}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00536}00536   \textcolor{comment}{// (terminating null char was included in length)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00537}00537   buffer = \textcolor{keyword}{new} TCHAR[length];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00538}00538   \textcolor{comment}{// Now simply call again using same (long) path.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00539}00539   length = GetShortPathName(\mbox{\hyperlink{class_dir_a0f62ab07068c5f966bca7ce280f4ed49}{Dir::currentDirPath}}().c\_str(), buffer, length);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00540}00540   \textcolor{comment}{// Set the correct directory (short name)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00541}00541   \mbox{\hyperlink{class_dir_ab3b09edc88159dc30426999bdc7d6d7b}{Dir::setCurrent}}(buffer);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00542}00542   \textcolor{keyword}{delete} [] buffer;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00543}00543 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00544}00544 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00545}00545 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00546}00546 \textcolor{comment}{/* Return the first occurrence of NEEDLE in HAYSTACK.  */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00547}\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a9ecb00561bffb0bffa3cce647d399c6f}{00547}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a9ecb00561bffb0bffa3cce647d399c6f}{portable\_memmem}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *haystack, \textcolor{keywordtype}{size\_t} haystack\_len,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00548}00548                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *needle, \textcolor{keywordtype}{size\_t} needle\_len)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00549}00549 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00550}00550   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keyword}{const} last\_possible = haystack + haystack\_len -\/ needle\_len;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00551}00551 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00552}00552   \textcolor{keywordflow}{if} (needle\_len == 0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00553}00553     \textcolor{comment}{// The first occurrence of the empty string should to occur at the beginning of the string.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00554}00554   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00555}00555     \textcolor{keywordflow}{return} haystack;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00556}00556   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00557}00557 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00558}00558   \textcolor{comment}{// Sanity check}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00559}00559   \textcolor{keywordflow}{if} (haystack\_len < needle\_len)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00560}00560   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00561}00561     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00562}00562   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00563}00563 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00564}00564   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}} = haystack; \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}} <= last\_possible; ++\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00565}00565   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00566}00566     \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}}[0] == needle[0] \&\& !memcmp(\&\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}}[1], needle + 1, needle\_len -\/ 1))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00567}00567     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00568}00568       \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00569}00569     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00570}00570   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00571}00571 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00572}00572   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00573}00573 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00574}00574 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00575}\mbox{\hyperlink{namespace_portable_ada69eeb681c8f036f6a3327478acbd75}{00575}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespace_portable_ada69eeb681c8f036f6a3327478acbd75}{Portable::strnstr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *haystack, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *needle, \textcolor{keywordtype}{size\_t} haystack\_len)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00576}00576 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00577}00577   \textcolor{keywordtype}{size\_t} needle\_len = strnlen(needle, haystack\_len);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00578}00578   \textcolor{keywordflow}{if} (needle\_len < haystack\_len || !needle[needle\_len])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00579}00579   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00580}00580     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} = \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a9ecb00561bffb0bffa3cce647d399c6f}{portable\_memmem}}(haystack, haystack\_len, needle, needle\_len);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00581}00581     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} \&\& !memchr(haystack, 0, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} -\/ haystack))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00582}00582     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00583}00583       \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00584}00584     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00585}00585   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00586}00586   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00587}00587 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00588}00588 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00589}\mbox{\hyperlink{namespace_portable_aec45ff95f54eed28050e42d3638907cf}{00589}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespace_portable_aec45ff95f54eed28050e42d3638907cf}{Portable::devNull}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00590}00590 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00591}00591 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00592}00592   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}NUL"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00593}00593 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00594}00594   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}/dev/null"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00595}00595 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00596}00596 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00597}00597 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00598}\mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{00598}} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{Portable::recodeUtf8StringToW}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&inputStr,uint16\_t **outBuf)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00599}00599 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00600}00600   \textcolor{keywordflow}{if} (inputStr.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() || outBuf==0) \textcolor{keywordflow}{return} 0; \textcolor{comment}{// empty input or invalid output}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00601}00601   \textcolor{keywordtype}{void} *handle = \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a7bc4daae6d2c3e89837c44e2c3d4dac6}{portable\_iconv\_open}}(\textcolor{stringliteral}{"{}UTF-\/16LE"{}},\textcolor{stringliteral}{"{}UTF-\/8"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00602}00602   \textcolor{keywordflow}{if} (handle==\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void} *\textcolor{keyword}{>}(-\/1)) \textcolor{keywordflow}{return} 0; \textcolor{comment}{// invalid encoding}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00603}00603   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}} = inputStr.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00604}00604   uint16\_t *buf = \textcolor{keyword}{new} uint16\_t[\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}+1];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00605}00605   *outBuf = buf;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00606}00606   \textcolor{keywordtype}{size\_t} inRemains  = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00607}00607   \textcolor{keywordtype}{size\_t} outRemains = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}*\textcolor{keyword}{sizeof}(uint16\_t)+2; \textcolor{comment}{// chars + \(\backslash\)0}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00608}00608   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = inputStr.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00609}00609   \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a5fc5ec1eedfa06b27448863f69ee2e1d}{portable\_iconv}}(handle,\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}},\&inRemains,\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char} **\textcolor{keyword}{>}(\&buf),\&outRemains);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00610}00610   *buf=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00611}00611   \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a3f98144680118aada1a93d2d4ba6173b}{portable\_iconv\_close}}(handle);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00612}00612   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00613}00613 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00614}00614 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2portable_8cpp_source_l00615}00615 }
+
+\end{DoxyCode}

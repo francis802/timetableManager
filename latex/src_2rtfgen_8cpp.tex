@@ -1,0 +1,366 @@
+\hypertarget{src_2rtfgen_8cpp}{}\doxysection{doxygen/src/rtfgen.cpp File Reference}
+\label{src_2rtfgen_8cpp}\index{doxygen/src/rtfgen.cpp@{doxygen/src/rtfgen.cpp}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rtfgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}diagram.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotcallgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotclassgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotdirdeps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotincldepgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtfstyle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtfdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}datetime.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2rtfgen_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}{DBG\+\_\+\+RTF}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2rtfgen_8cpp_a2996b202ffa4a28fb842837caae8fa0f}{date\+To\+RTFDate\+String}} ()
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2rtfgen_8cpp_a94577da729b999a4d3bd80e36a4d8d01}{make\+Index\+Name}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, int i)
+\item 
+bool \mbox{\hyperlink{src_2rtfgen_8cpp_abe03bf3096ce8ecd54bd585fced49356}{is\+Lead\+Bytes}} (int \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+static void \mbox{\hyperlink{src_2rtfgen_8cpp_ad2df37d9e386ae992a5aa98ab9a0515c}{encode\+For\+Output}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+static bool \mbox{\hyperlink{src_2rtfgen_8cpp_a150812b55508914d2ff539710b5aa7ce}{pre\+Process\+File}} (\mbox{\hyperlink{class_dir}{Dir}} \&d, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&inf\+Name, \mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, bool b\+Include\+Header=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa82764c3079aea4e60c80e45befbb839}{TRUE}})
+\item 
+void \mbox{\hyperlink{src_2rtfgen_8cpp_a61fa723a2a2eb50d0d52734936d06db4}{test\+RTFOutput}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2rtfgen_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}\label{src_2rtfgen_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}} 
+\index{rtfgen.cpp@{rtfgen.cpp}!DBG\_RTF@{DBG\_RTF}}
+\index{DBG\_RTF@{DBG\_RTF}!rtfgen.cpp@{rtfgen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBG\_RTF}{DBG\_RTF}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+RTF(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2rtfgen_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{src_2rtfgen_8cpp_source}{rtfgen.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2rtfgen_8cpp_a2996b202ffa4a28fb842837caae8fa0f}\label{src_2rtfgen_8cpp_a2996b202ffa4a28fb842837caae8fa0f}} 
+\index{rtfgen.cpp@{rtfgen.cpp}!dateToRTFDateString@{dateToRTFDateString}}
+\index{dateToRTFDateString@{dateToRTFDateString}!rtfgen.cpp@{rtfgen.cpp}}
+\doxysubsubsection{\texorpdfstring{dateToRTFDateString()}{dateToRTFDateString()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} date\+To\+RTFDate\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2rtfgen_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{src_2rtfgen_8cpp_source}{rtfgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055 \{}
+\DoxyCodeLine{00056   \textcolor{keyword}{auto} tm = \mbox{\hyperlink{build_2doxygen_2src_2datetime_8cpp_aad46a931d39d3d99fc5d2ad2ecd5e0bf}{getCurrentDateTime}}();}
+\DoxyCodeLine{00057   \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{00058   result.\mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)yr\%d\(\backslash\)\(\backslash\)mo\%d\(\backslash\)\(\backslash\)dy\%d\(\backslash\)\(\backslash\)hr\%d\(\backslash\)\(\backslash\)min\%d\(\backslash\)\(\backslash\)sec\%d"{}},}
+\DoxyCodeLine{00059       tm.tm\_year+1900, tm.tm\_mon+1, tm.tm\_mday,}
+\DoxyCodeLine{00060       tm.tm\_hour, tm.tm\_min, tm.tm\_sec);}
+\DoxyCodeLine{00061   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00062 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2datetime_8cpp_aad46a931d39d3d99fc5d2ad2ecd5e0bf}{get\+Current\+Date\+Time()}}, and \mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{QCString\+::sprintf()}}.
+
+\mbox{\Hypertarget{src_2rtfgen_8cpp_ad2df37d9e386ae992a5aa98ab9a0515c}\label{src_2rtfgen_8cpp_ad2df37d9e386ae992a5aa98ab9a0515c}} 
+\index{rtfgen.cpp@{rtfgen.cpp}!encodeForOutput@{encodeForOutput}}
+\index{encodeForOutput@{encodeForOutput}!rtfgen.cpp@{rtfgen.cpp}}
+\doxysubsubsection{\texorpdfstring{encodeForOutput()}{encodeForOutput()}}
+{\footnotesize\ttfamily static void encode\+For\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2rtfgen_8cpp_source_l01986}{1986}} of file \mbox{\hyperlink{src_2rtfgen_8cpp_source}{rtfgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01987 \{}
+\DoxyCodeLine{01988   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==0) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01989   \mbox{\hyperlink{class_q_c_string}{QCString}} encoding;}
+\DoxyCodeLine{01990   \textcolor{keywordtype}{bool} converted=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{01991   \textcolor{keywordtype}{size\_t} l = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.length();}
+\DoxyCodeLine{01992   \textcolor{keyword}{static} std::vector<char> enc;}
+\DoxyCodeLine{01993   \textcolor{keywordflow}{if} (l*4>enc.size()) enc.resize(l*4); \textcolor{comment}{// worst case}}
+\DoxyCodeLine{01994   encoding.\mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}CP\%s"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a9953a4c0e6a4fc7d017abcd5c2939e0f}{trRTFansicp}}()));}
+\DoxyCodeLine{01995   \textcolor{keywordflow}{if} (!encoding.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{01996   \{}
+\DoxyCodeLine{01997     \textcolor{comment}{// convert from UTF-\/8 back to the output encoding}}
+\DoxyCodeLine{01998     \textcolor{keywordtype}{void} *cd = \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a7bc4daae6d2c3e89837c44e2c3d4dac6}{portable\_iconv\_open}}(encoding.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),\textcolor{stringliteral}{"{}UTF-\/8"{}});}
+\DoxyCodeLine{01999     \textcolor{keywordflow}{if} (cd!=\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void} *\textcolor{keyword}{>}(-\/1))}
+\DoxyCodeLine{02000     \{}
+\DoxyCodeLine{02001       \textcolor{keywordtype}{size\_t} iLeft=l;}
+\DoxyCodeLine{02002       \textcolor{keywordtype}{size\_t} oLeft=enc.size();}
+\DoxyCodeLine{02003       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *inputPtr = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.\mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{data}}();}
+\DoxyCodeLine{02004       \textcolor{keywordtype}{char} *outputPtr = \&enc[0];}
+\DoxyCodeLine{02005       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a5fc5ec1eedfa06b27448863f69ee2e1d}{portable\_iconv}}(cd, \&inputPtr, \&iLeft, \&outputPtr, \&oLeft))}
+\DoxyCodeLine{02006       \{}
+\DoxyCodeLine{02007         enc.resize(enc.size()-\/oLeft);}
+\DoxyCodeLine{02008         converted=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{02009       \}}
+\DoxyCodeLine{02010       \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a3f98144680118aada1a93d2d4ba6173b}{portable\_iconv\_close}}(cd);}
+\DoxyCodeLine{02011     \}}
+\DoxyCodeLine{02012   \}}
+\DoxyCodeLine{02013   \textcolor{keywordflow}{if} (!converted) \textcolor{comment}{// if we did not convert anything, copy as is.}}
+\DoxyCodeLine{02014   \{}
+\DoxyCodeLine{02015     memcpy(enc.data(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.\mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{data}}(),l);}
+\DoxyCodeLine{02016     enc.resize(l);}
+\DoxyCodeLine{02017   \}}
+\DoxyCodeLine{02018   \textcolor{keywordtype}{bool} multiByte = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{02019 }
+\DoxyCodeLine{02020   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0;i<enc.size();i++)}
+\DoxyCodeLine{02021   \{}
+\DoxyCodeLine{02022     \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}}\textcolor{keyword}{>}(enc.at(i));}
+\DoxyCodeLine{02023 }
+\DoxyCodeLine{02024     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}>=0x80 || multiByte)}
+\DoxyCodeLine{02025     \{}
+\DoxyCodeLine{02026       \textcolor{keywordtype}{char} esc[10];}
+\DoxyCodeLine{02027       sprintf(esc,\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)'\%X"{}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});        \textcolor{comment}{// escape sequence for SBCS and DBCS(1st\&2nd bytes).}}
+\DoxyCodeLine{02028       t << esc;}
+\DoxyCodeLine{02029 }
+\DoxyCodeLine{02030       \textcolor{keywordflow}{if} (!multiByte)}
+\DoxyCodeLine{02031       \{}
+\DoxyCodeLine{02032         multiByte = \mbox{\hyperlink{build_2doxygen_2src_2rtfgen_8cpp_abe03bf3096ce8ecd54bd585fced49356}{isLeadBytes}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});  \textcolor{comment}{// It may be DBCS Codepages.}}
+\DoxyCodeLine{02033       \}}
+\DoxyCodeLine{02034       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02035       \{}
+\DoxyCodeLine{02036         multiByte = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};           \textcolor{comment}{// end of Double Bytes Character.}}
+\DoxyCodeLine{02037       \}}
+\DoxyCodeLine{02038     \}}
+\DoxyCodeLine{02039     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02040     \{}
+\DoxyCodeLine{02041       t << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{02042     \}}
+\DoxyCodeLine{02043   \}}
+\DoxyCodeLine{02044 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2rtfgen_8cpp_abe03bf3096ce8ecd54bd585fced49356}\label{src_2rtfgen_8cpp_abe03bf3096ce8ecd54bd585fced49356}} 
+\index{rtfgen.cpp@{rtfgen.cpp}!isLeadBytes@{isLeadBytes}}
+\index{isLeadBytes@{isLeadBytes}!rtfgen.cpp@{rtfgen.cpp}}
+\doxysubsubsection{\texorpdfstring{isLeadBytes()}{isLeadBytes()}}
+{\footnotesize\ttfamily bool is\+Lead\+Bytes (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2rtfgen_8cpp_source_l01954}{1954}} of file \mbox{\hyperlink{src_2rtfgen_8cpp_source}{rtfgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01955 \{}
+\DoxyCodeLine{01956   \textcolor{keywordtype}{bool} result;}
+\DoxyCodeLine{01957 }
+\DoxyCodeLine{01958   \mbox{\hyperlink{class_q_c_string}{QCString}} codePage = \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a9953a4c0e6a4fc7d017abcd5c2939e0f}{trRTFansicp}}();}
+\DoxyCodeLine{01959 }
+\DoxyCodeLine{01960   \textcolor{keywordflow}{if} (codePage == \textcolor{stringliteral}{"{}932"{}})       \textcolor{comment}{// cp932 (Japanese Shift-\/JIS)}}
+\DoxyCodeLine{01961   \{}
+\DoxyCodeLine{01962     result = (0x81<=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}<=0x9f) || (0xe0<=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}<=0xfc);}
+\DoxyCodeLine{01963   \}}
+\DoxyCodeLine{01964   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (codePage == \textcolor{stringliteral}{"{}936"{}})  \textcolor{comment}{// cp936 (Simplified Chinese GBK)}}
+\DoxyCodeLine{01965   \{}
+\DoxyCodeLine{01966     result = 0x81<=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}<=0xFE;}
+\DoxyCodeLine{01967   \}}
+\DoxyCodeLine{01968   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (codePage == \textcolor{stringliteral}{"{}949"{}})  \textcolor{comment}{// cp949 (Korean)}}
+\DoxyCodeLine{01969   \{}
+\DoxyCodeLine{01970     result = 0x81<=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}<=0xFE;}
+\DoxyCodeLine{01971   \}}
+\DoxyCodeLine{01972   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (codePage == \textcolor{stringliteral}{"{}950"{}})  \textcolor{comment}{// cp950 (Traditional Chinese Big5)}}
+\DoxyCodeLine{01973   \{}
+\DoxyCodeLine{01974     result = 0x81<=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}<=0xFE;}
+\DoxyCodeLine{01975   \}}
+\DoxyCodeLine{01976   \textcolor{keywordflow}{else}                         \textcolor{comment}{// for SBCS Codepages (cp1252,1251 etc...)}}
+\DoxyCodeLine{01977   \{}
+\DoxyCodeLine{01978     result = \textcolor{keyword}{false};}
+\DoxyCodeLine{01979   \}}
+\DoxyCodeLine{01980 }
+\DoxyCodeLine{01981   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{01982 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2rtfgen_8cpp_a94577da729b999a4d3bd80e36a4d8d01}\label{src_2rtfgen_8cpp_a94577da729b999a4d3bd80e36a4d8d01}} 
+\index{rtfgen.cpp@{rtfgen.cpp}!makeIndexName@{makeIndexName}}
+\index{makeIndexName@{makeIndexName}!rtfgen.cpp@{rtfgen.cpp}}
+\doxysubsubsection{\texorpdfstring{makeIndexName()}{makeIndexName()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} make\+Index\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{s,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2rtfgen_8cpp_source_l00213}{213}} of file \mbox{\hyperlink{src_2rtfgen_8cpp_source}{rtfgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214 \{}
+\DoxyCodeLine{00215   \mbox{\hyperlink{class_q_c_string}{QCString}} result=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{00216   result+=\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(i+\textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00217   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00218 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+\mbox{\Hypertarget{src_2rtfgen_8cpp_a150812b55508914d2ff539710b5aa7ce}\label{src_2rtfgen_8cpp_a150812b55508914d2ff539710b5aa7ce}} 
+\index{rtfgen.cpp@{rtfgen.cpp}!preProcessFile@{preProcessFile}}
+\index{preProcessFile@{preProcessFile}!rtfgen.cpp@{rtfgen.cpp}}
+\doxysubsubsection{\texorpdfstring{preProcessFile()}{preProcessFile()}}
+{\footnotesize\ttfamily static bool pre\+Process\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dir}{Dir}} \&}]{d,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{inf\+Name,  }\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{bool}]{b\+Include\+Header = {\ttfamily \mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa82764c3079aea4e60c80e45befbb839}{TRUE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+VERY brittle routine inline RTF\textquotesingle{}s included by other RTF\textquotesingle{}s. it is recursive and ugly. 
+
+Definition at line \mbox{\hyperlink{src_2rtfgen_8cpp_source_l02050}{2050}} of file \mbox{\hyperlink{src_2rtfgen_8cpp_source}{rtfgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02051 \{}
+\DoxyCodeLine{02052   \textcolor{keyword}{static} \textcolor{keywordtype}{bool} rtfDebug = \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Debug::Rtf}});}
+\DoxyCodeLine{02053   \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{std::ifstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(infName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),std::ifstream::in);}
+\DoxyCodeLine{02054   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{02055   \{}
+\DoxyCodeLine{02056     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}problems opening rtf file '\%s' for reading\(\backslash\)n"{}},infName.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{02057     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{02058   \}}
+\DoxyCodeLine{02059 }
+\DoxyCodeLine{02060   \textcolor{keyword}{const} \textcolor{keywordtype}{int} maxLineLength = 10240;}
+\DoxyCodeLine{02061   \textcolor{keyword}{static} \mbox{\hyperlink{class_q_c_string}{QCString}} lineBuf(maxLineLength);}
+\DoxyCodeLine{02062 }
+\DoxyCodeLine{02063   \textcolor{comment}{// scan until find end of header}}
+\DoxyCodeLine{02064   \textcolor{comment}{// this is EXTREEEEEEEMLY brittle.  It works on OUR rtf}}
+\DoxyCodeLine{02065   \textcolor{comment}{// files because the first line before the body}}
+\DoxyCodeLine{02066   \textcolor{comment}{// ALWAYS contains "{}\{\(\backslash\)comment begin body\}"{}}}
+\DoxyCodeLine{02067   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} line;}
+\DoxyCodeLine{02068   \textcolor{keywordflow}{while} (getline(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},line))}
+\DoxyCodeLine{02069   \{}
+\DoxyCodeLine{02070     line+=\textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{02071     \textcolor{keywordflow}{if} (line.find(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)comment begin body"{}})!=std::string::npos) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{02072     \textcolor{keywordflow}{if} (bIncludeHeader) \mbox{\hyperlink{src_2rtfgen_8cpp_ad2df37d9e386ae992a5aa98ab9a0515c}{encodeForOutput}}(t,line.c\_str());}
+\DoxyCodeLine{02073   \}}
+\DoxyCodeLine{02074 }
+\DoxyCodeLine{02075   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} prevLine;}
+\DoxyCodeLine{02076   \textcolor{keywordtype}{bool} first=\textcolor{keyword}{true};}
+\DoxyCodeLine{02077   \textcolor{keywordflow}{while} (getline(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},line))}
+\DoxyCodeLine{02078   \{}
+\DoxyCodeLine{02079     line+=\textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{02080     \textcolor{keywordtype}{size\_t} pos;}
+\DoxyCodeLine{02081     \textcolor{keywordflow}{if} ((pos=prevLine.find(\textcolor{stringliteral}{"{}INCLUDETEXT \(\backslash\)"{}"{}}))!=std::string::npos)}
+\DoxyCodeLine{02082     \{}
+\DoxyCodeLine{02083       \textcolor{keywordtype}{size\_t} startNamePos  = prevLine.find(\textcolor{charliteral}{'"{}'},pos)+1;}
+\DoxyCodeLine{02084       \textcolor{keywordtype}{size\_t} endNamePos    = prevLine.find(\textcolor{charliteral}{'"{}'},startNamePos);}
+\DoxyCodeLine{02085       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} fileName = prevLine.substr(startNamePos,endNamePos-\/startNamePos);}
+\DoxyCodeLine{02086       \mbox{\hyperlink{src_2rtfgen_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}{DBG\_RTF}}(m\_t << \textcolor{stringliteral}{"{}\{\(\backslash\)\(\backslash\)comment begin include "{}} << fileName << \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}})}
+\DoxyCodeLine{02087       \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a9bd5d1d4153b093ee14042c7982b6dff}{if}} (!\mbox{\hyperlink{src_2rtfgen_8cpp_a150812b55508914d2ff539710b5aa7ce}{preProcessFile}}(d,fileName.c\_str(),t,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}})) return \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{02088       \mbox{\hyperlink{src_2rtfgen_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}{DBG\_RTF}}(m\_t << "{}\{\(\backslash\)\mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}{\(\backslash\)comment}} \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}} include \textcolor{stringliteral}{"{} << fileName << "{}}\}\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{\(\backslash\)n}}\textcolor{stringliteral}{"{})}}
+\DoxyCodeLine{02089 \textcolor{stringliteral}{    \}}}
+\DoxyCodeLine{02090 \textcolor{stringliteral}{    else if (!first) // no INCLUDETEXT on this line}}
+\DoxyCodeLine{02091 \textcolor{stringliteral}{    \{}}
+\DoxyCodeLine{02092 \textcolor{stringliteral}{      encodeForOutput(t,prevLine.c\_str());}}
+\DoxyCodeLine{02093 \textcolor{stringliteral}{    \}}}
+\DoxyCodeLine{02094 \textcolor{stringliteral}{    prevLine = line;}}
+\DoxyCodeLine{02095 \textcolor{stringliteral}{    first=false;}}
+\DoxyCodeLine{02096 \textcolor{stringliteral}{  \}}}
+\DoxyCodeLine{02097 \textcolor{stringliteral}{  if (!bIncludeHeader) // skip final '\}' in case we don't include headers}}
+\DoxyCodeLine{02098 \textcolor{stringliteral}{  \{}}
+\DoxyCodeLine{02099 \textcolor{stringliteral}{    size\_t pos = line.rfind('\}');}}
+\DoxyCodeLine{02100 \textcolor{stringliteral}{    if (pos==std::string::npos)}}
+\DoxyCodeLine{02101 \textcolor{stringliteral}{    \{}}
+\DoxyCodeLine{02102 \textcolor{stringliteral}{      err("{}}Strange, the last \textcolor{keywordtype}{char} was not \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}} \textcolor{charliteral}{'\}'}\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{\(\backslash\)n}}\textcolor{stringliteral}{"{});}}
+\DoxyCodeLine{02103 \textcolor{stringliteral}{      pos = line.length();}}
+\DoxyCodeLine{02104 \textcolor{stringliteral}{    \}}}
+\DoxyCodeLine{02105 \textcolor{stringliteral}{    encodeForOutput(t,line.substr(0,pos).c\_str());}}
+\DoxyCodeLine{02106 \textcolor{stringliteral}{  \}}}
+\DoxyCodeLine{02107 \textcolor{stringliteral}{  else}}
+\DoxyCodeLine{02108 \textcolor{stringliteral}{  \{}}
+\DoxyCodeLine{02109 \textcolor{stringliteral}{    encodeForOutput(t,line.c\_str());}}
+\DoxyCodeLine{02110 \textcolor{stringliteral}{  \}}}
+\DoxyCodeLine{02111 \textcolor{stringliteral}{  f.close();}}
+\DoxyCodeLine{02112 \textcolor{stringliteral}{  // remove temporary file}}
+\DoxyCodeLine{02113 \textcolor{stringliteral}{  if (!rtfDebug) d.remove(infName.str());}}
+\DoxyCodeLine{02114 \textcolor{stringliteral}{  return TRUE;}}
+\DoxyCodeLine{02115 \textcolor{stringliteral}{\}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2rtfgen_8cpp_a61fa723a2a2eb50d0d52734936d06db4}\label{src_2rtfgen_8cpp_a61fa723a2a2eb50d0d52734936d06db4}} 
+\index{rtfgen.cpp@{rtfgen.cpp}!testRTFOutput@{testRTFOutput}}
+\index{testRTFOutput@{testRTFOutput}!rtfgen.cpp@{rtfgen.cpp}}
+\doxysubsubsection{\texorpdfstring{testRTFOutput()}{testRTFOutput()}}
+{\footnotesize\ttfamily void test\+RTFOutput (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Tests the integrity of the result by counting brackets. 
+
+Definition at line \mbox{\hyperlink{src_2rtfgen_8cpp_source_l02218}{2218}} of file \mbox{\hyperlink{src_2rtfgen_8cpp_source}{rtfgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02219 \{}
+\DoxyCodeLine{02220   \textcolor{keywordtype}{int} bcount=0;}
+\DoxyCodeLine{02221   \textcolor{keywordtype}{int} line=1;}
+\DoxyCodeLine{02222   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{02223   \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{std::ifstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.data(),std::ifstream::in);}
+\DoxyCodeLine{02224   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{02225   \{}
+\DoxyCodeLine{02226     \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.get())!=-\/1)}
+\DoxyCodeLine{02227     \{}
+\DoxyCodeLine{02228       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}) \textcolor{comment}{// escape char}}
+\DoxyCodeLine{02229       \{}
+\DoxyCodeLine{02230         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.get();}
+\DoxyCodeLine{02231         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==-\/1) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{02232       \}}
+\DoxyCodeLine{02233       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\{'}) \textcolor{comment}{// open bracket}}
+\DoxyCodeLine{02234       \{}
+\DoxyCodeLine{02235         bcount++;}
+\DoxyCodeLine{02236       \}}
+\DoxyCodeLine{02237       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\}'}) \textcolor{comment}{// close bracket}}
+\DoxyCodeLine{02238       \{}
+\DoxyCodeLine{02239         bcount-\/-\/;}
+\DoxyCodeLine{02240         \textcolor{keywordflow}{if} (bcount<0)}
+\DoxyCodeLine{02241         \{}
+\DoxyCodeLine{02242           \textcolor{keywordflow}{goto} \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}};}
+\DoxyCodeLine{02243           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{02244         \}}
+\DoxyCodeLine{02245       \}}
+\DoxyCodeLine{02246       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'}) \textcolor{comment}{// newline}}
+\DoxyCodeLine{02247       \{}
+\DoxyCodeLine{02248         line++;}
+\DoxyCodeLine{02249       \}}
+\DoxyCodeLine{02250     \}}
+\DoxyCodeLine{02251   \}}
+\DoxyCodeLine{02252   \textcolor{keywordflow}{if} (bcount==0) \textcolor{keywordflow}{return}; \textcolor{comment}{// file is OK.}}
+\DoxyCodeLine{02253 \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}:}
+\DoxyCodeLine{02254   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}RTF integrity test failed at line \%d of \%s due to a bracket mismatch.\(\backslash\)n"{}}}
+\DoxyCodeLine{02255       \textcolor{stringliteral}{"{}       Please try to create a small code example that produces this error \(\backslash\)n"{}}}
+\DoxyCodeLine{02256       \textcolor{stringliteral}{"{}       and send that to doxygen@gmail.com.\(\backslash\)n"{}},line,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}));}
+\DoxyCodeLine{02257 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}.
+

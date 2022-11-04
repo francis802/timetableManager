@@ -1,0 +1,257 @@
+\hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source}{}\doxysection{wizard.\+h}
+\label{build_2doxygen_2addon_2doxywizard_2wizard_8h_source}\index{doxygen/build/doxygen/addon/doxywizard/wizard.h@{doxygen/build/doxygen/addon/doxywizard/wizard.h}}
+\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2wizard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby }}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software }}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00011}00011 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00013}00013 \textcolor{preprocessor}{\#ifndef WIZARD\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00014}00014 \textcolor{preprocessor}{\#define WIZARD\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <QSplitter>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <QHash>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00018}00018 \textcolor{preprocessor}{\#include <QDialog>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00020}00020 \textcolor{keyword}{class }\mbox{\hyperlink{class_input}{Input}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00021}00021 \textcolor{keyword}{class }QTreeWidget;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00022}00022 \textcolor{keyword}{class }QTreeWidgetItem;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00023}00023 \textcolor{keyword}{class }QStackedWidget;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00024}00024 \textcolor{keyword}{class }QCheckBox;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00025}00025 \textcolor{keyword}{class }QLineEdit;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00026}00026 \textcolor{keyword}{class }QPushButton;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00027}00027 \textcolor{keyword}{class }QRadioButton;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00028}00028 \textcolor{keyword}{class }QGroupBox;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00029}00029 \textcolor{keyword}{class }QButtonGroup;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00030}00030 \textcolor{keyword}{class }\mbox{\hyperlink{class_wizard}{Wizard}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00031}00031 \textcolor{keyword}{class }QImage;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00032}00032 \textcolor{keyword}{class }QLabel;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00034}00034 \textcolor{keyword}{class }\mbox{\hyperlink{class_tune_color_dialog}{TuneColorDialog}} : \textcolor{keyword}{public} QDialog}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00035}00035 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00036}00036     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00038}00038   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00039}\mbox{\hyperlink{class_tune_color_dialog_a54f1a916215961defb4c9c5227fbefa6}{00039}}     \mbox{\hyperlink{class_tune_color_dialog_a54f1a916215961defb4c9c5227fbefa6}{TuneColorDialog}}(\textcolor{keywordtype}{int} hue,\textcolor{keywordtype}{int} sat,\textcolor{keywordtype}{int} gamma,QWidget *\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}=0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00040}\mbox{\hyperlink{class_tune_color_dialog_afe1f53bd6478d1b388a56ed4dda39601}{00040}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tune_color_dialog_afe1f53bd6478d1b388a56ed4dda39601}{getHue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00041}\mbox{\hyperlink{class_tune_color_dialog_a94f50cb80e9d3c466daa9718128d1a08}{00041}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tune_color_dialog_a94f50cb80e9d3c466daa9718128d1a08}{getSaturation}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00042}\mbox{\hyperlink{class_tune_color_dialog_a6404fc86c8ec18351c3c8989c4237626}{00042}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tune_color_dialog_a6404fc86c8ec18351c3c8989c4237626}{getGamma}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00044}00044   \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00045}\mbox{\hyperlink{class_tune_color_dialog_abd36d7a15b4a21c0a40641f42ebf39c3}{00045}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tune_color_dialog_abd36d7a15b4a21c0a40641f42ebf39c3}{updateImage}}(\textcolor{keywordtype}{int} hue,\textcolor{keywordtype}{int} sat,\textcolor{keywordtype}{int} \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00047}00047   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00048}00048     QImage *\mbox{\hyperlink{class_tune_color_dialog_a9d978e642ab17d1eff6c87afbaea4da4}{m\_image}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00049}00049     QLabel *\mbox{\hyperlink{class_tune_color_dialog_a9a2cec69b8f7a03e7d043a75e3d55d6c}{m\_imageLab}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00050}00050     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tune_color_dialog_a18d1e9cdf34979628de80770c012afab}{m\_hue}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00051}00051     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tune_color_dialog_a635f0d83f046bddc77c61488f6cf0729}{m\_sat}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00052}00052     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tune_color_dialog_a2d013a8e8dbc8ba33419554a087fca90}{m\_gam}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00053}00053 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00055}00055 \textcolor{keyword}{class }\mbox{\hyperlink{class_color_picker}{ColorPicker}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00056}00056 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00057}00057     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00058}00058 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00059}\mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277f}{00059}}     \textcolor{keyword}{enum} \mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277f}{Mode}} \{ \mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277fa9db193aacdec2975d44510badcb1291c}{Hue}}, \mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277fa5142e47b6b61aabf61b529648f907d41}{Saturation}}, \mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277facd53e838443a2563da568c8aceffb772}{Gamma}} \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00060}\mbox{\hyperlink{class_color_picker_af286c2198e135f3d42bf37111be3803b}{00060}}     \mbox{\hyperlink{class_color_picker_af286c2198e135f3d42bf37111be3803b}{ColorPicker}}(\mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277f}{Mode}} m);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00061}\mbox{\hyperlink{class_color_picker_ad431a9537f9fbb350f321abbe92c5f1a}{00061}}     \mbox{\hyperlink{class_color_picker_ad431a9537f9fbb350f321abbe92c5f1a}{\string~ColorPicker}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00063}00063 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00064}\mbox{\hyperlink{class_color_picker_ad0c1604896c745f11f1368ff4b64382f}{00064}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_ad0c1604896c745f11f1368ff4b64382f}{setCol}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00065}00065     \textcolor{comment}{//void setCol(int h, int s);}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00067}00067 signals:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00068}\mbox{\hyperlink{class_color_picker_ae507629d5160af8c6b206b2901de5b2f}{00068}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_ae507629d5160af8c6b206b2901de5b2f}{newHsv}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00070}00070 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00071}\mbox{\hyperlink{class_color_picker_a120d9512f48096256f0db2c67c59e0c6}{00071}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_a120d9512f48096256f0db2c67c59e0c6}{paintEvent}}(QPaintEvent*);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00072}\mbox{\hyperlink{class_color_picker_a458a9356951e1cd6cd9d765a183d975c}{00072}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_a458a9356951e1cd6cd9d765a183d975c}{mouseMoveEvent}}(QMouseEvent *);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00073}\mbox{\hyperlink{class_color_picker_a48fc5f618b9ef036024e59aa35342a5c}{00073}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_a48fc5f618b9ef036024e59aa35342a5c}{mousePressEvent}}(QMouseEvent *);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00075}00075 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00076}00076     \textcolor{keyword}{enum} \{ \mbox{\hyperlink{class_color_picker_a382773990f7838466921da935bd54955a50d10052e503f95e449f612656a8862c}{foff}} = 3, \mbox{\hyperlink{class_color_picker_a382773990f7838466921da935bd54955a767a0883563f1fbb97770eb50e4f2bde}{coff}} = 4 \}; \textcolor{comment}{//frame and contents offset}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00077}\mbox{\hyperlink{class_color_picker_a9509da7051ce8bfa5fd9e5fe04670b9c}{00077}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_a9509da7051ce8bfa5fd9e5fe04670b9c}{y2hue}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00078}\mbox{\hyperlink{class_color_picker_afd05213afb2ef24c7f232f4ad381f36e}{00078}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_afd05213afb2ef24c7f232f4ad381f36e}{y2sat}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00079}\mbox{\hyperlink{class_color_picker_ae7d9e58d64a09974aef89f5d20304f89}{00079}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_ae7d9e58d64a09974aef89f5d20304f89}{y2gam}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00080}\mbox{\hyperlink{class_color_picker_a73df49b3567b24830a87a196b370c0ba}{00080}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_a73df49b3567b24830a87a196b370c0ba}{hue2y}}(\textcolor{keywordtype}{int} hue);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00081}\mbox{\hyperlink{class_color_picker_a1f9a6887e6949388da26b43df388bbd8}{00081}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_a1f9a6887e6949388da26b43df388bbd8}{sat2y}}(\textcolor{keywordtype}{int} sat);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00082}\mbox{\hyperlink{class_color_picker_aa5d026a2e4b43559ffa9c1ac0033115f}{00082}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_aa5d026a2e4b43559ffa9c1ac0033115f}{gam2y}}(\textcolor{keywordtype}{int} gamma);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00083}\mbox{\hyperlink{class_color_picker_a5bfe533373039e277cd89b61941801b8}{00083}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_a5bfe533373039e277cd89b61941801b8}{setHue}}(\textcolor{keywordtype}{int} v);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00084}\mbox{\hyperlink{class_color_picker_aa2e70fba8a65ae2b31f56bd6239fd926}{00084}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_aa2e70fba8a65ae2b31f56bd6239fd926}{setSat}}(\textcolor{keywordtype}{int} v);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00085}\mbox{\hyperlink{class_color_picker_af8fe95f98be1c1e3b29b6c0c7d95e2c8}{00085}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_color_picker_af8fe95f98be1c1e3b29b6c0c7d95e2c8}{setGam}}(\textcolor{keywordtype}{int} v);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00087}00087     QPixmap *\mbox{\hyperlink{class_color_picker_a215ddcd9c700ad158efd9bde286b77fa}{m\_pix}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00088}00088     \mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277f}{Mode}} \mbox{\hyperlink{class_color_picker_af739e39f40d070f4a1e6d693f5d451d2}{m\_mode}} = \mbox{\hyperlink{class_color_picker_aedde1e35d1e2d87b4d834b0642db277fa9db193aacdec2975d44510badcb1291c}{Hue}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00089}00089     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_a76b2f5bc668f6ea19f1ca909ee19fa5e}{m\_gam}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00090}00090     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_a78c6b5dcc51bfeec620ce61b41781f72}{m\_hue}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00091}00091     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_color_picker_af80ee258fa0ba14b5f46aa728d9b33b4}{m\_sat}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00093}00093 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00096}00096 \textcolor{keyword}{class }\mbox{\hyperlink{class_step1}{Step1}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00097}00097 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00098}00098     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00100}00100   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00101}\mbox{\hyperlink{class_step1_af82775f9b7e4ddefccad799c9f8ed5a5}{00101}}     \mbox{\hyperlink{class_step1_af82775f9b7e4ddefccad799c9f8ed5a5}{Step1}}(\mbox{\hyperlink{class_wizard}{Wizard}} *\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}},\textcolor{keyword}{const} QHash<QString,Input*> \&modelData);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00102}\mbox{\hyperlink{class_step1_a5465f7a369f398f13c1fb7ee0588f5b1}{00102}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_a5465f7a369f398f13c1fb7ee0588f5b1}{init}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00104}00104   \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00105}\mbox{\hyperlink{class_step1_a3fdb7f60c0788849a1baceb030b87ae2}{00105}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_a3fdb7f60c0788849a1baceb030b87ae2}{selectSourceDir}}(); }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00106}\mbox{\hyperlink{class_step1_abb5ef1d1cee8ef7221cf715f883c7fc3}{00106}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_abb5ef1d1cee8ef7221cf715f883c7fc3}{selectDestinationDir}}(); }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00107}\mbox{\hyperlink{class_step1_a13985352ae55a9166c3140932fb18ee0}{00107}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_a13985352ae55a9166c3140932fb18ee0}{selectProjectIcon}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00108}\mbox{\hyperlink{class_step1_a44248162485f815163f3720d82a5bb16}{00108}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_a44248162485f815163f3720d82a5bb16}{setProjectName}}(\textcolor{keyword}{const} QString \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00109}\mbox{\hyperlink{class_step1_a5e63e70a3dffa7956d3d6746fbef2ccd}{00109}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_a5e63e70a3dffa7956d3d6746fbef2ccd}{setProjectBrief}}(\textcolor{keyword}{const} QString \&desc);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00110}\mbox{\hyperlink{class_step1_a7e065bf16bb48ac0a289d291edfc94db}{00110}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_a7e065bf16bb48ac0a289d291edfc94db}{setProjectNumber}}(\textcolor{keyword}{const} QString \&num);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00111}\mbox{\hyperlink{class_step1_acb224e4c4195a79ceebcf15c7c8693fe}{00111}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_acb224e4c4195a79ceebcf15c7c8693fe}{setSourceDir}}(\textcolor{keyword}{const} QString \&dir);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00112}\mbox{\hyperlink{class_step1_ab01778fa2301f8c63d0218e9dbfd798d}{00112}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_ab01778fa2301f8c63d0218e9dbfd798d}{setDestinationDir}}(\textcolor{keyword}{const} QString \&dir);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00113}\mbox{\hyperlink{class_step1_a1ad1d72b2036017453433cc25b1021c4}{00113}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step1_a1ad1d72b2036017453433cc25b1021c4}{setRecursiveScan}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00115}00115   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00116}00116     QLineEdit *\mbox{\hyperlink{class_step1_ab6cd23e9ed6a3ce8dcb37aff67ede2d4}{m\_projName}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00117}00117     QLineEdit *\mbox{\hyperlink{class_step1_a586f0cfdb08e88e7540a9af7ee73ceec}{m\_projBrief}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00118}00118     QLineEdit *\mbox{\hyperlink{class_step1_ad3abca348206d0466bc8095cb0be0cf7}{m\_projNumber}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00119}00119     QLineEdit *\mbox{\hyperlink{class_step1_ae8b4703eb209cc142daf244bf0ed9c46}{m\_sourceDir}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00120}00120     QLineEdit *\mbox{\hyperlink{class_step1_a5a4109905f2e5bee42090527c73ff96e}{m\_destDir}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00121}00121     QLabel    *\mbox{\hyperlink{class_step1_a844483ac4915eb1cd73ef0fa2b046ca8}{m\_projIconLab}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00122}00122     QCheckBox *\mbox{\hyperlink{class_step1_ac7c546ae24c77d72c5e56c91ba54016e}{m\_recursive}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00123}00123     QPushButton *\mbox{\hyperlink{class_step1_ae970d81d6804a26acb8e1c6026605bb9}{m\_srcSelectDir}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00124}00124     QPushButton *\mbox{\hyperlink{class_step1_a9037c856f05aa9d0a1deed7d44f9493e}{m\_dstSelectDir}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00125}00125     \mbox{\hyperlink{class_wizard}{Wizard}}    *\mbox{\hyperlink{class_step1_a60c48ec44ce2b53caefd7070e418960b}{m\_wizard}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00126}00126     \textcolor{keyword}{const} QHash<QString,Input *> \&\mbox{\hyperlink{class_step1_a81ce61ae7e76e326731eb7ee0cf99b4f}{m\_modelData}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00127}00127 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00129}00129 \textcolor{keyword}{class }\mbox{\hyperlink{class_step2}{Step2}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00130}00130 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00131}00131     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00132}00132   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00133}\mbox{\hyperlink{class_step2_a4c0b14dabd0853505239520cca925149}{00133}}     \mbox{\hyperlink{class_step2_a4c0b14dabd0853505239520cca925149}{Step2}}(\mbox{\hyperlink{class_wizard}{Wizard}} *\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}},\textcolor{keyword}{const} QHash<QString,Input*> \&modelData);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00134}\mbox{\hyperlink{class_step2_a3765417a8be2d29748fe77b02f3d6c76}{00134}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step2_a3765417a8be2d29748fe77b02f3d6c76}{init}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00136}00136   \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00137}\mbox{\hyperlink{class_step2_a48f89a350f4240a7874bcb99e3be0100}{00137}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step2_a48f89a350f4240a7874bcb99e3be0100}{optimizeFor}}(\textcolor{keywordtype}{int} choice);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00138}\mbox{\hyperlink{class_step2_ab025e8b5f4f90238c4fcc4c395c6b766}{00138}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step2_ab025e8b5f4f90238c4fcc4c395c6b766}{extractMode}}(\textcolor{keywordtype}{int} choice);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00139}\mbox{\hyperlink{class_step2_a288166ba2e09477ae9231609761232d2}{00139}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step2_a288166ba2e09477ae9231609761232d2}{changeCrossRefState}}(\textcolor{keywordtype}{int} choice);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00141}00141   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00142}00142     QGroupBox    *\mbox{\hyperlink{class_step2_a2b24ee910c6351d432f7fcd80f367ffc}{m\_extractMode}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00143}00143     QGroupBox    *\mbox{\hyperlink{class_step2_a54fbf702219c0dea2722bd6ccb97c0c5}{m\_optimizeLang}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00144}00144     QButtonGroup *\mbox{\hyperlink{class_step2_ae9d45d402c290821cf15deee122c5987}{m\_extractModeGroup}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00145}00145     QButtonGroup *\mbox{\hyperlink{class_step2_a8df1f96f2e2573e75003b0c41fdf3c2c}{m\_optimizeLangGroup}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00146}00146     QCheckBox    *\mbox{\hyperlink{class_step2_a2c8db460ab1c80243d5de3c1a1761e1e}{m\_crossRef}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00147}00147     \mbox{\hyperlink{class_wizard}{Wizard}}       *\mbox{\hyperlink{class_step2_a01e9193157f32564a1e9d2dfd31a26f2}{m\_wizard}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00148}00148     \textcolor{keyword}{const} QHash<QString,Input *> \&\mbox{\hyperlink{class_step2_a829065d16c3b0b2715c0bf20bc7cceac}{m\_modelData}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00149}00149 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00151}00151 \textcolor{keyword}{class }\mbox{\hyperlink{class_step3}{Step3}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00152}00152 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00153}00153     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00155}00155   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00156}\mbox{\hyperlink{class_step3_aeac8b4e168e07cd636a1fec1ccc4bd7d}{00156}}     \mbox{\hyperlink{class_step3_aeac8b4e168e07cd636a1fec1ccc4bd7d}{Step3}}(\mbox{\hyperlink{class_wizard}{Wizard}} *\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}},\textcolor{keyword}{const} QHash<QString,Input*> \&modelData);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00157}\mbox{\hyperlink{class_step3_a50d6bc75c36b723d22a02e6c7f220198}{00157}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a50d6bc75c36b723d22a02e6c7f220198}{init}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00159}00159   \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00160}\mbox{\hyperlink{class_step3_aadebf3fd5358a6023ca7cc7c950ed303}{00160}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_aadebf3fd5358a6023ca7cc7c950ed303}{setHtmlEnabled}}(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00161}\mbox{\hyperlink{class_step3_a5e0c7e80bbb4873dc61044b7e6c60fb1}{00161}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a5e0c7e80bbb4873dc61044b7e6c60fb1}{setLatexEnabled}}(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00162}\mbox{\hyperlink{class_step3_a90eb4539ba5a7f063f8c5445c80513db}{00162}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a90eb4539ba5a7f063f8c5445c80513db}{setManEnabled}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00163}\mbox{\hyperlink{class_step3_a7d1fd6c2270b4dde2005a9a14b716f29}{00163}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a7d1fd6c2270b4dde2005a9a14b716f29}{setRtfEnabled}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00164}\mbox{\hyperlink{class_step3_a48dce71e0f124a2313ed3b56b66d1af7}{00164}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a48dce71e0f124a2313ed3b56b66d1af7}{setXmlEnabled}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00165}\mbox{\hyperlink{class_step3_a79db0fcfc38daf8d4230bcd769cc5abf}{00165}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a79db0fcfc38daf8d4230bcd769cc5abf}{setDocbookEnabled}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00166}\mbox{\hyperlink{class_step3_a760fbd4b18a7233592d53f4e5e470f83}{00166}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a760fbd4b18a7233592d53f4e5e470f83}{setSearchEnabled}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00167}\mbox{\hyperlink{class_step3_ad8a1f441cb448b584e24a9cbe9fa8d1b}{00167}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_ad8a1f441cb448b584e24a9cbe9fa8d1b}{setHtmlOptions}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00168}\mbox{\hyperlink{class_step3_afdbf3a9e039a8feaa217845f3be0f0a8}{00168}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_afdbf3a9e039a8feaa217845f3be0f0a8}{setLatexOptions}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00169}\mbox{\hyperlink{class_step3_a74b4d5441258d0062ba83cadf84c1409}{00169}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step3_a74b4d5441258d0062ba83cadf84c1409}{tuneColorDialog}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00170}00170 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00171}00171   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00172}00172     QGroupBox *\mbox{\hyperlink{class_step3_a4de65c065c9d8b0dab5e409c9ec1c316}{m\_texOptions}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00173}00173     QButtonGroup *\mbox{\hyperlink{class_step3_a36564cedb4c2bfc686628b0615b92742}{m\_texOptionsGroup}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00174}00174     QGroupBox *\mbox{\hyperlink{class_step3_a9b6165e557e730e7348548407b45d987}{m\_htmlOptions}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00175}00175     QButtonGroup *\mbox{\hyperlink{class_step3_a2a3ccef6512afb90da2271515faebc2d}{m\_htmlOptionsGroup}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00176}00176     QCheckBox *\mbox{\hyperlink{class_step3_a7a1523dde28b31aeff1d0bdbd254b554}{m\_htmlEnabled}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00177}00177     QCheckBox *\mbox{\hyperlink{class_step3_ab8a0a7685242b25a45b1bcca6fb688ca}{m\_latexEnabled}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00178}00178     QCheckBox *\mbox{\hyperlink{class_step3_ae13037cee49482ad74c1b139f80fd64a}{m\_manEnabled}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00179}00179     QCheckBox *\mbox{\hyperlink{class_step3_ab67cd3b86caad4fb5febe7c7952d5cab}{m\_rtfEnabled}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00180}00180     QCheckBox *\mbox{\hyperlink{class_step3_a8e5d9e91b14c4f50eab284ede8618248}{m\_xmlEnabled}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00181}00181     QCheckBox *\mbox{\hyperlink{class_step3_a4329be73943668fb37a9acbfafa4e44e}{m\_docbookEnabled}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00182}00182     QCheckBox *\mbox{\hyperlink{class_step3_a52e476ebdb405f752a169e9d32316a20}{m\_searchEnabled}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00183}00183     QPushButton *\mbox{\hyperlink{class_step3_a44c2624aaea3b283c277fe2da5583dc2}{m\_tuneColor}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00184}00184     \mbox{\hyperlink{class_wizard}{Wizard}}    *\mbox{\hyperlink{class_step3_aa290a396328bf94f4c8d56e77caa9b01}{m\_wizard}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00185}00185     \textcolor{keyword}{const} QHash<QString,Input *> \&\mbox{\hyperlink{class_step3_a6ff9035bcd18065144de69e2c49062ab}{m\_modelData}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00186}00186 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00187}00187 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00188}00188 \textcolor{keyword}{class }\mbox{\hyperlink{class_step4}{Step4}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00189}00189 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00190}00190     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00192}00192   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00193}\mbox{\hyperlink{class_step4_a3bd177cbe09ea00e06cb7005d280b595}{00193}}     \mbox{\hyperlink{class_step4_a3bd177cbe09ea00e06cb7005d280b595}{Step4}}(\mbox{\hyperlink{class_wizard}{Wizard}} *\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}},\textcolor{keyword}{const} QHash<QString,Input*> \&modelData);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00194}\mbox{\hyperlink{class_step4_ad17bd327339d9accbce940ce99c0915a}{00194}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_ad17bd327339d9accbce940ce99c0915a}{init}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00196}00196   \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00197}\mbox{\hyperlink{class_step4_ae96734d0882d73c47bbc6dffd660b654}{00197}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_ae96734d0882d73c47bbc6dffd660b654}{diagramModeChanged}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00198}\mbox{\hyperlink{class_step4_a1e9bd29ca697df0985fd70d0934a7ccd}{00198}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_a1e9bd29ca697df0985fd70d0934a7ccd}{setClassGraphEnabled}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00199}\mbox{\hyperlink{class_step4_a29b1d4921c4115dc236a310fe5aa2497}{00199}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_a29b1d4921c4115dc236a310fe5aa2497}{setCollaborationGraphEnabled}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00200}\mbox{\hyperlink{class_step4_ab422da04dce374fc15c033fb40ff929f}{00200}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_ab422da04dce374fc15c033fb40ff929f}{setGraphicalHierarchyEnabled}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00201}\mbox{\hyperlink{class_step4_a710e16252d00e92b2a19bbc45df66d04}{00201}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_a710e16252d00e92b2a19bbc45df66d04}{setIncludeGraphEnabled}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00202}\mbox{\hyperlink{class_step4_a8fdc6fa2855378b9901b7c995d72dc2e}{00202}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_a8fdc6fa2855378b9901b7c995d72dc2e}{setIncludedByGraphEnabled}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00203}\mbox{\hyperlink{class_step4_a441c1cf7c711a6d06289304b3c94ef2c}{00203}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_a441c1cf7c711a6d06289304b3c94ef2c}{setCallGraphEnabled}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00204}\mbox{\hyperlink{class_step4_a0daa0e83e35134777d4a6208eddc816c}{00204}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_step4_a0daa0e83e35134777d4a6208eddc816c}{setCallerGraphEnabled}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00206}00206   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00207}00207     QGroupBox *\mbox{\hyperlink{class_step4_a88bfeda0fd57a960db2f61d82c758fd5}{m\_diagramMode}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00208}00208     QButtonGroup *\mbox{\hyperlink{class_step4_a4746dabc97a64bcafebead4bd0a745f2}{m\_diagramModeGroup}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00209}00209     QGroupBox *\mbox{\hyperlink{class_step4_a60aab478edff7e239c61e2ac1256b3be}{m\_dotGroup}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00210}00210     QCheckBox *\mbox{\hyperlink{class_step4_ad22e0a8328a8d19c0b93c3d7c3de91f5}{m\_dotClass}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00211}00211     QCheckBox *\mbox{\hyperlink{class_step4_aac3bf4cb2d7c74b0527232f8ea1d28bd}{m\_dotCollaboration}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00212}00212     QCheckBox *\mbox{\hyperlink{class_step4_a2dc19521853edb78bc1cb13cce79538b}{m\_dotInclude}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00213}00213     QCheckBox *\mbox{\hyperlink{class_step4_a025c3f3a7d1d62c37abca864aeaef74d}{m\_dotIncludedBy}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00214}00214     QCheckBox *\mbox{\hyperlink{class_step4_a55f9a8e411854dac4bb36818518b91da}{m\_dotInheritance}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00215}00215     QCheckBox *\mbox{\hyperlink{class_step4_ab1f12a9ca8a3c92be09a521813085959}{m\_dotCall}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00216}00216     QCheckBox *\mbox{\hyperlink{class_step4_aa7c7700d14a5672e20d47dc695b83478}{m\_dotCaller}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00217}00217     \mbox{\hyperlink{class_wizard}{Wizard}}    *\mbox{\hyperlink{class_step4_a909df56f07e53e8be6bdbb859570d034}{m\_wizard}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00218}00218     \textcolor{keyword}{const} QHash<QString,Input *> \&\mbox{\hyperlink{class_step4_ad6ab3c79ad8651aa5f14b13a7158c9fa}{m\_modelData}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00219}00219 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00220}00220 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00221}00221 \textcolor{keyword}{class }\mbox{\hyperlink{class_wizard}{Wizard}} : \textcolor{keyword}{public} QSplitter}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00222}00222 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00223}00223     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00224}00224   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00225}\mbox{\hyperlink{class_wizard_a76ce3a0acb56d30f695b7183941563bc}{00225}}     \mbox{\hyperlink{class_wizard_a76ce3a0acb56d30f695b7183941563bc}{Wizard}}(\textcolor{keyword}{const} QHash<QString,Input*> \&modelData, QWidget *\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}=0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00226}\mbox{\hyperlink{class_wizard_a47a95421149eafa9d922883753c4f6c2}{00226}}    \mbox{\hyperlink{class_wizard_a47a95421149eafa9d922883753c4f6c2}{\string~Wizard}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00227}00227 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00228}00228   \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00229}\mbox{\hyperlink{class_wizard_a86f0229c11eb822aed9a927dbbbc8bd8}{00229}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_wizard_a86f0229c11eb822aed9a927dbbbc8bd8}{refresh}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00230}00230 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00231}00231   \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00232}\mbox{\hyperlink{class_wizard_a2bd28066dea113a1532498b32c27f6a2}{00232}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_wizard_a2bd28066dea113a1532498b32c27f6a2}{activateTopic}}(QTreeWidgetItem *item,QTreeWidgetItem *);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00233}\mbox{\hyperlink{class_wizard_a709eda6908e4c4a5896b7437a87f7905}{00233}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_wizard_a709eda6908e4c4a5896b7437a87f7905}{nextTopic}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00234}\mbox{\hyperlink{class_wizard_adb5ae07dc1fadc4d5a7793058545bd3f}{00234}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_wizard_adb5ae07dc1fadc4d5a7793058545bd3f}{prevTopic}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00235}00235 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00236}00236   signals:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00237}\mbox{\hyperlink{class_wizard_a5c87bd4bb38d19171ab2fbde096cb78b}{00237}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_wizard_a5c87bd4bb38d19171ab2fbde096cb78b}{done}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00238}00238 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00239}00239   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00240}00240     \textcolor{keyword}{const} QHash<QString,Input *> \&\mbox{\hyperlink{class_wizard_a558c346f6ce5047fab49f6b1653cc5cb}{m\_modelData}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00241}00241     QTreeWidget    *\mbox{\hyperlink{class_wizard_ae4f80a73154c75ba7b21d3af6d644f6e}{m\_treeWidget}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00242}00242     QStackedWidget *\mbox{\hyperlink{class_wizard_a3f46dc6a1d1e96defc996b24c7d6b9bd}{m\_topicStack}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00243}00243     \mbox{\hyperlink{class_step1}{Step1}}          *\mbox{\hyperlink{class_wizard_a9c20decd0dd499e5c632a996a68cd676}{m\_step1}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00244}00244     \mbox{\hyperlink{class_step2}{Step2}}          *\mbox{\hyperlink{class_wizard_acddc2f9435ec8da459b8f04d595fd1bc}{m\_step2}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00245}00245     \mbox{\hyperlink{class_step3}{Step3}}          *\mbox{\hyperlink{class_wizard_afaea931d9a14119c3781d855a4c91fb8}{m\_step3}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00246}00246     \mbox{\hyperlink{class_step4}{Step4}}          *\mbox{\hyperlink{class_wizard_a07b4ee2f2e7ca08897cd00739b7e4269}{m\_step4}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00247}00247     QPushButton    *\mbox{\hyperlink{class_wizard_a7ecc51cc5bd021e88b8af9683d5e1331}{m\_next}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00248}00248     QPushButton    *\mbox{\hyperlink{class_wizard_af288e51aa1a433d718c678b61ebf4566}{m\_prev}} = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00249}00249 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00250}00250 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2wizard_8h_source_l00251}00251 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

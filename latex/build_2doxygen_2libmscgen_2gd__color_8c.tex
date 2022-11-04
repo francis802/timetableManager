@@ -1,0 +1,39 @@
+\hypertarget{build_2doxygen_2libmscgen_2gd__color_8c}{}\doxysection{doxygen/build/doxygen/libmscgen/gd\+\_\+color.c File Reference}
+\label{build_2doxygen_2libmscgen_2gd__color_8c}\index{doxygen/build/doxygen/libmscgen/gd\_color.c@{doxygen/build/doxygen/libmscgen/gd\_color.c}}
+{\ttfamily \#include \char`\"{}gd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gd\+\_\+color.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__color_8c_a83aedb8f5e04c9297fa46b5d5954ab26}{gd\+Color\+Match}} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afe93bfeeff04d32572cef4b9a7613ec8}{gd\+Image\+Ptr}} im, int col1, int col2, float \mbox{\hyperlink{libmscgen_2gd_8h_ae3fe3c1aa562504a107743c2068f29be}{threshold}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2gd__color_8c_a83aedb8f5e04c9297fa46b5d5954ab26}\label{build_2doxygen_2libmscgen_2gd__color_8c_a83aedb8f5e04c9297fa46b5d5954ab26}} 
+\index{gd\_color.c@{gd\_color.c}!gdColorMatch@{gdColorMatch}}
+\index{gdColorMatch@{gdColorMatch}!gd\_color.c@{gd\_color.c}}
+\doxysubsubsection{\texorpdfstring{gdColorMatch()}{gdColorMatch()}}
+{\footnotesize\ttfamily int gd\+Color\+Match (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afe93bfeeff04d32572cef4b9a7613ec8}{gd\+Image\+Ptr}}}]{im,  }\item[{int}]{col1,  }\item[{int}]{col2,  }\item[{float}]{threshold }\end{DoxyParamCaption})}
+
+The threshold method works relatively well but it can be improved. Maybe L$\ast$a$\ast$b$\ast$ and Delta-\/E will give better results (and a better granularity). 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__color_8c_source_l00013}{13}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__color_8c_source}{gd\+\_\+color.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014 \{}
+\DoxyCodeLine{00015     \textcolor{keyword}{const} \textcolor{keywordtype}{int} dr = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afac3a24dd3ab940d299203ea78a16dac}{gdImageRed}}(im, col1) -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afac3a24dd3ab940d299203ea78a16dac}{gdImageRed}}(im, col2);}
+\DoxyCodeLine{00016     \textcolor{keyword}{const} \textcolor{keywordtype}{int} dg = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab6ce669c75f1d3d1051a9a63a0bfb3d2}{gdImageGreen}}(im, col1) -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab6ce669c75f1d3d1051a9a63a0bfb3d2}{gdImageGreen}}(im, col2);}
+\DoxyCodeLine{00017     \textcolor{keyword}{const} \textcolor{keywordtype}{int} db = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0155ca66ce4f88e5deca7b6885c06716}{gdImageBlue}}(im, col1) -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0155ca66ce4f88e5deca7b6885c06716}{gdImageBlue}}(im, col2);}
+\DoxyCodeLine{00018     \textcolor{keyword}{const} \textcolor{keywordtype}{int} da = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aecb38b83c4f011ab474723f304c87678}{gdImageAlpha}}(im, col1) -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aecb38b83c4f011ab474723f304c87678}{gdImageAlpha}}(im, col2);}
+\DoxyCodeLine{00019     \textcolor{keyword}{const} \textcolor{keywordtype}{int} dist = dr * dr + dg * dg + db * db + da * da;}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021     \textcolor{keywordflow}{return} (100.0 * dist / 195075) < \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3fe3c1aa562504a107743c2068f29be}{threshold}};}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aecb38b83c4f011ab474723f304c87678}{gd\+Image\+Alpha}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0155ca66ce4f88e5deca7b6885c06716}{gd\+Image\+Blue}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab6ce669c75f1d3d1051a9a63a0bfb3d2}{gd\+Image\+Green}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afac3a24dd3ab940d299203ea78a16dac}{gd\+Image\+Red}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3fe3c1aa562504a107743c2068f29be}{threshold}}.
+

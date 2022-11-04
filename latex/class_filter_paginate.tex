@@ -1,0 +1,132 @@
+\hypertarget{class_filter_paginate}{}\doxysection{Filter\+Paginate Class Reference}
+\label{class_filter_paginate}\index{FilterPaginate@{FilterPaginate}}
+
+
+The implementation of the \char`\"{}paginate\char`\"{} filter.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_paginate_a490b7dcb03be0584757808e8f04e1228}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&args)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_paginate_a490b7dcb03be0584757808e8f04e1228}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}paginate\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01238}{1238}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_paginate_a490b7dcb03be0584757808e8f04e1228}\label{class_filter_paginate_a490b7dcb03be0584757808e8f04e1228}} 
+\index{FilterPaginate@{FilterPaginate}!apply@{apply}}
+\index{apply@{apply}!FilterPaginate@{FilterPaginate}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Paginate\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01241}{1241}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01242     \{}
+\DoxyCodeLine{01243       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() \&\& v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}() \&\&}
+\DoxyCodeLine{01244           args.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() \&\& args.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}())}
+\DoxyCodeLine{01245       \{}
+\DoxyCodeLine{01246         \textcolor{keywordtype}{int} pageSize = args.\mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{toInt}}();}
+\DoxyCodeLine{01247         \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} list   = v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}();}
+\DoxyCodeLine{01248         \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}}   result = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01249         \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{01250         \mbox{\hyperlink{class_template_variant}{TemplateVariant}}   item;}
+\DoxyCodeLine{01251         \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}}   pageList;}
+\DoxyCodeLine{01252         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{01253         \textcolor{keywordflow}{for} (it-\/>toFirst();(it-\/>current(item));it-\/>toNext())}
+\DoxyCodeLine{01254         \{}
+\DoxyCodeLine{01255           \textcolor{keywordflow}{if} (pageList==0)}
+\DoxyCodeLine{01256           \{}
+\DoxyCodeLine{01257             pageList = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01258             result-\/>append(std::static\_pointer\_cast<TemplateListIntf>(pageList));}
+\DoxyCodeLine{01259           \}}
+\DoxyCodeLine{01260           pageList-\/>append(item);}
+\DoxyCodeLine{01261           i++;}
+\DoxyCodeLine{01262           \textcolor{keywordflow}{if} (i==pageSize) \textcolor{comment}{// page is full start a new one}}
+\DoxyCodeLine{01263           \{}
+\DoxyCodeLine{01264             pageList=0;}
+\DoxyCodeLine{01265             i=0;}
+\DoxyCodeLine{01266           \}}
+\DoxyCodeLine{01267         \}}
+\DoxyCodeLine{01268         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(result));}
+\DoxyCodeLine{01269       \}}
+\DoxyCodeLine{01270       \textcolor{keywordflow}{else} \textcolor{comment}{// wrong arguments}}
+\DoxyCodeLine{01271       \{}
+\DoxyCodeLine{01272         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{01273       \}}
+\DoxyCodeLine{01274     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{Template\+Variant\+::is\+Int()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{Template\+Variant\+::to\+Int()}}, and \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}.
+
+\mbox{\Hypertarget{class_filter_paginate_a490b7dcb03be0584757808e8f04e1228}\label{class_filter_paginate_a490b7dcb03be0584757808e8f04e1228}} 
+\index{FilterPaginate@{FilterPaginate}!apply@{apply}}
+\index{apply@{apply}!FilterPaginate@{FilterPaginate}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Paginate\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l01241}{1241}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01242     \{}
+\DoxyCodeLine{01243       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() \&\& v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}() \&\&}
+\DoxyCodeLine{01244           args.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() \&\& args.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}())}
+\DoxyCodeLine{01245       \{}
+\DoxyCodeLine{01246         \textcolor{keywordtype}{int} pageSize = args.\mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{toInt}}();}
+\DoxyCodeLine{01247         \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} list   = v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}();}
+\DoxyCodeLine{01248         \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}}   result = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01249         \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{01250         \mbox{\hyperlink{class_template_variant}{TemplateVariant}}   item;}
+\DoxyCodeLine{01251         \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}}   pageList;}
+\DoxyCodeLine{01252         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{01253         \textcolor{keywordflow}{for} (it-\/>toFirst();(it-\/>current(item));it-\/>toNext())}
+\DoxyCodeLine{01254         \{}
+\DoxyCodeLine{01255           \textcolor{keywordflow}{if} (pageList==0)}
+\DoxyCodeLine{01256           \{}
+\DoxyCodeLine{01257             pageList = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01258             result-\/>append(std::static\_pointer\_cast<TemplateListIntf>(pageList));}
+\DoxyCodeLine{01259           \}}
+\DoxyCodeLine{01260           pageList-\/>append(item);}
+\DoxyCodeLine{01261           i++;}
+\DoxyCodeLine{01262           \textcolor{keywordflow}{if} (i==pageSize) \textcolor{comment}{// page is full start a new one}}
+\DoxyCodeLine{01263           \{}
+\DoxyCodeLine{01264             pageList=0;}
+\DoxyCodeLine{01265             i=0;}
+\DoxyCodeLine{01266           \}}
+\DoxyCodeLine{01267         \}}
+\DoxyCodeLine{01268         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(result));}
+\DoxyCodeLine{01269       \}}
+\DoxyCodeLine{01270       \textcolor{keywordflow}{else} \textcolor{comment}{// wrong arguments}}
+\DoxyCodeLine{01271       \{}
+\DoxyCodeLine{01272         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{01273       \}}
+\DoxyCodeLine{01274     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{Template\+Variant\+::is\+Int()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{Template\+Variant\+::to\+Int()}}, and \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

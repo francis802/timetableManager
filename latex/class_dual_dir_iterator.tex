@@ -1,0 +1,311 @@
+\hypertarget{class_dual_dir_iterator}{}\doxysection{Dual\+Dir\+Iterator\texorpdfstring{$<$}{<} C, I \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_dual_dir_iterator}\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+
+
+helper class representing an iterator that can iterate forwards or backwards  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}{Dual\+Dir\+Iterator}} (\mbox{\hyperlink{class_c}{C}} \&container, bool fwd)
+\item 
+void \mbox{\hyperlink{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}{operator++}} ()
+\item 
+I \& \mbox{\hyperlink{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}{operator$\ast$}} ()
+\item 
+bool \mbox{\hyperlink{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}{at\+End}} ()
+\item 
+\mbox{\hyperlink{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}{Dual\+Dir\+Iterator}} (\mbox{\hyperlink{class_c}{C}} \&container, bool fwd)
+\item 
+void \mbox{\hyperlink{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}{operator++}} ()
+\item 
+I \& \mbox{\hyperlink{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}{operator$\ast$}} ()
+\item 
+bool \mbox{\hyperlink{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}{at\+End}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c}{C}} \& \mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{m\+\_\+container}}
+\item 
+bool \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\+\_\+forward}}
+\item 
+C\+::iterator \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\+\_\+it}}
+\item 
+C\+::reverse\+\_\+iterator \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\+\_\+rit}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class \mbox{\hyperlink{class_c}{C}}, class I$>$\newline
+class Dual\+Dir\+Iterator$<$ C, I $>$}
+helper class representing an iterator that can iterate forwards or backwards 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00541}{541}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}\label{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!DualDirIterator@{DualDirIterator}}
+\index{DualDirIterator@{DualDirIterator}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{DualDirIterator()}{DualDirIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+\mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\mbox{\hyperlink{class_dual_dir_iterator}{\+::\+Dual\+Dir\+Iterator}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c}{C}} \&}]{container,  }\item[{bool}]{fwd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00544}{544}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00545       : \mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{m\_container}}(container), \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}}(fwd)}
+\DoxyCodeLine{00546     \{}
+\DoxyCodeLine{00547       \textcolor{keywordflow}{if} (fwd) \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}} = container.begin();}
+\DoxyCodeLine{00548       \textcolor{keywordflow}{else} \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}} = container.rbegin();}
+\DoxyCodeLine{00549     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}\label{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!DualDirIterator@{DualDirIterator}}
+\index{DualDirIterator@{DualDirIterator}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{DualDirIterator()}{DualDirIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+\mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\mbox{\hyperlink{class_dual_dir_iterator}{\+::\+Dual\+Dir\+Iterator}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c}{C}} \&}]{container,  }\item[{bool}]{fwd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2diagram_8cpp_source_l00544}{544}} of file \mbox{\hyperlink{src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00545       : \mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{m\_container}}(container), \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}}(fwd)}
+\DoxyCodeLine{00546     \{}
+\DoxyCodeLine{00547       \textcolor{keywordflow}{if} (fwd) \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}} = container.begin();}
+\DoxyCodeLine{00548       \textcolor{keywordflow}{else} \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}} = container.rbegin();}
+\DoxyCodeLine{00549     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}\label{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!atEnd@{atEnd}}
+\index{atEnd@{atEnd}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{atEnd()}{atEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+bool \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::at\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00559}{559}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00560     \{}
+\DoxyCodeLine{00561       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}})}
+\DoxyCodeLine{00562         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}}==\mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{m\_container}}.end();}
+\DoxyCodeLine{00563       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00564         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}}==\mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{m\_container}}.rend();}
+\DoxyCodeLine{00565     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+container}}, \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+forward}}, \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_tree_diagram_ae7e4a47a706f354d1014045118d359ca}{Tree\+Diagram\+::draw\+Boxes()}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}\label{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!atEnd@{atEnd}}
+\index{atEnd@{atEnd}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{atEnd()}{atEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+bool \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::at\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2diagram_8cpp_source_l00559}{559}} of file \mbox{\hyperlink{src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00560     \{}
+\DoxyCodeLine{00561       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}})}
+\DoxyCodeLine{00562         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}}==\mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{m\_container}}.end();}
+\DoxyCodeLine{00563       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00564         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}}==\mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{m\_container}}.rend();}
+\DoxyCodeLine{00565     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+container}}, \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+forward}}, \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}\label{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+I \& \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00554}{554}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00555     \{}
+\DoxyCodeLine{00556       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}} ? *\mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}} : *\mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}};}
+\DoxyCodeLine{00557     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+forward}}, \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}\label{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+I \& \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2diagram_8cpp_source_l00554}{554}} of file \mbox{\hyperlink{src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00555     \{}
+\DoxyCodeLine{00556       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}} ? *\mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}} : *\mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}};}
+\DoxyCodeLine{00557     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+forward}}, \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}\label{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+void \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00550}{550}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00551     \{}
+\DoxyCodeLine{00552       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}}) ++\mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}}++; \textcolor{keywordflow}{else} ++\mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}};}
+\DoxyCodeLine{00553     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+forward}}, \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}\label{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+void \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2diagram_8cpp_source_l00550}{550}} of file \mbox{\hyperlink{src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00551     \{}
+\DoxyCodeLine{00552       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{m\_forward}}) ++\mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{m\_it}}++; \textcolor{keywordflow}{else} ++\mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{m\_rit}};}
+\DoxyCodeLine{00553     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+forward}}, \mbox{\hyperlink{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+it}}, and \mbox{\hyperlink{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}{Dual\+Dir\+Iterator$<$ C, I $>$\+::m\+\_\+rit}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}\label{class_dual_dir_iterator_a402a8058b0635f5c2ca0c746cc57f6e6}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!m\_container@{m\_container}}
+\index{m\_container@{m\_container}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{m\_container}{m\_container}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+\mbox{\hyperlink{class_c}{C}} \& \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::m\+\_\+container\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00568}{568}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}{Dual\+Dir\+Iterator$<$ C, I $>$\+::at\+End()}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}\label{class_dual_dir_iterator_a77c834a909aede3162f95ff478dc694f}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!m\_forward@{m\_forward}}
+\index{m\_forward@{m\_forward}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{m\_forward}{m\_forward}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+bool \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::m\+\_\+forward\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00569}{569}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}{Dual\+Dir\+Iterator$<$ C, I $>$\+::at\+End()}}, \mbox{\hyperlink{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}{Dual\+Dir\+Iterator$<$ C, I $>$\+::operator$\ast$()}}, and \mbox{\hyperlink{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}{Dual\+Dir\+Iterator$<$ C, I $>$\+::operator++()}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}\label{class_dual_dir_iterator_aebec7abd6c90c22c837ad7d321f5a47b}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!m\_it@{m\_it}}
+\index{m\_it@{m\_it}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{m\_it}{m\_it}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+C\+::iterator \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::m\+\_\+it\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00570}{570}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}{Dual\+Dir\+Iterator$<$ C, I $>$\+::at\+End()}}, \mbox{\hyperlink{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}{Dual\+Dir\+Iterator$<$ C, I $>$\+::\+Dual\+Dir\+Iterator()}}, \mbox{\hyperlink{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}{Dual\+Dir\+Iterator$<$ C, I $>$\+::operator$\ast$()}}, and \mbox{\hyperlink{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}{Dual\+Dir\+Iterator$<$ C, I $>$\+::operator++()}}.
+
+\mbox{\Hypertarget{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}\label{class_dual_dir_iterator_aad92bde29514b1eb15c84c2033a06416}} 
+\index{DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}!m\_rit@{m\_rit}}
+\index{m\_rit@{m\_rit}!DualDirIterator$<$ C, I $>$@{DualDirIterator$<$ C, I $>$}}
+\doxysubsubsection{\texorpdfstring{m\_rit}{m\_rit}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{class_c}{C}} , class I $>$ \\
+C\+::reverse\+\_\+iterator \mbox{\hyperlink{class_dual_dir_iterator}{Dual\+Dir\+Iterator}}$<$ \mbox{\hyperlink{class_c}{C}}, I $>$\+::m\+\_\+rit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source_l00571}{571}} of file \mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp_source}{diagram.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dual_dir_iterator_a1373c495765f5f449d68ad5352290ffb}{Dual\+Dir\+Iterator$<$ C, I $>$\+::at\+End()}}, \mbox{\hyperlink{class_dual_dir_iterator_ab11a6e918725dcfe806978f3744e85aa}{Dual\+Dir\+Iterator$<$ C, I $>$\+::\+Dual\+Dir\+Iterator()}}, \mbox{\hyperlink{class_dual_dir_iterator_aedcb6e69e2cc5ba14f50652be03a523a}{Dual\+Dir\+Iterator$<$ C, I $>$\+::operator$\ast$()}}, and \mbox{\hyperlink{class_dual_dir_iterator_a14e6d78f7b7c31704e5ce390701dd0da}{Dual\+Dir\+Iterator$<$ C, I $>$\+::operator++()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2diagram_8cpp}{diagram.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2diagram_8cpp}{diagram.\+cpp}}\end{DoxyCompactItemize}

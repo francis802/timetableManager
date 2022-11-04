@@ -1,0 +1,136 @@
+\hypertarget{class_filter_keep}{}\doxysection{Filter\+Keep Class Reference}
+\label{class_filter_keep}\index{FilterKeep@{FilterKeep}}
+
+
+The implementation of the \char`\"{}keep\char`\"{} filter.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_keep_a3ab1957b246b318b56ac3ff8ec85fe4e}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&args)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_keep_a3ab1957b246b318b56ac3ff8ec85fe4e}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}keep\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00817}{817}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_keep_a3ab1957b246b318b56ac3ff8ec85fe4e}\label{class_filter_keep_a3ab1957b246b318b56ac3ff8ec85fe4e}} 
+\index{FilterKeep@{FilterKeep}!apply@{apply}}
+\index{apply@{apply}!FilterKeep@{FilterKeep}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Keep\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00820}{820}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00821     \{}
+\DoxyCodeLine{00822       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() \&\& (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}()) \&\& args.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00823       \{}
+\DoxyCodeLine{00824         \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} list = v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}();}
+\DoxyCodeLine{00825         \textcolor{keywordflow}{if} (list)}
+\DoxyCodeLine{00826         \{}
+\DoxyCodeLine{00827           \textcolor{comment}{//printf("{}FilterKeep::apply: v=\%s args=\%s\(\backslash\)n"{},qPrint(v.toString()),qPrint(args.toString()));}}
+\DoxyCodeLine{00828           \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{00829 }
+\DoxyCodeLine{00830           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} result = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{00831           \mbox{\hyperlink{class_template_variant}{TemplateVariant}} item;}
+\DoxyCodeLine{00832           \textcolor{keywordflow}{for} (it-\/>toFirst();(it-\/>current(item));it-\/>toNext())}
+\DoxyCodeLine{00833           \{}
+\DoxyCodeLine{00834             \textcolor{comment}{//printf("{}item type=\%s\(\backslash\)n"{},item.typeAsString());}}
+\DoxyCodeLine{00835             \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = item.\mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{toStruct}}();}
+\DoxyCodeLine{00836             \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{00837             \{}
+\DoxyCodeLine{00838               \mbox{\hyperlink{class_template_variant}{TemplateVariant}} value = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}-\/>get(args.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{00839               \textcolor{comment}{//printf("{}value type=\%s\(\backslash\)n"{},value.typeAsString());}}
+\DoxyCodeLine{00840               \textcolor{keywordflow}{if} (value.\mbox{\hyperlink{class_template_variant_a208563a3d54212cc15b4316a3c61e165}{toBool}}())}
+\DoxyCodeLine{00841               \{}
+\DoxyCodeLine{00842                 \textcolor{comment}{//printf("{}keeping it\(\backslash\)n"{});}}
+\DoxyCodeLine{00843                 result-\/>append(item);}
+\DoxyCodeLine{00844               \}}
+\DoxyCodeLine{00845               \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00846               \{}
+\DoxyCodeLine{00847                 \textcolor{comment}{//printf("{}Dropping it\(\backslash\)n"{});}}
+\DoxyCodeLine{00848               \}}
+\DoxyCodeLine{00849             \}}
+\DoxyCodeLine{00850           \}}
+\DoxyCodeLine{00851           \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(result));}
+\DoxyCodeLine{00852         \}}
+\DoxyCodeLine{00853       \}}
+\DoxyCodeLine{00854       \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00855     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{class_template_variant_a208563a3d54212cc15b4316a3c61e165}{Template\+Variant\+::to\+Bool()}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}, and \mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{Template\+Variant\+::to\+Struct()}}.
+
+\mbox{\Hypertarget{class_filter_keep_a3ab1957b246b318b56ac3ff8ec85fe4e}\label{class_filter_keep_a3ab1957b246b318b56ac3ff8ec85fe4e}} 
+\index{FilterKeep@{FilterKeep}!apply@{apply}}
+\index{apply@{apply}!FilterKeep@{FilterKeep}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Keep\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l00820}{820}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00821     \{}
+\DoxyCodeLine{00822       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() \&\& (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}()) \&\& args.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00823       \{}
+\DoxyCodeLine{00824         \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} list = v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}();}
+\DoxyCodeLine{00825         \textcolor{keywordflow}{if} (list)}
+\DoxyCodeLine{00826         \{}
+\DoxyCodeLine{00827           \textcolor{comment}{//printf("{}FilterKeep::apply: v=\%s args=\%s\(\backslash\)n"{},qPrint(v.toString()),qPrint(args.toString()));}}
+\DoxyCodeLine{00828           \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{00829 }
+\DoxyCodeLine{00830           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} result = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{00831           \mbox{\hyperlink{class_template_variant}{TemplateVariant}} item;}
+\DoxyCodeLine{00832           \textcolor{keywordflow}{for} (it-\/>toFirst();(it-\/>current(item));it-\/>toNext())}
+\DoxyCodeLine{00833           \{}
+\DoxyCodeLine{00834             \textcolor{comment}{//printf("{}item type=\%s\(\backslash\)n"{},item.typeAsString());}}
+\DoxyCodeLine{00835             \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = item.\mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{toStruct}}();}
+\DoxyCodeLine{00836             \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{00837             \{}
+\DoxyCodeLine{00838               \mbox{\hyperlink{class_template_variant}{TemplateVariant}} value = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}-\/>get(args.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{00839               \textcolor{comment}{//printf("{}value type=\%s\(\backslash\)n"{},value.typeAsString());}}
+\DoxyCodeLine{00840               \textcolor{keywordflow}{if} (value.\mbox{\hyperlink{class_template_variant_a208563a3d54212cc15b4316a3c61e165}{toBool}}())}
+\DoxyCodeLine{00841               \{}
+\DoxyCodeLine{00842                 \textcolor{comment}{//printf("{}keeping it\(\backslash\)n"{});}}
+\DoxyCodeLine{00843                 result-\/>append(item);}
+\DoxyCodeLine{00844               \}}
+\DoxyCodeLine{00845               \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00846               \{}
+\DoxyCodeLine{00847                 \textcolor{comment}{//printf("{}Dropping it\(\backslash\)n"{});}}
+\DoxyCodeLine{00848               \}}
+\DoxyCodeLine{00849             \}}
+\DoxyCodeLine{00850           \}}
+\DoxyCodeLine{00851           \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(result));}
+\DoxyCodeLine{00852         \}}
+\DoxyCodeLine{00853       \}}
+\DoxyCodeLine{00854       \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00855     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{class_template_variant_a208563a3d54212cc15b4316a3c61e165}{Template\+Variant\+::to\+Bool()}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}, and \mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{Template\+Variant\+::to\+Struct()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

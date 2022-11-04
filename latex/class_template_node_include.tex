@@ -1,0 +1,228 @@
+\hypertarget{class_template_node_include}{}\doxysection{Template\+Node\+Include Class Reference}
+\label{class_template_node_include}\index{TemplateNodeInclude@{TemplateNodeInclude}}
+
+
+\mbox{\hyperlink{class_class}{Class}} representing an \textquotesingle{}include\textquotesingle{} tag in a template.  
+
+
+Inheritance diagram for Template\+Node\+Include\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.458333cm]{class_template_node_include}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_template_node_include_a7c581fbb5dd87f333ad1c716243e2d9d}{Template\+Node\+Include}} (\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$parser, \mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}}, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}})
+\item 
+void \mbox{\hyperlink{class_template_node_include_a63b932a6a4ff9a5fd6fc635a1074c1d0}{render}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&ts, \mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{class_template_node_include_a7c581fbb5dd87f333ad1c716243e2d9d}{Template\+Node\+Include}} (\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$parser, \mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}}, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}})
+\item 
+void \mbox{\hyperlink{class_template_node_include_a63b932a6a4ff9a5fd6fc635a1074c1d0}{render}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&ts, \mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a1669783f8130ce10bceeaf5c7db6c26a}{Expr\+Ast\+Ptr}} \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\+\_\+include\+Expr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_class}{Class}} representing an \textquotesingle{}include\textquotesingle{} tag in a template. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l03753}{3753}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_template_node_include_a7c581fbb5dd87f333ad1c716243e2d9d}\label{class_template_node_include_a7c581fbb5dd87f333ad1c716243e2d9d}} 
+\index{TemplateNodeInclude@{TemplateNodeInclude}!TemplateNodeInclude@{TemplateNodeInclude}}
+\index{TemplateNodeInclude@{TemplateNodeInclude}!TemplateNodeInclude@{TemplateNodeInclude}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeInclude()}{TemplateNodeInclude()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Template\+Node\+Include\+::\+Template\+Node\+Include (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$}]{parser,  }\item[{\mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$}]{parent,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l03756}{3756}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03757       : \mbox{\hyperlink{class_template_node_creator}{TemplateNodeCreator<TemplateNodeInclude>}}(parser,\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}},line)}
+\DoxyCodeLine{03758     \{}
+\DoxyCodeLine{03759       \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}TemplateNodeInclude(\%s)\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}})));}
+\DoxyCodeLine{03760       \mbox{\hyperlink{class_expression_parser}{ExpressionParser}} ep(parser,line);}
+\DoxyCodeLine{03761       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}.isEmpty())}
+\DoxyCodeLine{03762       \{}
+\DoxyCodeLine{03763         parser-\/>\mbox{\hyperlink{class_template_parser_aea4e82d9a24d74444e62340def6e201c}{warn}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},line,\textcolor{stringliteral}{"{}include tag is missing template file argument"{}});}
+\DoxyCodeLine{03764       \}}
+\DoxyCodeLine{03765       \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\_includeExpr}} = ep.parse(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}});}
+\DoxyCodeLine{03766     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\+\_\+include\+Expr}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{class_expression_parser_aabaaf221760058c6226a2cd383b4c36a}{Expression\+Parser\+::parse()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}, and \mbox{\hyperlink{class_template_parser_aea4e82d9a24d74444e62340def6e201c}{Template\+Parser\+::warn()}}.
+
+\mbox{\Hypertarget{class_template_node_include_a7c581fbb5dd87f333ad1c716243e2d9d}\label{class_template_node_include_a7c581fbb5dd87f333ad1c716243e2d9d}} 
+\index{TemplateNodeInclude@{TemplateNodeInclude}!TemplateNodeInclude@{TemplateNodeInclude}}
+\index{TemplateNodeInclude@{TemplateNodeInclude}!TemplateNodeInclude@{TemplateNodeInclude}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeInclude()}{TemplateNodeInclude()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Template\+Node\+Include\+::\+Template\+Node\+Include (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$}]{parser,  }\item[{\mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$}]{parent,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l03756}{3756}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03757       : \mbox{\hyperlink{class_template_node_creator}{TemplateNodeCreator<TemplateNodeInclude>}}(parser,\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}},line)}
+\DoxyCodeLine{03758     \{}
+\DoxyCodeLine{03759       \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}TemplateNodeInclude(\%s)\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}})));}
+\DoxyCodeLine{03760       \mbox{\hyperlink{class_expression_parser}{ExpressionParser}} ep(parser,line);}
+\DoxyCodeLine{03761       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}.isEmpty())}
+\DoxyCodeLine{03762       \{}
+\DoxyCodeLine{03763         parser-\/>\mbox{\hyperlink{class_template_parser_aea4e82d9a24d74444e62340def6e201c}{warn}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},line,\textcolor{stringliteral}{"{}include tag is missing template file argument"{}});}
+\DoxyCodeLine{03764       \}}
+\DoxyCodeLine{03765       \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\_includeExpr}} = ep.parse(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}});}
+\DoxyCodeLine{03766     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\+\_\+include\+Expr}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{class_expression_parser_aabaaf221760058c6226a2cd383b4c36a}{Expression\+Parser\+::parse()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}, and \mbox{\hyperlink{class_template_parser_aea4e82d9a24d74444e62340def6e201c}{Template\+Parser\+::warn()}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_template_node_include_a63b932a6a4ff9a5fd6fc635a1074c1d0}\label{class_template_node_include_a63b932a6a4ff9a5fd6fc635a1074c1d0}} 
+\index{TemplateNodeInclude@{TemplateNodeInclude}!render@{render}}
+\index{render@{render}!TemplateNodeInclude@{TemplateNodeInclude}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Template\+Node\+Include\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{ts,  }\item[{\mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_template_node_a359c255cedaf603fd3e0ef35b7126185}{Template\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l03767}{3767}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03768     \{}
+\DoxyCodeLine{03769       \mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}* ci = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}*\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{03770       \textcolor{keywordflow}{if} (ci==0) \textcolor{keywordflow}{return}; \textcolor{comment}{// should not happen}}
+\DoxyCodeLine{03771       ci-\/>\mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{setLocation}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{03772       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\_includeExpr}})}
+\DoxyCodeLine{03773       \{}
+\DoxyCodeLine{03774         \mbox{\hyperlink{class_q_c_string}{QCString}} includeFile = \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\_includeExpr}}-\/>resolve(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}).toString();}
+\DoxyCodeLine{03775         \textcolor{keywordflow}{if} (includeFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{03776         \{}
+\DoxyCodeLine{03777           ci-\/>\mbox{\hyperlink{class_template_context_impl_a5cacf842afb50c0dabb5cd1213fa310f}{warn}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}},\textcolor{stringliteral}{"{}invalid parameter for include command\(\backslash\)n"{}});}
+\DoxyCodeLine{03778         \}}
+\DoxyCodeLine{03779         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{03780         \{}
+\DoxyCodeLine{03781           \mbox{\hyperlink{class_template_impl}{TemplateImpl}} *t = \mbox{\hyperlink{class_template_node_creator_aed90758d87b719974e81ed433bbcd7fd}{getTemplate}}();}
+\DoxyCodeLine{03782           \textcolor{keywordflow}{if} (t)}
+\DoxyCodeLine{03783           \{}
+\DoxyCodeLine{03784             \mbox{\hyperlink{class_template}{Template}} *it = t-\/>\mbox{\hyperlink{class_template_impl_a7a773efb6ca5d0910b4b4ddb58d6b690}{engine}}()-\/>\mbox{\hyperlink{class_template_engine_a518bcc65a14287f897eebad289ecdd11}{loadByName}}(includeFile,\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{03785             \mbox{\hyperlink{class_template_impl}{TemplateImpl}} *incTemplate = it ? \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_impl}{TemplateImpl}}*\textcolor{keyword}{>}(it) : 0;}
+\DoxyCodeLine{03786             \textcolor{keywordflow}{if} (incTemplate)}
+\DoxyCodeLine{03787             \{}
+\DoxyCodeLine{03788               incTemplate-\/>\mbox{\hyperlink{class_template_impl_a7661605861ad9a9c882df458edf4defe}{render}}(ts,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{03789             \}}
+\DoxyCodeLine{03790             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{03791             \{}
+\DoxyCodeLine{03792               ci-\/>\mbox{\hyperlink{class_template_context_impl_a5cacf842afb50c0dabb5cd1213fa310f}{warn}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}},\textcolor{stringliteral}{"{}failed to load template '\%s' for include"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(includeFile));}
+\DoxyCodeLine{03793             \}}
+\DoxyCodeLine{03794             t-\/>\mbox{\hyperlink{class_template_impl_a7a773efb6ca5d0910b4b4ddb58d6b690}{engine}}()-\/>\mbox{\hyperlink{class_template_engine_a6050af3395989e4521969369ea7c2de0}{unload}}(it);}
+\DoxyCodeLine{03795           \}}
+\DoxyCodeLine{03796         \}}
+\DoxyCodeLine{03797       \}}
+\DoxyCodeLine{03798     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_template_impl_a7a773efb6ca5d0910b4b4ddb58d6b690}{Template\+Impl\+::engine()}}, \mbox{\hyperlink{class_template_node_creator_aed90758d87b719974e81ed433bbcd7fd}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::get\+Template()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_template_engine_a518bcc65a14287f897eebad289ecdd11}{Template\+Engine\+::load\+By\+Name()}}, \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\+\_\+include\+Expr}}, \mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::m\+\_\+line}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{class_template_impl_a7661605861ad9a9c882df458edf4defe}{Template\+Impl\+::render()}}, \mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{Template\+Context\+Impl\+::set\+Location()}}, \mbox{\hyperlink{class_template_engine_a6050af3395989e4521969369ea7c2de0}{Template\+Engine\+::unload()}}, and \mbox{\hyperlink{class_template_context_impl_a5cacf842afb50c0dabb5cd1213fa310f}{Template\+Context\+Impl\+::warn()}}.
+
+\mbox{\Hypertarget{class_template_node_include_a63b932a6a4ff9a5fd6fc635a1074c1d0}\label{class_template_node_include_a63b932a6a4ff9a5fd6fc635a1074c1d0}} 
+\index{TemplateNodeInclude@{TemplateNodeInclude}!render@{render}}
+\index{render@{render}!TemplateNodeInclude@{TemplateNodeInclude}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Template\+Node\+Include\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{ts,  }\item[{\mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_template_node_a359c255cedaf603fd3e0ef35b7126185}{Template\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l03767}{3767}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03768     \{}
+\DoxyCodeLine{03769       \mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}* ci = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}*\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{03770       \textcolor{keywordflow}{if} (ci==0) \textcolor{keywordflow}{return}; \textcolor{comment}{// should not happen}}
+\DoxyCodeLine{03771       ci-\/>\mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{setLocation}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{03772       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\_includeExpr}})}
+\DoxyCodeLine{03773       \{}
+\DoxyCodeLine{03774         \mbox{\hyperlink{class_q_c_string}{QCString}} includeFile = \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\_includeExpr}}-\/>resolve(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}).toString();}
+\DoxyCodeLine{03775         \textcolor{keywordflow}{if} (includeFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{03776         \{}
+\DoxyCodeLine{03777           ci-\/>\mbox{\hyperlink{class_template_context_impl_a5cacf842afb50c0dabb5cd1213fa310f}{warn}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}},\textcolor{stringliteral}{"{}invalid parameter for include command\(\backslash\)n"{}});}
+\DoxyCodeLine{03778         \}}
+\DoxyCodeLine{03779         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{03780         \{}
+\DoxyCodeLine{03781           \mbox{\hyperlink{class_template_impl}{TemplateImpl}} *t = \mbox{\hyperlink{class_template_node_creator_aed90758d87b719974e81ed433bbcd7fd}{getTemplate}}();}
+\DoxyCodeLine{03782           \textcolor{keywordflow}{if} (t)}
+\DoxyCodeLine{03783           \{}
+\DoxyCodeLine{03784             \mbox{\hyperlink{class_template}{Template}} *it = t-\/>\mbox{\hyperlink{class_template_impl_a7a773efb6ca5d0910b4b4ddb58d6b690}{engine}}()-\/>\mbox{\hyperlink{class_template_engine_a518bcc65a14287f897eebad289ecdd11}{loadByName}}(includeFile,\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{03785             \mbox{\hyperlink{class_template_impl}{TemplateImpl}} *incTemplate = it ? \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_impl}{TemplateImpl}}*\textcolor{keyword}{>}(it) : 0;}
+\DoxyCodeLine{03786             \textcolor{keywordflow}{if} (incTemplate)}
+\DoxyCodeLine{03787             \{}
+\DoxyCodeLine{03788               incTemplate-\/>\mbox{\hyperlink{class_template_impl_a7661605861ad9a9c882df458edf4defe}{render}}(ts,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{03789             \}}
+\DoxyCodeLine{03790             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{03791             \{}
+\DoxyCodeLine{03792               ci-\/>\mbox{\hyperlink{class_template_context_impl_a5cacf842afb50c0dabb5cd1213fa310f}{warn}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}},\textcolor{stringliteral}{"{}failed to load template '\%s' for include"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(includeFile));}
+\DoxyCodeLine{03793             \}}
+\DoxyCodeLine{03794             t-\/>\mbox{\hyperlink{class_template_impl_a7a773efb6ca5d0910b4b4ddb58d6b690}{engine}}()-\/>\mbox{\hyperlink{class_template_engine_a6050af3395989e4521969369ea7c2de0}{unload}}(it);}
+\DoxyCodeLine{03795           \}}
+\DoxyCodeLine{03796         \}}
+\DoxyCodeLine{03797       \}}
+\DoxyCodeLine{03798     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_template_impl_a7a773efb6ca5d0910b4b4ddb58d6b690}{Template\+Impl\+::engine()}}, \mbox{\hyperlink{class_template_node_creator_aed90758d87b719974e81ed433bbcd7fd}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::get\+Template()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_template_engine_a518bcc65a14287f897eebad289ecdd11}{Template\+Engine\+::load\+By\+Name()}}, \mbox{\hyperlink{class_template_node_include_af2329a6af85328db151c80545e8509b0}{m\+\_\+include\+Expr}}, \mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::m\+\_\+line}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Include $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{class_template_impl_a7661605861ad9a9c882df458edf4defe}{Template\+Impl\+::render()}}, \mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{Template\+Context\+Impl\+::set\+Location()}}, \mbox{\hyperlink{class_template_engine_a6050af3395989e4521969369ea7c2de0}{Template\+Engine\+::unload()}}, and \mbox{\hyperlink{class_template_context_impl_a5cacf842afb50c0dabb5cd1213fa310f}{Template\+Context\+Impl\+::warn()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_template_node_include_af2329a6af85328db151c80545e8509b0}\label{class_template_node_include_af2329a6af85328db151c80545e8509b0}} 
+\index{TemplateNodeInclude@{TemplateNodeInclude}!m\_includeExpr@{m\_includeExpr}}
+\index{m\_includeExpr@{m\_includeExpr}!TemplateNodeInclude@{TemplateNodeInclude}}
+\doxysubsubsection{\texorpdfstring{m\_includeExpr}{m\_includeExpr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a1669783f8130ce10bceeaf5c7db6c26a}{Expr\+Ast\+Ptr}} Template\+Node\+Include\+::m\+\_\+include\+Expr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l03801}{3801}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_node_include_a63b932a6a4ff9a5fd6fc635a1074c1d0}{render()}}, and \mbox{\hyperlink{class_template_node_include_a7c581fbb5dd87f333ad1c716243e2d9d}{Template\+Node\+Include()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

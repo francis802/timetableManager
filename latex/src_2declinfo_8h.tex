@@ -1,0 +1,102 @@
+\hypertarget{src_2declinfo_8h}{}\doxysection{doxygen/src/declinfo.h File Reference}
+\label{src_2declinfo_8h}\index{doxygen/src/declinfo.h@{doxygen/src/declinfo.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{src_2declinfo_8h_a4d239b57da0bda3d616434d8a2250546}{parse\+Func\+Decl}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&decl, const \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang, \mbox{\hyperlink{class_q_c_string}{QCString}} \&cl\+Name, \mbox{\hyperlink{class_q_c_string}{QCString}} \&type, \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, \mbox{\hyperlink{class_q_c_string}{QCString}} \&args, \mbox{\hyperlink{class_q_c_string}{QCString}} \&func\+Temp\+List, \mbox{\hyperlink{class_q_c_string}{QCString}} \&exceptions)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2declinfo_8h_a4d239b57da0bda3d616434d8a2250546}\label{src_2declinfo_8h_a4d239b57da0bda3d616434d8a2250546}} 
+\index{declinfo.h@{declinfo.h}!parseFuncDecl@{parseFuncDecl}}
+\index{parseFuncDecl@{parseFuncDecl}!declinfo.h@{declinfo.h}}
+\doxysubsubsection{\texorpdfstring{parseFuncDecl()}{parseFuncDecl()}}
+{\footnotesize\ttfamily void parse\+Func\+Decl (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{decl,  }\item[{const \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{cl\+Name,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{type,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{args,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{func\+Temp\+List,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{exceptions }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_source_l00315}{315}} of file \mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_source}{declinfo.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00317 \{}
+\DoxyCodeLine{00318   \textcolor{keywordflow}{if} (decl.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00319   \{}
+\DoxyCodeLine{00320     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00321   \}}
+\DoxyCodeLine{00322   declinfoYYlex\_init\_extra(\&\mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_a177a7d7b72fc0be3c1655d9667929b27}{g\_declinfo\_extra}}, \&\mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_a07a9d0a3847755d092a9a66f17bcb90b}{g\_yyscanner}});}
+\DoxyCodeLine{00323   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)\mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_a07a9d0a3847755d092a9a66f17bcb90b}{g\_yyscanner}};}
+\DoxyCodeLine{00324 }
+\DoxyCodeLine{00325 \textcolor{preprocessor}{\#ifdef FLEX\_DEBUG}}
+\DoxyCodeLine{00326   declinfoYYset\_debug(1,\mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_a07a9d0a3847755d092a9a66f17bcb90b}{g\_yyscanner}});}
+\DoxyCodeLine{00327 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00328 }
+\DoxyCodeLine{00329   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \_\_FILE\_\_, NULL);}
+\DoxyCodeLine{00330   yyextra-\/>inputString   = decl.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00331   \textcolor{comment}{//printf("{}Input='\%s'\(\backslash\)n"{},yyextra-\/>inputString);}}
+\DoxyCodeLine{00332   yyextra-\/>inputPosition      = 0;}
+\DoxyCodeLine{00333   yyextra-\/>classTempListFound = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00334   yyextra-\/>funcTempListFound  = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00335   yyextra-\/>insideObjC = lang==\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a1fa44a6b668b9f3e3cacfc269264d47f}{SrcLangExt\_ObjC}};}
+\DoxyCodeLine{00336   yyextra-\/>insidePHP  = lang==\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a30345d9f8c7bfd3851050ddc2cb3b207}{SrcLangExt\_PHP}};}
+\DoxyCodeLine{00337   yyextra-\/>scope.resize(0);}
+\DoxyCodeLine{00338   yyextra-\/>className.resize(0);}
+\DoxyCodeLine{00339   yyextra-\/>classTempList.resize(0);}
+\DoxyCodeLine{00340   yyextra-\/>funcTempList.resize(0);}
+\DoxyCodeLine{00341   yyextra-\/>name.resize(0);}
+\DoxyCodeLine{00342   yyextra-\/>type.resize(0);}
+\DoxyCodeLine{00343   yyextra-\/>args.resize(0);}
+\DoxyCodeLine{00344   yyextra-\/>exceptionString.resize(0);}
+\DoxyCodeLine{00345   \textcolor{comment}{// first we try to find the yyextra-\/>type, yyextra-\/>scope, yyextra-\/>name and arguments}}
+\DoxyCodeLine{00346   declinfoYYrestart( yyin, \mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_a07a9d0a3847755d092a9a66f17bcb90b}{g\_yyscanner}} );}
+\DoxyCodeLine{00347   BEGIN( Start );}
+\DoxyCodeLine{00348   declinfoYYlex(\mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_a07a9d0a3847755d092a9a66f17bcb90b}{g\_yyscanner}});}
+\DoxyCodeLine{00349 }
+\DoxyCodeLine{00350   \textcolor{comment}{//printf("{}yyextra-\/>type='\%s' class='\%s' yyextra-\/>name='\%s' yyextra-\/>args='\%s'\(\backslash\)n"{},}}
+\DoxyCodeLine{00351   \textcolor{comment}{//        qPrint(yyextra-\/>type),qPrint(yyextra-\/>scope),qPrint(yyextra-\/>name),qPrint(yyextra-\/>args));}}
+\DoxyCodeLine{00352 }
+\DoxyCodeLine{00353   \textcolor{keywordtype}{int} nb = yyextra-\/>name.findRev(\textcolor{charliteral}{'['});}
+\DoxyCodeLine{00354   \textcolor{keywordflow}{if} (nb!=-\/1 \&\& yyextra-\/>args.isEmpty()) \textcolor{comment}{// correct for [] in yyextra-\/>name ambiguity (due to Java return yyextra-\/>type allowing [])}}
+\DoxyCodeLine{00355   \{}
+\DoxyCodeLine{00356     yyextra-\/>args.prepend(yyextra-\/>name.right(yyextra-\/>name.length()-\/nb));}
+\DoxyCodeLine{00357     yyextra-\/>name=yyextra-\/>name.left(nb);}
+\DoxyCodeLine{00358   \}}
+\DoxyCodeLine{00359 }
+\DoxyCodeLine{00360   cl=yyextra-\/>scope;}
+\DoxyCodeLine{00361   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a0940360aa6d41fd2496603fc565e3996}{removeRedundantWhiteSpace}}(yyextra-\/>name);}
+\DoxyCodeLine{00362   \textcolor{keywordtype}{int} il,ir;}
+\DoxyCodeLine{00363   \textcolor{keywordflow}{if} ((il=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.find(\textcolor{charliteral}{'<'}))!=-\/1 \&\& (ir=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.findRev(\textcolor{charliteral}{'>'}))!=-\/1)}
+\DoxyCodeLine{00364     \textcolor{comment}{// TODO: handle cases like where n="{}operator<< <T>"{} }}
+\DoxyCodeLine{00365   \{}
+\DoxyCodeLine{00366     ftl=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a0940360aa6d41fd2496603fc565e3996}{removeRedundantWhiteSpace}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.right(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.length()-\/il));}
+\DoxyCodeLine{00367     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.left(il);}
+\DoxyCodeLine{00368   \}}
+\DoxyCodeLine{00369   }
+\DoxyCodeLine{00370   \textcolor{comment}{//ctl=yyextra-\/>classTempList.copy();}}
+\DoxyCodeLine{00371   \textcolor{comment}{//ftl=yyextra-\/>funcTempList.copy();}}
+\DoxyCodeLine{00372   t=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a0940360aa6d41fd2496603fc565e3996}{removeRedundantWhiteSpace}}(yyextra-\/>type);}
+\DoxyCodeLine{00373   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a0940360aa6d41fd2496603fc565e3996}{removeRedundantWhiteSpace}}(yyextra-\/>args);}
+\DoxyCodeLine{00374   exc=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a0940360aa6d41fd2496603fc565e3996}{removeRedundantWhiteSpace}}(yyextra-\/>exceptionString);}
+\DoxyCodeLine{00375   }
+\DoxyCodeLine{00376   \textcolor{keywordflow}{if} (!t.isEmpty() \&\& !t.startsWith(\textcolor{stringliteral}{"{}decltype"{}}) \&\& t.at(t.length()-\/1)==\textcolor{charliteral}{')'}) \textcolor{comment}{// for function pointers}}
+\DoxyCodeLine{00377   \{}
+\DoxyCodeLine{00378     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.prepend(\textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{00379     t=t.left(t.length()-\/1);}
+\DoxyCodeLine{00380   \}}
+\DoxyCodeLine{00381   \textcolor{comment}{//printf("{}yyextra-\/>type='\%s' class='\%s' yyextra-\/>name='\%s' yyextra-\/>args='\%s'\(\backslash\)n"{},}}
+\DoxyCodeLine{00382   \textcolor{comment}{//        qPrint(t),qPrint(cl),qPrint(n),qPrint(a));}}
+\DoxyCodeLine{00383 }
+\DoxyCodeLine{00384   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \_\_FILE\_\_, NULL);}
+\DoxyCodeLine{00385   declinfoYYlex\_destroy(\mbox{\hyperlink{build_2doxygen_2src_2declinfo_8l_a07a9d0a3847755d092a9a66f17bcb90b}{g\_yyscanner}});}
+\DoxyCodeLine{00386   \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00387 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{QCString\+::at()}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{src_2declinfo_8l_a177a7d7b72fc0be3c1655d9667929b27}{g\+\_\+declinfo\+\_\+extra}}, \mbox{\hyperlink{src_2declinfo_8l_a07a9d0a3847755d092a9a66f17bcb90b}{g\+\_\+yyscanner}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a0940360aa6d41fd2496603fc565e3996}{remove\+Redundant\+White\+Space()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a1fa44a6b668b9f3e3cacfc269264d47f}{Src\+Lang\+Ext\+\_\+\+ObjC}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a30345d9f8c7bfd3851050ddc2cb3b207}{Src\+Lang\+Ext\+\_\+\+PHP}}, \mbox{\hyperlink{class_q_c_string_a1f43c0a4958cf17f086dc0e3a4b13a68}{QCString\+::starts\+With()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+

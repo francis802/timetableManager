@@ -1,0 +1,448 @@
+\hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp}{}\doxysection{doxygen/build/doxygen/src/latexdocvisitor.cpp File Reference}
+\label{build_2doxygen_2src_2latexdocvisitor_8cpp}\index{doxygen/build/doxygen/src/latexdocvisitor.cpp@{doxygen/build/doxygen/src/latexdocvisitor.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}htmlattrib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}msc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dia.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlentity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}emoji.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plantuml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a5c984822bcdab07f14a52da065f7509c}{get\+Section\+Name}} (int \mbox{\hyperlink{libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_ab17d77238a46be34e30fc71ed51db35a}{insert\+Dimension}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, \mbox{\hyperlink{class_q_c_string}{QCString}} dimension, const char $\ast$orientation\+String)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_ab7f123603afcea6abded6e73da61055c}{visit\+Pre\+Start}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, bool has\+Caption, \mbox{\hyperlink{class_q_c_string}{QCString}} name, \mbox{\hyperlink{class_q_c_string}{QCString}} width, \mbox{\hyperlink{class_q_c_string}{QCString}} height, bool inline\+Image=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_af4fe687f1edd1806dd591c0f165062cd}{visit\+Post\+End}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, bool has\+Caption, bool inline\+Image=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}})
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_abe535965a6e52ac2b1328232b014c0d7}{class\+Equals\+Reflist}} (const \mbox{\hyperlink{class_doc_html_desc_list}{Doc\+Html\+Desc\+List}} \&dl)
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_aa069e7d7edbf62f915d7635c7ab5f66e}{list\+Is\+Nested}} (const \mbox{\hyperlink{class_doc_html_desc_list}{Doc\+Html\+Desc\+List}} \&dl)
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a7483e4d318a25aa19df6e101e1df1235}{table\+Is\+Nested}} (const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a018513228e584ddcf9d0028972c5a847}{write\+Start\+Table\+Command}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, size\+\_\+t cols)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_adb91a40144133e2095d3367ce901818f}{write\+End\+Table\+Command}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_af1c06db51ef168324d954a4051bb1f83}{max\+Levels}} =5
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a26981dc5985af76550ab2c2443b47bbc}{sec\+Labels}} \mbox{[}\mbox{\hyperlink{src_2latexdocvisitor_8cpp_af1c06db51ef168324d954a4051bb1f83}{max\+Levels}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_abe535965a6e52ac2b1328232b014c0d7}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_abe535965a6e52ac2b1328232b014c0d7}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!classEqualsReflist@{classEqualsReflist}}
+\index{classEqualsReflist@{classEqualsReflist}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{classEqualsReflist()}{classEqualsReflist()}}
+{\footnotesize\ttfamily static bool class\+Equals\+Reflist (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_doc_html_desc_list}{Doc\+Html\+Desc\+List}} \&}]{dl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l01040}{1040}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01041 \{}
+\DoxyCodeLine{01042   \mbox{\hyperlink{class_html_attrib_list}{HtmlAttribList}} attrs = dl.\mbox{\hyperlink{class_doc_html_desc_list_a61e9f129da095600d9eb7c382cf15d01}{attribs}}();}
+\DoxyCodeLine{01043   \textcolor{keyword}{auto} it = std::find\_if(attrs.begin(),attrs.end(),}
+\DoxyCodeLine{01044                       [](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&att) \{ return att.name==\textcolor{stringliteral}{"{}class"{}}; \});}
+\DoxyCodeLine{01045   \textcolor{keywordflow}{if} (it!=attrs.end() \&\& it-\/>value == \textcolor{stringliteral}{"{}reflist"{}}) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{01046   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{01047 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_doc_html_desc_list_a61e9f129da095600d9eb7c382cf15d01}{Doc\+Html\+Desc\+List\+::attribs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_aa069e7d7edbf62f915d7635c7ab5f66e}{list\+Is\+Nested()}}, and \mbox{\hyperlink{class_latex_doc_visitor_a4bfb163f58dc53862618450a55e41979}{Latex\+Doc\+Visitor\+::operator()()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_a5c984822bcdab07f14a52da065f7509c}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_a5c984822bcdab07f14a52da065f7509c}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!getSectionName@{getSectionName}}
+\index{getSectionName@{getSectionName}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{getSectionName()}{getSectionName()}}
+{\footnotesize\ttfamily static const char $\ast$ get\+Section\+Name (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00049   \textcolor{keywordtype}{bool} compactLatex = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(COMPACT\_LATEX);}
+\DoxyCodeLine{00050   \textcolor{keywordtype}{int} l = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}};}
+\DoxyCodeLine{00051   \textcolor{keywordflow}{if} (compactLatex) l++;}
+\DoxyCodeLine{00052   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_doxygen_a9a79e777321e204a0f464d1432b806b2}{Doxygen::insideMainPage}}) l-\/-\/;}
+\DoxyCodeLine{00053   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a26981dc5985af76550ab2c2443b47bbc}{secLabels}}[std::min(\mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_af1c06db51ef168324d954a4051bb1f83}{maxLevels}}-\/1,l)];}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{class_doxygen_a9a79e777321e204a0f464d1432b806b2}{Doxygen\+::inside\+Main\+Page}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}, \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_af1c06db51ef168324d954a4051bb1f83}{max\+Levels}}, and \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a26981dc5985af76550ab2c2443b47bbc}{sec\+Labels}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_doc_visitor_a0f4bc9b34cb6497194f1adf2e01a1f6a}{Latex\+Doc\+Visitor\+::operator()()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_ab17d77238a46be34e30fc71ed51db35a}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_ab17d77238a46be34e30fc71ed51db35a}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!insertDimension@{insertDimension}}
+\index{insertDimension@{insertDimension}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{insertDimension()}{insertDimension()}}
+{\footnotesize\ttfamily static void insert\+Dimension (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}}}]{dimension,  }\item[{const char $\ast$}]{orientation\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057 \{}
+\DoxyCodeLine{00058   \textcolor{comment}{// dimensions for latex images can be a percentage, in this case they need some extra}}
+\DoxyCodeLine{00059   \textcolor{comment}{// handling as the \% symbol is used for comments}}
+\DoxyCodeLine{00060   \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classreg_1_1_ex}{reg::Ex}} re(R\textcolor{stringliteral}{"{}((\(\backslash\)d+)\%)"{});}}
+\DoxyCodeLine{00061 \textcolor{stringliteral}{  \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = dimension.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}();}}
+\DoxyCodeLine{00062 \textcolor{stringliteral}{  \mbox{\hyperlink{classreg_1_1_match}{reg::Match}} \mbox{\hyperlink{namespacereg_a1a29dcc7e2ccf462503adc5d496881ae}{match}};}}
+\DoxyCodeLine{00063 \textcolor{stringliteral}{  }\textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacereg_a66de3a25d4b9ff13d33f4d3e416fb948}{reg::search}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{namespacereg_a1a29dcc7e2ccf462503adc5d496881ae}{match}},re))}
+\DoxyCodeLine{00064   \{}
+\DoxyCodeLine{00065     \textcolor{keywordtype}{bool} ok;}
+\DoxyCodeLine{00066     \textcolor{keywordtype}{double} percent = \mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{namespacereg_a1a29dcc7e2ccf462503adc5d496881ae}{match}}[1].str()).\mbox{\hyperlink{class_q_c_string_a8ab7ce60a26cdd29e1cf743664d0f6be}{toInt}}(\&ok);}
+\DoxyCodeLine{00067     \textcolor{keywordflow}{if} (ok)}
+\DoxyCodeLine{00068     \{}
+\DoxyCodeLine{00069       t << percent/100.0 << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)text"{}} << orientationString;}
+\DoxyCodeLine{00070       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072   \}}
+\DoxyCodeLine{00073   t << dimension;}
+\DoxyCodeLine{00074 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacereg_a1a29dcc7e2ccf462503adc5d496881ae}{reg\+::match()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{namespacereg_a66de3a25d4b9ff13d33f4d3e416fb948}{reg\+::search()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{class_q_c_string_a8ab7ce60a26cdd29e1cf743664d0f6be}{QCString\+::to\+Int()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_ab7f123603afcea6abded6e73da61055c}{visit\+Pre\+Start()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_aa069e7d7edbf62f915d7635c7ab5f66e}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_aa069e7d7edbf62f915d7635c7ab5f66e}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!listIsNested@{listIsNested}}
+\index{listIsNested@{listIsNested}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{listIsNested()}{listIsNested()}}
+{\footnotesize\ttfamily static bool list\+Is\+Nested (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_doc_html_desc_list}{Doc\+Html\+Desc\+List}} \&}]{dl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l01049}{1049}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01050 \{}
+\DoxyCodeLine{01051   \textcolor{keywordtype}{bool} isNested=\textcolor{keyword}{false};}
+\DoxyCodeLine{01052   \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{DocNodeVariant}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = dl.\mbox{\hyperlink{class_doc_node_a9217c40d6d74f2b78928b3d8131dd7f0}{parent}}();}
+\DoxyCodeLine{01053   \textcolor{keywordflow}{while} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} \&\& !isNested)}
+\DoxyCodeLine{01054   \{}
+\DoxyCodeLine{01055     \textcolor{keywordflow}{if} (std::get\_if<DocHtmlDescList>(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}))}
+\DoxyCodeLine{01056     \{}
+\DoxyCodeLine{01057       isNested = !\mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_abe535965a6e52ac2b1328232b014c0d7}{classEqualsReflist}}(std::get<DocHtmlDescList>(*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}));}
+\DoxyCodeLine{01058     \}}
+\DoxyCodeLine{01059     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{::parent}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{01060   \}}
+\DoxyCodeLine{01061   \textcolor{keywordflow}{return} isNested;}
+\DoxyCodeLine{01062 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_abe535965a6e52ac2b1328232b014c0d7}{class\+Equals\+Reflist()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{class_doc_node_a9217c40d6d74f2b78928b3d8131dd7f0}{Doc\+Node\+::parent()}}, and \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_doc_visitor_a4bfb163f58dc53862618450a55e41979}{Latex\+Doc\+Visitor\+::operator()()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_a7483e4d318a25aa19df6e101e1df1235}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_a7483e4d318a25aa19df6e101e1df1235}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!tableIsNested@{tableIsNested}}
+\index{tableIsNested@{tableIsNested}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{tableIsNested()}{tableIsNested()}}
+{\footnotesize\ttfamily static bool table\+Is\+Nested (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l01105}{1105}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01106 \{}
+\DoxyCodeLine{01107   \textcolor{keywordtype}{bool} isNested=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{01108   \textcolor{keywordflow}{while} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} \&\& !isNested)}
+\DoxyCodeLine{01109   \{}
+\DoxyCodeLine{01110     isNested = holds\_one\_of\_alternatives<DocHtmlTable,DocParamSect>(*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{01111     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{::parent}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{01112   \}}
+\DoxyCodeLine{01113   \textcolor{keywordflow}{return} isNested;}
+\DoxyCodeLine{01114 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_doc_visitor_a678591cbca0c1070b7a8803d3c5541c7}{Latex\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_adb91a40144133e2095d3367ce901818f}{write\+End\+Table\+Command()}}, and \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a018513228e584ddcf9d0028972c5a847}{write\+Start\+Table\+Command()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_af4fe687f1edd1806dd591c0f165062cd}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_af4fe687f1edd1806dd591c0f165062cd}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!visitPostEnd@{visitPostEnd}}
+\index{visitPostEnd@{visitPostEnd}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{visitPostEnd()}{visitPostEnd()}}
+{\footnotesize\ttfamily static void visit\+Post\+End (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{bool}]{has\+Caption,  }\item[{bool}]{inline\+Image = {\ttfamily \mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149 \{}
+\DoxyCodeLine{00150     \textcolor{keywordflow}{if} (inlineImage)}
+\DoxyCodeLine{00151     \{}
+\DoxyCodeLine{00152       t << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)\(\backslash\)end\{DoxyInlineImage\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00153     \}}
+\DoxyCodeLine{00154     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00155     \{}
+\DoxyCodeLine{00156       t << \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}}; \textcolor{comment}{// end mbox or caption}}
+\DoxyCodeLine{00157       \textcolor{keywordflow}{if} (hasCaption)}
+\DoxyCodeLine{00158       \{}
+\DoxyCodeLine{00159         t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{DoxyImage\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00160       \}}
+\DoxyCodeLine{00161       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00162       \{}
+\DoxyCodeLine{00163         t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{DoxyImageNoCaption\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00164       \}}
+\DoxyCodeLine{00165     \}}
+\DoxyCodeLine{00166 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{class_latex_doc_visitor_aad8000cb1d166d1985a8e2b306d2b1c6}{Latex\+Doc\+Visitor\+::end\+Dia\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_a44fa6c956b97a5ca373a9c6d361f9658}{Latex\+Doc\+Visitor\+::end\+Dot\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_a9ddf71d12334619ccd9ed44cec08e258}{Latex\+Doc\+Visitor\+::end\+Msc\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_a28b453c4eabdf03f5d1b690a307d9c4e}{Latex\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_latex_doc_visitor_a168f142f518c0734df4301ca492859d1}{Latex\+Doc\+Visitor\+::write\+Dia\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_ada18505ac90bb92f4ce279d503dba853}{Latex\+Doc\+Visitor\+::write\+Msc\+File()}}, and \mbox{\hyperlink{class_latex_doc_visitor_a92275d99afc832afc51d7e0deec3afe6}{Latex\+Doc\+Visitor\+::write\+Plant\+UMLFile()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_ab7f123603afcea6abded6e73da61055c}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_ab7f123603afcea6abded6e73da61055c}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!visitPreStart@{visitPreStart}}
+\index{visitPreStart@{visitPreStart}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{visitPreStart()}{visitPreStart()}}
+{\footnotesize\ttfamily static void visit\+Pre\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{bool}]{has\+Caption,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}}}]{name,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}}}]{width,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}}}]{height,  }\item[{bool}]{inline\+Image = {\ttfamily \mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077 \{}
+\DoxyCodeLine{00078     \textcolor{keywordflow}{if} (inlineImage)}
+\DoxyCodeLine{00079     \{}
+\DoxyCodeLine{00080       t << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)\(\backslash\)begin\{DoxyInlineImage\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00081     \}}
+\DoxyCodeLine{00082     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00083     \{}
+\DoxyCodeLine{00084       \textcolor{keywordflow}{if} (hasCaption)}
+\DoxyCodeLine{00085       \{}
+\DoxyCodeLine{00086         t << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)\(\backslash\)begin\{DoxyImage\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00087       \}}
+\DoxyCodeLine{00088       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00089       \{}
+\DoxyCodeLine{00090         t << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)\(\backslash\)begin\{DoxyImageNoCaption\}\(\backslash\)n"{}}}
+\DoxyCodeLine{00091                \textcolor{stringliteral}{"{}  \(\backslash\)\(\backslash\)mbox\{"{}};}
+\DoxyCodeLine{00092       \}}
+\DoxyCodeLine{00093     \}}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095     t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)includegraphics"{}};}
+\DoxyCodeLine{00096     \textcolor{keywordflow}{if} (!width.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() || !height.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00097     \{}
+\DoxyCodeLine{00098       t << \textcolor{stringliteral}{"{}["{}};}
+\DoxyCodeLine{00099     \}}
+\DoxyCodeLine{00100     \textcolor{keywordflow}{if} (!width.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00101     \{}
+\DoxyCodeLine{00102       t << \textcolor{stringliteral}{"{}width="{}};}
+\DoxyCodeLine{00103       \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_ab17d77238a46be34e30fc71ed51db35a}{insertDimension}}(t, width, \textcolor{stringliteral}{"{}width"{}});}
+\DoxyCodeLine{00104     \}}
+\DoxyCodeLine{00105     \textcolor{keywordflow}{if} (!width.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() \&\& !height.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00106     \{}
+\DoxyCodeLine{00107       t << \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00108     \}}
+\DoxyCodeLine{00109     \textcolor{keywordflow}{if} (!height.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00110     \{}
+\DoxyCodeLine{00111       t << \textcolor{stringliteral}{"{}height="{}};}
+\DoxyCodeLine{00112       \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_ab17d77238a46be34e30fc71ed51db35a}{insertDimension}}(t, height, \textcolor{stringliteral}{"{}height"{}});}
+\DoxyCodeLine{00113     \}}
+\DoxyCodeLine{00114     \textcolor{keywordflow}{if} (width.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() \&\& height.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00115     \{}
+\DoxyCodeLine{00116       \textcolor{comment}{/* default setting */}}
+\DoxyCodeLine{00117       \textcolor{keywordflow}{if} (inlineImage)}
+\DoxyCodeLine{00118       \{}
+\DoxyCodeLine{00119         t << \textcolor{stringliteral}{"{}[height=\(\backslash\)\(\backslash\)baselineskip,keepaspectratio=true]"{}};}
+\DoxyCodeLine{00120       \}}
+\DoxyCodeLine{00121       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00122       \{}
+\DoxyCodeLine{00123         t << \textcolor{stringliteral}{"{}[width=\(\backslash\)\(\backslash\)textwidth,height=\(\backslash\)\(\backslash\)textheight/2,keepaspectratio=true]"{}};}
+\DoxyCodeLine{00124       \}}
+\DoxyCodeLine{00125     \}}
+\DoxyCodeLine{00126     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00127     \{}
+\DoxyCodeLine{00128       t << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00129     \}}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131     t << \textcolor{stringliteral}{"{}\{"{}} << \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} << \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00133     \textcolor{keywordflow}{if} (hasCaption)}
+\DoxyCodeLine{00134     \{}
+\DoxyCodeLine{00135       \textcolor{keywordflow}{if} (!inlineImage)}
+\DoxyCodeLine{00136       \{}
+\DoxyCodeLine{00137         t << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)\(\backslash\)doxyfigcaption\{"{}};}
+\DoxyCodeLine{00138       \}}
+\DoxyCodeLine{00139       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00140       \{}
+\DoxyCodeLine{00141         t << \textcolor{stringliteral}{"{}\%"{}}; \textcolor{comment}{// to catch the caption}}
+\DoxyCodeLine{00142       \}}
+\DoxyCodeLine{00143     \}}
+\DoxyCodeLine{00144 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_ab17d77238a46be34e30fc71ed51db35a}{insert\+Dimension()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_doc_visitor_a28b453c4eabdf03f5d1b690a307d9c4e}{Latex\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_latex_doc_visitor_afe30a1c1a560e4a85206dc7623a17dc4}{Latex\+Doc\+Visitor\+::start\+Dia\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_aa197e546b10f737e78020b97fdf23cb9}{Latex\+Doc\+Visitor\+::start\+Dot\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_aeef2a244f24ea46106204e063fae5273}{Latex\+Doc\+Visitor\+::start\+Msc\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_a168f142f518c0734df4301ca492859d1}{Latex\+Doc\+Visitor\+::write\+Dia\+File()}}, \mbox{\hyperlink{class_latex_doc_visitor_ada18505ac90bb92f4ce279d503dba853}{Latex\+Doc\+Visitor\+::write\+Msc\+File()}}, and \mbox{\hyperlink{class_latex_doc_visitor_a92275d99afc832afc51d7e0deec3afe6}{Latex\+Doc\+Visitor\+::write\+Plant\+UMLFile()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_adb91a40144133e2095d3367ce901818f}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_adb91a40144133e2095d3367ce901818f}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!writeEndTableCommand@{writeEndTableCommand}}
+\index{writeEndTableCommand@{writeEndTableCommand}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{writeEndTableCommand()}{writeEndTableCommand()}}
+{\footnotesize\ttfamily static void write\+End\+Table\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l01129}{1129}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01130 \{}
+\DoxyCodeLine{01131   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a7483e4d318a25aa19df6e101e1df1235}{tableIsNested}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}))}
+\DoxyCodeLine{01132   \{}
+\DoxyCodeLine{01133     t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{tabularx\}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{01134   \}}
+\DoxyCodeLine{01135   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01136   \{}
+\DoxyCodeLine{01137     t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{longtabu\}\(\backslash\)n"{}};}
+\DoxyCodeLine{01138   \}}
+\DoxyCodeLine{01139   \textcolor{comment}{//return isNested ? "{}TabularNC"{} : "{}TabularC"{};}}
+\DoxyCodeLine{01140 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a7483e4d318a25aa19df6e101e1df1235}{table\+Is\+Nested()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_doc_visitor_a678591cbca0c1070b7a8803d3c5541c7}{Latex\+Doc\+Visitor\+::operator()()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_a018513228e584ddcf9d0028972c5a847}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_a018513228e584ddcf9d0028972c5a847}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!writeStartTableCommand@{writeStartTableCommand}}
+\index{writeStartTableCommand@{writeStartTableCommand}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{writeStartTableCommand()}{writeStartTableCommand()}}
+{\footnotesize\ttfamily static void write\+Start\+Table\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{n,  }\item[{size\+\_\+t}]{cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l01116}{1116}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01117 \{}
+\DoxyCodeLine{01118   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a7483e4d318a25aa19df6e101e1df1235}{tableIsNested}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}))}
+\DoxyCodeLine{01119   \{}
+\DoxyCodeLine{01120     t << \textcolor{stringliteral}{"{}\{\(\backslash\)\(\backslash\)begin\{tabularx\}\{\(\backslash\)\(\backslash\)linewidth\}\{|*\{"{}} << cols << \textcolor{stringliteral}{"{}\}\{>\{\(\backslash\)\(\backslash\)raggedright\(\backslash\)\(\backslash\)arraybackslash\}X|\}\}"{}};}
+\DoxyCodeLine{01121   \}}
+\DoxyCodeLine{01122   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01123   \{}
+\DoxyCodeLine{01124     t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)tabulinesep=1mm\(\backslash\)n\(\backslash\)\(\backslash\)begin\{longtabu\}spread 0pt [c]\{*\{"{}} << cols << \textcolor{stringliteral}{"{}\}\{|X[-\/1]\}|\}\(\backslash\)n"{}};}
+\DoxyCodeLine{01125   \}}
+\DoxyCodeLine{01126   \textcolor{comment}{//return isNested ? "{}TabularNC"{} : "{}TabularC"{};}}
+\DoxyCodeLine{01127 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a7483e4d318a25aa19df6e101e1df1235}{table\+Is\+Nested()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_doc_visitor_a678591cbca0c1070b7a8803d3c5541c7}{Latex\+Doc\+Visitor\+::operator()()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_af1c06db51ef168324d954a4051bb1f83}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_af1c06db51ef168324d954a4051bb1f83}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!maxLevels@{maxLevels}}
+\index{maxLevels@{maxLevels}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{maxLevels}{maxLevels}}
+{\footnotesize\ttfamily const int max\+Levels =5}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a5c984822bcdab07f14a52da065f7509c}{get\+Section\+Name()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexdocvisitor_8cpp_a26981dc5985af76550ab2c2443b47bbc}\label{build_2doxygen_2src_2latexdocvisitor_8cpp_a26981dc5985af76550ab2c2443b47bbc}} 
+\index{latexdocvisitor.cpp@{latexdocvisitor.cpp}!secLabels@{secLabels}}
+\index{secLabels@{secLabels}!latexdocvisitor.cpp@{latexdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{secLabels}{secLabels}}
+{\footnotesize\ttfamily const char$\ast$ sec\+Labels\mbox{[}\mbox{\hyperlink{src_2latexdocvisitor_8cpp_af1c06db51ef168324d954a4051bb1f83}{max\+Levels}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{   \{ \textcolor{stringliteral}{"{}doxysection"{}},\textcolor{stringliteral}{"{}doxysubsection"{}},\textcolor{stringliteral}{"{}doxysubsubsection"{}},\textcolor{stringliteral}{"{}doxyparagraph"{}},\textcolor{stringliteral}{"{}doxysubparagraph"{}} \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_source}{latexdocvisitor.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2latexdocvisitor_8cpp_a5c984822bcdab07f14a52da065f7509c}{get\+Section\+Name()}}.
+

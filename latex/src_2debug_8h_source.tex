@@ -1,0 +1,68 @@
+\hypertarget{src_2debug_8h_source}{}\doxysection{debug.\+h}
+\label{src_2debug_8h_source}\index{doxygen/src/debug.h@{doxygen/src/debug.h}}
+\mbox{\hyperlink{src_2debug_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00016}00016 \textcolor{preprocessor}{\#ifndef DEBUG\_H}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00017}00017 \textcolor{preprocessor}{\#define DEBUG\_H}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00019}00019 \textcolor{keyword}{class }\mbox{\hyperlink{class_q_c_string}{QCString}};}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00022}00022 \textcolor{keyword}{class }\mbox{\hyperlink{class_debug}{Debug}}}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00023}00023 \{}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00024}00024   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00025}\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{00025}}     \textcolor{keyword}{enum} \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} \{ \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Quiet}}        = 0x00000000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00026}00026                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{FindMembers}}  = 0x00000001,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00027}00027                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Functions}}    = 0x00000002,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00028}00028                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Variables}}    = 0x00000004,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00029}00029                      \mbox{\hyperlink{class_preprocessor}{Preprocessor}} = 0x00000008,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00030}00030                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Classes}}      = 0x00000010,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00031}00031                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{CommentCnv}}   = 0x00000020,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00032}00032                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{CommentScan}}  = 0x00000040,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00033}00033                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{PrintTree}}    = 0x00000100,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00034}00034                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Time}}         = 0x00000200,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00035}00035                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{ExtCmd}}       = 0x00000400,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00036}00036                      \mbox{\hyperlink{class_markdown}{Markdown}}     = 0x00000800,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00037}00037                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{FilterOutput}} = 0x00001000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00038}00038                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Lex}}          = 0x00002000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00039}00039                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Plantuml}}     = 0x00004000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00040}00040                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{FortranFixed2Free}} = 0x00008000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00041}00041                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Cite}}         = 0x00010000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00042}00042                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{NoLineNo}}     = 0x00020000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00043}00043                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Rtf}}          = 0x00040000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00044}00044                      \mbox{\hyperlink{class_qhp}{Qhp}}          = 0x00080000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00045}00045                      \mbox{\hyperlink{class_tag}{Tag}}          = 0x00100000,}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00046}00046                    \};}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00047}\mbox{\hyperlink{class_debug_a95e7eae2066582a2fb3015a537dff18b}{00047}}     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_debug_a95e7eae2066582a2fb3015a537dff18b}{print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} mask,\textcolor{keywordtype}{int} prio,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...);}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00049}\mbox{\hyperlink{class_debug_a99f4da4678761ac45dbcb13232eb799f}{00049}}     \textcolor{keyword}{static} \textcolor{keywordtype}{int}  \mbox{\hyperlink{class_debug_a99f4da4678761ac45dbcb13232eb799f}{setFlag}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&label);}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00050}\mbox{\hyperlink{class_debug_ac00126a0fceef1b241ec3f214158e1f5}{00050}}     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_debug_ac00126a0fceef1b241ec3f214158e1f5}{clearFlag}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&label);}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00051}\mbox{\hyperlink{class_debug_aac5e6e68968e79e3aefb39fae1b01e2a}{00051}}     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_debug_aac5e6e68968e79e3aefb39fae1b01e2a}{isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} mask);}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00052}\mbox{\hyperlink{class_debug_acb4065e5cb676cbee54bb6edb0d6bb51}{00052}}     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_debug_acb4065e5cb676cbee54bb6edb0d6bb51}{printFlags}}();}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00053}\mbox{\hyperlink{class_debug_ae37e4a7d51da5013d9f91af0b86924c3}{00053}}     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_debug_ae37e4a7d51da5013d9f91af0b86924c3}{setPriority}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}});}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00055}\mbox{\hyperlink{class_debug_adb9309e98d11f40d46a39bd073397ee1}{00055}}     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_debug_adb9309e98d11f40d46a39bd073397ee1}{startTimer}}();}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00056}\mbox{\hyperlink{class_debug_a9b6582b2d13a2f6d020e72c70cc84942}{00056}}     \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_debug_a9b6582b2d13a2f6d020e72c70cc84942}{elapsedTime}}();}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00058}00058   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00059}00059     \textcolor{keyword}{static} \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{curMask}};}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00060}00060     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_debug_a096a277ad5d789482e89ab2cd04f77ff}{curPrio}};}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00061}00061 \};}
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{src_2debug_8h_source_l00063}00063 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

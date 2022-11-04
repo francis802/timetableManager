@@ -1,0 +1,153 @@
+\hypertarget{class_timer}{}\doxysection{Timer Class Reference}
+\label{class_timer}\index{Timer@{Timer}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{start}} ()
+\item 
+double \mbox{\hyperlink{class_timer_a9b89127c8224e7fb787da4f11ef8d364}{elapsed\+TimeS}} ()
+\item 
+void \mbox{\hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{start}} ()
+\item 
+double \mbox{\hyperlink{class_timer_a9b89127c8224e7fb787da4f11ef8d364}{elapsed\+TimeS}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::steady\+\_\+clock $>$ \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\+\_\+start\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00115}{115}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_timer_a9b89127c8224e7fb787da4f11ef8d364}\label{class_timer_a9b89127c8224e7fb787da4f11ef8d364}} 
+\index{Timer@{Timer}!elapsedTimeS@{elapsedTimeS}}
+\index{elapsedTimeS@{elapsedTimeS}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{elapsedTimeS()}{elapsedTimeS()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Timer\+::elapsed\+TimeS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123     \{}
+\DoxyCodeLine{00124       \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(}
+\DoxyCodeLine{00125               std::chrono::duration\_cast<}
+\DoxyCodeLine{00126                   std::chrono::microseconds>(}
+\DoxyCodeLine{00127                   std::chrono::steady\_clock::now() -\/ \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\_startTime}}).count()) / 1000000.0;}
+\DoxyCodeLine{00128     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\+\_\+start\+Time}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_debug_accc1a68a6e51b015caee0ab90ddb6e87}{Debug\+::elapsed\+Time()}}.
+
+\mbox{\Hypertarget{class_timer_a9b89127c8224e7fb787da4f11ef8d364}\label{class_timer_a9b89127c8224e7fb787da4f11ef8d364}} 
+\index{Timer@{Timer}!elapsedTimeS@{elapsedTimeS}}
+\index{elapsedTimeS@{elapsedTimeS}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{elapsedTimeS()}{elapsedTimeS()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Timer\+::elapsed\+TimeS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2debug_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123     \{}
+\DoxyCodeLine{00124       \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(}
+\DoxyCodeLine{00125               std::chrono::duration\_cast<}
+\DoxyCodeLine{00126                   std::chrono::microseconds>(}
+\DoxyCodeLine{00127                   std::chrono::steady\_clock::now() -\/ \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\_startTime}}).count()) / 1000000.0;}
+\DoxyCodeLine{00128     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\+\_\+start\+Time}}.
+
+\mbox{\Hypertarget{class_timer_a3a8b5272198d029779dc9302a54305a8}\label{class_timer_a3a8b5272198d029779dc9302a54305a8}} 
+\index{Timer@{Timer}!start@{start}}
+\index{start@{start}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Timer\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119     \{}
+\DoxyCodeLine{00120       \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\_startTime}} = std::chrono::steady\_clock::now();}
+\DoxyCodeLine{00121     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\+\_\+start\+Time}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_a65399de22568f1deb0092a4e1b2a42c4}{doxmlparser.\+compound.\+doc\+List\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_ae4831029ee6dfd631ccbe9b92cac2654}{doxmlparser.\+compound.\+doc\+List\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_a3b598ae84b3096be472ff567e50e081c}{doxmlparser.\+compound.\+doc\+List\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_ad5061ffc7a2262c8fb092f102f9eb5bc}{doxmlparser.\+compound.\+doc\+List\+Type\+::get\+\_\+start()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_a6b2ec4efb4e287d906aff890c9fc65ef}{doxmlparser.\+compound.\+doc\+List\+Type\+::set\+\_\+start()}}, and \mbox{\hyperlink{class_debug_ad34e8ad3d814a4cf8b29ce98fd7a96f5}{Debug\+::start\+Timer()}}.
+
+\mbox{\Hypertarget{class_timer_a3a8b5272198d029779dc9302a54305a8}\label{class_timer_a3a8b5272198d029779dc9302a54305a8}} 
+\index{Timer@{Timer}!start@{start}}
+\index{start@{start}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Timer\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2debug_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119     \{}
+\DoxyCodeLine{00120       \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\_startTime}} = std::chrono::steady\_clock::now();}
+\DoxyCodeLine{00121     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_timer_ac763edf82405b2b0ba27882c95a5df3e}{m\+\_\+start\+Time}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_a65399de22568f1deb0092a4e1b2a42c4}{doxmlparser.\+compound.\+doc\+List\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_ae4831029ee6dfd631ccbe9b92cac2654}{doxmlparser.\+compound.\+doc\+List\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_a3b598ae84b3096be472ff567e50e081c}{doxmlparser.\+compound.\+doc\+List\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_ad5061ffc7a2262c8fb092f102f9eb5bc}{doxmlparser.\+compound.\+doc\+List\+Type\+::get\+\_\+start()}}, and \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_type_a6b2ec4efb4e287d906aff890c9fc65ef}{doxmlparser.\+compound.\+doc\+List\+Type\+::set\+\_\+start()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_timer_ac763edf82405b2b0ba27882c95a5df3e}\label{class_timer_ac763edf82405b2b0ba27882c95a5df3e}} 
+\index{Timer@{Timer}!m\_startTime@{m\_startTime}}
+\index{m\_startTime@{m\_startTime}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{m\_startTime}{m\_startTime}}
+{\footnotesize\ttfamily std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::steady\+\_\+clock $>$ Timer\+::m\+\_\+start\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_timer_a9b89127c8224e7fb787da4f11ef8d364}{elapsed\+Time\+S()}}, and \mbox{\hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{start()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp}{debug.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2debug_8cpp}{debug.\+cpp}}\end{DoxyCompactItemize}

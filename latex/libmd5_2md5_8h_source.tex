@@ -1,0 +1,63 @@
+\hypertarget{libmd5_2md5_8h_source}{}\doxysection{md5.\+h}
+\label{libmd5_2md5_8h_source}\index{doxygen/libmd5/md5.h@{doxygen/libmd5/md5.h}}
+\mbox{\hyperlink{libmd5_2md5_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00002}00002 \textcolor{comment}{ * This is the header file for the MD5 message-\/digest algorithm.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00003}00003 \textcolor{comment}{ * The algorithm is due to Ron Rivest.  This code was}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00004}00004 \textcolor{comment}{ * written by Colin Plumb in 1993, no copyright is claimed.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00005}00005 \textcolor{comment}{ * This code is in the public domain; do with it what you wish.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00006}00006 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00007}00007 \textcolor{comment}{ * Equivalent code is available from RSA Data Security, Inc.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00008}00008 \textcolor{comment}{ * This code has been tested against that, and is equivalent,}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00009}00009 \textcolor{comment}{ * except that you don't need to include two pages of legalese}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00010}00010 \textcolor{comment}{ * with every copy.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00011}00011 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00012}00012 \textcolor{comment}{ * To compute the message digest of a chunk of bytes, declare an}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00013}00013 \textcolor{comment}{ * MD5Context structure, pass it to MD5Init, call MD5Update as}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00014}00014 \textcolor{comment}{ * needed on buffers full of bytes, and then call MD5Final, which}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00015}00015 \textcolor{comment}{ * will fill a supplied 16-\/byte array with the digest.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00016}00016 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00017}00017 \textcolor{comment}{ * Changed so as no longer to depend on Colin Plumb's `usual.h'}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00018}00018 \textcolor{comment}{ * header definitions; now uses stuff from dpkg's config.h}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00019}00019 \textcolor{comment}{ *  -\/ Ian Jackson <ian@chiark.greenend.org.uk>.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00020}00020 \textcolor{comment}{ * Still in the public domain.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00021}00021 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00023}00023 \textcolor{preprocessor}{\#ifndef MD5\_H}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00024}00024 \textcolor{preprocessor}{\#define MD5\_H}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00026}00026 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00027}00027 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00028}00028 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00030}00030 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{libmd5_2md5__loc_8h}{md5\_loc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00032}\mbox{\hyperlink{libmd5_2md5_8h_ab306c43dedbcb8f0fbe03d020c2c4e2f}{00032}} \textcolor{preprocessor}{\#define md5byte unsigned char}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00034}00034 \textcolor{comment}{//\#if SIZEOF\_UNSIGNED\_LONG==4}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00035}00035 \textcolor{comment}{//\# define UWORD32 unsigned long}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00036}00036 \textcolor{comment}{//\#elif SIZEOF\_UNSIGNED\_INT==4}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00037}00037 \textcolor{comment}{//\#else}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00038}00038 \textcolor{comment}{//\# error I do not know what to use for a UWORD32.}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00039}00039 \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00041}00041 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_m_d5_context}{MD5Context}} \{}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00042}00042     \mbox{\hyperlink{build_2doxygen_2libmd5_2md5__loc_8h_a75d002c75b48928a52514996f264a1a5}{UWORD32}} \mbox{\hyperlink{struct_m_d5_context_a4bf6f6cca3cfee65ed503c022de6e2cb}{buf}}[4];}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00043}00043     \mbox{\hyperlink{build_2doxygen_2libmd5_2md5__loc_8h_a75d002c75b48928a52514996f264a1a5}{UWORD32}} \mbox{\hyperlink{struct_m_d5_context_a5ff102d117379d951386d6e52f5db416}{bytes}}[2];}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00044}00044     \mbox{\hyperlink{build_2doxygen_2libmd5_2md5__loc_8h_a75d002c75b48928a52514996f264a1a5}{UWORD32}} \mbox{\hyperlink{struct_m_d5_context_a85688a3628ebb0c8fda27d7b30b54104}{in}}[16];}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00045}00045 \};}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00047}00047 \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8h_a6bdca55813077d1c652a1f63608dac30}{MD5Init}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_m_d5_context}{MD5Context}} *context);}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00048}00048 \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8h_a7735e7e11e4b8fe91be21e8d54ba4cb0}{MD5Update}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_m_d5_context}{MD5Context}} *context, \mbox{\hyperlink{libmd5_2md5_8h_ab306c43dedbcb8f0fbe03d020c2c4e2f}{md5byte}} \textcolor{keyword}{const} *buf, \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00049}\mbox{\hyperlink{libmd5_2md5_8h_a7132b90c03637ae151c1a8befd7989f2}{00049}} \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8h_a7132b90c03637ae151c1a8befd7989f2}{MD5Final}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} digest[16], \textcolor{keyword}{struct} \mbox{\hyperlink{struct_m_d5_context}{MD5Context}} *context);}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00050}00050 \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8h_a3e5495d121e73dba5e01cf3f64dd201e}{MD5Buffer}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *buf,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}},\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} sig[16]);}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00051}00051 \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8h_a706aed4b3298dbb546e8a3260c0b3e8f}{MD5SigToString}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} sig[16],\textcolor{keywordtype}{char} str[33]);}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00053}00053 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00054}00054 \}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00055}00055 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{libmd5_2md5_8h_source_l00057}00057 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !MD5\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

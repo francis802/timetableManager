@@ -1,0 +1,176 @@
+\hypertarget{interfacestrings_1_1pack}{}\doxysection{strings\+::pack Interface Reference}
+\label{interfacestrings_1_1pack}\index{strings::pack@{strings::pack}}
+
+
+Function to pack an array into a vector.  
+
+
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+type(\mbox{\hyperlink{structstrings_1_1string}{string}}) \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}}, dimension(\+:), allocatable \mbox{\hyperlink{interfacestrings_1_1pack_a0d000343fef53117ef76b1cea4f8df78}{pack\+\_\+chvector}} (array, mask, \mbox{\hyperlink{structvector}{vector}})
+\begin{DoxyCompactList}\small\item\em Pack function specialised for TYPE(\+String) as a replacement for the intrinsic. \end{DoxyCompactList}\item 
+type(\mbox{\hyperlink{structstrings_1_1string}{string}}) \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}}, dimension(\+:), allocatable \mbox{\hyperlink{interfacestrings_1_1pack_a0d000343fef53117ef76b1cea4f8df78}{pack\+\_\+chvector}} (array, mask, \mbox{\hyperlink{structvector}{vector}})
+\begin{DoxyCompactList}\small\item\em Pack function specialised for TYPE(\+String) as a replacement for the intrinsic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function to pack an array into a vector. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00104}{104}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+
+\doxysubsection{Member Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{interfacestrings_1_1pack_a0d000343fef53117ef76b1cea4f8df78}\label{interfacestrings_1_1pack_a0d000343fef53117ef76b1cea4f8df78}} 
+\index{strings::pack@{strings::pack}!pack\_chvector@{pack\_chvector}}
+\index{pack\_chvector@{pack\_chvector}!strings::pack@{strings::pack}}
+\doxysubsubsection{\texorpdfstring{pack\_chvector()}{pack\_chvector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily type(\mbox{\hyperlink{structstrings_1_1string}{string}}) \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}}, dimension(\+:), allocatable strings\+::pack\+::pack\+\_\+chvector (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{array,  }\item[{logical, dimension(\+:), intent(in)}]{mask,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in), optional}]{vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pack function specialised for TYPE(\+String) as a replacement for the intrinsic. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em array} & The array of things to pack.\\
+\hline
+\mbox{\texttt{ in}}  & {\em mask} & Shall be the same size as {\itshape array}. The intrinsic form simply requires conformability, but that\textquotesingle{}s a trivial case to implement in client code.\\
+\hline
+\mbox{\texttt{ in}}  & {\em vector} & Optional. Shall have at least as many elements as there are .TRUE. elements in {\itshape mask}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If {\itshape vector} is present, the result size is that of {\itshape vector}, otherwise the result size is the number {\itshape t} of true elements in {\itshape mask}.
+\end{DoxyReturn}
+Element {\itshape i} of the result is the element of {\itshape array} that corresponds to the {\itshape i}th true element of {\itshape mask}, taking elements in array element order, for {\itshape i} = 1, 2, ..., {\itshape t}. If {\itshape vector} is present and has size {\itshape n} \texorpdfstring{$>$}{>} {\itshape t}, element {\itshape i} of the result has the value {\itshape vector}({\itshape i}), for {\itshape i} = {\itshape t} + 1, ..., {\itshape n}.
+
+Delete and revert to the intrinsic once the ifort 12.\+1.\+0 bug reported at \href{http://software.intel.com/en-us/forums/showthread.php?t=85834}{\texttt{ http\+://software.\+intel.\+com/en-\/us/forums/showthread.\+php?t=85834}} has been fixed. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00690}{690}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00691     }
+\DoxyCodeLine{00692     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00693     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00694     }
+\DoxyCodeLine{00695     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: array(:)}
+\DoxyCodeLine{00696     \textcolor{keywordtype}{LOGICAL}, \textcolor{keywordtype}{INTENT(IN)} :: mask(:)}
+\DoxyCodeLine{00697     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)}, \textcolor{keywordtype}{OPTIONAL} :: vector(:)}
+\DoxyCodeLine{00698     }
+\DoxyCodeLine{00699     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00700     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: res(:)}
+\DoxyCodeLine{00701     }
+\DoxyCodeLine{00702     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00703     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00704     }
+\DoxyCodeLine{00705     \textcolor{keywordtype}{INTEGER} :: ia             \textcolor{comment}{! Array index}}
+\DoxyCodeLine{00706     \textcolor{keywordtype}{INTEGER} :: im             \textcolor{comment}{! Mask index}}
+\DoxyCodeLine{00707     }
+\DoxyCodeLine{00708     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00709     }
+\DoxyCodeLine{00710     \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00711       \textcolor{comment}{! There is a requirement that SIZE(vector) be greater than or equal to }}
+\DoxyCodeLine{00712       \textcolor{comment}{! COUNT(mask).}}
+\DoxyCodeLine{00713       \textcolor{keyword}{ALLOCATE}(res(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})))}
+\DoxyCodeLine{00714     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00715       \textcolor{keyword}{ALLOCATE}(res(count(mask)))}
+\DoxyCodeLine{00716 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00717     }
+\DoxyCodeLine{00718     \textcolor{comment}{! Copy the items across to the result under the control of the mask.}}
+\DoxyCodeLine{00719     ia = 1}
+\DoxyCodeLine{00720     \textcolor{keywordflow}{DO} im = 1, \textcolor{keyword}{SIZE}(mask)}
+\DoxyCodeLine{00721       \textcolor{keywordflow}{IF} (mask(im)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00722         res(ia) = array(im)}
+\DoxyCodeLine{00723         ia = ia + 1}
+\DoxyCodeLine{00724 \textcolor{keywordflow}{      END IF}}
+\DoxyCodeLine{00725 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00726     }
+\DoxyCodeLine{00727     \textcolor{comment}{! ia will come out of the above loop pointing to the next empty space }}
+\DoxyCodeLine{00728     \textcolor{comment}{! in res, if it exists.  SIZE(vector) == SIZE(res), so if ia > SIZE(res) }}
+\DoxyCodeLine{00729     \textcolor{comment}{! then the sequence is empty on both sides of the assignment.}}
+\DoxyCodeLine{00730     \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(\mbox{\hyperlink{structvector}{vector}})) res(ia:) = \mbox{\hyperlink{structvector}{vector}}(ia:)}
+\DoxyCodeLine{00731     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1pack_a0d000343fef53117ef76b1cea4f8df78}\label{interfacestrings_1_1pack_a0d000343fef53117ef76b1cea4f8df78}} 
+\index{strings::pack@{strings::pack}!pack\_chvector@{pack\_chvector}}
+\index{pack\_chvector@{pack\_chvector}!strings::pack@{strings::pack}}
+\doxysubsubsection{\texorpdfstring{pack\_chvector()}{pack\_chvector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily type(\mbox{\hyperlink{structstrings_1_1string}{string}}) \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}}, dimension(\+:), allocatable strings\+::pack\+::pack\+\_\+chvector (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{array,  }\item[{logical, dimension(\+:), intent(in)}]{mask,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in), optional}]{vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pack function specialised for TYPE(\+String) as a replacement for the intrinsic. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em array} & The array of things to pack.\\
+\hline
+\mbox{\texttt{ in}}  & {\em mask} & Shall be the same size as {\itshape array}. The intrinsic form simply requires conformability, but that\textquotesingle{}s a trivial case to implement in client code.\\
+\hline
+\mbox{\texttt{ in}}  & {\em vector} & Optional. Shall have at least as many elements as there are .TRUE. elements in {\itshape mask}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If {\itshape vector} is present, the result size is that of {\itshape vector}, otherwise the result size is the number {\itshape t} of true elements in {\itshape mask}.
+\end{DoxyReturn}
+Element {\itshape i} of the result is the element of {\itshape array} that corresponds to the {\itshape i}th true element of {\itshape mask}, taking elements in array element order, for {\itshape i} = 1, 2, ..., {\itshape t}. If {\itshape vector} is present and has size {\itshape n} \texorpdfstring{$>$}{>} {\itshape t}, element {\itshape i} of the result has the value {\itshape vector}({\itshape i}), for {\itshape i} = {\itshape t} + 1, ..., {\itshape n}.
+
+Delete and revert to the intrinsic once the ifort 12.\+1.\+0 bug reported at \href{http://software.intel.com/en-us/forums/showthread.php?t=85834}{\texttt{ http\+://software.\+intel.\+com/en-\/us/forums/showthread.\+php?t=85834}} has been fixed. 
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00690}{690}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00691     }
+\DoxyCodeLine{00692     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00693     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00694     }
+\DoxyCodeLine{00695     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: array(:)}
+\DoxyCodeLine{00696     \textcolor{keywordtype}{LOGICAL}, \textcolor{keywordtype}{INTENT(IN)} :: mask(:)}
+\DoxyCodeLine{00697     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)}, \textcolor{keywordtype}{OPTIONAL} :: vector(:)}
+\DoxyCodeLine{00698     }
+\DoxyCodeLine{00699     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00700     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: res(:)}
+\DoxyCodeLine{00701     }
+\DoxyCodeLine{00702     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00703     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00704     }
+\DoxyCodeLine{00705     \textcolor{keywordtype}{INTEGER} :: ia             \textcolor{comment}{! Array index}}
+\DoxyCodeLine{00706     \textcolor{keywordtype}{INTEGER} :: im             \textcolor{comment}{! Mask index}}
+\DoxyCodeLine{00707     }
+\DoxyCodeLine{00708     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00709     }
+\DoxyCodeLine{00710     \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00711       \textcolor{comment}{! There is a requirement that SIZE(vector) be greater than or equal to }}
+\DoxyCodeLine{00712       \textcolor{comment}{! COUNT(mask).}}
+\DoxyCodeLine{00713       \textcolor{keyword}{ALLOCATE}(res(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})))}
+\DoxyCodeLine{00714     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00715       \textcolor{keyword}{ALLOCATE}(res(count(mask)))}
+\DoxyCodeLine{00716 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00717     }
+\DoxyCodeLine{00718     \textcolor{comment}{! Copy the items across to the result under the control of the mask.}}
+\DoxyCodeLine{00719     ia = 1}
+\DoxyCodeLine{00720     \textcolor{keywordflow}{DO} im = 1, \textcolor{keyword}{SIZE}(mask)}
+\DoxyCodeLine{00721       \textcolor{keywordflow}{IF} (mask(im)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00722         res(ia) = array(im)}
+\DoxyCodeLine{00723         ia = ia + 1}
+\DoxyCodeLine{00724 \textcolor{keywordflow}{      END IF}}
+\DoxyCodeLine{00725 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00726     }
+\DoxyCodeLine{00727     \textcolor{comment}{! ia will come out of the above loop pointing to the next empty space }}
+\DoxyCodeLine{00728     \textcolor{comment}{! in res, if it exists.  SIZE(vector) == SIZE(res), so if ia > SIZE(res) }}
+\DoxyCodeLine{00729     \textcolor{comment}{! then the sequence is empty on both sides of the assignment.}}
+\DoxyCodeLine{00730     \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(\mbox{\hyperlink{structvector}{vector}})) res(ia:) = \mbox{\hyperlink{structvector}{vector}}(ia:)}
+\DoxyCodeLine{00731     }
+
+\end{DoxyCode}
+
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/testing/\mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\item 
+doxygen/testing/\mbox{\hyperlink{testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\end{DoxyCompactItemize}

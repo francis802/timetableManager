@@ -1,0 +1,413 @@
+\hypertarget{build_2doxygen_2src_2cite_8cpp_source}{}\doxysection{cite.\+cpp}
+\label{build_2doxygen_2src_2cite_8cpp_source}\index{doxygen/build/doxygen/src/cite.cpp@{doxygen/build/doxygen/src/cite.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 2020 by Dimitri van Heesch}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00004}00004 \textcolor{comment}{ * Based on a patch by David Munger}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00005}00005 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00006}00006 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00007}00007 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00008}00008 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00009}00009 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00010}00010 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00011}00011 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00012}00012 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00013}00013 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00014}00014 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00015}00015 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2cite_8h}{cite.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2language_8h}{language.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2message_8h}{message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2portable_8h}{portable.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2resourcemgr_8h}{resourcemgr.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2util_8h}{util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2debug_8h}{debug.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2fileinfo_8h}{fileinfo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00026}00026 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dir_8h}{dir.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00028}00028 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00029}00029 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00030}00030 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00032}\mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_abcc2fda3b5de9ceebd210f6faaa349ec}{00032}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_abcc2fda3b5de9ceebd210f6faaa349ec}{bibTmpFile}} = \textcolor{stringliteral}{"{}bibTmpFile\_"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00033}\mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_acec8b941b54c02ca0bff82944d34cb5a}{00033}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_acec8b941b54c02ca0bff82944d34cb5a}{bibTmpDir}}  = \textcolor{stringliteral}{"{}bibTmpDir/"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00035}\mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_a883e572433098a2f3714d29ddc109fc8}{00035}} \textcolor{keyword}{static} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_a883e572433098a2f3714d29ddc109fc8}{getBibFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&inFile)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00036}00036 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00037}00037   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} = inFile;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00038}00038   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.isEmpty() \&\& !\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.endsWith(\textcolor{stringliteral}{"{}.bib"{}})) \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}+=\textcolor{stringliteral}{"{}.bib"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00039}00039   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00040}00040 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00042}\mbox{\hyperlink{class_cite_info_impl}{00042}} \textcolor{keyword}{class }\mbox{\hyperlink{class_cite_info_impl}{CiteInfoImpl}} : \textcolor{keyword}{public} \mbox{\hyperlink{struct_cite_info}{CiteInfo}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00043}00043 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00044}00044   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00045}\mbox{\hyperlink{class_cite_info_impl_ab3b713fffdd7af40a9d905f1b52bf9fb}{00045}}     \mbox{\hyperlink{class_cite_info_impl_ab3b713fffdd7af40a9d905f1b52bf9fb}{CiteInfoImpl}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{class_cite_info_impl_a48a7fb329ebd24f34678847e3b32c33b}{label}}, \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{class_cite_info_impl_a69d3358f4bb21f57bdd8e720b43c7dc3}{text}}=\mbox{\hyperlink{class_q_c_string}{QCString}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00046}00046     : \mbox{\hyperlink{class_cite_info_impl_a2f8f1502d3781dd27a17ef370e1ead9e}{m\_label}}(\mbox{\hyperlink{class_cite_info_impl_a48a7fb329ebd24f34678847e3b32c33b}{label}}), \mbox{\hyperlink{class_cite_info_impl_a74c65d323840f81d3d9c44ca47dc547d}{m\_text}}(\mbox{\hyperlink{class_cite_info_impl_a69d3358f4bb21f57bdd8e720b43c7dc3}{text}}) \{ \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00048}\mbox{\hyperlink{class_cite_info_impl_a48a7fb329ebd24f34678847e3b32c33b}{00048}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_cite_info_impl_a48a7fb329ebd24f34678847e3b32c33b}{label}}()\textcolor{keyword}{    const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cite_info_impl_a2f8f1502d3781dd27a17ef370e1ead9e}{m\_label}};    \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00049}\mbox{\hyperlink{class_cite_info_impl_a69d3358f4bb21f57bdd8e720b43c7dc3}{00049}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_cite_info_impl_a69d3358f4bb21f57bdd8e720b43c7dc3}{text}}()\textcolor{keyword}{     const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cite_info_impl_a74c65d323840f81d3d9c44ca47dc547d}{m\_text}};     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00051}\mbox{\hyperlink{class_cite_info_impl_a12e4bd452233001e56c6da6c847f787e}{00051}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cite_info_impl_a12e4bd452233001e56c6da6c847f787e}{setText}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) \{ \mbox{\hyperlink{class_cite_info_impl_a74c65d323840f81d3d9c44ca47dc547d}{m\_text}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}; \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00053}00053   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00054}\mbox{\hyperlink{class_cite_info_impl_a2f8f1502d3781dd27a17ef370e1ead9e}{00054}}     \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_cite_info_impl_a2f8f1502d3781dd27a17ef370e1ead9e}{m\_label}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00055}\mbox{\hyperlink{class_cite_info_impl_a74c65d323840f81d3d9c44ca47dc547d}{00055}}     \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_cite_info_impl_a74c65d323840f81d3d9c44ca47dc547d}{m\_text}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00056}00056 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00058}\mbox{\hyperlink{struct_citation_manager_1_1_private}{00058}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_citation_manager_1_1_private}{CitationManager::Private}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00059}00059 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00060}\mbox{\hyperlink{struct_citation_manager_1_1_private_a9a8078dd76c172157d4895bfb020631d}{00060}}   std::map< std::string,std::unique\_ptr<CiteInfoImpl> > \mbox{\hyperlink{struct_citation_manager_1_1_private_a9a8078dd76c172157d4895bfb020631d}{entries}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00061}00061 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00063}\mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{00063}} \mbox{\hyperlink{class_citation_manager}{CitationManager}} \&\mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{CitationManager::instance}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00064}00064 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00065}00065   \textcolor{keyword}{static} \mbox{\hyperlink{class_citation_manager}{CitationManager}} ct;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00066}00066   \textcolor{keywordflow}{return} ct;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00067}00067 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00069}\mbox{\hyperlink{class_citation_manager_ace9a73a9c71111d88ec3eb90eeb92b26}{00069}} \mbox{\hyperlink{class_citation_manager_ace9a73a9c71111d88ec3eb90eeb92b26}{CitationManager::CitationManager}}() : \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}(new \mbox{\hyperlink{struct_citation_manager_1_1_private}{Private}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00070}00070 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00071}00071 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00073}\mbox{\hyperlink{class_citation_manager_acbc101ba2926c6324a479b572ff3c377}{00073}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_citation_manager_acbc101ba2926c6324a479b572ff3c377}{CitationManager::insert}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&label)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00074}00074 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00075}00075   \mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.insert(}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00076}00076       std::make\_pair(}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00077}00077         label.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00078}00078         std::make\_unique<CiteInfoImpl>(label)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00079}00079       ));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00080}00080 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00082}\mbox{\hyperlink{class_citation_manager_a2904843bbc4e5d707386d5dce049692e}{00082}} \textcolor{keyword}{const} \mbox{\hyperlink{struct_cite_info}{CiteInfo}} *\mbox{\hyperlink{class_citation_manager_a2904843bbc4e5d707386d5dce049692e}{CitationManager::find}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&label)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00083}00083 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00084}00084   \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.find(label.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00085}00085   \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.end())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00086}00086   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00087}00087     \textcolor{keywordflow}{return} it-\/>second.get();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00088}00088   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00089}00089   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00090}00090 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00092}\mbox{\hyperlink{class_citation_manager_a5064df0802f4ce881cbe5d1d9757cc86}{00092}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_citation_manager_a5064df0802f4ce881cbe5d1d9757cc86}{CitationManager::clear}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00093}00093 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00094}00094   \mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.clear();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00095}00095 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00097}\mbox{\hyperlink{class_citation_manager_ade88ab31021df991b8f2b6b31e9c24e4}{00097}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_citation_manager_ade88ab31021df991b8f2b6b31e9c24e4}{CitationManager::isEmpty}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00098}00098 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00099}00099   \textcolor{keywordtype}{size\_t} numFiles = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\_getList}}(CITE\_BIB\_FILES).size();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00100}00100   \textcolor{keywordflow}{return} (numFiles==0 || \mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.empty());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00101}00101 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00103}\mbox{\hyperlink{class_citation_manager_ade05cab342d2aec59e05a3b7ec166a19}{00103}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_citation_manager_ade05cab342d2aec59e05a3b7ec166a19}{CitationManager::fileName}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00104}00104 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00105}00105   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}citelist"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00106}00106 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00107}00107 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00108}\mbox{\hyperlink{class_citation_manager_a10ba17e783f502c2998a7432c84fd462}{00108}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_citation_manager_a10ba17e783f502c2998a7432c84fd462}{CitationManager::anchorPrefix}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00109}00109 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00110}00110   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CITEREF\_"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00111}00111 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00113}\mbox{\hyperlink{class_citation_manager_a07ca80df8cb26c1c11d0cb22e326b01d}{00113}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_citation_manager_a07ca80df8cb26c1c11d0cb22e326b01d}{CitationManager::insertCrossReferencesForBibFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&bibFile)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00114}00114 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00115}00115   \textcolor{comment}{// sanity checks}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00116}00116   \textcolor{keywordflow}{if} (bibFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00117}00117   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00118}00118     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00119}00119   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00120}00120   \mbox{\hyperlink{class_file_info}{FileInfo}} fi(bibFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00121}00121   \textcolor{keywordflow}{if} (!fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00122}00122   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00123}00123     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}bib file \%s not found!\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(bibFile));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00124}00124     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00125}00125   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00126}00126   \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{std::ifstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(bibFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(), std::ifstream::in);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00127}00127   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00128}00128   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00129}00129     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}could not open file \%s for reading\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(bibFile));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00130}00130     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00131}00131   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00133}00133   \textcolor{comment}{// search for citation cross references}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00134}00134   \mbox{\hyperlink{class_q_c_string}{QCString}} citeName;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00136}00136   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} lineStr;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00137}00137   \textcolor{keywordflow}{while} (getline(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},lineStr))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00138}00138   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00139}00139     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00140}00140     \mbox{\hyperlink{class_q_c_string}{QCString}} line(lineStr);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00141}00141     \textcolor{keywordflow}{if} (line.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}().\mbox{\hyperlink{class_q_c_string_a1f43c0a4958cf17f086dc0e3a4b13a68}{startsWith}}(\textcolor{stringliteral}{"{}@"{}}))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00142}00142     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00143}00143       \textcolor{comment}{// assumption entry like: "{}@book \{ name,"{} or "{}@book \{ name"{} (spaces optional)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00144}00144       \textcolor{keywordtype}{int} j = line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{'\{'});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00145}00145       \textcolor{comment}{// when no \{, go hunting for it}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00146}00146       \textcolor{keywordflow}{while} (j==-\/1 \&\& getline(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},lineStr))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00147}00147       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00148}00148         line = lineStr;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00149}00149         j = line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{'\{'});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00150}00150       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00151}00151       \textcolor{comment}{// search for the name}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00152}00152       citeName = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00153}00153       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.eof() \&\& j!=-\/1) \textcolor{comment}{// to prevent something like "{}@manual ,"{} and no \{ found}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00154}00154       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00155}00155         \textcolor{keywordtype}{int} k = line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{','},j);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00156}00156         j++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00157}00157         \textcolor{comment}{// found a line "{}@....\{.....,...."{} or "{}@.....\{....."{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00158}00158         \textcolor{comment}{//                     \string^=j  \string^=k               \string^=j   k=-\/1}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00159}00159         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.eof() \&\& citeName.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00160}00160         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00161}00161           \textcolor{keywordflow}{if} (k!=-\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00162}00162           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00163}00163             citeName = line.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(j),\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(k-\/j));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00164}00164           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00165}00165           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00166}00166           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00167}00167             citeName = line.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(j));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00168}00168           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00169}00169           citeName = citeName.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00170}00170           j = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00171}00171           \textcolor{keywordflow}{if} (citeName.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() \&\& getline(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},lineStr))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00172}00172           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00173}00173             line = lineStr;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00174}00174             k = line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{','});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00175}00175           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00176}00176         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00177}00177       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00178}00178       \textcolor{comment}{//printf("{}citeName = \#\%s\#\(\backslash\)n"{},qPrint(citeName));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00179}00179     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00180}00180     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i=line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{stringliteral}{"{}crossref"{}}))!=-\/1 \&\& !citeName.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{comment}{/* assumption cross reference is on one line and the only item */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00181}00181     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00182}00182       \textcolor{keywordtype}{int} j = line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{'\{'},i);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00183}00183       \textcolor{keywordtype}{int} k = line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{'\}'},i);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00184}00184       \textcolor{keywordflow}{if} (j>i \&\& k>j)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00185}00185       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00186}00186         \mbox{\hyperlink{class_q_c_string}{QCString}} crossrefName = line.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(j+1),\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}\textcolor{keyword}{>}(k-\/j-\/1));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00187}00187         \textcolor{comment}{// check if the reference with the cross reference is used}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00188}00188         \textcolor{comment}{// insert cross reference when cross reference has not yet been added.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00189}00189         \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.find(citeName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}())!=\mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.end()) \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00190}00190             (\mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.find(crossrefName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}())==\mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.end())) \textcolor{comment}{// not found yet}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00191}00191         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00192}00192           \mbox{\hyperlink{class_citation_manager_acbc101ba2926c6324a479b572ff3c377}{insert}}(crossrefName);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00193}00193         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00194}00194       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00195}00195     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00196}00196   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00197}00197 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00199}\mbox{\hyperlink{class_citation_manager_aeea4b3347215e1eb97b639c96a1dcadd}{00199}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_citation_manager_aeea4b3347215e1eb97b639c96a1dcadd}{CitationManager::generatePage}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00200}00200 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00201}00201   \textcolor{comment}{//printf("{}** CitationManager::generatePage() count=\%d\(\backslash\)n"{},m\_ordering.count());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00202}00202 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00203}00203   \textcolor{comment}{// do not generate an empty citations page}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00204}00204   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_citation_manager_ade88ab31021df991b8f2b6b31e9c24e4}{isEmpty}}()) \textcolor{keywordflow}{return}; \textcolor{comment}{// nothing to cite}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00206}00206   \textcolor{keywordtype}{bool} citeDebug = \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Debug::Cite}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00207}00207 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00208}00208   \textcolor{comment}{// 0. add cross references from the bib files to the cite dictionary}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00209}00209   \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \&citeDataList = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\_getList}}(CITE\_BIB\_FILES);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00210}00210   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&bibdata : citeDataList)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00211}00211   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00212}00212     \mbox{\hyperlink{class_q_c_string}{QCString}} bibFile = \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_a883e572433098a2f3714d29ddc109fc8}{getBibFile}}(\mbox{\hyperlink{class_q_c_string}{QCString}}(bibdata));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00213}00213     \mbox{\hyperlink{class_citation_manager_a07ca80df8cb26c1c11d0cb22e326b01d}{insertCrossReferencesForBibFile}}(bibFile);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00214}00214   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00215}00215 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00216}00216   \textcolor{comment}{// 1. generate file with markers and citations to OUTPUT\_DIRECTORY}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00217}00217   \mbox{\hyperlink{class_q_c_string}{QCString}} outputDir = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(OUTPUT\_DIRECTORY);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00218}00218   \mbox{\hyperlink{class_q_c_string}{QCString}} citeListFile = outputDir+\textcolor{stringliteral}{"{}/citelist.doc"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00219}00219   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00220}00220     \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} t(citeListFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00221}00221     \textcolor{keywordflow}{if} (!t.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00222}00222     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00223}00223       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}could not open file \%s for writing\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(citeListFile));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00224}00224     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00225}00225     t << \textcolor{stringliteral}{"{}<!-\/-\/ BEGIN CITATIONS -\/-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00226}00226     t << \textcolor{stringliteral}{"{}<!-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00227}00227     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&it : \mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00228}00228     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00229}00229       t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)citation\{"{}} << it.second-\/>label() << \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00230}00230     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00231}00231     t << \textcolor{stringliteral}{"{}-\/-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00232}00232     t << \textcolor{stringliteral}{"{}<!-\/-\/ END CITATIONS -\/-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00233}00233     t << \textcolor{stringliteral}{"{}<!-\/-\/ BEGIN BIBLIOGRAPHY -\/-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00234}00234     t << \textcolor{stringliteral}{"{}<!-\/-\/ END BIBLIOGRAPHY -\/-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00235}00235     t.close();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00236}00236   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00237}00237 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00238}00238   \textcolor{comment}{// 2. generate bib2xhtml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00239}00239   \mbox{\hyperlink{class_q_c_string}{QCString}} bib2xhtmlFile  = outputDir+\textcolor{stringliteral}{"{}/bib2xhtml.pl"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00240}00240   \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{ResourceMgr::instance}}().\mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{copyResource}}(\textcolor{stringliteral}{"{}bib2xhtml.pl"{}},outputDir);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00241}00241 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00242}00242   \textcolor{comment}{// 3. generate doxygen.bst}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00243}00243   \mbox{\hyperlink{class_q_c_string}{QCString}} doxygenBstFile = outputDir+\textcolor{stringliteral}{"{}/doxygen.bst"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00244}00244   \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{ResourceMgr::instance}}().\mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{copyResource}}(\textcolor{stringliteral}{"{}doxygen.bst"{}},outputDir);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00245}00245 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00246}00246   \textcolor{comment}{// 4. for all formats we just copy the bib files to as special output directory}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00247}00247   \textcolor{comment}{//    so bibtex can find them without path (bibtex doesn't support paths or}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00248}00248   \textcolor{comment}{//    filenames with spaces!)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00249}00249   \textcolor{comment}{//    Strictly not required when only latex is generated}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00250}00250   \mbox{\hyperlink{class_q_c_string}{QCString}} bibOutputDir = outputDir+\textcolor{stringliteral}{"{}/"{}}+\mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_acec8b941b54c02ca0bff82944d34cb5a}{bibTmpDir}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00251}00251   \mbox{\hyperlink{class_q_c_string}{QCString}} bibOutputFiles = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00252}00252   \mbox{\hyperlink{class_dir}{Dir}} thisDir;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00253}00253   \textcolor{keywordflow}{if} (!thisDir.\mbox{\hyperlink{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}{exists}}(bibOutputDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()) \&\& !thisDir.\mbox{\hyperlink{class_dir_a286f4b1852b489ffcc8b6837c7e6bd8e}{mkdir}}(bibOutputDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00254}00254   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00255}00255     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Failed to create temporary output directory '\%s', skipping citations\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(bibOutputDir));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00256}00256     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00257}00257   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00258}00258   \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00259}00259   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&bibdata : citeDataList)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00260}00260   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00261}00261     \mbox{\hyperlink{class_q_c_string}{QCString}} bibFile = \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_a883e572433098a2f3714d29ddc109fc8}{getBibFile}}(\mbox{\hyperlink{class_q_c_string}{QCString}}(bibdata));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00262}00262     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(bibFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00263}00263     \textcolor{keywordflow}{if} (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00264}00264     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00265}00265       \textcolor{keywordflow}{if} (!bibFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00266}00266       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00267}00267         ++i;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00268}00268         \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}{copyFile}}(bibFile,bibOutputDir + \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_abcc2fda3b5de9ceebd210f6faaa349ec}{bibTmpFile}} + \mbox{\hyperlink{class_q_c_string}{QCString}}().setNum(i) + \textcolor{stringliteral}{"{}.bib"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00269}00269         bibOutputFiles = bibOutputFiles + \textcolor{stringliteral}{"{} "{}} + \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_acec8b941b54c02ca0bff82944d34cb5a}{bibTmpDir}} + \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_abcc2fda3b5de9ceebd210f6faaa349ec}{bibTmpFile}} + \mbox{\hyperlink{class_q_c_string}{QCString}}().\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(i) + \textcolor{stringliteral}{"{}.bib"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00270}00270       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00271}00271     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00272}00272   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00273}00273 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00274}00274   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} oldDir = \mbox{\hyperlink{class_dir_a0f62ab07068c5f966bca7ce280f4ed49}{Dir::currentDirPath}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00275}00275   \mbox{\hyperlink{class_dir_ab3b09edc88159dc30426999bdc7d6d7b}{Dir::setCurrent}}(outputDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00277}00277   \textcolor{comment}{// 5. run bib2xhtml perl script on the generated file which will insert the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00278}00278   \textcolor{comment}{//    bibliography in citelist.doc}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00279}00279   \textcolor{keywordtype}{int} exitCode;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00280}00280   \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00281}00281   \mbox{\hyperlink{class_q_c_string}{QCString}} perlArgs = \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}+bib2xhtmlFile+\textcolor{stringliteral}{"{}\(\backslash\)"{} "{}}+bibOutputFiles+\textcolor{stringliteral}{"{} \(\backslash\)"{}"{}}+ citeListFile+\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00282}00282   \textcolor{keywordflow}{if} (citeDebug) perlArgs+=\textcolor{stringliteral}{"{} -\/d"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00283}00283   \textcolor{keywordflow}{if} ((exitCode=\mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable::system}}(\textcolor{stringliteral}{"{}perl"{}},perlArgs)) != 0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00284}00284   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00285}00285     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Problems running bibtex. Verify that the command 'perl -\/-\/version' works from the command line. Exit code: \%d\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00286}00286         exitCode);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00287}00287   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00288}00288   \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00289}00289 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00290}00290   \mbox{\hyperlink{class_dir_ab3b09edc88159dc30426999bdc7d6d7b}{Dir::setCurrent}}(oldDir);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00291}00291 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00292}00292   \textcolor{comment}{// 6. read back the file}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00293}00293   \mbox{\hyperlink{class_q_c_string}{QCString}} doc;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00294}00294   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00295}00295     \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{std::ifstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(citeListFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),std::ifstream::in);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00296}00296     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00297}00297     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00298}00298       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}could not open file \%s for reading\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(citeListFile));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00299}00299     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00300}00300 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00301}00301     \textcolor{keywordtype}{bool} insideBib=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00302}00302     \textcolor{comment}{//printf("{}input=[\%s]\(\backslash\)n"{},qPrint(input));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00303}00303     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} lineStr;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00304}00304     \textcolor{keywordflow}{while} (getline(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}},lineStr))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00305}00305     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00306}00306       \mbox{\hyperlink{class_q_c_string}{QCString}} line(lineStr);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00307}00307       \textcolor{comment}{//printf("{}pos=\%d s=\%d line=[\%s]\(\backslash\)n"{},pos,s,qPrint(line));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00308}00308 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00309}00309       \textcolor{keywordflow}{if}      (line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{stringliteral}{"{}<!-\/-\/ BEGIN BIBLIOGRAPHY"{}})!=-\/1) insideBib=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00310}00310       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{stringliteral}{"{}<!-\/-\/ END BIBLIOGRAPH"{}})!=-\/1)    insideBib=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00311}00311       \textcolor{comment}{// determine text to use at the location of the @cite command}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00312}00312       \textcolor{keywordflow}{if} (insideBib \&\& ((i=line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{stringliteral}{"{}name=\(\backslash\)"{}CITEREF\_"{}}))!=-\/1 || (i=line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{stringliteral}{"{}name=\(\backslash\)"{}\#CITEREF\_"{}}))!=-\/1))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00313}00313       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00314}00314         \textcolor{keywordtype}{int} j=line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{stringliteral}{"{}\(\backslash\)"{}>["{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00315}00315         \textcolor{keywordtype}{int} k=line.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{stringliteral}{"{}]</a>"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00316}00316         \textcolor{keywordflow}{if} (j!=-\/1 \&\& k!=-\/1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00317}00317         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00318}00318           \textcolor{keywordtype}{size\_t} ui=\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(i);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00319}00319           \textcolor{keywordtype}{size\_t} uj=\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(j);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00320}00320           \textcolor{keywordtype}{size\_t} uk=\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(k);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00321}00321           \mbox{\hyperlink{class_q_c_string}{QCString}} label = line.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(ui+14,uj-\/ui-\/14);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00322}00322           \mbox{\hyperlink{class_q_c_string}{QCString}} number = line.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(uj+2,uk-\/uj-\/1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00323}00323           line = line.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(ui+14) + label + line.\mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{right}}(line.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()-\/uj);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00324}00324           \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.find(label.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00325}00325           \textcolor{comment}{//printf("{}label='\%s' number='\%s' => \%p\(\backslash\)n"{},qPrint(label),qPrint(number),it-\/>second.get());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00326}00326           \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_citation_manager_afa3ff0a3bc7aed39d21d0d228586cba3}{p}}-\/>entries.end())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00327}00327           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00328}00328             it-\/>second-\/>setText(number);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00329}00329           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00330}00330         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00331}00331       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00332}00332       \textcolor{keywordflow}{if} (insideBib) doc+=line+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00333}00333     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00334}00334     \textcolor{comment}{//printf("{}doc=[\%s]\(\backslash\)n"{},qPrint(doc));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00335}00335   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00336}00336 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00337}00337   \textcolor{comment}{// 7. add it as a page}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00338}00338   \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a118dacc3a4f140d0321d4fb170c8e8f6}{addRelatedPage}}(\mbox{\hyperlink{class_citation_manager_ade05cab342d2aec59e05a3b7ec166a19}{fileName}}(),\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a3a5e754a2583632dfe5d49a1f7dd5b74}{trCiteReferences}}(),doc,\mbox{\hyperlink{class_citation_manager_ade05cab342d2aec59e05a3b7ec166a19}{fileName}}(),1,1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00339}00339 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00340}00340   \textcolor{comment}{// 8. for latex we just copy the bib files to the output and let}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00341}00341   \textcolor{comment}{//    latex do this work.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00342}00342   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(GENERATE\_LATEX))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00343}00343   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00344}00344     \textcolor{comment}{// copy bib files to the latex output dir}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00345}00345     \mbox{\hyperlink{class_q_c_string}{QCString}} latexOutputDir = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_OUTPUT)+\textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00346}00346     i = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00347}00347     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&bibdata : citeDataList)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00348}00348     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00349}00349       \mbox{\hyperlink{class_q_c_string}{QCString}} bibFile = \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_a883e572433098a2f3714d29ddc109fc8}{getBibFile}}(\mbox{\hyperlink{class_q_c_string}{QCString}}(bibdata));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00350}00350       \mbox{\hyperlink{class_file_info}{FileInfo}} fi(bibFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00351}00351       \textcolor{keywordflow}{if} (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00352}00352       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00353}00353         \textcolor{keywordflow}{if} (!bibFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00354}00354         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00355}00355           \textcolor{comment}{// bug\_700510, multiple times the same name were overwriting; creating new names}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00356}00356           \textcolor{comment}{// also for names with spaces}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00357}00357           ++i;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00358}00358           \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}{copyFile}}(bibFile,latexOutputDir + \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_abcc2fda3b5de9ceebd210f6faaa349ec}{bibTmpFile}} + \mbox{\hyperlink{class_q_c_string}{QCString}}().setNum(i) + \textcolor{stringliteral}{"{}.bib"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00359}00359         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00360}00360       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00361}00361       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00362}00362       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00363}00363         \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}bib file \%s not found!\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(bibFile));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00364}00364       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00365}00365     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00366}00366   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00367}00367 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00368}00368   \textcolor{comment}{// 9. Remove temporary files}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00369}00369   \textcolor{keywordflow}{if} (!citeDebug)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00370}00370   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00371}00371     thisDir.\mbox{\hyperlink{class_dir_a5a64060f8e1731e8f00da7e8f7051e4b}{remove}}(citeListFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00372}00372     thisDir.\mbox{\hyperlink{class_dir_a5a64060f8e1731e8f00da7e8f7051e4b}{remove}}(doxygenBstFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00373}00373     thisDir.\mbox{\hyperlink{class_dir_a5a64060f8e1731e8f00da7e8f7051e4b}{remove}}(bib2xhtmlFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00374}00374     \textcolor{comment}{// we might try to remove too many files as empty files didn't get a corresponding new file}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00375}00375     \textcolor{comment}{// but the remove function does not emit an error for it and we don't catch the error return}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00376}00376     \textcolor{comment}{// so no problem.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00377}00377     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 1; j <= citeDataList.size(); j++)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00378}00378     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00379}00379       \mbox{\hyperlink{class_q_c_string}{QCString}} bibFile = bibOutputDir + \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_abcc2fda3b5de9ceebd210f6faaa349ec}{bibTmpFile}} + \mbox{\hyperlink{class_q_c_string}{QCString}}().\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a718b4eb2652c286f4d42dc18a8e71a1a}{ulong}}\textcolor{keyword}{>}(j)) + \textcolor{stringliteral}{"{}.bib"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00380}00380       thisDir.\mbox{\hyperlink{class_dir_a5a64060f8e1731e8f00da7e8f7051e4b}{remove}}(bibFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00381}00381     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00382}00382     thisDir.\mbox{\hyperlink{class_dir_ab0dd8833adb3178d976d3125955fbe8c}{rmdir}}(bibOutputDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00383}00383   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00384}00384 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00385}00385 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00386}\mbox{\hyperlink{class_citation_manager_a37a4055f986c73a8de48cd5d19bdd2dc}{00386}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_citation_manager_a37a4055f986c73a8de48cd5d19bdd2dc}{CitationManager::latexBibFiles}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00387}00387 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00388}00388   \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00389}00389   \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \&citeDataList = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\_getList}}(CITE\_BIB\_FILES);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00390}00390   \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00391}00391   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&bibdata : citeDataList)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00392}00392   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00393}00393     \mbox{\hyperlink{class_q_c_string}{QCString}} bibFile = \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_a883e572433098a2f3714d29ddc109fc8}{getBibFile}}(\mbox{\hyperlink{class_q_c_string}{QCString}}(bibdata));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00394}00394     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(bibFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00395}00395     \textcolor{keywordflow}{if} (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00396}00396     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00397}00397       \textcolor{keywordflow}{if} (!bibFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00398}00398       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00399}00399         \textcolor{keywordflow}{if} (i) result += \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00400}00400         i++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00401}00401         result += \mbox{\hyperlink{build_2doxygen_2src_2cite_8cpp_abcc2fda3b5de9ceebd210f6faaa349ec}{bibTmpFile}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00402}00402         result += \mbox{\hyperlink{class_q_c_string}{QCString}}().\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(i);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00403}00403       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00404}00404     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00405}00405   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00406}00406   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2cite_8cpp_source_l00407}00407 \}}
+
+\end{DoxyCode}

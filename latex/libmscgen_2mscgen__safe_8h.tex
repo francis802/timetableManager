@@ -1,0 +1,164 @@
+\hypertarget{libmscgen_2mscgen__safe_8h}{}\doxysection{doxygen/libmscgen/mscgen\+\_\+safe.h File Reference}
+\label{libmscgen_2mscgen__safe_8h}\index{doxygen/libmscgen/mscgen\_safe.h@{doxygen/libmscgen/mscgen\_safe.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{libmscgen_2mscgen__safe_8h_ac0a6c663a4a89f04324124e5157cb091}{realloc\+\_\+s}} (void $\ast$ptr, size\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{size}})
+\item 
+void $\ast$ \mbox{\hyperlink{libmscgen_2mscgen__safe_8h_a2b14167e1a2be2b9425446096e4c639e}{malloc\+\_\+s}} (size\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{size}})
+\item 
+void $\ast$ \mbox{\hyperlink{libmscgen_2mscgen__safe_8h_a18def06bc443ca0ceae4326e41a16f2e}{zalloc\+\_\+s}} (size\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{size}})
+\item 
+char $\ast$ \mbox{\hyperlink{libmscgen_2mscgen__safe_8h_acdf59a208c4c4eddb184574769d59b13}{strdup\+\_\+s}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+const char $\ast$ \mbox{\hyperlink{libmscgen_2mscgen__safe_8h_a8ea00ae9f04590aaf43df11407ef6a1b}{mscgen\+\_\+getenv\+\_\+s}} (const char $\ast$name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{libmscgen_2mscgen__safe_8h_a2b14167e1a2be2b9425446096e4c639e}\label{libmscgen_2mscgen__safe_8h_a2b14167e1a2be2b9425446096e4c639e}} 
+\index{mscgen\_safe.h@{mscgen\_safe.h}!malloc\_s@{malloc\_s}}
+\index{malloc\_s@{malloc\_s}!mscgen\_safe.h@{mscgen\_safe.h}}
+\doxysubsubsection{\texorpdfstring{malloc\_s()}{malloc\_s()}}
+{\footnotesize\ttfamily void $\ast$ malloc\+\_\+s (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source_l00077}{77}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source}{mscgen\+\_\+safe.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078 \{}
+\DoxyCodeLine{00079     \textcolor{keywordtype}{void} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = malloc(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{checkNotNull}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, \textcolor{stringliteral}{"{}malloc() failed"{}});}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}};}
+\DoxyCodeLine{00084 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{check\+Not\+Null()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__api_8c_aeba6321dd352d150b3db89b5469be64c}{compute\+Label\+Lines()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__msc_8c_a3297050d3059b7f1cc0024aae5249998}{Msc\+Alloc()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__msc_8c_a1dd92ff4fd16a006d5a7a9bd097a65d4}{Msc\+Alloc\+Arc()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__msc_8c_abae1845c75f158026273f6345ad7d240}{Msc\+Alloc\+Attrib()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__msc_8c_af6d67ce460a03de4c12d9c4c1ec4fea1}{Msc\+Alloc\+Entity()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__msc_8c_ae0757dda3d0c8c189d01e59c284a013e}{Msc\+Alloc\+Opt()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__api_8c_a3d4659fc3ee335a1e0acf59699ef1ffa}{mscgen\+\_\+generate()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a838da17cdabe1cb0fe9136e76e82f187}{Ps\+Init()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{libmscgen_2mscgen__safe_8h_a8ea00ae9f04590aaf43df11407ef6a1b}\label{libmscgen_2mscgen__safe_8h_a8ea00ae9f04590aaf43df11407ef6a1b}} 
+\index{mscgen\_safe.h@{mscgen\_safe.h}!mscgen\_getenv\_s@{mscgen\_getenv\_s}}
+\index{mscgen\_getenv\_s@{mscgen\_getenv\_s}!mscgen\_safe.h@{mscgen\_safe.h}}
+\doxysubsubsection{\texorpdfstring{mscgen\_getenv\_s()}{mscgen\_getenv\_s()}}
+{\footnotesize\ttfamily const char $\ast$ mscgen\+\_\+getenv\+\_\+s (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source_l00105}{105}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source}{mscgen\+\_\+safe.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106 \{}
+\DoxyCodeLine{00107     \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{getenv}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00108 }
+\DoxyCodeLine{00109     \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} == NULL) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}};}
+\DoxyCodeLine{00112 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable\+::getenv()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__gd__out_8c_a00b3163b29eac24a8f4c24ff8ad4efb5}{gdo\+Text\+Height()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__gd__out_8c_a9e9929343a6ed58a8e75a9e0b1e27e47}{gdo\+Text\+R()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__gd__out_8c_acbc937c3f6c74b313c9aeff650e2c30e}{gdo\+Text\+Width()}}.
+
+\mbox{\Hypertarget{libmscgen_2mscgen__safe_8h_ac0a6c663a4a89f04324124e5157cb091}\label{libmscgen_2mscgen__safe_8h_ac0a6c663a4a89f04324124e5157cb091}} 
+\index{mscgen\_safe.h@{mscgen\_safe.h}!realloc\_s@{realloc\_s}}
+\index{realloc\_s@{realloc\_s}!mscgen\_safe.h@{mscgen\_safe.h}}
+\doxysubsubsection{\texorpdfstring{realloc\_s()}{realloc\_s()}}
+{\footnotesize\ttfamily void $\ast$ realloc\+\_\+s (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source_l00068}{68}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source}{mscgen\+\_\+safe.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069 \{}
+\DoxyCodeLine{00070     \textcolor{keywordtype}{void} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = realloc(ptr, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{checkNotNull}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, \textcolor{stringliteral}{"{}realloc() failed"{}});}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}};}
+\DoxyCodeLine{00075 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{check\+Not\+Null()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__api_8c_aeba6321dd352d150b3db89b5469be64c}{compute\+Label\+Lines()}}.
+
+\mbox{\Hypertarget{libmscgen_2mscgen__safe_8h_acdf59a208c4c4eddb184574769d59b13}\label{libmscgen_2mscgen__safe_8h_acdf59a208c4c4eddb184574769d59b13}} 
+\index{mscgen\_safe.h@{mscgen\_safe.h}!strdup\_s@{strdup\_s}}
+\index{strdup\_s@{strdup\_s}!mscgen\_safe.h@{mscgen\_safe.h}}
+\doxysubsubsection{\texorpdfstring{strdup\_s()}{strdup\_s()}}
+{\footnotesize\ttfamily char $\ast$ strdup\+\_\+s (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source_l00096}{96}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source}{mscgen\+\_\+safe.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097 \{}
+\DoxyCodeLine{00098     \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = strdup(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{checkNotNull}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, \textcolor{stringliteral}{"{}strdup() failed"{}});}
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}};}
+\DoxyCodeLine{00103 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{check\+Not\+Null()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__api_8c_aeba6321dd352d150b3db89b5469be64c}{compute\+Label\+Lines()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__api_8c_acdd38206d295f4257eb1768061c5ef9c}{split\+String\+To\+Width()}}.
+
+\mbox{\Hypertarget{libmscgen_2mscgen__safe_8h_a18def06bc443ca0ceae4326e41a16f2e}\label{libmscgen_2mscgen__safe_8h_a18def06bc443ca0ceae4326e41a16f2e}} 
+\index{mscgen\_safe.h@{mscgen\_safe.h}!zalloc\_s@{zalloc\_s}}
+\index{zalloc\_s@{zalloc\_s}!mscgen\_safe.h@{mscgen\_safe.h}}
+\doxysubsubsection{\texorpdfstring{zalloc\_s()}{zalloc\_s()}}
+{\footnotesize\ttfamily void $\ast$ zalloc\+\_\+s (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source_l00086}{86}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_source}{mscgen\+\_\+safe.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087 \{}
+\DoxyCodeLine{00088     \textcolor{keywordtype}{void} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = malloc(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{checkNotNull}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, \textcolor{stringliteral}{"{}malloc() failed"{}});}
+\DoxyCodeLine{00091     memset(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, 0, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}};}
+\DoxyCodeLine{00094 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2fc57d0c9f9debb6640dfa1e5ad8973b}{check\+Not\+Null()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__api_8c_a1fcbc71716cb3a502ba3d547cae8c211}{compute\+Canvas\+Size()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__gd__out_8c_a7eae77c2a3579e84ec0493206384a971}{Gdo\+Init()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__msc_8c_a9570207ce7a2eaadc5b1e46beb924ebf}{Msc\+Link\+Arc()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__msc_8c_ab98cb6c4ebdabcb753dd2ab36f26c9c0}{Msc\+Link\+Entity()}}.
+

@@ -1,0 +1,182 @@
+\hypertarget{src_2constexp_8l_source}{}\doxysection{constexp.\+l}
+\label{src_2constexp_8l_source}\index{doxygen/src/constexp.l@{doxygen/src/constexp.l}}
+\mbox{\hyperlink{src_2constexp_8l}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00003}00003 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00005}00005 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00006}00006 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00007}00007 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00008}00008 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00009}00009 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby }}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00010}00010 \textcolor{comment}{ * granted. No representations are made about the suitability of this software }}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00011}00011 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00012}00012 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00014}00014 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00015}00015 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00016}00016 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00017}00017 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00018}00018 \%option never-\/interactive}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00019}00019 \%option prefix="{}constexpYY"{}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00020}00020 \%option nounput}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00021}00021 \%option reentrant bison-\/bridge}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00022}00022 \%option extra-\/type="{}struct constexpYY\_state *"{}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00023}00023 \%top\{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00024}00024 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00025}00025 \textcolor{comment}{// forward declare yyscan\_t to improve typesafety}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00026}00026 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2constexp__p_8h}{constexp\_p.h}}"{}}  }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00029}00029 \%\{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00031}00031 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2constexp_8h}{constexp.h}}"{}}  }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00032}00032 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2cppvalue_8h}{cppvalue.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00033}00033 \textcolor{preprocessor}{\#include "{}ce\_parse.hpp"{}} \textcolor{comment}{// generated header file}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00034}00034 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2message_8h}{message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00036}\mbox{\hyperlink{src_2constexp_8l_a85523a0c7d95c059d251b4e9829947aa}{00036}} \textcolor{preprocessor}{\#define YY\_NO\_INPUT 1}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00037}\mbox{\hyperlink{src_2constexp_8l_ae78ac56cd1f29572e967ed7636952d15}{00037}} \textcolor{preprocessor}{\#define YY\_NO\_UNISTD\_H 1}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00039}\mbox{\hyperlink{src_2constexp_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{00039}} \textcolor{preprocessor}{\#define USE\_STATE2STRING 0}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00041}00041 \textcolor{preprocessor}{\#if USE\_STATE2STRING}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00042}00042 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a6458e40b3ca285dc65cd5df59d63e5a5}{stateToString}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00043}00043 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00045}00045 \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{src_2constexp_8l_a1b339db61de62f7ec1c6116ba10912ae}{yyread}}(\textcolor{keywordtype}{char} *buf,\textcolor{keywordtype}{int} max\_size,\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\_t}} yyscanner);}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00047}00047 \textcolor{preprocessor}{\#undef  YY\_INPUT}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00048}\mbox{\hyperlink{src_2constexp_8l_aacfdca45fa4beb8b06172525a53c424a}{00048}} \textcolor{preprocessor}{\#define YY\_INPUT(buf,result,max\_size) result=yyread(buf,max\_size,yyscanner);}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00050}00050 \textcolor{comment}{// otherwise the filename would be the name of the converted file (*.cpp instead of *.l)}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00051}\mbox{\hyperlink{src_2constexp_8l_acb5f8818546103e3b804ab8606b52c4a}{00051}} \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{src_2constexp_8l_acb5f8818546103e3b804ab8606b52c4a}{getLexerFILE}}() \{\textcolor{keywordflow}{return} \_\_FILE\_\_;\}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00052}\mbox{\hyperlink{src_2constexp_8l_adbe0797eba7c28545d6937f8f6bf1cf8}{00052}} \textcolor{preprocessor}{\#define LEX\_NO\_INPUT\_FILENAME}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00053}00053 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2doxygen__lex_8h}{doxygen\_lex.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00055}00055 \%\}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00057}00057 CONSTSUFFIX ([uU][lL]?[lL]?)|([lL][lL]?[uU]?)}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00060}\mbox{\hyperlink{src_2constexp_8l_adaeeff4d42ab7f57df3ad648082015d4}{00060}} \%\%}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00062}00062 \textcolor{stringliteral}{"{}?"{}}                \{ \textcolor{keywordflow}{return} TOK\_QUESTIONMARK; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00063}00063 \textcolor{stringliteral}{"{}:"{}}                \{ \textcolor{keywordflow}{return} TOK\_COLON; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00064}00064 \textcolor{stringliteral}{"{}||"{}}                   \{ \textcolor{keywordflow}{return} TOK\_OR; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00065}00065 \textcolor{stringliteral}{"{}\&\&"{}}                   \{ \textcolor{keywordflow}{return} TOK\_AND; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00066}00066 \textcolor{stringliteral}{"{}|"{}}                \{ \textcolor{keywordflow}{return} TOK\_BITWISEOR; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00067}00067 \textcolor{stringliteral}{"{}\string^"{}}                \{ \textcolor{keywordflow}{return} TOK\_BITWISEXOR; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00068}00068 \textcolor{stringliteral}{"{}\&"{}}                \{ \textcolor{keywordflow}{return} TOK\_AMPERSAND; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00069}00069 \textcolor{stringliteral}{"{}!="{}}                       \{ \textcolor{keywordflow}{return} TOK\_NOTEQUAL; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00070}00070 \textcolor{stringliteral}{"{}=="{}}                       \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__language_8h_a5b4f369fb03faf87d9587e66a49b9492}{TOK\_EQUAL}}; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00071}00071 \textcolor{stringliteral}{"{}<"{}}                        \{ \textcolor{keywordflow}{return} TOK\_LESSTHAN; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00072}00072 \textcolor{stringliteral}{"{}>"{}}                        \{ \textcolor{keywordflow}{return} TOK\_GREATERTHAN; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00073}00073 \textcolor{stringliteral}{"{}<="{}}                       \{ \textcolor{keywordflow}{return} TOK\_LESSTHANOREQUALTO; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00074}00074 \textcolor{stringliteral}{"{}>="{}}                       \{ \textcolor{keywordflow}{return} TOK\_GREATERTHANOREQUALTO; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00075}00075 \textcolor{stringliteral}{"{}<<"{}}                       \{ \textcolor{keywordflow}{return} TOK\_SHIFTLEFT; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00076}00076 \textcolor{stringliteral}{"{}>>"{}}                       \{ \textcolor{keywordflow}{return} TOK\_SHIFTRIGHT; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00077}00077 \textcolor{stringliteral}{"{}+"{}}                        \{ \textcolor{keywordflow}{return} TOK\_PLUS; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00078}00078 \textcolor{stringliteral}{"{}-\/"{}}                        \{ \textcolor{keywordflow}{return} TOK\_MINUS; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00079}00079 \textcolor{stringliteral}{"{}*"{}}                        \{ \textcolor{keywordflow}{return} TOK\_STAR; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00080}00080 \textcolor{stringliteral}{"{}/"{}}                        \{ \textcolor{keywordflow}{return} TOK\_DIVIDE; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00081}00081 \textcolor{stringliteral}{"{}\%"{}}                        \{ \textcolor{keywordflow}{return} TOK\_MOD; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00082}00082 \textcolor{stringliteral}{"{}\string~"{}}                        \{ \textcolor{keywordflow}{return} TOK\_TILDE; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00083}00083 \textcolor{stringliteral}{"{}!"{}}                        \{ \textcolor{keywordflow}{return} TOK\_NOT; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00084}00084 \textcolor{stringliteral}{"{}("{}}                        \{ \textcolor{keywordflow}{return} TOK\_LPAREN; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00085}00085 \textcolor{stringliteral}{"{})"{}}                        \{ \textcolor{keywordflow}{return} TOK\_RPAREN; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00086}00086 \textcolor{stringliteral}{"{}'"{}(([\string^\(\backslash\)'\(\backslash\)n\(\backslash\)r\(\backslash\)\(\backslash\)]+)|(\(\backslash\)\(\backslash\)(([ntvbrfa\(\backslash\)\(\backslash\)?'\(\backslash\)"{}])|([0-\/9]+)|([xX][0-\/9a-\/fA-\/F]+))))"{}'"{}}   \{ }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00087}00087                                      yyextra-\/>strToken=yytext;  }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00088}00088                      \textcolor{keywordflow}{return} TOK\_CHARACTER; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00089}00089                    \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00090}00090 \textcolor{stringliteral}{0[0-\/7]*\{CONSTSUFFIX\}?}              \{ yyextra-\/>strToken=yytext; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00091}00091                      \textcolor{keywordflow}{return} TOK\_OCTALINT; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00092}00092                    \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00093}00093 \textcolor{stringliteral}{[1-\/9][0-\/9]*\{CONSTSUFFIX\}?}          \{ yyextra-\/>strToken=yytext; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00094}00094                      \textcolor{keywordflow}{return} TOK\_DECIMALINT; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00095}00095                    \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00096}00096 \textcolor{stringliteral}{(0x|0X)[0-\/9a-\/fA-\/F]+\{CONSTSUFFIX\}?}  \{ yyextra-\/>strToken=yytext+2; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00097}00097                                      \textcolor{keywordflow}{return} TOK\_HEXADECIMALINT; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00098}00098                                    \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00099}00099 \textcolor{stringliteral}{(0b|0B)[01]+\{CONSTSUFFIX\}?}         \{ yyextra-\/>strToken=yytext+2; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00100}00100                                      \textcolor{keywordflow}{return} TOK\_BINARYINT; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00101}00101                                    \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00102}00102 \textcolor{stringliteral}{(([0-\/9]+\(\backslash\).[0-\/9]*)|([0-\/9]*\(\backslash\).[0-\/9]+))([eE]([\(\backslash\)-\/\(\backslash\)+])?[0-\/9]+)?([fFlL])?} \{ }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00103}00103                                      yyextra-\/>strToken=yytext; \textcolor{keywordflow}{return} TOK\_FLOAT; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00104}00104                                    \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00105}00105 \textcolor{stringliteral}{([0-\/9]+[eE])([\(\backslash\)-\/\(\backslash\)+])?[0-\/9]+([fFlL])?} \{ }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00106}00106                                      yyextra-\/>strToken=yytext; \textcolor{keywordflow}{return} TOK\_FLOAT; }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00107}00107                        \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00108}00108 \textcolor{stringliteral}{.}                  }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00109}00109 \textcolor{stringliteral}{\(\backslash\)n}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00111}00111 \%\%}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00113}\mbox{\hyperlink{src_2constexp_8l_a1b339db61de62f7ec1c6116ba10912ae}{00113}} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{src_2constexp_8l_a1b339db61de62f7ec1c6116ba10912ae}{yyread}}(\textcolor{keywordtype}{char} *buf,\textcolor{keywordtype}{int} max\_size,\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\_t}} yyscanner)}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00114}00114 \{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00115}00115   \textcolor{keyword}{struct }yyguts\_t *yyg = \textcolor{keyword}{static\_cast<}struct yyguts\_t*\textcolor{keyword}{>}(yyscanner);}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00116}00116   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=0;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00117}00117   \textcolor{keywordflow}{while}( c < max\_size \&\& yyextra-\/>inputString[yyextra-\/>inputPosition] )}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00118}00118   \{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00119}00119     *buf = yyextra-\/>inputString[yyextra-\/>inputPosition++] ;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00120}00120     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}++; buf++;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00121}00121   \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00122}00122   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00123}00123 \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00125}00125 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_const_expression_parser_1_1_private}{ConstExpressionParser::Private}}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00126}00126 \{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00127}00127   \mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\_t}} \mbox{\hyperlink{struct_const_expression_parser_1_1_private_a689df28fd22bcc350be6b75d3f7feb8a}{yyscanner}};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00128}00128   \textcolor{keyword}{struct }\mbox{\hyperlink{structconstexp_y_y__state}{constexpYY\_state}} \mbox{\hyperlink{struct_const_expression_parser_1_1_private_ac08762d90b1acca8ef18c8edd91586ed}{constexpYY\_extra}};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00129}00129 \};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00132}00132 \mbox{\hyperlink{class_const_expression_parser_a8ba102bcf860cb7e9efb6d7388084872}{ConstExpressionParser::ConstExpressionParser}}()}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00133}00133 \{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00134}00134   \mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}} = \textcolor{keyword}{new} \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00135}00135   constexpYYlex\_init\_extra(\&\mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}}-\/>\mbox{\hyperlink{struct_const_expression_parser_1_1_private_ac08762d90b1acca8ef18c8edd91586ed}{constexpYY\_extra}}, \&\mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}}-\/>\mbox{\hyperlink{struct_const_expression_parser_1_1_private_a689df28fd22bcc350be6b75d3f7feb8a}{yyscanner}});}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00136}00136 \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00138}00138 \mbox{\hyperlink{class_const_expression_parser_ad40306abed35d82c106853dfd0babb6a}{ConstExpressionParser::\string~ConstExpressionParser}}()}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00139}00139 \{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00140}00140   constexpYYlex\_destroy(\mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}}-\/>\mbox{\hyperlink{struct_const_expression_parser_1_1_private_a689df28fd22bcc350be6b75d3f7feb8a}{yyscanner}});}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00141}00141   \textcolor{keyword}{delete} \mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00142}00142 \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00144}00144 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_const_expression_parser_a49a7c5141111b8be29a9975d0fd2c7a6}{ConstExpressionParser::parse}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileName,\textcolor{keywordtype}{int} lineNr,\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00145}00145 \{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00146}00146   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)\mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}}-\/>\mbox{\hyperlink{struct_const_expression_parser_1_1_private_a689df28fd22bcc350be6b75d3f7feb8a}{yyscanner}};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00148}00148 \#ifdef FLEX\_DEBUG}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00149}00149   constexpYYset\_debug(1,\mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}}-\/>\mbox{\hyperlink{struct_const_expression_parser_1_1_private_a689df28fd22bcc350be6b75d3f7feb8a}{yyscanner}});}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00150}00150 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00152}00152   yyextra-\/>constExpFileName = fileName;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00153}00153   yyextra-\/>constExpLineNr = lineNr;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00154}00154   yyextra-\/>inputString = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00155}00155   yyextra-\/>inputPosition = 0;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00156}00156   constexpYYrestart( yyin, \mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}}-\/>\mbox{\hyperlink{struct_const_expression_parser_1_1_private_a689df28fd22bcc350be6b75d3f7feb8a}{yyscanner}} );}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00157}00157 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00158}00158   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \textcolor{keyword}{true}, \_\_FILE\_\_, fileName);}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00159}00159   \textcolor{comment}{//printf("{}Expression: '\%s'\(\backslash\)n"{},qPrint(s));}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00161}00161   \mbox{\hyperlink{build_2doxygen_2src_2constexp__p_8h_a84d0b91d2043b65d26cf1fb530541965}{constexpYYparse}}(\mbox{\hyperlink{class_const_expression_parser_a9f43507bd4f1fa08cce2e7915874543c}{p}}-\/>\mbox{\hyperlink{struct_const_expression_parser_1_1_private_a689df28fd22bcc350be6b75d3f7feb8a}{yyscanner}});}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00163}00163   \textcolor{comment}{//printf("{}Result: \%ld\(\backslash\)n"{},(long)g\_resultValue);}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00164}00164   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \textcolor{keyword}{false}, \_\_FILE\_\_, fileName);}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00165}00165   \textcolor{keywordtype}{bool} result = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\textcolor{keyword}{>}(yyextra-\/>resultValue)!=0;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00167}00167   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00168}00168 \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00169}00169 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00170}00170 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00171}\mbox{\hyperlink{src_2constexp_8l_a89c8bc9b205f903e22c757d76b46bda8}{00171}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2src_2constexp_8l_a89c8bc9b205f903e22c757d76b46bda8}{constexpYYwrap}}(\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\_t}} yyscanner) \{ \textcolor{keywordflow}{return} 1; \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00172}00172 \}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00174}00174 \textcolor{preprocessor}{\#if USE\_STATE2STRING}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00175}00175 \textcolor{preprocessor}{\#include "{}constexp.l.h"{}}}
+\DoxyCodeLine{\Hypertarget{src_2constexp_8l_source_l00176}00176 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

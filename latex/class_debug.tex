@@ -1,0 +1,880 @@
+\hypertarget{class_debug}{}\doxysection{Debug Class Reference}
+\label{class_debug}\index{Debug@{Debug}}
+
+
+{\ttfamily \#include $<$debug.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} \{ \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Quiet}} = 0x00000000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{Find\+Members}} = 0x00000001
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Functions}} = 0x00000002
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Variables}} = 0x00000004
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Preprocessor}} = 0x00000008
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Classes}} = 0x00000010
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Comment\+Cnv}} = 0x00000020
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{Comment\+Scan}} = 0x00000040
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{Print\+Tree}} = 0x00000100
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Time}} = 0x00000200
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{Ext\+Cmd}} = 0x00000400
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}{Markdown}} = 0x00000800
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{Filter\+Output}} = 0x00001000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Lex}} = 0x00002000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Plantuml}} = 0x00004000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{Fortran\+Fixed2\+Free}} = 0x00008000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Cite}} = 0x00010000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{No\+Line\+No}} = 0x00020000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Rtf}} = 0x00040000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}{Qhp}} = 0x00080000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}{Tag}} = 0x00100000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Quiet}} = 0x00000000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{Find\+Members}} = 0x00000001
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Functions}} = 0x00000002
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Variables}} = 0x00000004
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Preprocessor}} = 0x00000008
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Classes}} = 0x00000010
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Comment\+Cnv}} = 0x00000020
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{Comment\+Scan}} = 0x00000040
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{Print\+Tree}} = 0x00000100
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Time}} = 0x00000200
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{Ext\+Cmd}} = 0x00000400
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}{Markdown}} = 0x00000800
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{Filter\+Output}} = 0x00001000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Lex}} = 0x00002000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Plantuml}} = 0x00004000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{Fortran\+Fixed2\+Free}} = 0x00008000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Cite}} = 0x00010000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{No\+Line\+No}} = 0x00020000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Rtf}} = 0x00040000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}{Qhp}} = 0x00080000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}{Tag}} = 0x00100000
+ \}
+\item 
+enum \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} \{ \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Quiet}} = 0x00000000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{Find\+Members}} = 0x00000001
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Functions}} = 0x00000002
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Variables}} = 0x00000004
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Preprocessor}} = 0x00000008
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Classes}} = 0x00000010
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Comment\+Cnv}} = 0x00000020
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{Comment\+Scan}} = 0x00000040
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{Print\+Tree}} = 0x00000100
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Time}} = 0x00000200
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{Ext\+Cmd}} = 0x00000400
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}{Markdown}} = 0x00000800
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{Filter\+Output}} = 0x00001000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Lex}} = 0x00002000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Plantuml}} = 0x00004000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{Fortran\+Fixed2\+Free}} = 0x00008000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Cite}} = 0x00010000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{No\+Line\+No}} = 0x00020000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Rtf}} = 0x00040000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}{Qhp}} = 0x00080000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}{Tag}} = 0x00100000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Quiet}} = 0x00000000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{Find\+Members}} = 0x00000001
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Functions}} = 0x00000002
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Variables}} = 0x00000004
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Preprocessor}} = 0x00000008
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Classes}} = 0x00000010
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Comment\+Cnv}} = 0x00000020
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{Comment\+Scan}} = 0x00000040
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{Print\+Tree}} = 0x00000100
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Time}} = 0x00000200
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{Ext\+Cmd}} = 0x00000400
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}{Markdown}} = 0x00000800
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{Filter\+Output}} = 0x00001000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Lex}} = 0x00002000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Plantuml}} = 0x00004000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{Fortran\+Fixed2\+Free}} = 0x00008000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Cite}} = 0x00010000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{No\+Line\+No}} = 0x00020000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Rtf}} = 0x00040000
+, \newline
+\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}{Qhp}} = 0x00080000
+, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}{Tag}} = 0x00100000
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{print}} (\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} mask, int prio, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+static int \mbox{\hyperlink{class_debug_a3a7f45cdbb37ba05e88fc17a4017f29b}{set\+Flag}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&label)
+\item 
+static void \mbox{\hyperlink{class_debug_a52481ac5c0428f788b176515da2d75b1}{clear\+Flag}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&label)
+\item 
+static bool \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{is\+Flag\+Set}} (\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} mask)
+\item 
+static void \mbox{\hyperlink{class_debug_a2d8ac411144a380f838a1766118c6a03}{print\+Flags}} ()
+\item 
+static void \mbox{\hyperlink{class_debug_a666b610770dd7b7c0a87f2415aefe7d9}{set\+Priority}} (int \mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})
+\item 
+static void \mbox{\hyperlink{class_debug_ad34e8ad3d814a4cf8b29ce98fd7a96f5}{start\+Timer}} ()
+\item 
+static double \mbox{\hyperlink{class_debug_accc1a68a6e51b015caee0ab90ddb6e87}{elapsed\+Time}} ()
+\item 
+static void \mbox{\hyperlink{class_debug_a95e7eae2066582a2fb3015a537dff18b}{print}} (\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} mask, int prio, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+static int \mbox{\hyperlink{class_debug_a99f4da4678761ac45dbcb13232eb799f}{set\+Flag}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&label)
+\item 
+static void \mbox{\hyperlink{class_debug_ac00126a0fceef1b241ec3f214158e1f5}{clear\+Flag}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&label)
+\item 
+static bool \mbox{\hyperlink{class_debug_aac5e6e68968e79e3aefb39fae1b01e2a}{is\+Flag\+Set}} (\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} mask)
+\item 
+static void \mbox{\hyperlink{class_debug_acb4065e5cb676cbee54bb6edb0d6bb51}{print\+Flags}} ()
+\item 
+static void \mbox{\hyperlink{class_debug_ae37e4a7d51da5013d9f91af0b86924c3}{set\+Priority}} (int \mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})
+\item 
+static void \mbox{\hyperlink{class_debug_adb9309e98d11f40d46a39bd073397ee1}{start\+Timer}} ()
+\item 
+static double \mbox{\hyperlink{class_debug_a9b6582b2d13a2f6d020e72c70cc84942}{elapsed\+Time}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{cur\+Mask}} = \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Debug\+::\+Quiet}}
+\item 
+static int \mbox{\hyperlink{class_debug_a096a277ad5d789482e89ab2cd04f77ff}{cur\+Prio}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_class}{Class}} containing a print function for diagnostics. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source_l00022}{22}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source}{debug.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96}\label{class_debug_a9e0b892a8030a4f64076850777991c96}} 
+\index{Debug@{Debug}!DebugMask@{DebugMask}}
+\index{DebugMask@{DebugMask}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{DebugMask}{DebugMask}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+::\+Debug\+Mask}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Quiet@{Quiet}!Debug@{Debug}}\index{Debug@{Debug}!Quiet@{Quiet}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}} 
+Quiet&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FindMembers@{FindMembers}!Debug@{Debug}}\index{Debug@{Debug}!FindMembers@{FindMembers}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}\label{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}} 
+Find\+Members&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Functions@{Functions}!Debug@{Debug}}\index{Debug@{Debug}!Functions@{Functions}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}} 
+Functions&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Variables@{Variables}!Debug@{Debug}}\index{Debug@{Debug}!Variables@{Variables}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}} 
+Variables&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Preprocessor@{Preprocessor}!Debug@{Debug}}\index{Debug@{Debug}!Preprocessor@{Preprocessor}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}\label{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}} 
+Preprocessor&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Classes@{Classes}!Debug@{Debug}}\index{Debug@{Debug}!Classes@{Classes}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}} 
+Classes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentCnv@{CommentCnv}!Debug@{Debug}}\index{Debug@{Debug}!CommentCnv@{CommentCnv}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}\label{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}} 
+Comment\+Cnv&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentScan@{CommentScan}!Debug@{Debug}}\index{Debug@{Debug}!CommentScan@{CommentScan}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}} 
+Comment\+Scan&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PrintTree@{PrintTree}!Debug@{Debug}}\index{Debug@{Debug}!PrintTree@{PrintTree}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}\label{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}} 
+Print\+Tree&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Time@{Time}!Debug@{Debug}}\index{Debug@{Debug}!Time@{Time}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}\label{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}} 
+Time&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExtCmd@{ExtCmd}!Debug@{Debug}}\index{Debug@{Debug}!ExtCmd@{ExtCmd}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}\label{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}} 
+Ext\+Cmd&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Markdown@{Markdown}!Debug@{Debug}}\index{Debug@{Debug}!Markdown@{Markdown}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}\label{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}} 
+Markdown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FilterOutput@{FilterOutput}!Debug@{Debug}}\index{Debug@{Debug}!FilterOutput@{FilterOutput}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}\label{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}} 
+Filter\+Output&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Lex@{Lex}!Debug@{Debug}}\index{Debug@{Debug}!Lex@{Lex}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}} 
+Lex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Plantuml@{Plantuml}!Debug@{Debug}}\index{Debug@{Debug}!Plantuml@{Plantuml}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}} 
+Plantuml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FortranFixed2Free@{FortranFixed2Free}!Debug@{Debug}}\index{Debug@{Debug}!FortranFixed2Free@{FortranFixed2Free}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}} 
+Fortran\+Fixed2\+Free&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cite@{Cite}!Debug@{Debug}}\index{Debug@{Debug}!Cite@{Cite}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}\label{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}} 
+Cite&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoLineNo@{NoLineNo}!Debug@{Debug}}\index{Debug@{Debug}!NoLineNo@{NoLineNo}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}\label{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}} 
+No\+Line\+No&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rtf@{Rtf}!Debug@{Debug}}\index{Debug@{Debug}!Rtf@{Rtf}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}\label{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}} 
+Rtf&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Qhp@{Qhp}!Debug@{Debug}}\index{Debug@{Debug}!Qhp@{Qhp}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}} 
+Qhp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tag@{Tag}!Debug@{Debug}}\index{Debug@{Debug}!Tag@{Tag}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}} 
+Tag&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Quiet@{Quiet}!Debug@{Debug}}\index{Debug@{Debug}!Quiet@{Quiet}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}} 
+Quiet&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FindMembers@{FindMembers}!Debug@{Debug}}\index{Debug@{Debug}!FindMembers@{FindMembers}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}\label{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}} 
+Find\+Members&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Functions@{Functions}!Debug@{Debug}}\index{Debug@{Debug}!Functions@{Functions}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}} 
+Functions&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Variables@{Variables}!Debug@{Debug}}\index{Debug@{Debug}!Variables@{Variables}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}} 
+Variables&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Preprocessor@{Preprocessor}!Debug@{Debug}}\index{Debug@{Debug}!Preprocessor@{Preprocessor}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}\label{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}} 
+Preprocessor&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Classes@{Classes}!Debug@{Debug}}\index{Debug@{Debug}!Classes@{Classes}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}} 
+Classes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentCnv@{CommentCnv}!Debug@{Debug}}\index{Debug@{Debug}!CommentCnv@{CommentCnv}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}\label{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}} 
+Comment\+Cnv&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentScan@{CommentScan}!Debug@{Debug}}\index{Debug@{Debug}!CommentScan@{CommentScan}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}} 
+Comment\+Scan&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PrintTree@{PrintTree}!Debug@{Debug}}\index{Debug@{Debug}!PrintTree@{PrintTree}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}\label{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}} 
+Print\+Tree&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Time@{Time}!Debug@{Debug}}\index{Debug@{Debug}!Time@{Time}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}\label{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}} 
+Time&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExtCmd@{ExtCmd}!Debug@{Debug}}\index{Debug@{Debug}!ExtCmd@{ExtCmd}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}\label{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}} 
+Ext\+Cmd&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Markdown@{Markdown}!Debug@{Debug}}\index{Debug@{Debug}!Markdown@{Markdown}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}\label{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}} 
+Markdown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FilterOutput@{FilterOutput}!Debug@{Debug}}\index{Debug@{Debug}!FilterOutput@{FilterOutput}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}\label{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}} 
+Filter\+Output&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Lex@{Lex}!Debug@{Debug}}\index{Debug@{Debug}!Lex@{Lex}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}} 
+Lex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Plantuml@{Plantuml}!Debug@{Debug}}\index{Debug@{Debug}!Plantuml@{Plantuml}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}} 
+Plantuml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FortranFixed2Free@{FortranFixed2Free}!Debug@{Debug}}\index{Debug@{Debug}!FortranFixed2Free@{FortranFixed2Free}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}} 
+Fortran\+Fixed2\+Free&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cite@{Cite}!Debug@{Debug}}\index{Debug@{Debug}!Cite@{Cite}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}\label{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}} 
+Cite&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoLineNo@{NoLineNo}!Debug@{Debug}}\index{Debug@{Debug}!NoLineNo@{NoLineNo}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}\label{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}} 
+No\+Line\+No&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rtf@{Rtf}!Debug@{Debug}}\index{Debug@{Debug}!Rtf@{Rtf}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}\label{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}} 
+Rtf&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Qhp@{Qhp}!Debug@{Debug}}\index{Debug@{Debug}!Qhp@{Qhp}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}} 
+Qhp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tag@{Tag}!Debug@{Debug}}\index{Debug@{Debug}!Tag@{Tag}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}} 
+Tag&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source_l00025}{25}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source}{debug.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025                    \{ \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Quiet}}        = 0x00000000,}
+\DoxyCodeLine{00026                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{FindMembers}}  = 0x00000001,}
+\DoxyCodeLine{00027                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Functions}}    = 0x00000002,}
+\DoxyCodeLine{00028                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Variables}}    = 0x00000004,}
+\DoxyCodeLine{00029                      \mbox{\hyperlink{class_preprocessor}{Preprocessor}} = 0x00000008,}
+\DoxyCodeLine{00030                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Classes}}      = 0x00000010,}
+\DoxyCodeLine{00031                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{CommentCnv}}   = 0x00000020,}
+\DoxyCodeLine{00032                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{CommentScan}}  = 0x00000040,}
+\DoxyCodeLine{00033                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{PrintTree}}    = 0x00000100,}
+\DoxyCodeLine{00034                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Time}}         = 0x00000200,}
+\DoxyCodeLine{00035                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{ExtCmd}}       = 0x00000400,}
+\DoxyCodeLine{00036                      \mbox{\hyperlink{class_markdown}{Markdown}}     = 0x00000800,}
+\DoxyCodeLine{00037                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{FilterOutput}} = 0x00001000,}
+\DoxyCodeLine{00038                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Lex}}          = 0x00002000,}
+\DoxyCodeLine{00039                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Plantuml}}     = 0x00004000,}
+\DoxyCodeLine{00040                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{FortranFixed2Free}} = 0x00008000,}
+\DoxyCodeLine{00041                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Cite}}         = 0x00010000,}
+\DoxyCodeLine{00042                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{NoLineNo}}     = 0x00020000,}
+\DoxyCodeLine{00043                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Rtf}}          = 0x00040000,}
+\DoxyCodeLine{00044                      \mbox{\hyperlink{class_qhp}{Qhp}}          = 0x00080000,}
+\DoxyCodeLine{00045                      \mbox{\hyperlink{class_tag}{Tag}}          = 0x00100000,}
+\DoxyCodeLine{00046                    \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96}\label{class_debug_a9e0b892a8030a4f64076850777991c96}} 
+\index{Debug@{Debug}!DebugMask@{DebugMask}}
+\index{DebugMask@{DebugMask}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{DebugMask}{DebugMask}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+::\+Debug\+Mask}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Quiet@{Quiet}!Debug@{Debug}}\index{Debug@{Debug}!Quiet@{Quiet}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}} 
+Quiet&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FindMembers@{FindMembers}!Debug@{Debug}}\index{Debug@{Debug}!FindMembers@{FindMembers}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}\label{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}} 
+Find\+Members&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Functions@{Functions}!Debug@{Debug}}\index{Debug@{Debug}!Functions@{Functions}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}} 
+Functions&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Variables@{Variables}!Debug@{Debug}}\index{Debug@{Debug}!Variables@{Variables}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}} 
+Variables&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Preprocessor@{Preprocessor}!Debug@{Debug}}\index{Debug@{Debug}!Preprocessor@{Preprocessor}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}\label{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}} 
+Preprocessor&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Classes@{Classes}!Debug@{Debug}}\index{Debug@{Debug}!Classes@{Classes}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}} 
+Classes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentCnv@{CommentCnv}!Debug@{Debug}}\index{Debug@{Debug}!CommentCnv@{CommentCnv}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}\label{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}} 
+Comment\+Cnv&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentScan@{CommentScan}!Debug@{Debug}}\index{Debug@{Debug}!CommentScan@{CommentScan}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}} 
+Comment\+Scan&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PrintTree@{PrintTree}!Debug@{Debug}}\index{Debug@{Debug}!PrintTree@{PrintTree}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}\label{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}} 
+Print\+Tree&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Time@{Time}!Debug@{Debug}}\index{Debug@{Debug}!Time@{Time}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}\label{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}} 
+Time&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExtCmd@{ExtCmd}!Debug@{Debug}}\index{Debug@{Debug}!ExtCmd@{ExtCmd}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}\label{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}} 
+Ext\+Cmd&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Markdown@{Markdown}!Debug@{Debug}}\index{Debug@{Debug}!Markdown@{Markdown}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}\label{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}} 
+Markdown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FilterOutput@{FilterOutput}!Debug@{Debug}}\index{Debug@{Debug}!FilterOutput@{FilterOutput}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}\label{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}} 
+Filter\+Output&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Lex@{Lex}!Debug@{Debug}}\index{Debug@{Debug}!Lex@{Lex}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}} 
+Lex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Plantuml@{Plantuml}!Debug@{Debug}}\index{Debug@{Debug}!Plantuml@{Plantuml}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}} 
+Plantuml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FortranFixed2Free@{FortranFixed2Free}!Debug@{Debug}}\index{Debug@{Debug}!FortranFixed2Free@{FortranFixed2Free}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}} 
+Fortran\+Fixed2\+Free&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cite@{Cite}!Debug@{Debug}}\index{Debug@{Debug}!Cite@{Cite}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}\label{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}} 
+Cite&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoLineNo@{NoLineNo}!Debug@{Debug}}\index{Debug@{Debug}!NoLineNo@{NoLineNo}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}\label{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}} 
+No\+Line\+No&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rtf@{Rtf}!Debug@{Debug}}\index{Debug@{Debug}!Rtf@{Rtf}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}\label{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}} 
+Rtf&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Qhp@{Qhp}!Debug@{Debug}}\index{Debug@{Debug}!Qhp@{Qhp}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}} 
+Qhp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tag@{Tag}!Debug@{Debug}}\index{Debug@{Debug}!Tag@{Tag}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}} 
+Tag&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Quiet@{Quiet}!Debug@{Debug}}\index{Debug@{Debug}!Quiet@{Quiet}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}} 
+Quiet&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FindMembers@{FindMembers}!Debug@{Debug}}\index{Debug@{Debug}!FindMembers@{FindMembers}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}\label{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}} 
+Find\+Members&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Functions@{Functions}!Debug@{Debug}}\index{Debug@{Debug}!Functions@{Functions}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}} 
+Functions&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Variables@{Variables}!Debug@{Debug}}\index{Debug@{Debug}!Variables@{Variables}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}} 
+Variables&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Preprocessor@{Preprocessor}!Debug@{Debug}}\index{Debug@{Debug}!Preprocessor@{Preprocessor}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}\label{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}} 
+Preprocessor&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Classes@{Classes}!Debug@{Debug}}\index{Debug@{Debug}!Classes@{Classes}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}} 
+Classes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentCnv@{CommentCnv}!Debug@{Debug}}\index{Debug@{Debug}!CommentCnv@{CommentCnv}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}\label{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}} 
+Comment\+Cnv&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommentScan@{CommentScan}!Debug@{Debug}}\index{Debug@{Debug}!CommentScan@{CommentScan}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}} 
+Comment\+Scan&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PrintTree@{PrintTree}!Debug@{Debug}}\index{Debug@{Debug}!PrintTree@{PrintTree}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}\label{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}} 
+Print\+Tree&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Time@{Time}!Debug@{Debug}}\index{Debug@{Debug}!Time@{Time}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}\label{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}} 
+Time&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExtCmd@{ExtCmd}!Debug@{Debug}}\index{Debug@{Debug}!ExtCmd@{ExtCmd}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}\label{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}} 
+Ext\+Cmd&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Markdown@{Markdown}!Debug@{Debug}}\index{Debug@{Debug}!Markdown@{Markdown}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}\label{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}} 
+Markdown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FilterOutput@{FilterOutput}!Debug@{Debug}}\index{Debug@{Debug}!FilterOutput@{FilterOutput}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}\label{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}} 
+Filter\+Output&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Lex@{Lex}!Debug@{Debug}}\index{Debug@{Debug}!Lex@{Lex}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}} 
+Lex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Plantuml@{Plantuml}!Debug@{Debug}}\index{Debug@{Debug}!Plantuml@{Plantuml}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}\label{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}} 
+Plantuml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FortranFixed2Free@{FortranFixed2Free}!Debug@{Debug}}\index{Debug@{Debug}!FortranFixed2Free@{FortranFixed2Free}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}\label{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}} 
+Fortran\+Fixed2\+Free&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cite@{Cite}!Debug@{Debug}}\index{Debug@{Debug}!Cite@{Cite}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}\label{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}} 
+Cite&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoLineNo@{NoLineNo}!Debug@{Debug}}\index{Debug@{Debug}!NoLineNo@{NoLineNo}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}\label{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}} 
+No\+Line\+No&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rtf@{Rtf}!Debug@{Debug}}\index{Debug@{Debug}!Rtf@{Rtf}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}\label{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}} 
+Rtf&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Qhp@{Qhp}!Debug@{Debug}}\index{Debug@{Debug}!Qhp@{Qhp}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}\label{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}} 
+Qhp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tag@{Tag}!Debug@{Debug}}\index{Debug@{Debug}!Tag@{Tag}}}\mbox{\Hypertarget{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}\label{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}} 
+Tag&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{src_2debug_8h_source_l00025}{25}} of file \mbox{\hyperlink{src_2debug_8h_source}{debug.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025                    \{ \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Quiet}}        = 0x00000000,}
+\DoxyCodeLine{00026                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{FindMembers}}  = 0x00000001,}
+\DoxyCodeLine{00027                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Functions}}    = 0x00000002,}
+\DoxyCodeLine{00028                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Variables}}    = 0x00000004,}
+\DoxyCodeLine{00029                      \mbox{\hyperlink{class_preprocessor}{Preprocessor}} = 0x00000008,}
+\DoxyCodeLine{00030                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Classes}}      = 0x00000010,}
+\DoxyCodeLine{00031                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{CommentCnv}}   = 0x00000020,}
+\DoxyCodeLine{00032                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{CommentScan}}  = 0x00000040,}
+\DoxyCodeLine{00033                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{PrintTree}}    = 0x00000100,}
+\DoxyCodeLine{00034                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Time}}         = 0x00000200,}
+\DoxyCodeLine{00035                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{ExtCmd}}       = 0x00000400,}
+\DoxyCodeLine{00036                      \mbox{\hyperlink{class_markdown}{Markdown}}     = 0x00000800,}
+\DoxyCodeLine{00037                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{FilterOutput}} = 0x00001000,}
+\DoxyCodeLine{00038                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Lex}}          = 0x00002000,}
+\DoxyCodeLine{00039                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Plantuml}}     = 0x00004000,}
+\DoxyCodeLine{00040                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{FortranFixed2Free}} = 0x00008000,}
+\DoxyCodeLine{00041                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Cite}}         = 0x00010000,}
+\DoxyCodeLine{00042                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{NoLineNo}}     = 0x00020000,}
+\DoxyCodeLine{00043                      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Rtf}}          = 0x00040000,}
+\DoxyCodeLine{00044                      \mbox{\hyperlink{class_qhp}{Qhp}}          = 0x00080000,}
+\DoxyCodeLine{00045                      \mbox{\hyperlink{class_tag}{Tag}}          = 0x00100000,}
+\DoxyCodeLine{00046                    \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_debug_a52481ac5c0428f788b176515da2d75b1}\label{class_debug_a52481ac5c0428f788b176515da2d75b1}} 
+\index{Debug@{Debug}!clearFlag@{clearFlag}}
+\index{clearFlag@{clearFlag}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{clearFlag()}{clearFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Debug\+::clear\+Flag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091 \{}
+\DoxyCodeLine{00092   \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{curMask}} = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{DebugMask}}\textcolor{keyword}{>}(\mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{curMask}} \& \string~labelToEnumValue(lab));}
+\DoxyCodeLine{00093 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{cur\+Mask}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_statistics_a681d86ad7e9121de36d517420e135415}{Statistics\+::print()}}.
+
+\mbox{\Hypertarget{class_debug_ac00126a0fceef1b241ec3f214158e1f5}\label{class_debug_ac00126a0fceef1b241ec3f214158e1f5}} 
+\index{Debug@{Debug}!clearFlag@{clearFlag}}
+\index{clearFlag@{clearFlag}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{clearFlag()}{clearFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Debug\+::clear\+Flag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_debug_accc1a68a6e51b015caee0ab90ddb6e87}\label{class_debug_accc1a68a6e51b015caee0ab90ddb6e87}} 
+\index{Debug@{Debug}!elapsedTime@{elapsedTime}}
+\index{elapsedTime@{elapsedTime}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{elapsedTime()}{elapsedTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Debug\+::elapsed\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141 \{}
+\DoxyCodeLine{00142   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a3e85396212eb9f0ea3bc706daf150cdd}{g\_runningTime}}.\mbox{\hyperlink{class_timer_a9b89127c8224e7fb787da4f11ef8d364}{elapsedTimeS}}();}
+\DoxyCodeLine{00143 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_timer_a9b89127c8224e7fb787da4f11ef8d364}{Timer\+::elapsed\+Time\+S()}}, and \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a3e85396212eb9f0ea3bc706daf150cdd}{g\+\_\+running\+Time}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg()}}.
+
+\mbox{\Hypertarget{class_debug_a9b6582b2d13a2f6d020e72c70cc84942}\label{class_debug_a9b6582b2d13a2f6d020e72c70cc84942}} 
+\index{Debug@{Debug}!elapsedTime@{elapsedTime}}
+\index{elapsedTime@{elapsedTime}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{elapsedTime()}{elapsedTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static double Debug\+::elapsed\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}\label{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}} 
+\index{Debug@{Debug}!isFlagSet@{isFlagSet}}
+\index{isFlagSet@{isFlagSet}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{isFlagSet()}{isFlagSet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Debug\+::is\+Flag\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}}}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101 \{}
+\DoxyCodeLine{00102   \textcolor{keywordflow}{return} (\mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{curMask}} \& mask)!=0;}
+\DoxyCodeLine{00103 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{cur\+Mask}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8h_a04d92f4281c65ebe972f5bf92bcb4a09}{convert\+Cpp\+Comments()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}, \mbox{\hyperlink{class_citation_manager_aeea4b3347215e1eb97b639c96a1dcadd}{Citation\+Manager\+::generate\+Page()}}, \mbox{\hyperlink{class_layout_doc_manager_a920748477d4262faf758d21ddbe2329d}{Layout\+Doc\+Manager\+::init()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg()}}, \mbox{\hyperlink{class_layout_doc_manager_a03dc5870a20d29063731ac6ef96d883c}{Layout\+Doc\+Manager\+::parse()}}, \mbox{\hyperlink{build_2doxygen_2src_2tagreader_8cpp_a1cb67a3965d52e8078507f0bfd354337}{parse\+Tag\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfgen_8cpp_a150812b55508914d2ff539710b5aa7ce}{pre\+Process\+File()}}, \mbox{\hyperlink{class_r_t_f_generator_a33f1f9f82bc9683769a6be6cdfc76270}{RTFGenerator\+::pre\+Process\+File\+Inplace()}}, \mbox{\hyperlink{class_statistics_a681d86ad7e9121de36d517420e135415}{Statistics\+::print()}}, \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print()}}, \mbox{\hyperlink{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}{Preprocessor\+::process\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a9af0795be28dcf4551e57a2a3650a552}{read\+Include\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a91768fc1635556eefd2d96ea1751435d}{run\+Html\+Help\+Compiler()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10e8f1fbd720c602f867aa536e450462}{run\+QHelp\+Generator()}}, \mbox{\hyperlink{class_trace_ad6e708360abc05f954df1f3fce9e6dd4}{Trace\+::trace()}}, \mbox{\hyperlink{class_trace_a71720d0bc91970d7660b2452be0ed382}{Trace\+::\+Trace()}}, \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_ade7ad021f00f56e2222470e267b56f73}{validating\+Parse\+Doc()}}, \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_a50b831629db52bab3309267c0a06b38b}{validating\+Parse\+Text()}}, \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_aded82e3cc34ae902387a6b62a97616b7}{write\+Indent()}}, and \mbox{\hyperlink{class_trace_a39492ecec74969a4905ec5fcf026dc09}{Trace\+::$\sim$\+Trace()}}.
+
+\mbox{\Hypertarget{class_debug_aac5e6e68968e79e3aefb39fae1b01e2a}\label{class_debug_aac5e6e68968e79e3aefb39fae1b01e2a}} 
+\index{Debug@{Debug}!isFlagSet@{isFlagSet}}
+\index{isFlagSet@{isFlagSet}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{isFlagSet()}{isFlagSet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static bool Debug\+::is\+Flag\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}}}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}\label{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}} 
+\index{Debug@{Debug}!print@{print}}
+\index{print@{print}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Debug\+::print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}}}]{mask,  }\item[{int}]{prio,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059 \{}
+\DoxyCodeLine{00060   \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{curMask}}\&mask) \&\& prio<=\mbox{\hyperlink{class_debug_a096a277ad5d789482e89ab2cd04f77ff}{curPrio}})}
+\DoxyCodeLine{00061   \{}
+\DoxyCodeLine{00062     va\_list args;}
+\DoxyCodeLine{00063     va\_start(args,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00064     vfprintf(stdout, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00065     va\_end(args);}
+\DoxyCodeLine{00066   \}}
+\DoxyCodeLine{00067 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{cur\+Mask}}, \mbox{\hyperlink{class_debug_a096a277ad5d789482e89ab2cd04f77ff}{cur\+Prio}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_file_def_impl_a3e6c42b51465b9d08e7e894fe3673b5b}{File\+Def\+Impl\+::acquire\+File\+Version()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a00bea66ca12b6dc9dc1885d61542b87b}{add\+Class\+To\+Context()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a115ebb5e081b43164c747df76e55af9f}{add\+Concept\+To\+Context()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_acd5ce1e6b77e3117a9b46eab84a1ba2e}{add\+Local\+Obj\+CMethod()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ad91bf6bb6d112247a56e3e8bcbafc76b}{add\+Member\+Function()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0f2a35ddd84e986afdbc14dcba2bcf3c}{add\+Variable\+To\+Class()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a704656a4d637d9f99c1adef34aafe856}{add\+Variable\+To\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab6c1ebf5d50811e57eee6f8d2e201744}{compute\+Class\+Relations()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0f3c855d0eed91d3e4f728d4beff4080}{compute\+Template\+Class\+Relations()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8h_a04d92f4281c65ebe972f5bf92bcb4a09}{convert\+Cpp\+Comments()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_abf6738772e1f2bf741b5fb0868847b8c}{filter\+Member\+Documentation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a2855c4f3905bf9bd629622f65075b558}{find\+Class\+Relation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab97b7f9be435590df65d9bb0d31fba06}{find\+Enum\+Documentation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a18307d943d41d2ed5849c6faf3d02a1d}{find\+Global\+Member()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a000332499c2ed82b4b4e2f0318bc98fa}{find\+Inherited\+Template\+Instances()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3572f62a602ab473a38ae5ae27e66611}{find\+Member()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3f26028922a120817dd5292aad1bcef4}{find\+Template\+Instance\+Relation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_aeecb3b15d560a1789df317b9a5495412}{find\+Used\+Classes\+For\+Class()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ad9ce767127c1fe73995ebae8badaab75}{find\+Used\+Template\+Instances()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a043364950b2274c362fdd7e6b48d6ef6}{find\+Using\+Declarations()}}, \mbox{\hyperlink{class_filter_cache_a47fdf15e198bf751e5cce596e8abcbdf}{Filter\+Cache\+::get\+File\+Contents()}}, \mbox{\hyperlink{class_plantuml_manager_aa83ff077c80d8e2dc04a28e1629cff12}{Plantuml\+Manager\+::insert()}}, \mbox{\hyperlink{class_class_def_impl_ace39074e0ffe473ed11349f526c3d81b}{Class\+Def\+Impl\+::insert\+Template\+Instance()}}, \mbox{\hyperlink{class_comment_scanner_a146e92fcb6ce0bc79b429192aba6bc49}{Comment\+Scanner\+::parse\+Comment\+Block()}}, \mbox{\hyperlink{class_markdown_outline_parser_ae79ada0ff9463982c79972d65e3328e3}{Markdown\+Outline\+Parser\+::parse\+Input()}}, \mbox{\hyperlink{build_2doxygen_2src_2fortranscanner_8l_a4481d3eae9a04af883d868f23c4cbffc}{parse\+Main()}}, \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex()}}, \mbox{\hyperlink{class_markdown_ad40652cc4db61282f2b0ef5202927d10}{Markdown\+::process()}}, \mbox{\hyperlink{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}{Preprocessor\+::process\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2definition_8cpp_a6333b9a697ac8f68f7d18158826461ae}{read\+Code\+Fragment()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a9af0795be28dcf4551e57a2a3650a552}{read\+Include\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a072282000f8267019c6fa91b63b359c9}{read\+Input\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a0de8a7e9fdf9ae4c06959f6bc834b12c}{rtf\+Format\+Bmk\+Str()}}, \mbox{\hyperlink{class_plantuml_manager_af38a83e442553a769951c724353cbe6a}{Plantuml\+Manager\+::run()}}, \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_a309f3f6f3c75a77b4ce5b9760f319d62}{run\+Plantuml\+Content()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10e8f1fbd720c602f867aa536e450462}{run\+QHelp\+Generator()}}, \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable\+::system()}}, and \mbox{\hyperlink{class_plantuml_manager_a1a90fb45cc908d091504b045f1d6d4e6}{Plantuml\+Manager\+::write\+Plant\+UMLSource()}}.
+
+\mbox{\Hypertarget{class_debug_a95e7eae2066582a2fb3015a537dff18b}\label{class_debug_a95e7eae2066582a2fb3015a537dff18b}} 
+\index{Debug@{Debug}!print@{print}}
+\index{print@{print}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Debug\+::print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}}}]{mask,  }\item[{int}]{prio,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_debug_a2d8ac411144a380f838a1766118c6a03}\label{class_debug_a2d8ac411144a380f838a1766118c6a03}} 
+\index{Debug@{Debug}!printFlags@{printFlags}}
+\index{printFlags@{printFlags}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{printFlags()}{printFlags()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Debug\+::print\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106 \{}
+\DoxyCodeLine{00107   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&v : \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}{s\_labels}})}
+\DoxyCodeLine{00108   \{}
+\DoxyCodeLine{00109      \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}}(\textcolor{stringliteral}{"{}\(\backslash\)t\%s\(\backslash\)n"{}},v.first.c\_str());}
+\DoxyCodeLine{00110   \}}
+\DoxyCodeLine{00111 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg()}}, and \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}{s\+\_\+labels}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a7a6a5293009b6fe08ac25a4040350552}{dev\+Usage()}}.
+
+\mbox{\Hypertarget{class_debug_acb4065e5cb676cbee54bb6edb0d6bb51}\label{class_debug_acb4065e5cb676cbee54bb6edb0d6bb51}} 
+\index{Debug@{Debug}!printFlags@{printFlags}}
+\index{printFlags@{printFlags}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{printFlags()}{printFlags()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Debug\+::print\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_debug_a3a7f45cdbb37ba05e88fc17a4017f29b}\label{class_debug_a3a7f45cdbb37ba05e88fc17a4017f29b}} 
+\index{Debug@{Debug}!setFlag@{setFlag}}
+\index{setFlag@{setFlag}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{setFlag()}{setFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Debug\+::set\+Flag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084 \{}
+\DoxyCodeLine{00085   \textcolor{keywordtype}{int} retVal = \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a8f21b2ecd7820f4f4fbef6f41698a818}{labelToEnumValue}}(lab);}
+\DoxyCodeLine{00086   \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{curMask}} = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{DebugMask}}\textcolor{keyword}{>}(\mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{curMask}} | retVal);}
+\DoxyCodeLine{00087   \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{00088 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}{cur\+Mask}}, and \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a8f21b2ecd7820f4f4fbef6f41698a818}{label\+To\+Enum\+Value()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_statistics_a681d86ad7e9121de36d517420e135415}{Statistics\+::print()}}, and \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab0fa1b0c948e78e0d0d749ff1f5740b5}{read\+Configuration()}}.
+
+\mbox{\Hypertarget{class_debug_a99f4da4678761ac45dbcb13232eb799f}\label{class_debug_a99f4da4678761ac45dbcb13232eb799f}} 
+\index{Debug@{Debug}!setFlag@{setFlag}}
+\index{setFlag@{setFlag}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{setFlag()}{setFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int Debug\+::set\+Flag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_debug_a666b610770dd7b7c0a87f2415aefe7d9}\label{class_debug_a666b610770dd7b7c0a87f2415aefe7d9}} 
+\index{Debug@{Debug}!setPriority@{setPriority}}
+\index{setPriority@{setPriority}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{setPriority()}{setPriority()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Debug\+::set\+Priority (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096 \{}
+\DoxyCodeLine{00097   \mbox{\hyperlink{class_debug_a096a277ad5d789482e89ab2cd04f77ff}{curPrio}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{00098 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a096a277ad5d789482e89ab2cd04f77ff}{cur\+Prio}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+\mbox{\Hypertarget{class_debug_ae37e4a7d51da5013d9f91af0b86924c3}\label{class_debug_ae37e4a7d51da5013d9f91af0b86924c3}} 
+\index{Debug@{Debug}!setPriority@{setPriority}}
+\index{setPriority@{setPriority}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{setPriority()}{setPriority()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Debug\+::set\+Priority (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_debug_ad34e8ad3d814a4cf8b29ce98fd7a96f5}\label{class_debug_ad34e8ad3d814a4cf8b29ce98fd7a96f5}} 
+\index{Debug@{Debug}!startTimer@{startTimer}}
+\index{startTimer@{startTimer}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{startTimer()}{startTimer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Debug\+::start\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136 \{}
+\DoxyCodeLine{00137   \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a3e85396212eb9f0ea3bc706daf150cdd}{g\_runningTime}}.\mbox{\hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{start}}();}
+\DoxyCodeLine{00138 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a3e85396212eb9f0ea3bc706daf150cdd}{g\+\_\+running\+Time}}, and \mbox{\hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{Timer\+::start()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a122070be7aebc9e3ab560b58fdd922c9}{init\+Doxygen()}}.
+
+\mbox{\Hypertarget{class_debug_adb9309e98d11f40d46a39bd073397ee1}\label{class_debug_adb9309e98d11f40d46a39bd073397ee1}} 
+\index{Debug@{Debug}!startTimer@{startTimer}}
+\index{startTimer@{startTimer}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{startTimer()}{startTimer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Debug\+::start\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}\label{class_debug_a78fabc7ec4bbb59d0cb5256a78f7728d}} 
+\index{Debug@{Debug}!curMask@{curMask}}
+\index{curMask@{curMask}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{curMask}{curMask}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+Mask}} Debug\+::cur\+Mask = \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a43dad89afeaf0ac2386284a3d1479c2e}{Debug\+::\+Quiet}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source_l00059}{59}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source}{debug.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_debug_a52481ac5c0428f788b176515da2d75b1}{clear\+Flag()}}, \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{is\+Flag\+Set()}}, \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{print()}}, and \mbox{\hyperlink{class_debug_a3a7f45cdbb37ba05e88fc17a4017f29b}{set\+Flag()}}.
+
+\mbox{\Hypertarget{class_debug_a096a277ad5d789482e89ab2cd04f77ff}\label{class_debug_a096a277ad5d789482e89ab2cd04f77ff}} 
+\index{Debug@{Debug}!curPrio@{curPrio}}
+\index{curPrio@{curPrio}!Debug@{Debug}}
+\doxysubsubsection{\texorpdfstring{curPrio}{curPrio}}
+{\footnotesize\ttfamily static int Debug\+::cur\+Prio = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source_l00060}{60}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8h_source}{debug.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{print()}}, and \mbox{\hyperlink{class_debug_a666b610770dd7b7c0a87f2415aefe7d9}{set\+Priority()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2debug_8h}{debug.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2debug_8h}{debug.\+h}}\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp}{debug.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2debug_8cpp}{debug.\+cpp}}\end{DoxyCompactItemize}

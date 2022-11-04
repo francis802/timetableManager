@@ -1,0 +1,82 @@
+\hypertarget{libmscgen_2gdhelpers_8h_source}{}\doxysection{gdhelpers.\+h}
+\label{libmscgen_2gdhelpers_8h_source}\index{doxygen/libmscgen/gdhelpers.h@{doxygen/libmscgen/gdhelpers.h}}
+\mbox{\hyperlink{libmscgen_2gdhelpers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00002}00002 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00003}00003 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00005}00005 \textcolor{preprocessor}{\#ifndef GDHELPERS\_H}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00006}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_a0e66b7426798cb1f40c28a9dde6e1a89}{00006}} \textcolor{preprocessor}{\#define GDHELPERS\_H 1}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00008}00008     \textcolor{comment}{/* sys/types.h is needed for size\_t on Sparc-\/SunOS-\/4.1 */}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00009}00009 \textcolor{preprocessor}{\#ifndef \_WIN32\_WCE}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00011}00011 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00013}00013 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_WIN32\_WCE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00015}00015     \textcolor{comment}{/* TBB: strtok\_r is not universal; provide an implementation of it. */}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00017}00017     \textcolor{keywordtype}{char} * \mbox{\hyperlink{build_2doxygen_2libmscgen_2gdhelpers_8h_ab2bb6e2b29554ef2e032d10f7e2a625b}{gd\_strtok\_r}} (\textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \textcolor{keywordtype}{char} *sep, \textcolor{keywordtype}{char} **state);}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00019}00019     \textcolor{comment}{/* These functions wrap memory management. gdFree is}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00020}00020 \textcolor{comment}{        in gd.h, where callers can utilize it to correctly}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00021}00021 \textcolor{comment}{        free memory allocated by these functions with the}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00022}00022 \textcolor{comment}{        right version of free(). */}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00023}00023     \textcolor{keywordtype}{void} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gdhelpers_8h_a29697a60db2487f55e5718c297611c9e}{gdCalloc}} (\textcolor{keywordtype}{size\_t} nmemb, \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00024}00024     \textcolor{keywordtype}{void} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gdhelpers_8h_ae676c53914376ac87423090c695b7743}{gdMalloc}} (\textcolor{keywordtype}{size\_t} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00025}00025     \textcolor{keywordtype}{void} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gdhelpers_8h_a9b091342e5e393342f9f7bc55a30bdc0}{gdRealloc}} (\textcolor{keywordtype}{void} *ptr, \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00026}00026     \textcolor{comment}{/* The extended version of gdReallocEx will free *ptr if the}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00027}00027 \textcolor{comment}{     * realloc fails */}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00028}00028     \textcolor{keywordtype}{void} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gdhelpers_8h_a5cafd6495f62dd02882d25da62a67938}{gdReallocEx}} (\textcolor{keywordtype}{void} *ptr, \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}});}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00030}00030     \textcolor{comment}{/* Returns nonzero if multiplying the two quantities will}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00031}00031 \textcolor{comment}{        result in integer overflow. Also returns nonzero if}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00032}00032 \textcolor{comment}{        either quantity is negative. By Phil Knirsch based on}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00033}00033 \textcolor{comment}{        netpbm fixes by Alan Cox. */}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00035}00035     \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gdhelpers_8h_ad447ab61e47066efb12dc8faefb838b7}{overflow2}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}});}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00037}00037     \textcolor{comment}{/* 2.0.16: portable mutex support for thread safety. */}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00038}00038 \textcolor{preprocessor}{\#if defined(CPP\_SHARP)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00039}00039 \textcolor{preprocessor}{\# define gdMutexDeclare(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00040}00040 \textcolor{preprocessor}{\# define gdMutexSetup(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00041}00041 \textcolor{preprocessor}{\# define gdMutexShutdown(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00042}00042 \textcolor{preprocessor}{\# define gdMutexLock(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00043}00043 \textcolor{preprocessor}{\# define gdMutexUnlock(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00044}00044 \textcolor{preprocessor}{\#elif defined(\_WIN32)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00045}00045     \textcolor{comment}{/* 2.0.18: must include windows.h to get CRITICAL\_SECTION. */}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00046}00046 \textcolor{preprocessor}{\# include <windows.h>}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00047}00047 \textcolor{preprocessor}{\# define gdMutexDeclare(x) CRITICAL\_SECTION x}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00048}00048 \textcolor{preprocessor}{\# define gdMutexSetup(x) InitializeCriticalSection(\&x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00049}00049 \textcolor{preprocessor}{\# define gdMutexShutdown(x) DeleteCriticalSection(\&x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00050}00050 \textcolor{preprocessor}{\# define gdMutexLock(x) EnterCriticalSection(\&x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00051}00051 \textcolor{preprocessor}{\# define gdMutexUnlock(x) LeaveCriticalSection(\&x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00052}00052 \textcolor{preprocessor}{\#elif defined(HAVE\_PTHREAD)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00053}00053 \textcolor{preprocessor}{\# include <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00054}00054 \textcolor{preprocessor}{\# define gdMutexDeclare(x) pthread\_mutex\_t x}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00055}00055 \textcolor{preprocessor}{\# define gdMutexSetup(x) pthread\_mutex\_init(\&x, 0)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00056}00056 \textcolor{preprocessor}{\# define gdMutexShutdown(x) pthread\_mutex\_destroy(\&x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00057}00057 \textcolor{preprocessor}{\# define gdMutexLock(x) pthread\_mutex\_lock(\&x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00058}00058 \textcolor{preprocessor}{\# define gdMutexUnlock(x) pthread\_mutex\_unlock(\&x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00059}00059 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00060}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_a53c2d7682b98f13bfd0b16c55e09e3d5}{00060}} \textcolor{preprocessor}{\# define gdMutexDeclare(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00061}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_a6a598320f6c864de4c90a95eca4c201d}{00061}} \textcolor{preprocessor}{\# define gdMutexSetup(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00062}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_a05e88db05de55f67d6ca23b004599c07}{00062}} \textcolor{preprocessor}{\# define gdMutexShutdown(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00063}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_abed050c2027aca542bbb45e31dc528e9}{00063}} \textcolor{preprocessor}{\# define gdMutexLock(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00064}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_ae96a44b7991d5766f5dae3f9cc2fbd6c}{00064}} \textcolor{preprocessor}{\# define gdMutexUnlock(x)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00065}00065 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_WIN32 || HAVE\_PTHREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00067}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_a0e8b4e57d8e1f01618d9712326983fa5}{00067}} \textcolor{preprocessor}{\#define DPCM2DPI(dpcm) (unsigned int)((dpcm)*2.54 + 0.5)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00068}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_acea68f31f50f73a930b607217c4dca30}{00068}} \textcolor{preprocessor}{\#define DPM2DPI(dpm)   (unsigned int)((dpm)*0.0254 + 0.5)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00069}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_ae18fbb26df5993942c88eaae9a6515f0}{00069}} \textcolor{preprocessor}{\#define DPI2DPCM(dpi)  (unsigned int)((dpi)/2.54 + 0.5)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00070}\mbox{\hyperlink{libmscgen_2gdhelpers_8h_a55fe1b4bf738d1fc7b96a15b6fdbe318}{00070}} \textcolor{preprocessor}{\#define DPI2DPM(dpi)   (unsigned int)((dpi)/0.0254 + 0.5)}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00072}00072 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* GDHELPERS\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00074}00074 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00075}00075 \}}
+\DoxyCodeLine{\Hypertarget{libmscgen_2gdhelpers_8h_source_l00076}00076 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

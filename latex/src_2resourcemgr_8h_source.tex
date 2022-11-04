@@ -1,0 +1,63 @@
+\hypertarget{src_2resourcemgr_8h_source}{}\doxysection{resourcemgr.\+h}
+\label{src_2resourcemgr_8h_source}\index{doxygen/src/resourcemgr.h@{doxygen/src/resourcemgr.h}}
+\mbox{\hyperlink{src_2resourcemgr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00015}00015 \textcolor{preprocessor}{\#ifndef RESOURCEMGR\_H}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00016}00016 \textcolor{preprocessor}{\#define RESOURCEMGR\_H}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00018}00018 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00019}00019 \textcolor{preprocessor}{\#include <initializer\_list>}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00024}00024 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_resource}{Resource}}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00026}\mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382e}{00026}}   \textcolor{keyword}{enum} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382e}{Type}} \{ \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eacfa9730bc7f3ad0b68041a64b85f2528}{Verbatim}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382ea8bcfdd27d2be279edc90b72faf3ffd65}{Luminance}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eadd0994932e84ccaf2c5b61e2d208b1ec}{LumAlpha}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eabcc90f380aeb61589315aac3e25992c5}{CSS}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eaf7a1a7ba47c69ff6ce016381e26ef299}{SVG}} \};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00027}00027   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_resource_a3b8e230f7b733e68241809a01cf65d78}{category}};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00028}00028   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_resource_a4f6a87145f57606562453e2f8ab0b453}{name}};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00029}00029   \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00030}00030   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00031}00031   \mbox{\hyperlink{build_2doxygen_2testing_2018__def_8c_a1d1cfd8ffb84e947f82999c682b666a7}{Type}} \mbox{\hyperlink{struct_resource_ae73282ad08d3c990c8a0ff353e231ab3}{type}};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00032}00032 \};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00035}00035 \textcolor{keyword}{class }\mbox{\hyperlink{class_resource_mgr}{ResourceMgr}}}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00036}00036 \{}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00037}00037   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00039}\mbox{\hyperlink{class_resource_mgr_aaba4f6a9be9d92c4f816fd760d1916bf}{00039}}     \textcolor{keyword}{static} \mbox{\hyperlink{class_resource_mgr}{ResourceMgr}} \&\mbox{\hyperlink{class_resource_mgr_aaba4f6a9be9d92c4f816fd760d1916bf}{instance}}();}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00042}\mbox{\hyperlink{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}{00042}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}{registerResources}}(std::initializer\_list<Resource> resources);}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00045}\mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{00045}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{writeCategory}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&categoryName,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetDir) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00048}\mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{00048}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{copyResource}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetDir) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00051}\mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{00051}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{copyResourceAs}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetDir,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetName, \textcolor{keywordtype}{bool} append=\textcolor{keyword}{false}) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00054}\mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{00054}}     \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{getAsString}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00056}00056   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00058}\mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{00058}}     \textcolor{keyword}{const} \mbox{\hyperlink{struct_resource}{Resource}} *\mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00060}\mbox{\hyperlink{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}{00060}}     \mbox{\hyperlink{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}{ResourceMgr}}();}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00061}\mbox{\hyperlink{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}{00061}}    \mbox{\hyperlink{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}{\string~ResourceMgr}}();}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00062}00062     \textcolor{keyword}{class }\mbox{\hyperlink{class_resource_mgr_1_1_private}{Private}};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00063}00063     std::unique\_ptr<Private> \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00064}00064 \};}
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{src_2resourcemgr_8h_source_l00066}00066 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

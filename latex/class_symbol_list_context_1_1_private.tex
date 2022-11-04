@@ -1,0 +1,90 @@
+\hypertarget{class_symbol_list_context_1_1_private}{}\doxysection{Symbol\+List\+Context\+::Private Class Reference}
+\label{class_symbol_list_context_1_1_private}\index{SymbolListContext::Private@{SymbolListContext::Private}}
+Inheritance diagram for Symbol\+List\+Context\+::Private\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.500000cm]{class_symbol_list_context_1_1_private}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_symbol_list_context_1_1_private_a0bb6c758fde50eaad408c84bb970aefe}{Private}} (const Search\+Index\+List\+::const\+\_\+iterator \&start, const Search\+Index\+List\+::const\+\_\+iterator \&\mbox{\hyperlink{src_2dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}})
+\item 
+\mbox{\hyperlink{class_symbol_list_context_1_1_private_a0bb6c758fde50eaad408c84bb970aefe}{Private}} (const Search\+Index\+List\+::const\+\_\+iterator \&start, const Search\+Index\+List\+::const\+\_\+iterator \&\mbox{\hyperlink{src_2dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l08500}{8500}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_symbol_list_context_1_1_private_a0bb6c758fde50eaad408c84bb970aefe}\label{class_symbol_list_context_1_1_private_a0bb6c758fde50eaad408c84bb970aefe}} 
+\index{SymbolListContext::Private@{SymbolListContext::Private}!Private@{Private}}
+\index{Private@{Private}!SymbolListContext::Private@{SymbolListContext::Private}}
+\doxysubsubsection{\texorpdfstring{Private()}{Private()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Symbol\+List\+Context\+::\+Private\+::\+Private (\begin{DoxyParamCaption}\item[{const Search\+Index\+List\+::const\+\_\+iterator \&}]{start,  }\item[{const Search\+Index\+List\+::const\+\_\+iterator \&}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l08503}{8503}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{08505     \{}
+\DoxyCodeLine{08506       \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *prev = 0;}
+\DoxyCodeLine{08507       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = start; it!=\mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}};)}
+\DoxyCodeLine{08508       \{}
+\DoxyCodeLine{08509         \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *def = *it;}
+\DoxyCodeLine{08510         ++it;}
+\DoxyCodeLine{08511         \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *next = it!=\mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}} ? *it : 0;}
+\DoxyCodeLine{08512         \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_symbol_context_a9405d61600bbace4b9a6a1a63c818ff4}{SymbolContext::alloc}}(def,prev,next));}
+\DoxyCodeLine{08513         prev = def;}
+\DoxyCodeLine{08514       \}}
+\DoxyCodeLine{08515     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_symbol_context_a9405d61600bbace4b9a6a1a63c818ff4}{Symbol\+Context\+::alloc()}}, \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{Generic\+Node\+List\+Context\+::append()}}, and \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end()}}.
+
+\mbox{\Hypertarget{class_symbol_list_context_1_1_private_a0bb6c758fde50eaad408c84bb970aefe}\label{class_symbol_list_context_1_1_private_a0bb6c758fde50eaad408c84bb970aefe}} 
+\index{SymbolListContext::Private@{SymbolListContext::Private}!Private@{Private}}
+\index{Private@{Private}!SymbolListContext::Private@{SymbolListContext::Private}}
+\doxysubsubsection{\texorpdfstring{Private()}{Private()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Symbol\+List\+Context\+::\+Private\+::\+Private (\begin{DoxyParamCaption}\item[{const Search\+Index\+List\+::const\+\_\+iterator \&}]{start,  }\item[{const Search\+Index\+List\+::const\+\_\+iterator \&}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2context_8cpp_source_l08503}{8503}} of file \mbox{\hyperlink{src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{08505     \{}
+\DoxyCodeLine{08506       \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *prev = 0;}
+\DoxyCodeLine{08507       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = start; it!=\mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}};)}
+\DoxyCodeLine{08508       \{}
+\DoxyCodeLine{08509         \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *def = *it;}
+\DoxyCodeLine{08510         ++it;}
+\DoxyCodeLine{08511         \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *next = it!=\mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}} ? *it : 0;}
+\DoxyCodeLine{08512         \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_symbol_context_a9405d61600bbace4b9a6a1a63c818ff4}{SymbolContext::alloc}}(def,prev,next));}
+\DoxyCodeLine{08513         prev = def;}
+\DoxyCodeLine{08514       \}}
+\DoxyCodeLine{08515     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_symbol_context_a9405d61600bbace4b9a6a1a63c818ff4}{Symbol\+Context\+::alloc()}}, and \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp}{context.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2context_8cpp}{context.\+cpp}}\end{DoxyCompactItemize}

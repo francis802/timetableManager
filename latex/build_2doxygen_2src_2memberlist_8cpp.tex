@@ -1,0 +1,72 @@
+\hypertarget{build_2doxygen_2src_2memberlist_8cpp}{}\doxysection{doxygen/build/doxygen/src/memberlist.cpp File Reference}
+\label{build_2doxygen_2src_2memberlist_8cpp}\index{doxygen/build/doxygen/src/memberlist.cpp@{doxygen/build/doxygen/src/memberlist.cpp}}
+{\ttfamily \#include \char`\"{}memberlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membergroup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{build_2doxygen_2src_2memberlist_8cpp_a167ee264b79050f2a7adc66a8c0e999d}{generic\+Compare\+Members}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$c1, const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$c2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2memberlist_8cpp_a167ee264b79050f2a7adc66a8c0e999d}\label{build_2doxygen_2src_2memberlist_8cpp_a167ee264b79050f2a7adc66a8c0e999d}} 
+\index{memberlist.cpp@{memberlist.cpp}!genericCompareMembers@{genericCompareMembers}}
+\index{genericCompareMembers@{genericCompareMembers}!memberlist.cpp@{memberlist.cpp}}
+\doxysubsubsection{\texorpdfstring{genericCompareMembers()}{genericCompareMembers()}}
+{\footnotesize\ttfamily int generic\+Compare\+Members (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{c1,  }\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{c2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2memberlist_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{build_2doxygen_2src_2memberlist_8cpp_source}{memberlist.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00049   \textcolor{keywordtype}{bool} sortConstructorsFirst = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(SORT\_MEMBERS\_CTORS\_1ST);}
+\DoxyCodeLine{00050   \textcolor{keywordflow}{if} (sortConstructorsFirst)}
+\DoxyCodeLine{00051   \{}
+\DoxyCodeLine{00052     \textcolor{keywordtype}{int} ord1 = c1-\/>\mbox{\hyperlink{class_member_def_a196a099fba755a0586625635e40e9c58}{isConstructor}}() ? 2 : (c1-\/>\mbox{\hyperlink{class_member_def_a0807e7d46f56761eb33db77778289c11}{isDestructor}}() ? 1 : 0);}
+\DoxyCodeLine{00053     \textcolor{keywordtype}{int} ord2 = c2-\/>\mbox{\hyperlink{class_member_def_a196a099fba755a0586625635e40e9c58}{isConstructor}}() ? 2 : (c2-\/>\mbox{\hyperlink{class_member_def_a0807e7d46f56761eb33db77778289c11}{isDestructor}}() ? 1 : 0);}
+\DoxyCodeLine{00054     \textcolor{keywordflow}{if} (ord1 > ord2)}
+\DoxyCodeLine{00055       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00056     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ord2 > ord1)}
+\DoxyCodeLine{00057       \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00058   \}}
+\DoxyCodeLine{00059   \textcolor{comment}{// sort on name}}
+\DoxyCodeLine{00060   \textcolor{keywordtype}{int} cmp = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(c1-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}(),c2-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}());}
+\DoxyCodeLine{00061   \textcolor{comment}{// then on argument list}}
+\DoxyCodeLine{00062   \textcolor{keywordflow}{if} (cmp==0 \&\& !c1-\/>\mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{argsString}}().\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() \&\& !c2-\/>\mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{argsString}}().\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00063   \{}
+\DoxyCodeLine{00064     cmp = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(c1-\/>\mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{argsString}}(),c2-\/>\mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{argsString}}());}
+\DoxyCodeLine{00065   \}}
+\DoxyCodeLine{00066   \textcolor{comment}{// then on file in which the item is defined}}
+\DoxyCodeLine{00067   \textcolor{keywordflow}{if} (cmp==0)}
+\DoxyCodeLine{00068   \{}
+\DoxyCodeLine{00069     cmp = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(c1-\/>\mbox{\hyperlink{class_definition_a33fee836f24f8205eedbd21dd9d282e6}{getDefFileName}}(),c2-\/>\mbox{\hyperlink{class_definition_a33fee836f24f8205eedbd21dd9d282e6}{getDefFileName}}());}
+\DoxyCodeLine{00070   \}}
+\DoxyCodeLine{00071   \textcolor{comment}{// then on line number at which the member is defined}}
+\DoxyCodeLine{00072   \textcolor{keywordflow}{if} (cmp==0)}
+\DoxyCodeLine{00073   \{}
+\DoxyCodeLine{00074     cmp = c1-\/>\mbox{\hyperlink{class_definition_a47e34774622704853e238ee2e7ef2334}{getDefLine}}()-\/c2-\/>\mbox{\hyperlink{class_definition_a47e34774622704853e238ee2e7ef2334}{getDefLine}}();}
+\DoxyCodeLine{00075   \}}
+\DoxyCodeLine{00076   \textcolor{keywordflow}{return} cmp;}
+\DoxyCodeLine{00077 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{Member\+Def\+::args\+String()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{class_definition_a33fee836f24f8205eedbd21dd9d282e6}{Definition\+::get\+Def\+File\+Name()}}, \mbox{\hyperlink{class_definition_a47e34774622704853e238ee2e7ef2334}{Definition\+::get\+Def\+Line()}}, \mbox{\hyperlink{class_member_def_a196a099fba755a0586625635e40e9c58}{Member\+Def\+::is\+Constructor()}}, \mbox{\hyperlink{class_member_def_a0807e7d46f56761eb33db77778289c11}{Member\+Def\+::is\+Destructor()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp()}}.
+

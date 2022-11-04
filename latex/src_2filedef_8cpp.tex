@@ -1,0 +1,226 @@
+\hypertarget{src_2filedef_8cpp}{}\doxysection{doxygen/src/filedef.cpp File Reference}
+\label{src_2filedef_8cpp}\index{doxygen/src/filedef.cpp@{doxygen/src/filedef.cpp}}
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include \char`\"{}memberlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memberdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotincldepgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htags.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membergroup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}clangparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}settings.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definitionimpl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}conceptdef.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_file_def_impl}{File\+Def\+Impl}}
+\item 
+class \mbox{\hyperlink{class_dev_null_code_doc_interface}{Dev\+Null\+Code\+Doc\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{src_2filedef_8cpp_a299fa68e1d48096ee904ecaaad31e6a8}{Definition\+Line\+Map}} = std\+::unordered\+\_\+map$<$ int, const \mbox{\hyperlink{class_definition}{Definition}} $\ast$ $>$
+\item 
+using \mbox{\hyperlink{src_2filedef_8cpp_a621b4779f68a069952d208cb712ef697}{Member\+Def\+Line\+Map}} = std\+::unordered\+\_\+map$<$ int, const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ $>$
+\item 
+using \mbox{\hyperlink{src_2filedef_8cpp_a04f6e8bf724164f1e1444d3787c3a90e}{Include\+Info\+Map}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, const \mbox{\hyperlink{struct_include_info}{Include\+Info}} $\ast$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$ \mbox{\hyperlink{src_2filedef_8cpp_a675a84b33ba43ee6611d0cc47467b846}{create\+File\+Def}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&ref, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&dn)
+\item 
+static void \mbox{\hyperlink{src_2filedef_8cpp_af9f8757455351900b891f4a617bc9da8}{get\+All\+Include\+Files\+Recursively}} (\mbox{\hyperlink{build_2doxygen_2src_2containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} \&files\+Visited, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&inc\+Files)
+\item 
+bool \mbox{\hyperlink{src_2filedef_8cpp_a3fc838fe6dfe16aaf92455e8cb066d59}{compare\+File\+Defs}} (const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd1, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd2)
+\item 
+\mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$ \mbox{\hyperlink{src_2filedef_8cpp_a4114c484f3ccea1048608b9caa9f51de}{to\+File\+Def}} (\mbox{\hyperlink{class_definition}{Definition}} $\ast$d)
+\item 
+const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$ \mbox{\hyperlink{src_2filedef_8cpp_acd196021d20bc081fa1dd91c57164837}{to\+File\+Def}} (const \mbox{\hyperlink{class_definition}{Definition}} $\ast$d)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{src_2filedef_8cpp_a299fa68e1d48096ee904ecaaad31e6a8}\label{src_2filedef_8cpp_a299fa68e1d48096ee904ecaaad31e6a8}} 
+\index{filedef.cpp@{filedef.cpp}!DefinitionLineMap@{DefinitionLineMap}}
+\index{DefinitionLineMap@{DefinitionLineMap}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{DefinitionLineMap}{DefinitionLineMap}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2filedef_8cpp_a299fa68e1d48096ee904ecaaad31e6a8}{Definition\+Line\+Map}} =  std\+::unordered\+\_\+map$<$int,const \mbox{\hyperlink{class_definition}{Definition}} $\ast$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+\mbox{\Hypertarget{src_2filedef_8cpp_a04f6e8bf724164f1e1444d3787c3a90e}\label{src_2filedef_8cpp_a04f6e8bf724164f1e1444d3787c3a90e}} 
+\index{filedef.cpp@{filedef.cpp}!IncludeInfoMap@{IncludeInfoMap}}
+\index{IncludeInfoMap@{IncludeInfoMap}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{IncludeInfoMap}{IncludeInfoMap}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2filedef_8cpp_a04f6e8bf724164f1e1444d3787c3a90e}{Include\+Info\+Map}} =  std\+::unordered\+\_\+map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, const \mbox{\hyperlink{struct_include_info}{Include\+Info}} $\ast$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+\mbox{\Hypertarget{src_2filedef_8cpp_a621b4779f68a069952d208cb712ef697}\label{src_2filedef_8cpp_a621b4779f68a069952d208cb712ef697}} 
+\index{filedef.cpp@{filedef.cpp}!MemberDefLineMap@{MemberDefLineMap}}
+\index{MemberDefLineMap@{MemberDefLineMap}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{MemberDefLineMap}{MemberDefLineMap}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2filedef_8cpp_a621b4779f68a069952d208cb712ef697}{Member\+Def\+Line\+Map}} =  std\+::unordered\+\_\+map$<$int,const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2filedef_8cpp_a3fc838fe6dfe16aaf92455e8cb066d59}\label{src_2filedef_8cpp_a3fc838fe6dfe16aaf92455e8cb066d59}} 
+\index{filedef.cpp@{filedef.cpp}!compareFileDefs@{compareFileDefs}}
+\index{compareFileDefs@{compareFileDefs}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{compareFileDefs()}{compareFileDefs()}}
+{\footnotesize\ttfamily bool compare\+File\+Defs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd1,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l01750}{1750}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01751 \{}
+\DoxyCodeLine{01752   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(fd1-\/>\mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{name}}(),fd2-\/>\mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{name}}()) < 0;}
+\DoxyCodeLine{01753 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{File\+Def\+::name()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp()}}.
+
+\mbox{\Hypertarget{src_2filedef_8cpp_a675a84b33ba43ee6611d0cc47467b846}\label{src_2filedef_8cpp_a675a84b33ba43ee6611d0cc47467b846}} 
+\index{filedef.cpp@{filedef.cpp}!createFileDef@{createFileDef}}
+\index{createFileDef@{createFileDef}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{createFileDef()}{createFileDef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$ create\+File\+Def (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{p,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{n,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{ref,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{dn }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193 \{}
+\DoxyCodeLine{00194   \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_file_def_impl}{FileDefImpl}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},ref,dn);}
+\DoxyCodeLine{00195 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+\mbox{\Hypertarget{src_2filedef_8cpp_af9f8757455351900b891f4a617bc9da8}\label{src_2filedef_8cpp_af9f8757455351900b891f4a617bc9da8}} 
+\index{filedef.cpp@{filedef.cpp}!getAllIncludeFilesRecursively@{getAllIncludeFilesRecursively}}
+\index{getAllIncludeFilesRecursively@{getAllIncludeFilesRecursively}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{getAllIncludeFilesRecursively()}{getAllIncludeFilesRecursively()}}
+{\footnotesize\ttfamily static void get\+All\+Include\+Files\+Recursively (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} \&}]{files\+Visited,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&}]{inc\+Files }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l01680}{1680}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01682 \{}
+\DoxyCodeLine{01683   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&ii : fd-\/>\mbox{\hyperlink{class_file_def_aaa1fd01a880dff1fb1724a1dd209693f}{includeFileList}}())}
+\DoxyCodeLine{01684   \{}
+\DoxyCodeLine{01685     \textcolor{keywordflow}{if} (ii.fileDef \&\& !ii.fileDef-\/>isReference() \&\&}
+\DoxyCodeLine{01686         filesVisited.find(ii.fileDef-\/>absFilePath().str())==filesVisited.end())}
+\DoxyCodeLine{01687     \{}
+\DoxyCodeLine{01688       \textcolor{comment}{//printf("{}FileDefImpl::addIncludeDependency(\%s)\(\backslash\)n"{},qPrint(ii-\/>fileDef-\/>absFilePath()));}}
+\DoxyCodeLine{01689       incFiles.push\_back(ii.fileDef-\/>absFilePath().str());}
+\DoxyCodeLine{01690       filesVisited.insert(ii.fileDef-\/>absFilePath().str());}
+\DoxyCodeLine{01691       \mbox{\hyperlink{src_2filedef_8cpp_af9f8757455351900b891f4a617bc9da8}{getAllIncludeFilesRecursively}}(filesVisited,ii.fileDef,incFiles);}
+\DoxyCodeLine{01692     \}}
+\DoxyCodeLine{01693   \}}
+\DoxyCodeLine{01694 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2filedef_8cpp_af9f8757455351900b891f4a617bc9da8}{get\+All\+Include\+Files\+Recursively()}}, and \mbox{\hyperlink{class_file_def_aaa1fd01a880dff1fb1724a1dd209693f}{File\+Def\+::include\+File\+List()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2filedef_8cpp_af9f8757455351900b891f4a617bc9da8}{get\+All\+Include\+Files\+Recursively()}}.
+
+\mbox{\Hypertarget{src_2filedef_8cpp_acd196021d20bc081fa1dd91c57164837}\label{src_2filedef_8cpp_acd196021d20bc081fa1dd91c57164837}} 
+\index{filedef.cpp@{filedef.cpp}!toFileDef@{toFileDef}}
+\index{toFileDef@{toFileDef}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{toFileDef()}{toFileDef()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$ to\+File\+Def (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l01770}{1770}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01771 \{}
+\DoxyCodeLine{01772   \textcolor{keywordflow}{if} (d==0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01773   \textcolor{keywordflow}{if} (d \&\& \textcolor{keyword}{typeid}(*d)==\textcolor{keyword}{typeid}(\mbox{\hyperlink{class_file_def_impl}{FileDefImpl}}))}
+\DoxyCodeLine{01774   \{}
+\DoxyCodeLine{01775     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_file_def}{FileDef}}*\textcolor{keyword}{>}(d);}
+\DoxyCodeLine{01776   \}}
+\DoxyCodeLine{01777   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01778   \{}
+\DoxyCodeLine{01779     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01780   \}}
+\DoxyCodeLine{01781 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2filedef_8cpp_a4114c484f3ccea1048608b9caa9f51de}\label{src_2filedef_8cpp_a4114c484f3ccea1048608b9caa9f51de}} 
+\index{filedef.cpp@{filedef.cpp}!toFileDef@{toFileDef}}
+\index{toFileDef@{toFileDef}!filedef.cpp@{filedef.cpp}}
+\doxysubsubsection{\texorpdfstring{toFileDef()}{toFileDef()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$ to\+File\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2filedef_8cpp_source_l01757}{1757}} of file \mbox{\hyperlink{src_2filedef_8cpp_source}{filedef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01758 \{}
+\DoxyCodeLine{01759   \textcolor{keywordflow}{if} (d==0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01760   \textcolor{keywordflow}{if} (d \&\& \textcolor{keyword}{typeid}(*d)==\textcolor{keyword}{typeid}(\mbox{\hyperlink{class_file_def_impl}{FileDefImpl}}))}
+\DoxyCodeLine{01761   \{}
+\DoxyCodeLine{01762     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_file_def}{FileDef}}*\textcolor{keyword}{>}(d);}
+\DoxyCodeLine{01763   \}}
+\DoxyCodeLine{01764   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01765   \{}
+\DoxyCodeLine{01766     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01767   \}}
+\DoxyCodeLine{01768 \}}
+
+\end{DoxyCode}

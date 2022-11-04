@@ -1,0 +1,1652 @@
+\hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp}{}\doxysection{doxygen/build/doxygen/src/vhdldocgen.cpp File Reference}
+\label{build_2doxygen_2src_2vhdldocgen_8cpp}\index{doxygen/build/doxygen/src/vhdldocgen.cpp@{doxygen/build/doxygen/src/vhdldocgen.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentscan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definition.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memberlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memberdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membergroup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membername.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plantuml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdljjparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Vhdl\+Parser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}textstream.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a5c766ca623cbbc0bf6fded310f85f857}{the\+Translator\+\_\+vhdl\+Type}}~\mbox{\hyperlink{src_2language_8h_a07b18e39f7c5156cd370829e7e6f8534}{the\+Translator}}-\/$>$tr\+Vhdl\+Type
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_afd32ac165b45cf0bd6eb6aeb189c98fe}{STARTL}}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_aaab1f2b37b1283016df2dee1690c4846}{DECLN}}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_abe49c281c00844e55c25aacf8b4ee1a2}{STARTFIN}}~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca399362d0c603716644abb2e21e7aab1f}{Flow\+Chart\+::\+START\+\_\+\+NO}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cab8119d95911f37706727e6c110b202d9}{Flow\+Chart\+::\+END\+\_\+\+NO}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a8e8f11caf539de9555d07b4e7ef5b1da}{LOOP}}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a547a0048650bcde0b41268c7bbdabaf9}{ENDCL}}~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cad694066467adb414bd5a522066ef78b2}{Flow\+Chart\+::\+END\+\_\+\+CASE}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca6d864b0f1dea7ea0831fc8ef23368509}{Flow\+Chart\+::\+END\+\_\+\+LOOP}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ad5ed36e089ae23fbd0742efe34acf322}{EEND}}~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf1da45ecc47c7cf81f7c45429bff663c}{Flow\+Chart\+::\+ENDIF\+\_\+\+NO}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7cb2a5e64f648f5a2cb93fa7d4756507}{Flow\+Chart\+::\+ELSE\+\_\+\+NO}} )
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a2683dde5ae950c9c69ec580cff66f359}{IFF}}~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7711420d0b41638d288956ee73857de8}{Flow\+Chart\+::\+IF\+\_\+\+NO}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_afb52f0bd95d6390d6fc0943d1c3f638f}{EXITNEXT}}~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca2da1a7d9d48dea598f5c65533229fdc3}{Flow\+Chart\+::\+EXIT\+\_\+\+NO}}      $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca1cd91f82a67a4f3e4c2bd767f2243692}{Flow\+Chart\+::\+NEXT\+\_\+\+NO}} )
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a2b7cf2a3641be7b89138615764d60ba3}{EMPTY}}~(\mbox{\hyperlink{src_2vhdldocgen_8cpp_ad5ed36e089ae23fbd0742efe34acf322}{EEND}}                    $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a40069882b1f09d9463acc3acd7b67708}{EE}}~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7cb2a5e64f648f5a2cb93fa7d4756507}{Flow\+Chart\+::\+ELSE\+\_\+\+NO}}      $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a8c1d82fd8ca87949d08fe77d7562d978}{EMPTNODE}}~(\mbox{\hyperlink{src_2vhdldocgen_8cpp_a547a0048650bcde0b41268c7bbdabaf9}{ENDCL}} $\vert$ \mbox{\hyperlink{src_2vhdldocgen_8cpp_ad5ed36e089ae23fbd0742efe34acf322}{EEND}}            $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a202add8ca5d891a736b7865fd7bc733f}{FLOWLEN}}~(\mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{flow\+List.\+size}}()-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a17c0d52cf3683a329ebcc7417519b310}{init\+UCF}} (\mbox{\hyperlink{class_entry}{Entry}} $\ast$root, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&type, \mbox{\hyperlink{class_q_c_string}{QCString}} \&qcs, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, \mbox{\hyperlink{class_q_c_string}{QCString}} \&brief)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a1f76f36afd77f874d16385ffbe83e1c8}{write\+UCFLink}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$mdef, \mbox{\hyperlink{class_output_list}{Output\+List}} \&ol)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab534a27eef617922af2a5d7baafffcae}{add\+Instance}} (\mbox{\hyperlink{class_class_def_mutable}{Class\+Def\+Mutable}} $\ast$entity, \mbox{\hyperlink{class_class_def_mutable}{Class\+Def\+Mutable}} $\ast$arch, \mbox{\hyperlink{class_class_def_mutable}{Class\+Def\+Mutable}} $\ast$inst, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&cur)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_af5cd5bc160da3ea896d8d60e0a56f1fe}{create\+SVG}} ()
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_aa5042d00d2c28e2da22a6c613774b1f9}{start\+Dot}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab59476a7d873b9aefd2abcc499dd99ab}{start\+Table}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&class\+Name)
+\item 
+static \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a91d8400928600009038edb42acba3d05}{get\+Ports}} (const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a2d6afe78b5072def0ae4a854d5d43f94}{write\+Vhdl\+Entity\+Tool\+Tip}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a7cac50a53d3ba2a792c5a9d642e65cea}{end\+Dot}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a8495c3c09d3dbc999d004e9f9941f0ca}{write\+Table}} (const \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ $>$ \&port\+List, \mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ad87f77f29e176092c5af9423b3523024}{end\+Table}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_abc4226e2dabff44cc1762c66a14cd9c1}{write\+Class\+To\+Dot}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a18e77dc1728e63e4cbf44698a7ef01d4}{write\+Vhdl\+Dot\+Link}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{testing_2094__old__style__fortran__routines_8f90_ab5236747aa3f22ed246ba71a3596be53}{a}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{testing_2094__old__style__fortran__routines_8f90_a9b3d88ab6bb1494c77a80097bf7f2fbb}{b}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a0baa12de62b1835494dd0ee014e7d1b8}{style}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab30b312f9544ebfae65e8d7f108743ee}{codify}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&str)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a5e22c140f692291551eb95a7e1867b8f}{write\+Link}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$mdef, \mbox{\hyperlink{class_output_list}{Output\+List}} \&ol)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a443391a41c8ca5dd93aa555beeb1955d}{start\+Fonts}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&q, const char $\ast$keyword, \mbox{\hyperlink{class_output_list}{Output\+List}} \&ol)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a67e22ceaa05ae493f2f3892681aec351}{split\+String}} (\mbox{\hyperlink{class_q_c_string}{QCString}} \&str, char \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ac853f7c85a98e5ef7040604706c7b80c}{compare\+String}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&s1, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&s2)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_abf933f7f0042ad158eb6412b57026925}{format\+Brief\+Note}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&brief, \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}{write\+Column}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$md, bool start)
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a6716f18f0514d852937faae85612e5bf}{members\+Have\+Specific\+Type}} (const \mbox{\hyperlink{class_member_list}{Member\+List}} $\ast$ml, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} type)
+\item 
+static const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a180fa3a09e24b54ffad20ec6bcef86da}{find\+Mem\+Flow}} (const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$mdef)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_abc3bead6f8cce482f4db02c92a770ab5}{align\+Text}} (\mbox{\hyperlink{class_q_c_string}{QCString}} \&q)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a564ccf36eb7cf220de5f5252a9a2b0da}{flow\+Member}} =0
+\item 
+static const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a42eaeb2d27a1ca6f1f4260eb47c1cdfb}{g\+\_\+vhdl\+Key\+Word\+Set0}}
+\item 
+static const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a39441f8bd99a60d5c2aec9d59b74e20e}{g\+\_\+vhdl\+Key\+Word\+Set1}}
+\item 
+static const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ac4f1b611af42de29e058f467e51d471a}{g\+\_\+vhdl\+Key\+Word\+Set2}}
+\item 
+static const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a18b7bb81e640523add52a1e1ed0277b3}{g\+\_\+vhdl\+Key\+Word\+Set3}}
+\item 
+static std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a3cc5f535e1a84284407b715e1b40f93e}{g\+\_\+var\+Map}}
+\item 
+static \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a15003ec22aceea0954f320c3092588b1}{g\+\_\+class\+List}}
+\item 
+static std\+::map$<$ \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$, \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$ $>$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a4f0ee2fc6fdee2414cb783cb977becd7}{g\+\_\+packages}}
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a56d899e3d331a47d8c765340997d0207}{record\+Counter}} =0
+\item 
+static \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a3ab79d2d52d43f3c22214135a989f88d}{md\+List}}
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab2683e87d60a00e06c996a17faabf7c6}{ifcounter}} =0
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a3c86cd9f03e0a8ffb5c6676325ca2d20}{node\+Counter}} =0
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a9b53ed9446260849c8a200b362c97c37}{textNodeLink}}\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a685fd32cd6b22bb9302c2d456c1ba6cb}{yesNodeLink}}\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a19fcc4cce611bc4cce6539a7b821efc1}{noNodeLink}}\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}{comment}}\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a4c3490b21727b2da346e15ed4fb8937b}{decisionNode}}\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab5c24e80a4e2efc78c082b446e1a13a2}{varNode}}\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ae261a70614d30ab993e7db91ab7f6c6a}{startEndNode}}\\
+\>const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ac44294ad1ec4e31fd82000879621d53c}{textNode}}\\
+\} \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ad9d9a5a72e153c6d520705944c44f4a8}{flowCol}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ \mbox{\hyperlink{class_flow_chart}{Flow\+Chart}} $>$ \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a58b3784e26a172c464443fb55a30364d}{flow\+List}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_aaab1f2b37b1283016df2dee1690c4846}\label{build_2doxygen_2src_2vhdldocgen_8cpp_aaab1f2b37b1283016df2dee1690c4846}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!DECLN@{DECLN}}
+\index{DECLN@{DECLN}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{DECLN}{DECLN}}
+{\footnotesize\ttfamily \#define DECLN}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                  (\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca72172781d1a0bcb957843b88f087424b}{FlowChart::WHEN\_NO}}      | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{\(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{                  FlowChart::ELSIF\_NO}}     | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7711420d0b41638d288956ee73857de8}{FlowChart::IF\_NO}}    | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cab124ba0812acd7e4b763abc15bc4c7db}{\(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cab124ba0812acd7e4b763abc15bc4c7db}{                  FlowChart::FOR\_NO}}       | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca2c8c41f1e0b25bcbed8fc7abed7a4e75}{FlowChart::WHILE\_NO}} | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7c947aa25e0f24340df01fbd7eff7c79}{\(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7c947aa25e0f24340df01fbd7eff7c79}{                  FlowChart::CASE\_NO}}      | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca25dc9cfb46965dc46504c466d6d832cb}{FlowChart::LOOP\_NO}} )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02845}{2845}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a40069882b1f09d9463acc3acd7b67708}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a40069882b1f09d9463acc3acd7b67708}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!EE@{EE}}
+\index{EE@{EE}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{EE}{EE}}
+{\footnotesize\ttfamily \#define EE~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7cb2a5e64f648f5a2cb93fa7d4756507}{Flow\+Chart\+::\+ELSE\+\_\+\+NO}}      $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02857}{2857}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ad5ed36e089ae23fbd0742efe34acf322}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ad5ed36e089ae23fbd0742efe34acf322}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!EEND@{EEND}}
+\index{EEND@{EEND}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{EEND}{EEND}}
+{\footnotesize\ttfamily \#define EEND~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf1da45ecc47c7cf81f7c45429bff663c}{Flow\+Chart\+::\+ENDIF\+\_\+\+NO}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7cb2a5e64f648f5a2cb93fa7d4756507}{Flow\+Chart\+::\+ELSE\+\_\+\+NO}} )}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02853}{2853}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a8c1d82fd8ca87949d08fe77d7562d978}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a8c1d82fd8ca87949d08fe77d7562d978}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!EMPTNODE@{EMPTNODE}}
+\index{EMPTNODE@{EMPTNODE}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{EMPTNODE}{EMPTNODE}}
+{\footnotesize\ttfamily \#define EMPTNODE~(\mbox{\hyperlink{src_2vhdldocgen_8cpp_a547a0048650bcde0b41268c7bbdabaf9}{ENDCL}} $\vert$ \mbox{\hyperlink{src_2vhdldocgen_8cpp_ad5ed36e089ae23fbd0742efe34acf322}{EEND}}            $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02858}{2858}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a2b7cf2a3641be7b89138615764d60ba3}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a2b7cf2a3641be7b89138615764d60ba3}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!EMPTY@{EMPTY}}
+\index{EMPTY@{EMPTY}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{EMPTY}{EMPTY}}
+{\footnotesize\ttfamily \#define EMPTY~(\mbox{\hyperlink{src_2vhdldocgen_8cpp_ad5ed36e089ae23fbd0742efe34acf322}{EEND}}                    $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02856}{2856}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a547a0048650bcde0b41268c7bbdabaf9}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a547a0048650bcde0b41268c7bbdabaf9}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!ENDCL@{ENDCL}}
+\index{ENDCL@{ENDCL}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{ENDCL}{ENDCL}}
+{\footnotesize\ttfamily \#define ENDCL~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cad694066467adb414bd5a522066ef78b2}{Flow\+Chart\+::\+END\+\_\+\+CASE}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca6d864b0f1dea7ea0831fc8ef23368509}{Flow\+Chart\+::\+END\+\_\+\+LOOP}})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02852}{2852}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_afb52f0bd95d6390d6fc0943d1c3f638f}\label{build_2doxygen_2src_2vhdldocgen_8cpp_afb52f0bd95d6390d6fc0943d1c3f638f}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!EXITNEXT@{EXITNEXT}}
+\index{EXITNEXT@{EXITNEXT}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{EXITNEXT}{EXITNEXT}}
+{\footnotesize\ttfamily \#define EXITNEXT~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca2da1a7d9d48dea598f5c65533229fdc3}{Flow\+Chart\+::\+EXIT\+\_\+\+NO}}      $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca1cd91f82a67a4f3e4c2bd767f2243692}{Flow\+Chart\+::\+NEXT\+\_\+\+NO}} )}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02855}{2855}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a202add8ca5d891a736b7865fd7bc733f}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a202add8ca5d891a736b7865fd7bc733f}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!FLOWLEN@{FLOWLEN}}
+\index{FLOWLEN@{FLOWLEN}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{FLOWLEN}{FLOWLEN}}
+{\footnotesize\ttfamily \#define FLOWLEN~(\mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{flow\+List.\+size}}()-\/1)}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02859}{2859}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a2683dde5ae950c9c69ec580cff66f359}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a2683dde5ae950c9c69ec580cff66f359}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!IFF@{IFF}}
+\index{IFF@{IFF}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{IFF}{IFF}}
+{\footnotesize\ttfamily \#define IFF~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572caf481c3d0ba19a8878ed68e4e203742a4}{Flow\+Chart\+::\+ELSIF\+\_\+\+NO}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7711420d0b41638d288956ee73857de8}{Flow\+Chart\+::\+IF\+\_\+\+NO}})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02854}{2854}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a8e8f11caf539de9555d07b4e7ef5b1da}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a8e8f11caf539de9555d07b4e7ef5b1da}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!LOOP@{LOOP}}
+\index{LOOP@{LOOP}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{LOOP}{LOOP}}
+{\footnotesize\ttfamily \#define LOOP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                  (\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cab124ba0812acd7e4b763abc15bc4c7db}{FlowChart::FOR\_NO}}       | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca2c8c41f1e0b25bcbed8fc7abed7a4e75}{FlowChart::WHILE\_NO}} | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca25dc9cfb46965dc46504c466d6d832cb}{\(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca25dc9cfb46965dc46504c466d6d832cb}{                  FlowChart::LOOP\_NO}} )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02850}{2850}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_abe49c281c00844e55c25aacf8b4ee1a2}\label{build_2doxygen_2src_2vhdldocgen_8cpp_abe49c281c00844e55c25aacf8b4ee1a2}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!STARTFIN@{STARTFIN}}
+\index{STARTFIN@{STARTFIN}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{STARTFIN}{STARTFIN}}
+{\footnotesize\ttfamily \#define STARTFIN~(\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca399362d0c603716644abb2e21e7aab1f}{Flow\+Chart\+::\+START\+\_\+\+NO}}     $\vert$ \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cab8119d95911f37706727e6c110b202d9}{Flow\+Chart\+::\+END\+\_\+\+NO}})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02849}{2849}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_afd32ac165b45cf0bd6eb6aeb189c98fe}\label{build_2doxygen_2src_2vhdldocgen_8cpp_afd32ac165b45cf0bd6eb6aeb189c98fe}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!STARTL@{STARTL}}
+\index{STARTL@{STARTL}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{STARTL}{STARTL}}
+{\footnotesize\ttfamily \#define STARTL}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                  (\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca2c8c41f1e0b25bcbed8fc7abed7a4e75}{FlowChart::WHILE\_NO}}     | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7711420d0b41638d288956ee73857de8}{FlowChart::IF\_NO}}    | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cab124ba0812acd7e4b763abc15bc4c7db}{\(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572cab124ba0812acd7e4b763abc15bc4c7db}{                  FlowChart::FOR\_NO}}       | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca7c947aa25e0f24340df01fbd7eff7c79}{FlowChart::CASE\_NO}}  | \mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca25dc9cfb46965dc46504c466d6d832cb}{\(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{class_flow_chart_acd787d5c3faa541b938e0d58c800572ca25dc9cfb46965dc46504c466d6d832cb}{                  FlowChart::LOOP\_NO}}      | WHEN\_NO)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02842}{2842}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a5c766ca623cbbc0bf6fded310f85f857}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a5c766ca623cbbc0bf6fded310f85f857}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!theTranslator\_vhdlType@{theTranslator\_vhdlType}}
+\index{theTranslator\_vhdlType@{theTranslator\_vhdlType}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{theTranslator\_vhdlType}{theTranslator\_vhdlType}}
+{\footnotesize\ttfamily \#define the\+Translator\+\_\+vhdl\+Type~\mbox{\hyperlink{src_2language_8h_a07b18e39f7c5156cd370829e7e6f8534}{the\+Translator}}-\/$>$tr\+Vhdl\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ab534a27eef617922af2a5d7baafffcae}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ab534a27eef617922af2a5d7baafffcae}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!addInstance@{addInstance}}
+\index{addInstance@{addInstance}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{addInstance()}{addInstance()}}
+{\footnotesize\ttfamily static void add\+Instance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_class_def_mutable}{Class\+Def\+Mutable}} $\ast$}]{entity,  }\item[{\mbox{\hyperlink{class_class_def_mutable}{Class\+Def\+Mutable}} $\ast$}]{arch,  }\item[{\mbox{\hyperlink{class_class_def_mutable}{Class\+Def\+Mutable}} $\ast$}]{inst,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&}]{cur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02540}{2540}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02542 \{}
+\DoxyCodeLine{02543 }
+\DoxyCodeLine{02544   \mbox{\hyperlink{class_q_c_string}{QCString}} bName,n1;}
+\DoxyCodeLine{02545   \textcolor{keywordflow}{if} (ar==0) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{02546 }
+\DoxyCodeLine{02547   \textcolor{keywordflow}{if} (classEntity==0)}
+\DoxyCodeLine{02548   \{}
+\DoxyCodeLine{02549     \textcolor{comment}{//add component inst}}
+\DoxyCodeLine{02550     n1=cur-\/>type;}
+\DoxyCodeLine{02551     \textcolor{keywordflow}{goto} ferr;}
+\DoxyCodeLine{02552   \}}
+\DoxyCodeLine{02553 }
+\DoxyCodeLine{02554   \textcolor{keywordflow}{if} (classEntity==cd) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{02555 }
+\DoxyCodeLine{02556   bName=classEntity-\/>name();}
+\DoxyCodeLine{02557   \textcolor{comment}{// fprintf(stderr,"{}\(\backslash\)naddInstance \%s to \%s \%s \%s\(\backslash\)n"{},qPrint( classEntity-\/>name()),qPrint(cd-\/>name()),qPrint(ar-\/>name()),cur-\/>name);}}
+\DoxyCodeLine{02558   n1=classEntity-\/>name();}
+\DoxyCodeLine{02559 }
+\DoxyCodeLine{02560   \textcolor{keywordflow}{if} (!cd-\/>isBaseClass(classEntity, \textcolor{keyword}{true}))}
+\DoxyCodeLine{02561   \{}
+\DoxyCodeLine{02562     cd-\/>insertBaseClass(classEntity,n1,\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}},\mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea5ecbcf0afce98b042f35ec71ba03fa4b}{Normal}},\mbox{\hyperlink{class_q_c_string}{QCString}}());}
+\DoxyCodeLine{02563   \}}
+\DoxyCodeLine{02564   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02565   \{}
+\DoxyCodeLine{02566     \mbox{\hyperlink{class_vhdl_doc_gen_a4892ca19efc7055ce4b5c3004ce550ed}{VhdlDocGen::addBaseClass}}(cd,classEntity);}
+\DoxyCodeLine{02567   \}}
+\DoxyCodeLine{02568 }
+\DoxyCodeLine{02569   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_vhdl_doc_gen_ac7d0f125a2bffca08e8c52644bf8c6f2}{VhdlDocGen::isSubClass}}(classEntity,cd,\textcolor{keyword}{true},0))}
+\DoxyCodeLine{02570   \{}
+\DoxyCodeLine{02571     classEntity-\/>insertSubClass(cd,\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}},\mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea5ecbcf0afce98b042f35ec71ba03fa4b}{Normal}},\mbox{\hyperlink{class_q_c_string}{QCString}}());}
+\DoxyCodeLine{02572     classEntity-\/>setLanguage(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{SrcLangExt\_VHDL}});}
+\DoxyCodeLine{02573   \}}
+\DoxyCodeLine{02574 }
+\DoxyCodeLine{02575 ferr:}
+\DoxyCodeLine{02576   \mbox{\hyperlink{class_q_c_string}{QCString}} uu=cur-\/>name;}
+\DoxyCodeLine{02577   std::unique\_ptr<MemberDefMutable> md \{ \mbox{\hyperlink{build_2doxygen_2src_2memberdef_8cpp_a2739629cdf19249dcf7cd08f8c9491e7}{createMemberDef}}(}
+\DoxyCodeLine{02578       ar-\/>getDefFileName(), cur-\/>startLine,cur-\/>startColumn,}
+\DoxyCodeLine{02579       n1,uu,uu, \mbox{\hyperlink{class_q_c_string}{QCString}}(),}
+\DoxyCodeLine{02580       \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea5ecbcf0afce98b042f35ec71ba03fa4b}{Normal}}, cur-\/>stat,\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9d625fe894d9313ec78df1d78553f32ea131b9f46d320a38adefa3494dfdafcd8}{Member}},}
+\DoxyCodeLine{02581       \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a63e3de542c5d38de617ab78c8c8f5a41a8e26e040fbf55bd636794ea899dd48f0}{MemberType\_Variable}},}
+\DoxyCodeLine{02582       \mbox{\hyperlink{class_argument_list}{ArgumentList}}(),}
+\DoxyCodeLine{02583       \mbox{\hyperlink{class_argument_list}{ArgumentList}}(),}
+\DoxyCodeLine{02584       \textcolor{stringliteral}{"{}"{}}) \};}
+\DoxyCodeLine{02585 }
+\DoxyCodeLine{02586   \textcolor{keywordflow}{if} (!ar-\/>getOutputFileBase().isEmpty())}
+\DoxyCodeLine{02587   \{}
+\DoxyCodeLine{02588     \mbox{\hyperlink{struct_tag_info}{TagInfo}} tg;}
+\DoxyCodeLine{02589     tg.\mbox{\hyperlink{struct_tag_info_a1cc95c706df919ed12443c7574e12aa0}{anchor}} = 0;}
+\DoxyCodeLine{02590     tg.\mbox{\hyperlink{struct_tag_info_a7c046d5ccf0095527213dabbbf0949f9}{fileName}} = ar-\/>getOutputFileBase();}
+\DoxyCodeLine{02591     tg.\mbox{\hyperlink{struct_tag_info_a8f42f0aff3cb6df860f7b5ba27f6cd2f}{tagName}} = 0;}
+\DoxyCodeLine{02592     md-\/>setTagInfo(\&tg);}
+\DoxyCodeLine{02593   \}}
+\DoxyCodeLine{02594 }
+\DoxyCodeLine{02595   \textcolor{comment}{//fprintf(stderr,"{}\(\backslash\)n\%s\%s\%s\(\backslash\)n"{},qPrint(md-\/>name()),qPrint(cur-\/>brief),qPrint(cur-\/>doc));}}
+\DoxyCodeLine{02596 }
+\DoxyCodeLine{02597   md-\/>setLanguage(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{SrcLangExt\_VHDL}});}
+\DoxyCodeLine{02598   md-\/>setMemberSpecifiers(\mbox{\hyperlink{class_vhdl_doc_gen_a3f46a86d0561edb71388774696f6cea6aab809229d591ad9e9e75f0fa0fa7d133}{VhdlDocGen::INSTANTIATION}});}
+\DoxyCodeLine{02599   md-\/>setBriefDescription(cur-\/>brief,cur-\/>briefFile,cur-\/>briefLine);}
+\DoxyCodeLine{02600   md-\/>setBodySegment(cur-\/>startLine,cur-\/>startLine,-\/1) ;}
+\DoxyCodeLine{02601   md-\/>setDocumentation(cur-\/>doc,cur-\/>docFile,cur-\/>docLine);}
+\DoxyCodeLine{02602   \mbox{\hyperlink{class_file_def}{FileDef}} *fd=ar-\/>getFileDef();}
+\DoxyCodeLine{02603   md-\/>\mbox{\hyperlink{class_definition_mutable_acebfd2c89008fa8ef42c9ab9bf61d4b7}{setBodyDef}}(fd);}
+\DoxyCodeLine{02604   ar-\/>insertMember(md.get());}
+\DoxyCodeLine{02605   \mbox{\hyperlink{class_member_name}{MemberName}} *mn = \mbox{\hyperlink{class_doxygen_a226bff476e6ed01b766a9cba993eb302}{Doxygen::functionNameLinkedMap}}-\/>\mbox{\hyperlink{class_linked_map_acddca8cb09f114936f6b80276f2c9c1b}{add}}(uu);}
+\DoxyCodeLine{02606   mn-\/>\mbox{\hyperlink{class_member_name_af5b01c0bc171ba35e0bc2a33d9c88563}{push\_back}}(std::move(md));}
+\DoxyCodeLine{02607 }
+\DoxyCodeLine{02608 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_linked_map_acddca8cb09f114936f6b80276f2c9c1b}{Linked\+Map$<$ T, Hash, Key\+Equal, Map $>$\+::add()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a4892ca19efc7055ce4b5c3004ce550ed}{Vhdl\+Doc\+Gen\+::add\+Base\+Class()}}, \mbox{\hyperlink{struct_tag_info_a1cc95c706df919ed12443c7574e12aa0}{Tag\+Info\+::anchor}}, \mbox{\hyperlink{build_2doxygen_2src_2memberdef_8cpp_a2739629cdf19249dcf7cd08f8c9491e7}{create\+Member\+Def()}}, \mbox{\hyperlink{struct_tag_info_a7c046d5ccf0095527213dabbbf0949f9}{Tag\+Info\+::file\+Name}}, \mbox{\hyperlink{class_doxygen_a226bff476e6ed01b766a9cba993eb302}{Doxygen\+::function\+Name\+Linked\+Map}}, \mbox{\hyperlink{class_definition_a33fee836f24f8205eedbd21dd9d282e6}{Definition\+::get\+Def\+File\+Name()}}, \mbox{\hyperlink{class_class_def_aed4a0864e51e5a3ac616f6c8e10f56c6}{Class\+Def\+::get\+File\+Def()}}, \mbox{\hyperlink{class_class_def_a12a8f241e90a0cb0bdf19c27bf2025b0}{Class\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_class_def_mutable_a761d9f7cc2f81e4ac4211e265540bace}{Class\+Def\+Mutable\+::insert\+Base\+Class()}}, \mbox{\hyperlink{class_class_def_mutable_aceb3bff3f6febf20e1abb61386da66e7}{Class\+Def\+Mutable\+::insert\+Member()}}, \mbox{\hyperlink{class_class_def_mutable_a9455d0a7225968447a4bb2b7ce6eb46c}{Class\+Def\+Mutable\+::insert\+Sub\+Class()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a3f46a86d0561edb71388774696f6cea6aab809229d591ad9e9e75f0fa0fa7d133}{Vhdl\+Doc\+Gen\+::\+INSTANTIATION}}, \mbox{\hyperlink{class_class_def_aa6cc7f565f801818dace174a6b4d73f3}{Class\+Def\+::is\+Base\+Class()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_vhdl_doc_gen_ac7d0f125a2bffca08e8c52644bf8c6f2}{Vhdl\+Doc\+Gen\+::is\+Sub\+Class()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9d625fe894d9313ec78df1d78553f32ea131b9f46d320a38adefa3494dfdafcd8}{Member}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a63e3de542c5d38de617ab78c8c8f5a41a8e26e040fbf55bd636794ea899dd48f0}{Member\+Type\+\_\+\+Variable}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea5ecbcf0afce98b042f35ec71ba03fa4b}{Normal}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}}, \mbox{\hyperlink{class_member_name_af5b01c0bc171ba35e0bc2a33d9c88563}{Member\+Name\+::push\+\_\+back()}}, \mbox{\hyperlink{class_definition_mutable_acebfd2c89008fa8ef42c9ab9bf61d4b7}{Definition\+Mutable\+::set\+Body\+Def()}}, \mbox{\hyperlink{class_definition_mutable_aa0c1e834027250c7b3bcffcd73e96c3d}{Definition\+Mutable\+::set\+Language()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{Src\+Lang\+Ext\+\_\+\+VHDL}}, and \mbox{\hyperlink{struct_tag_info_a8f42f0aff3cb6df860f7b5ba27f6cd2f}{Tag\+Info\+::tag\+Name}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_ab8681769cd2f027fbf46a4836d3825e9}{Vhdl\+Doc\+Gen\+::compute\+Vhdl\+Component\+Relations()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_abc3bead6f8cce482f4db02c92a770ab5}\label{build_2doxygen_2src_2vhdldocgen_8cpp_abc3bead6f8cce482f4db02c92a770ab5}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!alignText@{alignText}}
+\index{alignText@{alignText}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{alignText()}{alignText()}}
+{\footnotesize\ttfamily void align\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{q }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02894}{2894}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02895 \{}
+\DoxyCodeLine{02896   \textcolor{keywordflow}{if} (q.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()<=80) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{02897 }
+\DoxyCodeLine{02898   \textcolor{keywordflow}{if} (q.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()>200)}
+\DoxyCodeLine{02899   \{}
+\DoxyCodeLine{02900     q.\mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{resize}}(200);}
+\DoxyCodeLine{02901   \}}
+\DoxyCodeLine{02902 }
+\DoxyCodeLine{02903   q.\mbox{\hyperlink{class_q_c_string_a8f0a381fdae1427b1182baf0abde21e7}{append}}(\textcolor{stringliteral}{"{} ..."{}});}
+\DoxyCodeLine{02904 }
+\DoxyCodeLine{02905   \mbox{\hyperlink{class_q_c_string}{QCString}} str(q);}
+\DoxyCodeLine{02906   \mbox{\hyperlink{class_q_c_string}{QCString}} temp;}
+\DoxyCodeLine{02907 }
+\DoxyCodeLine{02908   \textcolor{keywordflow}{while} (str.length()>80)}
+\DoxyCodeLine{02909   \{}
+\DoxyCodeLine{02910     \textcolor{keywordtype}{int} j=std::max(str.findRev(\textcolor{charliteral}{' '},80),str.findRev(\textcolor{charliteral}{'|'},80));}
+\DoxyCodeLine{02911     \textcolor{keywordflow}{if} (j<=0)}
+\DoxyCodeLine{02912     \{}
+\DoxyCodeLine{02913       temp+=str;}
+\DoxyCodeLine{02914       q=temp;}
+\DoxyCodeLine{02915       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{02916     \}}
+\DoxyCodeLine{02917     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02918     \{}
+\DoxyCodeLine{02919       \mbox{\hyperlink{class_q_c_string}{QCString}} qcs=str.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(j);}
+\DoxyCodeLine{02920       temp+=qcs+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}};}
+\DoxyCodeLine{02921       temp+=\textcolor{stringliteral}{"{}n"{}};}
+\DoxyCodeLine{02922       str.\mbox{\hyperlink{class_q_c_string_a66f15f4dde9edaf0aac741fa7d57bae8}{remove}}(0,j);}
+\DoxyCodeLine{02923     \}}
+\DoxyCodeLine{02924   \}\textcolor{comment}{//while}}
+\DoxyCodeLine{02925 }
+\DoxyCodeLine{02926  q=temp+str;}
+\DoxyCodeLine{02927 \textcolor{comment}{// \#endif}}
+\DoxyCodeLine{02928 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_a8f0a381fdae1427b1182baf0abde21e7}{QCString\+::append()}}, \mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{QCString\+::find\+Rev()}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_q_c_string_a66f15f4dde9edaf0aac741fa7d57bae8}{QCString\+::remove()}}, and \mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{QCString\+::resize()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_flow_chart_a8dce4c5ff38314428145e71a788e5331}{Flow\+Chart\+::write\+Shape()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ab30b312f9544ebfae65e8d7f108743ee}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ab30b312f9544ebfae65e8d7f108743ee}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!codify@{codify}}
+\index{codify@{codify}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{codify()}{codify()}}
+{\footnotesize\ttfamily static void codify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100 \{}
+\DoxyCodeLine{00101   \textcolor{keywordflow}{if} (!str.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00102   \{}
+\DoxyCodeLine{00103     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=str.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{00104     \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00105     \textcolor{keywordflow}{while} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})}
+\DoxyCodeLine{00106     \{}
+\DoxyCodeLine{00107       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00108       \textcolor{keywordflow}{switch}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})}
+\DoxyCodeLine{00109       \{}
+\DoxyCodeLine{00110         \textcolor{keywordflow}{case} \textcolor{charliteral}{'<'}:  t << \textcolor{stringliteral}{"{}\&lt;"{}};}
+\DoxyCodeLine{00111                    \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00112         \textcolor{keywordflow}{case} \textcolor{charliteral}{'>'}:  t << \textcolor{stringliteral}{"{}\&gt;"{}};}
+\DoxyCodeLine{00113                    \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00114         \textcolor{keywordflow}{case} \textcolor{charliteral}{'\&'}:  t << \textcolor{stringliteral}{"{}\&amp;"{}};}
+\DoxyCodeLine{00115                    \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00116         \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)''}: t << \textcolor{stringliteral}{"{}\&\#39;"{}};}
+\DoxyCodeLine{00117                    \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00118         \textcolor{keywordflow}{case} \textcolor{charliteral}{'"{}'}:  t << \textcolor{stringliteral}{"{}\&quot;"{}};}
+\DoxyCodeLine{00119                    \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00120         \textcolor{keywordflow}{default}:   t << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00121                    \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00122       \}}
+\DoxyCodeLine{00123     \}}
+\DoxyCodeLine{00124   \}}
+\DoxyCodeLine{00125 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}{write\+Column()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ac853f7c85a98e5ef7040604706c7b80c}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ac853f7c85a98e5ef7040604706c7b80c}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!compareString@{compareString}}
+\index{compareString@{compareString}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{compareString()}{compareString()}}
+{\footnotesize\ttfamily static int compare\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{s1,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{s2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155 \{}
+\DoxyCodeLine{00156   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(s1.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}(),s2.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}());}
+\DoxyCodeLine{00157 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp()}}, and \mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{QCString\+::strip\+White\+Space()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a765683cbd1cf5a8e7374b64a9ac37d98}{Vhdl\+Doc\+Gen\+::find\+Function()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_af5cd5bc160da3ea896d8d60e0a56f1fe}\label{build_2doxygen_2src_2vhdldocgen_8cpp_af5cd5bc160da3ea896d8d60e0a56f1fe}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!createSVG@{createSVG}}
+\index{createSVG@{createSVG}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{createSVG()}{createSVG()}}
+{\footnotesize\ttfamily static void create\+SVG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160 \{}
+\DoxyCodeLine{00161     \mbox{\hyperlink{class_q_c_string}{QCString}} ov =\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(HTML\_OUTPUT);}
+\DoxyCodeLine{00162     \mbox{\hyperlink{class_q_c_string}{QCString}} dir=\textcolor{stringliteral}{"{}-\/o \(\backslash\)"{}"{}}+ov+\textcolor{stringliteral}{"{}/vhdl\_design\_overview.html\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00163     ov+=\textcolor{stringliteral}{"{}/vhdl\_design.dot"{}};}
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00165     \mbox{\hyperlink{class_q_c_string}{QCString}} vlargs=\textcolor{stringliteral}{"{}-\/Tsvg \(\backslash\)"{}"{}}+ov+\textcolor{stringliteral}{"{}\(\backslash\)"{} "{}}+dir ;}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167     \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable::system}}(\mbox{\hyperlink{class_doxygen_aae4781443d9553657ffd8c89fdf373d9}{Doxygen::verifiedDotPath}},vlargs)!=0)}
+\DoxyCodeLine{00168     \{}
+\DoxyCodeLine{00169       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}could not create dot file"{}});}
+\DoxyCodeLine{00170     \}}
+\DoxyCodeLine{00171 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable\+::system()}}, and \mbox{\hyperlink{class_doxygen_aae4781443d9553657ffd8c89fdf373d9}{Doxygen\+::verified\+Dot\+Path}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a7cac50a53d3ba2a792c5a9d642e65cea}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a7cac50a53d3ba2a792c5a9d642e65cea}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!endDot@{endDot}}
+\index{endDot@{endDot}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{endDot()}{endDot()}}
+{\footnotesize\ttfamily static void end\+Dot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00250}{250}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00251 \{}
+\DoxyCodeLine{00252   t <<\textcolor{stringliteral}{"{} \} \(\backslash\)n"{}};}
+\DoxyCodeLine{00253 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ad87f77f29e176092c5af9423b3523024}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ad87f77f29e176092c5af9423b3523024}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!endTable@{endTable}}
+\index{endTable@{endTable}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{endTable()}{endTable()}}
+{\footnotesize\ttfamily static void end\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00395}{395}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00396 \{}
+\DoxyCodeLine{00397   t << \textcolor{stringliteral}{"{}</TABLE>>\(\backslash\)n"{}};}
+\DoxyCodeLine{00398   t << \textcolor{stringliteral}{"{}] \(\backslash\)n"{}};}
+\DoxyCodeLine{00399 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a180fa3a09e24b54ffad20ec6bcef86da}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a180fa3a09e24b54ffad20ec6bcef86da}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!findMemFlow@{findMemFlow}}
+\index{findMemFlow@{findMemFlow}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{findMemFlow()}{findMemFlow()}}
+{\footnotesize\ttfamily static const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ find\+Mem\+Flow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02732}{2732}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02733 \{}
+\DoxyCodeLine{02734   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&md : \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a3ab79d2d52d43f3c22214135a989f88d}{mdList}})}
+\DoxyCodeLine{02735   \{}
+\DoxyCodeLine{02736     \textcolor{keywordflow}{if} (md-\/>name()==mdef-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}() \&\&  md-\/>getStartBodyLine()==mdef-\/>\mbox{\hyperlink{class_definition_ad63d39480ae9ec4e71bedbb749d16a4c}{getStartBodyLine}}())}
+\DoxyCodeLine{02737     \{}
+\DoxyCodeLine{02738       \textcolor{keywordflow}{return} md;}
+\DoxyCodeLine{02739     \}}
+\DoxyCodeLine{02740   \}}
+\DoxyCodeLine{02741   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{02742 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_definition_ad63d39480ae9ec4e71bedbb749d16a4c}{Definition\+::get\+Start\+Body\+Line()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a3ab79d2d52d43f3c22214135a989f88d}{md\+List}}, and \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a2de08afddfa24b4a037c36ac329185ff}{Vhdl\+Doc\+Gen\+::create\+Flow\+Chart()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_abf933f7f0042ad158eb6412b57026925}\label{build_2doxygen_2src_2vhdldocgen_8cpp_abf933f7f0042ad158eb6412b57026925}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!formatBriefNote@{formatBriefNote}}
+\index{formatBriefNote@{formatBriefNote}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{formatBriefNote()}{formatBriefNote()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} format\+Brief\+Note (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{brief,  }\item[{\mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00273}{273}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00274 \{}
+\DoxyCodeLine{00275   \mbox{\hyperlink{class_q_c_string}{QCString}} vForm;}
+\DoxyCodeLine{00276   \mbox{\hyperlink{class_q_c_string}{QCString}} repl(\textcolor{stringliteral}{"{}<BR ALIGN=\(\backslash\)"{}LEFT\(\backslash\)"{}/>"{}});}
+\DoxyCodeLine{00277   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}=cd-\/>\mbox{\hyperlink{class_definition_a33fee836f24f8205eedbd21dd9d282e6}{getDefFileName}}();}
+\DoxyCodeLine{00278 }
+\DoxyCodeLine{00279   \textcolor{keywordtype}{int} k=cd-\/>\mbox{\hyperlink{class_definition_a8073d399d39c43e66a4b487b3e06ade1}{briefLine}}();}
+\DoxyCodeLine{00280 }
+\DoxyCodeLine{00281   \textcolor{keyword}{auto} qsl=\mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}(brief.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00282   \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto} \&line : qsl)}
+\DoxyCodeLine{00283   \{}
+\DoxyCodeLine{00284     vForm+=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a336a6313626a3a3931e2086fd507bedc}{parseCommentAsText}}(cd,NULL,line.c\_str(),\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},k);}
+\DoxyCodeLine{00285     k++;}
+\DoxyCodeLine{00286     vForm+=repl;}
+\DoxyCodeLine{00287   \}}
+\DoxyCodeLine{00288   \textcolor{keywordflow}{return} vForm;}
+\DoxyCodeLine{00289 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_definition_a8073d399d39c43e66a4b487b3e06ade1}{Definition\+::brief\+Line()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{class_definition_a33fee836f24f8205eedbd21dd9d282e6}{Definition\+::get\+Def\+File\+Name()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a336a6313626a3a3931e2086fd507bedc}{parse\+Comment\+As\+Text()}}, \mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split()}}, and \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a2d6afe78b5072def0ae4a854d5d43f94}{write\+Vhdl\+Entity\+Tool\+Tip()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a91d8400928600009038edb42acba3d05}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a91d8400928600009038edb42acba3d05}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!getPorts@{getPorts}}
+\index{getPorts@{getPorts}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{getPorts()}{getPorts()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ $>$ get\+Ports (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00415}{415}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00416 \{}
+\DoxyCodeLine{00417   \mbox{\hyperlink{class_member_list}{MemberList}} *ml = cd-\/>\mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{getMemberList}}(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ac236492bbb72e2af1802dfdcbd6d3ad8}{MemberListType\_variableMembers}});}
+\DoxyCodeLine{00418   std::vector<const MemberDef *> portList;}
+\DoxyCodeLine{00419 }
+\DoxyCodeLine{00420   \textcolor{keywordflow}{if} (ml==0)}
+\DoxyCodeLine{00421   \{}
+\DoxyCodeLine{00422     \textcolor{keywordflow}{return} portList;}
+\DoxyCodeLine{00423   \}}
+\DoxyCodeLine{00424 }
+\DoxyCodeLine{00425   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&md : *ml)}
+\DoxyCodeLine{00426   \{}
+\DoxyCodeLine{00427     \textcolor{keywordflow}{if} (md-\/>getMemberSpecifiers()==\mbox{\hyperlink{class_vhdl_doc_gen_a3f46a86d0561edb71388774696f6cea6a23e0c8bbba842327d9fbb6bbff452674}{VhdlDocGen::PORT}})}
+\DoxyCodeLine{00428     \{}
+\DoxyCodeLine{00429       portList.\mbox{\hyperlink{class_member_vector_af76ec8b9f3fa62a3276c0c115526325a}{push\_back}}(md);}
+\DoxyCodeLine{00430     \}}
+\DoxyCodeLine{00431   \}}
+\DoxyCodeLine{00432   \textcolor{keywordflow}{return} portList;}
+\DoxyCodeLine{00433 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_class_def_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{Class\+Def\+::get\+Member\+List()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ac236492bbb72e2af1802dfdcbd6d3ad8}{Member\+List\+Type\+\_\+variable\+Members}}, \mbox{\hyperlink{class_vhdl_doc_gen_a3f46a86d0561edb71388774696f6cea6a23e0c8bbba842327d9fbb6bbff452674}{Vhdl\+Doc\+Gen\+::\+PORT}}, and \mbox{\hyperlink{class_member_vector_af76ec8b9f3fa62a3276c0c115526325a}{Member\+Vector\+::push\+\_\+back()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a17c0d52cf3683a329ebcc7417519b310}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a17c0d52cf3683a329ebcc7417519b310}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!initUCF@{initUCF}}
+\index{initUCF@{initUCF}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{initUCF()}{initUCF()}}
+{\footnotesize\ttfamily static void init\+UCF (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entry}{Entry}} $\ast$}]{root,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{type,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{qcs,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{brief }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02322}{2322}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02324 \{}
+\DoxyCodeLine{02325   \textcolor{keywordflow}{if} (qcs.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())\textcolor{keywordflow}{return};}
+\DoxyCodeLine{02326   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}};}
+\DoxyCodeLine{02327 }
+\DoxyCodeLine{02328   \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(qcs,\textcolor{charliteral}{';'});}
+\DoxyCodeLine{02329   qcs=qcs.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{02330 }
+\DoxyCodeLine{02331   \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classreg_1_1_ex}{reg::Ex}} \mbox{\hyperlink{namespacereg}{reg}}(R\textcolor{stringliteral}{"{}([\(\backslash\)s=])"{});}}
+\DoxyCodeLine{02332 \textcolor{stringliteral}{  }\textcolor{keywordtype}{int} i = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa148f513c64eba8bfd7f3e775c711514}{findIndex}}(qcs.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\mbox{\hyperlink{namespacereg}{reg}});}
+\DoxyCodeLine{02333   \textcolor{keywordflow}{if} (i<0) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{02334   \textcolor{keywordflow}{if} (i==0)}
+\DoxyCodeLine{02335   \{}
+\DoxyCodeLine{02336     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}=type;}
+\DoxyCodeLine{02337     \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},\textcolor{charliteral}{'\#'});}
+\DoxyCodeLine{02338   \}}
+\DoxyCodeLine{02339   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02340   \{}
+\DoxyCodeLine{02341     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}=qcs.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(i);}
+\DoxyCodeLine{02342   \}}
+\DoxyCodeLine{02343   qcs=qcs.\mbox{\hyperlink{class_q_c_string_a66f15f4dde9edaf0aac741fa7d57bae8}{remove}}(0,i+1);}
+\DoxyCodeLine{02344   \textcolor{comment}{//  qcs.prepend("{}|"{});}}
+\DoxyCodeLine{02345 }
+\DoxyCodeLine{02346   qcs.\mbox{\hyperlink{class_q_c_string_af363dfe85e56f873aa3a373c70a33b24}{stripPrefix}}(\textcolor{stringliteral}{"{}="{}});}
+\DoxyCodeLine{02347 }
+\DoxyCodeLine{02348   std::shared\_ptr<Entry> current = std::make\_shared<Entry>();}
+\DoxyCodeLine{02349   current-\/>spec=\mbox{\hyperlink{class_vhdl_doc_gen_a3f46a86d0561edb71388774696f6cea6a615b965391a70902a600961e4961ca85}{VhdlDocGen::UCF\_CONST}};}
+\DoxyCodeLine{02350   current-\/>section=\mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea1953adbb3d32ed88b1b5d92ccd9d1903}{Entry::VARIABLE\_SEC}};}
+\DoxyCodeLine{02351   current-\/>bodyLine=line;}
+\DoxyCodeLine{02352   current-\/>fileName=fileName;}
+\DoxyCodeLine{02353   current-\/>type=\textcolor{stringliteral}{"{}ucf\_const"{}};}
+\DoxyCodeLine{02354   current-\/>args+=qcs;}
+\DoxyCodeLine{02355   current-\/>lang=  \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{SrcLangExt\_VHDL}} ;}
+\DoxyCodeLine{02356 }
+\DoxyCodeLine{02357   \textcolor{comment}{// adding dummy name for constraints like VOLTAGE=5,TEMPERATURE=20 C}}
+\DoxyCodeLine{02358   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.isEmpty())}
+\DoxyCodeLine{02359   \{}
+\DoxyCodeLine{02360     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}=\textcolor{stringliteral}{"{}dummy"{}};}
+\DoxyCodeLine{02361     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}+=\mbox{\hyperlink{class_vhdl_doc_gen_a2e65f831a03ff54d13240da96843cd60}{VhdlDocGen::getRecordNumber}}();}
+\DoxyCodeLine{02362   \}}
+\DoxyCodeLine{02363 }
+\DoxyCodeLine{02364   current-\/>name= \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}+\textcolor{stringliteral}{"{}\_"{}};}
+\DoxyCodeLine{02365   current-\/>name.append(\mbox{\hyperlink{class_vhdl_doc_gen_a2e65f831a03ff54d13240da96843cd60}{VhdlDocGen::getRecordNumber}}());}
+\DoxyCodeLine{02366 }
+\DoxyCodeLine{02367   \textcolor{keywordflow}{if} (!brief.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{02368   \{}
+\DoxyCodeLine{02369     current-\/>brief=brief;}
+\DoxyCodeLine{02370     current-\/>briefLine=line;}
+\DoxyCodeLine{02371     current-\/>briefFile=fileName;}
+\DoxyCodeLine{02372     brief.\mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{02373   \}}
+\DoxyCodeLine{02374 }
+\DoxyCodeLine{02375   root-\/>\mbox{\hyperlink{class_entry_a07c79aba42cd96fbf689c324e4e31da7}{moveToSubEntryAndKeep}}(current);}
+\DoxyCodeLine{02376 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{Vhdl\+Doc\+Gen\+::delete\+All\+Chars()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa148f513c64eba8bfd7f3e775c711514}{find\+Index()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a2e65f831a03ff54d13240da96843cd60}{Vhdl\+Doc\+Gen\+::get\+Record\+Number()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{class_entry_a07c79aba42cd96fbf689c324e4e31da7}{Entry\+::move\+To\+Sub\+Entry\+And\+Keep()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{class_q_c_string_a66f15f4dde9edaf0aac741fa7d57bae8}{QCString\+::remove()}}, \mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{QCString\+::resize()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{Src\+Lang\+Ext\+\_\+\+VHDL}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{class_q_c_string_af363dfe85e56f873aa3a373c70a33b24}{QCString\+::strip\+Prefix()}}, \mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{QCString\+::strip\+White\+Space()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a3f46a86d0561edb71388774696f6cea6a615b965391a70902a600961e4961ca85}{Vhdl\+Doc\+Gen\+::\+UCF\+\_\+\+CONST}}, and \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea1953adbb3d32ed88b1b5d92ccd9d1903}{Entry\+::\+VARIABLE\+\_\+\+SEC}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a51c5847b18dcbf1006b7edf507438d03}{Vhdl\+Doc\+Gen\+::parse\+UCF()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a6716f18f0514d852937faae85612e5bf}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a6716f18f0514d852937faae85612e5bf}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!membersHaveSpecificType@{membersHaveSpecificType}}
+\index{membersHaveSpecificType@{membersHaveSpecificType}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{membersHaveSpecificType()}{membersHaveSpecificType()}}
+{\footnotesize\ttfamily static bool members\+Have\+Specific\+Type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_list}{Member\+List}} $\ast$}]{ml,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02077}{2077}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02078 \{}
+\DoxyCodeLine{02079   \textcolor{keywordflow}{if} (ml==0) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{02080   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&mdd : *ml)}
+\DoxyCodeLine{02081   \{}
+\DoxyCodeLine{02082     \textcolor{keywordflow}{if} (mdd-\/>getMemberSpecifiers()==type) \textcolor{comment}{//is type in class}}
+\DoxyCodeLine{02083     \{}
+\DoxyCodeLine{02084       \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{02085     \}}
+\DoxyCodeLine{02086   \}}
+\DoxyCodeLine{02087   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&mg : ml-\/>getMemberGroupList())}
+\DoxyCodeLine{02088   \{}
+\DoxyCodeLine{02089     \textcolor{keywordflow}{if} (!mg-\/>members().empty())}
+\DoxyCodeLine{02090     \{}
+\DoxyCodeLine{02091       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a6716f18f0514d852937faae85612e5bf}{membersHaveSpecificType}}(\&mg-\/>members(),type)) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{02092     \}}
+\DoxyCodeLine{02093   \}}
+\DoxyCodeLine{02094   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{02095 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_member_list_af6d805d822b673a443308b6363d9c85f}{Member\+List\+::get\+Member\+Group\+List()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a6716f18f0514d852937faae85612e5bf}{members\+Have\+Specific\+Type()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a6716f18f0514d852937faae85612e5bf}{members\+Have\+Specific\+Type()}}, and \mbox{\hyperlink{class_vhdl_doc_gen_a3d47aa601581ef4b2c8e52588c3b4c44}{Vhdl\+Doc\+Gen\+::write\+VHDLDeclarations()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a67e22ceaa05ae493f2f3892681aec351}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a67e22ceaa05ae493f2f3892681aec351}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!splitString@{splitString}}
+\index{splitString@{splitString}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{splitString()}{splitString()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} split\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{str,  }\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00142}{142}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143 \{}
+\DoxyCodeLine{00144   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}=str;}
+\DoxyCodeLine{00145   \textcolor{keywordtype}{int} i=str.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{00146   \textcolor{keywordflow}{if} (i>0)}
+\DoxyCodeLine{00147   \{}
+\DoxyCodeLine{00148     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}=str.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(i);}
+\DoxyCodeLine{00149     str=str.\mbox{\hyperlink{class_q_c_string_a66f15f4dde9edaf0aac741fa7d57bae8}{remove}}(0,i+1);}
+\DoxyCodeLine{00150   \}}
+\DoxyCodeLine{00151   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}};}
+\DoxyCodeLine{00152 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{QCString\+::find()}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{class_q_c_string_a66f15f4dde9edaf0aac741fa7d57bae8}{QCString\+::remove()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a1f76f36afd77f874d16385ffbe83e1c8}{write\+UCFLink()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_aa5042d00d2c28e2da22a6c613774b1f9}\label{build_2doxygen_2src_2vhdldocgen_8cpp_aa5042d00d2c28e2da22a6c613774b1f9}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!startDot@{startDot}}
+\index{startDot@{startDot}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{startDot()}{startDot()}}
+{\footnotesize\ttfamily static void start\+Dot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00242}{242}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00243 \{}
+\DoxyCodeLine{00244   t << \textcolor{stringliteral}{"{} digraph G \{ \(\backslash\)n"{}};}
+\DoxyCodeLine{00245   t << \textcolor{stringliteral}{"{}rankdir=LR \(\backslash\)n"{}};}
+\DoxyCodeLine{00246   t << \textcolor{stringliteral}{"{}concentrate=TRUE\(\backslash\)n"{}};}
+\DoxyCodeLine{00247   t << \textcolor{stringliteral}{"{}stylesheet=\(\backslash\)"{}doxygen.css\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00248 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a443391a41c8ca5dd93aa555beeb1955d}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a443391a41c8ca5dd93aa555beeb1955d}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!startFonts@{startFonts}}
+\index{startFonts@{startFonts}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{startFonts()}{startFonts()}}
+{\footnotesize\ttfamily static void start\+Fonts (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{q,  }\item[{const char $\ast$}]{keyword,  }\item[{\mbox{\hyperlink{class_output_list}{Output\+List}} \&}]{ol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136 \{}
+\DoxyCodeLine{00137   ol.\mbox{\hyperlink{class_output_list_a17ea412863567fdae8255a195715492b}{startFontClass}}(keyword);}
+\DoxyCodeLine{00138   ol.\mbox{\hyperlink{class_output_list_a5647a62e8819abb6e6b2378a7c115bbd}{docify}}(q);}
+\DoxyCodeLine{00139   ol.\mbox{\hyperlink{class_output_list_a484c1bcfcffe7a6cb94316ac8df64b61}{endFontClass}}();}
+\DoxyCodeLine{00140 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_output_list_a5647a62e8819abb6e6b2378a7c115bbd}{Output\+List\+::docify()}}, \mbox{\hyperlink{class_output_list_a484c1bcfcffe7a6cb94316ac8df64b61}{Output\+List\+::end\+Font\+Class()}}, and \mbox{\hyperlink{class_output_list_a17ea412863567fdae8255a195715492b}{Output\+List\+::start\+Font\+Class()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a0b58904c2803fe64c007b6c3ddda086e}{Vhdl\+Doc\+Gen\+::write\+Format\+String()}}, \mbox{\hyperlink{class_vhdl_doc_gen_aee87f24daab068f794ea908f33a86c3f}{Vhdl\+Doc\+Gen\+::write\+Func\+Proc\+Docu()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a9ca249e8052f477d893edfc767948fcf}{Vhdl\+Doc\+Gen\+::write\+Function\+Proto()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a4ab757dead7796d93d5a534ae1c11e69}{Vhdl\+Doc\+Gen\+::write\+Procedure\+Proto()}}, and \mbox{\hyperlink{class_vhdl_doc_gen_abdbd7a613237d2a86532bfe548209a1d}{Vhdl\+Doc\+Gen\+::write\+String\+Link()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ab59476a7d873b9aefd2abcc499dd99ab}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ab59476a7d873b9aefd2abcc499dd99ab}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!startTable@{startTable}}
+\index{startTable@{startTable}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{startTable()}{startTable()}}
+{\footnotesize\ttfamily static void start\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{class\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00255}{255}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00256 \{}
+\DoxyCodeLine{00257   t << className <<\textcolor{stringliteral}{"{} [ shape=none , fontname=\(\backslash\)"{}arial\(\backslash\)"{},  fontcolor=\(\backslash\)"{}blue\(\backslash\)"{} , \(\backslash\)n"{}};}
+\DoxyCodeLine{00258   t << \textcolor{stringliteral}{"{}label=<<TABLE BORDER=\(\backslash\)"{}0\(\backslash\)"{} CELLBORDER=\(\backslash\)"{}1\(\backslash\)"{} CELLSPACING=\(\backslash\)"{}0\(\backslash\)"{}>\(\backslash\)n"{}};}
+\DoxyCodeLine{00259 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_abc4226e2dabff44cc1762c66a14cd9c1}\label{build_2doxygen_2src_2vhdldocgen_8cpp_abc4226e2dabff44cc1762c66a14cd9c1}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!writeClassToDot@{writeClassToDot}}
+\index{writeClassToDot@{writeClassToDot}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeClassToDot()}{writeClassToDot()}}
+{\footnotesize\ttfamily static void write\+Class\+To\+Dot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{\mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00401}{401}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00402 \{}
+\DoxyCodeLine{00403   t << \textcolor{stringliteral}{"{}<TR><TD COLSPAN=\(\backslash\)"{}2\(\backslash\)"{} BGCOLOR=\(\backslash\)"{}yellow\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00404   t << \textcolor{stringliteral}{"{}PORT=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00405   t << cd-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{00406   t << \textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00407   t << \textcolor{stringliteral}{"{}href=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00408   t << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(cd-\/>\mbox{\hyperlink{class_class_def_a12a8f241e90a0cb0bdf19c27bf2025b0}{getOutputFileBase}}());}
+\DoxyCodeLine{00409   t << \textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00410   t << \textcolor{stringliteral}{"{}>"{}};}
+\DoxyCodeLine{00411   t << cd-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{00412   t << \textcolor{stringliteral}{"{} </TD></TR>\(\backslash\)n"{}};}
+\DoxyCodeLine{00413 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{add\+Html\+Extension\+If\+Missing()}}, \mbox{\hyperlink{class_class_def_a12a8f241e90a0cb0bdf19c27bf2025b0}{Class\+Def\+::get\+Output\+File\+Base()}}, and \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!writeColumn@{writeColumn}}
+\index{writeColumn@{writeColumn}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeColumn()}{writeColumn()}}
+{\footnotesize\ttfamily static void write\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{md,  }\item[{bool}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00312}{312}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00313 \{}
+\DoxyCodeLine{00314   \mbox{\hyperlink{class_q_c_string}{QCString}} toolTip;}
+\DoxyCodeLine{00315 }
+\DoxyCodeLine{00316   \textcolor{keywordtype}{bool} bidir=(md!=0 \&\&( \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(md-\/>\mbox{\hyperlink{class_member_def_a0032c6e040cdec6d9c52dc75a790a884}{typeString}}(),\textcolor{stringliteral}{"{}inout"{}})==0));}
+\DoxyCodeLine{00317 }
+\DoxyCodeLine{00318   \textcolor{keywordflow}{if} (md)}
+\DoxyCodeLine{00319   \{}
+\DoxyCodeLine{00320     toolTip=md-\/>\mbox{\hyperlink{class_definition_a5915353219702c6ea73cc1476bda793a}{briefDescriptionAsTooltip}}();}
+\DoxyCodeLine{00321     \textcolor{keywordflow}{if} (!toolTip.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00322     \{}
+\DoxyCodeLine{00323       \mbox{\hyperlink{class_q_c_string}{QCString}} largs = md-\/>\mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{argsString}}();}
+\DoxyCodeLine{00324       toolTip+=\textcolor{stringliteral}{"{} ["{}};}
+\DoxyCodeLine{00325       toolTip+=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(largs,\textcolor{stringliteral}{"{}\%"{}},\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00326       toolTip+=\textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00327     \}}
+\DoxyCodeLine{00328   \}}
+\DoxyCodeLine{00329   \textcolor{keywordflow}{if} (start)}
+\DoxyCodeLine{00330   \{}
+\DoxyCodeLine{00331     t <<\textcolor{stringliteral}{"{}<TR>\(\backslash\)n"{}};}
+\DoxyCodeLine{00332   \}}
+\DoxyCodeLine{00333 }
+\DoxyCodeLine{00334   t << \textcolor{stringliteral}{"{}<TD ALIGN=\(\backslash\)"{}LEFT\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00335   \textcolor{keywordflow}{if} (md)}
+\DoxyCodeLine{00336   \{}
+\DoxyCodeLine{00337     t << \textcolor{stringliteral}{"{}href=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00338     t << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(md-\/>\mbox{\hyperlink{class_member_def_a1691f8cc2d90978d091a7d7aae11dd8d}{getOutputFileBase}}());}
+\DoxyCodeLine{00339     t << \textcolor{stringliteral}{"{}\#"{}} << md-\/>\mbox{\hyperlink{class_member_def_a170c6221384447f7e2e9f5a529efef40}{anchor}}();}
+\DoxyCodeLine{00340     t<<\textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00341 }
+\DoxyCodeLine{00342     t<<\textcolor{stringliteral}{"{} TOOLTIP=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00343     \textcolor{keywordflow}{if} (!toolTip.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00344     \{}
+\DoxyCodeLine{00345       \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab30b312f9544ebfae65e8d7f108743ee}{codify}}(t,toolTip);}
+\DoxyCodeLine{00346     \}}
+\DoxyCodeLine{00347     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00348     \{}
+\DoxyCodeLine{00349       \mbox{\hyperlink{class_q_c_string}{QCString}} largs = md-\/>\mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{argsString}}();}
+\DoxyCodeLine{00350       \textcolor{keywordflow}{if} (!largs.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00351       \{}
+\DoxyCodeLine{00352         largs=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(largs,\textcolor{stringliteral}{"{}\%"{}},\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00353         \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab30b312f9544ebfae65e8d7f108743ee}{codify}}(t,largs);}
+\DoxyCodeLine{00354       \}}
+\DoxyCodeLine{00355     \}}
+\DoxyCodeLine{00356     t << \textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00357 }
+\DoxyCodeLine{00358     t << \textcolor{stringliteral}{"{} PORT=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00359     t << md-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{00360     t << \textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00361   \}}
+\DoxyCodeLine{00362   \textcolor{keywordflow}{if} (!toolTip.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00363   \{}
+\DoxyCodeLine{00364     \textcolor{comment}{// if (!toolTip.isEmpty())}}
+\DoxyCodeLine{00365 }
+\DoxyCodeLine{00366     \textcolor{keywordflow}{if} (bidir)}
+\DoxyCodeLine{00367       t << \textcolor{stringliteral}{"{}BGCOLOR=\(\backslash\)"{}orange\(\backslash\)"{}>"{}};}
+\DoxyCodeLine{00368     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00369       t << \textcolor{stringliteral}{"{}BGCOLOR=\(\backslash\)"{}azure\(\backslash\)"{}>"{}};}
+\DoxyCodeLine{00370   \}}
+\DoxyCodeLine{00371   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (bidir)}
+\DoxyCodeLine{00372   \{}
+\DoxyCodeLine{00373     t << \textcolor{stringliteral}{"{}BGCOLOR=\(\backslash\)"{}pink\(\backslash\)"{}>"{}};}
+\DoxyCodeLine{00374   \}}
+\DoxyCodeLine{00375   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00376   \{}
+\DoxyCodeLine{00377     t << \textcolor{stringliteral}{"{}BGCOLOR=\(\backslash\)"{}lightgrey\(\backslash\)"{}>"{}};}
+\DoxyCodeLine{00378   \}}
+\DoxyCodeLine{00379   \textcolor{keywordflow}{if} (md)}
+\DoxyCodeLine{00380   \{}
+\DoxyCodeLine{00381     t << md-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{00382   \}}
+\DoxyCodeLine{00383   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00384   \{}
+\DoxyCodeLine{00385     t << \textcolor{stringliteral}{"{} \(\backslash\)n"{}};}
+\DoxyCodeLine{00386   \}}
+\DoxyCodeLine{00387   t << \textcolor{stringliteral}{"{}</TD>\(\backslash\)n"{}};}
+\DoxyCodeLine{00388 }
+\DoxyCodeLine{00389   \textcolor{keywordflow}{if} (!start)}
+\DoxyCodeLine{00390   \{}
+\DoxyCodeLine{00391     t << \textcolor{stringliteral}{"{}</TR>\(\backslash\)n"{}};}
+\DoxyCodeLine{00392   \}}
+\DoxyCodeLine{00393 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{add\+Html\+Extension\+If\+Missing()}}, \mbox{\hyperlink{class_member_def_a170c6221384447f7e2e9f5a529efef40}{Member\+Def\+::anchor()}}, \mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{Member\+Def\+::args\+String()}}, \mbox{\hyperlink{class_definition_a5915353219702c6ea73cc1476bda793a}{Definition\+::brief\+Description\+As\+Tooltip()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ab30b312f9544ebfae65e8d7f108743ee}{codify()}}, \mbox{\hyperlink{class_member_def_a1691f8cc2d90978d091a7d7aae11dd8d}{Member\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}, and \mbox{\hyperlink{class_member_def_a0032c6e040cdec6d9c52dc75a790a884}{Member\+Def\+::type\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a8495c3c09d3dbc999d004e9f9941f0ca}{write\+Table()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a5e22c140f692291551eb95a7e1867b8f}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a5e22c140f692291551eb95a7e1867b8f}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!writeLink@{writeLink}}
+\index{writeLink@{writeLink}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeLink()}{writeLink()}}
+{\footnotesize\ttfamily static void write\+Link (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{mdef,  }\item[{\mbox{\hyperlink{class_output_list}{Output\+List}} \&}]{ol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128 \{}
+\DoxyCodeLine{00129   ol.\mbox{\hyperlink{class_output_list_a411807a84d5f9e2fb716a0f66bde56b6}{writeObjectLink}}(mdef-\/>\mbox{\hyperlink{class_member_def_a1fa921f95581774af1de1a29fb24a0c8}{getReference}}(),}
+\DoxyCodeLine{00130       mdef-\/>\mbox{\hyperlink{class_member_def_a1691f8cc2d90978d091a7d7aae11dd8d}{getOutputFileBase}}(),}
+\DoxyCodeLine{00131       mdef-\/>\mbox{\hyperlink{class_member_def_a170c6221384447f7e2e9f5a529efef40}{anchor}}(),}
+\DoxyCodeLine{00132       mdef-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}());}
+\DoxyCodeLine{00133 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_member_def_a170c6221384447f7e2e9f5a529efef40}{Member\+Def\+::anchor()}}, \mbox{\hyperlink{class_member_def_a1691f8cc2d90978d091a7d7aae11dd8d}{Member\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_member_def_a1fa921f95581774af1de1a29fb24a0c8}{Member\+Def\+::get\+Reference()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, and \mbox{\hyperlink{class_output_list_a411807a84d5f9e2fb716a0f66bde56b6}{Output\+List\+::write\+Object\+Link()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a88c9a819e53777acab7367d45c552519}{Vhdl\+Doc\+Gen\+::write\+Record\+Unit()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a73cd0ecf85d410591c6e1e952eef2b17}{Vhdl\+Doc\+Gen\+::write\+Source()}}, \mbox{\hyperlink{class_vhdl_doc_gen_abdbd7a613237d2a86532bfe548209a1d}{Vhdl\+Doc\+Gen\+::write\+String\+Link()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a1f76f36afd77f874d16385ffbe83e1c8}{write\+UCFLink()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a9fc8f146887a439926769c00ae340b82}{Vhdl\+Doc\+Gen\+::write\+VHDLDeclaration()}}, and \mbox{\hyperlink{class_vhdl_doc_gen_a0218e5158efa51df8490073c645c9a79}{Vhdl\+Doc\+Gen\+::write\+VHDLType\+Documentation()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a8495c3c09d3dbc999d004e9f9941f0ca}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a8495c3c09d3dbc999d004e9f9941f0ca}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!writeTable@{writeTable}}
+\index{writeTable@{writeTable}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeTable()}{writeTable()}}
+{\footnotesize\ttfamily static void write\+Table (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$ $>$ \&}]{port\+List,  }\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00437}{437}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00438 \{}
+\DoxyCodeLine{00439   std::vector<const MemberDef *> inPorts;}
+\DoxyCodeLine{00440   std::vector<const MemberDef *> outPorts;}
+\DoxyCodeLine{00441 }
+\DoxyCodeLine{00442   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&md : portList)}
+\DoxyCodeLine{00443   \{}
+\DoxyCodeLine{00444     \mbox{\hyperlink{class_q_c_string}{QCString}} qc=md-\/>typeString();}
+\DoxyCodeLine{00445     \textcolor{keywordflow}{if} (qc==\textcolor{stringliteral}{"{}in"{}})}
+\DoxyCodeLine{00446     \{}
+\DoxyCodeLine{00447       inPorts.push\_back(md);}
+\DoxyCodeLine{00448     \}}
+\DoxyCodeLine{00449     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00450     \{}
+\DoxyCodeLine{00451       outPorts.push\_back(md);}
+\DoxyCodeLine{00452     \}}
+\DoxyCodeLine{00453   \}}
+\DoxyCodeLine{00454 }
+\DoxyCodeLine{00455   \textcolor{keywordtype}{size\_t} inp  = inPorts.\mbox{\hyperlink{class_q_c_string_ac084f55ab51f8b277cf01bb6e04f16ed}{size}}();}
+\DoxyCodeLine{00456   \textcolor{keywordtype}{size\_t} outp = outPorts.size();}
+\DoxyCodeLine{00457   \textcolor{keywordtype}{size\_t} maxLen;}
+\DoxyCodeLine{00458 }
+\DoxyCodeLine{00459   \textcolor{keywordflow}{if} (inp>=outp)}
+\DoxyCodeLine{00460   \{}
+\DoxyCodeLine{00461     maxLen=inp;}
+\DoxyCodeLine{00462   \}}
+\DoxyCodeLine{00463   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00464   \{}
+\DoxyCodeLine{00465     maxLen=outp;}
+\DoxyCodeLine{00466   \}}
+\DoxyCodeLine{00467 }
+\DoxyCodeLine{00468   \textcolor{keywordtype}{size\_t} i;}
+\DoxyCodeLine{00469   \textcolor{keywordflow}{for} (i=0;i<maxLen;i++)}
+\DoxyCodeLine{00470   \{}
+\DoxyCodeLine{00471     \textcolor{comment}{//write inports}}
+\DoxyCodeLine{00472     \textcolor{keywordflow}{if} (i<inp)}
+\DoxyCodeLine{00473     \{}
+\DoxyCodeLine{00474       \textcolor{keyword}{auto} md = inPorts[i];}
+\DoxyCodeLine{00475       \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}{writeColumn}}(t,md,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00476     \}}
+\DoxyCodeLine{00477     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00478     \{}
+\DoxyCodeLine{00479       \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}{writeColumn}}(t,NULL,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00480     \}}
+\DoxyCodeLine{00481 }
+\DoxyCodeLine{00482     \textcolor{keywordflow}{if} (i<outp)}
+\DoxyCodeLine{00483     \{}
+\DoxyCodeLine{00484       \textcolor{keyword}{auto} md = outPorts[i];}
+\DoxyCodeLine{00485       \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}{writeColumn}}(t,md,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{00486     \}}
+\DoxyCodeLine{00487     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00488     \{}
+\DoxyCodeLine{00489       \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}{writeColumn}}(t,NULL,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{00490     \}}
+\DoxyCodeLine{00491   \}}
+\DoxyCodeLine{00492 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_q_c_string_ac084f55ab51f8b277cf01bb6e04f16ed}{QCString\+::size()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, and \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a52f94a236eacbf7783a4caf3d1dfec74}{write\+Column()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a1f76f36afd77f874d16385ffbe83e1c8}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a1f76f36afd77f874d16385ffbe83e1c8}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!writeUCFLink@{writeUCFLink}}
+\index{writeUCFLink@{writeUCFLink}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeUCFLink()}{writeUCFLink()}}
+{\footnotesize\ttfamily static void write\+UCFLink (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{mdef,  }\item[{\mbox{\hyperlink{class_output_list}{Output\+List}} \&}]{ol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02379}{2379}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02380 \{}
+\DoxyCodeLine{02381 }
+\DoxyCodeLine{02382   \mbox{\hyperlink{class_q_c_string}{QCString}} largs(mdef-\/>\mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{argsString}}());}
+\DoxyCodeLine{02383   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}= \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a67e22ceaa05ae493f2f3892681aec351}{splitString}}(largs, \textcolor{charliteral}{'\#'});}
+\DoxyCodeLine{02384   \textcolor{comment}{// VhdlDocGen::adjustRecordMember(mdef);}}
+\DoxyCodeLine{02385   \textcolor{keywordtype}{bool} equ=(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.length()==largs.length());}
+\DoxyCodeLine{02386 }
+\DoxyCodeLine{02387   \textcolor{keywordflow}{if} (!equ)}
+\DoxyCodeLine{02388   \{}
+\DoxyCodeLine{02389     ol.\mbox{\hyperlink{class_output_list_a07cac8a8981da35314f77d8f3edb7f76}{writeString}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{02390     ol.\mbox{\hyperlink{class_output_list_a5647a62e8819abb6e6b2378a7c115bbd}{docify}}(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{02391     ol.\mbox{\hyperlink{class_output_list_a8a0967d0442047bfe07a5644505c2d68}{insertMemberAlign}}();}
+\DoxyCodeLine{02392   \}}
+\DoxyCodeLine{02393 }
+\DoxyCodeLine{02394   \textcolor{keywordflow}{if} (mdef-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_aeeedb2810a85c682c2f2a86bcd2355a7}{contains}}(\textcolor{stringliteral}{"{}dummy"{}})==0)}
+\DoxyCodeLine{02395   \{}
+\DoxyCodeLine{02396     \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a5e22c140f692291551eb95a7e1867b8f}{writeLink}}(mdef,ol);}
+\DoxyCodeLine{02397   \}}
+\DoxyCodeLine{02398   \textcolor{keywordflow}{if} (equ)}
+\DoxyCodeLine{02399   \{}
+\DoxyCodeLine{02400     ol.\mbox{\hyperlink{class_output_list_a8a0967d0442047bfe07a5644505c2d68}{insertMemberAlign}}();}
+\DoxyCodeLine{02401   \}}
+\DoxyCodeLine{02402   ol.\mbox{\hyperlink{class_output_list_a5647a62e8819abb6e6b2378a7c115bbd}{docify}}(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{02403   \mbox{\hyperlink{class_vhdl_doc_gen_aacccadab8f7d60dc0e4b2892ea724c2b}{VhdlDocGen::formatString}}(largs,ol,mdef);}
+\DoxyCodeLine{02404 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_member_def_adfae3b8f49644ba27669daa9412e14a3}{Member\+Def\+::args\+String()}}, \mbox{\hyperlink{class_q_c_string_aeeedb2810a85c682c2f2a86bcd2355a7}{QCString\+::contains()}}, \mbox{\hyperlink{class_output_list_a5647a62e8819abb6e6b2378a7c115bbd}{Output\+List\+::docify()}}, \mbox{\hyperlink{class_vhdl_doc_gen_aacccadab8f7d60dc0e4b2892ea724c2b}{Vhdl\+Doc\+Gen\+::format\+String()}}, \mbox{\hyperlink{class_output_list_a8a0967d0442047bfe07a5644505c2d68}{Output\+List\+::insert\+Member\+Align()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a67e22ceaa05ae493f2f3892681aec351}{split\+String()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a5e22c140f692291551eb95a7e1867b8f}{write\+Link()}}, and \mbox{\hyperlink{class_output_list_a07cac8a8981da35314f77d8f3edb7f76}{Output\+List\+::write\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a9fc8f146887a439926769c00ae340b82}{Vhdl\+Doc\+Gen\+::write\+VHDLDeclaration()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a18e77dc1728e63e4cbf44698a7ef01d4}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a18e77dc1728e63e4cbf44698a7ef01d4}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!writeVhdlDotLink@{writeVhdlDotLink}}
+\index{writeVhdlDotLink@{writeVhdlDotLink}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeVhdlDotLink()}{writeVhdlDotLink()}}
+{\footnotesize\ttfamily static void write\+Vhdl\+Dot\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{a,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{b,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{style }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00261}{261}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00263 \{}
+\DoxyCodeLine{00264   t << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}} << \textcolor{stringliteral}{"{}-\/>"{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}};}
+\DoxyCodeLine{00265   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}}.isEmpty())}
+\DoxyCodeLine{00266   \{}
+\DoxyCodeLine{00267     t << \textcolor{stringliteral}{"{}[style="{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}} << \textcolor{stringliteral}{"{}];\(\backslash\)n"{}};}
+\DoxyCodeLine{00268   \}}
+\DoxyCodeLine{00269   t << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00270 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}, and \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a2d6afe78b5072def0ae4a854d5d43f94}{write\+Vhdl\+Entity\+Tool\+Tip()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a2d6afe78b5072def0ae4a854d5d43f94}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a2d6afe78b5072def0ae4a854d5d43f94}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!writeVhdlEntityToolTip@{writeVhdlEntityToolTip}}
+\index{writeVhdlEntityToolTip@{writeVhdlEntityToolTip}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeVhdlEntityToolTip()}{writeVhdlEntityToolTip()}}
+{\footnotesize\ttfamily static void write\+Vhdl\+Entity\+Tool\+Tip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{\mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00291}{291}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00292 \{}
+\DoxyCodeLine{00293 }
+\DoxyCodeLine{00294   \mbox{\hyperlink{class_q_c_string}{QCString}} brief=cd-\/>\mbox{\hyperlink{class_definition_a8ca2bb51665eab1ffd981a38c2b5f188}{briefDescription}}();}
+\DoxyCodeLine{00295 }
+\DoxyCodeLine{00296   \textcolor{keywordflow}{if} (brief.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00297 }
+\DoxyCodeLine{00298   brief=\mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_abf933f7f0042ad158eb6412b57026925}{formatBriefNote}}(brief,cd);}
+\DoxyCodeLine{00299 }
+\DoxyCodeLine{00300   \mbox{\hyperlink{class_q_c_string}{QCString}} node=\textcolor{stringliteral}{"{}node"{}};}
+\DoxyCodeLine{00301   node+=\mbox{\hyperlink{class_vhdl_doc_gen_a2e65f831a03ff54d13240da96843cd60}{VhdlDocGen::getRecordNumber}}();}
+\DoxyCodeLine{00302   t << node <<\textcolor{stringliteral}{"{}[shape=none margin=0.1, label=<\(\backslash\)n"{}};}
+\DoxyCodeLine{00303   t << \textcolor{stringliteral}{"{}<TABLE BORDER=\(\backslash\)"{}0\(\backslash\)"{} CELLBORDER=\(\backslash\)"{}1\(\backslash\)"{} CELLSPACING=\(\backslash\)"{}0\(\backslash\)"{} CELLPADDING=\(\backslash\)"{}2\(\backslash\)"{} >\(\backslash\)n "{}};}
+\DoxyCodeLine{00304   t << \textcolor{stringliteral}{"{}<TR><TD BGCOLOR=\(\backslash\)"{}lightcyan\(\backslash\)"{}> "{}};}
+\DoxyCodeLine{00305   t << brief;}
+\DoxyCodeLine{00306   t << \textcolor{stringliteral}{"{} </TD></TR></TABLE>>];"{}};}
+\DoxyCodeLine{00307   \mbox{\hyperlink{class_q_c_string}{QCString}} dotn=cd-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}()+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{00308   dotn+=cd-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{00309   \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a18e77dc1728e63e4cbf44698a7ef01d4}{writeVhdlDotLink}}(t,dotn,node,\textcolor{stringliteral}{"{}dotted"{}});}
+\DoxyCodeLine{00310 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_definition_a8ca2bb51665eab1ffd981a38c2b5f188}{Definition\+::brief\+Description()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_abf933f7f0042ad158eb6412b57026925}{format\+Brief\+Note()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a2e65f831a03ff54d13240da96843cd60}{Vhdl\+Doc\+Gen\+::get\+Record\+Number()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, and \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a18e77dc1728e63e4cbf44698a7ef01d4}{write\+Vhdl\+Dot\+Link()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!comment@{comment}}
+\index{comment@{comment}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{comment}{comment}}
+{\footnotesize\ttfamily const char$\ast$ comment}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02872}{2872}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, \mbox{\hyperlink{class_comment_scanner_a146e92fcb6ce0bc79b429192aba6bc49}{Comment\+Scanner\+::parse\+Comment\+Block()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a51c5847b18dcbf1006b7edf507438d03}{Vhdl\+Doc\+Gen\+::parse\+UCF()}}, and \mbox{\hyperlink{build_2doxygen_2src_2code_8l_af2995da196faa8940cca40cfc158b9aa}{write\+Obj\+CMethod\+Call()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a4c3490b21727b2da346e15ed4fb8937b}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a4c3490b21727b2da346e15ed4fb8937b}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!decisionNode@{decisionNode}}
+\index{decisionNode@{decisionNode}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{decisionNode}{decisionNode}}
+{\footnotesize\ttfamily const char$\ast$ decision\+Node}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02873}{2873}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ad9d9a5a72e153c6d520705944c44f4a8}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ad9d9a5a72e153c6d520705944c44f4a8}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!flowCol@{flowCol}}
+\index{flowCol@{flowCol}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  flow\+Col\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{ \textcolor{stringliteral}{"{}green"{}},       }
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}red"{}},         }
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}black"{}},       }
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}khaki"{}},       }
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}0.7 0.3 1.0"{}}, }
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}lightyellow"{}}, }
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}white"{}},       }
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}lightcyan"{}}    }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{class_flow_chart_abe5bc298b8ac3b911af947e2b29089f5}{Flow\+Chart\+::build\+Comment\+Nodes()}}, \mbox{\hyperlink{class_flow_chart_a20d4f7b89091aeb52c0349fd9e553409}{Flow\+Chart\+::write\+Edge()}}, and \mbox{\hyperlink{class_flow_chart_a8dce4c5ff38314428145e71a788e5331}{Flow\+Chart\+::write\+Shape()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a58b3784e26a172c464443fb55a30364d}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a58b3784e26a172c464443fb55a30364d}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!flowList@{flowList}}
+\index{flowList@{flowList}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{flowList}{flowList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$\mbox{\hyperlink{class_flow_chart}{Flow\+Chart}}$>$ flow\+List}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02888}{2888}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_flow_chart_a5e2d1232239471126aade777574d9d34}{Flow\+Chart\+::add\+Flow\+Chart()}}, \mbox{\hyperlink{class_flow_chart_abe5bc298b8ac3b911af947e2b29089f5}{Flow\+Chart\+::build\+Comment\+Nodes()}}, \mbox{\hyperlink{class_flow_chart_a6fc7dfce3416355a82991f015431b854}{Flow\+Chart\+::col\+Text\+Nodes()}}, \mbox{\hyperlink{class_flow_chart_a64f98636bae1290688ea4bc06d02e86f}{Flow\+Chart\+::del\+Flow\+List()}}, \mbox{\hyperlink{class_flow_chart_a590a484692d935d4850c7e6bce508d01}{Flow\+Chart\+::find\+Label()}}, \mbox{\hyperlink{class_flow_chart_a82fc425100d1cf68c08bad05195bf2f3}{Flow\+Chart\+::find\+Next\+Loop()}}, \mbox{\hyperlink{class_flow_chart_aba76e82b248e1113568acd458e2b7b21}{Flow\+Chart\+::find\+Node()}}, \mbox{\hyperlink{class_flow_chart_a0305aa29048ee638ab09b4dc4bf28a9f}{Flow\+Chart\+::find\+Prev\+Loop()}}, \mbox{\hyperlink{class_flow_chart_a948abd6948d3e24f3e9dec7eff2c3a18}{Flow\+Chart\+::get\+Next\+If\+Link()}}, \mbox{\hyperlink{class_flow_chart_a660d99edcee9c4dd556b42b8aa1dd4da}{Flow\+Chart\+::get\+Next\+Node()}}, \mbox{\hyperlink{class_flow_chart_a25647e6b336425f3f5ccef2ecea0dcf1}{Flow\+Chart\+::print\+Flow\+Tree()}}, \mbox{\hyperlink{class_flow_chart_acf7119e47c96291250aee1c5c98ac794}{Flow\+Chart\+::print\+Uml\+Tree()}}, \mbox{\hyperlink{class_flow_chart_a66989e6892ad6bbb539241dedbfc4f9e}{Flow\+Chart\+::write\+Flow\+Chart()}}, and \mbox{\hyperlink{class_flow_chart_ad0135f07f9ef7ebdbef4b5f09a255397}{Flow\+Chart\+::write\+Flow\+Links()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a564ccf36eb7cf220de5f5252a9a2b0da}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a564ccf36eb7cf220de5f5252a9a2b0da}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!flowMember@{flowMember}}
+\index{flowMember@{flowMember}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{flowMember}{flowMember}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_member_def}{Member\+Def}}$\ast$ flow\+Member =0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a12b2126cfa1cf80aeab17ae40d673d67}{Vhdl\+Doc\+Gen\+::get\+Flow\+Member()}}, and \mbox{\hyperlink{class_vhdl_doc_gen_a7808cdf56c299daceed3212b65b8a031}{Vhdl\+Doc\+Gen\+::set\+Flow\+Member()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a15003ec22aceea0954f320c3092588b1}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a15003ec22aceea0954f320c3092588b1}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!g\_classList@{g\_classList}}
+\index{g\_classList@{g\_classList}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_classList}{g\_classList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$\mbox{\hyperlink{class_class_def}{Class\+Def}}$\ast$$>$ g\+\_\+class\+List\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00594}{594}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a358ec24d6f67dee4fb2f983181a314fe}{Vhdl\+Doc\+Gen\+::find\+Member\+Def()}}, and \mbox{\hyperlink{class_vhdl_doc_gen_a60e16e249eaf1829c224b054ff743ce7}{Vhdl\+Doc\+Gen\+::reset\+Code\+Vhdl\+Parser\+State()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a4f0ee2fc6fdee2414cb783cb977becd7}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a4f0ee2fc6fdee2414cb783cb977becd7}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!g\_packages@{g\_packages}}
+\index{g\_packages@{g\_packages}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_packages}{g\_packages}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{class_class_def}{Class\+Def}}$\ast$,\mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$\mbox{\hyperlink{class_class_def}{Class\+Def}}$\ast$$>$ $>$ g\+\_\+packages\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00595}{595}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a00216e37afbb1841a9631a80379b7f0a}{Vhdl\+Doc\+Gen\+::find\+All\+Packages()}}, \mbox{\hyperlink{class_vhdl_doc_gen_ab6898e9270508ce95ad8ebb5ecbedaa6}{Vhdl\+Doc\+Gen\+::find\+Member()}}, and \mbox{\hyperlink{class_vhdl_doc_gen_a60e16e249eaf1829c224b054ff743ce7}{Vhdl\+Doc\+Gen\+::reset\+Code\+Vhdl\+Parser\+State()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a3cc5f535e1a84284407b715e1b40f93e}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a3cc5f535e1a84284407b715e1b40f93e}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!g\_varMap@{g\_varMap}}
+\index{g\_varMap@{g\_varMap}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_varMap}{g\_varMap}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},const \mbox{\hyperlink{class_member_def}{Member\+Def}}$\ast$$>$ g\+\_\+var\+Map\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00593}{593}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a358ec24d6f67dee4fb2f983181a314fe}{Vhdl\+Doc\+Gen\+::find\+Member\+Def()}}, and \mbox{\hyperlink{class_vhdl_doc_gen_a60e16e249eaf1829c224b054ff743ce7}{Vhdl\+Doc\+Gen\+::reset\+Code\+Vhdl\+Parser\+State()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a42eaeb2d27a1ca6f1f4260eb47c1cdfb}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a42eaeb2d27a1ca6f1f4260eb47c1cdfb}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!g\_vhdlKeyWordSet0@{g\_vhdlKeyWordSet0}}
+\index{g\_vhdlKeyWordSet0@{g\_vhdlKeyWordSet0}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_vhdlKeyWordSet0}{g\_vhdlKeyWordSet0}}
+{\footnotesize\ttfamily const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ g\+\_\+vhdl\+Key\+Word\+Set0\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}abs"{}},\textcolor{stringliteral}{"{}access"{}},\textcolor{stringliteral}{"{}after"{}},\textcolor{stringliteral}{"{}alias"{}},\textcolor{stringliteral}{"{}all"{}},\textcolor{stringliteral}{"{}and"{}},\textcolor{stringliteral}{"{}architecture"{}},\textcolor{stringliteral}{"{}array"{}},\textcolor{stringliteral}{"{}assert"{}},\textcolor{stringliteral}{"{}assume"{}},\textcolor{stringliteral}{"{}assume\_guarantee"{}},\textcolor{stringliteral}{"{}attribute"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}begin"{}},\textcolor{stringliteral}{"{}block"{}},\textcolor{stringliteral}{"{}body"{}},\textcolor{stringliteral}{"{}buffer"{}},\textcolor{stringliteral}{"{}bus"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}case"{}},\textcolor{stringliteral}{"{}component"{}},\textcolor{stringliteral}{"{}configuration"{}},\textcolor{stringliteral}{"{}constant"{}},\textcolor{stringliteral}{"{}context"{}},\textcolor{stringliteral}{"{}cover"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}default"{}},\textcolor{stringliteral}{"{}disconnect"{}},\textcolor{stringliteral}{"{}downto"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}else"{}},\textcolor{stringliteral}{"{}elsif"{}},\textcolor{stringliteral}{"{}end"{}},\textcolor{stringliteral}{"{}entity"{}},\textcolor{stringliteral}{"{}exit"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}fairness"{}},\textcolor{stringliteral}{"{}file"{}},\textcolor{stringliteral}{"{}for"{}},\textcolor{stringliteral}{"{}force"{}},\textcolor{stringliteral}{"{}function"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}generate"{}},\textcolor{stringliteral}{"{}generic"{}},\textcolor{stringliteral}{"{}group"{}},\textcolor{stringliteral}{"{}guarded"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}if"{}},\textcolor{stringliteral}{"{}impure"{}},\textcolor{stringliteral}{"{}in"{}},\textcolor{stringliteral}{"{}inertial"{}},\textcolor{stringliteral}{"{}inout"{}},\textcolor{stringliteral}{"{}is"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}label"{}},\textcolor{stringliteral}{"{}library"{}},\textcolor{stringliteral}{"{}linkage"{}},\textcolor{stringliteral}{"{}literal"{}},\textcolor{stringliteral}{"{}loop"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}map"{}},\textcolor{stringliteral}{"{}mod"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}nand"{}},\textcolor{stringliteral}{"{}new"{}},\textcolor{stringliteral}{"{}next"{}},\textcolor{stringliteral}{"{}nor"{}},\textcolor{stringliteral}{"{}not"{}},\textcolor{stringliteral}{"{}null"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}of"{}},\textcolor{stringliteral}{"{}on"{}},\textcolor{stringliteral}{"{}open"{}},\textcolor{stringliteral}{"{}or"{}},\textcolor{stringliteral}{"{}others"{}},\textcolor{stringliteral}{"{}out"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}package"{}},\textcolor{stringliteral}{"{}parameter"{}},\textcolor{stringliteral}{"{}port"{}},\textcolor{stringliteral}{"{}postponed"{}},\textcolor{stringliteral}{"{}procedure"{}},\textcolor{stringliteral}{"{}process"{}},\textcolor{stringliteral}{"{}property"{}},\textcolor{stringliteral}{"{}protected"{}},\textcolor{stringliteral}{"{}pure"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}range"{}},\textcolor{stringliteral}{"{}record"{}},\textcolor{stringliteral}{"{}register"{}},\textcolor{stringliteral}{"{}reject"{}},\textcolor{stringliteral}{"{}release"{}},\textcolor{stringliteral}{"{}restrict"{}},\textcolor{stringliteral}{"{}restrict\_guarantee"{}},\textcolor{stringliteral}{"{}rem"{}},\textcolor{stringliteral}{"{}report"{}},\textcolor{stringliteral}{"{}rol"{}},\textcolor{stringliteral}{"{}ror"{}},\textcolor{stringliteral}{"{}return"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}select"{}},\textcolor{stringliteral}{"{}sequence"{}},\textcolor{stringliteral}{"{}severity"{}},\textcolor{stringliteral}{"{}signal"{}},\textcolor{stringliteral}{"{}shared"{}},\textcolor{stringliteral}{"{}sla"{}},\textcolor{stringliteral}{"{}sll"{}},\textcolor{stringliteral}{"{}sra"{}},\textcolor{stringliteral}{"{}srl"{}},\textcolor{stringliteral}{"{}strong"{}},\textcolor{stringliteral}{"{}subtype"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}then"{}},\textcolor{stringliteral}{"{}to"{}},\textcolor{stringliteral}{"{}transport"{}},\textcolor{stringliteral}{"{}type"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}unaffected"{}},\textcolor{stringliteral}{"{}units"{}},\textcolor{stringliteral}{"{}until"{}},\textcolor{stringliteral}{"{}use"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}variable"{}},\textcolor{stringliteral}{"{}vmode"{}},\textcolor{stringliteral}{"{}vprop"{}},\textcolor{stringliteral}{"{}vunit"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}wait"{}},\textcolor{stringliteral}{"{}when"{}},\textcolor{stringliteral}{"{}while"{}},\textcolor{stringliteral}{"{}with"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}xor"{}},\textcolor{stringliteral}{"{}xnor"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00506}{506}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_af24155445ad4e0328e60f78bf4a4a41f}{Vhdl\+Doc\+Gen\+::find\+Key\+Word()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a39441f8bd99a60d5c2aec9d59b74e20e}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a39441f8bd99a60d5c2aec9d59b74e20e}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!g\_vhdlKeyWordSet1@{g\_vhdlKeyWordSet1}}
+\index{g\_vhdlKeyWordSet1@{g\_vhdlKeyWordSet1}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_vhdlKeyWordSet1}{g\_vhdlKeyWordSet1}}
+{\footnotesize\ttfamily const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}$>$ g\+\_\+vhdl\+Key\+Word\+Set1\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}natural"{}},\textcolor{stringliteral}{"{}unsigned"{}},\textcolor{stringliteral}{"{}signed"{}},\textcolor{stringliteral}{"{}string"{}},\textcolor{stringliteral}{"{}boolean"{}}, \textcolor{stringliteral}{"{}bit"{}},\textcolor{stringliteral}{"{}bit\_vector"{}},\textcolor{stringliteral}{"{}character"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}std\_ulogic"{}},\textcolor{stringliteral}{"{}std\_ulogic\_vector"{}},\textcolor{stringliteral}{"{}std\_logic"{}},\textcolor{stringliteral}{"{}std\_logic\_vector"{}},\textcolor{stringliteral}{"{}integer"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}real"{}},\textcolor{stringliteral}{"{}float"{}},\textcolor{stringliteral}{"{}ufixed"{}},\textcolor{stringliteral}{"{}sfixed"{}},\textcolor{stringliteral}{"{}time"{}},\textcolor{stringliteral}{"{}positive"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00532}{532}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_af24155445ad4e0328e60f78bf4a4a41f}{Vhdl\+Doc\+Gen\+::find\+Key\+Word()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ac4f1b611af42de29e058f467e51d471a}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ac4f1b611af42de29e058f467e51d471a}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!g\_vhdlKeyWordSet2@{g\_vhdlKeyWordSet2}}
+\index{g\_vhdlKeyWordSet2@{g\_vhdlKeyWordSet2}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_vhdlKeyWordSet2}{g\_vhdlKeyWordSet2}}
+{\footnotesize\ttfamily const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ g\+\_\+vhdl\+Key\+Word\+Set2\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}abs"{}},\textcolor{stringliteral}{"{}and"{}},\textcolor{stringliteral}{"{}or"{}},\textcolor{stringliteral}{"{}not"{}},\textcolor{stringliteral}{"{}mod"{}},\textcolor{stringliteral}{"{}xor"{}},\textcolor{stringliteral}{"{}rem"{}},\textcolor{stringliteral}{"{}xnor"{}},\textcolor{stringliteral}{"{}ror"{}},\textcolor{stringliteral}{"{}rol"{}},\textcolor{stringliteral}{"{}sla"{}},\textcolor{stringliteral}{"{}sll"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00540}{540}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_af24155445ad4e0328e60f78bf4a4a41f}{Vhdl\+Doc\+Gen\+::find\+Key\+Word()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a18b7bb81e640523add52a1e1ed0277b3}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a18b7bb81e640523add52a1e1ed0277b3}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!g\_vhdlKeyWordSet3@{g\_vhdlKeyWordSet3}}
+\index{g\_vhdlKeyWordSet3@{g\_vhdlKeyWordSet3}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_vhdlKeyWordSet3}{g\_vhdlKeyWordSet3}}
+{\footnotesize\ttfamily const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ g\+\_\+vhdl\+Key\+Word\+Set3\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}base"{}},\textcolor{stringliteral}{"{}left"{}},\textcolor{stringliteral}{"{}right"{}},\textcolor{stringliteral}{"{}high"{}},\textcolor{stringliteral}{"{}low"{}},\textcolor{stringliteral}{"{}ascending"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}image"{}},\textcolor{stringliteral}{"{}value"{}},\textcolor{stringliteral}{"{}pos"{}},\textcolor{stringliteral}{"{}val"{}},\textcolor{stringliteral}{"{}succ"{}},\textcolor{stringliteral}{"{}pred"{}},\textcolor{stringliteral}{"{}leftof"{}},\textcolor{stringliteral}{"{}rightof"{}},\textcolor{stringliteral}{"{}left"{}},\textcolor{stringliteral}{"{}right"{}},\textcolor{stringliteral}{"{}high"{}},\textcolor{stringliteral}{"{}low"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}range"{}},\textcolor{stringliteral}{"{}reverse\_range"{}},\textcolor{stringliteral}{"{}length"{}},\textcolor{stringliteral}{"{}ascending"{}},\textcolor{stringliteral}{"{}delayed"{}},\textcolor{stringliteral}{"{}stable"{}},\textcolor{stringliteral}{"{}quiet"{}},\textcolor{stringliteral}{"{}transaction"{}},\textcolor{stringliteral}{"{}event"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}active"{}},\textcolor{stringliteral}{"{}last\_event"{}},\textcolor{stringliteral}{"{}last\_active"{}},\textcolor{stringliteral}{"{}last\_value"{}},\textcolor{stringliteral}{"{}driving"{}},\textcolor{stringliteral}{"{}driving\_value"{}},\textcolor{stringliteral}{"{}simple\_name"{}},\textcolor{stringliteral}{"{}instance\_name"{}},\textcolor{stringliteral}{"{}path\_name"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l00546}{546}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_af24155445ad4e0328e60f78bf4a4a41f}{Vhdl\+Doc\+Gen\+::find\+Key\+Word()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ab2683e87d60a00e06c996a17faabf7c6}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ab2683e87d60a00e06c996a17faabf7c6}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!ifcounter@{ifcounter}}
+\index{ifcounter@{ifcounter}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{ifcounter}{ifcounter}}
+{\footnotesize\ttfamily int ifcounter =0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02861}{2861}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_flow_chart_a64f98636bae1290688ea4bc06d02e86f}{Flow\+Chart\+::del\+Flow\+List()}}, \mbox{\hyperlink{class_flow_chart_ad62b02a6d1de25c45eb027c0238f7075}{Flow\+Chart\+::\+Flow\+Chart()}}, and \mbox{\hyperlink{class_flow_chart_a9ddf7f6aff23849c4bbb90afbabd38c1}{Flow\+Chart\+::move\+To\+Prev\+Level()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a3ab79d2d52d43f3c22214135a989f88d}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a3ab79d2d52d43f3c22214135a989f88d}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!mdList@{mdList}}
+\index{mdList@{mdList}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{mdList}{mdList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$const \mbox{\hyperlink{class_member_def}{Member\+Def}}$\ast$$>$ md\+List\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02730}{2730}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a2de08afddfa24b4a037c36ac329185ff}{Vhdl\+Doc\+Gen\+::create\+Flow\+Chart()}}, and \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_a180fa3a09e24b54ffad20ec6bcef86da}{find\+Mem\+Flow()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a3c86cd9f03e0a8ffb5c6676325ca2d20}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a3c86cd9f03e0a8ffb5c6676325ca2d20}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!nodeCounter@{nodeCounter}}
+\index{nodeCounter@{nodeCounter}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{nodeCounter}{nodeCounter}}
+{\footnotesize\ttfamily int node\+Counter =0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02862}{2862}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_flow_chart_a64f98636bae1290688ea4bc06d02e86f}{Flow\+Chart\+::del\+Flow\+List()}}, and \mbox{\hyperlink{class_flow_chart_ad62b02a6d1de25c45eb027c0238f7075}{Flow\+Chart\+::\+Flow\+Chart()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a19fcc4cce611bc4cce6539a7b821efc1}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a19fcc4cce611bc4cce6539a7b821efc1}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!noNodeLink@{noNodeLink}}
+\index{noNodeLink@{noNodeLink}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{noNodeLink}{noNodeLink}}
+{\footnotesize\ttfamily const char$\ast$ no\+Node\+Link}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02869}{2869}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a56d899e3d331a47d8c765340997d0207}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a56d899e3d331a47d8c765340997d0207}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!recordCounter@{recordCounter}}
+\index{recordCounter@{recordCounter}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{recordCounter}{recordCounter}}
+{\footnotesize\ttfamily int record\+Counter =0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l01096}{1096}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_a2e65f831a03ff54d13240da96843cd60}{Vhdl\+Doc\+Gen\+::get\+Record\+Number()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ae261a70614d30ab993e7db91ab7f6c6a}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ae261a70614d30ab993e7db91ab7f6c6a}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!startEndNode@{startEndNode}}
+\index{startEndNode@{startEndNode}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{startEndNode}{startEndNode}}
+{\footnotesize\ttfamily const char$\ast$ start\+End\+Node}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02875}{2875}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ac44294ad1ec4e31fd82000879621d53c}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ac44294ad1ec4e31fd82000879621d53c}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!textNode@{textNode}}
+\index{textNode@{textNode}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{textNode}{textNode}}
+{\footnotesize\ttfamily const char$\ast$ text\+Node}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02876}{2876}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_output_list_adfdcf2ba925f05be8beb8cf43deb168a}{Output\+List\+::parse\+Text()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a9b53ed9446260849c8a200b362c97c37}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a9b53ed9446260849c8a200b362c97c37}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!textNodeLink@{textNodeLink}}
+\index{textNodeLink@{textNodeLink}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{textNodeLink}{textNodeLink}}
+{\footnotesize\ttfamily const char$\ast$ text\+Node\+Link}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02867}{2867}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_ab5c24e80a4e2efc78c082b446e1a13a2}\label{build_2doxygen_2src_2vhdldocgen_8cpp_ab5c24e80a4e2efc78c082b446e1a13a2}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!varNode@{varNode}}
+\index{varNode@{varNode}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{varNode}{varNode}}
+{\footnotesize\ttfamily const char$\ast$ var\+Node}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02874}{2874}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdldocgen_8cpp_a685fd32cd6b22bb9302c2d456c1ba6cb}\label{build_2doxygen_2src_2vhdldocgen_8cpp_a685fd32cd6b22bb9302c2d456c1ba6cb}} 
+\index{vhdldocgen.cpp@{vhdldocgen.cpp}!yesNodeLink@{yesNodeLink}}
+\index{yesNodeLink@{yesNodeLink}!vhdldocgen.cpp@{vhdldocgen.cpp}}
+\doxysubsubsection{\texorpdfstring{yesNodeLink}{yesNodeLink}}
+{\footnotesize\ttfamily const char$\ast$ yes\+Node\+Link}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source_l02868}{2868}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_source}{vhdldocgen.\+cpp}}.
+

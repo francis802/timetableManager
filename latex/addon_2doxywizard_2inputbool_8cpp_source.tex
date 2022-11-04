@@ -1,0 +1,155 @@
+\hypertarget{addon_2doxywizard_2inputbool_8cpp_source}{}\doxysection{inputbool.\+cpp}
+\label{addon_2doxywizard_2inputbool_8cpp_source}\index{doxygen/addon/doxywizard/inputbool.cpp@{doxygen/addon/doxywizard/inputbool.cpp}}
+\mbox{\hyperlink{addon_2doxywizard_2inputbool_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00011}00011 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2inputbool_8h}{inputbool.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2helplabel_8h}{helplabel.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2config__msg_8h}{config\_msg.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include <QCheckBox>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include <QTextStream>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include <QGridLayout>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00021}\mbox{\hyperlink{class_input_bool_aa88502f4b9003ac1513f4286095348f9}{00021}} \mbox{\hyperlink{class_input_bool_aa88502f4b9003ac1513f4286095348f9}{InputBool::InputBool}}( QGridLayout *layout, \textcolor{keywordtype}{int} \&row,}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00022}00022                       \textcolor{keyword}{const} QString \&\textcolor{keywordtype}{id}, \textcolor{keywordtype}{bool} checked,}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00023}00023                       \textcolor{keyword}{const} QString \&docs )}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00024}00024   : m\_default(checked), m\_docs(docs), m\_id(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a65841f8ec0ab4e93010736388282aada}{id}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00026}00026   \mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_help_label}{HelpLabel}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00027}00027   \mbox{\hyperlink{class_input_bool_a006bbaca228a76cdcd9a3307863dec1f}{m\_cb}} = \textcolor{keyword}{new} QCheckBox;}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00028}00028   layout-\/>addWidget(\mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}},row, 0);}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00029}00029   layout-\/>addWidget(\mbox{\hyperlink{class_input_bool_a006bbaca228a76cdcd9a3307863dec1f}{m\_cb}},row, 1);}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00030}00030   \mbox{\hyperlink{class_input_bool_a928f2266001efa096f99f4946cc60603}{m\_enabled}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00031}00031   \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}}=!checked; \textcolor{comment}{// force update}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00032}00032   \mbox{\hyperlink{class_input_bool_a45b8963e33372106280a9b79ad273acb}{setValue}}(checked);}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00033}00033   connect( \mbox{\hyperlink{class_input_bool_a006bbaca228a76cdcd9a3307863dec1f}{m\_cb}}, SIGNAL(toggled(\textcolor{keywordtype}{bool})), SLOT(\mbox{\hyperlink{class_input_bool_a45b8963e33372106280a9b79ad273acb}{setValue}}(\textcolor{keywordtype}{bool})) );}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00034}00034   connect( \mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}}, SIGNAL(enter()), SLOT(\mbox{\hyperlink{class_input_bool_ab6ea255ddc55dfea98f53409243308b1}{help}}()) );}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00035}00035   connect( \mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}}, SIGNAL(\mbox{\hyperlink{class_input_bool_a6fcd5209f610ec46710bb4133d908f94}{reset}}()), SLOT(\mbox{\hyperlink{class_input_bool_a6fcd5209f610ec46710bb4133d908f94}{reset}}()) );}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00036}00036   row++;}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00037}00037 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00039}\mbox{\hyperlink{class_input_bool_ab6ea255ddc55dfea98f53409243308b1}{00039}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_ab6ea255ddc55dfea98f53409243308b1}{InputBool::help}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00040}00040 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00041}00041   \mbox{\hyperlink{class_input_bool_a5a106ff283efd58007d8b0958a0f8c54}{showHelp}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00042}00042 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00044}\mbox{\hyperlink{class_input_bool_a4a289ec0e02329cd950fe7ad4a08fe9a}{00044}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_a4a289ec0e02329cd950fe7ad4a08fe9a}{InputBool::setEnabled}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00045}00045 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00046}00046   \mbox{\hyperlink{class_input_bool_a928f2266001efa096f99f4946cc60603}{m\_enabled}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00047}00047   \mbox{\hyperlink{class_input_bool_a006bbaca228a76cdcd9a3307863dec1f}{m\_cb}}-\/>setEnabled(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00048}00048   \mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}}-\/>setEnabled(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00049}00049   \mbox{\hyperlink{class_input_bool_a39aa8c0da5d1142f8f3983f7e2bd7d11}{updateDefault}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00050}00050   \mbox{\hyperlink{class_input_bool_a87d74369df2db35004c265be9c4593ab}{updateDependencies}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00051}00051 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00053}\mbox{\hyperlink{class_input_bool_a87d74369df2db35004c265be9c4593ab}{00053}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_a87d74369df2db35004c265be9c4593ab}{InputBool::updateDependencies}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00054}00054 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00055}00055   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0;i<\mbox{\hyperlink{class_input_bool_a56f2c64bfbd367f77359ab1416e82fc7}{m\_dependencies}}.count();i++)}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00056}00056   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00057}00057     \mbox{\hyperlink{class_input_bool_a56f2c64bfbd367f77359ab1416e82fc7}{m\_dependencies}}[i]-\/>setEnabled(\mbox{\hyperlink{class_input_bool_a928f2266001efa096f99f4946cc60603}{m\_enabled}} \&\& \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00058}00058   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00059}00059 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00061}\mbox{\hyperlink{class_input_bool_a45b8963e33372106280a9b79ad273acb}{00061}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_a45b8963e33372106280a9b79ad273acb}{InputBool::setValue}}( \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} )}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00062}00062 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00063}00063   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}}!=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00064}00064   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00065}00065     \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00066}00066     \mbox{\hyperlink{class_input_bool_a39aa8c0da5d1142f8f3983f7e2bd7d11}{updateDefault}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00067}00067     \mbox{\hyperlink{class_input_bool_a87d74369df2db35004c265be9c4593ab}{updateDependencies}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00068}00068     \mbox{\hyperlink{class_input_bool_a006bbaca228a76cdcd9a3307863dec1f}{m\_cb}}-\/>setChecked( \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} );}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00069}00069     \mbox{\hyperlink{class_input_bool_a5edd9becd4d726bca189adcc7be8d5b4}{m\_value}} = \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00070}00070     emit \mbox{\hyperlink{class_input_bool_a321a7b75c6aea35d25f8a09bd636694a}{changed}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00071}00071   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00072}00072 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00074}\mbox{\hyperlink{class_input_bool_a39aa8c0da5d1142f8f3983f7e2bd7d11}{00074}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_a39aa8c0da5d1142f8f3983f7e2bd7d11}{InputBool::updateDefault}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00075}00075 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00076}00076   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}}==\mbox{\hyperlink{class_input_bool_a299826af1c52e41035fe86ef78b89969}{m\_default}} || !\mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}}-\/>isEnabled())}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00077}00077   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00078}00078     \mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}}-\/>setText(QString::fromLatin1(\textcolor{stringliteral}{"{}<qt>"{}})+\mbox{\hyperlink{class_input_bool_a54d7fed4c3f54ac38d08bf869ce3030d}{m\_id}}+QString::fromLatin1(\textcolor{stringliteral}{"{}</qt>"{}}));}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00079}00079   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00080}00080   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00081}00081   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00082}00082     \mbox{\hyperlink{class_input_bool_a9f379b9cdec0bee83e29c2eb2b752490}{m\_lab}}-\/>setText(QString::fromLatin1(\textcolor{stringliteral}{"{}<qt><font color='red'>"{}})+\mbox{\hyperlink{class_input_bool_a54d7fed4c3f54ac38d08bf869ce3030d}{m\_id}}+QString::fromLatin1(\textcolor{stringliteral}{"{}</font></qt>"{}}));}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00083}00083   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00084}00084 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00086}\mbox{\hyperlink{class_input_bool_a0798a64139304e63ab3e2c67dcf5d0d6}{00086}} QVariant \&\mbox{\hyperlink{class_input_bool_a0798a64139304e63ab3e2c67dcf5d0d6}{InputBool::value}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00087}00087 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00088}00088   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_input_bool_a5edd9becd4d726bca189adcc7be8d5b4}{m\_value}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00089}00089 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00091}\mbox{\hyperlink{class_input_bool_a628b08d4a862b728db6a34a56eff9fa9}{00091}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_input_bool_a628b08d4a862b728db6a34a56eff9fa9}{InputBool::convertToBool}}(\textcolor{keyword}{const} QVariant \&value,\textcolor{keywordtype}{bool} \&isValid)}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00092}00092 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00093}00093   QString v = \mbox{\hyperlink{class_input_bool_a0798a64139304e63ab3e2c67dcf5d0d6}{value}}.toString().toLower();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00094}00094   \textcolor{keywordflow}{if} (v==QString::fromLatin1(\textcolor{stringliteral}{"{}yes"{}}) || v==QString::fromLatin1(\textcolor{stringliteral}{"{}true"{}}) ||}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00095}00095       v==QString::fromLatin1(\textcolor{stringliteral}{"{}1"{}})   || v==QString::fromLatin1(\textcolor{stringliteral}{"{}all"{}}))}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00096}00096   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00097}00097     isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00098}00098     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00099}00099   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00100}00100   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (v==QString::fromLatin1(\textcolor{stringliteral}{"{}no"{}}) || v==QString::fromLatin1(\textcolor{stringliteral}{"{}false"{}}) ||}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00101}00101            v==QString::fromLatin1(\textcolor{stringliteral}{"{}0"{}})  || v==QString::fromLatin1(\textcolor{stringliteral}{"{}none"{}}))}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00102}00102   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00103}00103     isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00104}00104     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00105}00105   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00106}00106   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00107}00107   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00108}00108     isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00109}00109     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00110}00110   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00111}00111 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00113}\mbox{\hyperlink{class_input_bool_a4430d88dc8bf58a9166dc84bef7b7782}{00113}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_a4430d88dc8bf58a9166dc84bef7b7782}{InputBool::update}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00114}00114 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00115}00115   \textcolor{keywordtype}{bool} isValid=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00116}00116   \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = \mbox{\hyperlink{class_input_bool_a628b08d4a862b728db6a34a56eff9fa9}{convertToBool}}(\mbox{\hyperlink{class_input_bool_a5edd9becd4d726bca189adcc7be8d5b4}{m\_value}},isValid);}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00117}00117   \textcolor{keywordflow}{if} (isValid)}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00118}00118   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00119}00119     \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00120}00120   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00121}00121   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00122}00122   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00123}00123     \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_ab929b9d6d4de82562ee0b9fa541ff198}{config\_warn}}(\textcolor{stringliteral}{"{}argument '\%s' for option \%s is not a valid boolean value."{}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00124}00124                 \textcolor{stringliteral}{"{} Using the default: \%s!"{}},qPrintable(\mbox{\hyperlink{class_input_bool_a5edd9becd4d726bca189adcc7be8d5b4}{m\_value}}.toString()),qPrintable(\mbox{\hyperlink{class_input_bool_a54d7fed4c3f54ac38d08bf869ce3030d}{m\_id}}),\mbox{\hyperlink{class_input_bool_a299826af1c52e41035fe86ef78b89969}{m\_default}}?\textcolor{stringliteral}{"{}YES"{}}:\textcolor{stringliteral}{"{}NO"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00125}00125     \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}} = \mbox{\hyperlink{class_input_bool_a299826af1c52e41035fe86ef78b89969}{m\_default}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00126}00126   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00127}00127   \mbox{\hyperlink{class_input_bool_a006bbaca228a76cdcd9a3307863dec1f}{m\_cb}}-\/>setChecked( \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}} );}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00128}00128   \mbox{\hyperlink{class_input_bool_a39aa8c0da5d1142f8f3983f7e2bd7d11}{updateDefault}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00129}00129   \mbox{\hyperlink{class_input_bool_a87d74369df2db35004c265be9c4593ab}{updateDependencies}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00130}00130 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00132}\mbox{\hyperlink{class_input_bool_a6fcd5209f610ec46710bb4133d908f94}{00132}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_a6fcd5209f610ec46710bb4133d908f94}{InputBool::reset}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00133}00133 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00134}00134   \mbox{\hyperlink{class_input_bool_a45b8963e33372106280a9b79ad273acb}{setValue}}(\mbox{\hyperlink{class_input_bool_a299826af1c52e41035fe86ef78b89969}{m\_default}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00135}00135 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00137}\mbox{\hyperlink{class_input_bool_a627f87e6f7609851848feecde0234063}{00137}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_bool_a627f87e6f7609851848feecde0234063}{InputBool::writeValue}}(QTextStream \&t,\mbox{\hyperlink{class_text_codec_adapter}{TextCodecAdapter}} *codec)}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00138}00138 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00139}00139   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00140}00140     t << codec-\/>\mbox{\hyperlink{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}{encode}}(QString::fromLatin1(\textcolor{stringliteral}{"{}YES"{}}));}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00141}00141   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00142}00142     t << codec-\/>\mbox{\hyperlink{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}{encode}}(QString::fromLatin1(\textcolor{stringliteral}{"{}NO"{}}));}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00143}00143 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00145}\mbox{\hyperlink{class_input_bool_af8f08d16a9fab9ecd48c320bee6e1b2f}{00145}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_input_bool_af8f08d16a9fab9ecd48c320bee6e1b2f}{InputBool::isDefault}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00146}00146 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00147}00147   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_input_bool_ad4b54a8bceca0c0adf5291d4b1b1cfd6}{m\_state}} == \mbox{\hyperlink{class_input_bool_a299826af1c52e41035fe86ef78b89969}{m\_default}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00148}00148 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2inputbool_8cpp_source_l00149}00149 }
+
+\end{DoxyCode}

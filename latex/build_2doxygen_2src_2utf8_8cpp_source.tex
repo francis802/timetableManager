@@ -1,0 +1,237 @@
+\hypertarget{build_2doxygen_2src_2utf8_8cpp_source}{}\doxysection{utf8.\+cpp}
+\label{build_2doxygen_2src_2utf8_8cpp_source}\index{doxygen/build/doxygen/src/utf8.cpp@{doxygen/build/doxygen/src/utf8.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2021 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2utf8_8h}{utf8.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2caseconvert_8h}{caseconvert.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2textstream_8h}{textstream.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00023}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{00023}} uint8\_t \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{getUTF8CharNumBytes}}(\textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00024}00024 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00025}00025   uint8\_t num=1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00026}00026   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} uc = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00027}00027   \textcolor{keywordflow}{if} (uc>=0x80u) \textcolor{comment}{// multibyte character}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00028}00028   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00029}00029     \textcolor{keywordflow}{if} ((uc\&0xE0u)==0xC0u)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00030}00030     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00031}00031       num=2; \textcolor{comment}{// 110x.xxxx: 2 byte character}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00032}00032     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00033}00033     \textcolor{keywordflow}{if} ((uc\&0xF0u)==0xE0u)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00034}00034     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00035}00035       num=3; \textcolor{comment}{// 1110.xxxx: 3 byte character}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00036}00036     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00037}00037     \textcolor{keywordflow}{if} ((uc\&0xF8u)==0xF0u)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00038}00038     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00039}00039       num=4; \textcolor{comment}{// 1111.0xxx: 4 byte character}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00040}00040     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00041}00041     \textcolor{keywordflow}{if} ((uc\&0xFCu)==0xF8u)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00042}00042     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00043}00043       num=5; \textcolor{comment}{// 1111.10xx: 5 byte character}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00044}00044     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00045}00045     \textcolor{keywordflow}{if} ((uc\&0xFEu)==0xFCu)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00046}00046     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00047}00047       num=6; \textcolor{comment}{// 1111.110x: 6 byte character}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00049}00049   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00050}00050   \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00051}00051 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00055}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{00055}} \textcolor{keyword}{static} \textcolor{keyword}{inline} uint32\_t \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} , \textcolor{keywordtype}{int} numBytes ) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00056}00056 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00057}00057   uint32\_t cp = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(*data);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00058}00058   \textcolor{keywordflow}{if} (numBytes>1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00059}00059   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00060}00060     cp \&= 0x7F >> numBytes; \textcolor{comment}{// Mask out the header bits}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00061}00061     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=1 ; i<numBytes ; i++)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00062}00062     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00063}00063       cp = (cp<<6) | (static\_cast<unsigned char>(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[i])\&0x3F);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00064}00064     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00065}00065   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00066}00066   \textcolor{keywordflow}{return} cp;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00067}00067 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00069}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{00069}} \textcolor{keyword}{static} \textcolor{keyword}{inline} uint32\_t \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convertUTF8CharToUnicode}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\textcolor{keywordtype}{size\_t} bytesLeft,\textcolor{keywordtype}{int} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00070}00070 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00071}00071   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==0 || bytesLeft==0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00072}00072   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00073}00073     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00074}00074     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00075}00075   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00076}00076   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} uc = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(*s);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00077}00077   \textcolor{keywordflow}{if} (uc<128) \textcolor{comment}{// ASCII case}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00078}00078   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00079}00079     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00080}00080     \textcolor{keywordflow}{return} uc;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00081}00081   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00082}00082   \textcolor{keywordflow}{switch} (bytesLeft)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00083}00083   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00084}00084     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00085}00085       \textcolor{keywordflow}{if} ((uc\&0xFEu)==0xFCu)\textcolor{comment}{// 1111110X six bytes}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00086}00086       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00087}00087         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=6;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00088}00088         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00089}00089       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00090}00090       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00091}00091     \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00092}00092       \textcolor{keywordflow}{if} ((uc\&0xFCu)==0xF8u) \textcolor{comment}{// 111110XX five bytes}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00093}00093       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00094}00094         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=5;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00095}00095         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00096}00096       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00097}00097       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00098}00098     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00099}00099       \textcolor{keywordflow}{if} ((uc\&0xF8u)==0xF0u) \textcolor{comment}{// 11110XXX four bytes}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00100}00100       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00101}00101         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=4;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00102}00102         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00103}00103       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00104}00104       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00105}00105     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00106}00106       \textcolor{keywordflow}{if} ((uc\&0xF0u)==0xE0u) \textcolor{comment}{// 1110XXXX three bytes}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00107}00107       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00108}00108         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=3;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00109}00109         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00110}00110       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00111}00111       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00112}00112     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00113}00113       \textcolor{keywordflow}{if} ((uc\&0xE0u)==0xC0u) \textcolor{comment}{// 110XXXXX two bytes}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00114}00114       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00115}00115         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=2;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00116}00116         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00117}00117       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00118}00118       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00119}00119     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00120}00120       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00121}00121         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00122}00122         \textcolor{keywordflow}{return} uc;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00123}00123       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00124}00124   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00125}00125 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00127}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{00127}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{getUTF8CharAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&input,\textcolor{keywordtype}{size\_t} pos)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00128}00128 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00129}00129   \textcolor{keywordflow}{if} (input.length()<=pos) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00130}00130   \textcolor{keywordtype}{int} numBytes=\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{getUTF8CharNumBytes}}(input[pos]);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00131}00131   \textcolor{keywordflow}{if} (input.length()<pos+numBytes) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00132}00132   \textcolor{keywordflow}{return} input.substr(pos,pos+numBytes);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00133}00133 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00135}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a83a5739b379d70400986a723aefd42b0}{00135}} uint32\_t \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a83a5739b379d70400986a723aefd42b0}{getUnicodeForUTF8CharAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&input,\textcolor{keywordtype}{size\_t} pos)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00136}00136 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00137}00137   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} charS = \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{getUTF8CharAt}}(input,pos);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00138}00138   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00139}00139   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convertUTF8CharToUnicode}}(charS.c\_str(),charS.length(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00140}00140 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00142}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}{00142}} \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}{asciiToLower}}(uint32\_t code)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00143}00143 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00144}00144   \textcolor{keywordflow}{return} code>=\textcolor{charliteral}{'A'} \&\& code<='Z' ? static\_cast<char>(code+\textcolor{charliteral}{'a'}-\/\textcolor{charliteral}{'A'}) : \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(code);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00145}00145 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00147}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}{00147}} \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}{asciiToUpper}}(uint32\_t code)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00148}00148 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00149}00149   \textcolor{keywordflow}{return} code>=\textcolor{charliteral}{'a'} \&\& code<='z' ? static\_cast<char>(code+\textcolor{charliteral}{'A'}-\/\textcolor{charliteral}{'a'}) : \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(code);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00150}00150 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00152}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{00152}} \textcolor{keyword}{static} \textcolor{keyword}{inline} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{caseConvert}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&input,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00153}00153                                       \textcolor{keywordtype}{char} (*asciiConversionFunc)(uint32\_t code),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00154}00154                                       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *(*conversionFunc)(uint32\_t code))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00155}00155 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00156}00156   uint32\_t code;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00157}00157   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} result;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00158}00158   result.reserve(input.length()); \textcolor{comment}{// assume all ASCII characters}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00159}00159   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00160}00160   \textcolor{keywordtype}{size\_t} bytesLeft = input.length();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00161}00161   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = input.c\_str();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00162}00162   \textcolor{keywordflow}{while} ((code=\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convertUTF8CharToUnicode}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}},bytesLeft,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}})))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00163}00163   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00164}00164     \textcolor{keywordflow}{if} (code<128) \textcolor{comment}{// ASCII case}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00165}00165     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00166}00166       \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = asciiConversionFunc(code);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00167}00167       result+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00168}00168     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00169}00169     \textcolor{keywordflow}{else} \textcolor{comment}{// generic case}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00170}00170     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00171}00171       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *conv = conversionFunc(code);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00172}00172       \textcolor{keywordflow}{if} (conv==\textcolor{keyword}{nullptr}) \textcolor{comment}{// no difference between lower and upper case}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00173}00173       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00174}00174         result.append(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00175}00175       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00176}00176       \textcolor{keywordflow}{else} \textcolor{comment}{// replace the input character with the conversion result}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00177}00177       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00178}00178         result.append(conv);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00179}00179       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00180}00180     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00181}00181     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00182}00182     bytesLeft-\/=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00183}00183   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00184}00184   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00185}00185 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00186}00186 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00187}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{00187}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{convertUTF8ToLower}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&input)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00188}00188 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00189}00189   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{caseConvert}}(input,\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}{asciiToLower}},\mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a639df87d0846c7b6b01b931a51f06df2}{convertUnicodeToLower}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00190}00190 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00192}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{00192}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convertUTF8ToUpper}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&input)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00193}00193 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00194}00194   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{caseConvert}}(input,\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}{asciiToUpper}},\mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a45451c516f2c29857ee914a24f0d098a}{convertUnicodeToUpper}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00195}00195 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00197}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}{00197}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}{writeUTF8Char}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00198}00198 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00199}00199   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00200}00200   uint8\_t \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}} = \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{getUTF8CharNumBytes}}(*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00201}00201   \textcolor{keywordflow}{for} (uint8\_t i=0;i<\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};i++)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00202}00202   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00203}00203     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}[i]==0) \textcolor{comment}{// detect premature end of string (due to invalid UTF8 char)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00204}00204     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00205}00205       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=i;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00206}00206     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00207}00207   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00208}00208   t.\mbox{\hyperlink{class_text_stream_aaa78941b7f04d95ca3be7d11073828f0}{write}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00209}00209   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00210}00210 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00211}00211 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00212}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}{00212}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}{lastUTF8CharIsMultibyte}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&input)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00213}00213 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00214}00214   \textcolor{comment}{// last byte is part of a multibyte UTF8 char if bit 8 is set and bit 7 is not}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00215}00215   \textcolor{keywordflow}{return} !input.empty() \&\& (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(input[input.length()-\/1])\&0xC0)==0x80;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00216}00216 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00217}00217 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00218}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}{00218}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}{isUTF8CharUpperCase}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&input,\textcolor{keywordtype}{size\_t} pos)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00219}00219 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00220}00220   \textcolor{keywordflow}{if} (input.length()<=pos) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00221}00221   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00222}00222   \textcolor{comment}{// turn the UTF8 character at position pos into a unicode value}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00223}00223   uint32\_t code = \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convertUTF8CharToUnicode}}(input.c\_str()+pos,input.length()-\/pos,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00224}00224   \textcolor{comment}{// check if the character can be converted to lower case, if so it was an upper case character}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00225}00225   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a639df87d0846c7b6b01b931a51f06df2}{convertUnicodeToLower}}(code)!=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00226}00226 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00227}00227 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00228}\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}{00228}} \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}{isUTF8NonBreakableSpace}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *input)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00229}00229 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00230}00230   \textcolor{keywordflow}{return} (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(input[0])==0xC2 \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00231}00231           \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(input[1])==0xA0) ? 2 : 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00232}00232 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2utf8_8cpp_source_l00233}00233 }
+
+\end{DoxyCode}

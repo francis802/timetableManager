@@ -1,0 +1,180 @@
+\hypertarget{class_template_node_tabbing}{}\doxysection{Template\+Node\+Tabbing Class Reference}
+\label{class_template_node_tabbing}\index{TemplateNodeTabbing@{TemplateNodeTabbing}}
+
+
+\mbox{\hyperlink{class_class}{Class}} representing an \textquotesingle{}tabbing\textquotesingle{} tag in a template.  
+
+
+Inheritance diagram for Template\+Node\+Tabbing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.438356cm]{class_template_node_tabbing}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_template_node_tabbing_a15b780bcf615ccba43c4a0f38d928280}{Template\+Node\+Tabbing}} (\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$parser, \mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}}, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&)
+\item 
+void \mbox{\hyperlink{class_template_node_tabbing_ab4dd4997e67cf6f5f7eb6a9948eae91f}{render}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&ts, \mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{class_template_node_tabbing_a15b780bcf615ccba43c4a0f38d928280}{Template\+Node\+Tabbing}} (\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$parser, \mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}}, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&)
+\item 
+void \mbox{\hyperlink{class_template_node_tabbing_ab4dd4997e67cf6f5f7eb6a9948eae91f}{render}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&ts, \mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_template_node_list}{Template\+Node\+List}} \mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\+\_\+nodes}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_class}{Class}} representing an \textquotesingle{}tabbing\textquotesingle{} tag in a template. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04508}{4508}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_template_node_tabbing_a15b780bcf615ccba43c4a0f38d928280}\label{class_template_node_tabbing_a15b780bcf615ccba43c4a0f38d928280}} 
+\index{TemplateNodeTabbing@{TemplateNodeTabbing}!TemplateNodeTabbing@{TemplateNodeTabbing}}
+\index{TemplateNodeTabbing@{TemplateNodeTabbing}!TemplateNodeTabbing@{TemplateNodeTabbing}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeTabbing()}{TemplateNodeTabbing()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Template\+Node\+Tabbing\+::\+Template\+Node\+Tabbing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$}]{parser,  }\item[{\mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$}]{parent,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04511}{4511}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04512       : \mbox{\hyperlink{class_template_node_creator}{TemplateNodeCreator<TemplateNodeTabbing>}}(parser,\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}},line)}
+\DoxyCodeLine{04513     \{}
+\DoxyCodeLine{04514       \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\{TemplateNodeTabbing()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04515       \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} stopAt = \{ \textcolor{stringliteral}{"{}endtabbing"{}} \};}
+\DoxyCodeLine{04516       parser-\/>\mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{parse}}(\textcolor{keyword}{this},line,stopAt,\mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\_nodes}});}
+\DoxyCodeLine{04517       parser-\/>\mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{removeNextToken}}(); \textcolor{comment}{// skip over endtabbing}}
+\DoxyCodeLine{04518       \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\}TemplateNodeTabbing()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04519     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{Template\+Parser\+::parse()}}, \mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{Template\+Parser\+::remove\+Next\+Token()}}, and \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}.
+
+\mbox{\Hypertarget{class_template_node_tabbing_a15b780bcf615ccba43c4a0f38d928280}\label{class_template_node_tabbing_a15b780bcf615ccba43c4a0f38d928280}} 
+\index{TemplateNodeTabbing@{TemplateNodeTabbing}!TemplateNodeTabbing@{TemplateNodeTabbing}}
+\index{TemplateNodeTabbing@{TemplateNodeTabbing}!TemplateNodeTabbing@{TemplateNodeTabbing}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeTabbing()}{TemplateNodeTabbing()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Template\+Node\+Tabbing\+::\+Template\+Node\+Tabbing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$}]{parser,  }\item[{\mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$}]{parent,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l04511}{4511}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04512       : \mbox{\hyperlink{class_template_node_creator}{TemplateNodeCreator<TemplateNodeTabbing>}}(parser,\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}},line)}
+\DoxyCodeLine{04513     \{}
+\DoxyCodeLine{04514       \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\{TemplateNodeTabbing()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04515       \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} stopAt = \{ \textcolor{stringliteral}{"{}endtabbing"{}} \};}
+\DoxyCodeLine{04516       parser-\/>\mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{parse}}(\textcolor{keyword}{this},line,stopAt,\mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\_nodes}});}
+\DoxyCodeLine{04517       parser-\/>\mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{removeNextToken}}(); \textcolor{comment}{// skip over endtabbing}}
+\DoxyCodeLine{04518       \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\}TemplateNodeTabbing()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04519     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{Template\+Parser\+::parse()}}, \mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{Template\+Parser\+::remove\+Next\+Token()}}, and \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_template_node_tabbing_ab4dd4997e67cf6f5f7eb6a9948eae91f}\label{class_template_node_tabbing_ab4dd4997e67cf6f5f7eb6a9948eae91f}} 
+\index{TemplateNodeTabbing@{TemplateNodeTabbing}!render@{render}}
+\index{render@{render}!TemplateNodeTabbing@{TemplateNodeTabbing}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Template\+Node\+Tabbing\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{ts,  }\item[{\mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_template_node_a359c255cedaf603fd3e0ef35b7126185}{Template\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04520}{4520}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04521     \{}
+\DoxyCodeLine{04522       \mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}} *ci = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}*\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04523       \textcolor{keywordflow}{if} (ci==0) \textcolor{keywordflow}{return}; \textcolor{comment}{// should not happen}}
+\DoxyCodeLine{04524       ci-\/>\mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{setLocation}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{04525       \textcolor{keywordtype}{bool} wasTabbing = ci-\/>\mbox{\hyperlink{class_template_context_impl_a26de74067c83cb2e297c2b8f1c2b57a5}{tabbingEnabled}}();}
+\DoxyCodeLine{04526       ci-\/>\mbox{\hyperlink{class_template_context_impl_a1443d238fee209cf8a705258532e4444}{enableTabbing}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{04527       \mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\_nodes}}.\mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{render}}(ts,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04528       ci-\/>\mbox{\hyperlink{class_template_context_impl_a1443d238fee209cf8a705258532e4444}{enableTabbing}}(wasTabbing);}
+\DoxyCodeLine{04529     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_template_context_impl_a1443d238fee209cf8a705258532e4444}{Template\+Context\+Impl\+::enable\+Tabbing()}}, \mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{Template\+Node\+Creator$<$ Template\+Node\+Tabbing $>$\+::m\+\_\+line}}, \mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Tabbing $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{Template\+Node\+List\+::render()}}, \mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{Template\+Context\+Impl\+::set\+Location()}}, \mbox{\hyperlink{class_template_context_impl_a26de74067c83cb2e297c2b8f1c2b57a5}{Template\+Context\+Impl\+::tabbing\+Enabled()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+\mbox{\Hypertarget{class_template_node_tabbing_ab4dd4997e67cf6f5f7eb6a9948eae91f}\label{class_template_node_tabbing_ab4dd4997e67cf6f5f7eb6a9948eae91f}} 
+\index{TemplateNodeTabbing@{TemplateNodeTabbing}!render@{render}}
+\index{render@{render}!TemplateNodeTabbing@{TemplateNodeTabbing}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Template\+Node\+Tabbing\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{ts,  }\item[{\mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_template_node_a359c255cedaf603fd3e0ef35b7126185}{Template\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l04520}{4520}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04521     \{}
+\DoxyCodeLine{04522       \mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}} *ci = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}*\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04523       \textcolor{keywordflow}{if} (ci==0) \textcolor{keywordflow}{return}; \textcolor{comment}{// should not happen}}
+\DoxyCodeLine{04524       ci-\/>\mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{setLocation}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{04525       \textcolor{keywordtype}{bool} wasTabbing = ci-\/>\mbox{\hyperlink{class_template_context_impl_a26de74067c83cb2e297c2b8f1c2b57a5}{tabbingEnabled}}();}
+\DoxyCodeLine{04526       ci-\/>\mbox{\hyperlink{class_template_context_impl_a1443d238fee209cf8a705258532e4444}{enableTabbing}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{04527       \mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\_nodes}}.\mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{render}}(ts,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04528       ci-\/>\mbox{\hyperlink{class_template_context_impl_a1443d238fee209cf8a705258532e4444}{enableTabbing}}(wasTabbing);}
+\DoxyCodeLine{04529     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_template_context_impl_a1443d238fee209cf8a705258532e4444}{Template\+Context\+Impl\+::enable\+Tabbing()}}, \mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{Template\+Node\+Creator$<$ Template\+Node\+Tabbing $>$\+::m\+\_\+line}}, \mbox{\hyperlink{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Tabbing $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{Template\+Node\+List\+::render()}}, \mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{Template\+Context\+Impl\+::set\+Location()}}, \mbox{\hyperlink{class_template_context_impl_a26de74067c83cb2e297c2b8f1c2b57a5}{Template\+Context\+Impl\+::tabbing\+Enabled()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}\label{class_template_node_tabbing_a6cde854d50105a2e4978f7cd6e23af7c}} 
+\index{TemplateNodeTabbing@{TemplateNodeTabbing}!m\_nodes@{m\_nodes}}
+\index{m\_nodes@{m\_nodes}!TemplateNodeTabbing@{TemplateNodeTabbing}}
+\doxysubsubsection{\texorpdfstring{m\_nodes}{m\_nodes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_template_node_list}{Template\+Node\+List}} Template\+Node\+Tabbing\+::m\+\_\+nodes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04531}{4531}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_node_tabbing_ab4dd4997e67cf6f5f7eb6a9948eae91f}{render()}}, and \mbox{\hyperlink{class_template_node_tabbing_a15b780bcf615ccba43c4a0f38d928280}{Template\+Node\+Tabbing()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

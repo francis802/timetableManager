@@ -1,0 +1,111 @@
+\hypertarget{src_2commentcnv_8h}{}\doxysection{doxygen/src/commentcnv.h File Reference}
+\label{src_2commentcnv_8h}\index{doxygen/src/commentcnv.h@{doxygen/src/commentcnv.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{src_2commentcnv_8h_a04d92f4281c65ebe972f5bf92bcb4a09}{convert\+Cpp\+Comments}} (\mbox{\hyperlink{class_buf_str}{Buf\+Str}} $\ast$in\+Buf, \mbox{\hyperlink{class_buf_str}{Buf\+Str}} $\ast$out\+Buf, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2commentcnv_8h_a04d92f4281c65ebe972f5bf92bcb4a09}\label{src_2commentcnv_8h_a04d92f4281c65ebe972f5bf92bcb4a09}} 
+\index{commentcnv.h@{commentcnv.h}!convertCppComments@{convertCppComments}}
+\index{convertCppComments@{convertCppComments}!commentcnv.h@{commentcnv.h}}
+\doxysubsubsection{\texorpdfstring{convertCppComments()}{convertCppComments()}}
+{\footnotesize\ttfamily void convert\+Cpp\+Comments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_buf_str}{Buf\+Str}} $\ast$}]{in\+Buf,  }\item[{\mbox{\hyperlink{class_buf_str}{Buf\+Str}} $\ast$}]{out\+Buf,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name }\end{DoxyParamCaption})}
+
+This function does three things\+:
+\begin{DoxyEnumerate}
+\item It converts multi-\/line C++ style comment blocks (that are aligned) to \mbox{\hyperlink{class_c}{C}} style comment blocks (if MULTILINE\+\_\+\+CPP\+\_\+\+IS\+\_\+\+BRIEF is set to NO).
+\item It replaces aliases with their definition (see ALIASES)
+\item It handles conditional sections (cond...endcond blocks) 
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8l_source_l01194}{1194}} of file \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8l_source}{commentcnv.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01195 \{}
+\DoxyCodeLine{01196   \mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\_t}} yyscanner;}
+\DoxyCodeLine{01197   \mbox{\hyperlink{structcommentcnv_y_y__state}{commentcnvYY\_state}} extra;}
+\DoxyCodeLine{01198   commentcnvYYlex\_init\_extra(\&extra,\&yyscanner);}
+\DoxyCodeLine{01199 \textcolor{preprocessor}{\#ifdef FLEX\_DEBUG}}
+\DoxyCodeLine{01200   commentcnvYYset\_debug(1,yyscanner);}
+\DoxyCodeLine{01201 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01202   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01203   \textcolor{comment}{//printf("{}convertCppComments(\%s)\(\backslash\)n"{},fileName);}}
+\DoxyCodeLine{01204   yyextra-\/>inBuf    = inBuf;}
+\DoxyCodeLine{01205   yyextra-\/>outBuf   = outBuf;}
+\DoxyCodeLine{01206   yyextra-\/>inBufPos = 0;}
+\DoxyCodeLine{01207   yyextra-\/>col      = 0;}
+\DoxyCodeLine{01208   yyextra-\/>mlBrief = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(MULTILINE\_CPP\_IS\_BRIEF);}
+\DoxyCodeLine{01209   yyextra-\/>skip     = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{01210   yyextra-\/>fileName = fileName;}
+\DoxyCodeLine{01211   yyextra-\/>lang = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a1b56719a14e986911d90aae56767dd5b}{getLanguageFromFileName}}(fileName);}
+\DoxyCodeLine{01212   yyextra-\/>pythonDocString = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{01213   yyextra-\/>lineNr   = 1;}
+\DoxyCodeLine{01214   \textcolor{keywordflow}{while} (!yyextra-\/>condStack.empty()) yyextra-\/>condStack.pop();}
+\DoxyCodeLine{01215   \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8l_ac28578b1034a1f4803dd53216ab2bfda}{clearCommentStack}}(yyscanner);}
+\DoxyCodeLine{01216   yyextra-\/>vhdl = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{01217 }
+\DoxyCodeLine{01218   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \_\_FILE\_\_, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{01219   yyextra-\/>isFixedForm = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{01220   \textcolor{keywordflow}{if} (yyextra-\/>lang==\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2abc7c7944bb4e705c9e1812b02c89c346}{SrcLangExt\_Fortran}})}
+\DoxyCodeLine{01221   \{}
+\DoxyCodeLine{01222     \mbox{\hyperlink{build_2doxygen_2src_2types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{FortranFormat}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}} = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_acb642f5212285f22eca041cbf6a927c1}{convertFileNameFortranParserCode}}(fileName);}
+\DoxyCodeLine{01223     yyextra-\/>isFixedForm = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5c3775d3cb6b3776c441a4451d49bb2c}{recognizeFixedForm}}(\mbox{\hyperlink{class_q_c_string}{QCString}}(inBuf-\/>\mbox{\hyperlink{class_buf_str_a38f1315046acdef23cab4dc53c6eda2b}{data}}()),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{01224   \}}
+\DoxyCodeLine{01225 }
+\DoxyCodeLine{01226   \textcolor{keywordflow}{if} (yyextra-\/>lang==\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2ae5521f6417755a3ff021e5601c9d688d}{SrcLangExt\_Markdown}})}
+\DoxyCodeLine{01227   \{}
+\DoxyCodeLine{01228     yyextra-\/>nestingCount=0;}
+\DoxyCodeLine{01229     BEGIN(CComment);}
+\DoxyCodeLine{01230     yyextra-\/>commentStack.push(yyextra-\/>lineNr);}
+\DoxyCodeLine{01231   \}}
+\DoxyCodeLine{01232   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01233   \{}
+\DoxyCodeLine{01234     BEGIN(Scan);}
+\DoxyCodeLine{01235   \}}
+\DoxyCodeLine{01236   \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}}(yyscanner);}
+\DoxyCodeLine{01237   \textcolor{keywordflow}{while} (!yyextra-\/>condStack.empty())}
+\DoxyCodeLine{01238   \{}
+\DoxyCodeLine{01239     \textcolor{keyword}{const} \mbox{\hyperlink{structcommentcnv_y_y___cond_ctx}{commentcnvYY\_CondCtx}} \&ctx = yyextra-\/>condStack.top();}
+\DoxyCodeLine{01240     \mbox{\hyperlink{class_q_c_string}{QCString}} sectionInfo(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{01241     \textcolor{keywordflow}{if} (ctx.\mbox{\hyperlink{structcommentcnv_y_y___cond_ctx_ae1eed597f41d62965e72a0f1a4961d4d}{sectionId}}!=\textcolor{stringliteral}{"{} "{}}) sectionInfo.sprintf(\textcolor{stringliteral}{"{} with label '\%s' "{}},ctx.\mbox{\hyperlink{structcommentcnv_y_y___cond_ctx_ae1eed597f41d62965e72a0f1a4961d4d}{sectionId}}.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}().\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{01242     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(yyextra-\/>fileName,ctx.\mbox{\hyperlink{structcommentcnv_y_y___cond_ctx_a6788d979220d7bcd5ed1eaf232060e29}{lineNr}},\textcolor{stringliteral}{"{}Conditional section\%sdoes not have "{}}}
+\DoxyCodeLine{01243     \textcolor{stringliteral}{"{}a corresponding \(\backslash\)\(\backslash\)endcond command within this file."{}},sectionInfo.data());}
+\DoxyCodeLine{01244     yyextra-\/>condStack.pop();}
+\DoxyCodeLine{01245   \}}
+\DoxyCodeLine{01246   \textcolor{keywordflow}{if} (yyextra-\/>nestingCount>0 \&\& yyextra-\/>lang!=\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2ae5521f6417755a3ff021e5601c9d688d}{SrcLangExt\_Markdown}} \&\& yyextra-\/>lang!=\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2abc7c7944bb4e705c9e1812b02c89c346}{SrcLangExt\_Fortran}})}
+\DoxyCodeLine{01247   \{}
+\DoxyCodeLine{01248     \mbox{\hyperlink{class_q_c_string}{QCString}} tmp(\textcolor{stringliteral}{"{}(probable line reference: "{}});}
+\DoxyCodeLine{01249     \textcolor{keywordtype}{bool} first = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{01250     \textcolor{keywordflow}{while} (!yyextra-\/>commentStack.empty())}
+\DoxyCodeLine{01251     \{}
+\DoxyCodeLine{01252       \textcolor{keywordtype}{int} lineNr = yyextra-\/>commentStack.top();}
+\DoxyCodeLine{01253       \textcolor{keywordflow}{if} (!first) tmp += \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{01254       tmp += \mbox{\hyperlink{class_q_c_string}{QCString}}().\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(lineNr);}
+\DoxyCodeLine{01255       first = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{01256       yyextra-\/>commentStack.pop();}
+\DoxyCodeLine{01257     \}}
+\DoxyCodeLine{01258     tmp += \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{01259     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(yyextra-\/>fileName,yyextra-\/>lineNr,\textcolor{stringliteral}{"{}Reached end of file while still inside a (nested) comment. "{}}}
+\DoxyCodeLine{01260         \textcolor{stringliteral}{"{}Nesting level \%d \%s"{}},yyextra-\/>nestingCount,tmp.data());}
+\DoxyCodeLine{01261   \}}
+\DoxyCodeLine{01262   yyextra-\/>nestingCount = 0;}
+\DoxyCodeLine{01263   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Debug::CommentCnv}}))}
+\DoxyCodeLine{01264   \{}
+\DoxyCodeLine{01265     yyextra-\/>outBuf-\/>at(yyextra-\/>outBuf-\/>curPos())=\textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{01266     \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Debug::CommentCnv}},0,\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)nCommentCnv: \%s\(\backslash\)n"{}}}
+\DoxyCodeLine{01267                  \textcolor{stringliteral}{"{}output=[\(\backslash\)n\%s]\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName),yyextra-\/>outBuf-\/>data()}
+\DoxyCodeLine{01268                 );}
+\DoxyCodeLine{01269   \}}
+\DoxyCodeLine{01270   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \_\_FILE\_\_, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{01271   commentcnvYYlex\_destroy(yyscanner);}
+\DoxyCodeLine{01272 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2commentcnv_8l_ac28578b1034a1f4803dd53216ab2bfda}{clear\+Comment\+Stack()}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Debug\+::\+Comment\+Cnv}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_acb642f5212285f22eca041cbf6a927c1}{convert\+File\+Name\+Fortran\+Parser\+Code()}}, \mbox{\hyperlink{class_buf_str_a38f1315046acdef23cab4dc53c6eda2b}{Buf\+Str\+::data()}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a1b56719a14e986911d90aae56767dd5b}{get\+Language\+From\+File\+Name()}}, \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug\+::is\+Flag\+Set()}}, \mbox{\hyperlink{structcommentcnv_y_y___cond_ctx_a6788d979220d7bcd5ed1eaf232060e29}{commentcnv\+YY\+\_\+\+Cond\+Ctx\+::line\+Nr}}, \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug\+::print()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5c3775d3cb6b3776c441a4451d49bb2c}{recognize\+Fixed\+Form()}}, \mbox{\hyperlink{structcommentcnv_y_y___cond_ctx_ae1eed597f41d62965e72a0f1a4961d4d}{commentcnv\+YY\+\_\+\+Cond\+Ctx\+::section\+Id}}, \mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{QCString\+::set\+Num()}}, \mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{QCString\+::sprintf()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2abc7c7944bb4e705c9e1812b02c89c346}{Src\+Lang\+Ext\+\_\+\+Fortran}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2ae5521f6417755a3ff021e5601c9d688d}{Src\+Lang\+Ext\+\_\+\+Markdown}}, \mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{QCString\+::strip\+White\+Space()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn()}}, and \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex()}}.
+

@@ -1,0 +1,59 @@
+\hypertarget{build_2doxygen_2addon_2doxywizard_2adapter_8h}{}\doxysection{doxygen/build/doxygen/addon/doxywizard/adapter.h File Reference}
+\label{build_2doxygen_2addon_2doxywizard_2adapter_8h}\index{doxygen/build/doxygen/addon/doxywizard/adapter.h@{doxygen/build/doxygen/addon/doxywizard/adapter.h}}
+
+
+compatibility adapters for Qt5/\+Qt6 support.  
+
+
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$Qt\+Global$>$}\newline
+{\ttfamily \#include $<$QString$>$}\newline
+{\ttfamily \#include $<$QText\+Stream$>$}\newline
+{\ttfamily \#include $<$QPointF$>$}\newline
+{\ttfamily \#include $<$QMouse\+Event$>$}\newline
+{\ttfamily \#include $<$QString\+Encoder$>$}\newline
+{\ttfamily \#include $<$QString\+Decoder$>$}\newline
+{\ttfamily \#include $<$QString\+Converter$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_text_codec_adapter}{Text\+Codec\+Adapter}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+qreal \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_a477c9effaa5f7db2f9baf0f452aa31b0}{get\+Mouse\+YPosition\+From\+Event}} (QMouse\+Event $\ast$m)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+compatibility adapters for Qt5/\+Qt6 support. 
+
+
+
+Definition in file \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2addon_2doxywizard_2adapter_8h_a477c9effaa5f7db2f9baf0f452aa31b0}\label{build_2doxygen_2addon_2doxywizard_2adapter_8h_a477c9effaa5f7db2f9baf0f452aa31b0}} 
+\index{adapter.h@{adapter.h}!getMouseYPositionFromEvent@{getMouseYPositionFromEvent}}
+\index{getMouseYPositionFromEvent@{getMouseYPositionFromEvent}!adapter.h@{adapter.h}}
+\doxysubsubsection{\texorpdfstring{getMouseYPositionFromEvent()}{getMouseYPositionFromEvent()}}
+{\footnotesize\ttfamily qreal get\+Mouse\+YPosition\+From\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event $\ast$}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source_l00076}{76}} of file \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077 \{}
+\DoxyCodeLine{00078 \textcolor{preprocessor}{\#if QT\_VERSION < QT\_VERSION\_CHECK(6, 0, 0)}}
+\DoxyCodeLine{00079   \textcolor{keywordflow}{return} m-\/>y();}
+\DoxyCodeLine{00080 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00081   \textcolor{keywordflow}{return} m-\/>position().y();}
+\DoxyCodeLine{00082 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00083 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source}{}\doxysection{gd\+\_\+errors.\+h}
+\label{build_2doxygen_2libmscgen_2gd__errors_8h_source}\index{doxygen/build/doxygen/libmscgen/gd\_errors.h@{doxygen/build/doxygen/libmscgen/gd\_errors.h}}
+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef GD\_ERRORS\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00002}00002 \textcolor{preprocessor}{\#define GD\_ERRORS\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00004}00004 \textcolor{preprocessor}{\#ifndef \_WIN32}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00005}00005 \textcolor{preprocessor}{\# include <syslog.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00006}00006 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00007}00007 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00008}00008 \textcolor{comment}{ * priorities/facilities are encoded into a single 32-\/bit quantity, where the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00009}00009 \textcolor{comment}{ * bottom 3 bits are the priority (0-\/7) and the top 28 bits are the facility}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00010}00010 \textcolor{comment}{ * (0-\/big number).  Both the priorities and the facilities map roughly}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00011}00011 \textcolor{comment}{ * one-\/to-\/one to strings in the syslogd(8) source code.  This mapping is}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00012}00012 \textcolor{comment}{ * included in this file.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00014}00014 \textcolor{comment}{ * priorities (these are ordered)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00015}00015 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00016}00016 \textcolor{preprocessor}{\# define LOG\_EMERG       0       }\textcolor{comment}{/* system is unusable */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00017}00017 \textcolor{preprocessor}{\# define LOG\_ALERT       1       }\textcolor{comment}{/* action must be taken immediately */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00018}00018 \textcolor{preprocessor}{\# define LOG\_CRIT        2       }\textcolor{comment}{/* critical conditions */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00019}00019 \textcolor{preprocessor}{\# define LOG\_ERR         3       }\textcolor{comment}{/* error conditions */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00020}00020 \textcolor{preprocessor}{\# define LOG\_WARNING     4       }\textcolor{comment}{/* warning conditions */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00021}00021 \textcolor{preprocessor}{\# define LOG\_NOTICE      5       }\textcolor{comment}{/* normal but significant condition */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00022}00022 \textcolor{preprocessor}{\# define LOG\_INFO        6       }\textcolor{comment}{/* informational */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00023}00023 \textcolor{preprocessor}{\# define LOG\_DEBUG       7       }\textcolor{comment}{/* debug-\/level messages */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00024}00024 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00026}00026 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00027}00027 \textcolor{comment}{LOG\_EMERG      system is unusable}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00028}00028 \textcolor{comment}{LOG\_ALERT      action must be taken immediately}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00029}00029 \textcolor{comment}{LOG\_CRIT       critical conditions}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00030}00030 \textcolor{comment}{LOG\_ERR        error conditions}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00031}00031 \textcolor{comment}{LOG\_WARNING    warning conditions}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00032}00032 \textcolor{comment}{LOG\_NOTICE     normal, but significant, condition}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00033}00033 \textcolor{comment}{LOG\_INFO       informational message}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00034}00034 \textcolor{comment}{LOG\_DEBUG      debug-\/level message}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00035}00035 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00037}\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_a63bf9249e243ffc2ddbb7f4e6db491b2}{00037}} \textcolor{preprocessor}{\#define GD\_ERROR LOG\_ERR}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00038}\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_ab7cbdc964f123f293c52566a96e5c0d1}{00038}} \textcolor{preprocessor}{\#define GD\_WARNING LOG\_WARNING}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00039}\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_a655af5497e5ab4248b46472bd7de7d2a}{00039}} \textcolor{preprocessor}{\#define GD\_NOTICE LOG\_NOTICE}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00040}\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_a581713359c8e8515d50073af23f050a6}{00040}} \textcolor{preprocessor}{\#define GD\_INFO LOG\_INFO}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00041}\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_afb18283feeb6a1ccb4fe0c3a2e0e19d0}{00041}} \textcolor{preprocessor}{\#define GD\_DEBUG LOG\_DEBUG}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00043}00043 \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_a6d8cf2c5b53ef17bbc5da9daea5d7a2a}{gd\_error}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, ...);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00044}00044 \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_ac8d60eda6a526c4e12933edc150e8010}{gd\_error\_ex}}(\textcolor{keywordtype}{int} priority, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, ...);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2gd__errors_8h_source_l00046}00046 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

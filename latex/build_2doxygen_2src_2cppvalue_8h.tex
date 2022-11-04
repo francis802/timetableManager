@@ -1,0 +1,182 @@
+\hypertarget{build_2doxygen_2src_2cppvalue_8h}{}\doxysection{doxygen/build/doxygen/src/cppvalue.h File Reference}
+\label{build_2doxygen_2src_2cppvalue_8h}\index{doxygen/build/doxygen/src/cppvalue.h@{doxygen/build/doxygen/src/cppvalue.h}}
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_p_p_value}{CPPValue}} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8h_af83ee648a93647134a0632a75ef296d0}{parse\+Octal}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&token)
+\item 
+\mbox{\hyperlink{class_c_p_p_value}{CPPValue}} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8h_aaf83bb946f86a51dc6a6ece7cfb8e742}{parse\+Decimal}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&token)
+\item 
+\mbox{\hyperlink{class_c_p_p_value}{CPPValue}} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8h_aab39c139578670ef7a53f073b76168e2}{parse\+Hexadecimal}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&token)
+\item 
+\mbox{\hyperlink{class_c_p_p_value}{CPPValue}} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8h_a4e8e0fd1100eff385193ecad6e488cf7}{parse\+Binary}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&token)
+\item 
+\mbox{\hyperlink{class_c_p_p_value}{CPPValue}} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8h_a790c22d9a17a1f3496e65f14771f7488}{parse\+Character}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&token)
+\item 
+\mbox{\hyperlink{class_c_p_p_value}{CPPValue}} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8h_a98f4f27d0385c6c329fc2a3cb9c74acb}{parse\+Float}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&token)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2cppvalue_8h_a4e8e0fd1100eff385193ecad6e488cf7}\label{build_2doxygen_2src_2cppvalue_8h_a4e8e0fd1100eff385193ecad6e488cf7}} 
+\index{cppvalue.h@{cppvalue.h}!parseBinary@{parseBinary}}
+\index{parseBinary@{parseBinary}!cppvalue.h@{cppvalue.h}}
+\doxysubsubsection{\texorpdfstring{parseBinary()}{parseBinary()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_p_value}{CPPValue}} parse\+Binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source}{cppvalue.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055 \{}
+\DoxyCodeLine{00056   \textcolor{keywordtype}{long} \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = 0;}
+\DoxyCodeLine{00057   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = token.c\_str(); *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} != 0; \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++)}
+\DoxyCodeLine{00058   \{}
+\DoxyCodeLine{00059     \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} >= \textcolor{charliteral}{'0'} \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} <= \textcolor{charliteral}{'1'}) \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} * 2 + *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00060   \}}
+\DoxyCodeLine{00061   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}});}
+\DoxyCodeLine{00062 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2src_2cppvalue_8h_a790c22d9a17a1f3496e65f14771f7488}\label{build_2doxygen_2src_2cppvalue_8h_a790c22d9a17a1f3496e65f14771f7488}} 
+\index{cppvalue.h@{cppvalue.h}!parseCharacter@{parseCharacter}}
+\index{parseCharacter@{parseCharacter}!cppvalue.h@{cppvalue.h}}
+\doxysubsubsection{\texorpdfstring{parseCharacter()}{parseCharacter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_p_value}{CPPValue}} parse\+Character (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source}{cppvalue.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065 \{}
+\DoxyCodeLine{00066   \textcolor{keywordflow}{if} (token[1]==\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'})}
+\DoxyCodeLine{00067   \{}
+\DoxyCodeLine{00068     \textcolor{keywordflow}{switch}(token[2])}
+\DoxyCodeLine{00069     \{}
+\DoxyCodeLine{00070       \textcolor{keywordflow}{case} \textcolor{charliteral}{'n'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00071       \textcolor{keywordflow}{case} \textcolor{charliteral}{'t'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)t'});}
+\DoxyCodeLine{00072       \textcolor{keywordflow}{case} \textcolor{charliteral}{'v'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)v'});}
+\DoxyCodeLine{00073       \textcolor{keywordflow}{case} \textcolor{charliteral}{'b'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)b'});}
+\DoxyCodeLine{00074       \textcolor{keywordflow}{case} \textcolor{charliteral}{'r'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00075       \textcolor{keywordflow}{case} \textcolor{charliteral}{'f'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)f'});}
+\DoxyCodeLine{00076       \textcolor{keywordflow}{case} \textcolor{charliteral}{'a'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)a'});}
+\DoxyCodeLine{00077       \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}: \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'});}
+\DoxyCodeLine{00078       \textcolor{keywordflow}{case} \textcolor{charliteral}{'?'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)?'});}
+\DoxyCodeLine{00079       \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)''}: \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'\(\backslash\)''});}
+\DoxyCodeLine{00080       \textcolor{keywordflow}{case} \textcolor{charliteral}{'"{}'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\textcolor{charliteral}{'"{}'});}
+\DoxyCodeLine{00081       \textcolor{keywordflow}{case} \textcolor{charliteral}{'0'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00082       \textcolor{keywordflow}{case} \textcolor{charliteral}{'1'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00083       \textcolor{keywordflow}{case} \textcolor{charliteral}{'2'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00084       \textcolor{keywordflow}{case} \textcolor{charliteral}{'3'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00085       \textcolor{keywordflow}{case} \textcolor{charliteral}{'4'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00086       \textcolor{keywordflow}{case} \textcolor{charliteral}{'5'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00087       \textcolor{keywordflow}{case} \textcolor{charliteral}{'6'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00088       \textcolor{keywordflow}{case} \textcolor{charliteral}{'7'}:  \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00089                  \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_af83ee648a93647134a0632a75ef296d0}{parseOctal}}(token);}
+\DoxyCodeLine{00090       \textcolor{keywordflow}{case} \textcolor{charliteral}{'x'}:}
+\DoxyCodeLine{00091       \textcolor{keywordflow}{case} \textcolor{charliteral}{'X'}:  \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_aab39c139578670ef7a53f073b76168e2}{parseHexadecimal}}(token);}
+\DoxyCodeLine{00092       \textcolor{keywordflow}{default}:   printf(\textcolor{stringliteral}{"{}Invalid escape sequence \%s found!\(\backslash\)n"{}},token.c\_str());}
+\DoxyCodeLine{00093                  \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(0L);}
+\DoxyCodeLine{00094     \}}
+\DoxyCodeLine{00095   \}}
+\DoxyCodeLine{00096   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(token[1]);}
+\DoxyCodeLine{00097 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2src_2cppvalue_8h_aaf83bb946f86a51dc6a6ece7cfb8e742}\label{build_2doxygen_2src_2cppvalue_8h_aaf83bb946f86a51dc6a6ece7cfb8e742}} 
+\index{cppvalue.h@{cppvalue.h}!parseDecimal@{parseDecimal}}
+\index{parseDecimal@{parseDecimal}!cppvalue.h@{cppvalue.h}}
+\doxysubsubsection{\texorpdfstring{parseDecimal()}{parseDecimal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_p_value}{CPPValue}} parse\+Decimal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source}{cppvalue.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \{}
+\DoxyCodeLine{00033   \textcolor{keywordtype}{long} \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = 0;}
+\DoxyCodeLine{00034   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = token.c\_str(); *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} != 0; \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++)}
+\DoxyCodeLine{00035   \{}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} >= \textcolor{charliteral}{'0'} \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} <= \textcolor{charliteral}{'9'}) \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} * 10 + *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00037   \}}
+\DoxyCodeLine{00038   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}});}
+\DoxyCodeLine{00039 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2src_2cppvalue_8h_a98f4f27d0385c6c329fc2a3cb9c74acb}\label{build_2doxygen_2src_2cppvalue_8h_a98f4f27d0385c6c329fc2a3cb9c74acb}} 
+\index{cppvalue.h@{cppvalue.h}!parseFloat@{parseFloat}}
+\index{parseFloat@{parseFloat}!cppvalue.h@{cppvalue.h}}
+\doxysubsubsection{\texorpdfstring{parseFloat()}{parseFloat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_p_value}{CPPValue}} parse\+Float (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source}{cppvalue.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100 \{}
+\DoxyCodeLine{00101   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(std::stod(token));}
+\DoxyCodeLine{00102 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2src_2cppvalue_8h_aab39c139578670ef7a53f073b76168e2}\label{build_2doxygen_2src_2cppvalue_8h_aab39c139578670ef7a53f073b76168e2}} 
+\index{cppvalue.h@{cppvalue.h}!parseHexadecimal@{parseHexadecimal}}
+\index{parseHexadecimal@{parseHexadecimal}!cppvalue.h@{cppvalue.h}}
+\doxysubsubsection{\texorpdfstring{parseHexadecimal()}{parseHexadecimal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_p_value}{CPPValue}} parse\+Hexadecimal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source}{cppvalue.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{}
+\DoxyCodeLine{00043   \textcolor{keywordtype}{long} \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = 0;}
+\DoxyCodeLine{00044   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = token.c\_str(); *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} != 0; \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++)}
+\DoxyCodeLine{00045   \{}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{if}      (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} >= \textcolor{charliteral}{'0'} \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} <= \textcolor{charliteral}{'9'}) \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} * 16 + *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} >= \textcolor{charliteral}{'a'} \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} <= \textcolor{charliteral}{'f'}) \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} * 16 + *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} -\/ \textcolor{charliteral}{'a'} + 10;}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} >= \textcolor{charliteral}{'A'} \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} <= \textcolor{charliteral}{'F'}) \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} * 16 + *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} -\/ \textcolor{charliteral}{'A'} + 10;}
+\DoxyCodeLine{00049   \}}
+\DoxyCodeLine{00050   \textcolor{comment}{//printf("{}parseHexadecimal \%s-\/>\%x\(\backslash\)n"{},qPrint(token),val);}}
+\DoxyCodeLine{00051   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}});}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2src_2cppvalue_8h_af83ee648a93647134a0632a75ef296d0}\label{build_2doxygen_2src_2cppvalue_8h_af83ee648a93647134a0632a75ef296d0}} 
+\index{cppvalue.h@{cppvalue.h}!parseOctal@{parseOctal}}
+\index{parseOctal@{parseOctal}!cppvalue.h@{cppvalue.h}}
+\doxysubsubsection{\texorpdfstring{parseOctal()}{parseOctal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_p_value}{CPPValue}} parse\+Octal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_source}{cppvalue.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{long} \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = 0;}
+\DoxyCodeLine{00024   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = token.c\_str(); *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} != 0; \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++)}
+\DoxyCodeLine{00025   \{}
+\DoxyCodeLine{00026     \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} >= \textcolor{charliteral}{'0'} \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} <= \textcolor{charliteral}{'7'}) \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} * 8 + *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00027   \}}
+\DoxyCodeLine{00028   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_c_p_p_value}{CPPValue}}(\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}});}
+\DoxyCodeLine{00029 \}}
+
+\end{DoxyCode}

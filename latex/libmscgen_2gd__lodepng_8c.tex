@@ -1,0 +1,60 @@
+\hypertarget{libmscgen_2gd__lodepng_8c}{}\doxysection{doxygen/libmscgen/gd\+\_\+lodepng.c File Reference}
+\label{libmscgen_2gd__lodepng_8c}\index{doxygen/libmscgen/gd\_lodepng.c@{doxygen/libmscgen/gd\_lodepng.c}}
+{\ttfamily \#include \char`\"{}gd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lodepng.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{libmscgen_2gd__lodepng_8c_a90662a8202ea56741002e364c3f9d771}{BGD\+\_\+\+DECLARE}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{libmscgen_2gd__lodepng_8c_a90662a8202ea56741002e364c3f9d771}\label{libmscgen_2gd__lodepng_8c_a90662a8202ea56741002e364c3f9d771}} 
+\index{gd\_lodepng.c@{gd\_lodepng.c}!BGD\_DECLARE@{BGD\_DECLARE}}
+\index{BGD\_DECLARE@{BGD\_DECLARE}!gd\_lodepng.c@{gd\_lodepng.c}}
+\doxysubsubsection{\texorpdfstring{BGD\_DECLARE()}{BGD\_DECLARE()}}
+{\footnotesize\ttfamily BGD\+\_\+\+DECLARE (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{libmscgen_2gd__lodepng_8c_source_l00004}{4}} of file \mbox{\hyperlink{libmscgen_2gd__lodepng_8c_source}{gd\+\_\+lodepng.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *buffer;}
+\DoxyCodeLine{00007   \textcolor{keywordtype}{size\_t} bufferSize;}
+\DoxyCodeLine{00008   \textcolor{keywordtype}{int} **ptpixels = im-\/>tpixels;}
+\DoxyCodeLine{00009   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *pixelBuffer = (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *)malloc(3*im-\/>sx*im-\/>sy);}
+\DoxyCodeLine{00010   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *pOut = pixelBuffer;}
+\DoxyCodeLine{00011   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}};}
+\DoxyCodeLine{00012   \textcolor{keywordflow}{for} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}=0;\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}<im-\/>sy;\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}++)}
+\DoxyCodeLine{00013   \{}
+\DoxyCodeLine{00014     \textcolor{keywordtype}{int} *pThisRow = *ptpixels++;}
+\DoxyCodeLine{00015     \textcolor{keywordflow}{for} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}=0;\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}<im-\/>sx;\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}++)}
+\DoxyCodeLine{00016     \{}
+\DoxyCodeLine{00017       \textcolor{keywordtype}{int} thisPixel = *pThisRow++;}
+\DoxyCodeLine{00018       *pOut++ = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7ce23cb6f7d788d55dd3076908a97c34}{gdTrueColorGetRed}}(thisPixel);}
+\DoxyCodeLine{00019       *pOut++ = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a2e632a88e2d78f17c67cd4addb04e18d}{gdTrueColorGetGreen}}(thisPixel);}
+\DoxyCodeLine{00020       *pOut++ = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a03f7656bd0d5e8c160ff840f6f77a641}{gdTrueColorGetBlue}}(thisPixel);}
+\DoxyCodeLine{00021     \}}
+\DoxyCodeLine{00022   \}}
+\DoxyCodeLine{00023   \textcolor{comment}{// TODO: convert ptPixels into pixelBuffer...}}
+\DoxyCodeLine{00024   \mbox{\hyperlink{struct_lode_p_n_g___encoder}{LodePNG\_Encoder}} encoder;}
+\DoxyCodeLine{00025   \mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_a187956c5e5784f77f5b17181310be304}{LodePNG\_Encoder\_init}}(\&encoder);}
+\DoxyCodeLine{00026   encoder.\mbox{\hyperlink{struct_lode_p_n_g___encoder_a5c4bc6d9be898fbcc14b5d762d69457e}{infoPng}}.\mbox{\hyperlink{struct_lode_p_n_g___info_png_acce58518f72f42ba94db4c1cfd69336b}{color}}.\mbox{\hyperlink{struct_lode_p_n_g___info_color_a4ed18d179c5078137a18e742b1c41a00}{colorType}} = 2; \textcolor{comment}{// 2=RGB 24 bit}}
+\DoxyCodeLine{00027   encoder.\mbox{\hyperlink{struct_lode_p_n_g___encoder_af37ca9b0bcecd5d1d68756fd293ab998}{infoRaw}}.\mbox{\hyperlink{struct_lode_p_n_g___info_raw_ae9fa1c020358980be41f861ab71589fb}{color}}.\mbox{\hyperlink{struct_lode_p_n_g___info_color_a4ed18d179c5078137a18e742b1c41a00}{colorType}} = 2; \textcolor{comment}{// 2=RGB 24 bit}}
+\DoxyCodeLine{00028   \mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_aeb8588ff6ad7dae8c5322b1520aa5687}{LodePNG\_encode}}(\&encoder, \&buffer, \&bufferSize, pixelBuffer, im-\/>sx, im-\/>sy);}
+\DoxyCodeLine{00029   \textcolor{comment}{// write bufferSize bytes from buffer into outFile}}
+\DoxyCodeLine{00030   fwrite(buffer,1,bufferSize,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a9af8a34a1d63fa9ed984b7cdd97daee1}{outFile}});}
+\DoxyCodeLine{00031   \mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_a7269f380122edb94715d5e2e87eab835}{LodePNG\_Encoder\_cleanup}}(\&encoder);}
+\DoxyCodeLine{00032   free(buffer);}
+\DoxyCodeLine{00033   free(pixelBuffer);}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_lode_p_n_g___info_png_acce58518f72f42ba94db4c1cfd69336b}{Lode\+PNG\+\_\+\+Info\+Png\+::color}}, \mbox{\hyperlink{struct_lode_p_n_g___info_raw_ae9fa1c020358980be41f861ab71589fb}{Lode\+PNG\+\_\+\+Info\+Raw\+::color}}, \mbox{\hyperlink{struct_lode_p_n_g___info_color_a4ed18d179c5078137a18e742b1c41a00}{Lode\+PNG\+\_\+\+Info\+Color\+::color\+Type}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a03f7656bd0d5e8c160ff840f6f77a641}{gd\+True\+Color\+Get\+Blue}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a2e632a88e2d78f17c67cd4addb04e18d}{gd\+True\+Color\+Get\+Green}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7ce23cb6f7d788d55dd3076908a97c34}{gd\+True\+Color\+Get\+Red}}, \mbox{\hyperlink{struct_lode_p_n_g___encoder_a5c4bc6d9be898fbcc14b5d762d69457e}{Lode\+PNG\+\_\+\+Encoder\+::info\+Png}}, \mbox{\hyperlink{struct_lode_p_n_g___encoder_af37ca9b0bcecd5d1d68756fd293ab998}{Lode\+PNG\+\_\+\+Encoder\+::info\+Raw}}, \mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_aeb8588ff6ad7dae8c5322b1520aa5687}{Lode\+PNG\+\_\+encode()}}, \mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_a7269f380122edb94715d5e2e87eab835}{Lode\+PNG\+\_\+\+Encoder\+\_\+cleanup()}}, \mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_a187956c5e5784f77f5b17181310be304}{Lode\+PNG\+\_\+\+Encoder\+\_\+init()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a9af8a34a1d63fa9ed984b7cdd97daee1}{out\+File}}, \mbox{\hyperlink{structgd_image_struct_ad20ac3fc24af0eece29dc69ad7137161}{gd\+Image\+Struct\+::sx}}, \mbox{\hyperlink{structgd_image_struct_a9e20b782d97fb6f571ab4b578962060e}{gd\+Image\+Struct\+::sy}}, \mbox{\hyperlink{structgd_image_struct_a558bc5437f32ab626088b9bf5ec8c6f1}{gd\+Image\+Struct\+::tpixels}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}.
+

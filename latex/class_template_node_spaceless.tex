@@ -1,0 +1,180 @@
+\hypertarget{class_template_node_spaceless}{}\doxysection{Template\+Node\+Spaceless Class Reference}
+\label{class_template_node_spaceless}\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+
+
+\mbox{\hyperlink{class_class}{Class}} representing an \textquotesingle{}spaceless\textquotesingle{} tag in a template.  
+
+
+Inheritance diagram for Template\+Node\+Spaceless\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.377049cm]{class_template_node_spaceless}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_template_node_spaceless_a28140e5a4e0e5da21352996866316a71}{Template\+Node\+Spaceless}} (\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$parser, \mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}}, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&)
+\item 
+void \mbox{\hyperlink{class_template_node_spaceless_a10689a603997715725a0ff7fe634dd1d}{render}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&ts, \mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{class_template_node_spaceless_a28140e5a4e0e5da21352996866316a71}{Template\+Node\+Spaceless}} (\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$parser, \mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}}, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&)
+\item 
+void \mbox{\hyperlink{class_template_node_spaceless_a10689a603997715725a0ff7fe634dd1d}{render}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&ts, \mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_template_node_list}{Template\+Node\+List}} \mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\+\_\+nodes}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_class}{Class}} representing an \textquotesingle{}spaceless\textquotesingle{} tag in a template. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04365}{4365}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_template_node_spaceless_a28140e5a4e0e5da21352996866316a71}\label{class_template_node_spaceless_a28140e5a4e0e5da21352996866316a71}} 
+\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}!TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}!TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeSpaceless()}{TemplateNodeSpaceless()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Template\+Node\+Spaceless\+::\+Template\+Node\+Spaceless (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$}]{parser,  }\item[{\mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$}]{parent,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04368}{4368}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04369       : \mbox{\hyperlink{class_template_node_creator}{TemplateNodeCreator<TemplateNodeSpaceless>}}(parser,\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}},line)}
+\DoxyCodeLine{04370     \{}
+\DoxyCodeLine{04371       \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\{TemplateNodeSpaceless()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04372       \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} stopAt = \{ \textcolor{stringliteral}{"{}endspaceless"{}} \};}
+\DoxyCodeLine{04373       parser-\/>\mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{parse}}(\textcolor{keyword}{this},line,stopAt,\mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\_nodes}});}
+\DoxyCodeLine{04374       parser-\/>\mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{removeNextToken}}(); \textcolor{comment}{// skip over endwith}}
+\DoxyCodeLine{04375       \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\}TemplateNodeSpaceless()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04376     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{Template\+Parser\+::parse()}}, \mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{Template\+Parser\+::remove\+Next\+Token()}}, and \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}.
+
+\mbox{\Hypertarget{class_template_node_spaceless_a28140e5a4e0e5da21352996866316a71}\label{class_template_node_spaceless_a28140e5a4e0e5da21352996866316a71}} 
+\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}!TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}!TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeSpaceless()}{TemplateNodeSpaceless()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Template\+Node\+Spaceless\+::\+Template\+Node\+Spaceless (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_template_parser}{Template\+Parser}} $\ast$}]{parser,  }\item[{\mbox{\hyperlink{class_template_node}{Template\+Node}} $\ast$}]{parent,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l04368}{4368}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04369       : \mbox{\hyperlink{class_template_node_creator}{TemplateNodeCreator<TemplateNodeSpaceless>}}(parser,\mbox{\hyperlink{class_template_node_a57ca77981e36b28e2afb009b2b91182d}{parent}},line)}
+\DoxyCodeLine{04370     \{}
+\DoxyCodeLine{04371       \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\{TemplateNodeSpaceless()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04372       \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} stopAt = \{ \textcolor{stringliteral}{"{}endspaceless"{}} \};}
+\DoxyCodeLine{04373       parser-\/>\mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{parse}}(\textcolor{keyword}{this},line,stopAt,\mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\_nodes}});}
+\DoxyCodeLine{04374       parser-\/>\mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{removeNextToken}}(); \textcolor{comment}{// skip over endwith}}
+\DoxyCodeLine{04375       \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}((\textcolor{stringliteral}{"{}\}TemplateNodeSpaceless()\(\backslash\)n"{}}));}
+\DoxyCodeLine{04376     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_parser_a78da0b7d0153f51e138e6019943dbc46}{Template\+Parser\+::parse()}}, \mbox{\hyperlink{class_template_parser_ac3e5fb3ee5dfcccbcf85440bd3b59d53}{Template\+Parser\+::remove\+Next\+Token()}}, and \mbox{\hyperlink{src_2template_8cpp_a494d31903e7b0333dfa03b0778679113}{TRACE}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_template_node_spaceless_a10689a603997715725a0ff7fe634dd1d}\label{class_template_node_spaceless_a10689a603997715725a0ff7fe634dd1d}} 
+\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}!render@{render}}
+\index{render@{render}!TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Template\+Node\+Spaceless\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{ts,  }\item[{\mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_template_node_a359c255cedaf603fd3e0ef35b7126185}{Template\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04377}{4377}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04378     \{}
+\DoxyCodeLine{04379       \mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}} *ci = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}*\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04380       \textcolor{keywordflow}{if} (ci==0) \textcolor{keywordflow}{return}; \textcolor{comment}{// should not happen}}
+\DoxyCodeLine{04381       ci-\/>\mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{setLocation}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{04382       \textcolor{keywordtype}{bool} wasSpaceless = ci-\/>\mbox{\hyperlink{class_template_context_impl_a51ef260b5ad8e51f4d1c0946211d4504}{spacelessEnabled}}();}
+\DoxyCodeLine{04383       ci-\/>\mbox{\hyperlink{class_template_context_impl_a0cbc1d21d6a36a04fec3bad7ac677330}{enableSpaceless}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{04384       \mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\_nodes}}.\mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{render}}(ts,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04385       ci-\/>\mbox{\hyperlink{class_template_context_impl_a0cbc1d21d6a36a04fec3bad7ac677330}{enableSpaceless}}(wasSpaceless);}
+\DoxyCodeLine{04386     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_template_context_impl_a0cbc1d21d6a36a04fec3bad7ac677330}{Template\+Context\+Impl\+::enable\+Spaceless()}}, \mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{Template\+Node\+Creator$<$ Template\+Node\+Spaceless $>$\+::m\+\_\+line}}, \mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Spaceless $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{Template\+Node\+List\+::render()}}, \mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{Template\+Context\+Impl\+::set\+Location()}}, \mbox{\hyperlink{class_template_context_impl_a51ef260b5ad8e51f4d1c0946211d4504}{Template\+Context\+Impl\+::spaceless\+Enabled()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+\mbox{\Hypertarget{class_template_node_spaceless_a10689a603997715725a0ff7fe634dd1d}\label{class_template_node_spaceless_a10689a603997715725a0ff7fe634dd1d}} 
+\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}!render@{render}}
+\index{render@{render}!TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Template\+Node\+Spaceless\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{ts,  }\item[{\mbox{\hyperlink{class_template_context}{Template\+Context}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_template_node_a359c255cedaf603fd3e0ef35b7126185}{Template\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l04377}{4377}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04378     \{}
+\DoxyCodeLine{04379       \mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}} *ci = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_template_context_impl}{TemplateContextImpl}}*\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04380       \textcolor{keywordflow}{if} (ci==0) \textcolor{keywordflow}{return}; \textcolor{comment}{// should not happen}}
+\DoxyCodeLine{04381       ci-\/>\mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{setLocation}}(\mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{m\_templateName}},\mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{m\_line}});}
+\DoxyCodeLine{04382       \textcolor{keywordtype}{bool} wasSpaceless = ci-\/>\mbox{\hyperlink{class_template_context_impl_a51ef260b5ad8e51f4d1c0946211d4504}{spacelessEnabled}}();}
+\DoxyCodeLine{04383       ci-\/>\mbox{\hyperlink{class_template_context_impl_a0cbc1d21d6a36a04fec3bad7ac677330}{enableSpaceless}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{04384       \mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\_nodes}}.\mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{render}}(ts,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{04385       ci-\/>\mbox{\hyperlink{class_template_context_impl_a0cbc1d21d6a36a04fec3bad7ac677330}{enableSpaceless}}(wasSpaceless);}
+\DoxyCodeLine{04386     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_template_context_impl_a0cbc1d21d6a36a04fec3bad7ac677330}{Template\+Context\+Impl\+::enable\+Spaceless()}}, \mbox{\hyperlink{class_template_node_creator_a9a0ab03084f963594f0f2a058c4d7879}{Template\+Node\+Creator$<$ Template\+Node\+Spaceless $>$\+::m\+\_\+line}}, \mbox{\hyperlink{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}{m\+\_\+nodes}}, \mbox{\hyperlink{class_template_node_creator_af6dac1a50abd17cf5529eab951020521}{Template\+Node\+Creator$<$ Template\+Node\+Spaceless $>$\+::m\+\_\+template\+Name}}, \mbox{\hyperlink{class_template_node_list_ae5b2f603e5180c15115a141784f0ae6c}{Template\+Node\+List\+::render()}}, \mbox{\hyperlink{class_template_context_impl_afb0b4a00e7ab9bcfbc37e52103d4f587}{Template\+Context\+Impl\+::set\+Location()}}, \mbox{\hyperlink{class_template_context_impl_a51ef260b5ad8e51f4d1c0946211d4504}{Template\+Context\+Impl\+::spaceless\+Enabled()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}\label{class_template_node_spaceless_ad8bed58b5d1c54f99849e6aa7a2c8755}} 
+\index{TemplateNodeSpaceless@{TemplateNodeSpaceless}!m\_nodes@{m\_nodes}}
+\index{m\_nodes@{m\_nodes}!TemplateNodeSpaceless@{TemplateNodeSpaceless}}
+\doxysubsubsection{\texorpdfstring{m\_nodes}{m\_nodes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_template_node_list}{Template\+Node\+List}} Template\+Node\+Spaceless\+::m\+\_\+nodes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04388}{4388}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_node_spaceless_a10689a603997715725a0ff7fe634dd1d}{render()}}, and \mbox{\hyperlink{class_template_node_spaceless_a28140e5a4e0e5da21352996866316a71}{Template\+Node\+Spaceless()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

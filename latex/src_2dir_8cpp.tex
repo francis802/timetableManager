@@ -1,0 +1,160 @@
+\hypertarget{src_2dir_8cpp}{}\doxysection{doxygen/src/dir.cpp File Reference}
+\label{src_2dir_8cpp}\index{doxygen/src/dir.cpp@{doxygen/src/dir.cpp}}
+{\ttfamily \#include \char`\"{}filesystem.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_dir_entry_1_1_private}{Dir\+Entry\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_dir_iterator_1_1_private}{Dir\+Iterator\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_dir_1_1_private}{Dir\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2dir_8cpp_a9f918755b601cf4bffca775992e6fb90}{NOMINMAX}}
+\item 
+\#define \mbox{\hyperlink{src_2dir_8cpp_ac7bef5d85e3dcd73eef56ad39ffc84a9}{WIN32\+\_\+\+LEAN\+\_\+\+AND\+\_\+\+MEAN}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{src_2dir_8cpp_a9285cecfcff40959eed73e1da7d139da}{operator==}} (const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&it1, const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&it2)
+\item 
+bool \mbox{\hyperlink{src_2dir_8cpp_acde2fab844e4f384c5d715f06f0835f4}{operator!=}} (const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&it1, const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&it2)
+\item 
+\mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \mbox{\hyperlink{src_2dir_8cpp_a6c544e0039887bf39e3c9e85f55d8ebc}{begin}} (\mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} it) noexcept
+\item 
+\mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \mbox{\hyperlink{src_2dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}} (const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&) noexcept
+\item 
+static void \mbox{\hyperlink{src_2dir_8cpp_a0b11506131606fe77129beddff464004}{correct\+Path}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2dir_8cpp_a9f918755b601cf4bffca775992e6fb90}\label{src_2dir_8cpp_a9f918755b601cf4bffca775992e6fb90}} 
+\index{dir.cpp@{dir.cpp}!NOMINMAX@{NOMINMAX}}
+\index{NOMINMAX@{NOMINMAX}!dir.cpp@{dir.cpp}}
+\doxysubsubsection{\texorpdfstring{NOMINMAX}{NOMINMAX}}
+{\footnotesize\ttfamily \#define NOMINMAX}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dir_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{src_2dir_8cpp_source}{dir.\+cpp}}.
+
+\mbox{\Hypertarget{src_2dir_8cpp_ac7bef5d85e3dcd73eef56ad39ffc84a9}\label{src_2dir_8cpp_ac7bef5d85e3dcd73eef56ad39ffc84a9}} 
+\index{dir.cpp@{dir.cpp}!WIN32\_LEAN\_AND\_MEAN@{WIN32\_LEAN\_AND\_MEAN}}
+\index{WIN32\_LEAN\_AND\_MEAN@{WIN32\_LEAN\_AND\_MEAN}!dir.cpp@{dir.cpp}}
+\doxysubsubsection{\texorpdfstring{WIN32\_LEAN\_AND\_MEAN}{WIN32\_LEAN\_AND\_MEAN}}
+{\footnotesize\ttfamily \#define WIN32\+\_\+\+LEAN\+\_\+\+AND\+\_\+\+MEAN}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dir_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{src_2dir_8cpp_source}{dir.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2dir_8cpp_a6c544e0039887bf39e3c9e85f55d8ebc}\label{src_2dir_8cpp_a6c544e0039887bf39e3c9e85f55d8ebc}} 
+\index{dir.cpp@{dir.cpp}!begin@{begin}}
+\index{begin@{begin}!dir.cpp@{dir.cpp}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}}}]{it }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dir_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{src_2dir_8cpp_source}{dir.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00125 \{}
+\DoxyCodeLine{00126   \textcolor{keywordflow}{return} it;}
+\DoxyCodeLine{00127 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2dir_8cpp_a0b11506131606fe77129beddff464004}\label{src_2dir_8cpp_a0b11506131606fe77129beddff464004}} 
+\index{dir.cpp@{dir.cpp}!correctPath@{correctPath}}
+\index{correctPath@{correctPath}!dir.cpp@{dir.cpp}}
+\doxysubsubsection{\texorpdfstring{correctPath()}{correctPath()}}
+{\footnotesize\ttfamily static void correct\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dir_8cpp_source_l00187}{187}} of file \mbox{\hyperlink{src_2dir_8cpp_source}{dir.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188 \{}
+\DoxyCodeLine{00189   \mbox{\hyperlink{namespacereg_a5f59e75927731a22be2be5e4d91075b1}{std::replace}}( \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.begin(), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.end(), \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}, \textcolor{charliteral}{'/'} );}
+\DoxyCodeLine{00190 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacereg_a5f59e75927731a22be2be5e4d91075b1}{reg\+::replace()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+\mbox{\Hypertarget{src_2dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}\label{src_2dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}} 
+\index{dir.cpp@{dir.cpp}!end@{end}}
+\index{end@{end}!dir.cpp@{dir.cpp}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} end (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dir_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{src_2dir_8cpp_source}{dir.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130 \{}
+\DoxyCodeLine{00131   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dir_iterator}{DirIterator}}();}
+\DoxyCodeLine{00132 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dir_iterator_a0bee75c75ab8c043e77564196f39bff7}{Dir\+Iterator\+::\+Dir\+Iterator()}}.
+
+\mbox{\Hypertarget{src_2dir_8cpp_acde2fab844e4f384c5d715f06f0835f4}\label{src_2dir_8cpp_acde2fab844e4f384c5d715f06f0835f4}} 
+\index{dir.cpp@{dir.cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!dir.cpp@{dir.cpp}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&}]{it1,  }\item[{const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&}]{it2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dir_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{src_2dir_8cpp_source}{dir.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120 \{}
+\DoxyCodeLine{00121   \textcolor{keywordflow}{return} it1.\mbox{\hyperlink{class_dir_iterator_a256e9f01a2ef887eb516aec0c06a09b5}{p}}-\/>it!=it2.\mbox{\hyperlink{class_dir_iterator_a256e9f01a2ef887eb516aec0c06a09b5}{p}}-\/>it;}
+\DoxyCodeLine{00122 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dir_iterator_a256e9f01a2ef887eb516aec0c06a09b5}{Dir\+Iterator\+::p}}.
+
+\mbox{\Hypertarget{src_2dir_8cpp_a9285cecfcff40959eed73e1da7d139da}\label{src_2dir_8cpp_a9285cecfcff40959eed73e1da7d139da}} 
+\index{dir.cpp@{dir.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!dir.cpp@{dir.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&}]{it1,  }\item[{const \mbox{\hyperlink{class_dir_iterator}{Dir\+Iterator}} \&}]{it2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dir_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{src_2dir_8cpp_source}{dir.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00115 \{}
+\DoxyCodeLine{00116   \textcolor{keywordflow}{return} it1.\mbox{\hyperlink{class_dir_iterator_a256e9f01a2ef887eb516aec0c06a09b5}{p}}-\/>it == it2.\mbox{\hyperlink{class_dir_iterator_a256e9f01a2ef887eb516aec0c06a09b5}{p}}-\/>it;}
+\DoxyCodeLine{00117 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dir_iterator_a256e9f01a2ef887eb516aec0c06a09b5}{Dir\+Iterator\+::p}}.
+

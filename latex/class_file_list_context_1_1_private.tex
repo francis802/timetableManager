@@ -1,0 +1,100 @@
+\hypertarget{class_file_list_context_1_1_private}{}\doxysection{File\+List\+Context\+::Private Class Reference}
+\label{class_file_list_context_1_1_private}\index{FileListContext::Private@{FileListContext::Private}}
+Inheritance diagram for File\+List\+Context\+::Private\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.692308cm]{class_file_list_context_1_1_private}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_file_list_context_1_1_private_a869f1cba6933b5732cef01d6d557e1e2}{add\+Files}} (const \mbox{\hyperlink{class_file_name_linked_map}{File\+Name\+Linked\+Map}} \&fn\+Map)
+\item 
+void \mbox{\hyperlink{class_file_list_context_1_1_private_a869f1cba6933b5732cef01d6d557e1e2}{add\+Files}} (const \mbox{\hyperlink{class_file_name_linked_map}{File\+Name\+Linked\+Map}} \&fn\+Map)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l06338}{6338}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_list_context_1_1_private_a869f1cba6933b5732cef01d6d557e1e2}\label{class_file_list_context_1_1_private_a869f1cba6933b5732cef01d6d557e1e2}} 
+\index{FileListContext::Private@{FileListContext::Private}!addFiles@{addFiles}}
+\index{addFiles@{addFiles}!FileListContext::Private@{FileListContext::Private}}
+\doxysubsubsection{\texorpdfstring{addFiles()}{addFiles()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void File\+List\+Context\+::\+Private\+::add\+Files (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_file_name_linked_map}{File\+Name\+Linked\+Map}} \&}]{fn\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l06341}{6341}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06342     \{}
+\DoxyCodeLine{06343       \textcolor{comment}{// TODO: if FULL\_PATH\_NAMES is enabled, the ordering should be dir+file}}
+\DoxyCodeLine{06344       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fn : fnMap)}
+\DoxyCodeLine{06345       \{}
+\DoxyCodeLine{06346         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fd : *fn)}
+\DoxyCodeLine{06347         \{}
+\DoxyCodeLine{06348           \textcolor{keywordtype}{bool} doc = fd-\/>isLinkableInProject();}
+\DoxyCodeLine{06349           \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}} = fd-\/>generateSourceFile();}
+\DoxyCodeLine{06350           \textcolor{keywordtype}{bool} nameOk = !fd-\/>isDocumentationFile();}
+\DoxyCodeLine{06351           \textcolor{keywordflow}{if} (nameOk \&\& (doc || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}}) \&\& !fd-\/>isReference())}
+\DoxyCodeLine{06352           \{}
+\DoxyCodeLine{06353             \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_file_context_aba2fe05cd43c591a894840482ed32e79}{FileContext::alloc}}(fd.get()));}
+\DoxyCodeLine{06354           \}}
+\DoxyCodeLine{06355         \}}
+\DoxyCodeLine{06356       \}}
+\DoxyCodeLine{06357     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_context_aba2fe05cd43c591a894840482ed32e79}{File\+Context\+::alloc()}}, \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{Generic\+Node\+List\+Context\+::append()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}}.
+
+\mbox{\Hypertarget{class_file_list_context_1_1_private_a869f1cba6933b5732cef01d6d557e1e2}\label{class_file_list_context_1_1_private_a869f1cba6933b5732cef01d6d557e1e2}} 
+\index{FileListContext::Private@{FileListContext::Private}!addFiles@{addFiles}}
+\index{addFiles@{addFiles}!FileListContext::Private@{FileListContext::Private}}
+\doxysubsubsection{\texorpdfstring{addFiles()}{addFiles()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void File\+List\+Context\+::\+Private\+::add\+Files (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_file_name_linked_map}{File\+Name\+Linked\+Map}} \&}]{fn\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2context_8cpp_source_l06341}{6341}} of file \mbox{\hyperlink{src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06342     \{}
+\DoxyCodeLine{06343       \textcolor{comment}{// TODO: if FULL\_PATH\_NAMES is enabled, the ordering should be dir+file}}
+\DoxyCodeLine{06344       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fn : fnMap)}
+\DoxyCodeLine{06345       \{}
+\DoxyCodeLine{06346         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fd : *fn)}
+\DoxyCodeLine{06347         \{}
+\DoxyCodeLine{06348           \textcolor{keywordtype}{bool} doc = fd-\/>isLinkableInProject();}
+\DoxyCodeLine{06349           \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}} = fd-\/>generateSourceFile();}
+\DoxyCodeLine{06350           \textcolor{keywordtype}{bool} nameOk = !fd-\/>isDocumentationFile();}
+\DoxyCodeLine{06351           \textcolor{keywordflow}{if} (nameOk \&\& (doc || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}}) \&\& !fd-\/>isReference())}
+\DoxyCodeLine{06352           \{}
+\DoxyCodeLine{06353             \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_file_context_aba2fe05cd43c591a894840482ed32e79}{FileContext::alloc}}(fd.get()));}
+\DoxyCodeLine{06354           \}}
+\DoxyCodeLine{06355         \}}
+\DoxyCodeLine{06356       \}}
+\DoxyCodeLine{06357     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_context_aba2fe05cd43c591a894840482ed32e79}{File\+Context\+::alloc()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp}{context.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2context_8cpp}{context.\+cpp}}\end{DoxyCompactItemize}

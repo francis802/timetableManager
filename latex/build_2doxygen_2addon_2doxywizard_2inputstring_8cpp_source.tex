@@ -1,0 +1,285 @@
+\hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source}{}\doxysection{inputstring.\+cpp}
+\label{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source}\index{doxygen/build/doxygen/addon/doxywizard/inputstring.cpp@{doxygen/build/doxygen/addon/doxywizard/inputstring.cpp}}
+\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00011}00011 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2inputstring_8h}{inputstring.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2helplabel_8h}{helplabel.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2doxywizard_8h}{doxywizard.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2config__msg_8h}{config\_msg.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include <QComboBox>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include <QLineEdit>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include <QGridLayout>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include <QWheelEvent>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include <QToolBar>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include <QFileInfo>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00025}00025 \textcolor{preprocessor}{\#include <QFileDialog>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00027}00027 \textcolor{keyword}{class }\mbox{\hyperlink{class_no_wheel_combo_box}{NoWheelComboBox}} : \textcolor{keyword}{public} QComboBox}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00028}00028 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00029}00029   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00030}\mbox{\hyperlink{class_no_wheel_combo_box_a06db9c7295a2f5f7acad91b13f4a53a6}{00030}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_no_wheel_combo_box_a06db9c7295a2f5f7acad91b13f4a53a6}{wheelEvent}}(QWheelEvent *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00031}00031     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00032}00032       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>ignore();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00033}00033     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00034}00034 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00037}00037 \mbox{\hyperlink{class_input_string_adacf356342e5fa2e55f5774364614dab}{InputString::InputString}}( QGridLayout *layout,\textcolor{keywordtype}{int} \&row,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00038}00038                           \textcolor{keyword}{const} QString \& \textcolor{keywordtype}{id}, \textcolor{keyword}{const} QString \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00039}00039                           StringMode m, \textcolor{keyword}{const} QString \&docs,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00040}00040                           \textcolor{keyword}{const} QString \&absPath )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00041}00041   : m\_default(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}), m\_sm(m), m\_index(0), m\_docs(docs), m\_id(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a65841f8ec0ab4e93010736388282aada}{id}}),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00042}00042     m\_absPath(absPath==QString::fromLatin1(\textcolor{stringliteral}{"{}1"{}}))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00043}00043 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00044}00044   m\_lab = \textcolor{keyword}{new} \mbox{\hyperlink{class_help_label}{HelpLabel}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00045}00045   m\_brFile = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00046}00046   m\_brDir = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00047}00047   \textcolor{keywordflow}{if} (m==StringFixed)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00048}00048   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00049}00049     layout-\/>addWidget( m\_lab, row, 0 );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00050}00050     m\_com = \textcolor{keyword}{new} \mbox{\hyperlink{class_no_wheel_combo_box}{NoWheelComboBox}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00051}00051     layout-\/>addWidget( m\_com, row, 1, 1, 3, \mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a291bdf1a2284d5648efc75ee78fbeb4c}{Qt::AlignLeft}} );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00052}00052     m\_le=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00053}00053     m\_br=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00054}00054     m\_im=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00055}00055     row++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00056}00056   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00057}00057   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00058}00058   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00059}00059     layout-\/>addWidget( m\_lab, row, 0 );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00060}00060     m\_le = \textcolor{keyword}{new} QLineEdit;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00061}00061     m\_le-\/>setText( \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00062}00062     m\_im = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00063}00063     \textcolor{comment}{//layout-\/>setColumnMinimumWidth(2,150);}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00064}00064     \textcolor{keywordflow}{if} (m==StringFile || m==StringDir || m==StringImage || m==StringFileDir)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00065}00065     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00066}00066       QHBoxLayout *rowLayout = \textcolor{keyword}{new} QHBoxLayout;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00067}00067       rowLayout-\/>addWidget( m\_le);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00068}00068       m\_br = \textcolor{keyword}{new} QToolBar;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00069}00069       m\_br-\/>setIconSize(QSize(24,24));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00070}00070       \textcolor{keywordflow}{if} (m==StringFile || m==StringImage || m==StringFileDir)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00071}00071       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00072}00072         m\_brFile = m\_br-\/>addAction(QIcon(QString::fromLatin1(\textcolor{stringliteral}{"{}:/images/file.png"{}})),QString(),\textcolor{keyword}{this},SLOT(browseFile()));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00073}00073         m\_brFile-\/>setToolTip(tr(\textcolor{stringliteral}{"{}Browse to a file"{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00074}00074         \textcolor{keywordflow}{if} (m==StringImage)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00075}00075         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00076}00076           m\_im = \textcolor{keyword}{new} QLabel;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00077}00077           m\_im-\/>setMinimumSize(1,55);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00078}00078           m\_im-\/>setAlignment(\mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a291bdf1a2284d5648efc75ee78fbeb4c}{Qt::AlignLeft}}|Qt::AlignTop);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00079}00079           row++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00080}00080           layout-\/>addWidget( m\_im,row,1 );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00081}00081         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00082}00082       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00083}00083       \textcolor{keywordflow}{if} (m==StringDir || m==StringFileDir)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00084}00084       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00085}00085         m\_brDir = m\_br-\/>addAction(QIcon(QString::fromLatin1(\textcolor{stringliteral}{"{}:/images/folder.png"{}})),QString(),\textcolor{keyword}{this},SLOT(browseDir()));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00086}00086         m\_brDir-\/>setToolTip(tr(\textcolor{stringliteral}{"{}Browse to a folder"{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00087}00087       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00088}00088       rowLayout-\/>addWidget( m\_br);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00089}00089       layout-\/>addLayout( rowLayout, m==StringImage?row-\/1:row, 1, 1, 2 );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00090}00090     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00091}00091     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00092}00092     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00093}00093       layout-\/>addWidget( m\_le, row, 1, 1, 2 );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00094}00094       m\_br=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00095}00095       m\_im=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00096}00096     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00097}00097     m\_com=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00098}00098     row++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00099}00099   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00101}00101   \textcolor{keywordflow}{if} (m\_le)  connect( m\_le,   SIGNAL(textChanged(\textcolor{keyword}{const} QString\&)),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00102}00102                       \textcolor{keyword}{this},   SLOT(setValue(\textcolor{keyword}{const} QString\&)) );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00103}00103   \textcolor{keywordflow}{if} (m\_com) connect( m\_com,  SIGNAL(textActivated(\textcolor{keyword}{const} QString \&)),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00104}00104                       \textcolor{keyword}{this},   SLOT(setValue(\textcolor{keyword}{const} QString \&)) );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00105}00105   m\_str = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}+QChar::fromLatin1(\textcolor{charliteral}{'!'}); \textcolor{comment}{// force update}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00106}00106   setValue(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00107}00107   connect( m\_lab, SIGNAL(enter()), SLOT(help()) );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00108}00108   connect( m\_lab, SIGNAL(reset()), SLOT(reset()) );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00109}00109 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00111}00111 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a6f3d4b9f487aa7feeee9978bf0b9ab1a}{InputString::help}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00112}00112 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00113}00113   \mbox{\hyperlink{class_input_string_a9699d3bf0385d30c100c5cf2fb63012d}{showHelp}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00114}00114 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00117}00117 \mbox{\hyperlink{class_input_string_ab0bf51a9bdba883dd504ae890dc1533a}{InputString::\string~InputString}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00118}00118 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00119}00119 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00122}00122 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_aa5dd91fe260eb01b911a4206e6653449}{InputString::setValue}}(\textcolor{keyword}{const} QString \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00123}00123 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00124}00124   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}}!=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00125}00125   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00126}00126     \mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00127}00127     \mbox{\hyperlink{class_input_string_a2fa9707ca1a41c07abee6c70980755cc}{m\_value}} = \mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00128}00128     \mbox{\hyperlink{class_input_string_a69a6dabc41f9820599883658181fc827}{updateDefault}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00129}00129   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00130}00130 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00131}00131 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a69a6dabc41f9820599883658181fc827}{InputString::updateDefault}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00132}00132 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00133}00133   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00134}00134     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}}==\mbox{\hyperlink{class_input_string_acd995f6b020606e8cd6120c2f732ad9f}{m\_default}} || !\mbox{\hyperlink{class_input_string_a8b581e4b33e0c496a9d804d7336dc620}{m\_lab}}-\/>isEnabled())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00135}00135     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00136}00136       \mbox{\hyperlink{class_input_string_a8b581e4b33e0c496a9d804d7336dc620}{m\_lab}}-\/>setText(QString::fromLatin1(\textcolor{stringliteral}{"{}<qt>"{}})+\mbox{\hyperlink{class_input_string_a965af877dd638e9a346604a3174b9c83}{m\_id}}+QString::fromLatin1(\textcolor{stringliteral}{"{}</qt>"{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00137}00137     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00138}00138     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00139}00139     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00140}00140       \mbox{\hyperlink{class_input_string_a8b581e4b33e0c496a9d804d7336dc620}{m\_lab}}-\/>setText(QString::fromLatin1(\textcolor{stringliteral}{"{}<qt><font color='red'>"{}})+\mbox{\hyperlink{class_input_string_a965af877dd638e9a346604a3174b9c83}{m\_id}}+QString::fromLatin1(\textcolor{stringliteral}{"{}</font></qt>"{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00141}00141     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00142}00142     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a3e51b322e532b5f19db7d52a8dc38b31}{m\_im}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00143}00143     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00144}00144       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}}.isEmpty())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00145}00145       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00146}00146         \mbox{\hyperlink{class_input_string_a3e51b322e532b5f19db7d52a8dc38b31}{m\_im}}-\/>setText(tr(\textcolor{stringliteral}{"{}No Project logo selected."{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00147}00147       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00148}00148       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00149}00149       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00150}00150         QFile Fout(\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00151}00151         \textcolor{keywordflow}{if}(!Fout.exists())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00152}00152         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00153}00153           \mbox{\hyperlink{class_input_string_a3e51b322e532b5f19db7d52a8dc38b31}{m\_im}}-\/>setText(tr(\textcolor{stringliteral}{"{}Sorry, cannot find file("{}})+\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}}+QString::fromLatin1(\textcolor{stringliteral}{"{});"{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00154}00154         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00155}00155         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00156}00156         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00157}00157           QPixmap pm(\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00158}00158           \textcolor{keywordflow}{if} (!pm.isNull())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00159}00159           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00160}00160             \mbox{\hyperlink{class_input_string_a3e51b322e532b5f19db7d52a8dc38b31}{m\_im}}-\/>setPixmap(pm.scaledToHeight(55,Qt::SmoothTransformation));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00161}00161           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00162}00162           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00163}00163           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00164}00164             \mbox{\hyperlink{class_input_string_a3e51b322e532b5f19db7d52a8dc38b31}{m\_im}}-\/>setText(tr(\textcolor{stringliteral}{"{}Sorry, no preview available ("{}})+\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}}+QString::fromLatin1(\textcolor{stringliteral}{"{});"{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00165}00165           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00166}00166         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00167}00167       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00168}00168     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00169}00169     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_ad3a7ab58a4ad03741745334f0a486d8f}{m\_le}} \&\& \mbox{\hyperlink{class_input_string_ad3a7ab58a4ad03741745334f0a486d8f}{m\_le}}-\/>text()!=\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}}) \mbox{\hyperlink{class_input_string_ad3a7ab58a4ad03741745334f0a486d8f}{m\_le}}-\/>setText( \mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}} );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00170}00170     emit \mbox{\hyperlink{class_input_string_a652dc4c0483d77606295f32febcb746b}{changed}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00171}00171   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00172}00172 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00174}00174 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_add9620f611a4e69090232a7b15c7e74e}{InputString::setEnabled}}(\textcolor{keywordtype}{bool} state)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00175}00175 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00176}00176   \mbox{\hyperlink{class_input_string_a8b581e4b33e0c496a9d804d7336dc620}{m\_lab}}-\/>setEnabled(state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00177}00177   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_ad3a7ab58a4ad03741745334f0a486d8f}{m\_le}})  \mbox{\hyperlink{class_input_string_ad3a7ab58a4ad03741745334f0a486d8f}{m\_le}}-\/>setEnabled(state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00178}00178   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a3e51b322e532b5f19db7d52a8dc38b31}{m\_im}})  \mbox{\hyperlink{class_input_string_a3e51b322e532b5f19db7d52a8dc38b31}{m\_im}}-\/>setEnabled(state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00179}00179   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_aec87b82298855f29e81c872fc3fa3d1f}{m\_br}})  \mbox{\hyperlink{class_input_string_aec87b82298855f29e81c872fc3fa3d1f}{m\_br}}-\/>setEnabled(state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00180}00180   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a4cb6f406f741da9fbba8dd7ee2d7b853}{m\_brFile}})  \mbox{\hyperlink{class_input_string_a4cb6f406f741da9fbba8dd7ee2d7b853}{m\_brFile}}-\/>setEnabled(state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00181}00181   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a992363fe58862a3dd84775eb8cc56674}{m\_brDir}})  \mbox{\hyperlink{class_input_string_a992363fe58862a3dd84775eb8cc56674}{m\_brDir}}-\/>setEnabled(state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00182}00182   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a5b89fce93b9debc8d1969549211f25c4}{m\_com}}) \mbox{\hyperlink{class_input_string_a5b89fce93b9debc8d1969549211f25c4}{m\_com}}-\/>setEnabled(state);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00183}00183   \mbox{\hyperlink{class_input_string_a69a6dabc41f9820599883658181fc827}{updateDefault}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00184}00184 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00185}00185 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00186}00186 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a37b15843a0c80fb2780245eaf45a8624}{InputString::browseFile}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00187}00187 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00188}00188   QString path = QFileInfo(\mbox{\hyperlink{class_main_window_aa263665dfb2a4b91a6d97c2546fca227}{MainWindow::instance}}().configFileName()).path();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00189}00189   QString fileName = QFileDialog::getOpenFileName(\&\mbox{\hyperlink{class_main_window_aa263665dfb2a4b91a6d97c2546fca227}{MainWindow::instance}}(),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00190}00190       tr(\textcolor{stringliteral}{"{}Select file"{}}),path);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00191}00191   \textcolor{keywordflow}{if} (!fileName.isNull())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00192}00192   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00193}00193     QDir dir(path);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00194}00194     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_main_window_aa263665dfb2a4b91a6d97c2546fca227}{MainWindow::instance}}().configFileName().\mbox{\hyperlink{class_input_string_acba78bfffcdd66d9b0c49291a0511f49}{isEmpty}}() \&\& dir.exists())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00195}00195     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00196}00196       fileName = \mbox{\hyperlink{class_input_string_a34c0c935fc154aa088ae892b07fc0a27}{m\_absPath}} ? fileName : dir.relativeFilePath(fileName);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00197}00197     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00198}00198     \mbox{\hyperlink{class_input_string_aa5dd91fe260eb01b911a4206e6653449}{setValue}}(fileName);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00199}00199   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00200}00200 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00201}00201 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a1ad7bcab75d1640b6b5c0a56992ced76}{InputString::browseDir}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00202}00202 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00203}00203   QString path = QFileInfo(\mbox{\hyperlink{class_main_window_aa263665dfb2a4b91a6d97c2546fca227}{MainWindow::instance}}().configFileName()).path();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00204}00204   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00205}00205     QString dirName = QFileDialog::getExistingDirectory(\&\mbox{\hyperlink{class_main_window_aa263665dfb2a4b91a6d97c2546fca227}{MainWindow::instance}}(),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00206}00206         tr(\textcolor{stringliteral}{"{}Select directory"{}}),path);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00207}00207     \textcolor{keywordflow}{if} (!dirName.isNull())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00208}00208     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00209}00209       QDir dir(path);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00210}00210       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_main_window_aa263665dfb2a4b91a6d97c2546fca227}{MainWindow::instance}}().configFileName().\mbox{\hyperlink{class_input_string_acba78bfffcdd66d9b0c49291a0511f49}{isEmpty}}() \&\& dir.exists())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00211}00211       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00212}00212         dirName = \mbox{\hyperlink{class_input_string_a34c0c935fc154aa088ae892b07fc0a27}{m\_absPath}} ? dirName : dir.relativeFilePath(dirName);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00213}00213       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00214}00214       \mbox{\hyperlink{class_input_string_aa5dd91fe260eb01b911a4206e6653449}{setValue}}(dirName);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00215}00215     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00216}00216   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00217}00217 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00218}00218 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00219}00219 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_adc747454155f4613053f7ac5a8525cbe}{InputString::clear}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00220}00220 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00221}00221   \mbox{\hyperlink{class_input_string_aa5dd91fe260eb01b911a4206e6653449}{setValue}}(QString());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00222}00222 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00223}00223 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00224}00224 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_aa8cc8ac64be65a059936950ad1e65ba8}{InputString::addValue}}(QString \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00225}00225 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00226}00226   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_input_string_a71d5316e5c919b11dc9588223f087a3c}{m\_sm}}==\mbox{\hyperlink{class_input_string_a7cfa8b8ad573f92ac8a7c850cf63b04baaf809c86ea0706a3dd3200ab20300ecb}{StringFixed}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00227}00227   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00228}00228     \mbox{\hyperlink{class_input_string_ac2ec69821a9147a519c3c8ace88d3284}{m\_values}}.append(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00229}00229     \mbox{\hyperlink{class_input_string_a5b89fce93b9debc8d1969549211f25c4}{m\_com}}-\/>addItem(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00230}00230   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00231}00231 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00232}00232 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00233}00233 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a943d2ad1525a07c3b8852de90ac04d00}{InputString::setDefault}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00234}00234 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00235}00235   \textcolor{keywordtype}{int} index = \mbox{\hyperlink{class_input_string_ac2ec69821a9147a519c3c8ace88d3284}{m\_values}}.indexOf(\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00236}00236   \textcolor{keywordflow}{if} (index!=-\/1 \&\& \mbox{\hyperlink{class_input_string_a5b89fce93b9debc8d1969549211f25c4}{m\_com}}) \mbox{\hyperlink{class_input_string_a5b89fce93b9debc8d1969549211f25c4}{m\_com}}-\/>setCurrentIndex(index);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00237}00237 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00238}00238 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00239}00239 QVariant \&\mbox{\hyperlink{class_input_string_a9c3a16a3861e950f8790d8c7e157cdc1}{InputString::value}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00240}00240 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00241}00241   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_input_string_a2fa9707ca1a41c07abee6c70980755cc}{m\_value}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00242}00242 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00243}00243 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00244}00244 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a0f19d3ccb9191a54b94e1b290b525742}{InputString::update}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00245}00245 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00246}00246   \mbox{\hyperlink{class_input_string_aa5dd91fe260eb01b911a4206e6653449}{setValue}}(\mbox{\hyperlink{class_input_string_a2fa9707ca1a41c07abee6c70980755cc}{m\_value}}.toString().trimmed());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00247}00247   \mbox{\hyperlink{class_input_string_a943d2ad1525a07c3b8852de90ac04d00}{setDefault}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00248}00248 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00249}00249 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00250}00250 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a1ef14657fbc414a6f15ca1f624d7da92}{InputString::reset}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00251}00251 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00252}00252   \mbox{\hyperlink{class_input_string_aa5dd91fe260eb01b911a4206e6653449}{setValue}}(\mbox{\hyperlink{class_input_string_acd995f6b020606e8cd6120c2f732ad9f}{m\_default}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00253}00253   \mbox{\hyperlink{class_input_string_a943d2ad1525a07c3b8852de90ac04d00}{setDefault}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00254}00254 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00255}00255 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00256}00256 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_input_string_a419704bcb267a32c49a0f66a56cea7d4}{InputString::writeValue}}(QTextStream \&t,\mbox{\hyperlink{class_text_codec_adapter}{TextCodecAdapter}} *codec)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00257}00257 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00258}00258   \mbox{\hyperlink{addon_2doxywizard_2config_8h_a082676dc92bb9123ed03ca8491f9e87d}{writeStringValue}}(t,codec,\mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00259}00259 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00260}00260 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00261}00261 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_input_string_ae7b9467b0c95503310bc582458d24a8e}{InputString::isDefault}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00262}00262 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00263}00263   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_input_string_a33a6b0690cabd05b3bcbea79578cbe4f}{m\_str}} == \mbox{\hyperlink{class_input_string_acd995f6b020606e8cd6120c2f732ad9f}{m\_default}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00264}00264 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00265}00265 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00266}00266 QString \mbox{\hyperlink{class_input_string_a293cb8ac915a6429adc4ff42df1f1e3a}{InputString::checkEnumVal}}(\textcolor{keyword}{const} QString \&value)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00267}00267 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00268}00268   QString \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{\hyperlink{class_input_string_a9c3a16a3861e950f8790d8c7e157cdc1}{value}}.trimmed().toLower();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00269}00269   QStringList::Iterator it;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00270}00270   \textcolor{keywordflow}{for} ( it= \mbox{\hyperlink{class_input_string_ac2ec69821a9147a519c3c8ace88d3284}{m\_values}}.begin(); it != \mbox{\hyperlink{class_input_string_ac2ec69821a9147a519c3c8ace88d3284}{m\_values}}.end(); ++it )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00271}00271   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00272}00272     QString enumVal = *it;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00273}00273     \textcolor{keywordflow}{if} (enumVal.toLower() == \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}}) \textcolor{keywordflow}{return} enumVal;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00274}00274   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00275}00275 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00276}00276   \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_ab929b9d6d4de82562ee0b9fa541ff198}{config\_warn}}(\textcolor{stringliteral}{"{}argument '\%s' for option \%s is not a valid enum value."{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00277}00277               \textcolor{stringliteral}{"{} Using the default: \%s!"{}},qPrintable(\mbox{\hyperlink{class_input_string_a9c3a16a3861e950f8790d8c7e157cdc1}{value}}),qPrintable(\mbox{\hyperlink{class_input_string_a965af877dd638e9a346604a3174b9c83}{m\_id}}),qPrintable(\mbox{\hyperlink{class_input_string_acd995f6b020606e8cd6120c2f732ad9f}{m\_default}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00278}00278   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_input_string_acd995f6b020606e8cd6120c2f732ad9f}{m\_default}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxywizard_2inputstring_8cpp_source_l00279}00279 \}}
+
+\end{DoxyCode}

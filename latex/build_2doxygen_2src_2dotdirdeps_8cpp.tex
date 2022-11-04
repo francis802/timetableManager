@@ -1,0 +1,631 @@
+\hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp}{}\doxysection{doxygen/build/doxygen/src/dotdirdeps.cpp File Reference}
+\label{build_2doxygen_2src_2dotdirdeps_8cpp}\index{doxygen/build/doxygen/src/dotdirdeps.cpp@{doxygen/build/doxygen/src/dotdirdeps.cpp}}
+{\ttfamily \#include \char`\"{}dotdirdeps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}image.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotnode.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}}
+\item 
+class \mbox{\hyperlink{class_dot_dir_property_builder}{Dot\+Dir\+Property\+Builder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} = std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$ $>$
+\item 
+typedef \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_dir_relation}{Dir\+Relation}} $>$, bool $>$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a683792f7f7df231861acd54ff905211d}{get\+Directory\+Background\+Color}} (int depth\+Index)
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aed9febe225f49a478f1ac4ab8c92786d}{get\+Directory\+Border\+Color}} (const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&property)
+\item 
+static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a6aa3fa8ed5c1cb6cfe4a5f821d1c776f}{get\+Directory\+Border\+Style}} (const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&property)
+\item 
+static \mbox{\hyperlink{class_text_stream}{Text\+Stream}} \& \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}{common\+\_\+attributes}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const dir, const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&prop)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}{draw\+Directory}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const directory, const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&property, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} \&directories\+In\+Graph, int start\+Level)
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a20837cde372c359b1ce5070096d472e0}{is\+At\+Max\+Depth}} (const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const directory, const int start\+Level)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{draw\+Cluster\+Opening}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&output\+Stream, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const directory, const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&directory\+Property, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} \&directories\+In\+Graph, const bool is\+Ancestor, int start\+Level)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a3ec4e307f44771f6dfa0a0fe76c00495}{draw\+Cluster\+Closing}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a4cae8568157c4b4b1c9a96af855d2b85}{add\+Dependencies}} (\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}} \&dependencies, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const src\+Dir, bool is\+Leaf)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree}} (\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}} \&dependencies, \mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const directory, int start\+Level, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} \&directories\+In\+Graph, const bool is\+Tree\+Root)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_ac4e7090b3ce2c42151afd6b83298096f}{write\+Dot\+Dir\+Dep\+Graph}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$dd, bool link\+Relations)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}\label{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!DirDefMap@{DirDefMap}}
+\index{DirDefMap@{DirDefMap}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{DirDefMap}{DirDefMap}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} =  std\+::map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!DirRelations@{DirRelations}}
+\index{DirRelations@{DirRelations}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{DirRelations}{DirRelations}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ std\+::pair$<$ std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_dir_relation}{Dir\+Relation}}$>$, bool$>$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}}}
+
+Elements consist of (1) directory relation and (2) whether it is pointing only to inherited dependees. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a4cae8568157c4b4b1c9a96af855d2b85}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a4cae8568157c4b4b1c9a96af855d2b85}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!addDependencies@{addDependencies}}
+\index{addDependencies@{addDependencies}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{addDependencies()}{addDependencies()}}
+{\footnotesize\ttfamily static void add\+Dependencies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}} \&}]{dependencies,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const}]{src\+Dir,  }\item[{bool}]{is\+Leaf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Assembles a list of the directory relations and whether or not they result from \char`\"{}inheritance\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em dependencies} & Array to add the dependencies to. \\
+\hline
+{\em src\+Dir} & is the source of the dependency. \\
+\hline
+{\em is\+Leaf} & true, if no children are drawn for this directory. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00213}{213}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214 \{}
+\DoxyCodeLine{00215   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&usedDirectory : srcDir-\/>\mbox{\hyperlink{class_dir_def_acf2258b5d619e2eb34f09dd33d34de0f}{usedDirs}}())}
+\DoxyCodeLine{00216   \{}
+\DoxyCodeLine{00217     \textcolor{keyword}{const} \textcolor{keyword}{auto} dstDir = usedDirectory-\/>dir();}
+\DoxyCodeLine{00218     \textcolor{keywordflow}{if} (!dstDir-\/>isParentOf(srcDir) \&\& (isLeaf || usedDirectory-\/>hasDirectSrcDeps()))}
+\DoxyCodeLine{00219     \{}
+\DoxyCodeLine{00220       \mbox{\hyperlink{class_q_c_string}{QCString}} relationName;}
+\DoxyCodeLine{00221       relationName.\mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}dir\_\%06d\_\%06d"{}}, srcDir-\/>\mbox{\hyperlink{class_dir_def_af01c314d69c65e2ad2eab58bf818d362}{dirCount}}(), dstDir-\/>dirCount());}
+\DoxyCodeLine{00222       \textcolor{keywordtype}{bool} directRelation = isLeaf ? usedDirectory-\/>hasDirectDstDeps() : usedDirectory-\/>hasDirectDeps();}
+\DoxyCodeLine{00223       \textcolor{keyword}{auto} \&\&dependency = std::make\_unique<DirRelation>(relationName, srcDir, usedDirectory.get());}
+\DoxyCodeLine{00224       \textcolor{keyword}{auto} \&\&pair = std::make\_pair(std::move(dependency),directRelation);}
+\DoxyCodeLine{00225       dependencies.emplace\_back(std::move(pair));}
+\DoxyCodeLine{00226     \}}
+\DoxyCodeLine{00227   \}}
+\DoxyCodeLine{00228 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dir_def_af01c314d69c65e2ad2eab58bf818d362}{Dir\+Def\+::dir\+Count()}}, \mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{QCString\+::sprintf()}}, and \mbox{\hyperlink{class_dir_def_acf2258b5d619e2eb34f09dd33d34de0f}{Dir\+Def\+::used\+Dirs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!common\_attributes@{common\_attributes}}
+\index{common\_attributes@{common\_attributes}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{common\_attributes()}{common\_attributes()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_text_stream}{Text\+Stream}} \& common\+\_\+attributes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const}]{dir,  }\item[{const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&}]{prop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138 \{}
+\DoxyCodeLine{00139   \textcolor{keywordflow}{return} t <<}
+\DoxyCodeLine{00140     \textcolor{stringliteral}{"{}style=\(\backslash\)"{}"{}}   << \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a6aa3fa8ed5c1cb6cfe4a5f821d1c776f}{getDirectoryBorderStyle}}(prop) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}}}
+\DoxyCodeLine{00141     \textcolor{stringliteral}{"{}URL=\(\backslash\)"{}"{}}     << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(dir-\/>\mbox{\hyperlink{class_dir_def_a1fdadd32de095dd846b619f8d220f03c}{getOutputFileBase}}()) << \textcolor{stringliteral}{"{}\(\backslash\)"{},"{}}}
+\DoxyCodeLine{00142     \textcolor{stringliteral}{"{}tooltip=\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2dotnode_8cpp_a1833cf88609789ddbebeeb77747e593f}{escapeTooltip}}(dir-\/>\mbox{\hyperlink{class_definition_a5915353219702c6ea73cc1476bda793a}{briefDescriptionAsTooltip}}()) << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00143 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{add\+Html\+Extension\+If\+Missing()}}, \mbox{\hyperlink{class_definition_a5915353219702c6ea73cc1476bda793a}{Definition\+::brief\+Description\+As\+Tooltip()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotnode_8cpp_a1833cf88609789ddbebeeb77747e593f}{escape\+Tooltip()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a6aa3fa8ed5c1cb6cfe4a5f821d1c776f}{get\+Directory\+Border\+Style()}}, and \mbox{\hyperlink{class_dir_def_a1fdadd32de095dd846b619f8d220f03c}{Dir\+Def\+::get\+Output\+File\+Base()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{draw\+Cluster\+Opening()}}, and \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}{draw\+Directory()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a3ec4e307f44771f6dfa0a0fe76c00495}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a3ec4e307f44771f6dfa0a0fe76c00495}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!drawClusterClosing@{drawClusterClosing}}
+\index{drawClusterClosing@{drawClusterClosing}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{drawClusterClosing()}{drawClusterClosing()}}
+{\footnotesize\ttfamily static void draw\+Cluster\+Closing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00202}{202}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00203 \{}
+\DoxyCodeLine{00204   t << \textcolor{stringliteral}{"{}  \}\(\backslash\)n"{}};}
+\DoxyCodeLine{00205 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!drawClusterOpening@{drawClusterOpening}}
+\index{drawClusterOpening@{drawClusterOpening}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{drawClusterOpening()}{drawClusterOpening()}}
+{\footnotesize\ttfamily static void draw\+Cluster\+Opening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{output\+Stream,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const}]{directory,  }\item[{const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&}]{directory\+Property,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} \&}]{directories\+In\+Graph,  }\item[{const bool}]{is\+Ancestor,  }\item[{int}]{start\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Writes DOT code for opening a cluster subgraph to stream.
+
+Ancestor clusters directly get a label. Other clusters get a plain text node with a label instead. This is because the plain text node can be used to draw dependency relationships. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00177}{177}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00179 \{}
+\DoxyCodeLine{00180   outputStream << \textcolor{stringliteral}{"{}  subgraph cluster"{}} << \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>getOutputFileBase() << \textcolor{stringliteral}{"{} \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00181       \textcolor{stringliteral}{"{}    graph [ "{}}}
+\DoxyCodeLine{00182       \textcolor{stringliteral}{"{}bgcolor=\(\backslash\)"{}"{}}  << \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a683792f7f7df231861acd54ff905211d}{getDirectoryBackgroundColor}}(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>level()-\/startLevel) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}}}
+\DoxyCodeLine{00183       \textcolor{stringliteral}{"{}pencolor=\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aed9febe225f49a478f1ac4ab8c92786d}{getDirectoryBorderColor}}(directoryProperty) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}}}
+\DoxyCodeLine{00184       \textcolor{stringliteral}{"{}label=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00185   \textcolor{keywordflow}{if} (isAncestor)}
+\DoxyCodeLine{00186   \{}
+\DoxyCodeLine{00187     outputStream << \mbox{\hyperlink{class_dot_node_a34866577b6876d091e384863cf5eec85}{DotNode::convertLabel}}(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>shortName());}
+\DoxyCodeLine{00188   \}}
+\DoxyCodeLine{00189   outputStream << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}}}
+\DoxyCodeLine{00190        << \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(DOT\_COMMON\_ATTR) << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{00191   \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}{common\_attributes}}(outputStream, directory, directoryProperty)}
+\DoxyCodeLine{00192       << \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{00193   \textcolor{keywordflow}{if} (!isAncestor)}
+\DoxyCodeLine{00194   \{}
+\DoxyCodeLine{00195     outputStream << \textcolor{stringliteral}{"{}    "{}} << \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>getOutputFileBase() << \textcolor{stringliteral}{"{} [shape=plaintext, "{}}}
+\DoxyCodeLine{00196         \textcolor{stringliteral}{"{}label=\(\backslash\)"{}"{}} << \mbox{\hyperlink{class_dot_node_a34866577b6876d091e384863cf5eec85}{DotNode::convertLabel}}(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>shortName()) << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
+\DoxyCodeLine{00197         \textcolor{stringliteral}{"{}];\(\backslash\)n"{}};}
+\DoxyCodeLine{00198     directoriesInGraph.\mbox{\hyperlink{class_q_c_string_ae4e7678c93bacb8b7806597a8520ca54}{insert}}(std::make\_pair(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>getOutputFileBase().str(), directory));}
+\DoxyCodeLine{00199   \}}
+\DoxyCodeLine{00200 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}{common\+\_\+attributes()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{class_dot_node_a34866577b6876d091e384863cf5eec85}{Dot\+Node\+::convert\+Label()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a683792f7f7df231861acd54ff905211d}{get\+Directory\+Background\+Color()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aed9febe225f49a478f1ac4ab8c92786d}{get\+Directory\+Border\+Color()}}, and \mbox{\hyperlink{class_q_c_string_ae4e7678c93bacb8b7806597a8520ca54}{QCString\+::insert()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree()}}, and \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_ac4e7090b3ce2c42151afd6b83298096f}{write\+Dot\+Dir\+Dep\+Graph()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!drawDirectory@{drawDirectory}}
+\index{drawDirectory@{drawDirectory}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{drawDirectory()}{drawDirectory()}}
+{\footnotesize\ttfamily static void draw\+Directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const}]{directory,  }\item[{const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&}]{property,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} \&}]{directories\+In\+Graph,  }\item[{int}]{start\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Puts DOT code for drawing directory to stream and adds it to the list. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em t} & stream to which the DOT code is written to \\
+\hline
+\mbox{\texttt{ in}}  & {\em directory} & will be mapped to a node in DOT code \\
+\hline
+\mbox{\texttt{ in}}  & {\em property} & are evaluated for formatting \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em directories\+In\+Graph} & lists the directories which have been written to the output stream \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+Level} & current level to calculate relative distances from to determine the background color \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155 \{}
+\DoxyCodeLine{00156   t << \textcolor{stringliteral}{"{}  "{}} << \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>getOutputFileBase() << \textcolor{stringliteral}{"{} ["{}}}
+\DoxyCodeLine{00157       \textcolor{stringliteral}{"{}label=\(\backslash\)"{}"{}}     << \mbox{\hyperlink{class_dot_node_a34866577b6876d091e384863cf5eec85}{DotNode::convertLabel}}(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>shortName())                << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}}}
+\DoxyCodeLine{00158       \textcolor{stringliteral}{"{}fillcolor=\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a683792f7f7df231861acd54ff905211d}{getDirectoryBackgroundColor}}(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>level()-\/startLevel)   << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}}}
+\DoxyCodeLine{00159       \textcolor{stringliteral}{"{}color=\(\backslash\)"{}"{}}     << \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aed9febe225f49a478f1ac4ab8c92786d}{getDirectoryBorderColor}}(property)                            << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}};}
+\DoxyCodeLine{00160   \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}{common\_attributes}}(t, directory, property)}
+\DoxyCodeLine{00161       << \textcolor{stringliteral}{"{}];\(\backslash\)n"{}};}
+\DoxyCodeLine{00162   directoriesInGraph.insert(std::make\_pair(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>getOutputFileBase().str(), directory));}
+\DoxyCodeLine{00163 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}{common\+\_\+attributes()}}, \mbox{\hyperlink{class_dot_node_a34866577b6876d091e384863cf5eec85}{Dot\+Node\+::convert\+Label()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a683792f7f7df231861acd54ff905211d}{get\+Directory\+Background\+Color()}}, and \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aed9febe225f49a478f1ac4ab8c92786d}{get\+Directory\+Border\+Color()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}\label{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!drawTree@{drawTree}}
+\index{drawTree@{drawTree}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{drawTree()}{drawTree()}}
+{\footnotesize\ttfamily static void draw\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}} \&}]{dependencies,  }\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const}]{directory,  }\item[{int}]{start\+Level,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} \&}]{directories\+In\+Graph,  }\item[{const bool}]{is\+Tree\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Recursively draws directory tree. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00231}{231}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00233 \{}
+\DoxyCodeLine{00234   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>hasSubdirs())}
+\DoxyCodeLine{00235   \{}
+\DoxyCodeLine{00236     \textcolor{keyword}{const} \mbox{\hyperlink{struct_dot_dir_property}{DotDirProperty}} directoryProperty = \mbox{\hyperlink{class_dot_dir_property_builder}{DotDirPropertyBuilder}}().\mbox{\hyperlink{class_dot_dir_property_builder_a20342858b48a1b0233393928ffc85b57}{makeOriginal}}(isTreeRoot);}
+\DoxyCodeLine{00237     \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}{drawDirectory}}(t, directory, directoryProperty, directoriesInGraph,startLevel);}
+\DoxyCodeLine{00238     \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a4cae8568157c4b4b1c9a96af855d2b85}{addDependencies}}(dependencies, directory, \textcolor{keyword}{true});}
+\DoxyCodeLine{00239   \}}
+\DoxyCodeLine{00240   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00241   \{}
+\DoxyCodeLine{00242     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a20837cde372c359b1ce5070096d472e0}{isAtMaxDepth}}(directory, startLevel)) \textcolor{comment}{// maximum nesting level reached}}
+\DoxyCodeLine{00243     \{}
+\DoxyCodeLine{00244       \textcolor{keyword}{const} \mbox{\hyperlink{struct_dot_dir_property}{DotDirProperty}} directoryProperty = \mbox{\hyperlink{class_dot_dir_property_builder}{DotDirPropertyBuilder}}().\mbox{\hyperlink{class_dot_dir_property_builder_a20342858b48a1b0233393928ffc85b57}{makeOriginal}}(isTreeRoot);}
+\DoxyCodeLine{00245       \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}{drawDirectory}}(t, directory, directoryProperty, directoriesInGraph,startLevel);}
+\DoxyCodeLine{00246       \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a4cae8568157c4b4b1c9a96af855d2b85}{addDependencies}}(dependencies, directory, \textcolor{keyword}{true});}
+\DoxyCodeLine{00247     \}}
+\DoxyCodeLine{00248     \textcolor{keywordflow}{else} \textcolor{comment}{// start a new nesting level}}
+\DoxyCodeLine{00249     \{}
+\DoxyCodeLine{00250       \textcolor{comment}{// open cluster}}
+\DoxyCodeLine{00251       \{}
+\DoxyCodeLine{00252         \textcolor{keyword}{const} \mbox{\hyperlink{struct_dot_dir_property}{DotDirProperty}} directoryProperty = \mbox{\hyperlink{class_dot_dir_property_builder}{DotDirPropertyBuilder}}().\mbox{\hyperlink{class_dot_dir_property_builder_a20342858b48a1b0233393928ffc85b57}{makeOriginal}}(isTreeRoot);}
+\DoxyCodeLine{00253         \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{drawClusterOpening}}(t, directory, directoryProperty, directoriesInGraph, \textcolor{keyword}{false}, startLevel);}
+\DoxyCodeLine{00254         \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a4cae8568157c4b4b1c9a96af855d2b85}{addDependencies}}(dependencies, directory, \textcolor{keyword}{false});}
+\DoxyCodeLine{00255       \}}
+\DoxyCodeLine{00256 }
+\DoxyCodeLine{00257       \textcolor{comment}{// process all sub directories}}
+\DoxyCodeLine{00258       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} subDirectory : \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>subDirs())}
+\DoxyCodeLine{00259       \{}
+\DoxyCodeLine{00260         \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{drawTree}}(dependencies, t, subDirectory, startLevel, directoriesInGraph, \textcolor{keyword}{false});}
+\DoxyCodeLine{00261       \}}
+\DoxyCodeLine{00262 }
+\DoxyCodeLine{00263       \textcolor{comment}{// close cluster}}
+\DoxyCodeLine{00264       \{}
+\DoxyCodeLine{00265         \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a3ec4e307f44771f6dfa0a0fe76c00495}{drawClusterClosing}}(t);}
+\DoxyCodeLine{00266       \}}
+\DoxyCodeLine{00267     \}}
+\DoxyCodeLine{00268   \}}
+\DoxyCodeLine{00269 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a4cae8568157c4b4b1c9a96af855d2b85}{add\+Dependencies()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a3ec4e307f44771f6dfa0a0fe76c00495}{draw\+Cluster\+Closing()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{draw\+Cluster\+Opening()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}{draw\+Directory()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a20837cde372c359b1ce5070096d472e0}{is\+At\+Max\+Depth()}}, and \mbox{\hyperlink{class_dot_dir_property_builder_a20342858b48a1b0233393928ffc85b57}{Dot\+Dir\+Property\+Builder\+::make\+Original()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a683792f7f7df231861acd54ff905211d}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a683792f7f7df231861acd54ff905211d}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!getDirectoryBackgroundColor@{getDirectoryBackgroundColor}}
+\index{getDirectoryBackgroundColor@{getDirectoryBackgroundColor}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{getDirectoryBackgroundColor()}{getDirectoryBackgroundColor()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} get\+Directory\+Background\+Color (\begin{DoxyParamCaption}\item[{int}]{depth\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a DOT color name according to the directory depth. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065 \{}
+\DoxyCodeLine{00066   \textcolor{keywordtype}{int} hue   = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(HTML\_COLORSTYLE\_HUE);}
+\DoxyCodeLine{00067   \textcolor{keywordtype}{int} sat   = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(HTML\_COLORSTYLE\_SAT);}
+\DoxyCodeLine{00068   \textcolor{keywordtype}{int} gamma = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(HTML\_COLORSTYLE\_GAMMA);}
+\DoxyCodeLine{00069   assert(depthIndex>=0 \&\& depthIndex<=\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(DIR\_GRAPH\_MAX\_DEPTH));}
+\DoxyCodeLine{00070   \textcolor{keywordtype}{float} fraction = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(depthIndex)/\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(DIR\_GRAPH\_MAX\_DEPTH));}
+\DoxyCodeLine{00071   \textcolor{keyword}{const} \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[] = \textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{00072   \textcolor{keywordtype}{int} range = 0x40; \textcolor{comment}{// range from darkest color to lightest color}}
+\DoxyCodeLine{00073   \textcolor{keywordtype}{int} luma   = 0xef-\/\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(fraction*\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(range)); \textcolor{comment}{// interpolation}}
+\DoxyCodeLine{00074   \textcolor{keywordtype}{double} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}};}
+\DoxyCodeLine{00075   \mbox{\hyperlink{class_colored_image_aa28cffecb75cf52b6b457178851704c5}{ColoredImage::hsl2rgb}}(hue/360.0,sat/255.0,}
+\DoxyCodeLine{00076                         pow(luma/255.0,gamma/100.0),\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}},\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}},\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}});}
+\DoxyCodeLine{00077   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acc219f2d5d3684a01f7beb2a01f3bb19}{red}}   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}*255.0);}
+\DoxyCodeLine{00078   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a99b11df229b425e5345de75f7cb0a7a0}{green}} = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}}*255.0);}
+\DoxyCodeLine{00079   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abc9f544b068b7382c3f9c93ea94c416c}{blue}}  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}}*255.0);}
+\DoxyCodeLine{00080   assert(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acc219f2d5d3684a01f7beb2a01f3bb19}{red}}>=0   \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acc219f2d5d3684a01f7beb2a01f3bb19}{red}}<=255);}
+\DoxyCodeLine{00081   assert(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a99b11df229b425e5345de75f7cb0a7a0}{green}}>=0 \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a99b11df229b425e5345de75f7cb0a7a0}{green}}<=255);}
+\DoxyCodeLine{00082   assert(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abc9f544b068b7382c3f9c93ea94c416c}{blue}}>=0  \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abc9f544b068b7382c3f9c93ea94c416c}{blue}}<=255);}
+\DoxyCodeLine{00083   \textcolor{keywordtype}{char} colStr[8];}
+\DoxyCodeLine{00084   colStr[0]=\textcolor{charliteral}{'\#'};}
+\DoxyCodeLine{00085   colStr[1]=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acc219f2d5d3684a01f7beb2a01f3bb19}{red}}>>4];}
+\DoxyCodeLine{00086   colStr[2]=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acc219f2d5d3684a01f7beb2a01f3bb19}{red}}\&0xf];}
+\DoxyCodeLine{00087   colStr[3]=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a99b11df229b425e5345de75f7cb0a7a0}{green}}>>4];}
+\DoxyCodeLine{00088   colStr[4]=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a99b11df229b425e5345de75f7cb0a7a0}{green}}\&0xf];}
+\DoxyCodeLine{00089   colStr[5]=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abc9f544b068b7382c3f9c93ea94c416c}{blue}}>>4];}
+\DoxyCodeLine{00090   colStr[6]=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abc9f544b068b7382c3f9c93ea94c416c}{blue}}\&0xf];}
+\DoxyCodeLine{00091   colStr[7]=0;}
+\DoxyCodeLine{00092   \textcolor{comment}{//printf("{}i=\%d max=\%d fraction=\%f luma=\%d \%02x \%02x \%02x -\/> color=\%s\(\backslash\)n"{},}}
+\DoxyCodeLine{00093   \textcolor{comment}{//    depthIndex,Config\_getInt(DIR\_GRAPH\_MAX\_DEPTH),fraction,luma,red,green,blue,colStr);}}
+\DoxyCodeLine{00094   \textcolor{keywordflow}{return} colStr;}
+\DoxyCodeLine{00095 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abc9f544b068b7382c3f9c93ea94c416c}{blue}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\+\_\+get\+Int}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a99b11df229b425e5345de75f7cb0a7a0}{green}}, \mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}, \mbox{\hyperlink{class_colored_image_aa28cffecb75cf52b6b457178851704c5}{Colored\+Image\+::hsl2rgb()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acc219f2d5d3684a01f7beb2a01f3bb19}{red}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{draw\+Cluster\+Opening()}}, and \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}{draw\+Directory()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_aed9febe225f49a478f1ac4ab8c92786d}\label{build_2doxygen_2src_2dotdirdeps_8cpp_aed9febe225f49a478f1ac4ab8c92786d}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!getDirectoryBorderColor@{getDirectoryBorderColor}}
+\index{getDirectoryBorderColor@{getDirectoryBorderColor}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{getDirectoryBorderColor()}{getDirectoryBorderColor()}}
+{\footnotesize\ttfamily static const char $\ast$ get\+Directory\+Border\+Color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&}]{property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a DOT color name according to the directory properties. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099 \{}
+\DoxyCodeLine{00100   \textcolor{keywordflow}{if} (property.\mbox{\hyperlink{struct_dot_dir_property_a13d7c0ae8df6a6a0d7d1298ce5b2fbd5}{isTruncated}} \&\& property.\mbox{\hyperlink{struct_dot_dir_property_a725a202c71456e1caf086cdd20a9baf9}{isOrphaned}})}
+\DoxyCodeLine{00101   \{}
+\DoxyCodeLine{00102     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}red"{}};}
+\DoxyCodeLine{00103   \}}
+\DoxyCodeLine{00104   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (property.\mbox{\hyperlink{struct_dot_dir_property_a13d7c0ae8df6a6a0d7d1298ce5b2fbd5}{isTruncated}})}
+\DoxyCodeLine{00105   \{}
+\DoxyCodeLine{00106     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}red"{}};}
+\DoxyCodeLine{00107   \}}
+\DoxyCodeLine{00108   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (property.\mbox{\hyperlink{struct_dot_dir_property_a725a202c71456e1caf086cdd20a9baf9}{isOrphaned}})}
+\DoxyCodeLine{00109   \{}
+\DoxyCodeLine{00110     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}grey50"{}};}
+\DoxyCodeLine{00111   \}}
+\DoxyCodeLine{00112   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00113   \{}
+\DoxyCodeLine{00114     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}grey25"{}};}
+\DoxyCodeLine{00115   \}}
+\DoxyCodeLine{00116 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_dot_dir_property_a725a202c71456e1caf086cdd20a9baf9}{Dot\+Dir\+Property\+::is\+Orphaned}}, and \mbox{\hyperlink{struct_dot_dir_property_a13d7c0ae8df6a6a0d7d1298ce5b2fbd5}{Dot\+Dir\+Property\+::is\+Truncated}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{draw\+Cluster\+Opening()}}, and \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a840611db0f9ff308b7167b3fd3e0c4d2}{draw\+Directory()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a6aa3fa8ed5c1cb6cfe4a5f821d1c776f}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a6aa3fa8ed5c1cb6cfe4a5f821d1c776f}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!getDirectoryBorderStyle@{getDirectoryBorderStyle}}
+\index{getDirectoryBorderStyle@{getDirectoryBorderStyle}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{getDirectoryBorderStyle()}{getDirectoryBorderStyle()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} get\+Directory\+Border\+Style (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_dot_dir_property}{Dot\+Dir\+Property}} \&}]{property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a DOT node style according to the directory properties. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120 \{}
+\DoxyCodeLine{00121   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}} = \textcolor{stringliteral}{"{}filled"{}};}
+\DoxyCodeLine{00122   \textcolor{keywordflow}{if} (property.\mbox{\hyperlink{struct_dot_dir_property_ac8ed0c0d9a9e5638b80ba4d96b1f7b7b}{isOriginal}})}
+\DoxyCodeLine{00123   \{}
+\DoxyCodeLine{00124     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}} += \textcolor{stringliteral}{"{},bold"{}};}
+\DoxyCodeLine{00125   \}}
+\DoxyCodeLine{00126   \textcolor{keywordflow}{if} (property.\mbox{\hyperlink{struct_dot_dir_property_afa37640375733ea38413a589b3f90718}{isIncomplete}})}
+\DoxyCodeLine{00127   \{}
+\DoxyCodeLine{00128     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}} += \textcolor{stringliteral}{"{},dashed"{}};}
+\DoxyCodeLine{00129   \}}
+\DoxyCodeLine{00130   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (property.\mbox{\hyperlink{struct_dot_dir_property_a13d7c0ae8df6a6a0d7d1298ce5b2fbd5}{isTruncated}} \&\& property.\mbox{\hyperlink{struct_dot_dir_property_a725a202c71456e1caf086cdd20a9baf9}{isOrphaned}})}
+\DoxyCodeLine{00131   \{}
+\DoxyCodeLine{00132     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}} += \textcolor{stringliteral}{"{},dashed"{}};}
+\DoxyCodeLine{00133   \}}
+\DoxyCodeLine{00134   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}};}
+\DoxyCodeLine{00135 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_dot_dir_property_afa37640375733ea38413a589b3f90718}{Dot\+Dir\+Property\+::is\+Incomplete}}, \mbox{\hyperlink{struct_dot_dir_property_ac8ed0c0d9a9e5638b80ba4d96b1f7b7b}{Dot\+Dir\+Property\+::is\+Original}}, \mbox{\hyperlink{struct_dot_dir_property_a725a202c71456e1caf086cdd20a9baf9}{Dot\+Dir\+Property\+::is\+Orphaned}}, \mbox{\hyperlink{struct_dot_dir_property_a13d7c0ae8df6a6a0d7d1298ce5b2fbd5}{Dot\+Dir\+Property\+::is\+Truncated}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a120714f9fe392105dac20e1759dcb1d6}{common\+\_\+attributes()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_a20837cde372c359b1ce5070096d472e0}\label{build_2doxygen_2src_2dotdirdeps_8cpp_a20837cde372c359b1ce5070096d472e0}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!isAtMaxDepth@{isAtMaxDepth}}
+\index{isAtMaxDepth@{isAtMaxDepth}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{isAtMaxDepth()}{isAtMaxDepth()}}
+{\footnotesize\ttfamily static bool is\+At\+Max\+Depth (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$const}]{directory,  }\item[{const int}]{start\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Checks, if the directory is a the maximum drawn directory level. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00166}{166}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00167 \{}
+\DoxyCodeLine{00168   \textcolor{keywordflow}{return} (\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{directory}}-\/>level() -\/ startLevel) >= \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(DIR\_GRAPH\_MAX\_DEPTH);}
+\DoxyCodeLine{00169 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\+\_\+get\+Int}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{draw\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2dotdirdeps_8cpp_ac4e7090b3ce2c42151afd6b83298096f}\label{build_2doxygen_2src_2dotdirdeps_8cpp_ac4e7090b3ce2c42151afd6b83298096f}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!writeDotDirDepGraph@{writeDotDirDepGraph}}
+\index{writeDotDirDepGraph@{writeDotDirDepGraph}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{writeDotDirDepGraph()}{writeDotDirDepGraph()}}
+{\footnotesize\ttfamily void write\+Dot\+Dir\+Dep\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$}]{dd,  }\item[{bool}]{link\+Relations }\end{DoxyParamCaption})}
+
+Write DOT code for directory dependency graph.
+
+Code is generated for a directory. Successors (sub-\/directories) of this directory are recursively drawn. Recursion is limited by {\ttfamily DIR\+\_\+\+GRAPH\+\_\+\+MAX\+\_\+\+DEPTH}. The dependencies of those directories are drawn.
+
+If a dependee is not part of directory tree above, then the dependency is drawn to the first parent of the dependee, whose parent is an ancestor (sub-\/directory) of the original directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & stream where the DOT code is written to \\
+\hline
+{\em dd} & directory for which the graph is generated for \\
+\hline
+{\em link\+Relations} & if true, hyperlinks to the list of file dependencies are added \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source_l00285}{285}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_source}{dotdirdeps.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00286 \{}
+\DoxyCodeLine{00287   \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{DirDefMap}} dirsInGraph;}
+\DoxyCodeLine{00288 }
+\DoxyCodeLine{00289   dirsInGraph.insert(std::make\_pair(dd-\/>\mbox{\hyperlink{class_dir_def_a1fdadd32de095dd846b619f8d220f03c}{getOutputFileBase}}().\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),dd));}
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291   std::vector<const DirDef *> usedDirsNotDrawn, usedDirsDrawn;}
+\DoxyCodeLine{00292   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& usedDir : dd-\/>\mbox{\hyperlink{class_dir_def_acf2258b5d619e2eb34f09dd33d34de0f}{usedDirs}}())}
+\DoxyCodeLine{00293   \{}
+\DoxyCodeLine{00294     usedDirsNotDrawn.push\_back(usedDir-\/>dir());}
+\DoxyCodeLine{00295   \}}
+\DoxyCodeLine{00296 }
+\DoxyCodeLine{00297   \textcolor{keyword}{auto} moveDrawnDirs = [\&usedDirsDrawn,\&usedDirsNotDrawn](\textcolor{keyword}{const} std::vector<const DirDef *>::iterator \&newEnd)}
+\DoxyCodeLine{00298   \{}
+\DoxyCodeLine{00299     \textcolor{comment}{// usedDirsNotDrawn is split into two segments: [begin()....newEnd-\/1] and [newEnd....end()]}}
+\DoxyCodeLine{00300     \textcolor{comment}{// where the second segment starting at newEnd has been drawn, so append this segment to the usedDirsDrawn list and}}
+\DoxyCodeLine{00301     \textcolor{comment}{// remove it from the usedDirsNotDrawn list.}}
+\DoxyCodeLine{00302     std::move(newEnd, \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{std::end}}(usedDirsNotDrawn), std::back\_inserter(usedDirsDrawn));}
+\DoxyCodeLine{00303     usedDirsNotDrawn.erase(newEnd, usedDirsNotDrawn.end());}
+\DoxyCodeLine{00304   \};}
+\DoxyCodeLine{00305 }
+\DoxyCodeLine{00306   \textcolor{comment}{// if dd has a parent draw it as the outer layer}}
+\DoxyCodeLine{00307   \textcolor{keyword}{const} \textcolor{keyword}{auto} \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}} = dd-\/>\mbox{\hyperlink{class_dir_def_a6ddd6f5e08f9a04cc43cf15e388bc2af}{parent}}();}
+\DoxyCodeLine{00308   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}})}
+\DoxyCodeLine{00309   \{}
+\DoxyCodeLine{00310     \textcolor{keyword}{const} \mbox{\hyperlink{struct_dot_dir_property}{DotDirProperty}} parentDirProperty = \mbox{\hyperlink{class_dot_dir_property_builder}{DotDirPropertyBuilder}}().}
+\DoxyCodeLine{00311                                              makeIncomplete().}
+\DoxyCodeLine{00312                                              makeOrphaned(\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}-\/>parent()!=\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00313     \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{drawClusterOpening}}(t, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}, parentDirProperty, dirsInGraph, \textcolor{keyword}{true}, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}-\/>level());}
+\DoxyCodeLine{00314 }
+\DoxyCodeLine{00315     \{}
+\DoxyCodeLine{00316       \textcolor{comment}{// draw all directories which have `dd-\/>parent()` as parent and `dd` as dependent}}
+\DoxyCodeLine{00317       \textcolor{keyword}{const} \textcolor{keyword}{auto} newEnd = std::stable\_partition(usedDirsNotDrawn.begin(), usedDirsNotDrawn.end(),}
+\DoxyCodeLine{00318         [\&](\textcolor{keyword}{const} \mbox{\hyperlink{class_dir_def}{DirDef}} *\textcolor{keyword}{const} usedDir)}
+\DoxyCodeLine{00319         \{}
+\DoxyCodeLine{00320           if (dd!=usedDir \&\& dd-\/>parent()==usedDir-\/>parent()) \textcolor{comment}{// usedDir and dd share the same parent}}
+\DoxyCodeLine{00321           \{}
+\DoxyCodeLine{00322             const DotDirProperty usedDirProperty = DotDirPropertyBuilder().makeTruncated(usedDir-\/>hasSubdirs());}
+\DoxyCodeLine{00323             drawDirectory(t, usedDir, usedDirProperty, dirsInGraph, parent-\/>level());}
+\DoxyCodeLine{00324             return false; \textcolor{comment}{// part of the drawn partition}}
+\DoxyCodeLine{00325           \}}
+\DoxyCodeLine{00326           \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \textcolor{comment}{// part of the not-\/drawn partition}}
+\DoxyCodeLine{00327         \});}
+\DoxyCodeLine{00328       moveDrawnDirs(newEnd);}
+\DoxyCodeLine{00329     \}}
+\DoxyCodeLine{00330   \}}
+\DoxyCodeLine{00331 }
+\DoxyCodeLine{00332   \textcolor{comment}{// draw the directory tree with dd as root}}
+\DoxyCodeLine{00333   \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{DirRelations}} dependencies;}
+\DoxyCodeLine{00334   \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_aa598dce9105a7992d33b10a15beb70d5}{drawTree}}(dependencies, t, dd, dd-\/>\mbox{\hyperlink{class_dir_def_a033ad6b8c0287ed15da29dadca48eb6f}{level}}(), dirsInGraph, \textcolor{keyword}{true});}
+\DoxyCodeLine{00335 }
+\DoxyCodeLine{00336   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}})}
+\DoxyCodeLine{00337   \{}
+\DoxyCodeLine{00338     \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a3ec4e307f44771f6dfa0a0fe76c00495}{drawClusterClosing}}(t);}
+\DoxyCodeLine{00339   \}}
+\DoxyCodeLine{00340 }
+\DoxyCodeLine{00341   \textcolor{comment}{// add nodes for other used directories (i.e. outside of the cluster of directories directly connected to dd)}}
+\DoxyCodeLine{00342   \{}
+\DoxyCodeLine{00343     \textcolor{keyword}{const} \textcolor{keyword}{auto} newEnd = std::stable\_partition(usedDirsNotDrawn.begin(), usedDirsNotDrawn.end(),}
+\DoxyCodeLine{00344      [\&](\textcolor{keyword}{const} \mbox{\hyperlink{class_dir_def}{DirDef}} *\textcolor{keyword}{const} usedDir) \textcolor{comment}{// for each used dir (=directly used or a parent of a directly used dir)}}
+\DoxyCodeLine{00345      \{}
+\DoxyCodeLine{00346        const DirDef *dir=dd;}
+\DoxyCodeLine{00347        while (dir)}
+\DoxyCodeLine{00348        \{}
+\DoxyCodeLine{00349          if (dir!=usedDir \&\& dir-\/>parent()==usedDir-\/>parent()) \textcolor{comment}{// include if both have the same parent (or no parent)}}
+\DoxyCodeLine{00350          \{}
+\DoxyCodeLine{00351            const DotDirProperty usedDirProperty = DotDirPropertyBuilder().}
+\DoxyCodeLine{00352                                                   makeOrphaned(usedDir-\/>parent()!=nullptr).}
+\DoxyCodeLine{00353                                                   makeTruncated(usedDir-\/>hasSubdirs()).}
+\DoxyCodeLine{00354                                                   makePeripheral();}
+\DoxyCodeLine{00355            drawDirectory(t, usedDir, usedDirProperty, dirsInGraph, dir-\/>level());}
+\DoxyCodeLine{00356            return false; \textcolor{comment}{// part of the drawn partition}}
+\DoxyCodeLine{00357          \}}
+\DoxyCodeLine{00358          dir=dir-\/>parent();}
+\DoxyCodeLine{00359        \}}
+\DoxyCodeLine{00360        \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \textcolor{comment}{// part of the not-\/drawn partition}}
+\DoxyCodeLine{00361      \});}
+\DoxyCodeLine{00362     moveDrawnDirs(newEnd);}
+\DoxyCodeLine{00363   \}}
+\DoxyCodeLine{00364 }
+\DoxyCodeLine{00365   \textcolor{comment}{// add relations between all selected directories}}
+\DoxyCodeLine{00366   \{}
+\DoxyCodeLine{00367     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&relationPair : dependencies)}
+\DoxyCodeLine{00368     \{}
+\DoxyCodeLine{00369       \textcolor{keyword}{const} \textcolor{keyword}{auto} \&relation         = relationPair.first;}
+\DoxyCodeLine{00370       \textcolor{keyword}{const} \textcolor{keywordtype}{bool} directRelation    = relationPair.second;}
+\DoxyCodeLine{00371       \textcolor{keyword}{const} \textcolor{keyword}{auto} udir              = relation-\/>destination();}
+\DoxyCodeLine{00372       \textcolor{keyword}{const} \textcolor{keyword}{auto} usedDir           = udir-\/>dir();}
+\DoxyCodeLine{00373       \textcolor{keyword}{const} \textcolor{keywordtype}{bool} destIsSibling     = std::find(\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{std::begin}}(usedDirsDrawn), \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{std::end}}(usedDirsDrawn), usedDir) != \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{std::end}}(usedDirsDrawn);}
+\DoxyCodeLine{00374       \textcolor{keyword}{const} \textcolor{keywordtype}{bool} destIsDrawn       = dirsInGraph.find(usedDir-\/>getOutputFileBase().str())!=dirsInGraph.end(); \textcolor{comment}{// only point to nodes that are in the graph}}
+\DoxyCodeLine{00375       \textcolor{keyword}{const} \textcolor{keywordtype}{bool} atMaxDepth        = \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a20837cde372c359b1ce5070096d472e0}{isAtMaxDepth}}(usedDir, dd-\/>\mbox{\hyperlink{class_dir_def_a033ad6b8c0287ed15da29dadca48eb6f}{level}}());}
+\DoxyCodeLine{00376 }
+\DoxyCodeLine{00377       \textcolor{keywordflow}{if} (destIsSibling || (destIsDrawn \&\& (directRelation || atMaxDepth)))}
+\DoxyCodeLine{00378       \{}
+\DoxyCodeLine{00379         \textcolor{keyword}{const} \textcolor{keyword}{auto} relationName = relation-\/>getOutputFileBase();}
+\DoxyCodeLine{00380         \textcolor{keyword}{const} \textcolor{keyword}{auto} dir = relation-\/>source();}
+\DoxyCodeLine{00381         \mbox{\hyperlink{class_doxygen_a470fbf85b968187bea5d0178c4c60cc5}{Doxygen::dirRelations}}.\mbox{\hyperlink{class_linked_map_acddca8cb09f114936f6b80276f2c9c1b}{add}}(relationName,}
+\DoxyCodeLine{00382             std::make\_unique<DirRelation>(}
+\DoxyCodeLine{00383                relationName,dir,udir));}
+\DoxyCodeLine{00384         \textcolor{keywordtype}{size\_t} nrefs = udir-\/>filePairs().size();}
+\DoxyCodeLine{00385         t << \textcolor{stringliteral}{"{}  "{}} << dir-\/>getOutputFileBase() << \textcolor{stringliteral}{"{}-\/>"{}}}
+\DoxyCodeLine{00386           << usedDir-\/>getOutputFileBase();}
+\DoxyCodeLine{00387         t << \textcolor{stringliteral}{"{} [headlabel=\(\backslash\)"{}"{}} << nrefs << \textcolor{stringliteral}{"{}\(\backslash\)"{}, labeldistance=1.5"{}};}
+\DoxyCodeLine{00388         \textcolor{keywordflow}{if} (linkRelations)}
+\DoxyCodeLine{00389         \{}
+\DoxyCodeLine{00390           t << \textcolor{stringliteral}{"{} headhref=\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(relationName) << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00391         \}}
+\DoxyCodeLine{00392         t << \textcolor{stringliteral}{"{} color=\(\backslash\)"{}steelblue1\(\backslash\)"{} fontcolor=\(\backslash\)"{}steelblue1\(\backslash\)"{}];\(\backslash\)n"{}};}
+\DoxyCodeLine{00393       \}}
+\DoxyCodeLine{00394     \}}
+\DoxyCodeLine{00395   \}}
+\DoxyCodeLine{00396 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2dotdirdeps_8cpp_a8c294bd8cf4c31b846744d5e5ca845fa}{draw\+Cluster\+Opening()}}, \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end()}}, \mbox{\hyperlink{class_dir_def_a1fdadd32de095dd846b619f8d220f03c}{Dir\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_dir_def_a6ddd6f5e08f9a04cc43cf15e388bc2af}{Dir\+Def\+::parent()}}, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, and \mbox{\hyperlink{class_dir_def_acf2258b5d619e2eb34f09dd33d34de0f}{Dir\+Def\+::used\+Dirs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_dir_deps_aabd03f079f16a9d70e103e6bb9b3c36e}{Dot\+Dir\+Deps\+::compute\+The\+Graph()}}.
+

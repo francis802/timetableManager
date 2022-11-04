@@ -1,0 +1,1338 @@
+\hypertarget{src_2lexcode_8l}{}\doxysection{doxygen/src/lexcode.l File Reference}
+\label{src_2lexcode_8l}\index{doxygen/src/lexcode.l@{doxygen/src/lexcode.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lexcode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlexcode_y_y__state}{lexcode\+YY\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{struct_lex_code_parser_1_1_private}{Lex\+Code\+Parser\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2lexcode_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{src_2lexcode_8l_a15b85de192a189d5a31cdd518e001e6e}{YY\+\_\+\+NEVER\+\_\+\+INTERACTIVE}}~1
+\item 
+\#define \mbox{\hyperlink{src_2lexcode_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{src_2lexcode_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{src_2lexcode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{src_2lexcode_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=\mbox{\hyperlink{src_2xmlcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}{yyread}}(yyscanner,buf,max\+\_\+size);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{src_2lexcode_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_adbfcafb48c794e6885763cd94da51375}{set\+Current\+Doc}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&anchor)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{start\+Code\+Line}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{end\+Code\+Line}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codify\+Lines}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}{start\+Font\+Class}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+static int \mbox{\hyperlink{src_2lexcode_8l_a635b111e9953d65f6353bf0d7eb9fb1f}{count\+Lines}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static int \mbox{\hyperlink{src_2lexcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}{yyread}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, char $\ast$buf, int max\+\_\+size)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}{line\+Count}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handle\+CCode}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static const char $\ast$ \mbox{\hyperlink{src_2lexcode_8l_acb5f8818546103e3b804ab8606b52c4a}{get\+Lexer\+FILE}} ()
+\item 
+int \mbox{\hyperlink{src_2lexcode_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2lexcode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{src_2lexcode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{lexcode.l@{lexcode.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00045}{45}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_aacfdca45fa4beb8b06172525a53c424a}\label{src_2lexcode_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{lexcode.l@{lexcode.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=\mbox{\hyperlink{src_2xmlcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}{yyread}}(yyscanner,buf,max\+\_\+size);}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00108}{108}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a15b85de192a189d5a31cdd518e001e6e}\label{src_2lexcode_8l_a15b85de192a189d5a31cdd518e001e6e}} 
+\index{lexcode.l@{lexcode.l}!YY\_NEVER\_INTERACTIVE@{YY\_NEVER\_INTERACTIVE}}
+\index{YY\_NEVER\_INTERACTIVE@{YY\_NEVER\_INTERACTIVE}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NEVER\_INTERACTIVE}{YY\_NEVER\_INTERACTIVE}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NEVER\+\_\+\+INTERACTIVE~1}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00041}{41}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a85523a0c7d95c059d251b4e9829947aa}\label{src_2lexcode_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{lexcode.l@{lexcode.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00042}{42}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_ae78ac56cd1f29572e967ed7636952d15}\label{src_2lexcode_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{lexcode.l@{lexcode.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00043}{43}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{src_2lexcode_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{lexcode.l@{lexcode.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00024}{24}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{src_2lexcode_8l_a9484188abbc459dafcbd4c96425fa70b}\label{src_2lexcode_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{lexcode.l@{lexcode.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00026}{26}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}\label{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}} 
+\index{lexcode.l@{lexcode.l}!codifyLines@{codifyLines}}
+\index{codifyLines@{codifyLines}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{codifyLines()}{codifyLines()}}
+{\footnotesize\ttfamily static void codify\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01051}{1051}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01052 \{}
+\DoxyCodeLine{01053   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01054   \textcolor{keywordflow}{if} (text.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01055   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=text.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),*sp=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01056   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01057   \textcolor{keywordtype}{bool} done=\textcolor{keyword}{false};}
+\DoxyCodeLine{01058   \textcolor{keywordflow}{while} (!done)}
+\DoxyCodeLine{01059   \{}
+\DoxyCodeLine{01060     sp=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01061     \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++) \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)n'}) \{ \}}
+\DoxyCodeLine{01062     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01063     \{}
+\DoxyCodeLine{01064       yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{01065       \textcolor{keywordtype}{int} l = (int)(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/sp-\/1);}
+\DoxyCodeLine{01066       \textcolor{keywordtype}{char} *tmp = (\textcolor{keywordtype}{char}*)malloc(l+1);}
+\DoxyCodeLine{01067       memcpy(tmp,sp,l);}
+\DoxyCodeLine{01068       tmp[l]=\textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{01069       yyextra-\/>code-\/>codify(tmp);}
+\DoxyCodeLine{01070       \mbox{\hyperlink{src_2lexcode_8l_a3b060f853a2545afc385b18ecc734473}{nextCodeLine}}(yyscanner);}
+\DoxyCodeLine{01071       free(tmp);}
+\DoxyCodeLine{01072     \}}
+\DoxyCodeLine{01073     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01074     \{}
+\DoxyCodeLine{01075       yyextra-\/>code-\/>codify(sp);}
+\DoxyCodeLine{01076       done=\textcolor{keyword}{true};}
+\DoxyCodeLine{01077     \}}
+\DoxyCodeLine{01078   \}}
+\DoxyCodeLine{01079   yyextra-\/>startCCodeLine = yyextra-\/>yyLineNr;}
+\DoxyCodeLine{01080 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{src_2lexcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handle\+CCode()}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a635b111e9953d65f6353bf0d7eb9fb1f}\label{src_2lexcode_8l_a635b111e9953d65f6353bf0d7eb9fb1f}} 
+\index{lexcode.l@{lexcode.l}!countLines@{countLines}}
+\index{countLines@{countLines}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{countLines()}{countLines()}}
+{\footnotesize\ttfamily static int count\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+counts the number of lines in the input 
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01095}{1095}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01096 \{}
+\DoxyCodeLine{01097   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01098   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=yyextra-\/>inputString;}
+\DoxyCodeLine{01099   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01100   \textcolor{keywordtype}{int} count=1;}
+\DoxyCodeLine{01101   \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}))}
+\DoxyCodeLine{01102   \{}
+\DoxyCodeLine{01103     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++ ;}
+\DoxyCodeLine{01104     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'}) count++;}
+\DoxyCodeLine{01105   \}}
+\DoxyCodeLine{01106   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}>yyextra-\/>inputString \&\& *(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/1)!=\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01107   \{ \textcolor{comment}{// last line does not end with a \(\backslash\)n, so we add an extra}}
+\DoxyCodeLine{01108     count++;}
+\DoxyCodeLine{01109   \}}
+\DoxyCodeLine{01110   \textcolor{keywordflow}{return} count;}
+\DoxyCodeLine{01111 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a22b46d1ae6472d2565e3bd435f982d16}\label{src_2lexcode_8l_a22b46d1ae6472d2565e3bd435f982d16}} 
+\index{lexcode.l@{lexcode.l}!endCodeLine@{endCodeLine}}
+\index{endCodeLine@{endCodeLine}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{endCodeLine()}{endCodeLine()}}
+{\footnotesize\ttfamily static void end\+Code\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01028}{1028}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01029 \{}
+\DoxyCodeLine{01030   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01031   \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{01032   yyextra-\/>code-\/>endCodeLine();}
+\DoxyCodeLine{01033   yyextra-\/>insideCodeLine = \textcolor{keyword}{false};}
+\DoxyCodeLine{01034 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2lexcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line()}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}\label{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}} 
+\index{lexcode.l@{lexcode.l}!endFontClass@{endFontClass}}
+\index{endFontClass@{endFontClass}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{endFontClass()}{endFontClass()}}
+{\footnotesize\ttfamily static void end\+Font\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01018}{1018}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01019 \{}
+\DoxyCodeLine{01020   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01021   \textcolor{keywordflow}{if} (yyextra-\/>currentFontClass)}
+\DoxyCodeLine{01022   \{}
+\DoxyCodeLine{01023     yyextra-\/>code-\/>endFontClass();}
+\DoxyCodeLine{01024     yyextra-\/>currentFontClass=0;}
+\DoxyCodeLine{01025   \}}
+\DoxyCodeLine{01026 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{src_2lexcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{end\+Code\+Line()}}, and \mbox{\hyperlink{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}{start\+Font\+Class()}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_acb5f8818546103e3b804ab8606b52c4a}\label{src_2lexcode_8l_acb5f8818546103e3b804ab8606b52c4a}} 
+\index{lexcode.l@{lexcode.l}!getLexerFILE@{getLexerFILE}}
+\index{getLexerFILE@{getLexerFILE}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{getLexerFILE()}{getLexerFILE()}}
+{\footnotesize\ttfamily static const char $\ast$ get\+Lexer\+FILE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00111}{111}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111 \{return \_\_FILE\_\_;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}\label{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}} 
+\index{lexcode.l@{lexcode.l}!handleCCode@{handleCCode}}
+\index{handleCCode@{handleCCode}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{handleCCode()}{handleCCode()}}
+{\footnotesize\ttfamily static void handle\+CCode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01141}{1141}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01142 \{}
+\DoxyCodeLine{01143   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01144   \textcolor{keywordflow}{if} (yyextra-\/>CCodeBuffer.isEmpty()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01145 }
+\DoxyCodeLine{01146   yyextra-\/>ccodeParser.setInsideCodeLine(yyextra-\/>insideCodeLine);}
+\DoxyCodeLine{01147   yyextra-\/>ccodeParser.parseCode(*yyextra-\/>code,}
+\DoxyCodeLine{01148                yyextra-\/>classScope,}
+\DoxyCodeLine{01149                yyextra-\/>CCodeBuffer,}
+\DoxyCodeLine{01150                \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a3d28c4322de4264c1736eed2918e8202}{SrcLangExt\_Cpp}},}
+\DoxyCodeLine{01151                yyextra-\/>exampleBlock,}
+\DoxyCodeLine{01152                yyextra-\/>exampleName,}
+\DoxyCodeLine{01153                yyextra-\/>sourceFileDef,}
+\DoxyCodeLine{01154                yyextra-\/>startCCodeLine,}
+\DoxyCodeLine{01155                -\/1, \textcolor{comment}{/* endLine will be calculated in called routine */}}
+\DoxyCodeLine{01156                yyextra-\/>includeCodeFragment,}
+\DoxyCodeLine{01157                yyextra-\/>currentMemberDef,}
+\DoxyCodeLine{01158                yyextra-\/>lineNumbers,}
+\DoxyCodeLine{01159                yyextra-\/>searchCtx,}
+\DoxyCodeLine{01160                yyextra-\/>collectXRefs}
+\DoxyCodeLine{01161               );}
+\DoxyCodeLine{01162   yyextra-\/>CCodeBuffer.resize(0);}
+\DoxyCodeLine{01163   yyextra-\/>insideCodeLine = yyextra-\/>ccodeParser.insideCodeLine();}
+\DoxyCodeLine{01164   yyextra-\/>yyLineNr-\/-\/;}
+\DoxyCodeLine{01165   \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{01166 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codify\+Lines()}}, and \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a3d28c4322de4264c1736eed2918e8202}{Src\+Lang\+Ext\+\_\+\+Cpp}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}\label{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}} 
+\index{lexcode.l@{lexcode.l}!lineCount@{lineCount}}
+\index{lineCount@{lineCount}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{lineCount()}{lineCount()}}
+{\footnotesize\ttfamily static void line\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01128}{1128}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01129 \{}
+\DoxyCodeLine{01130   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01131   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01132   \textcolor{keywordflow}{for} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = yytext ; *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} ; ++\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} )}
+\DoxyCodeLine{01133   \{}
+\DoxyCodeLine{01134     \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01135     \{}
+\DoxyCodeLine{01136       yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{01137     \}}
+\DoxyCodeLine{01138   \}}
+\DoxyCodeLine{01139 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a3b060f853a2545afc385b18ecc734473}\label{src_2lexcode_8l_a3b060f853a2545afc385b18ecc734473}} 
+\index{lexcode.l@{lexcode.l}!nextCodeLine@{nextCodeLine}}
+\index{nextCodeLine@{nextCodeLine}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{nextCodeLine()}{nextCodeLine()}}
+{\footnotesize\ttfamily static void next\+Code\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01036}{1036}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01037 \{}
+\DoxyCodeLine{01038   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01039   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fc = yyextra-\/>currentFontClass;}
+\DoxyCodeLine{01040   \textcolor{keywordflow}{if} (yyextra-\/>insideCodeLine)}
+\DoxyCodeLine{01041   \{}
+\DoxyCodeLine{01042     \mbox{\hyperlink{src_2lexcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{endCodeLine}}(yyscanner);}
+\DoxyCodeLine{01043   \}}
+\DoxyCodeLine{01044   \textcolor{keywordflow}{if} (yyextra-\/>yyLineNr<yyextra-\/>inputLines)}
+\DoxyCodeLine{01045   \{}
+\DoxyCodeLine{01046     yyextra-\/>currentFontClass = fc;}
+\DoxyCodeLine{01047     \mbox{\hyperlink{src_2lexcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{startCodeLine}}(yyscanner);}
+\DoxyCodeLine{01048   \}}
+\DoxyCodeLine{01049 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2lexcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{end\+Code\+Line()}}, and \mbox{\hyperlink{src_2lexcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{start\+Code\+Line()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codify\+Lines()}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_adbfcafb48c794e6885763cd94da51375}\label{src_2lexcode_8l_adbfcafb48c794e6885763cd94da51375}} 
+\index{lexcode.l@{lexcode.l}!setCurrentDoc@{setCurrentDoc}}
+\index{setCurrentDoc@{setCurrentDoc}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{setCurrentDoc()}{setCurrentDoc()}}
+{\footnotesize\ttfamily static void set\+Current\+Doc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{anchor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00951}{951}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00952 \{}
+\DoxyCodeLine{00953   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{00954   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen::searchIndex}})}
+\DoxyCodeLine{00955   \{}
+\DoxyCodeLine{00956     \textcolor{keywordflow}{if} (yyextra-\/>searchCtx)}
+\DoxyCodeLine{00957     \{}
+\DoxyCodeLine{00958       yyextra-\/>code-\/>setCurrentDoc(yyextra-\/>searchCtx,yyextra-\/>searchCtx-\/>anchor(),\textcolor{keyword}{false});}
+\DoxyCodeLine{00959     \}}
+\DoxyCodeLine{00960     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00961     \{}
+\DoxyCodeLine{00962       yyextra-\/>code-\/>setCurrentDoc(yyextra-\/>sourceFileDef,anchor,\textcolor{keyword}{true});}
+\DoxyCodeLine{00963     \}}
+\DoxyCodeLine{00964   \}}
+\DoxyCodeLine{00965 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen\+::search\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2lexcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{start\+Code\+Line()}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}\label{src_2lexcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}} 
+\index{lexcode.l@{lexcode.l}!startCodeLine@{startCodeLine}}
+\index{startCodeLine@{startCodeLine}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{startCodeLine()}{startCodeLine()}}
+{\footnotesize\ttfamily static void start\+Code\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+start a new line of code, inserting a line number if yyextra-\/\texorpdfstring{$>$}{>}source\+File\+Def is true. If a definition starts at the current line, then the line number is linked to the documentation of that definition. 
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00971}{971}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00972 \{}
+\DoxyCodeLine{00973   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{00974   \textcolor{keywordflow}{if} (yyextra-\/>sourceFileDef \&\& yyextra-\/>lineNumbers)}
+\DoxyCodeLine{00975   \{}
+\DoxyCodeLine{00976     \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *d = yyextra-\/>sourceFileDef-\/>getSourceDefinition(yyextra-\/>yyLineNr);}
+\DoxyCodeLine{00977 }
+\DoxyCodeLine{00978     \textcolor{keywordflow}{if} (!yyextra-\/>includeCodeFragment \&\& d)}
+\DoxyCodeLine{00979     \{}
+\DoxyCodeLine{00980       yyextra-\/>currentDefinition = d;}
+\DoxyCodeLine{00981       yyextra-\/>currentMemberDef = yyextra-\/>sourceFileDef-\/>getSourceMember(yyextra-\/>yyLineNr);}
+\DoxyCodeLine{00982       yyextra-\/>classScope = d-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{00983       \mbox{\hyperlink{class_q_c_string}{QCString}} lineAnchor;}
+\DoxyCodeLine{00984       lineAnchor.\mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}l\%05d"{}},yyextra-\/>yyLineNr);}
+\DoxyCodeLine{00985       \textcolor{keywordflow}{if} (yyextra-\/>currentMemberDef)}
+\DoxyCodeLine{00986       \{}
+\DoxyCodeLine{00987         yyextra-\/>code-\/>writeLineNumber(yyextra-\/>currentMemberDef-\/>getReference(),}
+\DoxyCodeLine{00988                             yyextra-\/>currentMemberDef-\/>getOutputFileBase(),}
+\DoxyCodeLine{00989                             yyextra-\/>currentMemberDef-\/>anchor(),yyextra-\/>yyLineNr,}
+\DoxyCodeLine{00990                             !yyextra-\/>includeCodeFragment);}
+\DoxyCodeLine{00991         \mbox{\hyperlink{src_2lexcode_8l_adbfcafb48c794e6885763cd94da51375}{setCurrentDoc}}(yyscanner,lineAnchor);}
+\DoxyCodeLine{00992       \}}
+\DoxyCodeLine{00993       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00994       \{}
+\DoxyCodeLine{00995         yyextra-\/>code-\/>writeLineNumber(d-\/>\mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{getReference}}(),}
+\DoxyCodeLine{00996                             d-\/>\mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{getOutputFileBase}}(),}
+\DoxyCodeLine{00997                             \mbox{\hyperlink{class_q_c_string}{QCString}}(),yyextra-\/>yyLineNr,}
+\DoxyCodeLine{00998                             !yyextra-\/>includeCodeFragment);}
+\DoxyCodeLine{00999         \mbox{\hyperlink{src_2lexcode_8l_adbfcafb48c794e6885763cd94da51375}{setCurrentDoc}}(yyscanner,lineAnchor);}
+\DoxyCodeLine{01000       \}}
+\DoxyCodeLine{01001     \}}
+\DoxyCodeLine{01002     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01003     \{}
+\DoxyCodeLine{01004       yyextra-\/>code-\/>writeLineNumber(\mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),yyextra-\/>yyLineNr,}
+\DoxyCodeLine{01005                                      !yyextra-\/>includeCodeFragment);}
+\DoxyCodeLine{01006     \}}
+\DoxyCodeLine{01007   \}}
+\DoxyCodeLine{01008 }
+\DoxyCodeLine{01009   yyextra-\/>code-\/>startCodeLine(yyextra-\/>sourceFileDef \&\& yyextra-\/>lineNumbers);}
+\DoxyCodeLine{01010   yyextra-\/>insideCodeLine = \textcolor{keyword}{true};}
+\DoxyCodeLine{01011 }
+\DoxyCodeLine{01012   \textcolor{keywordflow}{if} (yyextra-\/>currentFontClass)}
+\DoxyCodeLine{01013   \{}
+\DoxyCodeLine{01014     yyextra-\/>code-\/>startFontClass(yyextra-\/>currentFontClass);}
+\DoxyCodeLine{01015   \}}
+\DoxyCodeLine{01016 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{Definition\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{Definition\+::get\+Reference()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{src_2lexcode_8l_adbfcafb48c794e6885763cd94da51375}{set\+Current\+Doc()}}, and \mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{QCString\+::sprintf()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2lexcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line()}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}\label{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}} 
+\index{lexcode.l@{lexcode.l}!startFontClass@{startFontClass}}
+\index{startFontClass@{startFontClass}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{startFontClass()}{startFontClass()}}
+{\footnotesize\ttfamily static void start\+Font\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const char $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01082}{1082}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01083 \{}
+\DoxyCodeLine{01084   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01085   \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{01086   \textcolor{keywordflow}{if} (!yyextra-\/>currentFontClass || !\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} || \mbox{\hyperlink{build_2doxygen_2examples_2relates_8cpp_a7ceb7d379a52f7e26418e7a446b4a41a}{strcmp}}(yyextra-\/>currentFontClass,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}))}
+\DoxyCodeLine{01087   \{}
+\DoxyCodeLine{01088     \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{01089     yyextra-\/>code-\/>startFontClass(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{01090     yyextra-\/>currentFontClass=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{01091   \}}
+\DoxyCodeLine{01092 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, and \mbox{\hyperlink{build_2doxygen_2examples_2relates_8cpp_a7ceb7d379a52f7e26418e7a446b4a41a}{strcmp()}}.
+
+\mbox{\Hypertarget{src_2lexcode_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{src_2lexcode_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{lexcode.l@{lexcode.l}!yylex@{yylex}}
+\index{yylex@{yylex}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily int yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l00193}{193}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196              \{TopStart\}  \{}
+\DoxyCodeLine{00197                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00198                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00199                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00200                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00201                            BEGIN (TopSection);}
+\DoxyCodeLine{00202                          \}}
+\DoxyCodeLine{00203 <DefSection>\string^\{LiteralStart\}   \{}
+\DoxyCodeLine{00204                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00205                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00206                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00207                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00208                            BEGIN (LiteralSection);}
+\DoxyCodeLine{00209                          \}}
+\DoxyCodeLine{00210 <TopSection>\string^\{TopEnd\}    \{}
+\DoxyCodeLine{00211                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00212                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00213                            BEGIN( yyextra-\/>lastContext ) ;}
+\DoxyCodeLine{00214                          \}}
+\DoxyCodeLine{00215 <TopSection>.*\{nl\}       \{}
+\DoxyCodeLine{00216                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00217                            yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00218                          \}}
+\DoxyCodeLine{00219 <LiteralSection>\string^\{LiteralEnd\}     \{}
+\DoxyCodeLine{00220                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00221                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00222                            BEGIN( yyextra-\/>lastContext ) ;}
+\DoxyCodeLine{00223                          \}}
+\DoxyCodeLine{00224 <LiteralSection>.*\{nl\}   \{}
+\DoxyCodeLine{00225                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00226                            yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00227                          \}}
+\DoxyCodeLine{00228 <DefSection>\{CPPC\}.*\{nl\}   \{}
+\DoxyCodeLine{00229                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00230                            yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00231                          \}}
+\DoxyCodeLine{00232 <DefSection>\string^\{ws\}*\{CCS\}   \{}
+\DoxyCodeLine{00233                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00234                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00235                            BEGIN(COMMENT);}
+\DoxyCodeLine{00236                          \}}
+\DoxyCodeLine{00237 <COMMENT>\{CCE\}\{ws\}*\{nl\}   \{}
+\DoxyCodeLine{00238                            yyextra-\/>CCodeBuffer+=yytext;}
+\DoxyCodeLine{00239                            yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00240                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00241                            BEGIN(yyextra-\/>lastContext);}
+\DoxyCodeLine{00242                          \}}
+\DoxyCodeLine{00243 <COMMENT>\{CCE\}            \{}
+\DoxyCodeLine{00244                            yyextra-\/>CCodeBuffer+=yytext;}
+\DoxyCodeLine{00245                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00246                            BEGIN(yyextra-\/>lastContext);}
+\DoxyCodeLine{00247                          \}}
+\DoxyCodeLine{00248 <COMMENT>[\string^*\(\backslash\)n]+         \{}
+\DoxyCodeLine{00249                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00250                          \}}
+\DoxyCodeLine{00251 <COMMENT>\{CPPC\}|\{CCS\}       \{}
+\DoxyCodeLine{00252                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00253                          \}}
+\DoxyCodeLine{00254 <COMMENT>\{nl\}            \{}
+\DoxyCodeLine{00255                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00256                            yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00257                          \}}
+\DoxyCodeLine{00258 <COMMENT>.               \{}
+\DoxyCodeLine{00259                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00260                          \}}
+\DoxyCodeLine{00261 <DefSection>\string^\{nl\}        \{}
+\DoxyCodeLine{00262                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00263                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00264                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00265                          \}}
+\DoxyCodeLine{00266 <DefSection>\string^\{ws\}.*\{nl\}  \{}
+\DoxyCodeLine{00267                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00268                            yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00269                          \}}
+\DoxyCodeLine{00270 <DefSection>\string^\{RulesStart\} \{}
+\DoxyCodeLine{00271                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00272                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00273                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00274                            BEGIN (RulesSectionInit);}
+\DoxyCodeLine{00275                          \}}
+\DoxyCodeLine{00276 <DefSection>\string^\{nws\}       \{}
+\DoxyCodeLine{00277                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00278                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00279                            BEGIN(DefSectionLine);}
+\DoxyCodeLine{00280                          \}}
+\DoxyCodeLine{00281 <DefSectionLine>.*\{nl\}   \{}
+\DoxyCodeLine{00282                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00283                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00284                            BEGIN(DefSection);}
+\DoxyCodeLine{00285                          \}}
+\DoxyCodeLine{00286 <RulesSectionInit,RulesPattern>\string^\{RulesEnd\} \{}
+\DoxyCodeLine{00287                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00288                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00289                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00290                            BEGIN (UserSection);}
+\DoxyCodeLine{00291                          \}}
+\DoxyCodeLine{00292 <RulesSectionInit>\string^\{nws\} \{}
+\DoxyCodeLine{00293                            \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00294                            unput(*yytext);}
+\DoxyCodeLine{00295                            BEGIN(RulesPattern);}
+\DoxyCodeLine{00296                          \}}
+\DoxyCodeLine{00297 <RulesSectionInit>\{nl\}   \{}
+\DoxyCodeLine{00298                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00299                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00300                          \}}
+\DoxyCodeLine{00301 <RulesSectionInit>\string^\{ws\}.*\{nl\} \{}
+\DoxyCodeLine{00302                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00303                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00304                          \}}
+\DoxyCodeLine{00305 <RulesPattern>"{}<<EOF>>"{}  \{}
+\DoxyCodeLine{00306                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00307                          \}}
+\DoxyCodeLine{00308 <RulesPattern>\{EscapeRulesChar\} \{}
+\DoxyCodeLine{00309                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00310                          \}}
+\DoxyCodeLine{00311 <RulesPattern>\{RulesSharp\} \{}
+\DoxyCodeLine{00312                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00313                          \}}
+\DoxyCodeLine{00314 <RulesPattern>\{RulesCurly\} \{}
+\DoxyCodeLine{00315                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00316                          \}}
+\DoxyCodeLine{00317 <RulesPattern>\{StartDouble\} \{}
+\DoxyCodeLine{00318                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00319                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00320                            BEGIN(RulesDouble);}
+\DoxyCodeLine{00321                         \}}
+\DoxyCodeLine{00322 <RulesDouble,RulesRoundDouble>"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}      \{}
+\DoxyCodeLine{00323                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00324                         \}}
+\DoxyCodeLine{00325 <RulesDouble,RulesRoundDouble>"{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}     \{}
+\DoxyCodeLine{00326                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00327                         \}}
+\DoxyCodeLine{00328 <RulesDouble>"{}\(\backslash\)"{}"{}       \{}
+\DoxyCodeLine{00329                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00330                            BEGIN( yyextra-\/>lastContext ) ;}
+\DoxyCodeLine{00331                         \}}
+\DoxyCodeLine{00332 <RulesRoundDouble>"{}\(\backslash\)"{}"{}  \{}
+\DoxyCodeLine{00333                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00334                            BEGIN(RulesRound) ;}
+\DoxyCodeLine{00335                         \}}
+\DoxyCodeLine{00336 <RulesDouble,RulesRoundDouble>.          \{}
+\DoxyCodeLine{00337                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00338                         \}}
+\DoxyCodeLine{00339 <RulesPattern>\{StartSquare\} \{}
+\DoxyCodeLine{00340                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00341                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00342                            BEGIN(RulesSquare);}
+\DoxyCodeLine{00343                         \}}
+\DoxyCodeLine{00344 <RulesSquare,RulesRoundSquare>\{CHARCE\} \{}
+\DoxyCodeLine{00345                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00346                         \}}
+\DoxyCodeLine{00347 <RulesSquare,RulesRoundSquare>"{}\(\backslash\)\(\backslash\)["{}      |}
+\DoxyCodeLine{00348 <RulesSquare,RulesRoundSquare>"{}\(\backslash\)\(\backslash\)]"{}      \{}
+\DoxyCodeLine{00349                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00350                         \}}
+\DoxyCodeLine{00351 <RulesSquare>"{}]"{}        \{}
+\DoxyCodeLine{00352                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00353                            BEGIN(RulesPattern) ;}
+\DoxyCodeLine{00354                         \}}
+\DoxyCodeLine{00355 <RulesRoundSquare>"{}]"{}        \{}
+\DoxyCodeLine{00356                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00357                            BEGIN(RulesRound) ;}
+\DoxyCodeLine{00358                         \}}
+\DoxyCodeLine{00359 <RulesSquare,RulesRoundSquare>"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}          \{}
+\DoxyCodeLine{00360                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00361                         \}}
+\DoxyCodeLine{00362 <RulesSquare,RulesRoundSquare>.          \{}
+\DoxyCodeLine{00363                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00364                         \}}
+\DoxyCodeLine{00365 <RulesPattern>\{StartRoundQuest\} \{}
+\DoxyCodeLine{00366                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00367                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00368                            BEGIN(RulesRoundQuest);}
+\DoxyCodeLine{00369                          \}}
+\DoxyCodeLine{00370 <RulesRoundQuest>\{nl\}    \{}
+\DoxyCodeLine{00371                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00372                            \textcolor{keywordflow}{if} (!yyextra-\/>rulesPatternBuffer.isEmpty())}
+\DoxyCodeLine{00373                            \{}
+\DoxyCodeLine{00374                              \mbox{\hyperlink{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}stringliteral"{}});}
+\DoxyCodeLine{00375                              \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yyextra-\/>rulesPatternBuffer.data());}
+\DoxyCodeLine{00376                              yyextra-\/>rulesPatternBuffer.resize(0);}
+\DoxyCodeLine{00377                              \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00378                            \}}
+\DoxyCodeLine{00379                          \}}
+\DoxyCodeLine{00380 <RulesRoundQuest>[\string^)]    \{}
+\DoxyCodeLine{00381                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00382                          \}}
+\DoxyCodeLine{00383 <RulesRoundQuest>"{})"{}     \{}
+\DoxyCodeLine{00384                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00385                            BEGIN(yyextra-\/>lastContext);}
+\DoxyCodeLine{00386                          \}}
+\DoxyCodeLine{00387 <RulesPattern>\{StartRound\} \{}
+\DoxyCodeLine{00388                            yyextra-\/>roundCount++;}
+\DoxyCodeLine{00389                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00390                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00391                            BEGIN(RulesRound);}
+\DoxyCodeLine{00392                         \}}
+\DoxyCodeLine{00393 <RulesRound>\{RulesCurly\} \{}
+\DoxyCodeLine{00394                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00395                         \}}
+\DoxyCodeLine{00396 <RulesRound>\{StartSquare\} \{}
+\DoxyCodeLine{00397                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00398                            BEGIN(RulesRoundSquare);}
+\DoxyCodeLine{00399                         \}}
+\DoxyCodeLine{00400 <RulesRound>\{StartDouble\} \{}
+\DoxyCodeLine{00401                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00402                            BEGIN(RulesRoundDouble);}
+\DoxyCodeLine{00403                         \}}
+\DoxyCodeLine{00404 <RulesRound>\{EscapeRulesChar\} \{}
+\DoxyCodeLine{00405                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00406                         \}}
+\DoxyCodeLine{00407 <RulesRound>"{}("{}         \{}
+\DoxyCodeLine{00408                            yyextra-\/>roundCount++;}
+\DoxyCodeLine{00409                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00410                         \}}
+\DoxyCodeLine{00411 <RulesRound>"{})"{}         \{}
+\DoxyCodeLine{00412                            yyextra-\/>roundCount-\/-\/;}
+\DoxyCodeLine{00413                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00414                            \textcolor{keywordflow}{if} (!yyextra-\/>roundCount) BEGIN( yyextra-\/>lastContext ) ;}
+\DoxyCodeLine{00415                         \}}
+\DoxyCodeLine{00416 <RulesRound>\{nl\}        \{}
+\DoxyCodeLine{00417                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00418                            yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00419                         \}}
+\DoxyCodeLine{00420 <RulesRound>\{ws\}        \{}
+\DoxyCodeLine{00421                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00422                         \}}
+\DoxyCodeLine{00423 <RulesRound>.           \{}
+\DoxyCodeLine{00424                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00425                         \}}
+\DoxyCodeLine{00426 <RulesPattern>\{ws\}+"{}|"{}  \{}
+\DoxyCodeLine{00427                            \textcolor{keywordflow}{if} (!yyextra-\/>rulesPatternBuffer.isEmpty())}
+\DoxyCodeLine{00428                            \{}
+\DoxyCodeLine{00429                              \mbox{\hyperlink{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}stringliteral"{}});}
+\DoxyCodeLine{00430                              \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yyextra-\/>rulesPatternBuffer);}
+\DoxyCodeLine{00431                              yyextra-\/>rulesPatternBuffer.resize(0);}
+\DoxyCodeLine{00432                              \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00433                            \}}
+\DoxyCodeLine{00434                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00435                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00436                            yyextra-\/>curlyCount = 0;}
+\DoxyCodeLine{00437                            BEGIN(SkipCurly);}
+\DoxyCodeLine{00438                          \}}
+\DoxyCodeLine{00439 <RulesPattern>\string^\{ws\}*\{nl\} \{}
+\DoxyCodeLine{00440                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00441                          \}}
+\DoxyCodeLine{00442 <RulesPattern>\string^\{ws\}+     \{}
+\DoxyCodeLine{00443                            \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00444                          \}}
+\DoxyCodeLine{00445 <RulesPattern>(\{ws\}|\{nl\}) \{}
+\DoxyCodeLine{00446                            unput(*yytext);}
+\DoxyCodeLine{00447                            \textcolor{keywordflow}{if} (!yyextra-\/>rulesPatternBuffer.isEmpty())}
+\DoxyCodeLine{00448                            \{}
+\DoxyCodeLine{00449                              \mbox{\hyperlink{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}stringliteral"{}});}
+\DoxyCodeLine{00450                              \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yyextra-\/>rulesPatternBuffer);}
+\DoxyCodeLine{00451                              yyextra-\/>rulesPatternBuffer.resize(0);}
+\DoxyCodeLine{00452                              \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00453                            \}}
+\DoxyCodeLine{00454                            yyextra-\/>startCCodeLine=yyextra-\/>yyLineNr;}
+\DoxyCodeLine{00455                            yyextra-\/>curlyCount = 0;}
+\DoxyCodeLine{00456                            BEGIN(SkipCurly);}
+\DoxyCodeLine{00457                          \}}
+\DoxyCodeLine{00458 <RulesPattern>"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}     \{}
+\DoxyCodeLine{00459                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00460                          \}}
+\DoxyCodeLine{00461 <RulesPattern>\{CCS\}       \{}
+\DoxyCodeLine{00462                            \textcolor{keywordflow}{if} (!yyextra-\/>rulesPatternBuffer.isEmpty())}
+\DoxyCodeLine{00463                            \{}
+\DoxyCodeLine{00464                              \mbox{\hyperlink{src_2lexcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}stringliteral"{}});}
+\DoxyCodeLine{00465                              \mbox{\hyperlink{src_2lexcode_8l_a48a235cba4770aa3c63e252304f8b10f}{codifyLines}}(yyscanner,yyextra-\/>rulesPatternBuffer);}
+\DoxyCodeLine{00466                              yyextra-\/>rulesPatternBuffer.resize(0);}
+\DoxyCodeLine{00467                              \mbox{\hyperlink{src_2lexcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00468                            \}}
+\DoxyCodeLine{00469                            yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00470                            yyextra-\/>lastContext = YY\_START;}
+\DoxyCodeLine{00471                            BEGIN(COMMENT);}
+\DoxyCodeLine{00472                          \}}
+\DoxyCodeLine{00473 <RulesPattern>.          \{}
+\DoxyCodeLine{00474                            yyextra-\/>rulesPatternBuffer += yytext;}
+\DoxyCodeLine{00475                          \}}
+\DoxyCodeLine{00476 <SkipCurly>\{B\}*"{}\#"{}\{B\}+[0-\/9]+\{B\}+/"{}\(\backslash\)"{}"{} \{ /* line control directive */}
+\DoxyCodeLine{00477                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00478                             yyextra-\/>lastPreLineCtrlContext = YY\_START;}
+\DoxyCodeLine{00479                             BEGIN( PreLineCtrl );}
+\DoxyCodeLine{00480                           \}}
+\DoxyCodeLine{00481 <PreLineCtrl>"{}\(\backslash\)"{}"{}[\string^\(\backslash\)n\(\backslash\)"{}]*"{}\(\backslash\)"{}"{} \{}
+\DoxyCodeLine{00482                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00483                           \}}
+\DoxyCodeLine{00484 <PreLineCtrl>.            \{}
+\DoxyCodeLine{00485                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00486                           \}}
+\DoxyCodeLine{00487 <PreLineCtrl>\(\backslash\)n           \{}
+\DoxyCodeLine{00488                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00489                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00490                             BEGIN( yyextra-\/>lastPreLineCtrlContext );}
+\DoxyCodeLine{00491                           \}}
+\DoxyCodeLine{00492 <SkipCurly>"{}\{"{}            \{}
+\DoxyCodeLine{00493                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00494                                           ++yyextra-\/>curlyCount ;}
+\DoxyCodeLine{00495                           \}}
+\DoxyCodeLine{00496 <SkipCurly>"{}\}"{}/\{BN\}*\{DCOMM\}"{}<!-\/-\/"{} | /* see bug710917 */}
+\DoxyCodeLine{00497 <SkipCurly>"{}\}"{}            \{}
+\DoxyCodeLine{00498                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00499                             \mbox{\hyperlink{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}{lineCount}}(yyscanner);}
+\DoxyCodeLine{00500                             \textcolor{keywordflow}{if}( yyextra-\/>curlyCount )}
+\DoxyCodeLine{00501                             \{}
+\DoxyCodeLine{00502                               -\/-\/yyextra-\/>curlyCount ;}
+\DoxyCodeLine{00503                             \}}
+\DoxyCodeLine{00504                           \}}
+\DoxyCodeLine{00505 <SkipCurly>"{}\}"{}\{BN\}*\{DCOMM\}"{}<"{} \{}
+\DoxyCodeLine{00506                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00507                             \mbox{\hyperlink{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}{lineCount}}(yyscanner);}
+\DoxyCodeLine{00508                             \textcolor{keywordflow}{if} ( yyextra-\/>curlyCount )}
+\DoxyCodeLine{00509                             \{}
+\DoxyCodeLine{00510                               -\/-\/yyextra-\/>curlyCount ;}
+\DoxyCodeLine{00511                             \}}
+\DoxyCodeLine{00512                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00513                             \{}
+\DoxyCodeLine{00514                               yyextra-\/>docBlockContext   = SkipCurlyEndDoc;}
+\DoxyCodeLine{00515                               \textcolor{keywordflow}{if} (yytext[yyleng-\/3]==\textcolor{charliteral}{'/'})}
+\DoxyCodeLine{00516                               \{}
+\DoxyCodeLine{00517                                 BEGIN( DocLine );}
+\DoxyCodeLine{00518                               \}}
+\DoxyCodeLine{00519                               \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00520                               \{}
+\DoxyCodeLine{00521                                 BEGIN( DocBlock );}
+\DoxyCodeLine{00522                               \}}
+\DoxyCodeLine{00523                             \}}
+\DoxyCodeLine{00524                           \}}
+\DoxyCodeLine{00525 <SkipCurly>\(\backslash\)"{}             \{}
+\DoxyCodeLine{00526                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00527                             yyextra-\/>lastStringContext=SkipCurly;}
+\DoxyCodeLine{00528                             BEGIN( SkipString );}
+\DoxyCodeLine{00529                           \}}
+\DoxyCodeLine{00530 <SkipCurly>\string^\{B\}*"{}\#"{}       \{}
+\DoxyCodeLine{00531                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00532                             yyextra-\/>lastPreLineCtrlContext = YY\_START;}
+\DoxyCodeLine{00533                             BEGIN( PreLineCtrl );}
+\DoxyCodeLine{00534                           \}}
+\DoxyCodeLine{00535 <SkipCurly>\{B\}*\{RAWBEGIN\} \{}
+\DoxyCodeLine{00536                             \mbox{\hyperlink{class_q_c_string}{QCString}} raw=\mbox{\hyperlink{class_q_c_string}{QCString}}(yytext).\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{00537                             yyextra-\/>delimiter = raw.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(2);}
+\DoxyCodeLine{00538                             yyextra-\/>delimiter=yyextra-\/>delimiter.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(yyextra-\/>delimiter.length()-\/1);}
+\DoxyCodeLine{00539                             yyextra-\/>lastRawStringContext = YY\_START;}
+\DoxyCodeLine{00540                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00541                             BEGIN(RawString);}
+\DoxyCodeLine{00542                           \}}
+\DoxyCodeLine{00543 <SkipCurly>[\string^\(\backslash\)n\#"{}'@\(\backslash\)\(\backslash\)/\{\}<]+ \{}
+\DoxyCodeLine{00544                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00545                           \}}
+\DoxyCodeLine{00546 <SkipCurly>\{CCS\}           \{}
+\DoxyCodeLine{00547                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00548                             yyextra-\/>lastCContext = YY\_START;}
+\DoxyCodeLine{00549                             BEGIN(SkipComment);}
+\DoxyCodeLine{00550                           \}}
+\DoxyCodeLine{00551 <SkipCurly>\{CPPC\}           \{}
+\DoxyCodeLine{00552                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00553                             yyextra-\/>lastCContext = YY\_START;}
+\DoxyCodeLine{00554                             BEGIN(SkipCxxComment);}
+\DoxyCodeLine{00555                           \}}
+\DoxyCodeLine{00556 <SkipCurly>\{CHARLIT\}      \{}
+\DoxyCodeLine{00557                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00558                           \}}
+\DoxyCodeLine{00559 <SkipCurly>\(\backslash\)'             \{}
+\DoxyCodeLine{00560                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00561                           \}}
+\DoxyCodeLine{00562 <SkipCurly>.              \{}
+\DoxyCodeLine{00563                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00564                           \}}
+\DoxyCodeLine{00565 <SkipCurly>(\{CPPC\}\{B\}*)?\{CCS\}"{}!"{} \{}
+\DoxyCodeLine{00566                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00567                             yyextra-\/>docBlockContext   = YY\_START;}
+\DoxyCodeLine{00568                             BEGIN( DocBlock );}
+\DoxyCodeLine{00569                           \}}
+\DoxyCodeLine{00570 <SkipCurly>\{CCS\}"{}*"{}[*]+\{BL\}  \{}
+\DoxyCodeLine{00571                             \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2examples_2javadoc-banner_8h_a62d4ceb96f5b5b75450244869482de68}{javadocBanner}} = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(JAVADOC\_BANNER);}
+\DoxyCodeLine{00572                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00573                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00574                             \textcolor{keywordflow}{if}( \mbox{\hyperlink{build_2doxygen_2examples_2javadoc-banner_8h_a62d4ceb96f5b5b75450244869482de68}{javadocBanner}} )}
+\DoxyCodeLine{00575                             \{}
+\DoxyCodeLine{00576                               yyextra-\/>docBlockContext   = YY\_START;}
+\DoxyCodeLine{00577                               BEGIN( DocBlock );}
+\DoxyCodeLine{00578                             \}}
+\DoxyCodeLine{00579                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00580                             \{}
+\DoxyCodeLine{00581                               BEGIN( Comment ) ;}
+\DoxyCodeLine{00582                             \}}
+\DoxyCodeLine{00583                           \}}
+\DoxyCodeLine{00584 <SkipCurly>(\{CPPC\}\{B\}*)?\{CCS\}"{}*"{}/\{NCOMM\} \{}
+\DoxyCodeLine{00585                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00586                             yyextra-\/>docBlockContext   = YY\_START;}
+\DoxyCodeLine{00587                             BEGIN( DocBlock );}
+\DoxyCodeLine{00588                           \}}
+\DoxyCodeLine{00589 <SkipCurly>\{CPPC\}"{}!"{}          \{}
+\DoxyCodeLine{00590                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00591                             yyextra-\/>docBlockContext   = YY\_START;}
+\DoxyCodeLine{00592                             BEGIN( DocLine );}
+\DoxyCodeLine{00593                           \}}
+\DoxyCodeLine{00594 <SkipCurly>\{CPPC\}"{}/"{}/[\string^/]     \{}
+\DoxyCodeLine{00595                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00596                             yyextra-\/>docBlockContext   = YY\_START;}
+\DoxyCodeLine{00597                             BEGIN( DocLine );}
+\DoxyCodeLine{00598                           \}}
+\DoxyCodeLine{00599 }
+\DoxyCodeLine{00600 <SkipCurly>\(\backslash\)n             \{}
+\DoxyCodeLine{00601                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00602                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00603                             \textcolor{keywordflow}{if} (yyextra-\/>curlyCount<=0)}
+\DoxyCodeLine{00604                             \{}
+\DoxyCodeLine{00605                               \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00606                               BEGIN(RulesPattern);}
+\DoxyCodeLine{00607                             \}}
+\DoxyCodeLine{00608                           \}}
+\DoxyCodeLine{00609 <SkipString>\(\backslash\)\(\backslash\).           \{}
+\DoxyCodeLine{00610                              yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00611                           \}}
+\DoxyCodeLine{00612 <SkipString>\(\backslash\)"{}            \{}
+\DoxyCodeLine{00613                              yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00614                              BEGIN( yyextra-\/>lastStringContext );}
+\DoxyCodeLine{00615                           \}}
+\DoxyCodeLine{00616 <SkipString>\{CCS\}|\{CCE\}|\{CPPC\} \{}
+\DoxyCodeLine{00617                              yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00618                            \}}
+\DoxyCodeLine{00619 <SkipString>\(\backslash\)n            \{}
+\DoxyCodeLine{00620                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00621                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00622                           \}}
+\DoxyCodeLine{00623 <SkipString>.             \{}
+\DoxyCodeLine{00624                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00625                           \}}
+\DoxyCodeLine{00626 <SkipCxxComment>.*"{}\(\backslash\)\(\backslash\)\(\backslash\)n"{}  \{  // line continuation}
+\DoxyCodeLine{00627                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00628                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00629                           \}}
+\DoxyCodeLine{00630 <SkipCxxComment>\{ANYopt\}/\(\backslash\)n     \{}
+\DoxyCodeLine{00631                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00632                             BEGIN( yyextra-\/>lastCContext ) ;}
+\DoxyCodeLine{00633                           \}}
+\DoxyCodeLine{00634 <Comment>\{BN\}+            \{}
+\DoxyCodeLine{00635                             yyextra-\/>CCodeBuffer += yytext ;}
+\DoxyCodeLine{00636                             \mbox{\hyperlink{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}{lineCount}}(yyscanner);}
+\DoxyCodeLine{00637                           \}}
+\DoxyCodeLine{00638 <Comment>\{CCS\}             \{ yyextra-\/>CCodeBuffer += yytext ; \}}
+\DoxyCodeLine{00639 <Comment>\{CPPC\}             \{ yyextra-\/>CCodeBuffer += yytext ; \}}
+\DoxyCodeLine{00640 <Comment>\{CMD\}("{}code"{}|"{}verbatim"{}|"{}iliteral"{})       \{}
+\DoxyCodeLine{00641                             yyextra-\/>insideCode=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00642                             yyextra-\/>CCodeBuffer += yytext ;}
+\DoxyCodeLine{00643                           \}}
+\DoxyCodeLine{00644 <Comment>\{CMD\}("{}endcode"{}|"{}endverbatim"{}|"{}endiliteral"{}) \{}
+\DoxyCodeLine{00645                             yyextra-\/>insideCode=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00646                             yyextra-\/>CCodeBuffer += yytext ;}
+\DoxyCodeLine{00647                           \}}
+\DoxyCodeLine{00648 <Comment>[\string^ \(\backslash\).\(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)/\(\backslash\)*]+ \{ yyextra-\/>CCodeBuffer += yytext ; \}}
+\DoxyCodeLine{00649 <Comment>\{CCE\}             \{}
+\DoxyCodeLine{00650                             yyextra-\/>CCodeBuffer += yytext ;}
+\DoxyCodeLine{00651                             \textcolor{keywordflow}{if} (!yyextra-\/>insideCode) BEGIN( yyextra-\/>lastContext ) ;}
+\DoxyCodeLine{00652                           \}}
+\DoxyCodeLine{00653 <Comment>.                \{ yyextra-\/>CCodeBuffer += *yytext ; \}}
+\DoxyCodeLine{00654 }
+\DoxyCodeLine{00655 <SkipComment>\{CPPC\}|\{CCS\}    \{}
+\DoxyCodeLine{00656                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00657                           \}}
+\DoxyCodeLine{00658 <SkipComment>[\string^\(\backslash\)*\(\backslash\)n]+     \{}
+\DoxyCodeLine{00659                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00660                           \}}
+\DoxyCodeLine{00661 <SkipComment>\(\backslash\)n           \{}
+\DoxyCodeLine{00662                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00663                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00664                           \}}
+\DoxyCodeLine{00665 <SkipComment>\{B\}*\{CCE\}     \{}
+\DoxyCodeLine{00666                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00667                             BEGIN( yyextra-\/>lastCContext );}
+\DoxyCodeLine{00668                           \}}
+\DoxyCodeLine{00669 <SkipComment>"{}*"{}          \{}
+\DoxyCodeLine{00670                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00671                           \}}
+\DoxyCodeLine{00672 <RawString>\{RAWEND\}       \{}
+\DoxyCodeLine{00673                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00674                             \mbox{\hyperlink{class_q_c_string}{QCString}} delimiter = yytext+1;}
+\DoxyCodeLine{00675                             delimiter=delimiter.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(delimiter.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()-\/1);}
+\DoxyCodeLine{00676                             \textcolor{keywordflow}{if} (delimiter==yyextra-\/>delimiter)}
+\DoxyCodeLine{00677                             \{}
+\DoxyCodeLine{00678                               BEGIN(yyextra-\/>lastRawStringContext);}
+\DoxyCodeLine{00679                             \}}
+\DoxyCodeLine{00680                           \}}
+\DoxyCodeLine{00681 <RawString>[\string^)\(\backslash\)n]+        \{}
+\DoxyCodeLine{00682                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00683                           \}}
+\DoxyCodeLine{00684 <RawString>.              \{}
+\DoxyCodeLine{00685                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00686                           \}}
+\DoxyCodeLine{00687 <RawString>\(\backslash\)n             \{}
+\DoxyCodeLine{00688                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00689                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00690                           \}}
+\DoxyCodeLine{00691 }
+\DoxyCodeLine{00692 }
+\DoxyCodeLine{00693   \textcolor{comment}{/* -\/-\/-\/-\/ Single line comments -\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{00694 <DocLine>[\string^\(\backslash\)n]*"{}\(\backslash\)n"{}[ \(\backslash\)t]*\{CPPC\}[/!][<]? \{ // continuation of multiline C++-\/style comment}
+\DoxyCodeLine{00695                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00696                             \mbox{\hyperlink{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}{lineCount}}(yyscanner);}
+\DoxyCodeLine{00697                           \}}
+\DoxyCodeLine{00698 <DocLine>\{B\}*\{CPPC\}"{}/"{}[/]+\{Bopt\}/"{}\(\backslash\)n"{} \{ // ignore marker line (see bug700345)}
+\DoxyCodeLine{00699                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00700                             BEGIN( yyextra-\/>docBlockContext );}
+\DoxyCodeLine{00701                           \}}
+\DoxyCodeLine{00702 <DocLine>\{NONLopt\}/"{}\(\backslash\)n"{}\{B\}*\{CPPC\}[!/]\{B\}*\{CMD\}"{}\}"{} \{ // next line is an end group marker, see bug 752712}
+\DoxyCodeLine{00703                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00704                             BEGIN( yyextra-\/>docBlockContext );}
+\DoxyCodeLine{00705                           \}}
+\DoxyCodeLine{00706 <DocLine>\{NONLopt\}/"{}\(\backslash\)n"{}      \{ // whole line}
+\DoxyCodeLine{00707                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00708                             BEGIN( yyextra-\/>docBlockContext );}
+\DoxyCodeLine{00709                           \}}
+\DoxyCodeLine{00710 }
+\DoxyCodeLine{00711  \textcolor{comment}{/* -\/-\/-\/-\/ Comments blocks -\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{00712 }
+\DoxyCodeLine{00713 <DocBlock>"{}*"{}*\{CCE\}        \{ // end of comment block}
+\DoxyCodeLine{00714                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00715                           BEGIN(yyextra-\/>docBlockContext);}
+\DoxyCodeLine{00716                                         \}}
+\DoxyCodeLine{00717 <DocBlock>\string^\{B\}*"{}*"{}+/[\string^/]  \{}
+\DoxyCodeLine{00718                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00719                           \}}
+\DoxyCodeLine{00720 <DocBlock>\string^\{B\}*(\{CPPC\})?\{B\}*"{}*"{}+/[\string^/a-\/z\_A-\/Z0-\/9*] \{ // start of a comment line}
+\DoxyCodeLine{00721                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00722                           \}}
+\DoxyCodeLine{00723 <DocBlock>\string^\{B\}*(\{CPPC\})\{B\}* \{ // strip embedded C++ comments if at the start of a line}
+\DoxyCodeLine{00724                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00725                           \}}
+\DoxyCodeLine{00726 <DocBlock>\{CPPC\}            \{ // slashes in the middle of a comment block}
+\DoxyCodeLine{00727                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00728                           \}}
+\DoxyCodeLine{00729 <DocBlock>\{CCS\}            \{ // start of a new comment in the}
+\DoxyCodeLine{00730                             \textcolor{comment}{// middle of a comment block}}
+\DoxyCodeLine{00731                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00732                           \}}
+\DoxyCodeLine{00733 <DocBlock>(\{CMD\}\{CMD\})\{ID\}/[\string^a-\/z\_A-\/Z0-\/9] \{ // escaped command}
+\DoxyCodeLine{00734                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00735                           \}}
+\DoxyCodeLine{00736 <DocBlock>\{CMD\}("{}f\$"{}|"{}f["{}|"{}f\{"{}|"{}f("{}) \{}
+\DoxyCodeLine{00737                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00738                             yyextra-\/>docBlockName=\&yytext[1];}
+\DoxyCodeLine{00739                             \textcolor{keywordflow}{if} (yyextra-\/>docBlockName.at(1)==\textcolor{charliteral}{'['})}
+\DoxyCodeLine{00740                             \{}
+\DoxyCodeLine{00741                               yyextra-\/>docBlockName.at(1)=\textcolor{charliteral}{']'};}
+\DoxyCodeLine{00742                             \}}
+\DoxyCodeLine{00743                             \textcolor{keywordflow}{if} (yyextra-\/>docBlockName.at(1)==\textcolor{charliteral}{'\{'})}
+\DoxyCodeLine{00744                             \{}
+\DoxyCodeLine{00745                               yyextra-\/>docBlockName.at(1)=\textcolor{charliteral}{'\}'};}
+\DoxyCodeLine{00746                             \}}
+\DoxyCodeLine{00747                             \textcolor{keywordflow}{if} (yyextra-\/>docBlockName.at(1)==\textcolor{charliteral}{'('})}
+\DoxyCodeLine{00748                             \{}
+\DoxyCodeLine{00749                               yyextra-\/>docBlockName.at(1)=\textcolor{charliteral}{')'};}
+\DoxyCodeLine{00750                             \}}
+\DoxyCodeLine{00751                             yyextra-\/>fencedSize=0;}
+\DoxyCodeLine{00752                             yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00753                             BEGIN(DocCopyBlock);}
+\DoxyCodeLine{00754                           \}}
+\DoxyCodeLine{00755 <DocBlock>\{B\}*"{}<"{}\{PRE\}"{}>"{} \{}
+\DoxyCodeLine{00756                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00757                             yyextra-\/>docBlockName=\textcolor{stringliteral}{"{}<pre>"{}};}
+\DoxyCodeLine{00758                             yyextra-\/>fencedSize=0;}
+\DoxyCodeLine{00759                             yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00760                             BEGIN(DocCopyBlock);}
+\DoxyCodeLine{00761                           \}}
+\DoxyCodeLine{00762 <DocBlock>\{CMD\}"{}startuml"{}/[\string^a-\/z\_A-\/Z0-\/9\(\backslash\)-\/] \{ // verbatim type command (which could contain nested comments!)}
+\DoxyCodeLine{00763                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00764                             yyextra-\/>docBlockName=\textcolor{stringliteral}{"{}uml"{}};}
+\DoxyCodeLine{00765                             yyextra-\/>fencedSize=0;}
+\DoxyCodeLine{00766                             yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00767                             BEGIN(DocCopyBlock);}
+\DoxyCodeLine{00768                           \}}
+\DoxyCodeLine{00769 <DocBlock>\{CMD\}("{}verbatim"{}|"{}iliteral"{}|"{}latexonly"{}|"{}htmlonly"{}|"{}xmlonly"{}|"{}manonly"{}|"{}rtfonly"{}|"{}docbookonly"{}|"{}dot"{}|"{}msc"{}|"{}code"{})/[\string^a-\/z\_A-\/Z0-\/9\(\backslash\)-\/] \{ // verbatim command (which could contain nested comments!)}
+\DoxyCodeLine{00770                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00771                             yyextra-\/>docBlockName=\&yytext[1];}
+\DoxyCodeLine{00772                             yyextra-\/>fencedSize=0;}
+\DoxyCodeLine{00773                             yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00774                             BEGIN(DocCopyBlock);}
+\DoxyCodeLine{00775                           \}}
+\DoxyCodeLine{00776 <DocBlock>\string^(\{B\}*"{}*"{}+)?\{B\}\{0,3\}"{}\string~\string~\string~"{}[\string~]* \{}
+\DoxyCodeLine{00777                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00778                             \mbox{\hyperlink{class_q_c_string}{QCString}} pat = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(yytext,\textcolor{stringliteral}{"{}*"{}},\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00779                             yyextra-\/>docBlockName=\textcolor{stringliteral}{"{}\string~\string~\string~"{}};}
+\DoxyCodeLine{00780                             yyextra-\/>fencedSize=pat.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}().\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}();}
+\DoxyCodeLine{00781                             yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00782                             BEGIN(DocCopyBlock);}
+\DoxyCodeLine{00783                           \}}
+\DoxyCodeLine{00784 <DocBlock>\string^(\{B\}*"{}*"{}+)?\{B\}\{0,3\}"{}```"{}[`]* \{}
+\DoxyCodeLine{00785                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00786                             \mbox{\hyperlink{class_q_c_string}{QCString}} pat = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(yytext,\textcolor{stringliteral}{"{}*"{}},\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00787                             yyextra-\/>docBlockName=\textcolor{stringliteral}{"{}```"{}};}
+\DoxyCodeLine{00788                             yyextra-\/>fencedSize=pat.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}().\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}();}
+\DoxyCodeLine{00789                             yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00790                             BEGIN(DocCopyBlock);}
+\DoxyCodeLine{00791                           \}}
+\DoxyCodeLine{00792 <DocBlock>\{B\}*"{}<code>"{}    \{}
+\DoxyCodeLine{00793                             REJECT;}
+\DoxyCodeLine{00794                           \}}
+\DoxyCodeLine{00795 <DocBlock>[\string^@*\string~\(\backslash\)/\(\backslash\)\(\backslash\)\(\backslash\)n]+   \{ // any character that isn't special}
+\DoxyCodeLine{00796                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00797                           \}}
+\DoxyCodeLine{00798 <DocBlock>\(\backslash\)n              \{ // newline}
+\DoxyCodeLine{00799                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00800                             \mbox{\hyperlink{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}{lineCount}}(yyscanner);}
+\DoxyCodeLine{00801                           \}}
+\DoxyCodeLine{00802 <DocBlock>.               \{ // command block}
+\DoxyCodeLine{00803                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00804                           \}}
+\DoxyCodeLine{00805  \textcolor{comment}{/* -\/-\/-\/-\/ Copy verbatim sections -\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{00806 }
+\DoxyCodeLine{00807 <DocCopyBlock>"{}</"{}\{PRE\}"{}>"{} \{ // end of a <pre> block}
+\DoxyCodeLine{00808                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00809                             \textcolor{keywordflow}{if} (yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}<pre>"{}})}
+\DoxyCodeLine{00810                             \{}
+\DoxyCodeLine{00811                               BEGIN(DocBlock);}
+\DoxyCodeLine{00812                             \}}
+\DoxyCodeLine{00813                           \}}
+\DoxyCodeLine{00814 <DocCopyBlock>"{}</"{}\{CODE\}"{}>"{} \{ // end of a <code> block}
+\DoxyCodeLine{00815                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00816                             \textcolor{keywordflow}{if} (yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}<code>"{}})}
+\DoxyCodeLine{00817                             \{}
+\DoxyCodeLine{00818                                             BEGIN(DocBlock);}
+\DoxyCodeLine{00819                             \}}
+\DoxyCodeLine{00820                           \}}
+\DoxyCodeLine{00821 <DocCopyBlock>[\(\backslash\)\(\backslash\)@]("{}f\$"{}|"{}f]"{}|"{}f\}"{}|"{}f)"{}) \{}
+\DoxyCodeLine{00822                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00823                             \textcolor{keywordflow}{if} (yyextra-\/>docBlockName==\&yytext[1])}
+\DoxyCodeLine{00824                             \{}
+\DoxyCodeLine{00825                               BEGIN(DocBlock);}
+\DoxyCodeLine{00826                             \}}
+\DoxyCodeLine{00827                           \}}
+\DoxyCodeLine{00828 <DocCopyBlock>[\(\backslash\)\(\backslash\)@]("{}endverbatim"{}|"{}endiliteral"{}|"{}endlatexonly"{}|"{}endhtmlonly"{}|"{}endxmlonly"{}|"{}enddocbookonly"{}|"{}endmanonly"{}|"{}endrtfonly"{}|"{}enddot"{}|"{}endmsc"{}|"{}enduml"{}|"{}endcode"{})/[\string^a-\/z\_A-\/Z0-\/9] \{ // end of verbatim block}
+\DoxyCodeLine{00829                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00830                             \textcolor{keywordflow}{if} (\&yytext[4]==yyextra-\/>docBlockName)}
+\DoxyCodeLine{00831                             \{}
+\DoxyCodeLine{00832                               BEGIN(DocBlock);}
+\DoxyCodeLine{00833                             \}}
+\DoxyCodeLine{00834                           \}}
+\DoxyCodeLine{00835 <DocCopyBlock>\string^\{B\}*"{}*"{}+/\{BN\}+ \{ // start of a comment line}
+\DoxyCodeLine{00836                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00837                             \textcolor{keywordflow}{if} ((yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}verbatim"{}}) || (yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}code"{}}) || (yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}iliteral"{}}))}
+\DoxyCodeLine{00838                             \{}
+\DoxyCodeLine{00839                               REJECT;}
+\DoxyCodeLine{00840                             \}}
+\DoxyCodeLine{00841                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00842                             \{}
+\DoxyCodeLine{00843                               yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00844                             \}}
+\DoxyCodeLine{00845                           \}}
+\DoxyCodeLine{00846 <DocCopyBlock>\string^\{B\}*"{}*"{}+/\{B\}+"{}*"{}\{BN\}* \{ // start of a comment line with two *'s}
+\DoxyCodeLine{00847                             \textcolor{keywordflow}{if} ((yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}code"{}}) || (yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}iliteral"{}}))}
+\DoxyCodeLine{00848                             \{}
+\DoxyCodeLine{00849                               yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00850                             \}}
+\DoxyCodeLine{00851                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00852                             \{}
+\DoxyCodeLine{00853                               REJECT;}
+\DoxyCodeLine{00854                             \}}
+\DoxyCodeLine{00855                           \}}
+\DoxyCodeLine{00856 <DocCopyBlock>\string^\{B\}*"{}*"{}+/(\{ID\}|"{}("{}) \{ // Assume *var or *(... is part of source code (see bug723516)}
+\DoxyCodeLine{00857                             \textcolor{keywordflow}{if} ((yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}code"{}}) || (yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}iliteral"{}}))}
+\DoxyCodeLine{00858                             \{}
+\DoxyCodeLine{00859                               yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00860                             \}}
+\DoxyCodeLine{00861                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00862                             \{}
+\DoxyCodeLine{00863                               REJECT;}
+\DoxyCodeLine{00864                             \}}
+\DoxyCodeLine{00865                           \}}
+\DoxyCodeLine{00866 <DocCopyBlock>\string^\{B\}*"{}*"{}+/\{BN\}* \{ // start of a comment line with one *}
+\DoxyCodeLine{00867                             \textcolor{keywordflow}{if} ((yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}code"{}}) || (yyextra-\/>docBlockName==\textcolor{stringliteral}{"{}iliteral"{}}))}
+\DoxyCodeLine{00868                             \{}
+\DoxyCodeLine{00869                               \textcolor{keywordflow}{if} (yyextra-\/>nestedComment) \textcolor{comment}{// keep * it is part of the code}}
+\DoxyCodeLine{00870                               \{}
+\DoxyCodeLine{00871                                 yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00872                               \}}
+\DoxyCodeLine{00873                               \textcolor{keywordflow}{else} \textcolor{comment}{// remove * it is part of the comment block}}
+\DoxyCodeLine{00874                               \{}
+\DoxyCodeLine{00875                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00876                               \}}
+\DoxyCodeLine{00877                             \}}
+\DoxyCodeLine{00878                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00879                             \{}
+\DoxyCodeLine{00880                               REJECT;}
+\DoxyCodeLine{00881                             \}}
+\DoxyCodeLine{00882                           \}}
+\DoxyCodeLine{00883 <DocCopyBlock>\string^(\{B\}*"{}*"{}+)?\{B\}\{0,3\}"{}\string~\string~\string~"{}[\string~]* \{}
+\DoxyCodeLine{00884                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00885                             \mbox{\hyperlink{class_q_c_string}{QCString}} pat = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(yytext,\textcolor{stringliteral}{"{}*"{}},\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00886                             \textcolor{keywordflow}{if} (yyextra-\/>fencedSize==pat.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}().\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}())}
+\DoxyCodeLine{00887                             \{}
+\DoxyCodeLine{00888                               BEGIN(DocBlock);}
+\DoxyCodeLine{00889                             \}}
+\DoxyCodeLine{00890                           \}}
+\DoxyCodeLine{00891 <DocCopyBlock>\string^(\{B\}*"{}*"{}+)?\{B\}\{0,3\}"{}```"{}[`]* \{}
+\DoxyCodeLine{00892                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00893                             \mbox{\hyperlink{class_q_c_string}{QCString}} pat = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(yytext,\textcolor{stringliteral}{"{}*"{}},\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00894                             \textcolor{keywordflow}{if} (yyextra-\/>fencedSize==pat.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}().\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}())}
+\DoxyCodeLine{00895                             \{}
+\DoxyCodeLine{00896                               BEGIN(DocBlock);}
+\DoxyCodeLine{00897                             \}}
+\DoxyCodeLine{00898                           \}}
+\DoxyCodeLine{00899 <DocCopyBlock>[\string^\(\backslash\)<@/\(\backslash\)*\(\backslash\)]\string~\(\backslash\)\$\(\backslash\)\(\backslash\)\(\backslash\)n]+ \{ // any character that is not special}
+\DoxyCodeLine{00900                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00901                           \}}
+\DoxyCodeLine{00902 <DocCopyBlock>\{CCS\}|\{CCE\}|\{CPPC\} \{}
+\DoxyCodeLine{00903                             \textcolor{keywordflow}{if} (yytext[1]==\textcolor{charliteral}{'*'})}
+\DoxyCodeLine{00904                             \{}
+\DoxyCodeLine{00905                               yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00906                             \}}
+\DoxyCodeLine{00907                             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (yytext[0]==\textcolor{charliteral}{'*'})}
+\DoxyCodeLine{00908                             \{}
+\DoxyCodeLine{00909                               yyextra-\/>nestedComment=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00910                             \}}
+\DoxyCodeLine{00911                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00912                           \}}
+\DoxyCodeLine{00913 <DocCopyBlock>\(\backslash\)n          \{ // newline}
+\DoxyCodeLine{00914                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00915                             \mbox{\hyperlink{src_2lexcode_8l_a6e782ca00a48833dff52b4b5f0a1a147}{lineCount}}(yyscanner);}
+\DoxyCodeLine{00916                           \}}
+\DoxyCodeLine{00917 <DocCopyBlock>.           \{ // any other character}
+\DoxyCodeLine{00918                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00919                           \}}
+\DoxyCodeLine{00920 <SkipCurlyEndDoc>"{}\}"{}\{BN\}*\{DCOMM\}"{}<"{} \{ // desc is followed by another one}
+\DoxyCodeLine{00921                             yyextra-\/>docBlockContext   = SkipCurlyEndDoc;}
+\DoxyCodeLine{00922                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00923                             \textcolor{keywordflow}{if} (yytext[yyleng-\/3]==\textcolor{charliteral}{'/'})}
+\DoxyCodeLine{00924                             \{}
+\DoxyCodeLine{00925                               BEGIN( DocLine );}
+\DoxyCodeLine{00926                             \}}
+\DoxyCodeLine{00927                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00928                             \{}
+\DoxyCodeLine{00929                               BEGIN( DocBlock );}
+\DoxyCodeLine{00930                             \}}
+\DoxyCodeLine{00931                           \}}
+\DoxyCodeLine{00932 <SkipCurlyEndDoc>"{}\}"{}      \{}
+\DoxyCodeLine{00933                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00934                             BEGIN(SkipCurly);}
+\DoxyCodeLine{00935                           \}}
+\DoxyCodeLine{00936 }
+\DoxyCodeLine{00937 <UserSection>.*\{nl\}       \{}
+\DoxyCodeLine{00938                             yyextra-\/>CCodeBuffer += yytext;}
+\DoxyCodeLine{00939                             yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{00940                           \}}
+\DoxyCodeLine{00941  \textcolor{comment}{/*}}
+\DoxyCodeLine{00942 <*>.  \{ fprintf(stderr,"{}Lex code scanner Def rule for \%s: \#\%s\#\(\backslash\)n"{},stateToString(YY\_START),yytext);\}}
+\DoxyCodeLine{00943 <*>\{nl\}  \{ fprintf(stderr,"{}Lex code scanner Def rule for newline \%s: \#\%s\#\(\backslash\)n"{},stateToString(YY\_START),yytext); yyextra-\/>yyLineNr++;\}}
+\DoxyCodeLine{00944  */}
+\DoxyCodeLine{00945 <*><<EOF>>                \{}
+\DoxyCodeLine{00946                             \mbox{\hyperlink{src_2lexcode_8l_a8705bc1723465f2c8a5b4f3ed6ef79f8}{handleCCode}}(yyscanner);}
+\DoxyCodeLine{00947                             yyterminate();}
+\DoxyCodeLine{00948                           \}}
+\DoxyCodeLine{00949 \%\%}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2lexcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}\label{src_2lexcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}} 
+\index{lexcode.l@{lexcode.l}!yyread@{yyread}}
+\index{yyread@{yyread}!lexcode.l@{lexcode.l}}
+\doxysubsubsection{\texorpdfstring{yyread()}{yyread()}}
+{\footnotesize\ttfamily static int yyread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{char $\ast$}]{buf,  }\item[{int}]{max\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2lexcode_8l_source_l01113}{1113}} of file \mbox{\hyperlink{src_2lexcode_8l_source}{lexcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01114 \{}
+\DoxyCodeLine{01115   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01116   \textcolor{keywordtype}{int} inputPosition = yyextra-\/>inputPosition;}
+\DoxyCodeLine{01117   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = yyextra-\/>inputString + inputPosition;}
+\DoxyCodeLine{01118   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=0;}
+\DoxyCodeLine{01119   \textcolor{keywordflow}{while}( \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} < max\_size \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} )}
+\DoxyCodeLine{01120   \{}
+\DoxyCodeLine{01121     *buf++ = *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}++;}
+\DoxyCodeLine{01122     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}++;}
+\DoxyCodeLine{01123   \}}
+\DoxyCodeLine{01124   yyextra-\/>inputPosition += \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01125   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01126 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+

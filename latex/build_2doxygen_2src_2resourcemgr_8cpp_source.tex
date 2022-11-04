@@ -1,0 +1,212 @@
+\hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source}{}\doxysection{resourcemgr.\+cpp}
+\label{build_2doxygen_2src_2resourcemgr_8cpp_source}\index{doxygen/build/doxygen/src/resourcemgr.cpp@{doxygen/build/doxygen/src/resourcemgr.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2resourcemgr_8h}{resourcemgr.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2util_8h}{util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}version.h"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2message_8h}{message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00026}\mbox{\hyperlink{class_resource_mgr_1_1_private}{00026}} \textcolor{keyword}{class }\mbox{\hyperlink{class_resource_mgr_1_1_private}{ResourceMgr::Private}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00027}00027 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00028}00028   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00029}\mbox{\hyperlink{class_resource_mgr_1_1_private_a0fa3070212f39d80f4bdafdf1dad93e6}{00029}}     std::map<std::string,Resource> \mbox{\hyperlink{class_resource_mgr_1_1_private_a0fa3070212f39d80f4bdafdf1dad93e6}{resources}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00030}00030 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00032}\mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{00032}} \mbox{\hyperlink{class_resource_mgr}{ResourceMgr}} \&\mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{ResourceMgr::instance}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00033}00033 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00034}00034   \textcolor{keyword}{static} \mbox{\hyperlink{class_resource_mgr}{ResourceMgr}} theInstance;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00035}00035   \textcolor{keywordflow}{return} theInstance;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00036}00036 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00038}\mbox{\hyperlink{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}{00038}} \mbox{\hyperlink{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}{ResourceMgr::ResourceMgr}}() : \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}(std::make\_unique<\mbox{\hyperlink{class_resource_mgr_1_1_private}{Private}}>())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00039}00039 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00040}00040 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00042}\mbox{\hyperlink{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}{00042}} \mbox{\hyperlink{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}{ResourceMgr::\string~ResourceMgr}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00043}00043 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00044}00044 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00046}\mbox{\hyperlink{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}{00046}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}{ResourceMgr::registerResources}}(std::initializer\_list<Resource> resources)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00047}00047 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00048}00048   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&res : resources)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00049}00049   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00050}00050     \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources.insert(\{res.name,res\});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00051}00051   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00052}00052 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00054}\mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{00054}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{ResourceMgr::writeCategory}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&categoryName,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetDir)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00055}00055 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00056}00056   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&kv : \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00057}00057   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00058}00058     \mbox{\hyperlink{struct_resource}{Resource}} \&res = kv.second;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00059}00059     \textcolor{keywordflow}{if} (res.\mbox{\hyperlink{struct_resource_a3b8e230f7b733e68241809a01cf65d78}{category}}==categoryName)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00060}00060     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00061}00061       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} pathName = targetDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}/"{}}+res.\mbox{\hyperlink{struct_resource_a4f6a87145f57606562453e2f8ab0b453}{name}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00062}00062       \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00063}00063       \textcolor{keywordtype}{bool} ok=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00064}00064       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00065}00065       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00066}00066         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(res.\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}}),res.\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00067}00067         ok = !\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.fail();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00068}00068       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00069}00069       \textcolor{keywordflow}{if} (!ok)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00070}00070       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00071}00071         \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Failed to write resource '\%s' to directory '\%s'\(\backslash\)n"{}},res.\mbox{\hyperlink{struct_resource_a4f6a87145f57606562453e2f8ab0b453}{name}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(targetDir));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00072}00072         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00073}00073       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00075}00075   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00076}00076   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00077}00077 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00079}\mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{00079}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{ResourceMgr::copyResourceAs}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetDir,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetName,\textcolor{keywordtype}{bool} append)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00080}00080 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00081}00081   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} pathName = targetDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}/"{}}+targetName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00082}00082   std::ios\_base::openmode \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00083}00083   \textcolor{keywordflow}{if} (append) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}} |= std::ofstream::app;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00084}00084   \textcolor{keyword}{const} \mbox{\hyperlink{struct_resource}{Resource}} *res = \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00085}00085   \textcolor{keywordflow}{if} (res)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00086}00086   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00087}00087     \textcolor{keywordflow}{switch} (res-\/>\mbox{\hyperlink{struct_resource_ae73282ad08d3c990c8a0ff353e231ab3}{type}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00088}00088     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00089}00089       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eacfa9730bc7f3ad0b68041a64b85f2528}{Resource::Verbatim}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00090}00090         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00091}00091           \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00092}00092           \textcolor{keywordtype}{bool} ok=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00093}00093           \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00094}00094           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00095}00095             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}}),res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00096}00096             ok = !\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.fail();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00097}00097           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00098}00098           \textcolor{keywordflow}{if} (ok)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00099}00099           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00100}00100             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00101}00101           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00102}00102         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00103}00103         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00104}00104       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382ea8bcfdd27d2be279edc90b72faf3ffd65}{Resource::Luminance}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00105}00105         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00106}00106           \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00107}00107           \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.left(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.length()-\/4)+\textcolor{stringliteral}{"{}.png"{}}; \textcolor{comment}{// replace .lum by .png}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00108}00108           \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} = res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00109}00109           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} width   = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[0]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[1];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00110}00110           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} height  = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[2]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[3];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00111}00111           \mbox{\hyperlink{struct_colored_img_data_item}{ColoredImgDataItem}} images[2];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00112}00112           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.data();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00113}00113           images[0].\mbox{\hyperlink{struct_colored_img_data_item_aebc8ef167c7bbdf928fcc59b3c9d436b}{width}}   = width;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00114}00114           images[0].\mbox{\hyperlink{struct_colored_img_data_item_acfac94346e3f7837df12c487bce866f2}{height}}  = height;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00115}00115           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a295add303cf505546bcd369ff5cee8ff}{content}} = \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[4];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00116}00116           images[0].\mbox{\hyperlink{struct_colored_img_data_item_af338e78f415c28507fd7a3f4de813458}{alpha}}   = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00117}00117           images[1].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = 0; \textcolor{comment}{// terminator}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00118}00118           \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af543a98b46249a2b115f47f0166e9a81}{writeColoredImgData}}(targetDir,images);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00119}00119           \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00120}00120         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00121}00121         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00122}00122       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eadd0994932e84ccaf2c5b61e2d208b1ec}{Resource::LumAlpha}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00123}00123         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00124}00124           \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00125}00125           \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.left(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.length()-\/5)+\textcolor{stringliteral}{"{}.png"{}}; \textcolor{comment}{// replace .luma by .png}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00126}00126           \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} = res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00127}00127           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} width   = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[0]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[1];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00128}00128           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} height  = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[2]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[3];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00129}00129           \mbox{\hyperlink{struct_colored_img_data_item}{ColoredImgDataItem}} images[2];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00130}00130           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.data();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00131}00131           images[0].\mbox{\hyperlink{struct_colored_img_data_item_aebc8ef167c7bbdf928fcc59b3c9d436b}{width}}   = width;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00132}00132           images[0].\mbox{\hyperlink{struct_colored_img_data_item_acfac94346e3f7837df12c487bce866f2}{height}}  = height;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00133}00133           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a295add303cf505546bcd369ff5cee8ff}{content}} = \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[4];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00134}00134           images[0].\mbox{\hyperlink{struct_colored_img_data_item_af338e78f415c28507fd7a3f4de813458}{alpha}}   = \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[4+width*height];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00135}00135           images[1].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = 0; \textcolor{comment}{// terminator}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00136}00136           \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af543a98b46249a2b115f47f0166e9a81}{writeColoredImgData}}(targetDir,images);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00137}00137           \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00138}00138         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00139}00139         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00140}00140       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eabcc90f380aeb61589315aac3e25992c5}{Resource::CSS}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00141}00141         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00142}00142           \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} t(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00143}00143           \textcolor{keywordflow}{if} (t.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00144}00144           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00145}00145             \mbox{\hyperlink{class_q_c_string}{QCString}} buf(res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}}+1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00146}00146             memcpy(buf.\mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{rawData}}(),res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}},res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00147}00147             buf = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af10f5e35396e550af824e3029bab8dd4}{replaceColorMarkers}}(buf);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00148}00148             \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}navtree.css"{}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00149}00149             \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00150}00150               t << \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(buf,\textcolor{stringliteral}{"{}\$width"{}},\mbox{\hyperlink{class_q_c_string}{QCString}}().setNum(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(TREEVIEW\_WIDTH))+\textcolor{stringliteral}{"{}px"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00151}00151             \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00152}00152             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00153}00153             \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00154}00154               t << \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(buf,\textcolor{stringliteral}{"{}\$doxygenversion"{}},\mbox{\hyperlink{doxygen_2build_2generated__src_2doxyversion_8cpp_aa1cb7e18f8f32b90f9750d5e47a5276c}{getDoxygenVersion}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00155}00155             \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00156}00156             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00157}00157           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00158}00158         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00159}00159         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00160}00160       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eaf7a1a7ba47c69ff6ce016381e26ef299}{Resource::SVG}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00161}00161         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00162}00162           \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} t(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00163}00163           \textcolor{keywordflow}{if} (t.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00164}00164           \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00165}00165             \mbox{\hyperlink{class_q_c_string}{QCString}} buf(res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}}+1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00166}00166             memcpy(buf.\mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{rawData}}(),res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}},res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00167}00167             t << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af10f5e35396e550af824e3029bab8dd4}{replaceColorMarkers}}(buf);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00168}00168             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00169}00169           \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00170}00170         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00171}00171     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00172}00172   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00173}00173   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00174}00174   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00175}00175     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}requested resource '\%s' not compiled in!\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00176}00176   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00177}00177   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00178}00178 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00179}00179 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00180}\mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{00180}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{ResourceMgr::copyResource}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&targetDir)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00181}00181 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00182}00182   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{copyResourceAs}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},targetDir,\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00183}00183 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00184}00184 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00185}\mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{00185}} \textcolor{keyword}{const} \mbox{\hyperlink{struct_resource}{Resource}} *\mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{ResourceMgr::get}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00186}00186 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00187}00187   \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00188}00188   \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources.end()) \textcolor{keywordflow}{return} \&it-\/>second;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00189}00189   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00190}00190 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00192}\mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{00192}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{ResourceMgr::getAsString}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00193}00193 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00194}00194   \textcolor{keyword}{const} \mbox{\hyperlink{struct_resource}{Resource}} *res = \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00195}00195   \textcolor{keywordflow}{if} (res)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00196}00196   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00197}00197     \mbox{\hyperlink{class_q_c_string}{QCString}} result(res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}}+1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00198}00198     memcpy(result.\mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{rawData}}(),res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}},res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00199}00199     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00200}00200   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00201}00201   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00202}00202   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00203}00203     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_q_c_string}{QCString}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00204}00204   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00205}00205 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2resourcemgr_8cpp_source_l00206}00206 }
+
+\end{DoxyCode}

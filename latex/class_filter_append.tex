@@ -1,0 +1,88 @@
+\hypertarget{class_filter_append}{}\doxysection{Filter\+Append Class Reference}
+\label{class_filter_append}\index{FilterAppend@{FilterAppend}}
+
+
+The implementation of the \char`\"{}append\char`\"{} filter.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_append_a97b5f8e69f2ebd947ab9bb6f77f1a1d8}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&arg)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_append_a97b5f8e69f2ebd947ab9bb6f77f1a1d8}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&arg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}append\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00924}{924}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_append_a97b5f8e69f2ebd947ab9bb6f77f1a1d8}\label{class_filter_append_a97b5f8e69f2ebd947ab9bb6f77f1a1d8}} 
+\index{FilterAppend@{FilterAppend}!apply@{apply}}
+\index{apply@{apply}!FilterAppend@{FilterAppend}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Append\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00927}{927}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00928     \{}
+\DoxyCodeLine{00929       \textcolor{keywordflow}{if} ((v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}() || v.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}()) \&\&}
+\DoxyCodeLine{00930           (arg.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}() || arg.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}()))}
+\DoxyCodeLine{00931       \{}
+\DoxyCodeLine{00932         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}() + arg.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{00933       \}}
+\DoxyCodeLine{00934       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00935       \{}
+\DoxyCodeLine{00936         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00937       \}}
+\DoxyCodeLine{00938     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{Template\+Variant\+::is\+Int()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+\mbox{\Hypertarget{class_filter_append_a97b5f8e69f2ebd947ab9bb6f77f1a1d8}\label{class_filter_append_a97b5f8e69f2ebd947ab9bb6f77f1a1d8}} 
+\index{FilterAppend@{FilterAppend}!apply@{apply}}
+\index{apply@{apply}!FilterAppend@{FilterAppend}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Append\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l00927}{927}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00928     \{}
+\DoxyCodeLine{00929       \textcolor{keywordflow}{if} ((v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}() || v.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}()) \&\&}
+\DoxyCodeLine{00930           (arg.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}() || arg.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}()))}
+\DoxyCodeLine{00931       \{}
+\DoxyCodeLine{00932         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}() + arg.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{00933       \}}
+\DoxyCodeLine{00934       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00935       \{}
+\DoxyCodeLine{00936         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00937       \}}
+\DoxyCodeLine{00938     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{Template\+Variant\+::is\+Int()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

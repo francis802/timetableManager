@@ -1,0 +1,130 @@
+\hypertarget{src_2searchindex_8h}{}\doxysection{doxygen/src/searchindex.h File Reference}
+\label{src_2searchindex_8h}\index{doxygen/src/searchindex.h@{doxygen/src/searchindex.h}}
+
+
+Web server based search engine.  
+
+
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}growbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dispatcher.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_s_i_data___current_doc}{SIData\+\_\+\+Current\+Doc}}
+\item 
+struct \mbox{\hyperlink{struct_s_i_data___word}{SIData\+\_\+\+Word}}
+\item 
+class \mbox{\hyperlink{class_s_i_data_collection}{SIData\+Collection}}
+\item 
+class \mbox{\hyperlink{class_search_index}{Search\+Index}}
+\item 
+struct \mbox{\hyperlink{struct_search_index_1_1_u_r_l}{Search\+Index\+::\+URL}}
+\item 
+struct \mbox{\hyperlink{struct_search_index_1_1_u_r_l_info}{Search\+Index\+::\+URLInfo}}
+\item 
+class \mbox{\hyperlink{class_search_index_1_1_index_word}{Search\+Index\+::\+Index\+Word}}
+\item 
+class \mbox{\hyperlink{class_search_index_external}{Search\+Index\+External}}
+\item 
+struct \mbox{\hyperlink{struct_search_index_external_1_1_search_doc_entry}{Search\+Index\+External\+::\+Search\+Doc\+Entry}}
+\item 
+struct \mbox{\hyperlink{struct_search_index_methods_1_1set_current_doc}{Search\+Index\+Methods\+::set\+Current\+Doc$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_search_index_methods_1_1add_word}{Search\+Index\+Methods\+::add\+Word$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_search_index_methods_1_1write}{Search\+Index\+Methods\+::write$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_search_index_intf}{Search\+Index\+Intf}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_search_index_methods}{Search\+Index\+Methods}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{src_2searchindex_8h_a50d08832d359fc0cce18c3079d46eb9a}{init\+Search\+Indexer}} ()
+\item 
+void \mbox{\hyperlink{src_2searchindex_8h_ad28704628a5159a8fd5ea6f9bc5d2c49}{finalize\+Search\+Indexer}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Web server based search engine. 
+
+Comes in two flavors\+: internal (via generated index) or external (via doxyindexer + doxysearch) 
+
+Definition in file \mbox{\hyperlink{src_2searchindex_8h_source}{searchindex.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2searchindex_8h_ad28704628a5159a8fd5ea6f9bc5d2c49}\label{src_2searchindex_8h_ad28704628a5159a8fd5ea6f9bc5d2c49}} 
+\index{searchindex.h@{searchindex.h}!finalizeSearchIndexer@{finalizeSearchIndexer}}
+\index{finalizeSearchIndexer@{finalizeSearchIndexer}!searchindex.h@{searchindex.h}}
+\doxysubsubsection{\texorpdfstring{finalizeSearchIndexer()}{finalizeSearchIndexer()}}
+{\footnotesize\ttfamily void finalize\+Search\+Indexer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Cleanup the search indexer 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2searchindex_8cpp_source_l00553}{553}} of file \mbox{\hyperlink{build_2doxygen_2src_2searchindex_8cpp_source}{searchindex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00554 \{}
+\DoxyCodeLine{00555   \textcolor{keyword}{delete} \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen::searchIndex}};}
+\DoxyCodeLine{00556 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen\+::search\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}.
+
+\mbox{\Hypertarget{src_2searchindex_8h_a50d08832d359fc0cce18c3079d46eb9a}\label{src_2searchindex_8h_a50d08832d359fc0cce18c3079d46eb9a}} 
+\index{searchindex.h@{searchindex.h}!initSearchIndexer@{initSearchIndexer}}
+\index{initSearchIndexer@{initSearchIndexer}!searchindex.h@{searchindex.h}}
+\doxysubsubsection{\texorpdfstring{initSearchIndexer()}{initSearchIndexer()}}
+{\footnotesize\ttfamily void init\+Search\+Indexer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize the search indexer 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2searchindex_8cpp_source_l00538}{538}} of file \mbox{\hyperlink{build_2doxygen_2src_2searchindex_8cpp_source}{searchindex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00539 \{}
+\DoxyCodeLine{00540   \textcolor{keywordtype}{bool} searchEngine      = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(SEARCHENGINE);}
+\DoxyCodeLine{00541   \textcolor{keywordtype}{bool} serverBasedSearch = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(SERVER\_BASED\_SEARCH);}
+\DoxyCodeLine{00542   \textcolor{keywordtype}{bool} externalSearch    = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(EXTERNAL\_SEARCH);}
+\DoxyCodeLine{00543   \textcolor{keywordflow}{if} (searchEngine \&\& serverBasedSearch)}
+\DoxyCodeLine{00544   \{}
+\DoxyCodeLine{00545     \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen::searchIndex}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_search_index_intf}{SearchIndexIntf}}(externalSearch ? \mbox{\hyperlink{class_search_index_intf_ade3dd4c1f8bc6487f0f3dccba5c6f9eaa99b04b60a72dc501144401fdee4fb190}{SearchIndexIntf::External}} : \mbox{\hyperlink{class_search_index_intf_ade3dd4c1f8bc6487f0f3dccba5c6f9eaab654ddd37d18b3d8c3ce303db81f1a72}{SearchIndexIntf::Internal}});}
+\DoxyCodeLine{00546   \}}
+\DoxyCodeLine{00547   \textcolor{keywordflow}{else} \textcolor{comment}{// no search engine or pure javascript based search function}}
+\DoxyCodeLine{00548   \{}
+\DoxyCodeLine{00549     \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen::searchIndex}} = 0;}
+\DoxyCodeLine{00550   \}}
+\DoxyCodeLine{00551 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{class_search_index_intf_ade3dd4c1f8bc6487f0f3dccba5c6f9eaa99b04b60a72dc501144401fdee4fb190}{Search\+Index\+Intf\+::\+External}}, \mbox{\hyperlink{class_search_index_intf_ade3dd4c1f8bc6487f0f3dccba5c6f9eaab654ddd37d18b3d8c3ce303db81f1a72}{Search\+Index\+Intf\+::\+Internal}}, and \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen\+::search\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input()}}.
+

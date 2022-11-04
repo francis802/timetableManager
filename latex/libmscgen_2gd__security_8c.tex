@@ -1,0 +1,44 @@
+\hypertarget{libmscgen_2gd__security_8c}{}\doxysection{doxygen/libmscgen/gd\+\_\+security.c File Reference}
+\label{libmscgen_2gd__security_8c}\index{doxygen/libmscgen/gd\_security.c@{doxygen/libmscgen/gd\_security.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}gd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gd\+\_\+errors.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{libmscgen_2gd__security_8c_ad447ab61e47066efb12dc8faefb838b7}{overflow2}} (int \mbox{\hyperlink{testing_2094__old__style__fortran__routines_8f90_ab5236747aa3f22ed246ba71a3596be53}{a}}, int \mbox{\hyperlink{testing_2094__old__style__fortran__routines_8f90_a9b3d88ab6bb1494c77a80097bf7f2fbb}{b}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{libmscgen_2gd__security_8c_ad447ab61e47066efb12dc8faefb838b7}\label{libmscgen_2gd__security_8c_ad447ab61e47066efb12dc8faefb838b7}} 
+\index{gd\_security.c@{gd\_security.c}!overflow2@{overflow2}}
+\index{overflow2@{overflow2}!gd\_security.c@{gd\_security.c}}
+\doxysubsubsection{\texorpdfstring{overflow2()}{overflow2()}}
+{\footnotesize\ttfamily int overflow2 (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{libmscgen_2gd__security_8c_source_l00021}{21}} of file \mbox{\hyperlink{libmscgen_2gd__security_8c_source}{gd\+\_\+security.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}} <= 0 || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} <= 0) \{}
+\DoxyCodeLine{00024         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8c_ac8d60eda6a526c4e12933edc150e8010}{gd\_error\_ex}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_ab7cbdc964f123f293c52566a96e5c0d1}{GD\_WARNING}}, \textcolor{stringliteral}{"{}one parameter to a memory allocation multiplication is negative or zero, failing operation gracefully\(\backslash\)n"{}});}
+\DoxyCodeLine{00025         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00026     \}}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}} > INT\_MAX / \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}}) \{}
+\DoxyCodeLine{00028         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8c_ac8d60eda6a526c4e12933edc150e8010}{gd\_error\_ex}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_ab7cbdc964f123f293c52566a96e5c0d1}{GD\_WARNING}}, \textcolor{stringliteral}{"{}product of memory allocation multiplication would exceed INT\_MAX, failing operation gracefully\(\backslash\)n"{}});}
+\DoxyCodeLine{00029         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00030     \}}
+\DoxyCodeLine{00031     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8c_ac8d60eda6a526c4e12933edc150e8010}{gd\+\_\+error\+\_\+ex()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd__errors_8h_ab7cbdc964f123f293c52566a96e5c0d1}{GD\+\_\+\+WARNING}}.
+

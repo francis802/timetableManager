@@ -1,0 +1,59 @@
+\hypertarget{build_2doxygen_2libmscgen_2mscgen__utf8_8h}{}\doxysection{doxygen/build/doxygen/libmscgen/mscgen\+\_\+utf8.h File Reference}
+\label{build_2doxygen_2libmscgen_2mscgen__utf8_8h}\index{doxygen/build/doxygen/libmscgen/mscgen\_utf8.h@{doxygen/build/doxygen/libmscgen/mscgen\_utf8.h}}
+{\ttfamily \#include \char`\"{}mscgen\+\_\+bool.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__utf8_8h_aa2f3c4cc49bb74080d94f90c11f9a6de}{Utf8\+Decode}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, unsigned int $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, unsigned int $\ast$bytes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__utf8_8h_aa2f3c4cc49bb74080d94f90c11f9a6de}\label{build_2doxygen_2libmscgen_2mscgen__utf8_8h_aa2f3c4cc49bb74080d94f90c11f9a6de}} 
+\index{mscgen\_utf8.h@{mscgen\_utf8.h}!Utf8Decode@{Utf8Decode}}
+\index{Utf8Decode@{Utf8Decode}!mscgen\_utf8.h@{mscgen\_utf8.h}}
+\doxysubsubsection{\texorpdfstring{Utf8Decode()}{Utf8Decode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} Utf8\+Decode (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{unsigned int $\ast$}]{r,  }\item[{unsigned int $\ast$}]{bytes }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__utf8_8c_source_l00067}{67}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__utf8_8c_source}{mscgen\+\_\+utf8.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068 \{}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if}((*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} \& 0x80) == 0)}
+\DoxyCodeLine{00070     \{}
+\DoxyCodeLine{00071         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00072     \}}
+\DoxyCodeLine{00073     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00074     \{}
+\DoxyCodeLine{00075         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t;}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077         \textcolor{comment}{/* Set default return values */}}
+\DoxyCodeLine{00078         *bytes = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__utf8_8c_a84daed52f0c644dc80363beb602ef433}{clo}}(*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{00079         *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = 0;}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081         \textcolor{comment}{/* Loop through string, checking for null termination */}}
+\DoxyCodeLine{00082         \textcolor{keywordflow}{for}(t = 0; t < *bytes \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}[t] != \textcolor{charliteral}{'\(\backslash\)0'}; t++)}
+\DoxyCodeLine{00083         \{}
+\DoxyCodeLine{00084             \textcolor{comment}{/* Shift up previous bits */}}
+\DoxyCodeLine{00085             *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} <<= 6;}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087             \textcolor{comment}{/* Add the required bits */}}
+\DoxyCodeLine{00088             \textcolor{keywordflow}{if}(t == 0)}
+\DoxyCodeLine{00089             \{}
+\DoxyCodeLine{00090                 *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} |= \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}[t] \& (0xff >> (*bytes + 1));}
+\DoxyCodeLine{00091             \}}
+\DoxyCodeLine{00092             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00093             \{}
+\DoxyCodeLine{00094                 *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} |= \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}[t] \& 0x3f;}
+\DoxyCodeLine{00095             \}}
+\DoxyCodeLine{00096         \}}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098         \textcolor{comment}{/* Success if no NULL was encountered */}}
+\DoxyCodeLine{00099         \textcolor{keywordflow}{return} t == *bytes;}
+\DoxyCodeLine{00100     \}}
+\DoxyCodeLine{00101 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,328 @@
+\hypertarget{class_filter_alpha_index}{}\doxysection{Filter\+Alpha\+Index Class Reference}
+\label{class_filter_alpha_index}\index{FilterAlphaIndex@{FilterAlphaIndex}}
+
+
+The implementation of the \char`\"{}alpha\+Index\char`\"{} filter.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_filter_alpha_index_1_1_list_elem}{List\+Elem}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&args)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}{key\+To\+Label}} (const char $\ast$start\+Letter)
+\item 
+static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}{determine\+Sort\+Key}} (const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{Template\+Struct\+Intf\+Ptr}} \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&attrib\+Name)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}{key\+To\+Label}} (const char $\ast$start\+Letter)
+\item 
+static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}{determine\+Sort\+Key}} (const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{Template\+Struct\+Intf\+Ptr}} \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&attrib\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}alpha\+Index\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01280}{1280}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}\label{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}} 
+\index{FilterAlphaIndex@{FilterAlphaIndex}!apply@{apply}}
+\index{apply@{apply}!FilterAlphaIndex@{FilterAlphaIndex}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Alpha\+Index\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01320}{1320}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01321     \{}
+\DoxyCodeLine{01322       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}() \&\& args.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{01323       \{}
+\DoxyCodeLine{01324         \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} list = v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}();}
+\DoxyCodeLine{01325         \textcolor{keywordflow}{if} (list)}
+\DoxyCodeLine{01326         \{}
+\DoxyCodeLine{01327           \textcolor{comment}{//printf("{}FilterListSort::apply: v=\%s args=\%s\(\backslash\)n"{},qPrint(v.toString()),qPrint(args.toString()));}}
+\DoxyCodeLine{01328           \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{01329 }
+\DoxyCodeLine{01330           \mbox{\hyperlink{class_template_variant}{TemplateVariant}} item;}
+\DoxyCodeLine{01331           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} result = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01332 }
+\DoxyCodeLine{01333           \textcolor{comment}{// create list of items based on v using the data in args as a sort key}}
+\DoxyCodeLine{01334           \textcolor{keyword}{using} SortList = std::vector<ListElem>;}
+\DoxyCodeLine{01335           SortList sortList;}
+\DoxyCodeLine{01336           sortList.reserve(v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}()-\/>count());}
+\DoxyCodeLine{01337           \textcolor{keywordflow}{for} (it-\/>toFirst();(it-\/>current(item));it-\/>toNext())}
+\DoxyCodeLine{01338           \{}
+\DoxyCodeLine{01339             \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = item.\mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{toStruct}}();}
+\DoxyCodeLine{01340             \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{01341             \{}
+\DoxyCodeLine{01342               \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} sortKey = \mbox{\hyperlink{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}{determineSortKey}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},args.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{01343               sortList.emplace\_back(sortKey,item);}
+\DoxyCodeLine{01344               \textcolor{comment}{//printf("{}sortKey=\%s\(\backslash\)n"{},qPrint(sortKey));}}
+\DoxyCodeLine{01345             \}}
+\DoxyCodeLine{01346           \}}
+\DoxyCodeLine{01347 }
+\DoxyCodeLine{01348           \textcolor{comment}{// sort the list}}
+\DoxyCodeLine{01349           std::sort(sortList.begin(),}
+\DoxyCodeLine{01350               sortList.end(),}
+\DoxyCodeLine{01351               [](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&lhs,\textcolor{keyword}{const} \textcolor{keyword}{auto} \&rhs) \{ return lhs.key < rhs.key; \});}
+\DoxyCodeLine{01352 }
+\DoxyCodeLine{01353           \textcolor{comment}{// create an index from the sorted list}}
+\DoxyCodeLine{01354           \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} letter;}
+\DoxyCodeLine{01355           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a9dacbf829f3ee810cab9b4c9fa42aa42}{TemplateStructPtr}} indexNode;}
+\DoxyCodeLine{01356           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} indexList;}
+\DoxyCodeLine{01357           \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&elem : sortList)}
+\DoxyCodeLine{01358           \{}
+\DoxyCodeLine{01359             \textcolor{keywordflow}{if} (letter!=elem.key || indexNode==0)}
+\DoxyCodeLine{01360             \{}
+\DoxyCodeLine{01361               \textcolor{comment}{// create new indexNode}}
+\DoxyCodeLine{01362               indexNode = \mbox{\hyperlink{class_template_struct_a4a295b982e8f29a6b7cf0af511deaf6a}{TemplateStruct::alloc}}();}
+\DoxyCodeLine{01363               indexList = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01364               indexNode-\/>set(\textcolor{stringliteral}{"{}letter"{}}, elem.key);}
+\DoxyCodeLine{01365               indexNode-\/>set(\textcolor{stringliteral}{"{}label"{}},  \mbox{\hyperlink{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}{keyToLabel}}(elem.key.c\_str()));}
+\DoxyCodeLine{01366               indexNode-\/>set(\textcolor{stringliteral}{"{}items"{}},std::static\_pointer\_cast<TemplateListIntf>(indexList));}
+\DoxyCodeLine{01367               result-\/>append(std::static\_pointer\_cast<TemplateStructIntf>(indexNode));}
+\DoxyCodeLine{01368               letter=elem.key;}
+\DoxyCodeLine{01369             \}}
+\DoxyCodeLine{01370             indexList-\/>append(elem.value);}
+\DoxyCodeLine{01371           \}}
+\DoxyCodeLine{01372           \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(result));}
+\DoxyCodeLine{01373         \}}
+\DoxyCodeLine{01374       \}}
+\DoxyCodeLine{01375       \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{01376     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_struct_a4a295b982e8f29a6b7cf0af511deaf6a}{Template\+Struct\+::alloc()}}, \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}{determine\+Sort\+Key()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}{key\+To\+Label()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}, and \mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{Template\+Variant\+::to\+Struct()}}.
+
+\mbox{\Hypertarget{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}\label{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}} 
+\index{FilterAlphaIndex@{FilterAlphaIndex}!apply@{apply}}
+\index{apply@{apply}!FilterAlphaIndex@{FilterAlphaIndex}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Alpha\+Index\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l01320}{1320}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01321     \{}
+\DoxyCodeLine{01322       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}() \&\& args.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{01323       \{}
+\DoxyCodeLine{01324         \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} list = v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}();}
+\DoxyCodeLine{01325         \textcolor{keywordflow}{if} (list)}
+\DoxyCodeLine{01326         \{}
+\DoxyCodeLine{01327           \textcolor{comment}{//printf("{}FilterListSort::apply: v=\%s args=\%s\(\backslash\)n"{},qPrint(v.toString()),qPrint(args.toString()));}}
+\DoxyCodeLine{01328           \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{01329 }
+\DoxyCodeLine{01330           \mbox{\hyperlink{class_template_variant}{TemplateVariant}} item;}
+\DoxyCodeLine{01331           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} result = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01332 }
+\DoxyCodeLine{01333           \textcolor{comment}{// create list of items based on v using the data in args as a sort key}}
+\DoxyCodeLine{01334           \textcolor{keyword}{using} SortList = std::vector<ListElem>;}
+\DoxyCodeLine{01335           SortList sortList;}
+\DoxyCodeLine{01336           sortList.reserve(v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}()-\/>count());}
+\DoxyCodeLine{01337           \textcolor{keywordflow}{for} (it-\/>toFirst();(it-\/>current(item));it-\/>toNext())}
+\DoxyCodeLine{01338           \{}
+\DoxyCodeLine{01339             \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = item.\mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{toStruct}}();}
+\DoxyCodeLine{01340             \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{01341             \{}
+\DoxyCodeLine{01342               \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} sortKey = \mbox{\hyperlink{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}{determineSortKey}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},args.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{01343               sortList.emplace\_back(sortKey,item);}
+\DoxyCodeLine{01344               \textcolor{comment}{//printf("{}sortKey=\%s\(\backslash\)n"{},qPrint(sortKey));}}
+\DoxyCodeLine{01345             \}}
+\DoxyCodeLine{01346           \}}
+\DoxyCodeLine{01347 }
+\DoxyCodeLine{01348           \textcolor{comment}{// sort the list}}
+\DoxyCodeLine{01349           std::sort(sortList.begin(),}
+\DoxyCodeLine{01350               sortList.end(),}
+\DoxyCodeLine{01351               [](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&lhs,\textcolor{keyword}{const} \textcolor{keyword}{auto} \&rhs) \{ return lhs.key < rhs.key; \});}
+\DoxyCodeLine{01352 }
+\DoxyCodeLine{01353           \textcolor{comment}{// create an index from the sorted list}}
+\DoxyCodeLine{01354           \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} letter;}
+\DoxyCodeLine{01355           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a9dacbf829f3ee810cab9b4c9fa42aa42}{TemplateStructPtr}} indexNode;}
+\DoxyCodeLine{01356           \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} indexList;}
+\DoxyCodeLine{01357           \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&elem : sortList)}
+\DoxyCodeLine{01358           \{}
+\DoxyCodeLine{01359             \textcolor{keywordflow}{if} (letter!=elem.key || indexNode==0)}
+\DoxyCodeLine{01360             \{}
+\DoxyCodeLine{01361               \textcolor{comment}{// create new indexNode}}
+\DoxyCodeLine{01362               indexNode = \mbox{\hyperlink{class_template_struct_a4a295b982e8f29a6b7cf0af511deaf6a}{TemplateStruct::alloc}}();}
+\DoxyCodeLine{01363               indexList = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{01364               indexNode-\/>set(\textcolor{stringliteral}{"{}letter"{}}, elem.key);}
+\DoxyCodeLine{01365               indexNode-\/>set(\textcolor{stringliteral}{"{}label"{}},  \mbox{\hyperlink{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}{keyToLabel}}(elem.key.c\_str()));}
+\DoxyCodeLine{01366               indexNode-\/>set(\textcolor{stringliteral}{"{}items"{}},std::static\_pointer\_cast<TemplateListIntf>(indexList));}
+\DoxyCodeLine{01367               result-\/>append(std::static\_pointer\_cast<TemplateStructIntf>(indexNode));}
+\DoxyCodeLine{01368               letter=elem.key;}
+\DoxyCodeLine{01369             \}}
+\DoxyCodeLine{01370             indexList-\/>append(elem.value);}
+\DoxyCodeLine{01371           \}}
+\DoxyCodeLine{01372           \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(result));}
+\DoxyCodeLine{01373         \}}
+\DoxyCodeLine{01374       \}}
+\DoxyCodeLine{01375       \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{01376     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_struct_a4a295b982e8f29a6b7cf0af511deaf6a}{Template\+Struct\+::alloc()}}, \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}, and \mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{Template\+Variant\+::to\+Struct()}}.
+
+\mbox{\Hypertarget{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}\label{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}} 
+\index{FilterAlphaIndex@{FilterAlphaIndex}!determineSortKey@{determineSortKey}}
+\index{determineSortKey@{determineSortKey}!FilterAlphaIndex@{FilterAlphaIndex}}
+\doxysubsubsection{\texorpdfstring{determineSortKey()}{determineSortKey()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} Filter\+Alpha\+Index\+::determine\+Sort\+Key (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{Template\+Struct\+Intf\+Ptr}}}]{s,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{attrib\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01312}{1312}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01313     \{}
+\DoxyCodeLine{01314        \mbox{\hyperlink{class_template_variant}{TemplateVariant}} v = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}-\/>get(attribName);}
+\DoxyCodeLine{01315        \textcolor{keywordtype}{int} index = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ae052d7dcea3289dd204d8d425cf9d4c9}{getPrefixIndex}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{01316        \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convertUTF8ToUpper}}(\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{getUTF8CharAt}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}().\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),index));}
+\DoxyCodeLine{01317     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convert\+UTF8\+To\+Upper()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ae052d7dcea3289dd204d8d425cf9d4c9}{get\+Prefix\+Index()}}, \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{get\+UTF8\+Char\+At()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}{apply()}}.
+
+\mbox{\Hypertarget{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}\label{class_filter_alpha_index_accca2d712b3a8ccd96618d2938beff10}} 
+\index{FilterAlphaIndex@{FilterAlphaIndex}!determineSortKey@{determineSortKey}}
+\index{determineSortKey@{determineSortKey}!FilterAlphaIndex@{FilterAlphaIndex}}
+\doxysubsubsection{\texorpdfstring{determineSortKey()}{determineSortKey()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} Filter\+Alpha\+Index\+::determine\+Sort\+Key (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{Template\+Struct\+Intf\+Ptr}}}]{s,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{attrib\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l01312}{1312}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01313     \{}
+\DoxyCodeLine{01314        \mbox{\hyperlink{class_template_variant}{TemplateVariant}} v = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}-\/>get(attribName);}
+\DoxyCodeLine{01315        \textcolor{keywordtype}{int} index = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ae052d7dcea3289dd204d8d425cf9d4c9}{getPrefixIndex}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{01316        \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convertUTF8ToUpper}}(\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{getUTF8CharAt}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}().\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),index));}
+\DoxyCodeLine{01317     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convert\+UTF8\+To\+Upper()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ae052d7dcea3289dd204d8d425cf9d4c9}{get\+Prefix\+Index()}}, \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{get\+UTF8\+Char\+At()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+\mbox{\Hypertarget{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}\label{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}} 
+\index{FilterAlphaIndex@{FilterAlphaIndex}!keyToLabel@{keyToLabel}}
+\index{keyToLabel@{keyToLabel}!FilterAlphaIndex@{FilterAlphaIndex}}
+\doxysubsubsection{\texorpdfstring{keyToLabel()}{keyToLabel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} Filter\+Alpha\+Index\+::key\+To\+Label (\begin{DoxyParamCaption}\item[{const char $\ast$}]{start\+Letter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01289}{1289}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01290     \{}
+\DoxyCodeLine{01291       \textcolor{comment}{//printf("{}>keyToLabel(\%s)\(\backslash\)n"{},qPrint(startLetter));}}
+\DoxyCodeLine{01292       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = startLetter;}
+\DoxyCodeLine{01293       \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01294       \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{01295       \textcolor{keywordflow}{if} (c<127 \&\& c>31) \textcolor{comment}{// printable ASCII character}}
+\DoxyCodeLine{01296       \{}
+\DoxyCodeLine{01297         result+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01298       \}}
+\DoxyCodeLine{01299       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01300       \{}
+\DoxyCodeLine{01301         result=\textcolor{stringliteral}{"{}0x"{}};}
+\DoxyCodeLine{01302         \textcolor{keyword}{const} \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[]=\textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{01303         \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++))}
+\DoxyCodeLine{01304         \{}
+\DoxyCodeLine{01305           result+=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})>>4];}
+\DoxyCodeLine{01306           result+=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})\&0xf];}
+\DoxyCodeLine{01307         \}}
+\DoxyCodeLine{01308       \}}
+\DoxyCodeLine{01309       \textcolor{comment}{//printf("{}<keyToLabel(\%s)\(\backslash\)n"{},qPrint(result));}}
+\DoxyCodeLine{01310       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{01311     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_filter_alpha_index_a2820c05a94a2b02d444ec7d1eb7918c0}{apply()}}.
+
+\mbox{\Hypertarget{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}\label{class_filter_alpha_index_a83b9d1aa25d7c2baf2ad9f7fafad0601}} 
+\index{FilterAlphaIndex@{FilterAlphaIndex}!keyToLabel@{keyToLabel}}
+\index{keyToLabel@{keyToLabel}!FilterAlphaIndex@{FilterAlphaIndex}}
+\doxysubsubsection{\texorpdfstring{keyToLabel()}{keyToLabel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} Filter\+Alpha\+Index\+::key\+To\+Label (\begin{DoxyParamCaption}\item[{const char $\ast$}]{start\+Letter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l01289}{1289}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01290     \{}
+\DoxyCodeLine{01291       \textcolor{comment}{//printf("{}>keyToLabel(\%s)\(\backslash\)n"{},qPrint(startLetter));}}
+\DoxyCodeLine{01292       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = startLetter;}
+\DoxyCodeLine{01293       \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01294       \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{01295       \textcolor{keywordflow}{if} (c<127 \&\& c>31) \textcolor{comment}{// printable ASCII character}}
+\DoxyCodeLine{01296       \{}
+\DoxyCodeLine{01297         result+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01298       \}}
+\DoxyCodeLine{01299       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01300       \{}
+\DoxyCodeLine{01301         result=\textcolor{stringliteral}{"{}0x"{}};}
+\DoxyCodeLine{01302         \textcolor{keyword}{const} \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[]=\textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{01303         \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++))}
+\DoxyCodeLine{01304         \{}
+\DoxyCodeLine{01305           result+=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})>>4];}
+\DoxyCodeLine{01306           result+=\mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})\&0xf];}
+\DoxyCodeLine{01307         \}}
+\DoxyCodeLine{01308       \}}
+\DoxyCodeLine{01309       \textcolor{comment}{//printf("{}<keyToLabel(\%s)\(\backslash\)n"{},qPrint(result));}}
+\DoxyCodeLine{01310       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{01311     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_af6d39adaeb2e454e5ad70f6e7cb83416}{hex}}, and \mbox{\hyperlink{class_template_immutable_list_a5c8224327a9c7696cb7d2b4166ed923c}{Template\+Immutable\+List\+::p}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

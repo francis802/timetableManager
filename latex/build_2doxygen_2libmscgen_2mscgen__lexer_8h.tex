@@ -1,0 +1,130 @@
+\hypertarget{build_2doxygen_2libmscgen_2mscgen__lexer_8h}{}\doxysection{doxygen/build/doxygen/libmscgen/mscgen\+\_\+lexer.h File Reference}
+\label{build_2doxygen_2libmscgen_2mscgen__lexer_8h}\index{doxygen/build/doxygen/libmscgen/mscgen\_lexer.h@{doxygen/build/doxygen/libmscgen/mscgen\_lexer.h}}
+{\ttfamily \#include \char`\"{}mscgen\+\_\+bool.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8h_aa71a7eef29b996a9789eccf238ca5f5a}{lex\+\_\+getutf8}} (void)
+\item 
+unsigned long \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a0b29252972246c3270aa1e08548a98b7}{lex\+\_\+getlinenum}} (void)
+\item 
+char $\ast$ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a9ebf4eb3ab1f369dddaf8a0bc1ba4ac5}{lex\+\_\+getline}} (void)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a3d565dca7dfaa2c34fc74778045942db}{lex\+\_\+destroy}} (void)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a7956a873081fea132c8a76d7606aec52}{lex\+\_\+resetparser}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a3d565dca7dfaa2c34fc74778045942db}\label{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a3d565dca7dfaa2c34fc74778045942db}} 
+\index{mscgen\_lexer.h@{mscgen\_lexer.h}!lex\_destroy@{lex\_destroy}}
+\index{lex\_destroy@{lex\_destroy}!mscgen\_lexer.h@{mscgen\_lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_destroy()}{lex\_destroy()}}
+{\footnotesize\ttfamily void lex\+\_\+destroy (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source_l00229}{229}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source}{mscgen\+\_\+lexer.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00230 \{}
+\DoxyCodeLine{00231     \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\_line}} != NULL)}
+\DoxyCodeLine{00232     \{}
+\DoxyCodeLine{00233         free(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\_line}});}
+\DoxyCodeLine{00234         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\_line}} = NULL;}
+\DoxyCodeLine{00235     \}}
+\DoxyCodeLine{00236 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\+\_\+line}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a9ebf4eb3ab1f369dddaf8a0bc1ba4ac5}\label{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a9ebf4eb3ab1f369dddaf8a0bc1ba4ac5}} 
+\index{mscgen\_lexer.h@{mscgen\_lexer.h}!lex\_getline@{lex\_getline}}
+\index{lex\_getline@{lex\_getline}!mscgen\_lexer.h@{mscgen\_lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_getline()}{lex\_getline()}}
+{\footnotesize\ttfamily char $\ast$ lex\+\_\+getline (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source_l00224}{224}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source}{mscgen\+\_\+lexer.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00225 \{}
+\DoxyCodeLine{00226     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\_line}};}
+\DoxyCodeLine{00227 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\+\_\+line}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a0b29252972246c3270aa1e08548a98b7}\label{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a0b29252972246c3270aa1e08548a98b7}} 
+\index{mscgen\_lexer.h@{mscgen\_lexer.h}!lex\_getlinenum@{lex\_getlinenum}}
+\index{lex\_getlinenum@{lex\_getlinenum}!mscgen\_lexer.h@{mscgen\_lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_getlinenum()}{lex\_getlinenum()}}
+{\footnotesize\ttfamily unsigned long lex\+\_\+getlinenum (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source_l00219}{219}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source}{mscgen\+\_\+lexer.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220 \{}
+\DoxyCodeLine{00221     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a7c66d7218f3452bda88dd4261c594aef}{lex\_linenum}};}
+\DoxyCodeLine{00222 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a7c66d7218f3452bda88dd4261c594aef}{lex\+\_\+linenum}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__lexer_8h_aa71a7eef29b996a9789eccf238ca5f5a}\label{build_2doxygen_2libmscgen_2mscgen__lexer_8h_aa71a7eef29b996a9789eccf238ca5f5a}} 
+\index{mscgen\_lexer.h@{mscgen\_lexer.h}!lex\_getutf8@{lex\_getutf8}}
+\index{lex\_getutf8@{lex\_getutf8}!mscgen\_lexer.h@{mscgen\_lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_getutf8()}{lex\_getutf8()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} lex\+\_\+getutf8 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source_l00238}{238}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source}{mscgen\+\_\+lexer.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00239 \{}
+\DoxyCodeLine{00240     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a1110cb01f61a75ece2b90a63a2de869f}{lex\_utf8}};}
+\DoxyCodeLine{00241 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a1110cb01f61a75ece2b90a63a2de869f}{lex\+\_\+utf8}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a7956a873081fea132c8a76d7606aec52}\label{build_2doxygen_2libmscgen_2mscgen__lexer_8h_a7956a873081fea132c8a76d7606aec52}} 
+\index{mscgen\_lexer.h@{mscgen\_lexer.h}!lex\_resetparser@{lex\_resetparser}}
+\index{lex\_resetparser@{lex\_resetparser}!mscgen\_lexer.h@{mscgen\_lexer.h}}
+\doxysubsubsection{\texorpdfstring{lex\_resetparser()}{lex\_resetparser()}}
+{\footnotesize\ttfamily void lex\+\_\+resetparser (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source_l00243}{243}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_source}{mscgen\+\_\+lexer.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00244 \{}
+\DoxyCodeLine{00245   \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a7c66d7218f3452bda88dd4261c594aef}{lex\_linenum}} = 1;}
+\DoxyCodeLine{00246   \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\_line}} = NULL;}
+\DoxyCodeLine{00247   \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a1110cb01f61a75ece2b90a63a2de869f}{lex\_utf8}} = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00248 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a55a9675d99a473808df6792d74f8a552}{lex\+\_\+line}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a7c66d7218f3452bda88dd4261c594aef}{lex\+\_\+linenum}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__lexer_8l_a1110cb01f61a75ece2b90a63a2de869f}{lex\+\_\+utf8}}.
+

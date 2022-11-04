@@ -1,0 +1,60 @@
+\hypertarget{src_2fileparser_8cpp_source}{}\doxysection{fileparser.\+cpp}
+\label{src_2fileparser_8cpp_source}\index{doxygen/src/fileparser.cpp@{doxygen/src/fileparser.cpp}}
+\mbox{\hyperlink{src_2fileparser_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2fileparser_8h}{fileparser.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2outputgen_8h}{outputgen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00019}00019 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_code_parser_ac1f4621ebb7a3b0aabf510689166ea70}{FileCodeParser::parseCode}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&codeOutIntf,}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00020}00020                \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&,    \textcolor{comment}{// scopeName}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00021}00021                \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&     input,}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00022}00022                \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}},          \textcolor{comment}{// lang}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00023}00023                \textcolor{keywordtype}{bool},                \textcolor{comment}{// isExampleBlock}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00024}00024                \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&,    \textcolor{comment}{// exampleName}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00025}00025                \textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *      fileDef,}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00026}00026                \textcolor{keywordtype}{int}                  startLine,}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00027}00027                \textcolor{keywordtype}{int}                  endLine,}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00028}00028                \textcolor{keywordtype}{bool}                 inlineFragment,}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00029}00029                \textcolor{keyword}{const} \mbox{\hyperlink{class_member_def}{MemberDef}} *,   \textcolor{comment}{// memberDef}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00030}00030                \textcolor{keywordtype}{bool}                 showLineNumbers,}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00031}00031                \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *,  \textcolor{comment}{// searchCtx,}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00032}00032                \textcolor{keywordtype}{bool}                 \textcolor{comment}{// collectXRefs}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00033}00033               )}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00034}00034 \{}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00035}00035   \textcolor{keywordtype}{int} lineNr = startLine!=-\/1 ? startLine : 1;}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00036}00036   \textcolor{keywordtype}{int} length = input.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}();}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00037}00037   \textcolor{keywordtype}{int} i=0;}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00038}00038   \textcolor{keywordflow}{while} (i<length \&\& (endLine==-\/1 || lineNr<=endLine))}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00039}00039   \{}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00040}00040     \textcolor{keywordtype}{int} j=i;}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00041}00041     \textcolor{keywordflow}{while} (j<length \&\& input[j]!=\textcolor{charliteral}{'\(\backslash\)n'}) j++;}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00042}00042     \mbox{\hyperlink{class_q_c_string}{QCString}} lineStr = input.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(i,j-\/i);}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00043}00043     codeOutIntf.\mbox{\hyperlink{class_code_output_interface_a080d71d457de084ce2b3245bca5a0d68}{startCodeLine}}(fileDef != 0 \&\& showLineNumbers);}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00044}00044     \textcolor{keywordflow}{if} (fileDef != 0 \&\& showLineNumbers)}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00045}00045     \{}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00046}00046       codeOutIntf.\mbox{\hyperlink{class_code_output_interface_a483573b9884f249316728fc85ee413b0}{writeLineNumber}}(\mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),lineNr,!inlineFragment);}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00047}00047     \}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00048}00048     \textcolor{keywordflow}{if} (!lineStr.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) codeOutIntf.\mbox{\hyperlink{class_code_output_interface_aa79acfd0247d182dcd423eeb3f0cdd66}{codify}}(lineStr.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00049}00049     codeOutIntf.\mbox{\hyperlink{class_code_output_interface_afac5763eafc78f93b82691fb9a6dcff7}{endCodeLine}}();}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00050}00050     lineNr++;}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00051}00051     i=j+1;}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00052}00052   \}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00053}00053 \}}
+\DoxyCodeLine{\Hypertarget{src_2fileparser_8cpp_source_l00054}00054 }
+
+\end{DoxyCode}

@@ -1,0 +1,187 @@
+\hypertarget{addon_2doxywizard_2config_8h}{}\doxysection{doxygen/addon/doxywizard/config.h File Reference}
+\label{addon_2doxywizard_2config_8h}\index{doxygen/addon/doxywizard/config.h@{doxygen/addon/doxywizard/config.h}}
+{\ttfamily \#include $<$QHash$>$}\newline
+{\ttfamily \#include $<$QString$>$}\newline
+{\ttfamily \#include \char`\"{}adapter.\+h\char`\"{}}\newline
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{addon_2doxywizard_2config_8h_a06fc87d81c62e9abb8790b6e5713c55baf9043652ab6c0a36c22f6bdea78d1d5a}{MAX\+\_\+\+OPTION\+\_\+\+LENGTH}} = 23
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{addon_2doxywizard_2config_8h_a1d529035532987eefc928f16f473feec}{parse\+Config}} (const QString \&file\+Name, const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&options)
+\item 
+void \mbox{\hyperlink{addon_2doxywizard_2config_8h_a082676dc92bb9123ed03ca8491f9e87d}{write\+String\+Value}} (QText\+Stream \&t, \mbox{\hyperlink{class_text_codec_adapter}{Text\+Codec\+Adapter}} $\ast$codec, const QString \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{addon_2doxywizard_2config_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{addon_2doxywizard_2config_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_OPTION\_LENGTH@{MAX\_OPTION\_LENGTH}!config.h@{config.h}}\index{config.h@{config.h}!MAX\_OPTION\_LENGTH@{MAX\_OPTION\_LENGTH}}}\mbox{\Hypertarget{addon_2doxywizard_2config_8h_a06fc87d81c62e9abb8790b6e5713c55baf9043652ab6c0a36c22f6bdea78d1d5a}\label{addon_2doxywizard_2config_8h_a06fc87d81c62e9abb8790b6e5713c55baf9043652ab6c0a36c22f6bdea78d1d5a}} 
+MAX\+\_\+\+OPTION\+\_\+\+LENGTH&Maximum length of an option in the config file. Used for alignment purposes. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2config_8h_source_l00032}{32}} of file \mbox{\hyperlink{addon_2doxywizard_2config_8h_source}{config.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033 \{}
+\DoxyCodeLine{00037   \mbox{\hyperlink{addon_2doxywizard_2config_8h_a06fc87d81c62e9abb8790b6e5713c55baf9043652ab6c0a36c22f6bdea78d1d5a}{MAX\_OPTION\_LENGTH}} = 23}
+\DoxyCodeLine{00038 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{addon_2doxywizard_2config_8h_a1d529035532987eefc928f16f473feec}\label{addon_2doxywizard_2config_8h_a1d529035532987eefc928f16f473feec}} 
+\index{config.h@{config.h}!parseConfig@{parseConfig}}
+\index{parseConfig@{parseConfig}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{parseConfig()}{parseConfig()}}
+{\footnotesize\ttfamily bool parse\+Config (\begin{DoxyParamCaption}\item[{const QString \&}]{file\+Name,  }\item[{const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&}]{options }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_source_l00735}{735}} of file \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_source}{config\+\_\+doxyw.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00739 \{}
+\DoxyCodeLine{00740   yylineno = 1;}
+\DoxyCodeLine{00741   \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_a67e6531bb3af61337b6ba1ad2fed71cf}{config\_open}}();}
+\DoxyCodeLine{00742   QHashIterator<QString, Input*> i(options);}
+\DoxyCodeLine{00743   \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_aa89e402ac36fcbba5cf90898038cdef4}{g\_file}} = \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{fopen}}(fileName.toLocal8Bit(),\textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00744   \textcolor{keywordflow}{if} (\mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_aa89e402ac36fcbba5cf90898038cdef4}{g\_file}}==NULL) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00745 }
+\DoxyCodeLine{00746   \textcolor{comment}{// reset all values}}
+\DoxyCodeLine{00747   i.toFront();}
+\DoxyCodeLine{00748   \textcolor{keywordflow}{while} (i.hasNext())}
+\DoxyCodeLine{00749   \{}
+\DoxyCodeLine{00750     i.next();}
+\DoxyCodeLine{00751     \textcolor{keywordflow}{if} (i.value())}
+\DoxyCodeLine{00752     \{}
+\DoxyCodeLine{00753       i.value()-\/>reset();}
+\DoxyCodeLine{00754     \}}
+\DoxyCodeLine{00755   \}}
+\DoxyCodeLine{00756 }
+\DoxyCodeLine{00757   \textcolor{comment}{// parse config file}}
+\DoxyCodeLine{00758   \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a1b17737294d344fc0613a6c15b7ec901}{g\_options}}       = \&options;}
+\DoxyCodeLine{00759   \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a2b61d9d39eae21698c91579de641be62}{g\_yyFileName}}    = fileName;}
+\DoxyCodeLine{00760   \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a5e07d25ec0154a76918e9921c688a45e}{g\_includeStack}}.clear();}
+\DoxyCodeLine{00761   \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a1715c55ba335925c7ab3a02a7d1abdeb}{g\_includeDepth}}  = 0;}
+\DoxyCodeLine{00762   config\_doxywYYrestart( config\_doxywYYin );}
+\DoxyCodeLine{00763   BEGIN( Start );}
+\DoxyCodeLine{00764   config\_doxywYYlex();}
+\DoxyCodeLine{00765 }
+\DoxyCodeLine{00766   \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a9f3bea6bfdd358a7fcf68fd16d5be711}{upgradeConfig}}(options);}
+\DoxyCodeLine{00767 }
+\DoxyCodeLine{00768   \textcolor{comment}{// update the values in the UI}}
+\DoxyCodeLine{00769   i.toFront();}
+\DoxyCodeLine{00770   \textcolor{keywordflow}{while} (i.hasNext())}
+\DoxyCodeLine{00771   \{}
+\DoxyCodeLine{00772     i.next();}
+\DoxyCodeLine{00773     \textcolor{keywordflow}{if} (i.value())}
+\DoxyCodeLine{00774     \{}
+\DoxyCodeLine{00775       \textcolor{comment}{//printf("{}Updating: \%s\(\backslash\)n"{},qPrintable(i.key()));}}
+\DoxyCodeLine{00776       i.value()-\/>update();}
+\DoxyCodeLine{00777     \}}
+\DoxyCodeLine{00778     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00779     \{}
+\DoxyCodeLine{00780       printf(\textcolor{stringliteral}{"{}Invalid option: \%s\(\backslash\)n"{}},qPrintable(i.key()));}
+\DoxyCodeLine{00781     \}}
+\DoxyCodeLine{00782   \}}
+\DoxyCodeLine{00783   \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{fclose}}(\mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_aa89e402ac36fcbba5cf90898038cdef4}{g\_file}});}
+\DoxyCodeLine{00784   \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_ae55ad65c67b3da3c9e64e4ce7f1b090e}{config\_finish}}();}
+\DoxyCodeLine{00785   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00786 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_ae55ad65c67b3da3c9e64e4ce7f1b090e}{config\+\_\+finish()}}, \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_a67e6531bb3af61337b6ba1ad2fed71cf}{config\+\_\+open()}}, \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{Portable\+::fclose()}}, \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{Portable\+::fopen()}}, \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_aa89e402ac36fcbba5cf90898038cdef4}{g\+\_\+file}}, \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a1715c55ba335925c7ab3a02a7d1abdeb}{g\+\_\+include\+Depth}}, \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a5e07d25ec0154a76918e9921c688a45e}{g\+\_\+include\+Stack}}, \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a1b17737294d344fc0613a6c15b7ec901}{g\+\_\+options}}, \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a2b61d9d39eae21698c91579de641be62}{g\+\_\+yy\+File\+Name}}, and \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a9f3bea6bfdd358a7fcf68fd16d5be711}{upgrade\+Config()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_expert_a072a019d46bd7a9b4eb92fb0ca86b5b7}{Expert\+::load\+Config()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2config_8h_a082676dc92bb9123ed03ca8491f9e87d}\label{addon_2doxywizard_2config_8h_a082676dc92bb9123ed03ca8491f9e87d}} 
+\index{config.h@{config.h}!writeStringValue@{writeStringValue}}
+\index{writeStringValue@{writeStringValue}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{writeStringValue()}{writeStringValue()}}
+{\footnotesize\ttfamily void write\+String\+Value (\begin{DoxyParamCaption}\item[{QText\+Stream \&}]{t,  }\item[{\mbox{\hyperlink{class_text_codec_adapter}{Text\+Codec\+Adapter}} $\ast$}]{codec,  }\item[{const QString \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_source_l00788}{788}} of file \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_source}{config\+\_\+doxyw.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00789 \{}
+\DoxyCodeLine{00790   QChar \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00791   \textcolor{keywordtype}{bool} needsEscaping=\textcolor{keyword}{false};}
+\DoxyCodeLine{00792   \textcolor{keywordtype}{bool} needsHashEscaping=\textcolor{keyword}{false};}
+\DoxyCodeLine{00793   \textcolor{comment}{// convert the string back to it original encoding}}
+\DoxyCodeLine{00794   codec-\/>\mbox{\hyperlink{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}{applyToStream}}(t);}
+\DoxyCodeLine{00795   \textcolor{keyword}{const} QChar *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.\mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{data}}();}
+\DoxyCodeLine{00796   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.isEmpty() \&\& !\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/>isNull())}
+\DoxyCodeLine{00797   \{}
+\DoxyCodeLine{00798     \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} != QChar::fromLatin1(\textcolor{charliteral}{'"{}'}))}
+\DoxyCodeLine{00799     \{}
+\DoxyCodeLine{00800       \textcolor{keywordflow}{while} (!(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++).isNull() \&\& !needsEscaping)}
+\DoxyCodeLine{00801       \{}
+\DoxyCodeLine{00802         needsEscaping = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==QChar::fromLatin1(\textcolor{charliteral}{' '})  ||}
+\DoxyCodeLine{00803                      \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==QChar::fromLatin1(\textcolor{charliteral}{','}) ||}
+\DoxyCodeLine{00804                      \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==QChar::fromLatin1(\textcolor{charliteral}{'\(\backslash\)n'}) ||}
+\DoxyCodeLine{00805                  \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==QChar::fromLatin1(\textcolor{charliteral}{'\(\backslash\)t'}) ||}
+\DoxyCodeLine{00806                  \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==QChar::fromLatin1(\textcolor{charliteral}{'"{}'}));}
+\DoxyCodeLine{00807       \}}
+\DoxyCodeLine{00808       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.\mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{data}}();}
+\DoxyCodeLine{00809       \textcolor{keywordflow}{while} (!(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++).isNull() \&\& !needsHashEscaping)}
+\DoxyCodeLine{00810       \{}
+\DoxyCodeLine{00811         needsHashEscaping = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==QChar::fromLatin1(\textcolor{charliteral}{'\#'}));}
+\DoxyCodeLine{00812       \}}
+\DoxyCodeLine{00813     \}}
+\DoxyCodeLine{00814     \textcolor{keywordflow}{if} (needsHashEscaping || needsEscaping)}
+\DoxyCodeLine{00815     \{}
+\DoxyCodeLine{00816       t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00817     \}}
+\DoxyCodeLine{00818     \textcolor{keywordflow}{if} (needsEscaping)}
+\DoxyCodeLine{00819     \{}
+\DoxyCodeLine{00820       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.\mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{data}}();}
+\DoxyCodeLine{00821       \textcolor{keywordflow}{while} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/>isNull())}
+\DoxyCodeLine{00822       \{}
+\DoxyCodeLine{00823     \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}   ==QChar::fromLatin1(\textcolor{charliteral}{' '}) \&\&}
+\DoxyCodeLine{00824        *(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}+1)==QChar::fromLatin1(\textcolor{charliteral}{'\(\backslash\)0'})) \textcolor{keywordflow}{break}; \textcolor{comment}{// skip inserted space at the end}}
+\DoxyCodeLine{00825     \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}   ==QChar::fromLatin1(\textcolor{charliteral}{'"{}'})) t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}}; \textcolor{comment}{// escape quotes}}
+\DoxyCodeLine{00826     t << *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00827       \}}
+\DoxyCodeLine{00828     \}}
+\DoxyCodeLine{00829     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00830     \{}
+\DoxyCodeLine{00831       t << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{00832     \}}
+\DoxyCodeLine{00833     \textcolor{keywordflow}{if} (needsHashEscaping || needsEscaping)}
+\DoxyCodeLine{00834     \{}
+\DoxyCodeLine{00835       t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00836     \}}
+\DoxyCodeLine{00837   \}}
+\DoxyCodeLine{00838 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}{Text\+Codec\+Adapter\+::apply\+To\+Stream()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{gd\+Font\+::data}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_input_string_a419704bcb267a32c49a0f66a56cea7d4}{Input\+String\+::write\+Value()}}, and \mbox{\hyperlink{class_input_str_list_ad8bddb77817dc2b7abe778e70946efa6}{Input\+Str\+List\+::write\+Value()}}.
+

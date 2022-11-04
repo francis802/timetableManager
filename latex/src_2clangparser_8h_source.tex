@@ -1,0 +1,79 @@
+\hypertarget{src_2clangparser_8h_source}{}\doxysection{clangparser.\+h}
+\label{src_2clangparser_8h_source}\index{doxygen/src/clangparser.h@{doxygen/src/clangparser.h}}
+\mbox{\hyperlink{src_2clangparser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef CLANGPARSER\_H}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00002}00002 \textcolor{preprocessor}{\#define CLANGPARSER\_H}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2containers_8h}{containers.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00009}00009 \textcolor{keyword}{class }\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00010}00010 \textcolor{keyword}{class }\mbox{\hyperlink{class_file_def}{FileDef}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00011}00011 \textcolor{keyword}{class }\mbox{\hyperlink{class_clang_parser}{ClangParser}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00012}00012 \textcolor{keyword}{class }\mbox{\hyperlink{class_definition}{Definition}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00014}00014 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceclang}{clang}} \{ \textcolor{keyword}{namespace }tooling \{}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00015}00015   \textcolor{keyword}{class }CompilationDatabase;}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00016}00016 \} \}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00021}00021 \textcolor{keyword}{class }\mbox{\hyperlink{class_clang_t_u_parser}{ClangTUParser}}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00023}00023   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00024}\mbox{\hyperlink{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}{00024}}     \mbox{\hyperlink{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}{ClangTUParser}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_clang_parser}{ClangParser}} \&parser,\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00025}\mbox{\hyperlink{class_clang_t_u_parser_a82806777404764e0af59e77cb916410b}{00025}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_clang_t_u_parser_a82806777404764e0af59e77cb916410b}{\string~ClangTUParser}}();}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00030}\mbox{\hyperlink{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}{00030}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}{parse}}();}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00035}\mbox{\hyperlink{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}{00035}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}{switchToFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00038}\mbox{\hyperlink{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}{00038}}     \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}{filesInSameTU}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00043}\mbox{\hyperlink{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}{00043}}     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}{lookup}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *symbol);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00049}\mbox{\hyperlink{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}{00049}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}{writeSources}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00051}00051   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00052}\mbox{\hyperlink{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}{00052}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}{detectFunctionBody}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00053}\mbox{\hyperlink{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}{00053}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}{writeLineNumber}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line,\textcolor{keywordtype}{bool} writeLineAnchor);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00054}\mbox{\hyperlink{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}{00054}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}{codifyLines}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *text,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00055}00055                      \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fontClass=0);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00056}\mbox{\hyperlink{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}{00056}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}{writeMultiLineCodeLink}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&ol,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00057}00057                                 \textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00058}00058                                 \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *d, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00059}\mbox{\hyperlink{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}{00059}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}{linkIdentifier}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00060}00060                         \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00061}00061                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text,\textcolor{keywordtype}{int} tokenIndex);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00062}\mbox{\hyperlink{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}{00062}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}{linkMacro}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00063}00063                    \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00064}00064                    \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00065}\mbox{\hyperlink{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}{00065}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}{linkInclude}}(\mbox{\hyperlink{class_code_output_interface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00066}00066                    \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00067}00067                    \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text);}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00068}\mbox{\hyperlink{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}{00068}}     \mbox{\hyperlink{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}{ClangTUParser}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_clang_t_u_parser}{ClangTUParser}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00069}\mbox{\hyperlink{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}{00069}}     \mbox{\hyperlink{class_clang_t_u_parser}{ClangTUParser}} \&\mbox{\hyperlink{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_clang_t_u_parser}{ClangTUParser}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00070}00070     \textcolor{keyword}{class }\mbox{\hyperlink{class_clang_t_u_parser_1_1_private}{Private}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00071}00071     std::unique\_ptr<Private> \mbox{\hyperlink{class_clang_t_u_parser_a86df93ac8a230173d2de89d27f89d83e}{p}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00072}00072 \};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00075}00075 \textcolor{keyword}{class }\mbox{\hyperlink{class_clang_parser}{ClangParser}}}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00076}00076 \{}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00077}00077     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_clang_t_u_parser}{ClangTUParser}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00078}00078   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00080}\mbox{\hyperlink{class_clang_parser_ac5008726a6749b469f63bd1e3a9164f5}{00080}}     \textcolor{keyword}{static} \mbox{\hyperlink{class_clang_parser}{ClangParser}} *\mbox{\hyperlink{class_clang_parser_ac5008726a6749b469f63bd1e3a9164f5}{instance}}();}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00081}\mbox{\hyperlink{class_clang_parser_a2aa7186d8f16b07b3496e5769d46b077}{00081}}     std::unique\_ptr<ClangTUParser> \mbox{\hyperlink{class_clang_parser_a2aa7186d8f16b07b3496e5769d46b077}{createTUParser}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00083}00083   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00084}\mbox{\hyperlink{class_clang_parser_a891f7ea10dc213bf41bdd457674763d6}{00084}}     \textcolor{keyword}{const} clang::tooling::CompilationDatabase *\mbox{\hyperlink{class_clang_parser_a891f7ea10dc213bf41bdd457674763d6}{database}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00085}00085     \textcolor{keyword}{class }\mbox{\hyperlink{class_clang_parser_1_1_private}{Private}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00086}00086     std::unique\_ptr<Private> \mbox{\hyperlink{class_clang_parser_a4938d283ad88efb9fb43f541938511d3}{p}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00087}\mbox{\hyperlink{class_clang_parser_acbfff98bae20ac65c370e5f418fc271c}{00087}}     \mbox{\hyperlink{class_clang_parser_acbfff98bae20ac65c370e5f418fc271c}{ClangParser}}();}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00088}\mbox{\hyperlink{class_clang_parser_aefcfd3af202bbc4b65814b90f9ab6065}{00088}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_clang_parser_aefcfd3af202bbc4b65814b90f9ab6065}{\string~ClangParser}}();}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00089}00089     \textcolor{keyword}{static} \mbox{\hyperlink{class_clang_parser}{ClangParser}} *\mbox{\hyperlink{class_clang_parser_a6b4073f0332f7f203a9ca455872704ca}{s\_instance}};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00090}00090 \};}
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{src_2clangparser_8h_source_l00092}00092 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

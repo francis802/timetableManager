@@ -1,0 +1,146 @@
+\hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source}{}\doxysection{mscgen\+\_\+adraw.\+c}
+\label{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source}\index{doxygen/build/doxygen/libmscgen/mscgen\_adraw.c@{doxygen/build/doxygen/libmscgen/mscgen\_adraw.c}}
+\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00001}00001 \textcolor{comment}{/***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00003}00003 \textcolor{comment}{ * \$Id: adraw.c 161 2010-\/10-\/26 20:17:16Z Michael.McTernan \$}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00005}00005 \textcolor{comment}{ * This file is part of mscgen, a message sequence chart renderer.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00006}00006 \textcolor{comment}{ * Copyright (C) 2005 Michael C McTernan, Michael.McTernan.2001@cs.bris.ac.uk}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00007}00007 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00008}00008 \textcolor{comment}{ * This program is free software; you can redistribute it and/or modify}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00009}00009 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00010}00010 \textcolor{comment}{ * the Free Software Foundation; either version 2 of the License, or}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00011}00011 \textcolor{comment}{ *  (at your option) any later version.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00012}00012 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00013}00013 \textcolor{comment}{ * This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00014}00014 \textcolor{comment}{ * but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00015}00015 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00016}00016 \textcolor{comment}{ * GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00017}00017 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00018}00018 \textcolor{comment}{ * You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00019}00019 \textcolor{comment}{ * along with this program; if not, write to the Free Software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00020}00020 \textcolor{comment}{ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-\/1301, USA}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00021}00021 \textcolor{comment}{ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00023}00023 \textcolor{comment}{/***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00024}00024 \textcolor{comment}{ * Include Files}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00025}00025 \textcolor{comment}{ ***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00027}00027 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{libmscgen_2mscgen__config_8h}{mscgen\_config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00028}00028 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00029}00029 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00030}00030 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00031}00031 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00032}00032 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{libmscgen_2mscgen__adraw__int_8h}{mscgen\_adraw\_int.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00034}00034 \textcolor{comment}{/***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00035}00035 \textcolor{comment}{ * Functions}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00036}00036 \textcolor{comment}{ ***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00038}\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8c_a52b8f24e981052c7a0ac61b493d3a6bc}{00038}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8c_a52b8f24e981052c7a0ac61b493d3a6bc}{ADrawOpen}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00039}00039                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00040}00040                   \textcolor{keyword}{const} \textcolor{keywordtype}{char}     *\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00041}00041                   \textcolor{keyword}{const} \textcolor{keywordtype}{char}     *fontName,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00042}00042                   \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_a8e068ef737176c5caca39a4dad0bf1ab}{ADrawOutputType}} type,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00043}00043                   \textcolor{keyword}{struct} \mbox{\hyperlink{struct_a_draw_tag}{ADrawTag}} *outContext)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00044}00044 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00045}00045     assert(outContext);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00047}00047     \textcolor{keywordflow}{switch}(type)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00048}00048     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00049}00049         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_a8e068ef737176c5caca39a4dad0bf1abacd124fa3f2f7e5530ffa60e1ffb3b3d1}{ADRAW\_FMT\_NULL}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00050}00050             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a93ca8e75de5343bb5b210fa0aea38964}{NullInit}}(outContext);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00052}00052         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_a8e068ef737176c5caca39a4dad0bf1aba78c6324ce693c09ee87fbc649dcfddd8}{ADRAW\_FMT\_PNG}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00053}00053 \textcolor{preprocessor}{\#if !defined(REMOVE\_PNG\_OUTPUT)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00054}00054             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_ab44874ef0087eda8a0445e334dccce7b}{GdoInit}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, fontName, outContext);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00055}00055 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00056}00056             fprintf(stderr, \textcolor{stringliteral}{"{}Built with REMOVE\_PNG\_OUTPUT; PNG output is not supported\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00057}00057             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00058}00058 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00059}00059         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_a8e068ef737176c5caca39a4dad0bf1ababe7c6605195b6b4d727877b64649e021}{ADRAW\_FMT\_EPS}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00060}00060             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a838da17cdabe1cb0fe9136e76e82f187}{PsInit}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, outContext);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00062}00062         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_a8e068ef737176c5caca39a4dad0bf1aba4d5ffc0f18ecee714b016a72016a3aa5}{ADRAW\_FMT\_SVG}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00063}00063             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{SvgInit}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, outContext);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00065}00065         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00066}00066             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00067}00067     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00068}00068 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00071}\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8c_a0156bf03ca0db741fc0d048da07dc291}{00071}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADrawColour}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8c_a0156bf03ca0db741fc0d048da07dc291}{ADrawGetColour}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *colour)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00072}00072 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00073}00073     assert(colour != NULL);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00075}00075     \textcolor{comment}{/* Check if an RGB value has been specified */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00076}00076     \textcolor{keywordflow}{if}(*colour == \textcolor{charliteral}{'\#'})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00077}00077     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00078}00078         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa87883e3ac4b08c3b4c355161b16de58}{ADRAW\_COL\_BLACK}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00080}00080         \textcolor{keywordflow}{if}(sscanf(\&colour[1], \textcolor{stringliteral}{"{}\%x"{}}, \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}) == 1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00081}00081         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00082}00082             \textcolor{keywordflow}{return} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADrawColour}})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00083}00083         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00084}00084     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00085}00085     \textcolor{keywordflow}{else} \textcolor{comment}{/* Check for name matches */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00086}00086     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00087}00087         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00088}00088         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00089}00089             \textcolor{keywordtype}{char}       *\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00090}00090             \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADrawColour}} col;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00091}00091         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00092}00092         colourMap[] =}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00093}00093         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00094}00094             \{ \textcolor{stringliteral}{"{}WHITE"{}},        \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1ac035176cb36711208c683b3cd1b95594}{ADRAW\_COL\_WHITE}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00095}00095             \{ \textcolor{stringliteral}{"{}BLACK"{}},        \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa87883e3ac4b08c3b4c355161b16de58}{ADRAW\_COL\_BLACK}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00096}00096             \{ \textcolor{stringliteral}{"{}RED"{}},          \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1ac4e7cdb18d49b9489a5396045987ede2}{ADRAW\_COL\_RED}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00097}00097             \{ \textcolor{stringliteral}{"{}ORANGE"{}},       \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a5664bca607e9612d16284a21bb96f128}{ADRAW\_COL\_ORANGE}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00098}00098             \{ \textcolor{stringliteral}{"{}YELLOW"{}},       \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa3513dca07a522edfb07f16120d660c1}{ADRAW\_COL\_YELLOW}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00099}00099             \{ \textcolor{stringliteral}{"{}GREEN"{}},        \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a321a08d57d2645335c967c86c31b5319}{ADRAW\_COL\_GREEN}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00100}00100             \{ \textcolor{stringliteral}{"{}BLUE"{}},         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a174a97c0798feedca020388731b254d2}{ADRAW\_COL\_BLUE}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00101}00101             \{ \textcolor{stringliteral}{"{}INDIGO"{}},       \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1af6d82517f3416cf32442070ba9d9ab4c}{ADRAW\_COL\_INDIGO}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00102}00102             \{ \textcolor{stringliteral}{"{}VIOLET"{}},       \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa1bc40c85788fd34e8cde338bf5290ea}{ADRAW\_COL\_VIOLET}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00103}00103             \{ \textcolor{stringliteral}{"{}SILVER"{}},       \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a681e893b956bc159f7a35bec26cdbec2}{ADRAW\_COL\_SILVER}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00104}00104             \{ \textcolor{stringliteral}{"{}LIME"{}},         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1afc0f84dbc835ac382568516b6be41597}{ADRAW\_COL\_LIME}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00105}00105             \{ \textcolor{stringliteral}{"{}GRAY"{}},         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a4344519af695a6ccd40195e2dbb7740e}{ADRAW\_COL\_GRAY}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00106}00106             \{ \textcolor{stringliteral}{"{}OLIVE"{}},        \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a7001a1580aa637a0d5b05fb2806fa97d}{ADRAW\_COL\_OLIVE}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00107}00107             \{ \textcolor{stringliteral}{"{}MAROON"{}},       \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a8f399fd341614f478c024f122d20db8d}{ADRAW\_COL\_MAROON}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00108}00108             \{ \textcolor{stringliteral}{"{}NAVY"{}},         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aee7601367a84dcd29b0925530153f7a5}{ADRAW\_COL\_NAVY}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00109}00109             \{ \textcolor{stringliteral}{"{}PURPLE"{}},       \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a04f0cf550e206665db4b8da13a60f871}{ADRAW\_COL\_PURPLE}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00110}00110             \{ \textcolor{stringliteral}{"{}TEAL"{}},         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a93050d36340f0f94cd4384d384a3d5b3}{ADRAW\_COL\_TEAL}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00111}00111             \{ \textcolor{stringliteral}{"{}FUCHSIA"{}},      \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a2da49c6217889eae2984afdf691b8d06}{ADRAW\_COL\_FUCHSIA}} \},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00112}00112             \{ \textcolor{stringliteral}{"{}AQUA"{}},         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a6aa6abbe81c45d9066709d8f5f692ec8}{ADRAW\_COL\_AQUA}} \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00113}00113         \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00115}00115         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00117}00117         \textcolor{keywordflow}{for}(t = 0; t < \textcolor{keyword}{sizeof}(colourMap) / \textcolor{keyword}{sizeof}(colourMap[0]); t++)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00118}00118         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00119}00119             \textcolor{keywordflow}{if}(strcasecmp(colour, colourMap[t].\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}) == 0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00120}00120             \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00121}00121                 \textcolor{keywordflow}{return} colourMap[t].col;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00122}00122             \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00123}00123         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00124}00124     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00126}00126     \textcolor{comment}{/* Default to black if all else failed */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00127}00127     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa87883e3ac4b08c3b4c355161b16de58}{ADRAW\_COL\_BLACK}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00128}00128 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00131}\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8c_a578c9287411976da4f4fe05e578be53a}{00131}} \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8c_a578c9287411976da4f4fe05e578be53a}{ADrawComputeArcPoint}}(\textcolor{keywordtype}{float} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \textcolor{keywordtype}{float} degrees,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00132}00132                           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00133}00133 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00134}00134     \textcolor{keywordtype}{float} rad = (float)((degrees * \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}}) / 180.0f);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00136}00136     *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} = (\textcolor{keywordtype}{unsigned} int)round(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}} + ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} / 2.0f) * cos(rad)));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00137}00137     *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} = (\textcolor{keywordtype}{unsigned} int)round(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}} + ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}} / 2.0f) * sin(rad)));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00138}00138 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__adraw_8c_source_l00140}00140 \textcolor{comment}{/* END OF FILE */}}
+
+\end{DoxyCode}

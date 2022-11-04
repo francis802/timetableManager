@@ -1,0 +1,76 @@
+\hypertarget{namespacepre__lex}{}\doxysection{pre\+\_\+lex Namespace Reference}
+\label{namespacepre__lex}\index{pre\_lex@{pre\_lex}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}\label{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}} 
+\index{pre\_lex@{pre\_lex}!main@{main}}
+\index{main@{main}!pre\_lex@{pre\_lex}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def pre\+\_\+lex.\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2pre__lex_8py_source_l00019}{19}} of file \mbox{\hyperlink{build_2doxygen_2src_2pre__lex_8py_source}{pre\+\_\+lex.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019 \textcolor{keyword}{def }\mbox{\hyperlink{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}{main}}():}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{if} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(sys.argv)!=6:}
+\DoxyCodeLine{00021         sys.exit(\textcolor{stringliteral}{'Usage: \{0\} <input\_lex\_file> <output\_lex\_file> <correction\_file> <dependency\_lex\_file> <include\_path>'}.format(sys.argv[0]))}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023     inp\_lex\_file, out\_lex\_file, corr\_lex\_file, dep\_lex\_file, inc\_path = sys.argv[1:]}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025     out\_cnt = rd\_cnt = add\_cnt = 0}
+\DoxyCodeLine{00026     \textcolor{keywordflow}{if} (os.path.exists(inp\_lex\_file)):}
+\DoxyCodeLine{00027         \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(out\_lex\_file,\textcolor{stringliteral}{"{}w"{}}) \textcolor{keyword}{as} out\_file:}
+\DoxyCodeLine{00028             \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(corr\_lex\_file,\textcolor{stringliteral}{"{}w"{}}) \textcolor{keyword}{as} corr\_file:}
+\DoxyCodeLine{00029                 first\_corr  = \textcolor{keyword}{True}}
+\DoxyCodeLine{00030                 \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(dep\_lex\_file,\textcolor{stringliteral}{"{}w"{}}) \textcolor{keyword}{as} dep\_file:}
+\DoxyCodeLine{00031                     dep\_file.write(\textcolor{stringliteral}{"{}\{0\}:"{}}.format(out\_lex\_file))}
+\DoxyCodeLine{00032                     \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(inp\_lex\_file) \textcolor{keyword}{as} in\_file:}
+\DoxyCodeLine{00033                         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} in\_file:}
+\DoxyCodeLine{00034                             \textcolor{keywordflow}{if} re.search(\textcolor{stringliteral}{r'\string^\%doxygen'}, line): \textcolor{comment}{\# special include file marker}}
+\DoxyCodeLine{00035                                 inc\_file = inc\_path + \textcolor{stringliteral}{"{}/"{}} + line.split()[1]}
+\DoxyCodeLine{00036                                 dep\_file.write(\textcolor{stringliteral}{"{} \{0\}"{}}.format(inc\_file))}
+\DoxyCodeLine{00037                                 first\_line = \textcolor{keyword}{True}}
+\DoxyCodeLine{00038                                 \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(inc\_file) \textcolor{keyword}{as} f\_inc:}
+\DoxyCodeLine{00039                                     \textcolor{keywordflow}{for} inc\_line \textcolor{keywordflow}{in} f\_inc:}
+\DoxyCodeLine{00040                                         \textcolor{keywordflow}{if} first\_line:}
+\DoxyCodeLine{00041                                             first\_line = \textcolor{keyword}{False}}
+\DoxyCodeLine{00042                                             out\_file.write(\textcolor{stringliteral}{"{}  /* \#line 1 \{0\} */\(\backslash\)n"{}}.format(inc\_file))}
+\DoxyCodeLine{00043                                         out\_cnt += 1}
+\DoxyCodeLine{00044                                         add\_cnt += 1}
+\DoxyCodeLine{00045                                         out\_file.write(inc\_line)}
+\DoxyCodeLine{00046                                     f\_inc.close()}
+\DoxyCodeLine{00047                                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} first\_line:}
+\DoxyCodeLine{00048                                     out\_file.write(\textcolor{stringliteral}{"{}  /* \#line \{0\} \{1\} */\(\backslash\)n"{}}.format(rd\_cnt+2,inp\_lex\_file))}
+\DoxyCodeLine{00049                                     out\_cnt += 2}
+\DoxyCodeLine{00050                                     add\_cnt += 1}
+\DoxyCodeLine{00051                                     \textcolor{keywordflow}{if} first\_corr:}
+\DoxyCodeLine{00052                                         corr\_file.write(\textcolor{stringliteral}{"{}\{0\} \{1\}\(\backslash\)n"{}}.format(0,0))}
+\DoxyCodeLine{00053                                         first\_corr = \textcolor{keyword}{False}}
+\DoxyCodeLine{00054                                     corr\_file.write(\textcolor{stringliteral}{"{}\{0\} \{1\}\(\backslash\)n"{}}.format(out\_cnt,add\_cnt))}
+\DoxyCodeLine{00055                             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00056                                 out\_cnt += 1}
+\DoxyCodeLine{00057                                 rd\_cnt  += 1}
+\DoxyCodeLine{00058                                 out\_file.write(line)}
+\DoxyCodeLine{00059                     dep\_file.write(\textcolor{stringliteral}{"{}\(\backslash\)n"{}})}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{else}: \textcolor{comment}{\# input file does not exist}}
+\DoxyCodeLine{00061         sys.exit(\textcolor{stringliteral}{"{}Input lex file '\{0\}' does not exist."{}}.format(sys.argv[1]))}
+\DoxyCodeLine{00062 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}{main()}}, and \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}{main()}}.
+

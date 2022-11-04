@@ -1,0 +1,40 @@
+\hypertarget{src_2portable__c_8c_source}{}\doxysection{portable\+\_\+c.\+c}
+\label{src_2portable__c_8c_source}\index{doxygen/src/portable\_c.c@{doxygen/src/portable\_c.c}}
+\mbox{\hyperlink{src_2portable__c_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00001}00001 \textcolor{preprocessor}{\#if (defined(\_\_APPLE\_\_) || defined(macintosh)) \&\& !defined(DMG\_BUILD)}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00002}00002 \textcolor{preprocessor}{\#include <AvailabilityMacros.h>}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00003}00003 \textcolor{comment}{// this hack doesn't seem to be needed on El Captain (10.11)}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00004}00004 \textcolor{preprocessor}{\#if MAC\_OS\_X\_VERSION\_MAX\_ALLOWED < MAC\_OS\_X\_VERSION\_10\_11}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00005}00005 \textcolor{comment}{// define this before including iconv.h to avoid a mapping of}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00006}00006 \textcolor{comment}{// iconv\_open and friends to libicon\_open (done by mac ports),}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00007}00007 \textcolor{comment}{// while the symbols without 'lib' are linked from /usr/lib/libiconv}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00008}00008 \textcolor{preprocessor}{\#define LIBICONV\_PLUG}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00009}00009 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00010}00010 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00011}00011 \textcolor{preprocessor}{\#include <iconv.h>}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00013}00013 \textcolor{comment}{// These functions are implemented in a C file, because there are different}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00014}00014 \textcolor{comment}{// versions of the iconv() prototype, some with a const pointer and some}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00015}00015 \textcolor{comment}{// without. In C this is just a warning, but in C++ breaks the compilation.}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00016}00016 \textcolor{comment}{// Looking at the LIBICONV\_VERSION is not enough, since for MACOSX the}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00017}00017 \textcolor{comment}{// const and non-\/const version exist with the same version of the file.}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00019}\mbox{\hyperlink{src_2portable__c_8c_a7bc4daae6d2c3e89837c44e2c3d4dac6}{00019}} \textcolor{keywordtype}{void} * \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_a7bc4daae6d2c3e89837c44e2c3d4dac6}{portable\_iconv\_open}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* tocode, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* fromcode)}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00020}00020 \{}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00021}00021   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_abc93f77b3b8b5891765c9f3c483ec013}{iconv\_open}}(tocode,fromcode);}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00024}\mbox{\hyperlink{src_2portable__c_8c_a5fc5ec1eedfa06b27448863f69ee2e1d}{00024}} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_a5fc5ec1eedfa06b27448863f69ee2e1d}{portable\_iconv}} (\textcolor{keywordtype}{void} *cd, \textcolor{keyword}{const} \textcolor{keywordtype}{char}** inbuf,  \textcolor{keywordtype}{size\_t} *inbytesleft,}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00025}00025                                  \textcolor{keywordtype}{char}** outbuf, \textcolor{keywordtype}{size\_t} *outbytesleft)}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00026}00026 \{}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00027}00027   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a44c0f9426dd91c55d783618e535404b7}{iconv}}((\mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a72517f6ffadddaafa9d51dee9b535c9f}{iconv\_t}})cd,(\textcolor{keywordtype}{char}**)inbuf,inbytesleft,outbuf,outbytesleft);}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00028}00028 \}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00030}\mbox{\hyperlink{src_2portable__c_8c_a3f98144680118aada1a93d2d4ba6173b}{00030}} \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_a3f98144680118aada1a93d2d4ba6173b}{portable\_iconv\_close}} (\textcolor{keywordtype}{void} *cd)}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00031}00031 \{}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00032}00032   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a0c4ff4bdefbf1576f3e7bab5fbc5ec89}{iconv\_close}}((\mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a72517f6ffadddaafa9d51dee9b535c9f}{iconv\_t}})cd);}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00033}00033 \}}
+\DoxyCodeLine{\Hypertarget{src_2portable__c_8c_source_l00034}00034 }
+
+\end{DoxyCode}

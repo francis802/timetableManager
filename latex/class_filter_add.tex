@@ -1,0 +1,168 @@
+\hypertarget{class_filter_add}{}\doxysection{Filter\+Add Class Reference}
+\label{class_filter_add}\index{FilterAdd@{FilterAdd}}
+
+
+The implementation of the \char`\"{}add\char`\"{} filter.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}{variant\+Int\+Value}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, bool \&is\+Int)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_add_afb91ff751f43567ef454a175ec95d7a3}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&arg)
+\item 
+static int \mbox{\hyperlink{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}{variant\+Int\+Value}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, bool \&is\+Int)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_add_afb91ff751f43567ef454a175ec95d7a3}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&arg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}add\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00729}{729}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_add_afb91ff751f43567ef454a175ec95d7a3}\label{class_filter_add_afb91ff751f43567ef454a175ec95d7a3}} 
+\index{FilterAdd@{FilterAdd}!apply@{apply}}
+\index{apply@{apply}!FilterAdd@{FilterAdd}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Add\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00740}{740}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00741     \{}
+\DoxyCodeLine{00742       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}())}
+\DoxyCodeLine{00743       \{}
+\DoxyCodeLine{00744         \textcolor{keywordflow}{return} arg;}
+\DoxyCodeLine{00745       \}}
+\DoxyCodeLine{00746       \textcolor{keywordtype}{bool} lhsIsInt = \textcolor{keyword}{false};}
+\DoxyCodeLine{00747       \textcolor{keywordtype}{int}  lhsValue = \mbox{\hyperlink{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}{variantIntValue}}(v,lhsIsInt);}
+\DoxyCodeLine{00748       \textcolor{keywordtype}{bool} rhsIsInt = \textcolor{keyword}{false};}
+\DoxyCodeLine{00749       \textcolor{keywordtype}{int}  rhsValue = \mbox{\hyperlink{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}{variantIntValue}}(arg,rhsIsInt);}
+\DoxyCodeLine{00750       \textcolor{keywordflow}{if} (lhsIsInt \&\& rhsIsInt)}
+\DoxyCodeLine{00751       \{}
+\DoxyCodeLine{00752         \textcolor{keywordflow}{return} lhsValue+rhsValue;}
+\DoxyCodeLine{00753       \}}
+\DoxyCodeLine{00754       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}() \&\& arg.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00755       \{}
+\DoxyCodeLine{00756         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}() + arg.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{00757       \}}
+\DoxyCodeLine{00758       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00759       \{}
+\DoxyCodeLine{00760         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00761       \}}
+\DoxyCodeLine{00762     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}, and \mbox{\hyperlink{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}{variant\+Int\+Value()}}.
+
+\mbox{\Hypertarget{class_filter_add_afb91ff751f43567ef454a175ec95d7a3}\label{class_filter_add_afb91ff751f43567ef454a175ec95d7a3}} 
+\index{FilterAdd@{FilterAdd}!apply@{apply}}
+\index{apply@{apply}!FilterAdd@{FilterAdd}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Add\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l00740}{740}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00741     \{}
+\DoxyCodeLine{00742       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}())}
+\DoxyCodeLine{00743       \{}
+\DoxyCodeLine{00744         \textcolor{keywordflow}{return} arg;}
+\DoxyCodeLine{00745       \}}
+\DoxyCodeLine{00746       \textcolor{keywordtype}{bool} lhsIsInt = \textcolor{keyword}{false};}
+\DoxyCodeLine{00747       \textcolor{keywordtype}{int}  lhsValue = \mbox{\hyperlink{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}{variantIntValue}}(v,lhsIsInt);}
+\DoxyCodeLine{00748       \textcolor{keywordtype}{bool} rhsIsInt = \textcolor{keyword}{false};}
+\DoxyCodeLine{00749       \textcolor{keywordtype}{int}  rhsValue = \mbox{\hyperlink{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}{variantIntValue}}(arg,rhsIsInt);}
+\DoxyCodeLine{00750       \textcolor{keywordflow}{if} (lhsIsInt \&\& rhsIsInt)}
+\DoxyCodeLine{00751       \{}
+\DoxyCodeLine{00752         \textcolor{keywordflow}{return} lhsValue+rhsValue;}
+\DoxyCodeLine{00753       \}}
+\DoxyCodeLine{00754       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}() \&\& arg.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00755       \{}
+\DoxyCodeLine{00756         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}() + arg.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}());}
+\DoxyCodeLine{00757       \}}
+\DoxyCodeLine{00758       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00759       \{}
+\DoxyCodeLine{00760         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00761       \}}
+\DoxyCodeLine{00762     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+\mbox{\Hypertarget{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}\label{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}} 
+\index{FilterAdd@{FilterAdd}!variantIntValue@{variantIntValue}}
+\index{variantIntValue@{variantIntValue}!FilterAdd@{FilterAdd}}
+\doxysubsubsection{\texorpdfstring{variantIntValue()}{variantIntValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static int Filter\+Add\+::variant\+Int\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{bool \&}]{is\+Int }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00732}{732}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00733     \{}
+\DoxyCodeLine{00734       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}() \&\& v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00735       \{}
+\DoxyCodeLine{00736         \textcolor{keywordflow}{return} v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}().\mbox{\hyperlink{class_q_c_string_a8ab7ce60a26cdd29e1cf743664d0f6be}{toInt}}(\&isInt);}
+\DoxyCodeLine{00737       \}}
+\DoxyCodeLine{00738       \textcolor{keywordflow}{return} v.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}() ? v.\mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{toInt}}() : 0;}
+\DoxyCodeLine{00739     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{Template\+Variant\+::is\+Int()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{Template\+Variant\+::to\+Int()}}, \mbox{\hyperlink{class_q_c_string_a8ab7ce60a26cdd29e1cf743664d0f6be}{QCString\+::to\+Int()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_filter_add_afb91ff751f43567ef454a175ec95d7a3}{apply()}}.
+
+\mbox{\Hypertarget{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}\label{class_filter_add_ad95d087e823b91c3aa8d0be706335ace}} 
+\index{FilterAdd@{FilterAdd}!variantIntValue@{variantIntValue}}
+\index{variantIntValue@{variantIntValue}!FilterAdd@{FilterAdd}}
+\doxysubsubsection{\texorpdfstring{variantIntValue()}{variantIntValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int Filter\+Add\+::variant\+Int\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{bool \&}]{is\+Int }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l00732}{732}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00733     \{}
+\DoxyCodeLine{00734       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}() \&\& v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00735       \{}
+\DoxyCodeLine{00736         \textcolor{keywordflow}{return} v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}().\mbox{\hyperlink{class_q_c_string_a8ab7ce60a26cdd29e1cf743664d0f6be}{toInt}}(\&isInt);}
+\DoxyCodeLine{00737       \}}
+\DoxyCodeLine{00738       \textcolor{keywordflow}{return} v.\mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{isInt}}() ? v.\mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{toInt}}() : 0;}
+\DoxyCodeLine{00739     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_ae3d8991e2e28e67289c989eb1cbc1cbc}{Template\+Variant\+::is\+Int()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a477cb7cb81a98abb837c414c3216ec58}{Template\+Variant\+::to\+Int()}}, \mbox{\hyperlink{class_q_c_string_a8ab7ce60a26cdd29e1cf743664d0f6be}{QCString\+::to\+Int()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

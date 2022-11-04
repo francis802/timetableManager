@@ -1,0 +1,196 @@
+\hypertarget{class_dot_runner_queue}{}\doxysection{Dot\+Runner\+Queue Class Reference}
+\label{class_dot_runner_queue}\index{DotRunnerQueue@{DotRunnerQueue}}
+
+
+{\ttfamily \#include $<$dotrunner.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}{enqueue}} (\mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$runner)
+\item 
+\mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$ \mbox{\hyperlink{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}{dequeue}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}{size}} () const
+\item 
+void \mbox{\hyperlink{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}{enqueue}} (\mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$runner)
+\item 
+\mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$ \mbox{\hyperlink{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}{dequeue}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}{size}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{class_dot_runner_queue_a0773dcaee24ff703eec2c158e02b1ce9}{m\+\_\+buffer\+Not\+Empty}}
+\item 
+std\+::queue$<$ \mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$ $>$ \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\+\_\+queue}}
+\item 
+std\+::mutex \mbox{\hyperlink{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}{m\+\_\+mutex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Queue of dot jobs to run. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source_l00073}{73}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source}{dotrunner.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}\label{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$ Dot\+Runner\+Queue\+::dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_source_l00270}{270}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_source}{dotrunner.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00271 \{}
+\DoxyCodeLine{00272   std::unique\_lock<std::mutex> locker(\mbox{\hyperlink{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}{m\_mutex}});}
+\DoxyCodeLine{00273 }
+\DoxyCodeLine{00274   \textcolor{comment}{// wait until something is added to the queue}}
+\DoxyCodeLine{00275   \mbox{\hyperlink{class_dot_runner_queue_a0773dcaee24ff703eec2c158e02b1ce9}{m\_bufferNotEmpty}}.wait(locker, [\textcolor{keyword}{this}]() \{ \textcolor{keywordflow}{return} !\mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\_queue}}.empty(); \});}
+\DoxyCodeLine{00276 }
+\DoxyCodeLine{00277   \mbox{\hyperlink{class_dot_runner}{DotRunner}} *result = \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\_queue}}.front();}
+\DoxyCodeLine{00278   \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\_queue}}.pop();}
+\DoxyCodeLine{00279   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00280 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dot_runner_queue_a0773dcaee24ff703eec2c158e02b1ce9}{m\+\_\+buffer\+Not\+Empty}}, \mbox{\hyperlink{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}{m\+\_\+mutex}}, and \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\+\_\+queue}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_worker_thread_a573402f10e5d1b1fba1954a105a1c227}{Dot\+Worker\+Thread\+::run()}}.
+
+\mbox{\Hypertarget{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}\label{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$ Dot\+Runner\+Queue\+::dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}\label{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Dot\+Runner\+Queue\+::enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$}]{runner }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_source_l00263}{263}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_source}{dotrunner.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00264 \{}
+\DoxyCodeLine{00265   std::lock\_guard<std::mutex> locker(\mbox{\hyperlink{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}{m\_mutex}});}
+\DoxyCodeLine{00266   \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\_queue}}.push(runner);}
+\DoxyCodeLine{00267   \mbox{\hyperlink{class_dot_runner_queue_a0773dcaee24ff703eec2c158e02b1ce9}{m\_bufferNotEmpty}}.notify\_all();}
+\DoxyCodeLine{00268 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dot_runner_queue_a0773dcaee24ff703eec2c158e02b1ce9}{m\+\_\+buffer\+Not\+Empty}}, \mbox{\hyperlink{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}{m\+\_\+mutex}}, and \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\+\_\+queue}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_manager_a27d0eeafc0748ce44f369faed8f495d9}{Dot\+Manager\+::run()}}.
+
+\mbox{\Hypertarget{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}\label{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Dot\+Runner\+Queue\+::enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$}]{runner }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}\label{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!size@{size}}
+\index{size@{size}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t Dot\+Runner\+Queue\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_source}{dotrunner.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00283 \{}
+\DoxyCodeLine{00284   std::lock\_guard<std::mutex> locker(\mbox{\hyperlink{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}{m\_mutex}});}
+\DoxyCodeLine{00285   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\_queue}}.size();}
+\DoxyCodeLine{00286 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}{m\+\_\+mutex}}, and \mbox{\hyperlink{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}{m\+\_\+queue}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_manager_a27d0eeafc0748ce44f369faed8f495d9}{Dot\+Manager\+::run()}}.
+
+\mbox{\Hypertarget{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}\label{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!size@{size}}
+\index{size@{size}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t Dot\+Runner\+Queue\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_dot_runner_queue_a0773dcaee24ff703eec2c158e02b1ce9}\label{class_dot_runner_queue_a0773dcaee24ff703eec2c158e02b1ce9}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!m\_bufferNotEmpty@{m\_bufferNotEmpty}}
+\index{m\_bufferNotEmpty@{m\_bufferNotEmpty}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{m\_bufferNotEmpty}{m\_bufferNotEmpty}}
+{\footnotesize\ttfamily std\+::condition\+\_\+variable Dot\+Runner\+Queue\+::m\+\_\+buffer\+Not\+Empty\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source_l00080}{80}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source}{dotrunner.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}{dequeue()}}, and \mbox{\hyperlink{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}{enqueue()}}.
+
+\mbox{\Hypertarget{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}\label{class_dot_runner_queue_a6a439a7d7ac8ed4c3a46b14788c1963e}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!m\_mutex@{m\_mutex}}
+\index{m\_mutex@{m\_mutex}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{m\_mutex}{m\_mutex}}
+{\footnotesize\ttfamily std\+::mutex Dot\+Runner\+Queue\+::m\+\_\+mutex\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source_l00082}{82}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source}{dotrunner.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}{dequeue()}}, \mbox{\hyperlink{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}{enqueue()}}, and \mbox{\hyperlink{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}{size()}}.
+
+\mbox{\Hypertarget{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}\label{class_dot_runner_queue_a70c04af10aa3e0a709e3398bea4a41aa}} 
+\index{DotRunnerQueue@{DotRunnerQueue}!m\_queue@{m\_queue}}
+\index{m\_queue@{m\_queue}!DotRunnerQueue@{DotRunnerQueue}}
+\doxysubsubsection{\texorpdfstring{m\_queue}{m\_queue}}
+{\footnotesize\ttfamily std\+::queue$<$ \mbox{\hyperlink{class_dot_runner}{Dot\+Runner}} $\ast$ $>$ Dot\+Runner\+Queue\+::m\+\_\+queue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source_l00081}{81}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h_source}{dotrunner.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_runner_queue_adcfd55c84ad0e67666f86554b9284a3b}{dequeue()}}, \mbox{\hyperlink{class_dot_runner_queue_a5574ec90088f55eb96016a84d2b51e9f}{enqueue()}}, and \mbox{\hyperlink{class_dot_runner_queue_ac60d86028e2715e3f75903b4023c1458}{size()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8h}{dotrunner.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2dotrunner_8h}{dotrunner.\+h}}\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp}{dotrunner.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2dotrunner_8cpp}{dotrunner.\+cpp}}\end{DoxyCompactItemize}

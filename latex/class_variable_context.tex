@@ -1,0 +1,463 @@
+\hypertarget{class_variable_context}{}\doxysection{Variable\+Context Class Reference}
+\label{class_variable_context}\index{VariableContext@{VariableContext}}
+
+
+{\ttfamily \#include $<$scopedtypevariant.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} $>$
+\item 
+using \mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}{push\+Scope}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_a648ebfb9146a61b70dffe684aec77940}{pop\+Scope}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_a37579e37d7d730884861f71a1b9f0439}{clear}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_af762830da74924aa08900310e554e253}{clear\+Except\+Global}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}{add\+Variable}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} stv)
+\item 
+const \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} $\ast$ \mbox{\hyperlink{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}{find\+Variable}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name)
+\item 
+bool \mbox{\hyperlink{class_variable_context_a3b01492065b015f3b275ea2b9d02d2be}{at\+Global\+Scope}} () const
+\item 
+void \mbox{\hyperlink{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}{push\+Scope}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_a648ebfb9146a61b70dffe684aec77940}{pop\+Scope}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_a37579e37d7d730884861f71a1b9f0439}{clear}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_af762830da74924aa08900310e554e253}{clear\+Except\+Global}} ()
+\item 
+void \mbox{\hyperlink{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}{add\+Variable}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} stv)
+\item 
+const \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} $\ast$ \mbox{\hyperlink{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}{find\+Variable}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name)
+\item 
+bool \mbox{\hyperlink{class_variable_context_a3b01492065b015f3b275ea2b9d02d2be}{at\+Global\+Scope}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}} \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\+\_\+global\+Scope}}
+\item 
+\mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ \mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}} $>$ \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a stack of variable to class mappings as found in the code. Each scope is enclosed in \mbox{\hyperlink{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}{push\+Scope()}} and \mbox{\hyperlink{class_variable_context_a648ebfb9146a61b70dffe684aec77940}{pop\+Scope()}} calls. Variables are added by calling add\+Variables() and one can search for variable using \mbox{\hyperlink{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}{find\+Variable()}}. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00179}{179}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}\label{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}} 
+\index{VariableContext@{VariableContext}!Scope@{Scope}}
+\index{Scope@{Scope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{Scope}{Scope}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Variable\+Context\+::\+Scope}} =  std\+::unordered\+\_\+map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},\mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00182}{182}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+\mbox{\Hypertarget{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}\label{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}} 
+\index{VariableContext@{VariableContext}!Scope@{Scope}}
+\index{Scope@{Scope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{Scope}{Scope}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Variable\+Context\+::\+Scope}} =  std\+::unordered\+\_\+map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},\mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00182}{182}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}\label{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}} 
+\index{VariableContext@{VariableContext}!addVariable@{addVariable}}
+\index{addVariable@{addVariable}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{addVariable()}{addVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::add\+Variable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name,  }\item[{\mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}}}]{stv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00204}{204}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00205     \{}
+\DoxyCodeLine{00206       \mbox{\hyperlink{class_scope}{Scope}} *scope = \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.empty() ? \&\mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}} : \&\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.back();}
+\DoxyCodeLine{00207       scope-\/>emplace(std::make\_pair(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str(),std::move(stv))); \textcolor{comment}{// add it to a list}}
+\DoxyCodeLine{00208     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\+\_\+global\+Scope}}, \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+\mbox{\Hypertarget{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}\label{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}} 
+\index{VariableContext@{VariableContext}!addVariable@{addVariable}}
+\index{addVariable@{addVariable}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{addVariable()}{addVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::add\+Variable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name,  }\item[{\mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}}}]{stv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00204}{204}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00205     \{}
+\DoxyCodeLine{00206       \mbox{\hyperlink{class_scope}{Scope}} *scope = \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.empty() ? \&\mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}} : \&\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.back();}
+\DoxyCodeLine{00207       scope-\/>emplace(std::make\_pair(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str(),std::move(stv))); \textcolor{comment}{// add it to a list}}
+\DoxyCodeLine{00208     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\+\_\+global\+Scope}}, \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+\mbox{\Hypertarget{class_variable_context_a3b01492065b015f3b275ea2b9d02d2be}\label{class_variable_context_a3b01492065b015f3b275ea2b9d02d2be}} 
+\index{VariableContext@{VariableContext}!atGlobalScope@{atGlobalScope}}
+\index{atGlobalScope@{atGlobalScope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{atGlobalScope()}{atGlobalScope()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Variable\+Context\+::at\+Global\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00234}{234}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00234 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.empty(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_a3b01492065b015f3b275ea2b9d02d2be}\label{class_variable_context_a3b01492065b015f3b275ea2b9d02d2be}} 
+\index{VariableContext@{VariableContext}!atGlobalScope@{atGlobalScope}}
+\index{atGlobalScope@{atGlobalScope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{atGlobalScope()}{atGlobalScope()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Variable\+Context\+::at\+Global\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00234}{234}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00234 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.empty(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_a37579e37d7d730884861f71a1b9f0439}\label{class_variable_context_a37579e37d7d730884861f71a1b9f0439}} 
+\index{VariableContext@{VariableContext}!clear@{clear}}
+\index{clear@{clear}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00195}{195}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196     \{}
+\DoxyCodeLine{00197       \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.clear();}
+\DoxyCodeLine{00198       \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}}.clear();}
+\DoxyCodeLine{00199     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\+\_\+global\+Scope}}, and \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_a37579e37d7d730884861f71a1b9f0439}\label{class_variable_context_a37579e37d7d730884861f71a1b9f0439}} 
+\index{VariableContext@{VariableContext}!clear@{clear}}
+\index{clear@{clear}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00195}{195}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196     \{}
+\DoxyCodeLine{00197       \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.clear();}
+\DoxyCodeLine{00198       \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}}.clear();}
+\DoxyCodeLine{00199     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\+\_\+global\+Scope}}, and \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_af762830da74924aa08900310e554e253}\label{class_variable_context_af762830da74924aa08900310e554e253}} 
+\index{VariableContext@{VariableContext}!clearExceptGlobal@{clearExceptGlobal}}
+\index{clearExceptGlobal@{clearExceptGlobal}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{clearExceptGlobal()}{clearExceptGlobal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::clear\+Except\+Global (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00200}{200}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201     \{}
+\DoxyCodeLine{00202       \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.clear();}
+\DoxyCodeLine{00203     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_af762830da74924aa08900310e554e253}\label{class_variable_context_af762830da74924aa08900310e554e253}} 
+\index{VariableContext@{VariableContext}!clearExceptGlobal@{clearExceptGlobal}}
+\index{clearExceptGlobal@{clearExceptGlobal}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{clearExceptGlobal()}{clearExceptGlobal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::clear\+Except\+Global (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00200}{200}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201     \{}
+\DoxyCodeLine{00202       \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.clear();}
+\DoxyCodeLine{00203     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}\label{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}} 
+\index{VariableContext@{VariableContext}!findVariable@{findVariable}}
+\index{findVariable@{findVariable}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{findVariable()}{findVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} $\ast$ Variable\+Context\+::find\+Variable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00209}{209}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00210     \{}
+\DoxyCodeLine{00211       \textcolor{keyword}{const} \mbox{\hyperlink{class_scoped_type_variant}{ScopedTypeVariant}} *result = 0;}
+\DoxyCodeLine{00212       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.isEmpty()) \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214       \textcolor{comment}{// search from inner to outer scope}}
+\DoxyCodeLine{00215       \textcolor{keyword}{auto} it = std::rbegin(\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}});}
+\DoxyCodeLine{00216       \textcolor{keywordflow}{while} (it != std::rend(\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}))}
+\DoxyCodeLine{00217       \{}
+\DoxyCodeLine{00218         \textcolor{keyword}{auto} it2 = it-\/>find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{00219         \textcolor{keywordflow}{if} (it2 != \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{std::end}}(*it))}
+\DoxyCodeLine{00220         \{}
+\DoxyCodeLine{00221           result = \&it2-\/>second;}
+\DoxyCodeLine{00222           \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00223         \}}
+\DoxyCodeLine{00224         ++it;}
+\DoxyCodeLine{00225       \}}
+\DoxyCodeLine{00226       \textcolor{comment}{// nothing found -\/> also try the global scope}}
+\DoxyCodeLine{00227       \textcolor{keyword}{auto} it2 = \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}}.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{00228       \textcolor{keywordflow}{if} (it2 != \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}}.end())}
+\DoxyCodeLine{00229       \{}
+\DoxyCodeLine{00230         result = \&it2-\/>second;}
+\DoxyCodeLine{00231       \}}
+\DoxyCodeLine{00232       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00233     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end()}}, \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\+\_\+global\+Scope}}, \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+\mbox{\Hypertarget{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}\label{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}} 
+\index{VariableContext@{VariableContext}!findVariable@{findVariable}}
+\index{findVariable@{findVariable}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{findVariable()}{findVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_scoped_type_variant}{Scoped\+Type\+Variant}} $\ast$ Variable\+Context\+::find\+Variable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00209}{209}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00210     \{}
+\DoxyCodeLine{00211       \textcolor{keyword}{const} \mbox{\hyperlink{class_scoped_type_variant}{ScopedTypeVariant}} *result = 0;}
+\DoxyCodeLine{00212       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.isEmpty()) \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214       \textcolor{comment}{// search from inner to outer scope}}
+\DoxyCodeLine{00215       \textcolor{keyword}{auto} it = std::rbegin(\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}});}
+\DoxyCodeLine{00216       \textcolor{keywordflow}{while} (it != std::rend(\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}))}
+\DoxyCodeLine{00217       \{}
+\DoxyCodeLine{00218         \textcolor{keyword}{auto} it2 = it-\/>find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{00219         \textcolor{keywordflow}{if} (it2 != \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{std::end}}(*it))}
+\DoxyCodeLine{00220         \{}
+\DoxyCodeLine{00221           result = \&it2-\/>second;}
+\DoxyCodeLine{00222           \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00223         \}}
+\DoxyCodeLine{00224         ++it;}
+\DoxyCodeLine{00225       \}}
+\DoxyCodeLine{00226       \textcolor{comment}{// nothing found -\/> also try the global scope}}
+\DoxyCodeLine{00227       \textcolor{keyword}{auto} it2 = \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}}.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{00228       \textcolor{keywordflow}{if} (it2 != \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\_globalScope}}.end())}
+\DoxyCodeLine{00229       \{}
+\DoxyCodeLine{00230         result = \&it2-\/>second;}
+\DoxyCodeLine{00231       \}}
+\DoxyCodeLine{00232       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00233     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end()}}, \mbox{\hyperlink{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}{m\+\_\+global\+Scope}}, \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+\mbox{\Hypertarget{class_variable_context_a648ebfb9146a61b70dffe684aec77940}\label{class_variable_context_a648ebfb9146a61b70dffe684aec77940}} 
+\index{VariableContext@{VariableContext}!popScope@{popScope}}
+\index{popScope@{popScope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{popScope()}{popScope()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::pop\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00188}{188}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00189     \{}
+\DoxyCodeLine{00190       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.empty())}
+\DoxyCodeLine{00191       \{}
+\DoxyCodeLine{00192         \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.pop\_back();}
+\DoxyCodeLine{00193       \}}
+\DoxyCodeLine{00194     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_a648ebfb9146a61b70dffe684aec77940}\label{class_variable_context_a648ebfb9146a61b70dffe684aec77940}} 
+\index{VariableContext@{VariableContext}!popScope@{popScope}}
+\index{popScope@{popScope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{popScope()}{popScope()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::pop\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00188}{188}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00189     \{}
+\DoxyCodeLine{00190       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.empty())}
+\DoxyCodeLine{00191       \{}
+\DoxyCodeLine{00192         \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.pop\_back();}
+\DoxyCodeLine{00193       \}}
+\DoxyCodeLine{00194     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}\label{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}} 
+\index{VariableContext@{VariableContext}!pushScope@{pushScope}}
+\index{pushScope@{pushScope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{pushScope()}{pushScope()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::push\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00184}{184}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00185     \{}
+\DoxyCodeLine{00186       \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.push\_back(\mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}}());}
+\DoxyCodeLine{00187     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+\mbox{\Hypertarget{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}\label{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}} 
+\index{VariableContext@{VariableContext}!pushScope@{pushScope}}
+\index{pushScope@{pushScope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{pushScope()}{pushScope()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Variable\+Context\+::push\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2scopedtypevariant_8h_source_l00184}{184}} of file \mbox{\hyperlink{src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00185     \{}
+\DoxyCodeLine{00186       \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\_scopes}}.push\_back(\mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}}());}
+\DoxyCodeLine{00187     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}{m\+\_\+scopes}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}\label{class_variable_context_a1d4e3ee5731c630df8133604b05b0213}} 
+\index{VariableContext@{VariableContext}!m\_globalScope@{m\_globalScope}}
+\index{m\_globalScope@{m\_globalScope}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{m\_globalScope}{m\_globalScope}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}} Variable\+Context\+::m\+\_\+global\+Scope\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00237}{237}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}{add\+Variable()}}, \mbox{\hyperlink{class_variable_context_a37579e37d7d730884861f71a1b9f0439}{clear()}}, and \mbox{\hyperlink{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}{find\+Variable()}}.
+
+\mbox{\Hypertarget{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}\label{class_variable_context_a96c30bcd352fcec5d5af82e57194c91d}} 
+\index{VariableContext@{VariableContext}!m\_scopes@{m\_scopes}}
+\index{m\_scopes@{m\_scopes}!VariableContext@{VariableContext}}
+\doxysubsubsection{\texorpdfstring{m\_scopes}{m\_scopes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ \mbox{\hyperlink{class_variable_context_acaf108f97a14c38cfcc698654e947e7d}{Scope}} $>$ Variable\+Context\+::m\+\_\+scopes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source_l00238}{238}} of file \mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h_source}{scopedtypevariant.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_variable_context_a8ecf50e05c0af1f854d21a2d0574dbcf}{add\+Variable()}}, \mbox{\hyperlink{class_variable_context_a3b01492065b015f3b275ea2b9d02d2be}{at\+Global\+Scope()}}, \mbox{\hyperlink{class_variable_context_a37579e37d7d730884861f71a1b9f0439}{clear()}}, \mbox{\hyperlink{class_variable_context_af762830da74924aa08900310e554e253}{clear\+Except\+Global()}}, \mbox{\hyperlink{class_variable_context_aa4cfe2b318b52c33b4e28b5840275d85}{find\+Variable()}}, \mbox{\hyperlink{class_variable_context_a648ebfb9146a61b70dffe684aec77940}{pop\+Scope()}}, and \mbox{\hyperlink{class_variable_context_ae1d858d3ad4778e79ac69a021474edab}{push\+Scope()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2scopedtypevariant_8h}{scopedtypevariant.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2scopedtypevariant_8h}{scopedtypevariant.\+h}}\end{DoxyCompactItemize}

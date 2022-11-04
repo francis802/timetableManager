@@ -1,0 +1,350 @@
+\hypertarget{src_2linkedmap_8h_source}{}\doxysection{linkedmap.\+h}
+\label{src_2linkedmap_8h_source}\index{doxygen/src/linkedmap.h@{doxygen/src/linkedmap.h}}
+\mbox{\hyperlink{src_2linkedmap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00016}00016 \textcolor{preprocessor}{\#ifndef LINKEDMAP\_H}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00017}00017 \textcolor{preprocessor}{\#define LINKEDMAP\_H}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00019}00019 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00021}00021 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00022}00022 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00023}00023 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00024}00024 \textcolor{preprocessor}{\#include <cctype>}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00026}00026 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00032}00032 \textcolor{keyword}{template}<\textcolor{keyword}{class} T, \textcolor{keyword}{class} Hash = std::hash<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00033}00033                   \textcolor{keyword}{class} KeyEqual = std::equal\_to<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00034}00034                   \textcolor{keyword}{class} Map = std::unordered\_map<std::\textcolor{keywordtype}{string},T*,Hash,KeyEqual > >}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00035}00035 \textcolor{keyword}{class }\mbox{\hyperlink{class_linked_map}{LinkedMap}}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00036}00036 \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00037}00037   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00038}\mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{00038}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} = std::unique\_ptr<T>;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00039}\mbox{\hyperlink{class_linked_map_ac4cfcf6ff5a2f4c0cb16d52eded44146}{00039}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_map_ac4cfcf6ff5a2f4c0cb16d52eded44146}{Vec}} = std::vector<Ptr>;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00040}\mbox{\hyperlink{class_linked_map_a972c395a37e958118752ebda8c7ec6d3}{00040}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_map_a972c395a37e958118752ebda8c7ec6d3}{iterator}} = \textcolor{keyword}{typename} Vec::iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00041}\mbox{\hyperlink{class_linked_map_a761eb01323123cf737f88cf65adaa95d}{00041}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_map_a761eb01323123cf737f88cf65adaa95d}{const\_iterator}} = \textcolor{keyword}{typename} Vec::const\_iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00042}\mbox{\hyperlink{class_linked_map_a3f1e6d91dde39b1a948a67f401a5afaa}{00042}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_map_a3f1e6d91dde39b1a948a67f401a5afaa}{reverse\_iterator}} = \textcolor{keyword}{typename} Vec::reverse\_iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00043}\mbox{\hyperlink{class_linked_map_addcb5d41602952016038d8315e183d49}{00043}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_map_addcb5d41602952016038d8315e183d49}{const\_reverse\_iterator}} = \textcolor{keyword}{typename} Vec::const\_reverse\_iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00047}\mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{00047}}     \textcolor{keyword}{const} T *\mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00048}00048 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00049}00049       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.find(key);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00050}00050       \textcolor{keywordflow}{return} it!=\mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00051}00051     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00055}\mbox{\hyperlink{class_linked_map_aa43fff2a2b489b77245b73478b391136}{00055}}     \textcolor{keyword}{const} T *\mbox{\hyperlink{class_linked_map_aa43fff2a2b489b77245b73478b391136}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00056}00056 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00057}00057       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.find(key.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00058}00058       \textcolor{keywordflow}{return} it!=\mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00063}\mbox{\hyperlink{class_linked_map_aed32ef99019918a4c854c58e3fa4f918}{00063}}     \textcolor{keyword}{const} T *\mbox{\hyperlink{class_linked_map_aed32ef99019918a4c854c58e3fa4f918}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00064}00064 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00065}00065       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(key ? key : \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00066}00066     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00069}\mbox{\hyperlink{class_linked_map_a658afbac162b60faccc48da30fc39470}{00069}}     T* \mbox{\hyperlink{class_linked_map_a658afbac162b60faccc48da30fc39470}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00070}00070     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00071}00071       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_linked_map}{LinkedMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(key));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00072}00072     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00075}\mbox{\hyperlink{class_linked_map_a8049d249bddabf8b19862a1013c151da}{00075}}     T* \mbox{\hyperlink{class_linked_map_a8049d249bddabf8b19862a1013c151da}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00076}00076     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00077}00077       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_linked_map}{LinkedMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(key));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00078}00078     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00081}\mbox{\hyperlink{class_linked_map_a22821349a515cf453414cd64dc5bd750}{00081}}     T* \mbox{\hyperlink{class_linked_map_a22821349a515cf453414cd64dc5bd750}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00082}00082     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00083}00083       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_linked_map}{LinkedMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(key));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00084}00084     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00089}00089     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00090}\mbox{\hyperlink{class_linked_map_acddca8cb09f114936f6b80276f2c9c1b}{00090}}     [[maybe\_unused]] T *\mbox{\hyperlink{class_linked_map_acddca8cb09f114936f6b80276f2c9c1b}{add}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, Args\&\&... args)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00091}00091     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00092}00092       T *result = \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(k);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00093}00093       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00094}00094       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00095}00095         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00096}00096         \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(\mbox{\hyperlink{class_q_c_string}{QCString}}(k),std::forward<Args>(args)...);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00097}00097         result = ptr.get();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00098}00098         \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.insert(\{key,result\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00099}00099         \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.push\_back(std::move(ptr));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00100}00100       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00101}00101       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00102}00102     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00104}00104     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00105}\mbox{\hyperlink{class_linked_map_a32a09a931c866f27807ceeabb48946f4}{00105}}     [[maybe\_unused]] T *\mbox{\hyperlink{class_linked_map_a32a09a931c866f27807ceeabb48946f4}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&k, Args\&\&... args)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00106}00106     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00107}00107       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key = k.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00108}00108       T *result = \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(key);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00109}00109       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00110}00110       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00111}00111         \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(k,std::forward<Args>(args)...);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00112}00112         result = ptr.get();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00113}00113         \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.insert(\{key,result\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00114}00114         \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.push\_back(std::move(ptr));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00115}00115       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00116}00116       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00117}00117     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00123}\mbox{\hyperlink{class_linked_map_addab86ba882be1f9c4137b6ceb095991}{00123}}     [[maybe\_unused]] T *\mbox{\hyperlink{class_linked_map_addab86ba882be1f9c4137b6ceb095991}{add}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\&ptr)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00124}00124     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00125}00125       T *result = \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(k);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00126}00126       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00127}00127       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00128}00128         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00129}00129         result = ptr.get();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00130}00130         \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.insert(\{key,result\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00131}00131         \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.push\_back(std::move(ptr));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00132}00132       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00133}00133       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00134}00134     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00136}\mbox{\hyperlink{class_linked_map_ab0ee1991e602ebd106de0fe5884979b6}{00136}}     [[maybe\_unused]] T *\mbox{\hyperlink{class_linked_map_ab0ee1991e602ebd106de0fe5884979b6}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&k, \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\&ptr)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00137}00137     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00138}00138       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key = k.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00139}00139       T *result = \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(key);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00140}00140       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00141}00141       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00142}00142         result = ptr.get();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00143}00143         \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.insert(\{key,result\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00144}00144         \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.push\_back(std::move(ptr));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00145}00145       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00146}00146       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00147}00147     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00152}00152     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00153}\mbox{\hyperlink{class_linked_map_ac5e00dabde23084cd671b0fe61772297}{00153}}     T *\mbox{\hyperlink{class_linked_map_ac5e00dabde23084cd671b0fe61772297}{prepend}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, Args\&\&... args)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00154}00154     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00155}00155       T *result = \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(k);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00156}00156       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00157}00157       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00158}00158         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00159}00159         \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(key.c\_str(),std::forward<Args>(args)...);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00160}00160         result = ptr.get();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00161}00161         \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.insert(\{key,result\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00162}00162         \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.push\_front(std::move(ptr));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00163}00163       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00164}00164       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00165}00165     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00167}00167     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00168}\mbox{\hyperlink{class_linked_map_a1f76d619b8096fc4446808b378b8ce14}{00168}}     T *\mbox{\hyperlink{class_linked_map_a1f76d619b8096fc4446808b378b8ce14}{prepend}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key, Args\&\&... args)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00169}00169     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00170}00170       T *result = \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(key);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00171}00171       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00172}00172       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00173}00173         \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(key,std::forward<Args>(args)...);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00174}00174         result = ptr.get();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00175}00175         \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.insert(\{key.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),result\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00176}00176         \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.push\_front(std::move(ptr));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00177}00177       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00178}00178       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00179}00179     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00183}\mbox{\hyperlink{class_linked_map_a6150feb21a667df3826df38c1a0878fa}{00183}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_map_a6150feb21a667df3826df38c1a0878fa}{del}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00184}00184     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00185}00185       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.find(key.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00186}00186       \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.end())}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00187}00187       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00188}00188         \textcolor{keyword}{auto} vecit = std::find\_if(\mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.begin(),\mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.end(),[obj=it-\/>second](\textcolor{keyword}{auto} \&el) \{ return el.get()==obj; \});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00189}00189         \textcolor{keywordflow}{if} (vecit!=\mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.end()) \textcolor{comment}{// should always be true}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00190}00190         \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00191}00191           \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.erase(vecit);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00192}00192           \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.erase(it);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00193}00193           \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00194}00194         \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00195}00195       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00196}00196       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00197}00197     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00199}\mbox{\hyperlink{class_linked_map_adf2840eabd548e287a9db8c40d453eb2}{00199}}     \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\mbox{\hyperlink{class_linked_map_adf2840eabd548e287a9db8c40d453eb2}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)             \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}[pos];      \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00200}\mbox{\hyperlink{class_linked_map_a58e9cb2ea5649b464cd9a34f58ace816}{00200}}     \textcolor{keyword}{const} \mbox{\hyperlink{class_linked_map_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\mbox{\hyperlink{class_linked_map_a58e9cb2ea5649b464cd9a34f58ace816}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}[pos];      \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00201}\mbox{\hyperlink{class_linked_map_a4f9f85656f6481dc10277057d168d74e}{00201}}     \mbox{\hyperlink{class_linked_map_a972c395a37e958118752ebda8c7ec6d3}{iterator}} \mbox{\hyperlink{class_linked_map_a4f9f85656f6481dc10277057d168d74e}{begin}}()                        \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.begin();   \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00202}\mbox{\hyperlink{class_linked_map_aa5583f9f11e470f5810a431a795f64d2}{00202}}     \mbox{\hyperlink{class_linked_map_a972c395a37e958118752ebda8c7ec6d3}{iterator}} \mbox{\hyperlink{class_linked_map_aa5583f9f11e470f5810a431a795f64d2}{end}}()                          \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.end();     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00203}\mbox{\hyperlink{class_linked_map_a97730addaf4399cae4511cea404a482b}{00203}}     \mbox{\hyperlink{class_linked_map_a761eb01323123cf737f88cf65adaa95d}{const\_iterator}} \mbox{\hyperlink{class_linked_map_a97730addaf4399cae4511cea404a482b}{begin}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.cbegin();  \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00204}\mbox{\hyperlink{class_linked_map_ae54a6938e3c17da11dd1d23a6217499d}{00204}}     \mbox{\hyperlink{class_linked_map_a761eb01323123cf737f88cf65adaa95d}{const\_iterator}} \mbox{\hyperlink{class_linked_map_ae54a6938e3c17da11dd1d23a6217499d}{end}}()\textcolor{keyword}{ const              }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.cend();    \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00205}\mbox{\hyperlink{class_linked_map_aca527abc73458116bb7c965a4417ab42}{00205}}     \mbox{\hyperlink{class_linked_map_a3f1e6d91dde39b1a948a67f401a5afaa}{reverse\_iterator}} \mbox{\hyperlink{class_linked_map_aca527abc73458116bb7c965a4417ab42}{rbegin}}()               \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.rbegin();  \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00206}\mbox{\hyperlink{class_linked_map_a833c562ee3244c51c48acb2284e56f89}{00206}}     \mbox{\hyperlink{class_linked_map_a3f1e6d91dde39b1a948a67f401a5afaa}{reverse\_iterator}} \mbox{\hyperlink{class_linked_map_a833c562ee3244c51c48acb2284e56f89}{rend}}()                 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.rend();    \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00207}\mbox{\hyperlink{class_linked_map_ac7bb388567d79b9d1e97198cdde6c3f0}{00207}}     \mbox{\hyperlink{class_linked_map_addcb5d41602952016038d8315e183d49}{const\_reverse\_iterator}} \mbox{\hyperlink{class_linked_map_ac7bb388567d79b9d1e97198cdde6c3f0}{rbegin}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.crbegin(); \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00208}\mbox{\hyperlink{class_linked_map_aa92f5f3a31fd45d04e4bb38e04112f5b}{00208}}     \mbox{\hyperlink{class_linked_map_addcb5d41602952016038d8315e183d49}{const\_reverse\_iterator}} \mbox{\hyperlink{class_linked_map_aa92f5f3a31fd45d04e4bb38e04112f5b}{rend}}()\textcolor{keyword}{ const     }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.crend();   \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00209}\mbox{\hyperlink{class_linked_map_a9a1da7be0df75c8ef81cdb3d825c6df3}{00209}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_map_a9a1da7be0df75c8ef81cdb3d825c6df3}{empty}}()\textcolor{keyword}{ const                      }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.empty();   \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00210}\mbox{\hyperlink{class_linked_map_ac1237f7ce32427ef9f9f334d0b97b1fb}{00210}}     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_linked_map_ac1237f7ce32427ef9f9f334d0b97b1fb}{size}}()\textcolor{keyword}{ const                     }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.size();    \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00211}00211 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00212}\mbox{\hyperlink{class_linked_map_a607048cb06f6ad98ae763d5734db73d4}{00212}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_linked_map_a607048cb06f6ad98ae763d5734db73d4}{clear}}()}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00213}00213     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00214}00214       \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}}.clear();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00215}00215       \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}}.clear();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00216}00216     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00217}00217 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00218}00218   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00219}00219 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00220}00220     Map \mbox{\hyperlink{class_linked_map_ab06db672a0fee1e5fe35340fb58f5a89}{m\_lookup}};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00221}00221     \mbox{\hyperlink{build_2doxygen_2testing_2072__using_8cpp_a1b01c504448c96cd2191a5184dd31acf}{Vec}} \mbox{\hyperlink{class_linked_map_a6c3a30d6871d3b560e6cd5360b164f46}{m\_entries}};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00222}00222 \};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00223}00223 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00228}00228 \textcolor{keyword}{template}<\textcolor{keyword}{class} T, \textcolor{keyword}{class} Hash = std::hash<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00229}00229                   \textcolor{keyword}{class} KeyEqual = std::equal\_to<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00230}00230                   \textcolor{keyword}{class} Map = std::unordered\_map<std::\textcolor{keywordtype}{string},T*,Hash,KeyEqual > >}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00231}00231 \textcolor{keyword}{class }\mbox{\hyperlink{class_linked_ref_map}{LinkedRefMap}}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00232}00232 \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00233}00233   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00234}\mbox{\hyperlink{class_linked_ref_map_a9db9596845180652ad8b36774d6d9b30}{00234}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_ref_map_a9db9596845180652ad8b36774d6d9b30}{Ptr}} = T*;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00235}\mbox{\hyperlink{class_linked_ref_map_ae57b9ddb3cac6283df8b9747dff2e1da}{00235}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_ref_map_ae57b9ddb3cac6283df8b9747dff2e1da}{Vec}} = std::vector<Ptr>;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00236}\mbox{\hyperlink{class_linked_ref_map_aee7c1420984bc5d41ef945689343be5c}{00236}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_ref_map_aee7c1420984bc5d41ef945689343be5c}{iterator}} = \textcolor{keyword}{typename} Vec::iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00237}\mbox{\hyperlink{class_linked_ref_map_ae9d600d6dc898d3efd063381f60eaaf7}{00237}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_ref_map_ae9d600d6dc898d3efd063381f60eaaf7}{const\_iterator}} = \textcolor{keyword}{typename} Vec::const\_iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00238}\mbox{\hyperlink{class_linked_ref_map_a7c63027ad3bccd9ba3a87b2818ecf12a}{00238}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_ref_map_a7c63027ad3bccd9ba3a87b2818ecf12a}{reverse\_iterator}} = \textcolor{keyword}{typename} Vec::reverse\_iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00239}\mbox{\hyperlink{class_linked_ref_map_a5d04d68baaeb769cfe0e3cfa9873e40f}{00239}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_linked_ref_map_a5d04d68baaeb769cfe0e3cfa9873e40f}{const\_reverse\_iterator}} = \textcolor{keyword}{typename} Vec::const\_reverse\_iterator;}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00240}00240 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00243}\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{00243}}     \textcolor{keyword}{const} T *\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00244}00244 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00245}00245       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.find(key);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00246}00246       \textcolor{keywordflow}{return} it!=\mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00247}00247     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00248}00248 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00251}\mbox{\hyperlink{class_linked_ref_map_a3d3f8cefe5cfd6d46e95889817b92140}{00251}}     \textcolor{keyword}{const} T *\mbox{\hyperlink{class_linked_ref_map_a3d3f8cefe5cfd6d46e95889817b92140}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00252}00252 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00253}00253       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.find(key.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00254}00254       \textcolor{keywordflow}{return} it!=\mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00255}00255     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00256}00256 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00259}\mbox{\hyperlink{class_linked_ref_map_aed765c5f6f6956643f0753c9ea1d714e}{00259}}     \textcolor{keyword}{const} T *\mbox{\hyperlink{class_linked_ref_map_aed765c5f6f6956643f0753c9ea1d714e}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00260}00260 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00261}00261       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(key ? key : \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00262}00262     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00263}00263 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00265}\mbox{\hyperlink{class_linked_ref_map_a0e393b31c768a9de5d04455a8596e1a9}{00265}}     T* \mbox{\hyperlink{class_linked_ref_map_a0e393b31c768a9de5d04455a8596e1a9}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00266}00266     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00267}00267       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_linked_ref_map}{LinkedRefMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00268}00268     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00269}00269 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00270}\mbox{\hyperlink{class_linked_ref_map_a2f413af4720b2f575c911b78ee3a70b1}{00270}}     T* \mbox{\hyperlink{class_linked_ref_map_a2f413af4720b2f575c911b78ee3a70b1}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00271}00271     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00272}00272       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_linked_ref_map}{LinkedRefMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00273}00273     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00274}00274 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00276}\mbox{\hyperlink{class_linked_ref_map_a6dab86c77d6037d5fc0be82fca6e1587}{00276}}     T* \mbox{\hyperlink{class_linked_ref_map_a6dab86c77d6037d5fc0be82fca6e1587}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00277}00277     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00278}00278       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_linked_ref_map}{LinkedRefMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key));}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00279}00279     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00280}00280 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00284}\mbox{\hyperlink{class_linked_ref_map_a273fe87b60116a378346a858e11e4b6e}{00284}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_ref_map_a273fe87b60116a378346a858e11e4b6e}{add}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, T* obj)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00285}00285     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00286}00286       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(k)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00287}00287       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00288}00288         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00289}00289         \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.insert(\{key,obj\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00290}00290         \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.push\_back(obj);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00291}00291         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00292}00292       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00293}00293       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00294}00294       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00295}00295         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00296}00296       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00297}00297     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00298}00298 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00299}\mbox{\hyperlink{class_linked_ref_map_acaf21f8a88dc994cf1de14246e679579}{00299}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_ref_map_acaf21f8a88dc994cf1de14246e679579}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&k, T* obj)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00300}00300     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00301}00301       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key = k.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00302}00302       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00303}00303       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00304}00304         \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.insert(\{key,obj\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00305}00305         \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.push\_back(obj);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00306}00306         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00307}00307       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00308}00308       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00309}00309       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00310}00310         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00311}00311       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00312}00312     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00313}00313 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00317}\mbox{\hyperlink{class_linked_ref_map_a821db7bc14f1498938bd5314502f3655}{00317}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_ref_map_a821db7bc14f1498938bd5314502f3655}{prepend}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, T* obj)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00318}00318     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00319}00319       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(k)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00320}00320       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00321}00321         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00322}00322         \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.insert(\{key,obj\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00323}00323         \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.insert(\mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.begin(),obj);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00324}00324         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00325}00325       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00326}00326       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00327}00327       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00328}00328         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00329}00329       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00330}00330     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00331}00331 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00332}\mbox{\hyperlink{class_linked_ref_map_a98b0589fd4091da2efa1c5ee2da43f73}{00332}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_ref_map_a98b0589fd4091da2efa1c5ee2da43f73}{prepend}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key, T* obj)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00333}00333     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00334}00334       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_linked_ref_map_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00335}00335       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00336}00336         \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.insert(\{key.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),obj\});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00337}00337         \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.insert(\mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.begin(),obj);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00338}00338         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00339}00339       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00340}00340       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00341}00341       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00342}00342         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00343}00343       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00344}00344     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00345}00345 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00348}\mbox{\hyperlink{class_linked_ref_map_a5fad70772de2ff561c5883f5a8919c5d}{00348}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_ref_map_a5fad70772de2ff561c5883f5a8919c5d}{del}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&key)}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00349}00349     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00350}00350       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.find(key.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00351}00351       \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.end())}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00352}00352       \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00353}00353         \textcolor{keyword}{auto} vecit = std::find\_if(\mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.begin(),\mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.end(),[obj=it-\/>second](\textcolor{keyword}{auto} \&el) \{ return el.get()==obj; \});}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00354}00354         \textcolor{keywordflow}{if} (vecit!=\mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.end()) \textcolor{comment}{// should always be true}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00355}00355         \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00356}00356           \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.erase(vecit);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00357}00357           \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.erase(it);}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00358}00358           \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00359}00359         \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00360}00360       \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00361}00361       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00362}00362     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00363}00363 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00364}\mbox{\hyperlink{class_linked_ref_map_a89581f93afd0740dee45e136d1a54546}{00364}}     \mbox{\hyperlink{class_linked_ref_map_a9db9596845180652ad8b36774d6d9b30}{Ptr}} \&\mbox{\hyperlink{class_linked_ref_map_a89581f93afd0740dee45e136d1a54546}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)             \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}[pos];      \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00365}\mbox{\hyperlink{class_linked_ref_map_a09d227163284233b8e37f3a265510b49}{00365}}     \textcolor{keyword}{const} \mbox{\hyperlink{class_linked_ref_map_a9db9596845180652ad8b36774d6d9b30}{Ptr}} \&\mbox{\hyperlink{class_linked_ref_map_a09d227163284233b8e37f3a265510b49}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}[pos];      \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00366}\mbox{\hyperlink{class_linked_ref_map_ac2f30ce85fd85bfb75bcb56bd10fe9a4}{00366}}     \mbox{\hyperlink{class_linked_ref_map_aee7c1420984bc5d41ef945689343be5c}{iterator}} \mbox{\hyperlink{class_linked_ref_map_ac2f30ce85fd85bfb75bcb56bd10fe9a4}{begin}}()                        \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.begin();   \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00367}\mbox{\hyperlink{class_linked_ref_map_a7d843d470df85d608d8d47b2a56c5e80}{00367}}     \mbox{\hyperlink{class_linked_ref_map_aee7c1420984bc5d41ef945689343be5c}{iterator}} \mbox{\hyperlink{class_linked_ref_map_a7d843d470df85d608d8d47b2a56c5e80}{end}}()                          \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.end();     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00368}\mbox{\hyperlink{class_linked_ref_map_a77a3307eb17ea829836140639cb52115}{00368}}     \mbox{\hyperlink{class_linked_ref_map_ae9d600d6dc898d3efd063381f60eaaf7}{const\_iterator}} \mbox{\hyperlink{class_linked_ref_map_a77a3307eb17ea829836140639cb52115}{begin}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.cbegin();  \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00369}\mbox{\hyperlink{class_linked_ref_map_a6fed959ab40da898bbebfdb3c8653b2c}{00369}}     \mbox{\hyperlink{class_linked_ref_map_ae9d600d6dc898d3efd063381f60eaaf7}{const\_iterator}} \mbox{\hyperlink{class_linked_ref_map_a6fed959ab40da898bbebfdb3c8653b2c}{end}}()\textcolor{keyword}{ const              }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.cend();    \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00370}\mbox{\hyperlink{class_linked_ref_map_ac971d2e3cc8e2651f5648b6946b25bd7}{00370}}     \mbox{\hyperlink{class_linked_ref_map_a7c63027ad3bccd9ba3a87b2818ecf12a}{reverse\_iterator}} \mbox{\hyperlink{class_linked_ref_map_ac971d2e3cc8e2651f5648b6946b25bd7}{rbegin}}()               \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.rbegin();  \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00371}\mbox{\hyperlink{class_linked_ref_map_a2a306a67c71e29179b309647309d6e96}{00371}}     \mbox{\hyperlink{class_linked_ref_map_a7c63027ad3bccd9ba3a87b2818ecf12a}{reverse\_iterator}} \mbox{\hyperlink{class_linked_ref_map_a2a306a67c71e29179b309647309d6e96}{rend}}()                 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.rend();    \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00372}\mbox{\hyperlink{class_linked_ref_map_a2d088d23b0ce73cf2ed3b8cfc2fbe89d}{00372}}     \mbox{\hyperlink{class_linked_ref_map_a5d04d68baaeb769cfe0e3cfa9873e40f}{const\_reverse\_iterator}} \mbox{\hyperlink{class_linked_ref_map_a2d088d23b0ce73cf2ed3b8cfc2fbe89d}{rbegin}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.crbegin(); \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00373}\mbox{\hyperlink{class_linked_ref_map_ab67fb1418120d42cf91a2a033a6b16ad}{00373}}     \mbox{\hyperlink{class_linked_ref_map_a5d04d68baaeb769cfe0e3cfa9873e40f}{const\_reverse\_iterator}} \mbox{\hyperlink{class_linked_ref_map_ab67fb1418120d42cf91a2a033a6b16ad}{rend}}()\textcolor{keyword}{ const     }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.crend();   \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00374}\mbox{\hyperlink{class_linked_ref_map_ad4eea714e29d412612981ac2a8bcab40}{00374}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_linked_ref_map_ad4eea714e29d412612981ac2a8bcab40}{empty}}()\textcolor{keyword}{ const                      }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.empty();   \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00375}\mbox{\hyperlink{class_linked_ref_map_a5fe0b41a59bcf683e2ade44911a3fe1d}{00375}}     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_linked_ref_map_a5fe0b41a59bcf683e2ade44911a3fe1d}{size}}()\textcolor{keyword}{ const                     }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.size();    \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00376}00376 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00377}\mbox{\hyperlink{class_linked_ref_map_ad67fa2110f306614b020782b88c28c83}{00377}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_linked_ref_map_ad67fa2110f306614b020782b88c28c83}{clear}}()}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00378}00378     \{}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00379}00379       \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}}.clear();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00380}00380       \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}}.clear();}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00381}00381     \}}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00382}00382 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00383}00383   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00384}00384     Map \mbox{\hyperlink{class_linked_ref_map_aa825d33ecc2a6b96492886f163b7d47a}{m\_lookup}};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00385}00385     \mbox{\hyperlink{build_2doxygen_2testing_2072__using_8cpp_a1b01c504448c96cd2191a5184dd31acf}{Vec}} \mbox{\hyperlink{class_linked_ref_map_a1ad918f78e81ed4580bcd9c0654fced1}{m\_entries}};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00386}00386 \};}
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00387}00387 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00388}00388 }
+\DoxyCodeLine{\Hypertarget{src_2linkedmap_8h_source_l00389}00389 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,102 @@
+\hypertarget{class_class_list_context_1_1_private}{}\doxysection{Class\+List\+Context\+::Private Class Reference}
+\label{class_class_list_context_1_1_private}\index{ClassListContext::Private@{ClassListContext::Private}}
+Inheritance diagram for Class\+List\+Context\+::Private\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.658228cm]{class_class_list_context_1_1_private}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_class_list_context_1_1_private_a96862a44d58e9e3dea92a170e51f5721}{add\+Classes}} (const \mbox{\hyperlink{class_class_linked_map}{Class\+Linked\+Map}} \&class\+Linked\+Map)
+\item 
+void \mbox{\hyperlink{class_class_list_context_1_1_private_a96862a44d58e9e3dea92a170e51f5721}{add\+Classes}} (const \mbox{\hyperlink{class_class_linked_map}{Class\+Linked\+Map}} \&class\+Linked\+Map)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l04993}{4993}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_class_list_context_1_1_private_a96862a44d58e9e3dea92a170e51f5721}\label{class_class_list_context_1_1_private_a96862a44d58e9e3dea92a170e51f5721}} 
+\index{ClassListContext::Private@{ClassListContext::Private}!addClasses@{addClasses}}
+\index{addClasses@{addClasses}!ClassListContext::Private@{ClassListContext::Private}}
+\doxysubsubsection{\texorpdfstring{addClasses()}{addClasses()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Class\+List\+Context\+::\+Private\+::add\+Classes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_class_linked_map}{Class\+Linked\+Map}} \&}]{class\+Linked\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l04996}{4996}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04997     \{}
+\DoxyCodeLine{04998       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&cd : classLinkedMap)}
+\DoxyCodeLine{04999       \{}
+\DoxyCodeLine{05000         \textcolor{keywordflow}{if} (cd-\/>getLanguage()==\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{SrcLangExt\_VHDL}} \&\&}
+\DoxyCodeLine{05001             (\mbox{\hyperlink{class_vhdl_doc_gen_ab1ab1504610c798f4924026a48bb4301}{VhdlDocGen::convert}}(cd-\/>protection())==\mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0a0933f92514fa27bc1f5daf32b7a65835}{VhdlDocGen::PACKAGECLASS}} ||}
+\DoxyCodeLine{05002              \mbox{\hyperlink{class_vhdl_doc_gen_ab1ab1504610c798f4924026a48bb4301}{VhdlDocGen::convert}}(cd-\/>protection())==\mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0ab6185d1953b5fa93457bfcfbde2ce911}{VhdlDocGen::PACKBODYCLASS}})}
+\DoxyCodeLine{05003            ) \textcolor{comment}{// no architecture}}
+\DoxyCodeLine{05004         \{}
+\DoxyCodeLine{05005           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{05006         \}}
+\DoxyCodeLine{05007         \textcolor{keywordflow}{if} (cd-\/>isLinkableInProject() \&\& cd-\/>templateMaster()==0 \&\&}
+\DoxyCodeLine{05008             !cd-\/>isHidden() \&\& !cd-\/>isEmbeddedInOuterScope())}
+\DoxyCodeLine{05009         \{}
+\DoxyCodeLine{05010           \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_class_context_a442a79f20793cb4eefc7ebc9d64f4de2}{ClassContext::alloc}}(cd.get()));}
+\DoxyCodeLine{05011         \}}
+\DoxyCodeLine{05012       \}}
+\DoxyCodeLine{05013     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_class_context_a442a79f20793cb4eefc7ebc9d64f4de2}{Class\+Context\+::alloc()}}, \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{Generic\+Node\+List\+Context\+::append()}}, \mbox{\hyperlink{class_vhdl_doc_gen_ab1ab1504610c798f4924026a48bb4301}{Vhdl\+Doc\+Gen\+::convert()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0a0933f92514fa27bc1f5daf32b7a65835}{Vhdl\+Doc\+Gen\+::\+PACKAGECLASS}}, \mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0ab6185d1953b5fa93457bfcfbde2ce911}{Vhdl\+Doc\+Gen\+::\+PACKBODYCLASS}}, and \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{Src\+Lang\+Ext\+\_\+\+VHDL}}.
+
+\mbox{\Hypertarget{class_class_list_context_1_1_private_a96862a44d58e9e3dea92a170e51f5721}\label{class_class_list_context_1_1_private_a96862a44d58e9e3dea92a170e51f5721}} 
+\index{ClassListContext::Private@{ClassListContext::Private}!addClasses@{addClasses}}
+\index{addClasses@{addClasses}!ClassListContext::Private@{ClassListContext::Private}}
+\doxysubsubsection{\texorpdfstring{addClasses()}{addClasses()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Class\+List\+Context\+::\+Private\+::add\+Classes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_class_linked_map}{Class\+Linked\+Map}} \&}]{class\+Linked\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2context_8cpp_source_l04996}{4996}} of file \mbox{\hyperlink{src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04997     \{}
+\DoxyCodeLine{04998       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&cd : classLinkedMap)}
+\DoxyCodeLine{04999       \{}
+\DoxyCodeLine{05000         \textcolor{keywordflow}{if} (cd-\/>getLanguage()==\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{SrcLangExt\_VHDL}} \&\&}
+\DoxyCodeLine{05001             (\mbox{\hyperlink{class_vhdl_doc_gen_ab1ab1504610c798f4924026a48bb4301}{VhdlDocGen::convert}}(cd-\/>protection())==\mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0a0933f92514fa27bc1f5daf32b7a65835}{VhdlDocGen::PACKAGECLASS}} ||}
+\DoxyCodeLine{05002              \mbox{\hyperlink{class_vhdl_doc_gen_ab1ab1504610c798f4924026a48bb4301}{VhdlDocGen::convert}}(cd-\/>protection())==\mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0ab6185d1953b5fa93457bfcfbde2ce911}{VhdlDocGen::PACKBODYCLASS}})}
+\DoxyCodeLine{05003            ) \textcolor{comment}{// no architecture}}
+\DoxyCodeLine{05004         \{}
+\DoxyCodeLine{05005           \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{05006         \}}
+\DoxyCodeLine{05007         \textcolor{keywordflow}{if} (cd-\/>isLinkableInProject() \&\& cd-\/>templateMaster()==0 \&\&}
+\DoxyCodeLine{05008             !cd-\/>isHidden() \&\& !cd-\/>isEmbeddedInOuterScope())}
+\DoxyCodeLine{05009         \{}
+\DoxyCodeLine{05010           \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_class_context_a442a79f20793cb4eefc7ebc9d64f4de2}{ClassContext::alloc}}(cd.get()));}
+\DoxyCodeLine{05011         \}}
+\DoxyCodeLine{05012       \}}
+\DoxyCodeLine{05013     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_class_context_a442a79f20793cb4eefc7ebc9d64f4de2}{Class\+Context\+::alloc()}}, \mbox{\hyperlink{class_vhdl_doc_gen_ab1ab1504610c798f4924026a48bb4301}{Vhdl\+Doc\+Gen\+::convert()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0a0933f92514fa27bc1f5daf32b7a65835}{Vhdl\+Doc\+Gen\+::\+PACKAGECLASS}}, \mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0ab6185d1953b5fa93457bfcfbde2ce911}{Vhdl\+Doc\+Gen\+::\+PACKBODYCLASS}}, and \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2a04de850503d4e73333e3c8eec7f97da7}{Src\+Lang\+Ext\+\_\+\+VHDL}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp}{context.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2context_8cpp}{context.\+cpp}}\end{DoxyCompactItemize}

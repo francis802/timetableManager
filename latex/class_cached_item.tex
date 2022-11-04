@@ -1,0 +1,130 @@
+\hypertarget{class_cached_item}{}\doxysection{Cached\+Item\texorpdfstring{$<$}{<} T, TOwner, creator \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_cached_item}\index{CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T \& \mbox{\hyperlink{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}{get}} (const TOwner $\ast$owner) const
+\item 
+T \& \mbox{\hyperlink{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}{get}} (const TOwner $\ast$owner) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::once\+\_\+flag \mbox{\hyperlink{class_cached_item_abdfcf4bbf9392b47b0af375cede70e58}{m\+\_\+cache\+\_\+flag}}
+\item 
+T \mbox{\hyperlink{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}{m\+\_\+item}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename TOwner, T(TOwner\+::$\ast$)() const creator$>$\newline
+class Cached\+Item$<$ T, TOwner, creator $>$}
+Wrapper for data that needs to be cached. The cached data can be accessed via the \mbox{\hyperlink{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}{get()}} method from multiple threads. The first thread that calls \mbox{\hyperlink{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}{get()}} will trigger creation of the data item via the creator method, blocking other threads until the item is available in the cache. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of the data item in the cache. \\
+\hline
+{\em TOwner} & the class containing the cached item. \\
+\hline
+{\em creator} & the method of TOwner to call in order to create the data item to be cached. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}\label{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}} 
+\index{CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}!get@{get}}
+\index{get@{get}!CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename TOwner , T(TOwner\+::$\ast$)() const creator$>$ \\
+T \& \mbox{\hyperlink{class_cached_item}{Cached\+Item}}$<$ T, TOwner, creator $>$\+::get (\begin{DoxyParamCaption}\item[{const TOwner $\ast$}]{owner }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to the cached data. Conceptually this is a const method, i.\+e. it will always return the same data The first time it is called, the owner will be asked to create the data. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099     \{}
+\DoxyCodeLine{00100       \textcolor{comment}{// create a lambda function to create the cached data}}
+\DoxyCodeLine{00101       \textcolor{keyword}{auto} creatorFunc = [\textcolor{keyword}{this},owner]() \{ \mbox{\hyperlink{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}{m\_item}} = (owner-\/>*creator)(); \};}
+\DoxyCodeLine{00102       \textcolor{comment}{// use std::call\_once to let one thread invoke the creator func}}
+\DoxyCodeLine{00103       std::call\_once(\mbox{\hyperlink{class_cached_item_abdfcf4bbf9392b47b0af375cede70e58}{m\_cache\_flag}}, creatorFunc);}
+\DoxyCodeLine{00104       \textcolor{comment}{// return the cached results}}
+\DoxyCodeLine{00105       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}{m\_item}};}
+\DoxyCodeLine{00106     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cached_item_abdfcf4bbf9392b47b0af375cede70e58}{Cached\+Item$<$ T, TOwner, creator $>$\+::m\+\_\+cache\+\_\+flag}}, and \mbox{\hyperlink{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}{Cached\+Item$<$ T, TOwner, creator $>$\+::m\+\_\+item}}.
+
+\mbox{\Hypertarget{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}\label{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}} 
+\index{CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}!get@{get}}
+\index{get@{get}!CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename TOwner , T(TOwner\+::$\ast$)() const creator$>$ \\
+T \& \mbox{\hyperlink{class_cached_item}{Cached\+Item}}$<$ T, TOwner, creator $>$\+::get (\begin{DoxyParamCaption}\item[{const TOwner $\ast$}]{owner }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to the cached data. Conceptually this is a const method, i.\+e. it will always return the same data The first time it is called, the owner will be asked to create the data. 
+
+Definition at line \mbox{\hyperlink{src_2context_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099     \{}
+\DoxyCodeLine{00100       \textcolor{comment}{// create a lambda function to create the cached data}}
+\DoxyCodeLine{00101       \textcolor{keyword}{auto} creatorFunc = [\textcolor{keyword}{this},owner]() \{ \mbox{\hyperlink{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}{m\_item}} = (owner-\/>*creator)(); \};}
+\DoxyCodeLine{00102       \textcolor{comment}{// use std::call\_once to let one thread invoke the creator func}}
+\DoxyCodeLine{00103       std::call\_once(\mbox{\hyperlink{class_cached_item_abdfcf4bbf9392b47b0af375cede70e58}{m\_cache\_flag}}, creatorFunc);}
+\DoxyCodeLine{00104       \textcolor{comment}{// return the cached results}}
+\DoxyCodeLine{00105       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}{m\_item}};}
+\DoxyCodeLine{00106     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cached_item_abdfcf4bbf9392b47b0af375cede70e58}{Cached\+Item$<$ T, TOwner, creator $>$\+::m\+\_\+cache\+\_\+flag}}, and \mbox{\hyperlink{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}{Cached\+Item$<$ T, TOwner, creator $>$\+::m\+\_\+item}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_cached_item_abdfcf4bbf9392b47b0af375cede70e58}\label{class_cached_item_abdfcf4bbf9392b47b0af375cede70e58}} 
+\index{CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}!m\_cache\_flag@{m\_cache\_flag}}
+\index{m\_cache\_flag@{m\_cache\_flag}!CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}}
+\doxysubsubsection{\texorpdfstring{m\_cache\_flag}{m\_cache\_flag}}
+{\footnotesize\ttfamily template$<$typename T , typename TOwner , T(TOwner\+::$\ast$)() const creator$>$ \\
+std\+::once\+\_\+flag \mbox{\hyperlink{class_cached_item}{Cached\+Item}}$<$ T, TOwner, creator $>$\+::m\+\_\+cache\+\_\+flag\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}{Cached\+Item$<$ T, TOwner, creator $>$\+::get()}}.
+
+\mbox{\Hypertarget{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}\label{class_cached_item_aaedbcfdf5f9fc27483ce6895c488f984}} 
+\index{CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}!m\_item@{m\_item}}
+\index{m\_item@{m\_item}!CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}}
+\doxysubsubsection{\texorpdfstring{m\_item}{m\_item}}
+{\footnotesize\ttfamily template$<$typename T , typename TOwner , T(TOwner\+::$\ast$)() const creator$>$ \\
+T \mbox{\hyperlink{class_cached_item}{Cached\+Item}}$<$ T, TOwner, creator $>$\+::m\+\_\+item\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cached_item_a1a0c953e18a4c201a714c5f38b04117b}{Cached\+Item$<$ T, TOwner, creator $>$\+::get()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp}{context.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2context_8cpp}{context.\+cpp}}\end{DoxyCompactItemize}

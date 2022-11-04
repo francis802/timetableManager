@@ -1,0 +1,102 @@
+\hypertarget{class_filter_length}{}\doxysection{Filter\+Length Class Reference}
+\label{class_filter_length}\index{FilterLength@{FilterLength}}
+
+
+The implementation of the \char`\"{}length\char`\"{} filter.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_length_aeabf52950c62b39af24d448bb5597551}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_length_aeabf52950c62b39af24d448bb5597551}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}length\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00964}{964}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_length_aeabf52950c62b39af24d448bb5597551}\label{class_filter_length_aeabf52950c62b39af24d448bb5597551}} 
+\index{FilterLength@{FilterLength}!apply@{apply}}
+\index{apply@{apply}!FilterLength@{FilterLength}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Length\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00967}{967}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00968     \{}
+\DoxyCodeLine{00969       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}())}
+\DoxyCodeLine{00970       \{}
+\DoxyCodeLine{00971         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}();}
+\DoxyCodeLine{00972       \}}
+\DoxyCodeLine{00973       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}())}
+\DoxyCodeLine{00974       \{}
+\DoxyCodeLine{00975         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}()-\/>count());}
+\DoxyCodeLine{00976       \}}
+\DoxyCodeLine{00977       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00978       \{}
+\DoxyCodeLine{00979         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}().\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}());}
+\DoxyCodeLine{00980       \}}
+\DoxyCodeLine{00981       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00982       \{}
+\DoxyCodeLine{00983         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}();}
+\DoxyCodeLine{00984       \}}
+\DoxyCodeLine{00985     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+\mbox{\Hypertarget{class_filter_length_aeabf52950c62b39af24d448bb5597551}\label{class_filter_length_aeabf52950c62b39af24d448bb5597551}} 
+\index{FilterLength@{FilterLength}!apply@{apply}}
+\index{apply@{apply}!FilterLength@{FilterLength}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Length\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l00967}{967}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00968     \{}
+\DoxyCodeLine{00969       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}())}
+\DoxyCodeLine{00970       \{}
+\DoxyCodeLine{00971         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}();}
+\DoxyCodeLine{00972       \}}
+\DoxyCodeLine{00973       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}())}
+\DoxyCodeLine{00974       \{}
+\DoxyCodeLine{00975         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}()-\/>count());}
+\DoxyCodeLine{00976       \}}
+\DoxyCodeLine{00977       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{00978       \{}
+\DoxyCodeLine{00979         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}().\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}());}
+\DoxyCodeLine{00980       \}}
+\DoxyCodeLine{00981       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00982       \{}
+\DoxyCodeLine{00983         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}();}
+\DoxyCodeLine{00984       \}}
+\DoxyCodeLine{00985     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

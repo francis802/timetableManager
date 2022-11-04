@@ -1,0 +1,484 @@
+\hypertarget{src_2doctokenizer_8h}{}\doxysection{doxygen/src/doctokenizer.h File Reference}
+\label{src_2doctokenizer_8h}\index{doxygen/src/doctokenizer.h@{doxygen/src/doctokenizer.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include \char`\"{}htmlattrib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_token_info}{Token\+Info}}
+\begin{DoxyCompactList}\small\item\em Data associated with a token used by the comment block parser. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_doc_tokenizer}{Doc\+Tokenizer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2doctokenizer_8h_ae6cf84e5b3bd4f23a28140953d201fe7}{TK\+\_\+\+COMMAND\+\_\+\+CHAR}}(token)~((token)==\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}{TK\+\_\+\+COMMAND\+\_\+\+AT}} ? \char`\"{}@\char`\"{} \+: \char`\"{}\textbackslash{}\textbackslash{}\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8af}{Tokens}} \{ \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2b4a4468ca8c7242bf98227d336bf4ad}{TK\+\_\+\+WORD}} = 1
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4640e6cdcb728ffd6a26282022978866}{TK\+\_\+\+LNKWORD}} = 2
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa0ca8cd834b4402e55673fad9935c808a}{TK\+\_\+\+WHITESPACE}} = 3
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2c626d0e5270e4da6896efa78533cbb1}{TK\+\_\+\+LISTITEM}} = 4
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4ae7909ee0da54e774a68ab5df0872b}{TK\+\_\+\+ENDLIST}} = 5
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}{TK\+\_\+\+COMMAND\+\_\+\+AT}} = 6
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a09cfd5ad8d861688a05908a8dea5ff}{TK\+\_\+\+HTMLTAG}} = 7
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4c974f1d50d9e9c292ce36562c164f2}{TK\+\_\+\+SYMBOL}} = 8
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afabe804eb9c4660e29223e9e455126b469}{TK\+\_\+\+NEWPARA}} = 9
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa545d7bdc48929abd3a8b20ff8a06c185}{TK\+\_\+\+RCSTAG}} = 10
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa08a22cf20f93c345c37d82be66f2535a}{TK\+\_\+\+URL}} = 11
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}{TK\+\_\+\+COMMAND\+\_\+\+BS}} = 12
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa90bdd145323993d8702a222ff269a8d2}{Ret\+Val\+\_\+\+OK}} = 0x10000
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3f194b10629a8efd8f05cb1445bc28f5}{Ret\+Val\+\_\+\+Simple\+Sec}} = 0x10001
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9f55929ba63b40e6b351a39997b422c7}{Ret\+Val\+\_\+\+List\+Item}} = 0x10002
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3a5eda8e9ed14211b34dccb72bd98b30}{Ret\+Val\+\_\+\+Section}} = 0x10003
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa1e655faf9d7e324cebfc87048f8f1313}{Ret\+Val\+\_\+\+Subsection}} = 0x10004
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafcafa68135487d432c5de976edb2c40a}{Ret\+Val\+\_\+\+Subsubsection}} = 0x10005
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa550b490f9f95e11dfd0d563f829e67e8}{Ret\+Val\+\_\+\+Paragraph}} = 0x10006
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa982e3db35310c82d174c4d0ad3000ae4}{Ret\+Val\+\_\+\+Sub\+Paragraph}} = 0x10007
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6a96924a54bab4c6b2f2131cdbecd5ae}{Ret\+Val\+\_\+\+End\+List}} = 0x10008
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa76a2ae19a79e778838beec17e953e948}{Ret\+Val\+\_\+\+End\+Pre}} = 0x10009
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa66a9d49e9ad178ffbad3bb441d61ae84}{Ret\+Val\+\_\+\+Desc\+Data}} = 0x1000A
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a1c2cb4c1dcc409a7e19d1323bfff5f}{Ret\+Val\+\_\+\+Desc\+Title}} = 0x1000B
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab45653a874f3187d8f8298a67b7dd5f3}{Ret\+Val\+\_\+\+End\+Desc}} = 0x1000C
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3adac0a3a4ad484efaf3136a1d8bedcd}{Ret\+Val\+\_\+\+Table\+Row}} = 0x1000D
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9333aaf67852e216d5bf577250e21b6c}{Ret\+Val\+\_\+\+Table\+Cell}} = 0x1000E
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6cf266883f9fb0016af739d96c47b123}{Ret\+Val\+\_\+\+Table\+HCell}} = 0x1000F
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46c7b0a1b5f4db15b4a59625af221f44}{Ret\+Val\+\_\+\+End\+Table}} = 0x10010
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad2436c7d2d4d16b50d4c79d774d23bf9}{Ret\+Val\+\_\+\+Internal}} = 0x10011
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46f53faf8a9f761cb52e0696e512cd42}{Ret\+Val\+\_\+\+Switch\+Lang}} = 0x10012
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafc139569c8206cd797096ea9c8265c37}{Ret\+Val\+\_\+\+Close\+Xml}} = 0x10013
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa32877befdd25357697513acd0fc4ad27}{Ret\+Val\+\_\+\+End\+Block\+Quote}} = 0x10014
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad8137258d399638b061b1922338a9d90}{Ret\+Val\+\_\+\+Copy\+Doc}} = 0x10015
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa57f51851af64020dba97516f5f0c4eca}{Ret\+Val\+\_\+\+End\+Internal}} = 0x10016
+, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4d3db3f070705885cb30e195fe963af1}{Ret\+Val\+\_\+\+End\+Par\+Block}} = 0x10017
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa35346d068a567f2442ab8f2aaf26fe1e}{Ret\+Val\+\_\+\+End\+Html\+Details}} = 0x10018
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2b4a4468ca8c7242bf98227d336bf4ad}{TK\+\_\+\+WORD}} = 1
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4640e6cdcb728ffd6a26282022978866}{TK\+\_\+\+LNKWORD}} = 2
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa0ca8cd834b4402e55673fad9935c808a}{TK\+\_\+\+WHITESPACE}} = 3
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2c626d0e5270e4da6896efa78533cbb1}{TK\+\_\+\+LISTITEM}} = 4
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4ae7909ee0da54e774a68ab5df0872b}{TK\+\_\+\+ENDLIST}} = 5
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}{TK\+\_\+\+COMMAND\+\_\+\+AT}} = 6
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a09cfd5ad8d861688a05908a8dea5ff}{TK\+\_\+\+HTMLTAG}} = 7
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4c974f1d50d9e9c292ce36562c164f2}{TK\+\_\+\+SYMBOL}} = 8
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afabe804eb9c4660e29223e9e455126b469}{TK\+\_\+\+NEWPARA}} = 9
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa545d7bdc48929abd3a8b20ff8a06c185}{TK\+\_\+\+RCSTAG}} = 10
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa08a22cf20f93c345c37d82be66f2535a}{TK\+\_\+\+URL}} = 11
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}{TK\+\_\+\+COMMAND\+\_\+\+BS}} = 12
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa90bdd145323993d8702a222ff269a8d2}{Ret\+Val\+\_\+\+OK}} = 0x10000
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3f194b10629a8efd8f05cb1445bc28f5}{Ret\+Val\+\_\+\+Simple\+Sec}} = 0x10001
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9f55929ba63b40e6b351a39997b422c7}{Ret\+Val\+\_\+\+List\+Item}} = 0x10002
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3a5eda8e9ed14211b34dccb72bd98b30}{Ret\+Val\+\_\+\+Section}} = 0x10003
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa1e655faf9d7e324cebfc87048f8f1313}{Ret\+Val\+\_\+\+Subsection}} = 0x10004
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafcafa68135487d432c5de976edb2c40a}{Ret\+Val\+\_\+\+Subsubsection}} = 0x10005
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa550b490f9f95e11dfd0d563f829e67e8}{Ret\+Val\+\_\+\+Paragraph}} = 0x10006
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa982e3db35310c82d174c4d0ad3000ae4}{Ret\+Val\+\_\+\+Sub\+Paragraph}} = 0x10007
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6a96924a54bab4c6b2f2131cdbecd5ae}{Ret\+Val\+\_\+\+End\+List}} = 0x10008
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa76a2ae19a79e778838beec17e953e948}{Ret\+Val\+\_\+\+End\+Pre}} = 0x10009
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa66a9d49e9ad178ffbad3bb441d61ae84}{Ret\+Val\+\_\+\+Desc\+Data}} = 0x1000A
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a1c2cb4c1dcc409a7e19d1323bfff5f}{Ret\+Val\+\_\+\+Desc\+Title}} = 0x1000B
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab45653a874f3187d8f8298a67b7dd5f3}{Ret\+Val\+\_\+\+End\+Desc}} = 0x1000C
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3adac0a3a4ad484efaf3136a1d8bedcd}{Ret\+Val\+\_\+\+Table\+Row}} = 0x1000D
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9333aaf67852e216d5bf577250e21b6c}{Ret\+Val\+\_\+\+Table\+Cell}} = 0x1000E
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6cf266883f9fb0016af739d96c47b123}{Ret\+Val\+\_\+\+Table\+HCell}} = 0x1000F
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46c7b0a1b5f4db15b4a59625af221f44}{Ret\+Val\+\_\+\+End\+Table}} = 0x10010
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad2436c7d2d4d16b50d4c79d774d23bf9}{Ret\+Val\+\_\+\+Internal}} = 0x10011
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46f53faf8a9f761cb52e0696e512cd42}{Ret\+Val\+\_\+\+Switch\+Lang}} = 0x10012
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafc139569c8206cd797096ea9c8265c37}{Ret\+Val\+\_\+\+Close\+Xml}} = 0x10013
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa32877befdd25357697513acd0fc4ad27}{Ret\+Val\+\_\+\+End\+Block\+Quote}} = 0x10014
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad8137258d399638b061b1922338a9d90}{Ret\+Val\+\_\+\+Copy\+Doc}} = 0x10015
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa57f51851af64020dba97516f5f0c4eca}{Ret\+Val\+\_\+\+End\+Internal}} = 0x10016
+, \newline
+\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4d3db3f070705885cb30e195fe963af1}{Ret\+Val\+\_\+\+End\+Par\+Block}} = 0x10017
+, \mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa35346d068a567f2442ab8f2aaf26fe1e}{Ret\+Val\+\_\+\+End\+Html\+Details}} = 0x10018
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2doctokenizer_8h_ae6cf84e5b3bd4f23a28140953d201fe7}\label{src_2doctokenizer_8h_ae6cf84e5b3bd4f23a28140953d201fe7}} 
+\index{doctokenizer.h@{doctokenizer.h}!TK\_COMMAND\_CHAR@{TK\_COMMAND\_CHAR}}
+\index{TK\_COMMAND\_CHAR@{TK\_COMMAND\_CHAR}!doctokenizer.h@{doctokenizer.h}}
+\doxysubsubsection{\texorpdfstring{TK\_COMMAND\_CHAR}{TK\_COMMAND\_CHAR}}
+{\footnotesize\ttfamily \#define TK\+\_\+\+COMMAND\+\_\+\+CHAR(\begin{DoxyParamCaption}\item[{}]{token }\end{DoxyParamCaption})~((token)==\mbox{\hyperlink{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}{TK\+\_\+\+COMMAND\+\_\+\+AT}} ? \char`\"{}@\char`\"{} \+: \char`\"{}\textbackslash{}\textbackslash{}\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2doctokenizer_8h_source_l00070}{70}} of file \mbox{\hyperlink{src_2doctokenizer_8h_source}{doctokenizer.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8af}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8af}} 
+\index{doctokenizer.h@{doctokenizer.h}!Tokens@{Tokens}}
+\index{Tokens@{Tokens}!doctokenizer.h@{doctokenizer.h}}
+\doxysubsubsection{\texorpdfstring{Tokens}{Tokens}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8af}{Tokens}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_WORD@{TK\_WORD}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_WORD@{TK\_WORD}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2b4a4468ca8c7242bf98227d336bf4ad}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2b4a4468ca8c7242bf98227d336bf4ad}} 
+TK\+\_\+\+WORD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_LNKWORD@{TK\_LNKWORD}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_LNKWORD@{TK\_LNKWORD}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4640e6cdcb728ffd6a26282022978866}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4640e6cdcb728ffd6a26282022978866}} 
+TK\+\_\+\+LNKWORD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_WHITESPACE@{TK\_WHITESPACE}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_WHITESPACE@{TK\_WHITESPACE}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa0ca8cd834b4402e55673fad9935c808a}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa0ca8cd834b4402e55673fad9935c808a}} 
+TK\+\_\+\+WHITESPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_LISTITEM@{TK\_LISTITEM}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_LISTITEM@{TK\_LISTITEM}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2c626d0e5270e4da6896efa78533cbb1}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2c626d0e5270e4da6896efa78533cbb1}} 
+TK\+\_\+\+LISTITEM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_ENDLIST@{TK\_ENDLIST}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_ENDLIST@{TK\_ENDLIST}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4ae7909ee0da54e774a68ab5df0872b}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4ae7909ee0da54e774a68ab5df0872b}} 
+TK\+\_\+\+ENDLIST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_COMMAND\_AT@{TK\_COMMAND\_AT}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_COMMAND\_AT@{TK\_COMMAND\_AT}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}} 
+TK\+\_\+\+COMMAND\+\_\+\+AT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_HTMLTAG@{TK\_HTMLTAG}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_HTMLTAG@{TK\_HTMLTAG}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a09cfd5ad8d861688a05908a8dea5ff}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a09cfd5ad8d861688a05908a8dea5ff}} 
+TK\+\_\+\+HTMLTAG&Command starting with {\ttfamily @} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_SYMBOL@{TK\_SYMBOL}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_SYMBOL@{TK\_SYMBOL}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4c974f1d50d9e9c292ce36562c164f2}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4c974f1d50d9e9c292ce36562c164f2}} 
+TK\+\_\+\+SYMBOL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_NEWPARA@{TK\_NEWPARA}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_NEWPARA@{TK\_NEWPARA}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afabe804eb9c4660e29223e9e455126b469}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afabe804eb9c4660e29223e9e455126b469}} 
+TK\+\_\+\+NEWPARA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_RCSTAG@{TK\_RCSTAG}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_RCSTAG@{TK\_RCSTAG}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa545d7bdc48929abd3a8b20ff8a06c185}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa545d7bdc48929abd3a8b20ff8a06c185}} 
+TK\+\_\+\+RCSTAG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_URL@{TK\_URL}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_URL@{TK\_URL}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa08a22cf20f93c345c37d82be66f2535a}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa08a22cf20f93c345c37d82be66f2535a}} 
+TK\+\_\+\+URL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_COMMAND\_BS@{TK\_COMMAND\_BS}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_COMMAND\_BS@{TK\_COMMAND\_BS}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}} 
+TK\+\_\+\+COMMAND\+\_\+\+BS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_OK@{RetVal\_OK}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_OK@{RetVal\_OK}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa90bdd145323993d8702a222ff269a8d2}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa90bdd145323993d8702a222ff269a8d2}} 
+Ret\+Val\+\_\+\+OK&Command starting with {\ttfamily \textbackslash{}} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_SimpleSec@{RetVal\_SimpleSec}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_SimpleSec@{RetVal\_SimpleSec}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3f194b10629a8efd8f05cb1445bc28f5}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3f194b10629a8efd8f05cb1445bc28f5}} 
+Ret\+Val\+\_\+\+Simple\+Sec&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_ListItem@{RetVal\_ListItem}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_ListItem@{RetVal\_ListItem}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9f55929ba63b40e6b351a39997b422c7}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9f55929ba63b40e6b351a39997b422c7}} 
+Ret\+Val\+\_\+\+List\+Item&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Section@{RetVal\_Section}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Section@{RetVal\_Section}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3a5eda8e9ed14211b34dccb72bd98b30}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3a5eda8e9ed14211b34dccb72bd98b30}} 
+Ret\+Val\+\_\+\+Section&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Subsection@{RetVal\_Subsection}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Subsection@{RetVal\_Subsection}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa1e655faf9d7e324cebfc87048f8f1313}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa1e655faf9d7e324cebfc87048f8f1313}} 
+Ret\+Val\+\_\+\+Subsection&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Subsubsection@{RetVal\_Subsubsection}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Subsubsection@{RetVal\_Subsubsection}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafcafa68135487d432c5de976edb2c40a}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafcafa68135487d432c5de976edb2c40a}} 
+Ret\+Val\+\_\+\+Subsubsection&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Paragraph@{RetVal\_Paragraph}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Paragraph@{RetVal\_Paragraph}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa550b490f9f95e11dfd0d563f829e67e8}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa550b490f9f95e11dfd0d563f829e67e8}} 
+Ret\+Val\+\_\+\+Paragraph&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_SubParagraph@{RetVal\_SubParagraph}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_SubParagraph@{RetVal\_SubParagraph}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa982e3db35310c82d174c4d0ad3000ae4}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa982e3db35310c82d174c4d0ad3000ae4}} 
+Ret\+Val\+\_\+\+Sub\+Paragraph&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndList@{RetVal\_EndList}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndList@{RetVal\_EndList}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6a96924a54bab4c6b2f2131cdbecd5ae}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6a96924a54bab4c6b2f2131cdbecd5ae}} 
+Ret\+Val\+\_\+\+End\+List&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndPre@{RetVal\_EndPre}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndPre@{RetVal\_EndPre}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa76a2ae19a79e778838beec17e953e948}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa76a2ae19a79e778838beec17e953e948}} 
+Ret\+Val\+\_\+\+End\+Pre&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_DescData@{RetVal\_DescData}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_DescData@{RetVal\_DescData}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa66a9d49e9ad178ffbad3bb441d61ae84}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa66a9d49e9ad178ffbad3bb441d61ae84}} 
+Ret\+Val\+\_\+\+Desc\+Data&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_DescTitle@{RetVal\_DescTitle}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_DescTitle@{RetVal\_DescTitle}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a1c2cb4c1dcc409a7e19d1323bfff5f}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a1c2cb4c1dcc409a7e19d1323bfff5f}} 
+Ret\+Val\+\_\+\+Desc\+Title&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndDesc@{RetVal\_EndDesc}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndDesc@{RetVal\_EndDesc}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab45653a874f3187d8f8298a67b7dd5f3}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab45653a874f3187d8f8298a67b7dd5f3}} 
+Ret\+Val\+\_\+\+End\+Desc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_TableRow@{RetVal\_TableRow}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_TableRow@{RetVal\_TableRow}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3adac0a3a4ad484efaf3136a1d8bedcd}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3adac0a3a4ad484efaf3136a1d8bedcd}} 
+Ret\+Val\+\_\+\+Table\+Row&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_TableCell@{RetVal\_TableCell}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_TableCell@{RetVal\_TableCell}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9333aaf67852e216d5bf577250e21b6c}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9333aaf67852e216d5bf577250e21b6c}} 
+Ret\+Val\+\_\+\+Table\+Cell&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_TableHCell@{RetVal\_TableHCell}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_TableHCell@{RetVal\_TableHCell}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6cf266883f9fb0016af739d96c47b123}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6cf266883f9fb0016af739d96c47b123}} 
+Ret\+Val\+\_\+\+Table\+HCell&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndTable@{RetVal\_EndTable}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndTable@{RetVal\_EndTable}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46c7b0a1b5f4db15b4a59625af221f44}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46c7b0a1b5f4db15b4a59625af221f44}} 
+Ret\+Val\+\_\+\+End\+Table&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Internal@{RetVal\_Internal}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Internal@{RetVal\_Internal}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad2436c7d2d4d16b50d4c79d774d23bf9}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad2436c7d2d4d16b50d4c79d774d23bf9}} 
+Ret\+Val\+\_\+\+Internal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_SwitchLang@{RetVal\_SwitchLang}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_SwitchLang@{RetVal\_SwitchLang}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46f53faf8a9f761cb52e0696e512cd42}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46f53faf8a9f761cb52e0696e512cd42}} 
+Ret\+Val\+\_\+\+Switch\+Lang&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_CloseXml@{RetVal\_CloseXml}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_CloseXml@{RetVal\_CloseXml}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafc139569c8206cd797096ea9c8265c37}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafc139569c8206cd797096ea9c8265c37}} 
+Ret\+Val\+\_\+\+Close\+Xml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndBlockQuote@{RetVal\_EndBlockQuote}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndBlockQuote@{RetVal\_EndBlockQuote}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa32877befdd25357697513acd0fc4ad27}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa32877befdd25357697513acd0fc4ad27}} 
+Ret\+Val\+\_\+\+End\+Block\+Quote&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_CopyDoc@{RetVal\_CopyDoc}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_CopyDoc@{RetVal\_CopyDoc}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad8137258d399638b061b1922338a9d90}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad8137258d399638b061b1922338a9d90}} 
+Ret\+Val\+\_\+\+Copy\+Doc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndInternal@{RetVal\_EndInternal}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndInternal@{RetVal\_EndInternal}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa57f51851af64020dba97516f5f0c4eca}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa57f51851af64020dba97516f5f0c4eca}} 
+Ret\+Val\+\_\+\+End\+Internal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndParBlock@{RetVal\_EndParBlock}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndParBlock@{RetVal\_EndParBlock}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4d3db3f070705885cb30e195fe963af1}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4d3db3f070705885cb30e195fe963af1}} 
+Ret\+Val\+\_\+\+End\+Par\+Block&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndHtmlDetails@{RetVal\_EndHtmlDetails}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndHtmlDetails@{RetVal\_EndHtmlDetails}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa35346d068a567f2442ab8f2aaf26fe1e}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa35346d068a567f2442ab8f2aaf26fe1e}} 
+Ret\+Val\+\_\+\+End\+Html\+Details&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_WORD@{TK\_WORD}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_WORD@{TK\_WORD}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2b4a4468ca8c7242bf98227d336bf4ad}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2b4a4468ca8c7242bf98227d336bf4ad}} 
+TK\+\_\+\+WORD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_LNKWORD@{TK\_LNKWORD}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_LNKWORD@{TK\_LNKWORD}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4640e6cdcb728ffd6a26282022978866}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4640e6cdcb728ffd6a26282022978866}} 
+TK\+\_\+\+LNKWORD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_WHITESPACE@{TK\_WHITESPACE}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_WHITESPACE@{TK\_WHITESPACE}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa0ca8cd834b4402e55673fad9935c808a}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa0ca8cd834b4402e55673fad9935c808a}} 
+TK\+\_\+\+WHITESPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_LISTITEM@{TK\_LISTITEM}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_LISTITEM@{TK\_LISTITEM}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2c626d0e5270e4da6896efa78533cbb1}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2c626d0e5270e4da6896efa78533cbb1}} 
+TK\+\_\+\+LISTITEM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_ENDLIST@{TK\_ENDLIST}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_ENDLIST@{TK\_ENDLIST}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4ae7909ee0da54e774a68ab5df0872b}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4ae7909ee0da54e774a68ab5df0872b}} 
+TK\+\_\+\+ENDLIST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_COMMAND\_AT@{TK\_COMMAND\_AT}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_COMMAND\_AT@{TK\_COMMAND\_AT}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}} 
+TK\+\_\+\+COMMAND\+\_\+\+AT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_HTMLTAG@{TK\_HTMLTAG}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_HTMLTAG@{TK\_HTMLTAG}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a09cfd5ad8d861688a05908a8dea5ff}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a09cfd5ad8d861688a05908a8dea5ff}} 
+TK\+\_\+\+HTMLTAG&Command starting with {\ttfamily @} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_SYMBOL@{TK\_SYMBOL}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_SYMBOL@{TK\_SYMBOL}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4c974f1d50d9e9c292ce36562c164f2}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4c974f1d50d9e9c292ce36562c164f2}} 
+TK\+\_\+\+SYMBOL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_NEWPARA@{TK\_NEWPARA}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_NEWPARA@{TK\_NEWPARA}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afabe804eb9c4660e29223e9e455126b469}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afabe804eb9c4660e29223e9e455126b469}} 
+TK\+\_\+\+NEWPARA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_RCSTAG@{TK\_RCSTAG}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_RCSTAG@{TK\_RCSTAG}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa545d7bdc48929abd3a8b20ff8a06c185}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa545d7bdc48929abd3a8b20ff8a06c185}} 
+TK\+\_\+\+RCSTAG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_URL@{TK\_URL}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_URL@{TK\_URL}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa08a22cf20f93c345c37d82be66f2535a}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa08a22cf20f93c345c37d82be66f2535a}} 
+TK\+\_\+\+URL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TK\_COMMAND\_BS@{TK\_COMMAND\_BS}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!TK\_COMMAND\_BS@{TK\_COMMAND\_BS}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}} 
+TK\+\_\+\+COMMAND\+\_\+\+BS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_OK@{RetVal\_OK}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_OK@{RetVal\_OK}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa90bdd145323993d8702a222ff269a8d2}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa90bdd145323993d8702a222ff269a8d2}} 
+Ret\+Val\+\_\+\+OK&Command starting with {\ttfamily \textbackslash{}} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_SimpleSec@{RetVal\_SimpleSec}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_SimpleSec@{RetVal\_SimpleSec}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3f194b10629a8efd8f05cb1445bc28f5}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3f194b10629a8efd8f05cb1445bc28f5}} 
+Ret\+Val\+\_\+\+Simple\+Sec&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_ListItem@{RetVal\_ListItem}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_ListItem@{RetVal\_ListItem}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9f55929ba63b40e6b351a39997b422c7}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9f55929ba63b40e6b351a39997b422c7}} 
+Ret\+Val\+\_\+\+List\+Item&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Section@{RetVal\_Section}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Section@{RetVal\_Section}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3a5eda8e9ed14211b34dccb72bd98b30}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3a5eda8e9ed14211b34dccb72bd98b30}} 
+Ret\+Val\+\_\+\+Section&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Subsection@{RetVal\_Subsection}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Subsection@{RetVal\_Subsection}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa1e655faf9d7e324cebfc87048f8f1313}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa1e655faf9d7e324cebfc87048f8f1313}} 
+Ret\+Val\+\_\+\+Subsection&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Subsubsection@{RetVal\_Subsubsection}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Subsubsection@{RetVal\_Subsubsection}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafcafa68135487d432c5de976edb2c40a}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafcafa68135487d432c5de976edb2c40a}} 
+Ret\+Val\+\_\+\+Subsubsection&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Paragraph@{RetVal\_Paragraph}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Paragraph@{RetVal\_Paragraph}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa550b490f9f95e11dfd0d563f829e67e8}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa550b490f9f95e11dfd0d563f829e67e8}} 
+Ret\+Val\+\_\+\+Paragraph&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_SubParagraph@{RetVal\_SubParagraph}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_SubParagraph@{RetVal\_SubParagraph}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa982e3db35310c82d174c4d0ad3000ae4}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa982e3db35310c82d174c4d0ad3000ae4}} 
+Ret\+Val\+\_\+\+Sub\+Paragraph&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndList@{RetVal\_EndList}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndList@{RetVal\_EndList}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6a96924a54bab4c6b2f2131cdbecd5ae}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6a96924a54bab4c6b2f2131cdbecd5ae}} 
+Ret\+Val\+\_\+\+End\+List&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndPre@{RetVal\_EndPre}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndPre@{RetVal\_EndPre}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa76a2ae19a79e778838beec17e953e948}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa76a2ae19a79e778838beec17e953e948}} 
+Ret\+Val\+\_\+\+End\+Pre&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_DescData@{RetVal\_DescData}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_DescData@{RetVal\_DescData}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa66a9d49e9ad178ffbad3bb441d61ae84}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa66a9d49e9ad178ffbad3bb441d61ae84}} 
+Ret\+Val\+\_\+\+Desc\+Data&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_DescTitle@{RetVal\_DescTitle}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_DescTitle@{RetVal\_DescTitle}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a1c2cb4c1dcc409a7e19d1323bfff5f}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a1c2cb4c1dcc409a7e19d1323bfff5f}} 
+Ret\+Val\+\_\+\+Desc\+Title&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndDesc@{RetVal\_EndDesc}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndDesc@{RetVal\_EndDesc}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab45653a874f3187d8f8298a67b7dd5f3}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab45653a874f3187d8f8298a67b7dd5f3}} 
+Ret\+Val\+\_\+\+End\+Desc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_TableRow@{RetVal\_TableRow}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_TableRow@{RetVal\_TableRow}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3adac0a3a4ad484efaf3136a1d8bedcd}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3adac0a3a4ad484efaf3136a1d8bedcd}} 
+Ret\+Val\+\_\+\+Table\+Row&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_TableCell@{RetVal\_TableCell}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_TableCell@{RetVal\_TableCell}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9333aaf67852e216d5bf577250e21b6c}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9333aaf67852e216d5bf577250e21b6c}} 
+Ret\+Val\+\_\+\+Table\+Cell&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_TableHCell@{RetVal\_TableHCell}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_TableHCell@{RetVal\_TableHCell}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6cf266883f9fb0016af739d96c47b123}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6cf266883f9fb0016af739d96c47b123}} 
+Ret\+Val\+\_\+\+Table\+HCell&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndTable@{RetVal\_EndTable}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndTable@{RetVal\_EndTable}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46c7b0a1b5f4db15b4a59625af221f44}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46c7b0a1b5f4db15b4a59625af221f44}} 
+Ret\+Val\+\_\+\+End\+Table&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_Internal@{RetVal\_Internal}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_Internal@{RetVal\_Internal}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad2436c7d2d4d16b50d4c79d774d23bf9}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad2436c7d2d4d16b50d4c79d774d23bf9}} 
+Ret\+Val\+\_\+\+Internal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_SwitchLang@{RetVal\_SwitchLang}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_SwitchLang@{RetVal\_SwitchLang}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46f53faf8a9f761cb52e0696e512cd42}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46f53faf8a9f761cb52e0696e512cd42}} 
+Ret\+Val\+\_\+\+Switch\+Lang&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_CloseXml@{RetVal\_CloseXml}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_CloseXml@{RetVal\_CloseXml}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafc139569c8206cd797096ea9c8265c37}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafc139569c8206cd797096ea9c8265c37}} 
+Ret\+Val\+\_\+\+Close\+Xml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndBlockQuote@{RetVal\_EndBlockQuote}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndBlockQuote@{RetVal\_EndBlockQuote}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa32877befdd25357697513acd0fc4ad27}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa32877befdd25357697513acd0fc4ad27}} 
+Ret\+Val\+\_\+\+End\+Block\+Quote&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_CopyDoc@{RetVal\_CopyDoc}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_CopyDoc@{RetVal\_CopyDoc}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad8137258d399638b061b1922338a9d90}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad8137258d399638b061b1922338a9d90}} 
+Ret\+Val\+\_\+\+Copy\+Doc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndInternal@{RetVal\_EndInternal}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndInternal@{RetVal\_EndInternal}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa57f51851af64020dba97516f5f0c4eca}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa57f51851af64020dba97516f5f0c4eca}} 
+Ret\+Val\+\_\+\+End\+Internal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndParBlock@{RetVal\_EndParBlock}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndParBlock@{RetVal\_EndParBlock}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4d3db3f070705885cb30e195fe963af1}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4d3db3f070705885cb30e195fe963af1}} 
+Ret\+Val\+\_\+\+End\+Par\+Block&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RetVal\_EndHtmlDetails@{RetVal\_EndHtmlDetails}!doctokenizer.h@{doctokenizer.h}}\index{doctokenizer.h@{doctokenizer.h}!RetVal\_EndHtmlDetails@{RetVal\_EndHtmlDetails}}}\mbox{\Hypertarget{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa35346d068a567f2442ab8f2aaf26fe1e}\label{src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa35346d068a567f2442ab8f2aaf26fe1e}} 
+Ret\+Val\+\_\+\+End\+Html\+Details&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{src_2doctokenizer_8h_source_l00028}{28}} of file \mbox{\hyperlink{src_2doctokenizer_8h_source}{doctokenizer.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00030   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2b4a4468ca8c7242bf98227d336bf4ad}{TK\_WORD}}          = 1,}
+\DoxyCodeLine{00031   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4640e6cdcb728ffd6a26282022978866}{TK\_LNKWORD}}       = 2,}
+\DoxyCodeLine{00032   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa0ca8cd834b4402e55673fad9935c808a}{TK\_WHITESPACE}}    = 3,}
+\DoxyCodeLine{00033   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2c626d0e5270e4da6896efa78533cbb1}{TK\_LISTITEM}}      = 4,}
+\DoxyCodeLine{00034   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4ae7909ee0da54e774a68ab5df0872b}{TK\_ENDLIST}}       = 5,}
+\DoxyCodeLine{00035   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}{TK\_COMMAND\_AT}}    = 6, }
+\DoxyCodeLine{00036   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a09cfd5ad8d861688a05908a8dea5ff}{TK\_HTMLTAG}}       = 7,}
+\DoxyCodeLine{00037   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab4c974f1d50d9e9c292ce36562c164f2}{TK\_SYMBOL}}        = 8,}
+\DoxyCodeLine{00038   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afabe804eb9c4660e29223e9e455126b469}{TK\_NEWPARA}}       = 9,}
+\DoxyCodeLine{00039   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa545d7bdc48929abd3a8b20ff8a06c185}{TK\_RCSTAG}}        = 10,}
+\DoxyCodeLine{00040   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa08a22cf20f93c345c37d82be66f2535a}{TK\_URL}}           = 11,}
+\DoxyCodeLine{00041   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}{TK\_COMMAND\_BS}}    = 12, }
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa90bdd145323993d8702a222ff269a8d2}{RetVal\_OK}}             = 0x10000,}
+\DoxyCodeLine{00044   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3f194b10629a8efd8f05cb1445bc28f5}{RetVal\_SimpleSec}}      = 0x10001,}
+\DoxyCodeLine{00045   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9f55929ba63b40e6b351a39997b422c7}{RetVal\_ListItem}}       = 0x10002,}
+\DoxyCodeLine{00046   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3a5eda8e9ed14211b34dccb72bd98b30}{RetVal\_Section}}        = 0x10003,}
+\DoxyCodeLine{00047   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa1e655faf9d7e324cebfc87048f8f1313}{RetVal\_Subsection}}     = 0x10004,}
+\DoxyCodeLine{00048   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafcafa68135487d432c5de976edb2c40a}{RetVal\_Subsubsection}}  = 0x10005,}
+\DoxyCodeLine{00049   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa550b490f9f95e11dfd0d563f829e67e8}{RetVal\_Paragraph}}      = 0x10006,}
+\DoxyCodeLine{00050   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa982e3db35310c82d174c4d0ad3000ae4}{RetVal\_SubParagraph}}   = 0x10007,}
+\DoxyCodeLine{00051   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6a96924a54bab4c6b2f2131cdbecd5ae}{RetVal\_EndList}}        = 0x10008,}
+\DoxyCodeLine{00052   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa76a2ae19a79e778838beec17e953e948}{RetVal\_EndPre}}         = 0x10009,}
+\DoxyCodeLine{00053   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa66a9d49e9ad178ffbad3bb441d61ae84}{RetVal\_DescData}}       = 0x1000A,}
+\DoxyCodeLine{00054   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa2a1c2cb4c1dcc409a7e19d1323bfff5f}{RetVal\_DescTitle}}      = 0x1000B,}
+\DoxyCodeLine{00055   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afab45653a874f3187d8f8298a67b7dd5f3}{RetVal\_EndDesc}}        = 0x1000C,}
+\DoxyCodeLine{00056   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa3adac0a3a4ad484efaf3136a1d8bedcd}{RetVal\_TableRow}}       = 0x1000D,}
+\DoxyCodeLine{00057   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa9333aaf67852e216d5bf577250e21b6c}{RetVal\_TableCell}}      = 0x1000E,}
+\DoxyCodeLine{00058   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa6cf266883f9fb0016af739d96c47b123}{RetVal\_TableHCell}}     = 0x1000F,}
+\DoxyCodeLine{00059   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46c7b0a1b5f4db15b4a59625af221f44}{RetVal\_EndTable}}       = 0x10010,}
+\DoxyCodeLine{00060   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad2436c7d2d4d16b50d4c79d774d23bf9}{RetVal\_Internal}}       = 0x10011,}
+\DoxyCodeLine{00061   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa46f53faf8a9f761cb52e0696e512cd42}{RetVal\_SwitchLang}}     = 0x10012,}
+\DoxyCodeLine{00062   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afafc139569c8206cd797096ea9c8265c37}{RetVal\_CloseXml}}       = 0x10013,}
+\DoxyCodeLine{00063   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa32877befdd25357697513acd0fc4ad27}{RetVal\_EndBlockQuote}}  = 0x10014,}
+\DoxyCodeLine{00064   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afad8137258d399638b061b1922338a9d90}{RetVal\_CopyDoc}}        = 0x10015,}
+\DoxyCodeLine{00065   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa57f51851af64020dba97516f5f0c4eca}{RetVal\_EndInternal}}    = 0x10016,}
+\DoxyCodeLine{00066   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa4d3db3f070705885cb30e195fe963af1}{RetVal\_EndParBlock}}    = 0x10017,}
+\DoxyCodeLine{00067   \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa35346d068a567f2442ab8f2aaf26fe1e}{RetVal\_EndHtmlDetails}} = 0x10018}
+\DoxyCodeLine{00068 \};}
+
+\end{DoxyCode}

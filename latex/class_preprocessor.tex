@@ -1,0 +1,307 @@
+\hypertarget{class_preprocessor}{}\doxysection{Preprocessor Class Reference}
+\label{class_preprocessor}\index{Preprocessor@{Preprocessor}}
+
+
+{\ttfamily \#include $<$pre.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_preprocessor_1_1_private}{Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}{Preprocessor}} ()
+\item 
+\mbox{\hyperlink{class_preprocessor_a3c16724bc9e18b12a45f5a7fe2752b1b}{$\sim$\+Preprocessor}} ()
+\item 
+void \mbox{\hyperlink{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}{process\+File}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, \mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&input, \mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&output)
+\item 
+void \mbox{\hyperlink{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}{add\+Search\+Dir}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&dir)
+\item 
+\mbox{\hyperlink{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}{Preprocessor}} ()
+\item 
+\mbox{\hyperlink{class_preprocessor_a3c16724bc9e18b12a45f5a7fe2752b1b}{$\sim$\+Preprocessor}} ()
+\item 
+void \mbox{\hyperlink{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}{process\+File}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, \mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&input, \mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&output)
+\item 
+void \mbox{\hyperlink{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}{add\+Search\+Dir}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&dir)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_preprocessor_1_1_private}{Private}} $>$ \mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2pre_8h_source_l00026}{26}} of file \mbox{\hyperlink{build_2doxygen_2src_2pre_8h_source}{pre.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}\label{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}} 
+\index{Preprocessor@{Preprocessor}!Preprocessor@{Preprocessor}}
+\index{Preprocessor@{Preprocessor}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{Preprocessor()}{Preprocessor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Preprocessor\+::\+Preprocessor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source_l03654}{3654}} of file \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source}{pre.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03654                            : \mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}(std::make\_unique<Private>())}
+\DoxyCodeLine{03655 \{}
+\DoxyCodeLine{03656   preYYlex\_init\_extra(\&\mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}-\/>state,\&\mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}-\/>yyscanner);}
+\DoxyCodeLine{03657   \mbox{\hyperlink{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}{addSearchDir}}(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{03658 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}{add\+Search\+Dir()}}, and \mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}.
+
+\mbox{\Hypertarget{class_preprocessor_a3c16724bc9e18b12a45f5a7fe2752b1b}\label{class_preprocessor_a3c16724bc9e18b12a45f5a7fe2752b1b}} 
+\index{Preprocessor@{Preprocessor}!````~Preprocessor@{$\sim$Preprocessor}}
+\index{````~Preprocessor@{$\sim$Preprocessor}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{$\sim$Preprocessor()}{~Preprocessor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Preprocessor\+::$\sim$\+Preprocessor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source_l03660}{3660}} of file \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source}{pre.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03661 \{}
+\DoxyCodeLine{03662   preYYlex\_destroy(\mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}-\/>yyscanner);}
+\DoxyCodeLine{03663 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}.
+
+\mbox{\Hypertarget{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}\label{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}} 
+\index{Preprocessor@{Preprocessor}!Preprocessor@{Preprocessor}}
+\index{Preprocessor@{Preprocessor}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{Preprocessor()}{Preprocessor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Preprocessor\+::\+Preprocessor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_preprocessor_a3c16724bc9e18b12a45f5a7fe2752b1b}\label{class_preprocessor_a3c16724bc9e18b12a45f5a7fe2752b1b}} 
+\index{Preprocessor@{Preprocessor}!````~Preprocessor@{$\sim$Preprocessor}}
+\index{````~Preprocessor@{$\sim$Preprocessor}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{$\sim$Preprocessor()}{~Preprocessor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Preprocessor\+::$\sim$\+Preprocessor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}\label{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}} 
+\index{Preprocessor@{Preprocessor}!addSearchDir@{addSearchDir}}
+\index{addSearchDir@{addSearchDir}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{addSearchDir()}{addSearchDir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Preprocessor\+::add\+Search\+Dir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{dir }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source_l03647}{3647}} of file \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source}{pre.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03648 \{}
+\DoxyCodeLine{03649   YY\_EXTRA\_TYPE state = preYYget\_extra(\mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}-\/>yyscanner);}
+\DoxyCodeLine{03650   \mbox{\hyperlink{class_file_info}{FileInfo}} fi(dir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{03651   \textcolor{keywordflow}{if} (fi.isDir()) state-\/>pathList.push\_back(fi.absFilePath());}
+\DoxyCodeLine{03652 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_info_af69e3949475014dcdbd504d742bdf270}{File\+Info\+::abs\+File\+Path()}}, \mbox{\hyperlink{class_file_info_aa941e087c82c28ff498d9d3dec551b1f}{File\+Info\+::is\+Dir()}}, \mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}, and \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0de2d0d31a0d8029d99e005537ded33b}{parse\+File()}}, and \mbox{\hyperlink{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}{Preprocessor()}}.
+
+\mbox{\Hypertarget{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}\label{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}} 
+\index{Preprocessor@{Preprocessor}!addSearchDir@{addSearchDir}}
+\index{addSearchDir@{addSearchDir}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{addSearchDir()}{addSearchDir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Preprocessor\+::add\+Search\+Dir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}\label{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}} 
+\index{Preprocessor@{Preprocessor}!processFile@{processFile}}
+\index{processFile@{processFile}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Preprocessor\+::process\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&}]{input,  }\item[{\mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&}]{output }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source_l03665}{3665}} of file \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_source}{pre.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03666 \{}
+\DoxyCodeLine{03667 \textcolor{comment}{//  printf("{}Preprocessor::processFile(\%s)\(\backslash\)n"{},fileName);}}
+\DoxyCodeLine{03668   \mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\_t}} yyscanner = \mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}-\/>yyscanner;}
+\DoxyCodeLine{03669   YY\_EXTRA\_TYPE state = preYYget\_extra(\mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}-\/>yyscanner);}
+\DoxyCodeLine{03670   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)\mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}-\/>yyscanner;}
+\DoxyCodeLine{03671 }
+\DoxyCodeLine{03672 \#ifdef FLEX\_DEBUG}
+\DoxyCodeLine{03673   preYYset\_debug(1,yyscanner);}
+\DoxyCodeLine{03674 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{03675 }
+\DoxyCodeLine{03676   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \_\_FILE\_\_, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{03677   \textcolor{keywordtype}{size\_t} orgOffset=output.\mbox{\hyperlink{class_buf_str_a3d71cf69bfeaa8fa67bc3b85c41c3723}{curPos}}();}
+\DoxyCodeLine{03678   \textcolor{comment}{//printf("{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n\%s\(\backslash\)n\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n"{},}}
+\DoxyCodeLine{03679   \textcolor{comment}{//    qPrint(input));}}
+\DoxyCodeLine{03680 }
+\DoxyCodeLine{03681   state-\/>macroExpansion = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(MACRO\_EXPANSION);}
+\DoxyCodeLine{03682   state-\/>expandOnlyPredef = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(EXPAND\_ONLY\_PREDEF);}
+\DoxyCodeLine{03683   state-\/>skip=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{03684   state-\/>curlyCount=0;}
+\DoxyCodeLine{03685   state-\/>nospaces=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{03686   state-\/>inputBuf=\&input;}
+\DoxyCodeLine{03687   state-\/>inputBufPos=0;}
+\DoxyCodeLine{03688   state-\/>outputBuf=\&output;}
+\DoxyCodeLine{03689   state-\/>includeStack.clear();}
+\DoxyCodeLine{03690   state-\/>expandedDict.clear();}
+\DoxyCodeLine{03691   state-\/>contextDefines.clear();}
+\DoxyCodeLine{03692   \textcolor{keywordflow}{while} (!state-\/>condStack.empty()) state-\/>condStack.pop();}
+\DoxyCodeLine{03693 }
+\DoxyCodeLine{03694   \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a3cd40076f3904d6c6ea657b00df39cc6}{setFileName}}(yyscanner,fileName);}
+\DoxyCodeLine{03695 }
+\DoxyCodeLine{03696   state-\/>inputFileDef = state-\/>yyFileDef;}
+\DoxyCodeLine{03697   \textcolor{comment}{//yyextra-\/>defineManager.startContext(state-\/>fileName);}}
+\DoxyCodeLine{03698 }
+\DoxyCodeLine{03699   \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a35e7ee6baadfec49f7e85a2cf14d5deb}{initPredefined}}(yyscanner,fileName);}
+\DoxyCodeLine{03700 }
+\DoxyCodeLine{03701   state-\/>yyLineNr = 1;}
+\DoxyCodeLine{03702   state-\/>yyColNr  = 1;}
+\DoxyCodeLine{03703   state-\/>ifcount  = 0;}
+\DoxyCodeLine{03704 }
+\DoxyCodeLine{03705   BEGIN( Start );}
+\DoxyCodeLine{03706 }
+\DoxyCodeLine{03707   state-\/>expectGuard = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_adfac1d990e027ce0011573d537066ee6}{guessSection}}(fileName)==\mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea1c52cb0e9884592c92d094cea4991e86}{Entry::HEADER\_SEC}};}
+\DoxyCodeLine{03708   state-\/>guardName.resize(0);}
+\DoxyCodeLine{03709   state-\/>lastGuardName.resize(0);}
+\DoxyCodeLine{03710   state-\/>guardExpr.resize(0);}
+\DoxyCodeLine{03711 }
+\DoxyCodeLine{03712   preYYlex(yyscanner);}
+\DoxyCodeLine{03713 }
+\DoxyCodeLine{03714   \textcolor{keywordflow}{while} (!state-\/>condStack.empty())}
+\DoxyCodeLine{03715   \{}
+\DoxyCodeLine{03716     \textcolor{keyword}{const} std::unique\_ptr<preYY\_CondCtx> \&ctx = state-\/>condStack.top();}
+\DoxyCodeLine{03717     \mbox{\hyperlink{class_q_c_string}{QCString}} sectionInfo = \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{03718     \textcolor{keywordflow}{if} (ctx-\/>sectionId!=\textcolor{stringliteral}{"{} "{}}) sectionInfo.\mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} with label '\%s' "{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(ctx-\/>sectionId.stripWhiteSpace()));}
+\DoxyCodeLine{03719     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(fileName,ctx-\/>lineNr,\textcolor{stringliteral}{"{}Conditional section\%sdoes not have "{}}}
+\DoxyCodeLine{03720         \textcolor{stringliteral}{"{}a corresponding \(\backslash\)\(\backslash\)endcond command within this file."{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(sectionInfo));}
+\DoxyCodeLine{03721     state-\/>condStack.pop();}
+\DoxyCodeLine{03722   \}}
+\DoxyCodeLine{03723   \textcolor{comment}{// make sure we don't extend a \(\backslash\)cond with missing \(\backslash\)endcond over multiple files (see bug 624829)}}
+\DoxyCodeLine{03724   \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a96730086e79b6790b6269d07152a1735}{forceEndCondSection}}(yyscanner);}
+\DoxyCodeLine{03725 }
+\DoxyCodeLine{03726   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}}))}
+\DoxyCodeLine{03727   \{}
+\DoxyCodeLine{03728     std::lock\_guard<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2pre_8l_afa74555c39c3f592f0d6113ba0dc6aa9}{g\_debugMutex}});}
+\DoxyCodeLine{03729     \textcolor{keywordtype}{char} *orgPos=output.\mbox{\hyperlink{class_buf_str_a38f1315046acdef23cab4dc53c6eda2b}{data}}()+orgOffset;}
+\DoxyCodeLine{03730     \textcolor{keywordtype}{char} *newPos=output.\mbox{\hyperlink{class_buf_str_a38f1315046acdef23cab4dc53c6eda2b}{data}}()+output.\mbox{\hyperlink{class_buf_str_a3d71cf69bfeaa8fa67bc3b85c41c3723}{curPos}}();}
+\DoxyCodeLine{03731     \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}Preprocessor output of \%s (size: \%d bytes):\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName),newPos-\/orgPos);}
+\DoxyCodeLine{03732     \textcolor{keywordtype}{int} line=1;}
+\DoxyCodeLine{03733     \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{03734     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{Debug::NoLineNo}})) \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}00001 "{}});}
+\DoxyCodeLine{03735     \textcolor{keywordflow}{while} (orgPos<newPos) }
+\DoxyCodeLine{03736     \{}
+\DoxyCodeLine{03737       putchar(*orgPos);}
+\DoxyCodeLine{03738       \textcolor{keywordflow}{if} (*orgPos==\textcolor{charliteral}{'\(\backslash\)n'} \&\& !\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{Debug::NoLineNo}})) \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}\%05d "{}},++line);}
+\DoxyCodeLine{03739       orgPos++;}
+\DoxyCodeLine{03740     \}}
+\DoxyCodeLine{03741     \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{03742     \textcolor{keywordflow}{if} (yyextra-\/>contextDefines.size()>0)}
+\DoxyCodeLine{03743     \{}
+\DoxyCodeLine{03744       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}Macros accessible in this file (\%s):\(\backslash\)n"{}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{03745       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{03746       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&kv : yyextra-\/>contextDefines)}
+\DoxyCodeLine{03747       \{}
+\DoxyCodeLine{03748         \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}\%s "{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(kv.second.name));}
+\DoxyCodeLine{03749       \}}
+\DoxyCodeLine{03750       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&kv : yyextra-\/>localDefines)}
+\DoxyCodeLine{03751       \{}
+\DoxyCodeLine{03752         \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}\%s "{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(kv.second.name));}
+\DoxyCodeLine{03753       \}}
+\DoxyCodeLine{03754       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{03755     \}}
+\DoxyCodeLine{03756     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{03757     \{}
+\DoxyCodeLine{03758       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}},0,\textcolor{stringliteral}{"{}No macros accessible in this file (\%s).\(\backslash\)n"{}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{03759     \}}
+\DoxyCodeLine{03760   \}}
+\DoxyCodeLine{03761 }
+\DoxyCodeLine{03762   \{}
+\DoxyCodeLine{03763     std::lock\_guard<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2pre_8l_abbb87735f2e6370eeb5934dc1476cd7b}{g\_updateGlobals}});}
+\DoxyCodeLine{03764     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&inc : state-\/>includeRelations)}
+\DoxyCodeLine{03765     \{}
+\DoxyCodeLine{03766       \textcolor{keywordflow}{if} (inc-\/>fromFileDef)}
+\DoxyCodeLine{03767       \{}
+\DoxyCodeLine{03768         inc-\/>fromFileDef-\/>addIncludeDependency(inc-\/>toFileDef,inc-\/>includeName,inc-\/>local,inc-\/>imported);}
+\DoxyCodeLine{03769       \}}
+\DoxyCodeLine{03770       \textcolor{keywordflow}{if} (inc-\/>toFileDef \&\& inc-\/>fromFileDef)}
+\DoxyCodeLine{03771       \{}
+\DoxyCodeLine{03772         inc-\/>toFileDef-\/>addIncludedByDependency(inc-\/>fromFileDef,inc-\/>fromFileDef-\/>docName(),inc-\/>local,inc-\/>imported);}
+\DoxyCodeLine{03773       \}}
+\DoxyCodeLine{03774     \}}
+\DoxyCodeLine{03775     \textcolor{comment}{// add the macro definition for this file to the global map}}
+\DoxyCodeLine{03776     \mbox{\hyperlink{class_doxygen_a82fee747812632c05a7954393cffe61c}{Doxygen::macroDefinitions}}.emplace(std::make\_pair(state-\/>fileName.str(),std::move(state-\/>macroDefinitions)));}
+\DoxyCodeLine{03777   \}}
+\DoxyCodeLine{03778 }
+\DoxyCodeLine{03779   \textcolor{comment}{//yyextra-\/>defineManager.endContext();}}
+\DoxyCodeLine{03780   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \_\_FILE\_\_, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{03781 \textcolor{comment}{//  printf("{}Preprocessor::processFile(\%s) finished\(\backslash\)n"{},fileName);}}
+\DoxyCodeLine{03782 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{class_buf_str_a3d71cf69bfeaa8fa67bc3b85c41c3723}{Buf\+Str\+::cur\+Pos()}}, \mbox{\hyperlink{class_buf_str_a38f1315046acdef23cab4dc53c6eda2b}{Buf\+Str\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a96730086e79b6790b6269d07152a1735}{force\+End\+Cond\+Section()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_afa74555c39c3f592f0d6113ba0dc6aa9}{g\+\_\+debug\+Mutex}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_abbb87735f2e6370eeb5934dc1476cd7b}{g\+\_\+update\+Globals}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_adfac1d990e027ce0011573d537066ee6}{guess\+Section()}}, \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea1c52cb0e9884592c92d094cea4991e86}{Entry\+::\+HEADER\+\_\+\+SEC}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a35e7ee6baadfec49f7e85a2cf14d5deb}{init\+Predefined()}}, \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug\+::is\+Flag\+Set()}}, \mbox{\hyperlink{class_doxygen_a82fee747812632c05a7954393cffe61c}{Doxygen\+::macro\+Definitions}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{Debug\+::\+No\+Line\+No}}, \mbox{\hyperlink{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}{p}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug\+::\+Preprocessor}}, \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug\+::print()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a3cd40076f3904d6c6ea657b00df39cc6}{set\+File\+Name()}}, \mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{QCString\+::sprintf()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0de2d0d31a0d8029d99e005537ded33b}{parse\+File()}}.
+
+\mbox{\Hypertarget{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}\label{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}} 
+\index{Preprocessor@{Preprocessor}!processFile@{processFile}}
+\index{processFile@{processFile}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Preprocessor\+::process\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&}]{input,  }\item[{\mbox{\hyperlink{class_buf_str}{Buf\+Str}} \&}]{output }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}\label{class_preprocessor_abd246fcc320c7ed6eaeddabbf6777626}} 
+\index{Preprocessor@{Preprocessor}!p@{p}}
+\index{p@{p}!Preprocessor@{Preprocessor}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_preprocessor_1_1_private}{Private}} $>$ Preprocessor\+::p\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2pre_8h_source_l00035}{35}} of file \mbox{\hyperlink{build_2doxygen_2src_2pre_8h_source}{pre.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_preprocessor_adfc55933ed845c9b089f305b365d8e6b}{add\+Search\+Dir()}}, \mbox{\hyperlink{class_preprocessor_ada966c8b83e7c3bcd8759549c3cdf688}{Preprocessor()}}, \mbox{\hyperlink{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}{process\+File()}}, and \mbox{\hyperlink{class_preprocessor_a3c16724bc9e18b12a45f5a7fe2752b1b}{$\sim$\+Preprocessor()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2pre_8h}{pre.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2pre_8h}{pre.\+h}}\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2pre_8l}{pre.\+l}}\item 
+doxygen/src/\mbox{\hyperlink{src_2pre_8l}{pre.\+l}}\end{DoxyCompactItemize}

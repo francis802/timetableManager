@@ -1,0 +1,146 @@
+\hypertarget{struct_doc_node_list}{}\doxysection{Doc\+Node\+List Struct Reference}
+\label{struct_doc_node_list}\index{DocNodeList@{DocNodeList}}
+
+
+{\ttfamily \#include $<$docnode.\+h$>$}
+
+Inheritance diagram for Doc\+Node\+List\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_doc_node_list}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T , class... Args$>$ }\\\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ \mbox{\hyperlink{struct_doc_node_list_a30311044775646ed646865f8423402fd}{append}} (Args \&\&... args)
+\item 
+void \mbox{\hyperlink{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}{move\+\_\+append}} (\mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&l)
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{struct_doc_node_list_ae3a5d9b77d64e18e642163cceac5fa2e}{get\+\_\+last}} ()
+\item 
+{\footnotesize template$<$class T , class... Args$>$ }\\\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ \mbox{\hyperlink{struct_doc_node_list_a30311044775646ed646865f8423402fd}{append}} (Args \&\&... args)
+\item 
+void \mbox{\hyperlink{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}{move\+\_\+append}} (\mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&l)
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{struct_doc_node_list_ae3a5d9b77d64e18e642163cceac5fa2e}{get\+\_\+last}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source_l00111}{111}} of file \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source}{docnode.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_doc_node_list_a30311044775646ed646865f8423402fd}\label{struct_doc_node_list_a30311044775646ed646865f8423402fd}} 
+\index{DocNodeList@{DocNodeList}!append@{append}}
+\index{append@{append}!DocNodeList@{DocNodeList}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T , class... Args$>$ \\
+\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ Doc\+Node\+List\+::append (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append a new Doc\+Node\+Variant to the list by constructing it with type T and parameters Args. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source_l01327}{1327}} of file \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01328 \{}
+\DoxyCodeLine{01329   \mbox{\hyperlink{class_grow_vector_a7a92b9894590a7470f2f9ebd2d7cda7b}{emplace\_back}}(T(std::forward<Args>(args)...));}
+\DoxyCodeLine{01330   \textcolor{keywordflow}{return} \&\mbox{\hyperlink{class_grow_vector_a32ffacabb2c328729f4e6ead6d96a4ad}{back}}();}
+\DoxyCodeLine{01331 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_grow_vector_a32ffacabb2c328729f4e6ead6d96a4ad}{Grow\+Vector$<$ Doc\+Node\+Variant $>$\+::back()}}, and \mbox{\hyperlink{class_grow_vector_a7a92b9894590a7470f2f9ebd2d7cda7b}{Grow\+Vector$<$ Doc\+Node\+Variant $>$\+::emplace\+\_\+back()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_doc_simple_sect_a1d7ca2da217e5e5ec91c945b9959f9d9}{Doc\+Simple\+Sect\+::append\+Link\+Word()}}, \mbox{\hyperlink{class_doc_parser_a873efb42d961fbec86ab86a12b9f2c42}{Doc\+Parser\+::default\+Handle\+Token()}}, \mbox{\hyperlink{class_doc_parser_ada630dcb3cc7694c5298293b6741f3a1}{Doc\+Parser\+::error\+Handle\+Default\+Token()}}, \mbox{\hyperlink{class_doc_parser_a0695b7bc85df82a3f2f761eaf71fe825}{Doc\+Parser\+::handle\+AHref()}}, \mbox{\hyperlink{class_doc_parser_adf24a6cf025048b8a3235ca2c897dc06}{Doc\+Parser\+::handle\+Anchor()}}, \mbox{\hyperlink{class_doc_para_a5ce2e5a61f0ef65e739f2fb13cd9250f}{Doc\+Para\+::handle\+Cite()}}, \mbox{\hyperlink{class_doc_para_ab2dab53dd0a139cb646dcfec1b1b75ef}{Doc\+Para\+::handle\+Command()}}, \mbox{\hyperlink{class_doc_para_afd69ce996eb4bf29eb62e83025f7efdf}{Doc\+Para\+::handle\+Emoji()}}, \mbox{\hyperlink{class_doc_para_a57e9f0101dc617d53627c41da2f83535}{Doc\+Para\+::handle\+File()}}, \mbox{\hyperlink{class_doc_para_a162e967cb48fb2b45f9ef929cb76904e}{Doc\+Para\+::handle\+Html\+End\+Tag()}}, \mbox{\hyperlink{class_doc_para_ae90ea6bea1447c1c3d845c8f8577740c}{Doc\+Para\+::handle\+Html\+Header()}}, \mbox{\hyperlink{class_doc_para_acf15adeeded3d014c3110c605fdb8462}{Doc\+Para\+::handle\+Html\+Start\+Tag()}}, \mbox{\hyperlink{class_doc_parser_aa923af2c2ca8d81fa9b65a6fa1e65a83}{Doc\+Parser\+::handle\+Image()}}, \mbox{\hyperlink{class_doc_parser_ae3321ce556544cc7281b783f2b250be4}{Doc\+Parser\+::handle\+Img()}}, \mbox{\hyperlink{class_doc_para_ae0ae7a94a591f216461bded3eeb43b5c}{Doc\+Para\+::handle\+Include()}}, \mbox{\hyperlink{class_doc_para_ae5757fea6dab61c785e6e2ba8d427997}{Doc\+Para\+::handle\+Include\+Operator()}}, \mbox{\hyperlink{class_doc_parser_a334b7286f0a4445d85743cce35a3c090}{Doc\+Parser\+::handle\+Internal\+Ref()}}, \mbox{\hyperlink{class_doc_para_a5e4ad532381707fa0c98cb7409b548a0}{Doc\+Para\+::handle\+Link()}}, \mbox{\hyperlink{class_doc_parser_a2b2971ad53e50d90ca4affca6a6e1d67}{Doc\+Parser\+::handle\+Linked\+Word()}}, \mbox{\hyperlink{class_doc_parser_a367fe5ccd7e0378c2e5c94df6e60dd0d}{Doc\+Parser\+::handle\+Parameter\+Type()}}, \mbox{\hyperlink{class_doc_para_a91a5a07e4037857bbee086721c201d8f}{Doc\+Para\+::handle\+Param\+Section()}}, \mbox{\hyperlink{class_doc_parser_a94f06b2f61c71069d46589a7cd4f7b6b}{Doc\+Parser\+::handle\+Pending\+Style\+Commands()}}, \mbox{\hyperlink{class_doc_para_ac31d379af6da6c825472fd3ec810ed39}{Doc\+Para\+::handle\+Ref()}}, \mbox{\hyperlink{class_doc_para_af3d3734deacca7fec73d6c617b65d4b7}{Doc\+Para\+::handle\+Show\+Date()}}, \mbox{\hyperlink{class_doc_para_ae6136178b80505220af89633674a64cd}{Doc\+Para\+::handle\+Simple\+Section()}}, \mbox{\hyperlink{class_doc_para_ac36fcb763246e5087bb10c57ffc779f0}{Doc\+Para\+::handle\+Start\+Code()}}, \mbox{\hyperlink{class_doc_parser_ab004ed65c6ab11f6ca2a4caee610bb49}{Doc\+Parser\+::handle\+Style\+Enter()}}, \mbox{\hyperlink{class_doc_parser_a92d044475f815e09877c88ce15399802}{Doc\+Parser\+::handle\+Style\+Leave()}}, \mbox{\hyperlink{class_doc_para_a15e3b784d5ab286906ad4c9fcc4f69e4}{Doc\+Para\+::handle\+Vhdl\+Flow()}}, \mbox{\hyperlink{class_doc_para_a91eecc3d1747d959e8eb474ea10aff58}{Doc\+Para\+::handle\+XRef\+Item()}}, \mbox{\hyperlink{class_doc_parser_adcee51530523db48093915382f1694fb}{Doc\+Parser\+::internal\+Validating\+Parse\+Doc()}}, \mbox{\hyperlink{class_doc_auto_list_a1a526ed61a537930c468d2c6d0aaf442}{Doc\+Auto\+List\+::parse()}}, \mbox{\hyperlink{class_doc_auto_list_item_a1a6cd7f2543ece1a971fb41ae52f5216}{Doc\+Auto\+List\+Item\+::parse()}}, \mbox{\hyperlink{class_doc_h_ref_abafbc9756ef85e92a53d9cf30c08eb49}{Doc\+HRef\+::parse()}}, \mbox{\hyperlink{class_doc_html_details_a710954c006e3ca1398a3d7f2c3948e71}{Doc\+Html\+Details\+::parse()}}, \mbox{\hyperlink{class_doc_html_header_ac2eec8f4523c155e9093e6b325c4b2f9}{Doc\+Html\+Header\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_title_adae4fee1f061f16a8ec9df0b3e3fb078}{Doc\+Html\+Desc\+Title\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_list_a790243e50653158983e46f9411a2e719}{Doc\+Html\+Desc\+List\+::parse()}}, \mbox{\hyperlink{class_doc_section_aab1aed4ab6aa3393eca2012911fcb511}{Doc\+Section\+::parse()}}, \mbox{\hyperlink{class_doc_sec_ref_list_a73174ede1f0d927ba7a205dad7f8b809}{Doc\+Sec\+Ref\+List\+::parse()}}, \mbox{\hyperlink{class_doc_par_block_ab729bba65829eb1dd35a6d0e27e06407}{Doc\+Par\+Block\+::parse()}}, \mbox{\hyperlink{class_doc_simple_list_a548f2af02f03e717c04606e630b5ad03}{Doc\+Simple\+List\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_a21726903a9116af1fc0db60a6a026777}{Doc\+Html\+List\+::parse()}}, \mbox{\hyperlink{class_doc_para_ad287572fb2dcdc4d2d8edde57aed54c7}{Doc\+Para\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_item_ab60d4e561c0174168b5b7d040e5ff7f9}{Doc\+Html\+List\+Item\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_data_ab2a6f0180dee2ae0bf5826f51892a6bc}{Doc\+Html\+Desc\+Data\+::parse()}}, \mbox{\hyperlink{class_doc_html_cell_a1570aad63992cdd725c506b3ea98e3bd}{Doc\+Html\+Cell\+::parse()}}, \mbox{\hyperlink{class_doc_html_row_a3ce36d0ebbf4daab80a263ff326bfde6}{Doc\+Html\+Row\+::parse()}}, \mbox{\hyperlink{class_doc_html_table_a035ec950edb27c36ba1c4f5e3c5e0e87}{Doc\+Html\+Table\+::parse()}}, \mbox{\hyperlink{class_doc_html_block_quote_ad55134d6fbe56024cb65e9bba5205983}{Doc\+Html\+Block\+Quote\+::parse()}}, \mbox{\hyperlink{class_doc_text_a50b43ce41fc1de332a00e0af7642406b}{Doc\+Text\+::parse()}}, \mbox{\hyperlink{class_doc_root_a5037e11529ba2ebaa14c20647586368b}{Doc\+Root\+::parse()}}, \mbox{\hyperlink{class_doc_simple_sect_aeb4974cfda373b7b05a4d4f4b7200a2f}{Doc\+Simple\+Sect\+::parse()}}, \mbox{\hyperlink{class_doc_link_a5f9ffebd0e75fb8922132edbdf8ba693}{Doc\+Link\+::parse()}}, \mbox{\hyperlink{class_doc_param_list_a6d3568a744771d5b32d02f5844192352}{Doc\+Param\+List\+::parse()}}, \mbox{\hyperlink{class_doc_param_sect_a3bd6195e9b9ab4142b446fae6d851cb6}{Doc\+Param\+Sect\+::parse()}}, \mbox{\hyperlink{class_doc_internal_a959cb28ef72a1d37021975190b52379d}{Doc\+Internal\+::parse()}}, \mbox{\hyperlink{class_doc_title_a410946c3855fd51f18485d6e3dcce59b}{Doc\+Title\+::parse\+From\+String()}}, \mbox{\hyperlink{class_doc_html_list_aa0ad18a7b2e99279c22f4998ff75d03c}{Doc\+Html\+List\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_simple_sect_a7cc0c9317609c68cd5860bdb1fa7732b}{Doc\+Simple\+Sect\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_list_item_a23518da8150cb798b83f89e6e0187ec6}{Doc\+Html\+List\+Item\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_cell_a33b26ea9de0d68f3083584948b09d68c}{Doc\+Html\+Cell\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_table_a72881068b9099b1e1a8aed91c9199755}{Doc\+Html\+Table\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_row_a31be2781f87ba9d86a722e8a92338f6d}{Doc\+Html\+Row\+::parse\+Xml()}}, and \mbox{\hyperlink{class_doc_param_list_a234b676b5ae951e3cfafa84a07e76588}{Doc\+Param\+List\+::parse\+Xml()}}.
+
+\mbox{\Hypertarget{struct_doc_node_list_a30311044775646ed646865f8423402fd}\label{struct_doc_node_list_a30311044775646ed646865f8423402fd}} 
+\index{DocNodeList@{DocNodeList}!append@{append}}
+\index{append@{append}!DocNodeList@{DocNodeList}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T , class... Args$>$ \\
+\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ Doc\+Node\+List\+::append (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})}
+
+Append a new Doc\+Node\+Variant to the list by constructing it with type T and parameters Args. \mbox{\Hypertarget{struct_doc_node_list_ae3a5d9b77d64e18e642163cceac5fa2e}\label{struct_doc_node_list_ae3a5d9b77d64e18e642163cceac5fa2e}} 
+\index{DocNodeList@{DocNodeList}!get\_last@{get\_last}}
+\index{get\_last@{get\_last}!DocNodeList@{DocNodeList}}
+\doxysubsubsection{\texorpdfstring{get\_last()}{get\_last()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ Doc\+Node\+List\+::get\+\_\+last\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a pointer to the last element in the list if that element exists and holds a T, otherwise nullptr is returned. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source_l01343}{1343}} of file \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01344 \{}
+\DoxyCodeLine{01345   \textcolor{keywordflow}{return} std::get\_if<T>(\&\mbox{\hyperlink{class_grow_vector_a32ffacabb2c328729f4e6ead6d96a4ad}{back}}());}
+\DoxyCodeLine{01346 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_grow_vector_a32ffacabb2c328729f4e6ead6d96a4ad}{Grow\+Vector$<$ Doc\+Node\+Variant $>$\+::back()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_doc_simple_sect_a1d7ca2da217e5e5ec91c945b9959f9d9}{Doc\+Simple\+Sect\+::append\+Link\+Word()}}, \mbox{\hyperlink{class_doc_parser_a0695b7bc85df82a3f2f761eaf71fe825}{Doc\+Parser\+::handle\+AHref()}}, \mbox{\hyperlink{class_doc_para_ab2dab53dd0a139cb646dcfec1b1b75ef}{Doc\+Para\+::handle\+Command()}}, \mbox{\hyperlink{class_doc_para_a57e9f0101dc617d53627c41da2f83535}{Doc\+Para\+::handle\+File()}}, \mbox{\hyperlink{class_doc_para_ae90ea6bea1447c1c3d845c8f8577740c}{Doc\+Para\+::handle\+Html\+Header()}}, \mbox{\hyperlink{class_doc_para_acf15adeeded3d014c3110c605fdb8462}{Doc\+Para\+::handle\+Html\+Start\+Tag()}}, \mbox{\hyperlink{class_doc_parser_aa923af2c2ca8d81fa9b65a6fa1e65a83}{Doc\+Parser\+::handle\+Image()}}, \mbox{\hyperlink{class_doc_para_ae0ae7a94a591f216461bded3eeb43b5c}{Doc\+Para\+::handle\+Include()}}, \mbox{\hyperlink{class_doc_para_ae5757fea6dab61c785e6e2ba8d427997}{Doc\+Para\+::handle\+Include\+Operator()}}, \mbox{\hyperlink{class_doc_parser_a334b7286f0a4445d85743cce35a3c090}{Doc\+Parser\+::handle\+Internal\+Ref()}}, \mbox{\hyperlink{class_doc_para_a5e4ad532381707fa0c98cb7409b548a0}{Doc\+Para\+::handle\+Link()}}, \mbox{\hyperlink{class_doc_para_a91a5a07e4037857bbee086721c201d8f}{Doc\+Para\+::handle\+Param\+Section()}}, \mbox{\hyperlink{class_doc_para_ac31d379af6da6c825472fd3ec810ed39}{Doc\+Para\+::handle\+Ref()}}, \mbox{\hyperlink{class_doc_para_ae6136178b80505220af89633674a64cd}{Doc\+Para\+::handle\+Simple\+Section()}}, \mbox{\hyperlink{class_doc_para_a15e3b784d5ab286906ad4c9fcc4f69e4}{Doc\+Para\+::handle\+Vhdl\+Flow()}}, \mbox{\hyperlink{class_doc_para_a91eecc3d1747d959e8eb474ea10aff58}{Doc\+Para\+::handle\+XRef\+Item()}}, \mbox{\hyperlink{class_doc_parser_adcee51530523db48093915382f1694fb}{Doc\+Parser\+::internal\+Validating\+Parse\+Doc()}}, \mbox{\hyperlink{class_doc_auto_list_a1a526ed61a537930c468d2c6d0aaf442}{Doc\+Auto\+List\+::parse()}}, \mbox{\hyperlink{class_doc_auto_list_item_a1a6cd7f2543ece1a971fb41ae52f5216}{Doc\+Auto\+List\+Item\+::parse()}}, \mbox{\hyperlink{class_doc_html_details_a710954c006e3ca1398a3d7f2c3948e71}{Doc\+Html\+Details\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_title_adae4fee1f061f16a8ec9df0b3e3fb078}{Doc\+Html\+Desc\+Title\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_list_a790243e50653158983e46f9411a2e719}{Doc\+Html\+Desc\+List\+::parse()}}, \mbox{\hyperlink{class_doc_section_aab1aed4ab6aa3393eca2012911fcb511}{Doc\+Section\+::parse()}}, \mbox{\hyperlink{class_doc_sec_ref_list_a73174ede1f0d927ba7a205dad7f8b809}{Doc\+Sec\+Ref\+List\+::parse()}}, \mbox{\hyperlink{class_doc_par_block_ab729bba65829eb1dd35a6d0e27e06407}{Doc\+Par\+Block\+::parse()}}, \mbox{\hyperlink{class_doc_simple_list_a548f2af02f03e717c04606e630b5ad03}{Doc\+Simple\+List\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_a21726903a9116af1fc0db60a6a026777}{Doc\+Html\+List\+::parse()}}, \mbox{\hyperlink{class_doc_para_ad287572fb2dcdc4d2d8edde57aed54c7}{Doc\+Para\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_item_ab60d4e561c0174168b5b7d040e5ff7f9}{Doc\+Html\+List\+Item\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_data_ab2a6f0180dee2ae0bf5826f51892a6bc}{Doc\+Html\+Desc\+Data\+::parse()}}, \mbox{\hyperlink{class_doc_html_cell_a1570aad63992cdd725c506b3ea98e3bd}{Doc\+Html\+Cell\+::parse()}}, \mbox{\hyperlink{class_doc_html_row_a3ce36d0ebbf4daab80a263ff326bfde6}{Doc\+Html\+Row\+::parse()}}, \mbox{\hyperlink{class_doc_html_table_a035ec950edb27c36ba1c4f5e3c5e0e87}{Doc\+Html\+Table\+::parse()}}, \mbox{\hyperlink{class_doc_html_block_quote_ad55134d6fbe56024cb65e9bba5205983}{Doc\+Html\+Block\+Quote\+::parse()}}, \mbox{\hyperlink{class_doc_root_a5037e11529ba2ebaa14c20647586368b}{Doc\+Root\+::parse()}}, \mbox{\hyperlink{class_doc_simple_sect_aeb4974cfda373b7b05a4d4f4b7200a2f}{Doc\+Simple\+Sect\+::parse()}}, \mbox{\hyperlink{class_doc_param_list_a6d3568a744771d5b32d02f5844192352}{Doc\+Param\+List\+::parse()}}, \mbox{\hyperlink{class_doc_param_sect_a3bd6195e9b9ab4142b446fae6d851cb6}{Doc\+Param\+Sect\+::parse()}}, \mbox{\hyperlink{class_doc_internal_a959cb28ef72a1d37021975190b52379d}{Doc\+Internal\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_aa0ad18a7b2e99279c22f4998ff75d03c}{Doc\+Html\+List\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_simple_sect_a7cc0c9317609c68cd5860bdb1fa7732b}{Doc\+Simple\+Sect\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_list_item_a23518da8150cb798b83f89e6e0187ec6}{Doc\+Html\+List\+Item\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_cell_a33b26ea9de0d68f3083584948b09d68c}{Doc\+Html\+Cell\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_table_a72881068b9099b1e1a8aed91c9199755}{Doc\+Html\+Table\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_row_a31be2781f87ba9d86a722e8a92338f6d}{Doc\+Html\+Row\+::parse\+Xml()}}, and \mbox{\hyperlink{class_doc_param_list_a234b676b5ae951e3cfafa84a07e76588}{Doc\+Param\+List\+::parse\+Xml()}}.
+
+\mbox{\Hypertarget{struct_doc_node_list_ae3a5d9b77d64e18e642163cceac5fa2e}\label{struct_doc_node_list_ae3a5d9b77d64e18e642163cceac5fa2e}} 
+\index{DocNodeList@{DocNodeList}!get\_last@{get\_last}}
+\index{get\_last@{get\_last}!DocNodeList@{DocNodeList}}
+\doxysubsubsection{\texorpdfstring{get\_last()}{get\_last()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ Doc\+Node\+List\+::get\+\_\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a pointer to the last element in the list if that element exists and holds a T, otherwise nullptr is returned. \mbox{\Hypertarget{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}\label{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}} 
+\index{DocNodeList@{DocNodeList}!move\_append@{move\_append}}
+\index{move\_append@{move\_append}!DocNodeList@{DocNodeList}}
+\doxysubsubsection{\texorpdfstring{move\_append()}{move\_append()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Doc\+Node\+List\+::move\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+moves the element of list {\itshape l} at the end of this list. List {\itshape l} will become empty. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source_l01333}{1333}} of file \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01334 \{}
+\DoxyCodeLine{01335   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&\&elem : elements)}
+\DoxyCodeLine{01336   \{}
+\DoxyCodeLine{01337     \mbox{\hyperlink{class_grow_vector_a7a92b9894590a7470f2f9ebd2d7cda7b}{emplace\_back}}(std::move(elem));}
+\DoxyCodeLine{01338   \}}
+\DoxyCodeLine{01339   elements.clear();}
+\DoxyCodeLine{01340 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_grow_vector_a198715b8f95bc34cb020ae11170470f7}{Grow\+Vector$<$ T $>$\+::clear()}}, and \mbox{\hyperlink{class_grow_vector_a7a92b9894590a7470f2f9ebd2d7cda7b}{Grow\+Vector$<$ Doc\+Node\+Variant $>$\+::emplace\+\_\+back()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2docnode_8cpp_a71dd66dcbef8ad6aa74feb1e87e2a06b}{flatten\+Paragraphs()}}.
+
+\mbox{\Hypertarget{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}\label{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}} 
+\index{DocNodeList@{DocNodeList}!move\_append@{move\_append}}
+\index{move\_append@{move\_append}!DocNodeList@{DocNodeList}}
+\doxysubsubsection{\texorpdfstring{move\_append()}{move\_append()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Doc\+Node\+List\+::move\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&}]{l }\end{DoxyParamCaption})}
+
+moves the element of list {\itshape l} at the end of this list. List {\itshape l} will become empty. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h}{docnode.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2docnode_8h}{docnode.\+h}}\end{DoxyCompactItemize}

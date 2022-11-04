@@ -1,0 +1,1010 @@
+\hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c}{}\doxysection{doxygen/build/doxygen/libmscgen/mscgen\+\_\+svg\+\_\+out.c File Reference}
+\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c}\index{doxygen/build/doxygen/libmscgen/mscgen\_svg\_out.c@{doxygen/build/doxygen/libmscgen/mscgen\_svg\_out.c}}
+{\ttfamily \#include \char`\"{}mscgen\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}mscgen\+\_\+adraw\+\_\+int.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mscgen\+\_\+safe.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mscgen\+\_\+utf8.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_svg_context_tag}{Svg\+Context\+Tag}}
+\item 
+struct \mbox{\hyperlink{struct_svg_char_metric}{Svg\+Char\+Metric}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_svg_context_tag}{Svg\+Context\+Tag}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a048ad937778a969a9adf3ea747c0f793}{Svg\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a048ad937778a969a9adf3ea747c0f793}{Svg\+Context}} $\ast$ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx)
+\item 
+static FILE $\ast$ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx)
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx)
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{get\+Svg\+Bg\+Pen}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx)
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{get\+Space}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, long thousanths)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}{arc\+Point}} (float \mbox{\hyperlink{libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, float \mbox{\hyperlink{libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, float \mbox{\hyperlink{libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, float \mbox{\hyperlink{libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, float \mbox{\hyperlink{testing_2094__old__style__fortran__routines_8f90_ab5236747aa3f22ed246ba71a3596be53}{a}}, unsigned int $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, unsigned int $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{write\+Escaped}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svg\+Rect}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, const char $\ast$colour, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}})
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1bf6f475c7eb983fa3bbfe9e715170e0}{svg\+Colour}} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADraw\+Colour}} col)
+\item 
+unsigned int \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{Svg\+Text\+Width}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}})
+\item 
+int \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{Svg\+Text\+Height}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a0b39c945715ada2d71076d13442e4e00}{Svg\+Line}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af2e62092b23231783a7f0b00b915d86a}{Svg\+Dotted\+Line}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+TextR}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+TextL}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+TextC}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{string}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f43c2d997506e0b722086393f3a66bb}{Svg\+Filled\+Triangle}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}, unsigned int x3, unsigned int y3)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2870f2ebfdf80f8c3ec2dac2fd170d44}{Svg\+Filled\+Circle}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a090832dada609c2cd3dc785834281c5a}{Svg\+Filled\+Rectangle}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac9b1e4976aee3460343efbede19ba4ba}{Svg\+Arc}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_adc8ea0ecda22b8c6236d1fe4b7d7d756}{Svg\+Dotted\+Arc}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}})
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1d9dcf131468e7a9672c964da8189e48}{Svg\+Set\+Pen}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADraw\+Colour}} col)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a7b95c2a116f0083208f8a363a9f5d321}{Svg\+Set\+Bg\+Pen}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADraw\+Colour}} col)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab2d02a319c8e4a299e360604369c0810}{Svg\+Set\+Font\+Size}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_ab3f752acc68ff344054d69377204a088}{ADraw\+Font\+Size}} \mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{size}})
+\item 
+\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1126decbc0b969e164bf68e6ae5c1fb9}{Svg\+Close}} (struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$ctx)
+\item 
+\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a493582f731932377c46d8e1703bc27a8}{Svg\+Init}} (unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, unsigned int \mbox{\hyperlink{libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, const char $\ast$file, struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$out\+Context)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{struct_svg_char_metric}{Svg\+Char\+Metric}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{Svg\+Helvetica}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a048ad937778a969a9adf3ea747c0f793}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a048ad937778a969a9adf3ea747c0f793}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgContext@{SvgContext}}
+\index{SvgContext@{SvgContext}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgContext}{SvgContext}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_svg_context_tag}{Svg\+Context\+Tag}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a048ad937778a969a9adf3ea747c0f793}{Svg\+Context}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!arcPoint@{arcPoint}}
+\index{arcPoint@{arcPoint}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{arcPoint()}{arcPoint()}}
+{\footnotesize\ttfamily static void arc\+Point (\begin{DoxyParamCaption}\item[{float}]{cx,  }\item[{float}]{cy,  }\item[{float}]{w,  }\item[{float}]{h,  }\item[{float}]{a,  }\item[{unsigned int $\ast$}]{x,  }\item[{unsigned int $\ast$}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Compute a point on an ellipse. This computes the point on an ellipse.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cx,cy} & Center of the ellipse. \\
+\hline
+\mbox{\texttt{ in}}  & {\em w,h} & Ellipse width and height. \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & Angle in degrees. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em x,y} & Pointer to be populated with result co-\/ordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00151}{151}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158 \{}
+\DoxyCodeLine{00159     \textcolor{keywordtype}{float} rad = (float)((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}} * \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}}) / 180.0f);}
+\DoxyCodeLine{00160 }
+\DoxyCodeLine{00161     \textcolor{comment}{/* Compute point, noting this is for SVG co-\/ordinate system */}}
+\DoxyCodeLine{00162     *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} = (\textcolor{keywordtype}{unsigned} int)round(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}} + ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} / 2.0f) * cos(rad)));}
+\DoxyCodeLine{00163     *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} = (\textcolor{keywordtype}{unsigned} int)round(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}} + ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}} / 2.0f) * sin(rad)));}
+\DoxyCodeLine{00164 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac9b1e4976aee3460343efbede19ba4ba}{Svg\+Arc()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_adc8ea0ecda22b8c6236d1fe4b7d7d756}{Svg\+Dotted\+Arc()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!getSpace@{getSpace}}
+\index{getSpace@{getSpace}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{getSpace()}{getSpace()}}
+{\footnotesize\ttfamily static int get\+Space (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{long}]{thousanths }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Given a font metric measurement, return device dependent units. Font metric data is stored as 1/1000th of a point, and therefore needs to be multiplied by the font point size and divided by 1000 to give a value in device dependent units. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00137}{137}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138 \{}
+\DoxyCodeLine{00139     \textcolor{keywordflow}{return} ((thousanths * \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>fontPoints) + 500) / 1000;}
+\DoxyCodeLine{00140 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{Svg\+Text\+Height()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{Svg\+Text\+Width()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!getSvgBgPen@{getSvgBgPen}}
+\index{getSvgBgPen@{getSvgBgPen}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{getSvgBgPen()}{getSvgBgPen()}}
+{\footnotesize\ttfamily static const char $\ast$ get\+Svg\+Bg\+Pen (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00127}{127}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128 \{}
+\DoxyCodeLine{00129     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>\mbox{\hyperlink{struct_svg_context_tag_aeaf712246d30c9caf43859eaa6645b4e}{penBgColName}};}
+\DoxyCodeLine{00130 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, and \mbox{\hyperlink{struct_svg_context_tag_aeaf712246d30c9caf43859eaa6645b4e}{Svg\+Context\+Tag\+::pen\+Bg\+Col\+Name}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!getSvgCtx@{getSvgCtx}}
+\index{getSvgCtx@{getSvgCtx}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{getSvgCtx()}{getSvgCtx()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a048ad937778a969a9adf3ea747c0f793}{Svg\+Context}} $\ast$ get\+Svg\+Ctx (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the context pointer from an ADraw structure. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00110}{110}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111 \{}
+\DoxyCodeLine{00112     \textcolor{keywordflow}{return} (\mbox{\hyperlink{struct_svg_context_tag}{SvgContext}} *)ctx-\/>\mbox{\hyperlink{struct_a_draw_tag_a4b70b3042685787d1696abd6eaf8ef0f}{internal}};}
+\DoxyCodeLine{00113 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_a_draw_tag_a4b70b3042685787d1696abd6eaf8ef0f}{ADraw\+Tag\+::internal}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{get\+Space()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{get\+Svg\+Bg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1126decbc0b969e164bf68e6ae5c1fb9}{Svg\+Close()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a7b95c2a116f0083208f8a363a9f5d321}{Svg\+Set\+Bg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab2d02a319c8e4a299e360604369c0810}{Svg\+Set\+Font\+Size()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1d9dcf131468e7a9672c964da8189e48}{Svg\+Set\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!getSvgFile@{getSvgFile}}
+\index{getSvgFile@{getSvgFile}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{getSvgFile()}{getSvgFile()}}
+{\footnotesize\ttfamily static FILE $\ast$ get\+Svg\+File (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the context pointer from an ADraw structure. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00117}{117}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118 \{}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}};}
+\DoxyCodeLine{00120 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, and \mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{Svg\+Context\+Tag\+::of}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac9b1e4976aee3460343efbede19ba4ba}{Svg\+Arc()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_adc8ea0ecda22b8c6236d1fe4b7d7d756}{Svg\+Dotted\+Arc()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af2e62092b23231783a7f0b00b915d86a}{Svg\+Dotted\+Line()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2870f2ebfdf80f8c3ec2dac2fd170d44}{Svg\+Filled\+Circle()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f43c2d997506e0b722086393f3a66bb}{Svg\+Filled\+Triangle()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a0b39c945715ada2d71076d13442e4e00}{Svg\+Line()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svg\+Rect()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{write\+Escaped()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!getSvgPen@{getSvgPen}}
+\index{getSvgPen@{getSvgPen}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{getSvgPen()}{getSvgPen()}}
+{\footnotesize\ttfamily static const char $\ast$ get\+Svg\+Pen (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00122}{122}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123 \{}
+\DoxyCodeLine{00124     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>\mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{penColName}};}
+\DoxyCodeLine{00125 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, and \mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{Svg\+Context\+Tag\+::pen\+Col\+Name}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac9b1e4976aee3460343efbede19ba4ba}{Svg\+Arc()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_adc8ea0ecda22b8c6236d1fe4b7d7d756}{Svg\+Dotted\+Arc()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af2e62092b23231783a7f0b00b915d86a}{Svg\+Dotted\+Line()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2870f2ebfdf80f8c3ec2dac2fd170d44}{Svg\+Filled\+Circle()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a090832dada609c2cd3dc785834281c5a}{Svg\+Filled\+Rectangle()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f43c2d997506e0b722086393f3a66bb}{Svg\+Filled\+Triangle()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a0b39c945715ada2d71076d13442e4e00}{Svg\+Line()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac9b1e4976aee3460343efbede19ba4ba}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac9b1e4976aee3460343efbede19ba4ba}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgArc@{SvgArc}}
+\index{SvgArc@{SvgArc}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgArc()}{SvgArc()}}
+{\footnotesize\ttfamily void Svg\+Arc (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{cx,  }\item[{unsigned int}]{cy,  }\item[{unsigned int}]{w,  }\item[{unsigned int}]{h,  }\item[{unsigned int}]{s,  }\item[{unsigned int}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00399}{399}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00406 \{}
+\DoxyCodeLine{00407     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} sx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}}, ex, ey;}
+\DoxyCodeLine{00408 }
+\DoxyCodeLine{00409     \textcolor{comment}{/* Get start and end x,y */}}
+\DoxyCodeLine{00410     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}{arcPoint}}((\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \&sx, \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}});}
+\DoxyCodeLine{00411     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}{arcPoint}}((\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, \&ex, \&ey);}
+\DoxyCodeLine{00412 }
+\DoxyCodeLine{00413     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00414             \textcolor{stringliteral}{"{}<path d=\(\backslash\)"{}M \%u \%u A\%u,\%u 0 0,1 \%u,\%u\(\backslash\)"{} stroke=\(\backslash\)"{}\%s\(\backslash\)"{} fill=\(\backslash\)"{}none\(\backslash\)"{}/>"{}},}
+\DoxyCodeLine{00415             sx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} / 2, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}} / 2,  ex, ey, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{getSvgPen}}(ctx));}
+\DoxyCodeLine{00416 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}{arc\+Point()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1126decbc0b969e164bf68e6ae5c1fb9}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1126decbc0b969e164bf68e6ae5c1fb9}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgClose@{SvgClose}}
+\index{SvgClose@{SvgClose}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgClose()}{SvgClose()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} Svg\+Close (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00496}{496}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00497 \{}
+\DoxyCodeLine{00498     \mbox{\hyperlink{struct_svg_context_tag}{SvgContext}} *context = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx);}
+\DoxyCodeLine{00499 }
+\DoxyCodeLine{00500     \textcolor{comment}{/* Close the SVG */}}
+\DoxyCodeLine{00501     fprintf(context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}}, \textcolor{stringliteral}{"{}</svg>\(\backslash\)n"{}});}
+\DoxyCodeLine{00502 }
+\DoxyCodeLine{00503     \textcolor{comment}{/* Close the output file */}}
+\DoxyCodeLine{00504     \textcolor{keywordflow}{if}(context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}} != stdout)}
+\DoxyCodeLine{00505     \{}
+\DoxyCodeLine{00506         \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{fclose}}(context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}});}
+\DoxyCodeLine{00507     \}}
+\DoxyCodeLine{00508 }
+\DoxyCodeLine{00509     \textcolor{comment}{/* Free and destroy context */}}
+\DoxyCodeLine{00510     free(context);}
+\DoxyCodeLine{00511     ctx-\/>\mbox{\hyperlink{struct_a_draw_tag_a4b70b3042685787d1696abd6eaf8ef0f}{internal}} = NULL;}
+\DoxyCodeLine{00512 }
+\DoxyCodeLine{00513     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00514 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{Portable\+::fclose()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, \mbox{\hyperlink{struct_a_draw_tag_a4b70b3042685787d1696abd6eaf8ef0f}{ADraw\+Tag\+::internal}}, \mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{Svg\+Context\+Tag\+::of}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1bf6f475c7eb983fa3bbfe9e715170e0}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1bf6f475c7eb983fa3bbfe9e715170e0}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!svgColour@{svgColour}}
+\index{svgColour@{svgColour}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{svgColour()}{svgColour()}}
+{\footnotesize\ttfamily static const char $\ast$ svg\+Colour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADraw\+Colour}}}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00219}{219}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220 \{}
+\DoxyCodeLine{00221     \textcolor{keywordflow}{switch}(col)}
+\DoxyCodeLine{00222     \{}
+\DoxyCodeLine{00223         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1ac035176cb36711208c683b3cd1b95594}{ADRAW\_COL\_WHITE}}:}
+\DoxyCodeLine{00224             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}white"{}};}
+\DoxyCodeLine{00225 }
+\DoxyCodeLine{00226         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa87883e3ac4b08c3b4c355161b16de58}{ADRAW\_COL\_BLACK}}:}
+\DoxyCodeLine{00227             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}black"{}};}
+\DoxyCodeLine{00228 }
+\DoxyCodeLine{00229         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a174a97c0798feedca020388731b254d2}{ADRAW\_COL\_BLUE}}:}
+\DoxyCodeLine{00230             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}blue"{}};}
+\DoxyCodeLine{00231 }
+\DoxyCodeLine{00232         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1ac4e7cdb18d49b9489a5396045987ede2}{ADRAW\_COL\_RED}}:}
+\DoxyCodeLine{00233             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}red"{}};}
+\DoxyCodeLine{00234 }
+\DoxyCodeLine{00235         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a321a08d57d2645335c967c86c31b5319}{ADRAW\_COL\_GREEN}}:}
+\DoxyCodeLine{00236             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}green"{}};}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00239             \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{00240     \}}
+\DoxyCodeLine{00241 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa87883e3ac4b08c3b4c355161b16de58}{ADRAW\+\_\+\+COL\+\_\+\+BLACK}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a174a97c0798feedca020388731b254d2}{ADRAW\+\_\+\+COL\+\_\+\+BLUE}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1a321a08d57d2645335c967c86c31b5319}{ADRAW\+\_\+\+COL\+\_\+\+GREEN}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1ac4e7cdb18d49b9489a5396045987ede2}{ADRAW\+\_\+\+COL\+\_\+\+RED}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1ac035176cb36711208c683b3cd1b95594}{ADRAW\+\_\+\+COL\+\_\+\+WHITE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a7b95c2a116f0083208f8a363a9f5d321}{Svg\+Set\+Bg\+Pen()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1d9dcf131468e7a9672c964da8189e48}{Svg\+Set\+Pen()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_adc8ea0ecda22b8c6236d1fe4b7d7d756}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_adc8ea0ecda22b8c6236d1fe4b7d7d756}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgDottedArc@{SvgDottedArc}}
+\index{SvgDottedArc@{SvgDottedArc}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgDottedArc()}{SvgDottedArc()}}
+{\footnotesize\ttfamily void Svg\+Dotted\+Arc (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{cx,  }\item[{unsigned int}]{cy,  }\item[{unsigned int}]{w,  }\item[{unsigned int}]{h,  }\item[{unsigned int}]{s,  }\item[{unsigned int}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00419}{419}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00426 \{}
+\DoxyCodeLine{00427     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} sx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}}, ex, ey;}
+\DoxyCodeLine{00428 }
+\DoxyCodeLine{00429     \textcolor{comment}{/* Get start and end x,y */}}
+\DoxyCodeLine{00430     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}{arcPoint}}((\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \&sx, \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}});}
+\DoxyCodeLine{00431     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}{arcPoint}}((\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, (\textcolor{keywordtype}{float})\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, \&ex, \&ey);}
+\DoxyCodeLine{00432 }
+\DoxyCodeLine{00433 }
+\DoxyCodeLine{00434     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00435             \textcolor{stringliteral}{"{}<path d=\(\backslash\)"{}M \%u \%u A\%u,\%u 0 0,1 \%u,\%u\(\backslash\)"{} stroke=\(\backslash\)"{}\%s\(\backslash\)"{} fill=\(\backslash\)"{}none\(\backslash\)"{} stroke-\/dasharray=\(\backslash\)"{}2,2\(\backslash\)"{}/>"{}},}
+\DoxyCodeLine{00436             sx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} / 2, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}} / 2,  ex, ey, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{getSvgPen}}(ctx));}
+\DoxyCodeLine{00437 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af8993cc3f1dc65a79fea1e6a75d626e7}{arc\+Point()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af905a9989361d094908ad04e08f6429d}{cx}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e047c0b5d614dc04a5b8a5142611e4d}{cy}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_affcd3fe43d73220dd7b3e6bde969e65c}{sy}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af2e62092b23231783a7f0b00b915d86a}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af2e62092b23231783a7f0b00b915d86a}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgDottedLine@{SvgDottedLine}}
+\index{SvgDottedLine@{SvgDottedLine}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgDottedLine()}{SvgDottedLine()}}
+{\footnotesize\ttfamily void Svg\+Dotted\+Line (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x1,  }\item[{unsigned int}]{y1,  }\item[{unsigned int}]{x2,  }\item[{unsigned int}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00287}{287}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00292 \{}
+\DoxyCodeLine{00293     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00294             \textcolor{stringliteral}{"{}<line x1=\(\backslash\)"{}\%u\(\backslash\)"{} y1=\(\backslash\)"{}\%u\(\backslash\)"{} x2=\(\backslash\)"{}\%u\(\backslash\)"{} y2=\(\backslash\)"{}\%u\(\backslash\)"{} stroke=\(\backslash\)"{}\%s\(\backslash\)"{} stroke-\/dasharray=\(\backslash\)"{}2,2\(\backslash\)"{}/>\(\backslash\)n"{}},}
+\DoxyCodeLine{00295             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{getSvgPen}}(ctx));}
+\DoxyCodeLine{00296 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2870f2ebfdf80f8c3ec2dac2fd170d44}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2870f2ebfdf80f8c3ec2dac2fd170d44}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgFilledCircle@{SvgFilledCircle}}
+\index{SvgFilledCircle@{SvgFilledCircle}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgFilledCircle()}{SvgFilledCircle()}}
+{\footnotesize\ttfamily void Svg\+Filled\+Circle (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{unsigned int}]{r }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00377}{377}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00381 \{}
+\DoxyCodeLine{00382     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00383             \textcolor{stringliteral}{"{}<circle fill=\(\backslash\)"{}\%s\(\backslash\)"{} cx=\(\backslash\)"{}\%u\(\backslash\)"{} cy=\(\backslash\)"{}\%u\(\backslash\)"{} r=\(\backslash\)"{}\%u\(\backslash\)"{}/>\(\backslash\)n"{}},}
+\DoxyCodeLine{00384             \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{getSvgPen}}(ctx),}
+\DoxyCodeLine{00385             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}});}
+\DoxyCodeLine{00386 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a090832dada609c2cd3dc785834281c5a}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a090832dada609c2cd3dc785834281c5a}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgFilledRectangle@{SvgFilledRectangle}}
+\index{SvgFilledRectangle@{SvgFilledRectangle}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgFilledRectangle()}{SvgFilledRectangle()}}
+{\footnotesize\ttfamily void Svg\+Filled\+Rectangle (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x1,  }\item[{unsigned int}]{y1,  }\item[{unsigned int}]{x2,  }\item[{unsigned int}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00389}{389}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00394 \{}
+\DoxyCodeLine{00395     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svgRect}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{getSvgPen}}(ctx), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}});}
+\DoxyCodeLine{00396 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svg\+Rect()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f43c2d997506e0b722086393f3a66bb}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f43c2d997506e0b722086393f3a66bb}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgFilledTriangle@{SvgFilledTriangle}}
+\index{SvgFilledTriangle@{SvgFilledTriangle}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgFilledTriangle()}{SvgFilledTriangle()}}
+{\footnotesize\ttfamily void Svg\+Filled\+Triangle (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x1,  }\item[{unsigned int}]{y1,  }\item[{unsigned int}]{x2,  }\item[{unsigned int}]{y2,  }\item[{unsigned int}]{x3,  }\item[{unsigned int}]{y3 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00359}{359}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00366 \{}
+\DoxyCodeLine{00367 }
+\DoxyCodeLine{00368     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00369             \textcolor{stringliteral}{"{}<polygon fill=\(\backslash\)"{}\%s\(\backslash\)"{} points=\(\backslash\)"{}\%u,\%u \%u,\%u \%u,\%u\(\backslash\)"{}/>\(\backslash\)n"{}},}
+\DoxyCodeLine{00370             \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{getSvgPen}}(ctx),}
+\DoxyCodeLine{00371             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}},}
+\DoxyCodeLine{00372             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}},}
+\DoxyCodeLine{00373             x3, y3);}
+\DoxyCodeLine{00374 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a493582f731932377c46d8e1703bc27a8}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a493582f731932377c46d8e1703bc27a8}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgInit@{SvgInit}}
+\index{SvgInit@{SvgInit}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgInit()}{SvgInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} Svg\+Init (\begin{DoxyParamCaption}\item[{unsigned int}]{w,  }\item[{unsigned int}]{h,  }\item[{const char $\ast$}]{file,  }\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{out\+Context }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00518}{518}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00522 \{}
+\DoxyCodeLine{00523     \mbox{\hyperlink{struct_svg_context_tag}{SvgContext}} *context;}
+\DoxyCodeLine{00524 }
+\DoxyCodeLine{00525     \textcolor{comment}{/* Create context */}}
+\DoxyCodeLine{00526     context = outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a4b70b3042685787d1696abd6eaf8ef0f}{internal}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__safe_8c_a2b14167e1a2be2b9425446096e4c639e}{malloc\_s}}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_svg_context_tag}{SvgContext}}));}
+\DoxyCodeLine{00527     \textcolor{keywordflow}{if}(context == NULL)}
+\DoxyCodeLine{00528     \{}
+\DoxyCodeLine{00529         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00530     \}}
+\DoxyCodeLine{00531 }
+\DoxyCodeLine{00532     \textcolor{comment}{/* Open the output file */}}
+\DoxyCodeLine{00533     \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2examples_2relates_8cpp_a7ceb7d379a52f7e26418e7a446b4a41a}{strcmp}}(\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, \textcolor{stringliteral}{"{}-\/"{}}) == 0)}
+\DoxyCodeLine{00534     \{}
+\DoxyCodeLine{00535         context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}} = stdout;}
+\DoxyCodeLine{00536     \}}
+\DoxyCodeLine{00537     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00538     \{}
+\DoxyCodeLine{00539         context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}} = \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{fopen}}(\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00540         \textcolor{keywordflow}{if}(!context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}})}
+\DoxyCodeLine{00541         \{}
+\DoxyCodeLine{00542             fprintf(stderr, \textcolor{stringliteral}{"{}SvgInit: Failed to open output file '\%s': \%s\(\backslash\)n"{}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, strerror(\mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_ad65a8842cc674e3ddf69355898c0ecbf}{errno}}));}
+\DoxyCodeLine{00543             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00544         \}}
+\DoxyCodeLine{00545     \}}
+\DoxyCodeLine{00546 }
+\DoxyCodeLine{00547     \textcolor{comment}{/* Set the initial pen state */}}
+\DoxyCodeLine{00548     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1d9dcf131468e7a9672c964da8189e48}{SvgSetPen}}(outContext, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1aa87883e3ac4b08c3b4c355161b16de58}{ADRAW\_COL\_BLACK}});}
+\DoxyCodeLine{00549     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a7b95c2a116f0083208f8a363a9f5d321}{SvgSetBgPen}}(outContext, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1ac035176cb36711208c683b3cd1b95594}{ADRAW\_COL\_WHITE}});}
+\DoxyCodeLine{00550 }
+\DoxyCodeLine{00551     \textcolor{comment}{/* Default to small font */}}
+\DoxyCodeLine{00552     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab2d02a319c8e4a299e360604369c0810}{SvgSetFontSize}}(outContext, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_ab3f752acc68ff344054d69377204a088aad72a0ec51788dfdc0bb4ccb02b9a174}{ADRAW\_FONT\_SMALL}});}
+\DoxyCodeLine{00553 }
+\DoxyCodeLine{00554     fprintf(context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}}, \textcolor{stringliteral}{"{}<!DOCTYPE svg PUBLIC \(\backslash\)"{}-\///W3C//DTD SVG 1.1//EN\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00555                          \textcolor{stringliteral}{"{} \(\backslash\)"{}http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\(\backslash\)"{}>\(\backslash\)n"{}});}
+\DoxyCodeLine{00556 }
+\DoxyCodeLine{00557     fprintf(context-\/>\mbox{\hyperlink{struct_svg_context_tag_a0bab9eda7ec2dc4f902e9e579a4fe8aa}{of}}, \textcolor{stringliteral}{"{}<svg version=\(\backslash\)"{}1.1\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00558                          \textcolor{stringliteral}{"{} width=\(\backslash\)"{}\%upx\(\backslash\)"{} height=\(\backslash\)"{}\%upx\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00559                          \textcolor{stringliteral}{"{} viewBox=\(\backslash\)"{}0 0 \%u \%u\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00560                          \textcolor{stringliteral}{"{} xmlns=\(\backslash\)"{}http://www.w3.org/2000/svg\(\backslash\)"{} shape-\/rendering=\(\backslash\)"{}crispEdges\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00561                          \textcolor{stringliteral}{"{} stroke-\/width=\(\backslash\)"{}1\(\backslash\)"{} text-\/rendering=\(\backslash\)"{}geometricPrecision\(\backslash\)"{}>\(\backslash\)n"{}},}
+\DoxyCodeLine{00562                          \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}});}
+\DoxyCodeLine{00563 }
+\DoxyCodeLine{00564     \textcolor{comment}{/* Now fill in the function pointers */}}
+\DoxyCodeLine{00565     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_aff877bbab3636dd9c39f208ea5aaf975}{line}}            = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a0b39c945715ada2d71076d13442e4e00}{SvgLine}};}
+\DoxyCodeLine{00566     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a2932c94ea9cc3c09ad8c2f5db5a91917}{dottedLine}}      = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af2e62092b23231783a7f0b00b915d86a}{SvgDottedLine}};}
+\DoxyCodeLine{00567     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_af3ed717b3e80fcc7f49fa8f66d52b577}{textL}}           = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{SvgTextL}};}
+\DoxyCodeLine{00568     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a15ace2aebe8aed7e9e27188eb39264be}{textC}}           = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{SvgTextC}};}
+\DoxyCodeLine{00569     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a1a0c29cada7e25a51058d1f49bb9315a}{textR}}           = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{SvgTextR}};}
+\DoxyCodeLine{00570     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_ab1fa23852b6dd419c39df2f3bd964ba5}{textWidth}}       = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{SvgTextWidth}};}
+\DoxyCodeLine{00571     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a41a387f1083b6b5aff4904adf23dc258}{textHeight}}      = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{SvgTextHeight}};}
+\DoxyCodeLine{00572     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a98b71d61b7a235d0e67760249a173d4a}{filledRectangle}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a090832dada609c2cd3dc785834281c5a}{SvgFilledRectangle}};}
+\DoxyCodeLine{00573     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a5091f44bf497ffbc36d833645a488455}{filledTriangle}}  = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f43c2d997506e0b722086393f3a66bb}{SvgFilledTriangle}};}
+\DoxyCodeLine{00574     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_ac4338cbcb5369d4d84fbe0d09c37874f}{filledCircle}}    = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2870f2ebfdf80f8c3ec2dac2fd170d44}{SvgFilledCircle}};}
+\DoxyCodeLine{00575     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a0102767d3a601709d4a33803666c4cbe}{arc}}             = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac9b1e4976aee3460343efbede19ba4ba}{SvgArc}};}
+\DoxyCodeLine{00576     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_ad24970521437f99c48053796588e7d2d}{dottedArc}}       = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_adc8ea0ecda22b8c6236d1fe4b7d7d756}{SvgDottedArc}};}
+\DoxyCodeLine{00577     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a383706d40ba01b77c1f1268e63ca018b}{setPen}}          = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1d9dcf131468e7a9672c964da8189e48}{SvgSetPen}};}
+\DoxyCodeLine{00578     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_ae915941793c40195eaeb941323104e67}{setBgPen}}        = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a7b95c2a116f0083208f8a363a9f5d321}{SvgSetBgPen}};}
+\DoxyCodeLine{00579     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_a409ab300600fc0c190aa22e440e02c2f}{setFontSize}}     = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab2d02a319c8e4a299e360604369c0810}{SvgSetFontSize}};}
+\DoxyCodeLine{00580     outContext-\/>\mbox{\hyperlink{struct_a_draw_tag_aff3218a040358831583c66b763a4a284}{close}}           = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1126decbc0b969e164bf68e6ae5c1fb9}{SvgClose}};}
+\DoxyCodeLine{00581 }
+\DoxyCodeLine{00582     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00583 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a0b39c945715ada2d71076d13442e4e00}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a0b39c945715ada2d71076d13442e4e00}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgLine@{SvgLine}}
+\index{SvgLine@{SvgLine}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgLine()}{SvgLine()}}
+{\footnotesize\ttfamily void Svg\+Line (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x1,  }\item[{unsigned int}]{y1,  }\item[{unsigned int}]{x2,  }\item[{unsigned int}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00274}{274}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00279 \{}
+\DoxyCodeLine{00280     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00281             \textcolor{stringliteral}{"{}<line x1=\(\backslash\)"{}\%u\(\backslash\)"{} y1=\(\backslash\)"{}\%u\(\backslash\)"{} x2=\(\backslash\)"{}\%u\(\backslash\)"{} y2=\(\backslash\)"{}\%u\(\backslash\)"{} stroke=\(\backslash\)"{}\%s\(\backslash\)"{}/>\(\backslash\)n"{}},}
+\DoxyCodeLine{00282             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{getSvgPen}}(ctx));}
+\DoxyCodeLine{00283 }
+\DoxyCodeLine{00284 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a220d07e1da711d6f2ab2b66cb652b7ab}{get\+Svg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!svgRect@{svgRect}}
+\index{svgRect@{svgRect}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{svgRect()}{svgRect()}}
+{\footnotesize\ttfamily static void svg\+Rect (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{const char $\ast$}]{colour,  }\item[{unsigned int}]{x1,  }\item[{unsigned int}]{y1,  }\item[{unsigned int}]{x2,  }\item[{unsigned int}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00203}{203}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00209 \{}
+\DoxyCodeLine{00210     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00211             \textcolor{stringliteral}{"{}<polygon fill=\(\backslash\)"{}\%s\(\backslash\)"{} points=\(\backslash\)"{}\%u,\%u \%u,\%u \%u,\%u \%u,\%u\(\backslash\)"{}/>\(\backslash\)n"{}},}
+\DoxyCodeLine{00212             colour,}
+\DoxyCodeLine{00213             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}},}
+\DoxyCodeLine{00214             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}},}
+\DoxyCodeLine{00215             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}},}
+\DoxyCodeLine{00216             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}});}
+\DoxyCodeLine{00217 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a97fcb0e1731b36905e90757f211b1340}{x1}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acf9f5399062fd8bf1dde083f15dcd1fc}{x2}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a460698fb30c144b9b1a9508012ef1e43}{y1}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aa7986c9249de185e59245a0f83431db9}{y2}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a090832dada609c2cd3dc785834281c5a}{Svg\+Filled\+Rectangle()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a7b95c2a116f0083208f8a363a9f5d321}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a7b95c2a116f0083208f8a363a9f5d321}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgSetBgPen@{SvgSetBgPen}}
+\index{SvgSetBgPen@{SvgSetBgPen}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgSetBgPen()}{SvgSetBgPen()}}
+{\footnotesize\ttfamily void Svg\+Set\+Bg\+Pen (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADraw\+Colour}}}]{col }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00457}{457}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00459 \{}
+\DoxyCodeLine{00460     \textcolor{keyword}{static} \textcolor{keywordtype}{char} colCmd[10];}
+\DoxyCodeLine{00461 }
+\DoxyCodeLine{00462     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>\mbox{\hyperlink{struct_svg_context_tag_aeaf712246d30c9caf43859eaa6645b4e}{penBgColName}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1bf6f475c7eb983fa3bbfe9e715170e0}{svgColour}}(col);}
+\DoxyCodeLine{00463     \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>penBgColName == NULL)}
+\DoxyCodeLine{00464     \{}
+\DoxyCodeLine{00465         \textcolor{comment}{/* Print the RGB value into the local storage */}}
+\DoxyCodeLine{00466         sprintf(colCmd, \textcolor{stringliteral}{"{}\#\%06X"{}}, col);}
+\DoxyCodeLine{00467 }
+\DoxyCodeLine{00468         \textcolor{comment}{/* Now set the colour name to the local store */}}
+\DoxyCodeLine{00469         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>\mbox{\hyperlink{struct_svg_context_tag_aeaf712246d30c9caf43859eaa6645b4e}{penBgColName}} = colCmd;}
+\DoxyCodeLine{00470     \}}
+\DoxyCodeLine{00471 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, \mbox{\hyperlink{struct_svg_context_tag_aeaf712246d30c9caf43859eaa6645b4e}{Svg\+Context\+Tag\+::pen\+Bg\+Col\+Name}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1bf6f475c7eb983fa3bbfe9e715170e0}{svg\+Colour()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab2d02a319c8e4a299e360604369c0810}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab2d02a319c8e4a299e360604369c0810}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgSetFontSize@{SvgSetFontSize}}
+\index{SvgSetFontSize@{SvgSetFontSize}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgSetFontSize()}{SvgSetFontSize()}}
+{\footnotesize\ttfamily void Svg\+Set\+Font\+Size (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_ab3f752acc68ff344054d69377204a088}{ADraw\+Font\+Size}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00474}{474}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00476 \{}
+\DoxyCodeLine{00477     \mbox{\hyperlink{struct_svg_context_tag}{SvgContext}} *context = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx);}
+\DoxyCodeLine{00478 }
+\DoxyCodeLine{00479     \textcolor{keywordflow}{switch}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}})}
+\DoxyCodeLine{00480     \{}
+\DoxyCodeLine{00481         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_ab3f752acc68ff344054d69377204a088a17cee9438b72507cb790ad77580c25ad}{ADRAW\_FONT\_TINY}}:}
+\DoxyCodeLine{00482             context-\/>\mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{fontPoints}} = 8;}
+\DoxyCodeLine{00483             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00484 }
+\DoxyCodeLine{00485         \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_ab3f752acc68ff344054d69377204a088aad72a0ec51788dfdc0bb4ccb02b9a174}{ADRAW\_FONT\_SMALL}}:}
+\DoxyCodeLine{00486             context-\/>\mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{fontPoints}} = 12;}
+\DoxyCodeLine{00487             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00488 }
+\DoxyCodeLine{00489         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00490             assert(0);}
+\DoxyCodeLine{00491     \}}
+\DoxyCodeLine{00492 }
+\DoxyCodeLine{00493 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_ab3f752acc68ff344054d69377204a088aad72a0ec51788dfdc0bb4ccb02b9a174}{ADRAW\+\_\+\+FONT\+\_\+\+SMALL}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_ab3f752acc68ff344054d69377204a088a17cee9438b72507cb790ad77580c25ad}{ADRAW\+\_\+\+FONT\+\_\+\+TINY}}, \mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{Svg\+Context\+Tag\+::font\+Points}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1d9dcf131468e7a9672c964da8189e48}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1d9dcf131468e7a9672c964da8189e48}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgSetPen@{SvgSetPen}}
+\index{SvgSetPen@{SvgSetPen}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgSetPen()}{SvgSetPen()}}
+{\footnotesize\ttfamily void Svg\+Set\+Pen (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw_8h_aaeece236b99530a557134ccceac162c1}{ADraw\+Colour}}}]{col }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00440}{440}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00442 \{}
+\DoxyCodeLine{00443     \textcolor{keyword}{static} \textcolor{keywordtype}{char} colCmd[10];}
+\DoxyCodeLine{00444 }
+\DoxyCodeLine{00445     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>\mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{penColName}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1bf6f475c7eb983fa3bbfe9e715170e0}{svgColour}}(col);}
+\DoxyCodeLine{00446     \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>penColName == NULL)}
+\DoxyCodeLine{00447     \{}
+\DoxyCodeLine{00448         \textcolor{comment}{/* Print the RGB value into the local storage */}}
+\DoxyCodeLine{00449         sprintf(colCmd, \textcolor{stringliteral}{"{}\#\%06X"{}}, col);}
+\DoxyCodeLine{00450 }
+\DoxyCodeLine{00451         \textcolor{comment}{/* Now set the colour name to the local store */}}
+\DoxyCodeLine{00452         \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx)-\/>\mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{penColName}} = colCmd;}
+\DoxyCodeLine{00453     \}}
+\DoxyCodeLine{00454 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, \mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{Svg\+Context\+Tag\+::pen\+Col\+Name}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a1bf6f475c7eb983fa3bbfe9e715170e0}{svg\+Colour()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgTextC@{SvgTextC}}
+\index{SvgTextC@{SvgTextC}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgTextC()}{SvgTextC()}}
+{\footnotesize\ttfamily void Svg\+TextC (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00339}{339}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00343 \{}
+\DoxyCodeLine{00344     \mbox{\hyperlink{struct_svg_context_tag}{SvgContext}}  *context = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx);}
+\DoxyCodeLine{00345     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} hw = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{SvgTextWidth}}(ctx, \textcolor{keywordtype}{string}) / 2;}
+\DoxyCodeLine{00346 }
+\DoxyCodeLine{00347     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svgRect}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{getSvgBgPen}}(ctx), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} -\/ (hw + 2), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{SvgTextHeight}}(ctx) + 1, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} + hw, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} -\/ 1);}
+\DoxyCodeLine{00348 }
+\DoxyCodeLine{00349     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} += \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{getSpace}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{SvgHelvetica}}.\mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{descender}});}
+\DoxyCodeLine{00350 }
+\DoxyCodeLine{00351     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00352             \textcolor{stringliteral}{"{}<text x=\(\backslash\)"{}\%u\(\backslash\)"{} y=\(\backslash\)"{}\%u\(\backslash\)"{} textLength=\(\backslash\)"{}\%u\(\backslash\)"{} font-\/family=\(\backslash\)"{}Helvetica\(\backslash\)"{} font-\/size=\(\backslash\)"{}\%u\(\backslash\)"{} fill=\(\backslash\)"{}\%s\(\backslash\)"{} text-\/anchor=\(\backslash\)"{}middle\(\backslash\)"{}>\(\backslash\)n\(\backslash\)n"{}},}
+\DoxyCodeLine{00353             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{SvgTextWidth}}(ctx, \textcolor{keywordtype}{string}), context-\/>\mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{fontPoints}}, context-\/>\mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{penColName}});}
+\DoxyCodeLine{00354     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{writeEscaped}}(ctx, \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00355     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx), \textcolor{stringliteral}{"{}\(\backslash\)n</text>\(\backslash\)n"{}});}
+\DoxyCodeLine{00356 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{Svg\+Char\+Metric\+::descender}}, \mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{Svg\+Context\+Tag\+::font\+Points}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{get\+Space()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{get\+Svg\+Bg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{Svg\+Context\+Tag\+::pen\+Col\+Name}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{Svg\+Helvetica}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svg\+Rect()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{Svg\+Text\+Height()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{Svg\+Text\+Width()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{write\+Escaped()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgTextHeight@{SvgTextHeight}}
+\index{SvgTextHeight@{SvgTextHeight}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgTextHeight()}{SvgTextHeight()}}
+{\footnotesize\ttfamily int Svg\+Text\+Height (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00268}{268}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00269 \{}
+\DoxyCodeLine{00270     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{getSpace}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{SvgHelvetica}}.\mbox{\hyperlink{struct_svg_char_metric_ab128211cdfb4eb28ad2682270263a295}{ascender}} -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{SvgHelvetica}}.\mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{descender}});}
+\DoxyCodeLine{00271 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_svg_char_metric_ab128211cdfb4eb28ad2682270263a295}{Svg\+Char\+Metric\+::ascender}}, \mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{Svg\+Char\+Metric\+::descender}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{get\+Space()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{Svg\+Helvetica}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgTextL@{SvgTextL}}
+\index{SvgTextL@{SvgTextL}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgTextL()}{SvgTextL()}}
+{\footnotesize\ttfamily void Svg\+TextL (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00318}{318}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00322 \{}
+\DoxyCodeLine{00323     \mbox{\hyperlink{struct_svg_context_tag}{SvgContext}} *context = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx);}
+\DoxyCodeLine{00324 }
+\DoxyCodeLine{00325     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svgRect}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{getSvgBgPen}}(ctx), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} -\/ (\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{SvgTextWidth}}(ctx, \textcolor{keywordtype}{string}) + 2), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{SvgTextHeight}}(ctx) + 1, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} -\/ 1);}
+\DoxyCodeLine{00326 }
+\DoxyCodeLine{00327     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} += \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{getSpace}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{SvgHelvetica}}.\mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{descender}});}
+\DoxyCodeLine{00328 }
+\DoxyCodeLine{00329     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00330             \textcolor{stringliteral}{"{}<text x=\(\backslash\)"{}\%u\(\backslash\)"{} y=\(\backslash\)"{}\%u\(\backslash\)"{} textLength=\(\backslash\)"{}\%u\(\backslash\)"{} font-\/family=\(\backslash\)"{}Helvetica\(\backslash\)"{} font-\/size=\(\backslash\)"{}\%u\(\backslash\)"{} fill=\(\backslash\)"{}\%s\(\backslash\)"{} text-\/anchor=\(\backslash\)"{}end\(\backslash\)"{}>\(\backslash\)n"{}},}
+\DoxyCodeLine{00331             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{SvgTextWidth}}(ctx, \textcolor{keywordtype}{string}), context-\/>\mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{fontPoints}}, context-\/>\mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{penColName}});}
+\DoxyCodeLine{00332     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{writeEscaped}}(ctx, \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00333     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx), \textcolor{stringliteral}{"{}\(\backslash\)n</text>\(\backslash\)n"{}});}
+\DoxyCodeLine{00334 }
+\DoxyCodeLine{00335 }
+\DoxyCodeLine{00336 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{Svg\+Char\+Metric\+::descender}}, \mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{Svg\+Context\+Tag\+::font\+Points}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{get\+Space()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{get\+Svg\+Bg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{Svg\+Context\+Tag\+::pen\+Col\+Name}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{Svg\+Helvetica}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svg\+Rect()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{Svg\+Text\+Height()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{Svg\+Text\+Width()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{write\+Escaped()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgTextR@{SvgTextR}}
+\index{SvgTextR@{SvgTextR}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgTextR()}{SvgTextR()}}
+{\footnotesize\ttfamily void Svg\+TextR (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00299}{299}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00303 \{}
+\DoxyCodeLine{00304     \mbox{\hyperlink{struct_svg_context_tag}{SvgContext}} *context = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{getSvgCtx}}(ctx);}
+\DoxyCodeLine{00305 }
+\DoxyCodeLine{00306     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svgRect}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{getSvgBgPen}}(ctx), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} -\/ 2, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} -\/ \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{SvgTextHeight}}(ctx) + 1, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} + \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{SvgTextWidth}}(ctx, \textcolor{keywordtype}{string}), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} -\/ 1);}
+\DoxyCodeLine{00307 }
+\DoxyCodeLine{00308     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} += \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{getSpace}}(ctx, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{SvgHelvetica}}.\mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{descender}});}
+\DoxyCodeLine{00309 }
+\DoxyCodeLine{00310     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx),}
+\DoxyCodeLine{00311             \textcolor{stringliteral}{"{}<text x=\(\backslash\)"{}\%u\(\backslash\)"{} y=\(\backslash\)"{}\%u\(\backslash\)"{} textLength=\(\backslash\)"{}\%u\(\backslash\)"{} font-\/family=\(\backslash\)"{}Helvetica\(\backslash\)"{} font-\/size=\(\backslash\)"{}\%u\(\backslash\)"{} fill=\(\backslash\)"{}\%s\(\backslash\)"{}>\(\backslash\)n"{}},}
+\DoxyCodeLine{00312             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} -\/ 1, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{SvgTextWidth}}(ctx, \textcolor{keywordtype}{string}), context-\/>\mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{fontPoints}}, context-\/>\mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{penColName}});}
+\DoxyCodeLine{00313     \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{writeEscaped}}(ctx, \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00314     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx), \textcolor{stringliteral}{"{}\(\backslash\)n</text>\(\backslash\)n"{}});}
+\DoxyCodeLine{00315 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_svg_char_metric_a751450556ab23ec2b39a9c13492e7c38}{Svg\+Char\+Metric\+::descender}}, \mbox{\hyperlink{struct_svg_context_tag_ad14d21f42d52f3f503ed968933226c2b}{Svg\+Context\+Tag\+::font\+Points}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{get\+Space()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a2e1cc247e736ee19b40b14b6c1699475}{get\+Svg\+Bg\+Pen()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac1e2989d06863ae3f44ff4f2d4d00d4a}{get\+Svg\+Ctx()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, \mbox{\hyperlink{struct_svg_context_tag_a117e816bc8c471a99eb172e6c452ca23}{Svg\+Context\+Tag\+::pen\+Col\+Name}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{Svg\+Helvetica}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a4faedd7421871a731b121fb1c487b176}{svg\+Rect()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{Svg\+Text\+Height()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{Svg\+Text\+Width()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}{write\+Escaped()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgTextWidth@{SvgTextWidth}}
+\index{SvgTextWidth@{SvgTextWidth}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgTextWidth()}{SvgTextWidth()}}
+{\footnotesize\ttfamily unsigned int Svg\+Text\+Width (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00248}{248}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00250 \{}
+\DoxyCodeLine{00251     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} width = 0;}
+\DoxyCodeLine{00252 }
+\DoxyCodeLine{00253     \textcolor{keywordflow}{while}(*\textcolor{keywordtype}{string} != \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{00254     \{}
+\DoxyCodeLine{00255         \textcolor{keywordtype}{int}           i = *\textcolor{keywordtype}{string} \& 0xff;}
+\DoxyCodeLine{00256         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{SvgHelvetica}}.\mbox{\hyperlink{struct_svg_char_metric_aba16e502ab9b4cee6bfd5606e7684763}{widths}}[i];}
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258         \textcolor{comment}{/* Ignore undefined characters */}}
+\DoxyCodeLine{00259         width += \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} > 0 ? \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} : 0;}
+\DoxyCodeLine{00260 }
+\DoxyCodeLine{00261         \textcolor{keywordtype}{string}++;}
+\DoxyCodeLine{00262     \}}
+\DoxyCodeLine{00263 }
+\DoxyCodeLine{00264     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{getSpace}}(ctx, width);}
+\DoxyCodeLine{00265 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a9beec2335e811dd99c3a7153b6bf7c91}{get\+Space()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}{Svg\+Helvetica}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}, and \mbox{\hyperlink{struct_svg_char_metric_aba16e502ab9b4cee6bfd5606e7684763}{Svg\+Char\+Metric\+::widths}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__adraw__int_8h_a493582f731932377c46d8e1703bc27a8}{Svg\+Init()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a84ce511721e3a3cc92dd8187f3d1983d}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!writeEscaped@{writeEscaped}}
+\index{writeEscaped@{writeEscaped}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{writeEscaped()}{writeEscaped()}}
+{\footnotesize\ttfamily static void write\+Escaped (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_draw_tag}{ADraw\+Tag}} $\ast$}]{ctx,  }\item[{const char $\ast$}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Write out a line of text, escaping special characters. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00169}{169}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170 \{}
+\DoxyCodeLine{00171     FILE *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{getSvgFile}}(ctx);}
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{00173     \textcolor{keywordflow}{while}(*\textcolor{keywordtype}{string} != \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{00174     \{}
+\DoxyCodeLine{00175         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} code, bytes;}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177         \textcolor{keywordflow}{switch}(*\textcolor{keywordtype}{string})}
+\DoxyCodeLine{00178         \{}
+\DoxyCodeLine{00179             \textcolor{keywordflow}{case} \textcolor{charliteral}{'<'}: fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \textcolor{stringliteral}{"{}\&lt;"{}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00180             \textcolor{keywordflow}{case} \textcolor{charliteral}{'>'}: fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \textcolor{stringliteral}{"{}\&gt;"{}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00181             \textcolor{keywordflow}{case} \textcolor{charliteral}{'"{}'}: fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \textcolor{stringliteral}{"{}\&quot;"{}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00182             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\&'}: fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \textcolor{stringliteral}{"{}\&amp;"{}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00183             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00184                 \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__utf8_8c_aa2f3c4cc49bb74080d94f90c11f9a6de}{Utf8Decode}}(\textcolor{keywordtype}{string}, \&code, \&bytes))}
+\DoxyCodeLine{00185                 \{}
+\DoxyCodeLine{00186                     fprintf(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \textcolor{stringliteral}{"{}\&\#x\%x;"{}}, code);}
+\DoxyCodeLine{00187                     \textcolor{keywordtype}{string} += bytes -\/ 1;}
+\DoxyCodeLine{00188                 \}}
+\DoxyCodeLine{00189                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00190                 \{}
+\DoxyCodeLine{00191                     fputc(*\textcolor{keywordtype}{string}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{00192                 \}}
+\DoxyCodeLine{00193                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00194 }
+\DoxyCodeLine{00195         \}}
+\DoxyCodeLine{00196 }
+\DoxyCodeLine{00197         \textcolor{keywordtype}{string}++;}
+\DoxyCodeLine{00198     \}}
+\DoxyCodeLine{00199 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_af60ee9cb7d523d4f2fd20797c48ad2f7}{get\+Svg\+File()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__utf8_8c_aa2f3c4cc49bb74080d94f90c11f9a6de}{Utf8\+Decode()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}\label{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ad57d15e8ed5897303dcd54bbb6255042}} 
+\index{mscgen\_svg\_out.c@{mscgen\_svg\_out.c}!SvgHelvetica@{SvgHelvetica}}
+\index{SvgHelvetica@{SvgHelvetica}!mscgen\_svg\_out.c@{mscgen\_svg\_out.c}}
+\doxysubsubsection{\texorpdfstring{SvgHelvetica}{SvgHelvetica}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_svg_char_metric}{Svg\+Char\+Metric}} Svg\+Helvetica\hspace{0.3cm}{\ttfamily [static]}}
+
+Helvetica character widths. This gives the width of each character is 1/1000ths of a point. The values are taken from the Adobe Font Metric file for Hevletica. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source_l00064}{64}} of file \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_source}{mscgen\+\_\+svg\+\_\+out.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a3f0659014b7a04ccb39189120810487f}{Svg\+Text\+C()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ac037e49c87b6991d4fe8cd22bc6d6835}{Svg\+Text\+Height()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a103f8be1193d815c0161eb8ae36f5a1f}{Svg\+Text\+L()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_a00755c2027c6052da2cc39eaf33d07ca}{Svg\+Text\+R()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2mscgen__svg__out_8c_ab374f10533efecc1f2b3673988df098c}{Svg\+Text\+Width()}}.
+

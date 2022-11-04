@@ -1,0 +1,604 @@
+\hypertarget{filesystem_2filesystem_8hpp}{}\doxysection{doxygen/filesystem/filesystem.hpp File Reference}
+\label{filesystem_2filesystem_8hpp}\index{doxygen/filesystem/filesystem.hpp@{doxygen/filesystem/filesystem.hpp}}
+{\ttfamily \#include $<$sys/param.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/statvfs.\+h$>$}\newline
+{\ttfamily \#include $<$langinfo.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$clocale$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$system\+\_\+error$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1not__implemented__exception}{ghc\+::filesystem\+::not\+\_\+implemented\+\_\+exception}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1path__helper__base}{ghc\+::filesystem\+::path\+\_\+helper\+\_\+base$<$ char\+\_\+type $>$}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1path}{ghc\+::filesystem\+::path}}
+\item 
+struct \mbox{\hyperlink{structghc_1_1filesystem_1_1path_1_1__is__basic__string}{ghc\+::filesystem\+::path\+::\+\_\+is\+\_\+basic\+\_\+string$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structghc_1_1filesystem_1_1path_1_1__is__basic__string_3_01std_1_1basic__string_3_01_char_t_00_01_traits_00_01_alloc_01_4_01_4}{ghc\+::filesystem\+::path\+::\+\_\+is\+\_\+basic\+\_\+string$<$ std\+::basic\+\_\+string$<$ Char\+T, Traits, Alloc $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structghc_1_1filesystem_1_1path_1_1__is__basic__string_3_01std_1_1basic__string_3_01_char_t_00_0454d093cd8125c5149a1fe74ea56d39e}{ghc\+::filesystem\+::path\+::\+\_\+is\+\_\+basic\+\_\+string$<$ std\+::basic\+\_\+string$<$ Char\+T, std\+::char\+\_\+traits$<$ Char\+T $>$, std\+::allocator$<$ Char\+T $>$ $>$ $>$}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1path_1_1input__iterator__range}{ghc\+::filesystem\+::path\+::input\+\_\+iterator\+\_\+range$<$ Input\+Iterator $>$}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1filesystem__error}{ghc\+::filesystem\+::filesystem\+\_\+error}}
+\item 
+struct \mbox{\hyperlink{structghc_1_1filesystem_1_1space__info}{ghc\+::filesystem\+::space\+\_\+info}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1file__status}{ghc\+::filesystem\+::file\+\_\+status}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1directory__entry}{ghc\+::filesystem\+::directory\+\_\+entry}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1directory__iterator}{ghc\+::filesystem\+::directory\+\_\+iterator}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1directory__iterator_1_1proxy}{ghc\+::filesystem\+::directory\+\_\+iterator\+::proxy}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1recursive__directory__iterator}{ghc\+::filesystem\+::recursive\+\_\+directory\+\_\+iterator}}
+\item 
+struct \mbox{\hyperlink{structghc_1_1filesystem_1_1recursive__directory__iterator_1_1recursive__directory__iterator__impl}{ghc\+::filesystem\+::recursive\+\_\+directory\+\_\+iterator\+::recursive\+\_\+directory\+\_\+iterator\+\_\+impl}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1basic__filebuf}{ghc\+::filesystem\+::basic\+\_\+filebuf$<$ char\+T, traits $>$}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1basic__ifstream}{ghc\+::filesystem\+::basic\+\_\+ifstream$<$ char\+T, traits $>$}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1basic__ofstream}{ghc\+::filesystem\+::basic\+\_\+ofstream$<$ char\+T, traits $>$}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1basic__fstream}{ghc\+::filesystem\+::basic\+\_\+fstream$<$ char\+T, traits $>$}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1u8arguments}{ghc\+::filesystem\+::u8arguments}}
+\item 
+class \mbox{\hyperlink{classghc_1_1filesystem_1_1directory__iterator_1_1impl}{ghc\+::filesystem\+::directory\+\_\+iterator\+::impl}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceghc}{ghc}}
+\item 
+namespace \mbox{\hyperlink{namespaceghc_1_1filesystem}{ghc\+::filesystem}}
+\item 
+namespace \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail}{ghc\+::filesystem\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_a5404029f67835c898d6624bd2debbe0d}{GHC\+\_\+\+OS\+\_\+\+DETECTED}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_ae3f542e09ac243b31501268f5ac1390d}{GHC\+\_\+\+EXPAND\+\_\+\+IMPL}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}}~inline
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_af4355a406d4a8b2733db789c1c98a84c}{GHC\+\_\+\+FS\+\_\+\+API\+\_\+\+CLASS}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_aee57d1254f36c2d03761d661d6510e09}{LWG\+\_\+2682\+\_\+\+BEHAVIOUR}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_a99e59b30ee1255ba9643483e4a695f54}{LWG\+\_\+2936\+\_\+\+BEHAVIOUR}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_ae5f9e15c7ef2758eb345aab62274b178}{LWG\+\_\+2937\+\_\+\+BEHAVIOUR}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_a4af34764258a2147364160682ee09c95}{GHC\+\_\+\+WIN\+\_\+\+AUTO\+\_\+\+PREFIX\+\_\+\+LONG\+\_\+\+PATH}}
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_a260486e06dba07a691f98eb972ea81f1}{GHC\+\_\+\+FILESYSTEM\+\_\+\+VERSION}}~10506L
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_a78de8ececcb53f07fd913ef7b7e1f93f}{GHC\+\_\+\+NATIVEWP}}(\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})~p.\+wstring().c\+\_\+str()
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_ae3a4182e9d367eafabf030b6f9c078df}{GHC\+\_\+\+PLATFORM\+\_\+\+LITERAL}}(str)~str
+\item 
+\#define \mbox{\hyperlink{filesystem_2filesystem_8hpp_abcb5b84adc43059f20f98953954ab72c}{UTIME\+\_\+\+OMIT}}~((1l $<$$<$ 30) -\/ 2l)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052}{ghc\+::filesystem\+::file\+\_\+type}} \{ \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a7500611bf7030bc99d25c354e7b64714}{ghc\+::filesystem\+::not\+\_\+found}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aaf37d08ae228a87dc6b265fd1019c97d}{ghc\+::filesystem\+::regular}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{ghc\+::filesystem\+::directory}}
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aa978acc8a7ae15f49f58f3495f0d85ba}{ghc\+::filesystem\+::symlink}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a14511f2f5564650d129ca7cabc333278}{ghc\+::filesystem\+::block}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aa956161a69928cd130a889b88082fb6e}{ghc\+::filesystem\+::character}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052acf54937a2330ac17aa523bf7130911a3}{ghc\+::filesystem\+::fifo}}
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a61f2529360aec54f5dc9804b842cf3fa}{ghc\+::filesystem\+::socket}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aad921d60486366258809553a3db49a4a}{ghc\+::filesystem\+::unknown}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a7500611bf7030bc99d25c354e7b64714}{ghc\+::filesystem\+::not\+\_\+found}}
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aaf37d08ae228a87dc6b265fd1019c97d}{ghc\+::filesystem\+::regular}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20}{ghc\+::filesystem\+::directory}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aa978acc8a7ae15f49f58f3495f0d85ba}{ghc\+::filesystem\+::symlink}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a14511f2f5564650d129ca7cabc333278}{ghc\+::filesystem\+::block}}
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aa956161a69928cd130a889b88082fb6e}{ghc\+::filesystem\+::character}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052acf54937a2330ac17aa523bf7130911a3}{ghc\+::filesystem\+::fifo}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052a61f2529360aec54f5dc9804b842cf3fa}{ghc\+::filesystem\+::socket}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a589461e18867a24b76efd69cd37052aad921d60486366258809553a3db49a4a}{ghc\+::filesystem\+::unknown}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44a}{ghc\+::filesystem\+::perms}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}} = 0
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa13804bd89bd86850b7c1b3cf17148c8b}{ghc\+::filesystem\+::owner\+\_\+read}} = 0400
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa0d521a25ebf962a812b43c32fe36500e}{ghc\+::filesystem\+::owner\+\_\+write}} = 0200
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa189e890869453de458a9c5c26af8359b}{ghc\+::filesystem\+::owner\+\_\+exec}} = 0100
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa3e6083e076d1f7125c0bbf7070df5440}{ghc\+::filesystem\+::owner\+\_\+all}} = 0700
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa25103dc0b7bf4bb70a12fdc9ae83b5dc}{ghc\+::filesystem\+::group\+\_\+read}} = 040
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aacf5f2e0341d3d21a4bc073c8eb8a25fa}{ghc\+::filesystem\+::group\+\_\+write}} = 020
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa314d3c6602524dddf70432b0ece937a8}{ghc\+::filesystem\+::group\+\_\+exec}} = 010
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aae177de190fd9bcd01e4f8934f58dfa5c}{ghc\+::filesystem\+::group\+\_\+all}} = 070
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aae1ea303787306dda3e50a432832c998a}{ghc\+::filesystem\+::others\+\_\+read}} = 04
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaf9d2b2426ee261e7ab294f317c5115bf}{ghc\+::filesystem\+::others\+\_\+write}} = 02
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa5a2e0fba544a04c9e3f47dc370c28bf2}{ghc\+::filesystem\+::others\+\_\+exec}} = 01
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa5bea7ea33126a22add82c5809bfa6366}{ghc\+::filesystem\+::others\+\_\+all}} = 07
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaa181a603769c1f98ad927e7367c7aa51}{ghc\+::filesystem\+::all}} = 0777
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa2154ad8380cc7d3b920b3563078a50a8}{ghc\+::filesystem\+::set\+\_\+uid}} = 04000
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaea8f56585bae5bd29a5cb0d29767cccb}{ghc\+::filesystem\+::set\+\_\+gid}} = 02000
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa3a3b94501085ac7f29f89b8335e886d7}{ghc\+::filesystem\+::sticky\+\_\+bit}} = 01000
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaf2ce11ebf110993621bedd8e747d7b1b}{ghc\+::filesystem\+::mask}} = 07777
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaad921d60486366258809553a3db49a4a}{ghc\+::filesystem\+::unknown}} = 0xffff
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}} = 0
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa13804bd89bd86850b7c1b3cf17148c8b}{ghc\+::filesystem\+::owner\+\_\+read}} = 0400
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa0d521a25ebf962a812b43c32fe36500e}{ghc\+::filesystem\+::owner\+\_\+write}} = 0200
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa189e890869453de458a9c5c26af8359b}{ghc\+::filesystem\+::owner\+\_\+exec}} = 0100
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa3e6083e076d1f7125c0bbf7070df5440}{ghc\+::filesystem\+::owner\+\_\+all}} = 0700
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa25103dc0b7bf4bb70a12fdc9ae83b5dc}{ghc\+::filesystem\+::group\+\_\+read}} = 040
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aacf5f2e0341d3d21a4bc073c8eb8a25fa}{ghc\+::filesystem\+::group\+\_\+write}} = 020
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa314d3c6602524dddf70432b0ece937a8}{ghc\+::filesystem\+::group\+\_\+exec}} = 010
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aae177de190fd9bcd01e4f8934f58dfa5c}{ghc\+::filesystem\+::group\+\_\+all}} = 070
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aae1ea303787306dda3e50a432832c998a}{ghc\+::filesystem\+::others\+\_\+read}} = 04
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaf9d2b2426ee261e7ab294f317c5115bf}{ghc\+::filesystem\+::others\+\_\+write}} = 02
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa5a2e0fba544a04c9e3f47dc370c28bf2}{ghc\+::filesystem\+::others\+\_\+exec}} = 01
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa5bea7ea33126a22add82c5809bfa6366}{ghc\+::filesystem\+::others\+\_\+all}} = 07
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaa181a603769c1f98ad927e7367c7aa51}{ghc\+::filesystem\+::all}} = 0777
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa2154ad8380cc7d3b920b3563078a50a8}{ghc\+::filesystem\+::set\+\_\+uid}} = 04000
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaea8f56585bae5bd29a5cb0d29767cccb}{ghc\+::filesystem\+::set\+\_\+gid}} = 02000
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aa3a3b94501085ac7f29f89b8335e886d7}{ghc\+::filesystem\+::sticky\+\_\+bit}} = 01000
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaf2ce11ebf110993621bedd8e747d7b1b}{ghc\+::filesystem\+::mask}} = 07777
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a2dd23f153d201e7557a43c7644ccf44aaad921d60486366258809553a3db49a4a}{ghc\+::filesystem\+::unknown}} = 0xffff
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861a}{ghc\+::filesystem\+::perm\+\_\+options}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa9dde360102c103867bd2f45872f1129c}{ghc\+::filesystem\+::replace}} = 3
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa34ec78fcc91ffb1e54cd85e4a0924332}{ghc\+::filesystem\+::add}} = 1
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa0f6969d7052da9261e31ddb6e88c136e}{ghc\+::filesystem\+::remove}} = 2
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa22e990cf9da7d742af1f31ab7f657049}{ghc\+::filesystem\+::nofollow}} = 4
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa9dde360102c103867bd2f45872f1129c}{ghc\+::filesystem\+::replace}} = 3
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa34ec78fcc91ffb1e54cd85e4a0924332}{ghc\+::filesystem\+::add}} = 1
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa0f6969d7052da9261e31ddb6e88c136e}{ghc\+::filesystem\+::remove}} = 2
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_ad022cafc2c37805367c90c76c1cf861aa22e990cf9da7d742af1f31ab7f657049}{ghc\+::filesystem\+::nofollow}} = 4
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2}{ghc\+::filesystem\+::copy\+\_\+options}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}} = 0
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a061f6d61eab01c92e56fcac8789b6b9d}{ghc\+::filesystem\+::skip\+\_\+existing}} = 1
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a7d62790af546be3f895e613e37b0feac}{ghc\+::filesystem\+::overwrite\+\_\+existing}} = 2
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a16006a603d396d47c76364f57b799fe6}{ghc\+::filesystem\+::update\+\_\+existing}} = 4
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2af8e45531a3ea3d5c1247b004985175a4}{ghc\+::filesystem\+::recursive}} = 8
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a47a66bb90cd48feed3eafa4b77690ffe}{ghc\+::filesystem\+::copy\+\_\+symlinks}} = 0x10
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2aef4a262c2a436cce67818b680933529e}{ghc\+::filesystem\+::skip\+\_\+symlinks}} = 0x20
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a1f52cf0f9500bc623b7e67d3b3eb5a61}{ghc\+::filesystem\+::directories\+\_\+only}} = 0x40
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a0e556d0167c1732aede37f4b39b59bce}{ghc\+::filesystem\+::create\+\_\+symlinks}} = 0x80
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a33508470ccdd33a1e663771efff2934b}{ghc\+::filesystem\+::create\+\_\+hard\+\_\+links}} = 0x100
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}} = 0
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a061f6d61eab01c92e56fcac8789b6b9d}{ghc\+::filesystem\+::skip\+\_\+existing}} = 1
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a7d62790af546be3f895e613e37b0feac}{ghc\+::filesystem\+::overwrite\+\_\+existing}} = 2
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a16006a603d396d47c76364f57b799fe6}{ghc\+::filesystem\+::update\+\_\+existing}} = 4
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2af8e45531a3ea3d5c1247b004985175a4}{ghc\+::filesystem\+::recursive}} = 8
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a47a66bb90cd48feed3eafa4b77690ffe}{ghc\+::filesystem\+::copy\+\_\+symlinks}} = 0x10
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2aef4a262c2a436cce67818b680933529e}{ghc\+::filesystem\+::skip\+\_\+symlinks}} = 0x20
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a1f52cf0f9500bc623b7e67d3b3eb5a61}{ghc\+::filesystem\+::directories\+\_\+only}} = 0x40
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a0e556d0167c1732aede37f4b39b59bce}{ghc\+::filesystem\+::create\+\_\+symlinks}} = 0x80
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a9bb500e754afb372a0c2c0c14dd326b2a33508470ccdd33a1e663771efff2934b}{ghc\+::filesystem\+::create\+\_\+hard\+\_\+links}} = 0x100
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceghc_1_1filesystem_a5537e5e6483836ce7a6f5464c2315633}{ghc\+::filesystem\+::directory\+\_\+options}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a5537e5e6483836ce7a6f5464c2315633a334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}} = 0
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5537e5e6483836ce7a6f5464c2315633ade6a651c4830e406017e899847aef755}{ghc\+::filesystem\+::follow\+\_\+directory\+\_\+symlink}} = 1
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5537e5e6483836ce7a6f5464c2315633a15d4c8f62e21ee824240d9ade2ea4566}{ghc\+::filesystem\+::skip\+\_\+permission\+\_\+denied}} = 2
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5537e5e6483836ce7a6f5464c2315633a334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::none}} = 0
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_a5537e5e6483836ce7a6f5464c2315633ade6a651c4830e406017e899847aef755}{ghc\+::filesystem\+::follow\+\_\+directory\+\_\+symlink}} = 1
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5537e5e6483836ce7a6f5464c2315633a15d4c8f62e21ee824240d9ade2ea4566}{ghc\+::filesystem\+::skip\+\_\+permission\+\_\+denied}} = 2
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aeb2173c690e7ae027773ab22facdaf4c}{ghc\+::filesystem\+::detail\+::utf8\+\_\+states\+\_\+t}} \{ \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aeb2173c690e7ae027773ab22facdaf4cacd2e8b76bc733a467a45b1a8dfd786ce}{ghc\+::filesystem\+::detail\+::\+S\+\_\+\+STRT}} = 0
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aeb2173c690e7ae027773ab22facdaf4caa7442f6d115ed7e9d8b036864b337e6e}{ghc\+::filesystem\+::detail\+::\+S\+\_\+\+RJCT}} = 8
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aeb2173c690e7ae027773ab22facdaf4cacd2e8b76bc733a467a45b1a8dfd786ce}{ghc\+::filesystem\+::detail\+::\+S\+\_\+\+STRT}} = 0
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aeb2173c690e7ae027773ab22facdaf4caa7442f6d115ed7e9d8b036864b337e6e}{ghc\+::filesystem\+::detail\+::\+S\+\_\+\+RJCT}} = 8
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22f}{ghc\+::filesystem\+::detail\+::portable\+\_\+error}} \{ \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fa334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::detail\+::none}} = 0
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fae087923eb5dd1310f5f25ddd5ae5b580}{ghc\+::filesystem\+::detail\+::exists}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fa7500611bf7030bc99d25c354e7b64714}{ghc\+::filesystem\+::detail\+::not\+\_\+found}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22faa55e82356e9721946aa9ba954733c6f0}{ghc\+::filesystem\+::detail\+::not\+\_\+supported}}
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fa63877363c706f5095d05a54f8b57b0ae}{ghc\+::filesystem\+::detail\+::not\+\_\+implemented}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fae55d43eabeefe5a8271b4a3c898bd18f}{ghc\+::filesystem\+::detail\+::invalid\+\_\+argument}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22faf3c51d7ea75a76f26c0a2bdc00c4e006}{ghc\+::filesystem\+::detail\+::is\+\_\+a\+\_\+directory}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fa334c4a4c42fdb79d7ebc3e73b517e6f8}{ghc\+::filesystem\+::detail\+::none}} = 0
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fae087923eb5dd1310f5f25ddd5ae5b580}{ghc\+::filesystem\+::detail\+::exists}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fa7500611bf7030bc99d25c354e7b64714}{ghc\+::filesystem\+::detail\+::not\+\_\+found}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22faa55e82356e9721946aa9ba954733c6f0}{ghc\+::filesystem\+::detail\+::not\+\_\+supported}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fa63877363c706f5095d05a54f8b57b0ae}{ghc\+::filesystem\+::detail\+::not\+\_\+implemented}}
+, \newline
+\mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22fae55d43eabeefe5a8271b4a3c898bd18f}{ghc\+::filesystem\+::detail\+::invalid\+\_\+argument}}
+, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a5f693e585200b86ff4b0e2d39f0dc22faf3c51d7ea75a76f26c0a2bdc00c4e006}{ghc\+::filesystem\+::detail\+::is\+\_\+a\+\_\+directory}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_abee346f227a4aa8689b59ab60202e0f1}{ghc\+::filesystem\+::swap}} (path \&lhs, path \&rhs) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} size\+\_\+t \mbox{\hyperlink{namespaceghc_1_1filesystem_a1faff714c7b2bac1b82dbcc80506ca92}{ghc\+::filesystem\+::hash\+\_\+value}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a918959a1ddd3ab185c793045058773b5}{ghc\+::filesystem\+::operator==}} (const path \&lhs, const path \&rhs) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_ad943baca62f52957d074f3fde1bb13a6}{ghc\+::filesystem\+::operator!=}} (const path \&lhs, const path \&rhs) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_ab3277e11a0b638f71b9bf8259dfd56c4}{ghc\+::filesystem\+::operator$<$}} (const path \&lhs, const path \&rhs) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a8755e4e09de969a5c42b312c22cf43ca}{ghc\+::filesystem\+::operator$<$=}} (const path \&lhs, const path \&rhs) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_aa669ba09aca7930ec00f43cf09cc6c5b}{ghc\+::filesystem\+::operator$>$}} (const path \&lhs, const path \&rhs) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_ae4550e150167dd1edb305c244cc396b4}{ghc\+::filesystem\+::operator$>$=}} (const path \&lhs, const path \&rhs) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_ab027e1b2f69081c49dad769563320c5e}{ghc\+::filesystem\+::operator/}} (const path \&lhs, const path \&rhs)
+\item 
+{\footnotesize template$<$class charT , class traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespaceghc_1_1filesystem_a427404f684555ae0e10dbc131f528f67}{ghc\+::filesystem\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})
+\item 
+{\footnotesize template$<$class charT , class traits $>$ }\\std\+::basic\+\_\+istream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespaceghc_1_1filesystem_a9c4b25f2fc3ba11b8e64ac860e775c0b}{ghc\+::filesystem\+::operator$>$$>$}} (std\+::basic\+\_\+istream$<$ charT, traits $>$ \&is, path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})
+\item 
+{\footnotesize template$<$class Source , typename  = path\+::path\+\_\+from\+\_\+string$<$\+Source$>$$>$ }\\path \mbox{\hyperlink{namespaceghc_1_1filesystem_a458df2a49e578b714ceeef1153e6e917}{ghc\+::filesystem\+::u8path}} (const Source \&source)
+\item 
+{\footnotesize template$<$class Input\+Iterator $>$ }\\path \mbox{\hyperlink{namespaceghc_1_1filesystem_a18b17a618abf0eb77f5cdb9aa4def5ae}{ghc\+::filesystem\+::u8path}} (Input\+Iterator first, Input\+Iterator last)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} directory\+\_\+iterator \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{ghc\+::filesystem\+::begin}} (directory\+\_\+iterator iter) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} directory\+\_\+iterator \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end}} (const directory\+\_\+iterator \&) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} recursive\+\_\+directory\+\_\+iterator \mbox{\hyperlink{namespaceghc_1_1filesystem_a7acff70dbf47dd561aaadb99137a243c}{ghc\+::filesystem\+::begin}} (recursive\+\_\+directory\+\_\+iterator iter) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} recursive\+\_\+directory\+\_\+iterator \mbox{\hyperlink{namespaceghc_1_1filesystem_ab90b59724ccfc849eb98c265f5b3bf26}{ghc\+::filesystem\+::end}} (const recursive\+\_\+directory\+\_\+iterator \&) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_a3ca1a9f8e1f98d36b35d560ea981051d}{ghc\+::filesystem\+::absolute}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_a31a3d4b227fedaddbb1bbed4156a0218}{ghc\+::filesystem\+::canonical}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_ac0a778fd88ee3ca06ea150db4e56726b}{ghc\+::filesystem\+::copy}} (const path \&from, const path \&to, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_af483176f6c5781c46a8e5b3def40790a}{ghc\+::filesystem\+::copy}} (const path \&from, const path \&to, copy\+\_\+options options, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_add3ed9f37ccc163f1752cbd835b68632}{ghc\+::filesystem\+::copy\+\_\+file}} (const path \&from, const path \&to, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_add022815770289d40dd7570f3cf88be3}{ghc\+::filesystem\+::copy\+\_\+file}} (const path \&from, const path \&to, copy\+\_\+options option, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_a9fa53e84d469f566303846d70979137c}{ghc\+::filesystem\+::copy\+\_\+symlink}} (const path \&existing\+\_\+symlink, const path \&new\+\_\+symlink, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_aa8b1cbe716aff9de22b4988c7c92adb7}{ghc\+::filesystem\+::create\+\_\+directories}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a8952705c0e7e7173d06d644214b4f335}{ghc\+::filesystem\+::create\+\_\+directory}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a12a346e25e4e7e55eb86a6044be4e5b4}{ghc\+::filesystem\+::create\+\_\+directory}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, const path \&attributes, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_af24f5b5d9a26c1a79b63403bba252450}{ghc\+::filesystem\+::create\+\_\+directory\+\_\+symlink}} (const path \&to, const path \&new\+\_\+symlink, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_aefcc4fb51fcafa4b65b31d85d5a7c1aa}{ghc\+::filesystem\+::create\+\_\+symlink}} (const path \&to, const path \&new\+\_\+symlink, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_a24282e26dcc04e117e50037de110317e}{ghc\+::filesystem\+::current\+\_\+path}} (std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_a9043dedffcf926695991280ff408f03a}{ghc\+::filesystem\+::current\+\_\+path}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a2fae220439cf4632ad58c4f0e0a3c54b}{ghc\+::filesystem\+::exists}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a30bb7951e5166ba8b9e891609502355c}{ghc\+::filesystem\+::exists}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a0d072784a4587ddf87ef2efdae507c89}{ghc\+::filesystem\+::equivalent}} (const path \&p1, const path \&p2, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} uintmax\+\_\+t \mbox{\hyperlink{namespaceghc_1_1filesystem_abbc5c1144aae6b3423c7cc7673cb71d1}{ghc\+::filesystem\+::file\+\_\+size}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a5cc797c2c84777c82cf87330d68d1722}{ghc\+::filesystem\+::is\+\_\+block\+\_\+file}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_ab8eb2478a4bb360fae1ffbe4f906db7d}{ghc\+::filesystem\+::is\+\_\+block\+\_\+file}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_ad5a5f872d5cce40b08befe64cf59f2b6}{ghc\+::filesystem\+::is\+\_\+character\+\_\+file}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_abd862550f9ea0d0c96623cbafd167c8c}{ghc\+::filesystem\+::is\+\_\+character\+\_\+file}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_ac86389257a39fa85075da11703e46066}{ghc\+::filesystem\+::is\+\_\+directory}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a88eb82e5fc2a785f1ff813f961dec790}{ghc\+::filesystem\+::is\+\_\+directory}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a854be3b01c0fb8ac878d947939db3a98}{ghc\+::filesystem\+::is\+\_\+empty}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a836db0d6930a2011b1f6d9a38f3e4f96}{ghc\+::filesystem\+::is\+\_\+fifo}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a3d6a102bece8e73a268cc55d9bfbe712}{ghc\+::filesystem\+::is\+\_\+fifo}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_ad1494ab78dd86d7e1af89bb1b0a7b467}{ghc\+::filesystem\+::is\+\_\+other}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a7db363424d2704786225d0ece0edbe74}{ghc\+::filesystem\+::is\+\_\+other}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a612fc348b74bf158759b833d2625ac94}{ghc\+::filesystem\+::is\+\_\+regular\+\_\+file}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a7bc81a59767457ce3a404817738c243c}{ghc\+::filesystem\+::is\+\_\+regular\+\_\+file}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a324835f00d1e69e8b354fc560ba6088f}{ghc\+::filesystem\+::is\+\_\+socket}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_abc7cfc43ecce625aa77dd6a6b34f3e58}{ghc\+::filesystem\+::is\+\_\+socket}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a5403debc6dbff06a084b852d69ed6aad}{ghc\+::filesystem\+::is\+\_\+symlink}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_a8edcebb7c2764b10b1c83edd192d2390}{ghc\+::filesystem\+::is\+\_\+symlink}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} file\+\_\+time\+\_\+type \mbox{\hyperlink{namespaceghc_1_1filesystem_a1c602ae9d0433097690bfefacdc1d202}{ghc\+::filesystem\+::last\+\_\+write\+\_\+time}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_adc43c3a7b706abb95b9ee50bcc0459ef}{ghc\+::filesystem\+::last\+\_\+write\+\_\+time}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, file\+\_\+time\+\_\+type new\+\_\+time, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_a64fb61a05c0fc2d232f14701acb3922d}{ghc\+::filesystem\+::permissions}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, perms prms, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_ac621a97d03bff381f3c1562a28ece984}{ghc\+::filesystem\+::permissions}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, perms prms, perm\+\_\+options opts, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_a182814a10ffca6b82bc086f933f570ec}{ghc\+::filesystem\+::proximate}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_ad4c7538982eaf67c94d43a9ffd5e9e29}{ghc\+::filesystem\+::proximate}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, const path \&base, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_a31967345cbc3027bef8e24a17ec66557}{ghc\+::filesystem\+::read\+\_\+symlink}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_aba1f146a355fcc65fa89bf68ec686564}{ghc\+::filesystem\+::relative}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_a582963298f3bf9c140954cde4bdba43e}{ghc\+::filesystem\+::relative}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, const path \&base, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_af085a5b22b542c685c26075fc7f76aaf}{ghc\+::filesystem\+::remove}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} uintmax\+\_\+t \mbox{\hyperlink{namespaceghc_1_1filesystem_a5800151c7b68737a331d17a014b5176e}{ghc\+::filesystem\+::remove\+\_\+all}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_af2fe5b63e69a77a67b9fa52d2cf6780b}{ghc\+::filesystem\+::rename}} (const path \&from, const path \&to, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_a987589d5785f6d13be743b43c2d47329}{ghc\+::filesystem\+::resize\+\_\+file}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, uintmax\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{size}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} space\+\_\+info \mbox{\hyperlink{namespaceghc_1_1filesystem_a616b31ad38dcc280ccc4874e4993c32e}{ghc\+::filesystem\+::space}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} file\+\_\+status \mbox{\hyperlink{namespaceghc_1_1filesystem_a00bcaee548f274868a8b45b7c8547bae}{ghc\+::filesystem\+::status}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_afcd6e3a4d41dcf2e1099888673c72a6d}{ghc\+::filesystem\+::status\+\_\+known}} (file\+\_\+status \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} file\+\_\+status \mbox{\hyperlink{namespaceghc_1_1filesystem_a674c8852d9aa26574944cf48ced87e34}{ghc\+::filesystem\+::symlink\+\_\+status}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_adf4b7de535b24f4e7f3f9a085947b66f}{ghc\+::filesystem\+::temp\+\_\+directory\+\_\+path}} (std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_a70b39d9561ca328d77e5948e445b2296}{ghc\+::filesystem\+::weakly\+\_\+canonical}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_a9a31ba0c82c79a9d2a63f24a1dc02910}{ghc\+::filesystem\+::create\+\_\+hard\+\_\+link}} (const path \&to, const path \&new\+\_\+hard\+\_\+link, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} uintmax\+\_\+t \mbox{\hyperlink{namespaceghc_1_1filesystem_a9435b84cf23ef896d2db0abc7c8549be}{ghc\+::filesystem\+::hard\+\_\+link\+\_\+count}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a899867ef0db25a2c1658870d4abf9ed2}{ghc\+::filesystem\+::detail\+::append\+UTF8}} (\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&str, uint32\+\_\+t unicode)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_ad36b981d334afa3496ec7ae1b2bf1b14}{ghc\+::filesystem\+::detail\+::is\+\_\+surrogate}} (uint32\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a203fbf8129c47c7860cc62539397d4dd}{ghc\+::filesystem\+::detail\+::is\+\_\+high\+\_\+surrogate}} (uint32\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aaf64d95a5154ed7da609f0a9d6b8bc43}{ghc\+::filesystem\+::detail\+::is\+\_\+low\+\_\+surrogate}} (uint32\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} unsigned \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a53b05394fcc91e59e43150959f226b63}{ghc\+::filesystem\+::detail\+::consume\+Utf8\+Fragment}} (const unsigned state, const uint8\+\_\+t fragment, uint32\+\_\+t \&codepoint)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} std\+::error\+\_\+code \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a7162972825f2972e1c480db8a442000b}{ghc\+::filesystem\+::detail\+::make\+\_\+error\+\_\+code}} (portable\+\_\+error \mbox{\hyperlink{src_2message_8h_a02ef5f67e0f1f876ad2e38462c9a71c2}{err}})
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}{GHC\+\_\+\+FS\+\_\+\+API}} std\+::error\+\_\+code \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aede3550430c0597465e260066f242755}{ghc\+::filesystem\+::detail\+::make\+\_\+system\+\_\+error}} (int \mbox{\hyperlink{src_2message_8h_a02ef5f67e0f1f876ad2e38462c9a71c2}{err}}=0)
+\item 
+{\footnotesize template$<$typename Enum $>$ }\\constexpr detail\+::\+Enable\+Bitmask$<$ Enum $>$ \mbox{\hyperlink{namespaceghc_1_1filesystem_a15ebc1fec24b546fc6ec53b6b26b9ef5}{ghc\+::filesystem\+::operator\&}} (Enum X, Enum Y)
+\item 
+{\footnotesize template$<$typename Enum $>$ }\\constexpr detail\+::\+Enable\+Bitmask$<$ Enum $>$ \mbox{\hyperlink{namespaceghc_1_1filesystem_a6fd3b0f377d7b0e3458772751d4bb1c0}{ghc\+::filesystem\+::operator$\vert$}} (Enum X, Enum Y)
+\item 
+{\footnotesize template$<$typename Enum $>$ }\\constexpr detail\+::\+Enable\+Bitmask$<$ Enum $>$ \mbox{\hyperlink{namespaceghc_1_1filesystem_a49bb5c0042f01a28c31dad1d434b3235}{ghc\+::filesystem\+::operator$^\wedge$}} (Enum X, Enum Y)
+\item 
+{\footnotesize template$<$typename Enum $>$ }\\constexpr detail\+::\+Enable\+Bitmask$<$ Enum $>$ \mbox{\hyperlink{namespaceghc_1_1filesystem_a6909d272c4f7e6747ffdb8360c0bda80}{ghc\+::filesystem\+::operator$\sim$}} (Enum X)
+\item 
+{\footnotesize template$<$typename Enum $>$ }\\detail\+::\+Enable\+Bitmask$<$ Enum $>$ \& \mbox{\hyperlink{namespaceghc_1_1filesystem_a65913abc33260dca24894b4ca709eb70}{ghc\+::filesystem\+::operator\&=}} (Enum \&X, Enum Y)
+\item 
+{\footnotesize template$<$typename Enum $>$ }\\detail\+::\+Enable\+Bitmask$<$ Enum $>$ \& \mbox{\hyperlink{namespaceghc_1_1filesystem_aa65ccf92de59ac6e838b9db9fd1d05e8}{ghc\+::filesystem\+::operator$\vert$=}} (Enum \&X, Enum Y)
+\item 
+{\footnotesize template$<$typename Enum $>$ }\\detail\+::\+Enable\+Bitmask$<$ Enum $>$ \& \mbox{\hyperlink{namespaceghc_1_1filesystem_aeb9a8c615cbf82c83627b61059c1cad2}{ghc\+::filesystem\+::operator$^\wedge$=}} (Enum \&X, Enum Y)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_ae7d71a2189a5df610a61e68fece73d81}{ghc\+::filesystem\+::detail\+::in\+\_\+range}} (uint32\+\_\+t \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, uint32\+\_\+t lo, uint32\+\_\+t hi)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_ad9f84e98fd988551172932f413a6746d}{ghc\+::filesystem\+::detail\+::valid\+Utf8}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&utf8\+String)
+\item 
+{\footnotesize template$<$class String\+Type , class Utf8\+String , typename std\+::enable\+\_\+if$<$ path\+::\+\_\+is\+\_\+basic\+\_\+string$<$ Utf8\+String $>$\+::value \&\&(sizeof(typename Utf8\+String\+::value\+\_\+type)==1) \&\&(sizeof(typename String\+Type\+::value\+\_\+type)==1)$>$\+::type $\ast$  = nullptr$>$ }\\String\+Type \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a26a01c80a0eebb49a2a9d074acdeb2bf}{ghc\+::filesystem\+::detail\+::from\+Utf8}} (const Utf8\+String \&utf8\+String, const typename String\+Type\+::allocator\+\_\+type \&alloc=typename String\+Type\+::allocator\+\_\+type())
+\item 
+{\footnotesize template$<$class String\+Type , typename charT , std\+::size\+\_\+t N$>$ }\\String\+Type \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a393a763db487f5c16e61dc1910adcbdd}{ghc\+::filesystem\+::detail\+::from\+Utf8}} (const charT(\&utf8\+String)\mbox{[}N\mbox{]})
+\item 
+{\footnotesize template$<$typename strT , typename std\+::enable\+\_\+if$<$ path\+::\+\_\+is\+\_\+basic\+\_\+string$<$ strT $>$\+::value \&\&(sizeof(typename str\+T\+::value\+\_\+type)==1), int $>$\+::type size = 1$>$ }\\\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_ad33add0a97b65ffd76950bed6bc7b1f0}{ghc\+::filesystem\+::detail\+::to\+Utf8}} (const strT \&unicode\+String)
+\item 
+{\footnotesize template$<$typename charT $>$ }\\\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a92ffb753d61efc70ff9e6fcfdd824291}{ghc\+::filesystem\+::detail\+::to\+Utf8}} (const charT $\ast$unicode\+String)
+\item 
+{\footnotesize template$<$typename strT , typename std\+::enable\+\_\+if$<$ path\+::\+\_\+is\+\_\+basic\+\_\+string$<$ strT $>$\+::value, bool $>$\+::type  = true$>$ }\\\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_af8b1a0d61ab79ffb156b719009a3430f}{ghc\+::filesystem\+::detail\+::starts\+With}} (const strT \&what, const strT \&with)
+\item 
+{\footnotesize template$<$typename strT , typename std\+::enable\+\_\+if$<$ path\+::\+\_\+is\+\_\+basic\+\_\+string$<$ strT $>$\+::value, bool $>$\+::type  = true$>$ }\\\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a9e7066960e0dfbe88d0083d69d2b02e9}{ghc\+::filesystem\+::detail\+::ends\+With}} (const strT \&what, const strT \&with)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a4dd6065a191795793fcdcc0bd4100f89}{ghc\+::filesystem\+::detail\+::equals\+\_\+simple\+\_\+insensitive}} (const path\+::value\+\_\+type $\ast$str1, const path\+::value\+\_\+type $\ast$str2)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} int \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a39e24edaa764da227fbbebfa3cf77232}{ghc\+::filesystem\+::detail\+::compare\+\_\+simple\+\_\+insensitive}} (const path\+::value\+\_\+type $\ast$str1, size\+\_\+t len1, const path\+::value\+\_\+type $\ast$str2, size\+\_\+t len2)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} const char $\ast$ \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a3439c0c4235203a9cf4a1f88b65cd45b}{ghc\+::filesystem\+::detail\+::strerror\+\_\+adapter}} (char $\ast$gnu, char $\ast$)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} const char $\ast$ \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_af188b312d923b32d9466795eb11423ab}{ghc\+::filesystem\+::detail\+::strerror\+\_\+adapter}} (int posix, char $\ast$buffer)
+\item 
+{\footnotesize template$<$typename Error\+Number $>$ }\\\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a6ce09d1ad19698dccdd2ddc92400aba9}{ghc\+::filesystem\+::detail\+::system\+Error\+Text}} (Error\+Number code=0)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_afd1c519f6343a6d2f46bd705d13351e0}{ghc\+::filesystem\+::detail\+::create\+\_\+symlink}} (const path \&target\+\_\+name, const path \&new\+\_\+symlink, bool, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} void \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a2c7686d8fea17d7ee32a103c81ab0c03}{ghc\+::filesystem\+::detail\+::create\+\_\+hardlink}} (const path \&target\+\_\+name, const path \&new\+\_\+hardlink, std\+::error\+\_\+code \&ec)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} file\+\_\+status \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a33297ade6bcb50205b92e9c162c76210}{ghc\+::filesystem\+::detail\+::file\+\_\+status\+\_\+from\+\_\+st\+\_\+mode}} (T \mbox{\hyperlink{libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}})
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} path \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_ac86e88e83756c784bfa3fe90887fb759}{ghc\+::filesystem\+::detail\+::resolve\+Symlink}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} bool \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a6c132cff10e525fbe47cd1a039e1c1b5}{ghc\+::filesystem\+::detail\+::is\+\_\+not\+\_\+found\+\_\+error}} (std\+::error\+\_\+code \&ec)
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} file\+\_\+status \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a4b29842b53ef11c8342befdd6b95bbc7}{ghc\+::filesystem\+::detail\+::symlink\+\_\+status\+\_\+ex}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec, uintmax\+\_\+t $\ast$sz=nullptr, uintmax\+\_\+t $\ast$nhl=nullptr, time\+\_\+t $\ast$lwt=nullptr) noexcept
+\item 
+\mbox{\hyperlink{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}{GHC\+\_\+\+INLINE}} file\+\_\+status \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a79e6e33d18b1b6430ea63eb55ac7e524}{ghc\+::filesystem\+::detail\+::status\+\_\+ex}} (const path \&\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, std\+::error\+\_\+code \&ec, file\+\_\+status $\ast$sls=nullptr, uintmax\+\_\+t $\ast$sz=nullptr, uintmax\+\_\+t $\ast$nhl=nullptr, time\+\_\+t $\ast$lwt=nullptr, int recurse\+\_\+count=0) noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_ae3f542e09ac243b31501268f5ac1390d}\label{filesystem_2filesystem_8hpp_ae3f542e09ac243b31501268f5ac1390d}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_EXPAND\_IMPL@{GHC\_EXPAND\_IMPL}}
+\index{GHC\_EXPAND\_IMPL@{GHC\_EXPAND\_IMPL}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_EXPAND\_IMPL}{GHC\_EXPAND\_IMPL}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+EXPAND\+\_\+\+IMPL}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_a260486e06dba07a691f98eb972ea81f1}\label{filesystem_2filesystem_8hpp_a260486e06dba07a691f98eb972ea81f1}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_FILESYSTEM\_VERSION@{GHC\_FILESYSTEM\_VERSION}}
+\index{GHC\_FILESYSTEM\_VERSION@{GHC\_FILESYSTEM\_VERSION}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_FILESYSTEM\_VERSION}{GHC\_FILESYSTEM\_VERSION}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+FILESYSTEM\+\_\+\+VERSION~10506L}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00307}{307}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}\label{filesystem_2filesystem_8hpp_afad40967008a3bb912bb7f711544635b}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_FS\_API@{GHC\_FS\_API}}
+\index{GHC\_FS\_API@{GHC\_FS\_API}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_FS\_API}{GHC\_FS\_API}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+FS\+\_\+\+API}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_af4355a406d4a8b2733db789c1c98a84c}\label{filesystem_2filesystem_8hpp_af4355a406d4a8b2733db789c1c98a84c}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_FS\_API\_CLASS@{GHC\_FS\_API\_CLASS}}
+\index{GHC\_FS\_API\_CLASS@{GHC\_FS\_API\_CLASS}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_FS\_API\_CLASS}{GHC\_FS\_API\_CLASS}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+FS\+\_\+\+API\+\_\+\+CLASS}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}\label{filesystem_2filesystem_8hpp_a4102824714f591524ae37d2e9d05a47b}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_INLINE@{GHC\_INLINE}}
+\index{GHC\_INLINE@{GHC\_INLINE}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_INLINE}{GHC\_INLINE}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+INLINE~inline}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_a78de8ececcb53f07fd913ef7b7e1f93f}\label{filesystem_2filesystem_8hpp_a78de8ececcb53f07fd913ef7b7e1f93f}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_NATIVEWP@{GHC\_NATIVEWP}}
+\index{GHC\_NATIVEWP@{GHC\_NATIVEWP}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_NATIVEWP}{GHC\_NATIVEWP}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+NATIVEWP(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} }\end{DoxyParamCaption})~p.\+wstring().c\+\_\+str()}
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_a5404029f67835c898d6624bd2debbe0d}\label{filesystem_2filesystem_8hpp_a5404029f67835c898d6624bd2debbe0d}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_OS\_DETECTED@{GHC\_OS\_DETECTED}}
+\index{GHC\_OS\_DETECTED@{GHC\_OS\_DETECTED}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_OS\_DETECTED}{GHC\_OS\_DETECTED}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+OS\+\_\+\+DETECTED}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00086}{86}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_ae3a4182e9d367eafabf030b6f9c078df}\label{filesystem_2filesystem_8hpp_ae3a4182e9d367eafabf030b6f9c078df}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_PLATFORM\_LITERAL@{GHC\_PLATFORM\_LITERAL}}
+\index{GHC\_PLATFORM\_LITERAL@{GHC\_PLATFORM\_LITERAL}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_PLATFORM\_LITERAL}{GHC\_PLATFORM\_LITERAL}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+PLATFORM\+\_\+\+LITERAL(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})~str}
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_a4af34764258a2147364160682ee09c95}\label{filesystem_2filesystem_8hpp_a4af34764258a2147364160682ee09c95}} 
+\index{filesystem.hpp@{filesystem.hpp}!GHC\_WIN\_AUTO\_PREFIX\_LONG\_PATH@{GHC\_WIN\_AUTO\_PREFIX\_LONG\_PATH}}
+\index{GHC\_WIN\_AUTO\_PREFIX\_LONG\_PATH@{GHC\_WIN\_AUTO\_PREFIX\_LONG\_PATH}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{GHC\_WIN\_AUTO\_PREFIX\_LONG\_PATH}{GHC\_WIN\_AUTO\_PREFIX\_LONG\_PATH}}
+{\footnotesize\ttfamily \#define GHC\+\_\+\+WIN\+\_\+\+AUTO\+\_\+\+PREFIX\+\_\+\+LONG\+\_\+\+PATH}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00302}{302}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_aee57d1254f36c2d03761d661d6510e09}\label{filesystem_2filesystem_8hpp_aee57d1254f36c2d03761d661d6510e09}} 
+\index{filesystem.hpp@{filesystem.hpp}!LWG\_2682\_BEHAVIOUR@{LWG\_2682\_BEHAVIOUR}}
+\index{LWG\_2682\_BEHAVIOUR@{LWG\_2682\_BEHAVIOUR}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{LWG\_2682\_BEHAVIOUR}{LWG\_2682\_BEHAVIOUR}}
+{\footnotesize\ttfamily \#define LWG\+\_\+2682\+\_\+\+BEHAVIOUR}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_a99e59b30ee1255ba9643483e4a695f54}\label{filesystem_2filesystem_8hpp_a99e59b30ee1255ba9643483e4a695f54}} 
+\index{filesystem.hpp@{filesystem.hpp}!LWG\_2936\_BEHAVIOUR@{LWG\_2936\_BEHAVIOUR}}
+\index{LWG\_2936\_BEHAVIOUR@{LWG\_2936\_BEHAVIOUR}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{LWG\_2936\_BEHAVIOUR}{LWG\_2936\_BEHAVIOUR}}
+{\footnotesize\ttfamily \#define LWG\+\_\+2936\+\_\+\+BEHAVIOUR}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_ae5f9e15c7ef2758eb345aab62274b178}\label{filesystem_2filesystem_8hpp_ae5f9e15c7ef2758eb345aab62274b178}} 
+\index{filesystem.hpp@{filesystem.hpp}!LWG\_2937\_BEHAVIOUR@{LWG\_2937\_BEHAVIOUR}}
+\index{LWG\_2937\_BEHAVIOUR@{LWG\_2937\_BEHAVIOUR}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{LWG\_2937\_BEHAVIOUR}{LWG\_2937\_BEHAVIOUR}}
+{\footnotesize\ttfamily \#define LWG\+\_\+2937\+\_\+\+BEHAVIOUR}
+
+
+
+Definition at line \mbox{\hyperlink{filesystem_2filesystem_8hpp_source_l00285}{285}} of file \mbox{\hyperlink{filesystem_2filesystem_8hpp_source}{filesystem.\+hpp}}.
+
+\mbox{\Hypertarget{filesystem_2filesystem_8hpp_abcb5b84adc43059f20f98953954ab72c}\label{filesystem_2filesystem_8hpp_abcb5b84adc43059f20f98953954ab72c}} 
+\index{filesystem.hpp@{filesystem.hpp}!UTIME\_OMIT@{UTIME\_OMIT}}
+\index{UTIME\_OMIT@{UTIME\_OMIT}!filesystem.hpp@{filesystem.hpp}}
+\doxysubsubsection{\texorpdfstring{UTIME\_OMIT}{UTIME\_OMIT}}
+{\footnotesize\ttfamily \#define UTIME\+\_\+\+OMIT~((1l $<$$<$ 30) -\/ 2l)}
+

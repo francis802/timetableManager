@@ -1,0 +1,285 @@
+\hypertarget{build_2doxygen_2src_2stlsupport_8cpp}{}\doxysection{doxygen/build/doxygen/src/stlsupport.cpp File Reference}
+\label{build_2doxygen_2src_2stlsupport_8cpp}\index{doxygen/build/doxygen/src/stlsupport.cpp@{doxygen/build/doxygen/src/stlsupport.cpp}}
+{\ttfamily \#include \char`\"{}stlsupport.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_s_t_l_info}{STLInfo}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a568c52cf665776d35aa0cb5c541d2563}{add\+STLMember}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&root, const char $\ast$type, const char $\ast$name)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}{add\+STLIterator}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&class\+Entry, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a7137defdca68d716cface04a9b9aa37e}{add\+STLClass}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&root, const \mbox{\hyperlink{struct_s_t_l_info}{STLInfo}} $\ast$info)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a95efd6a7d367cd542aa4949c0e5bcdff}{add\+STLClasses}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&root)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a9e8cfe5b2cd5bf238c936a13169f7e76}{add\+STLSupport}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&root)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{struct_s_t_l_info}{STLInfo}} \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a697826d201cc28c7f25b5687201563f4}{g\+\_\+stlinfo}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2stlsupport_8cpp_a7137defdca68d716cface04a9b9aa37e}\label{build_2doxygen_2src_2stlsupport_8cpp_a7137defdca68d716cface04a9b9aa37e}} 
+\index{stlsupport.cpp@{stlsupport.cpp}!addSTLClass@{addSTLClass}}
+\index{addSTLClass@{addSTLClass}!stlsupport.cpp@{stlsupport.cpp}}
+\doxysubsubsection{\texorpdfstring{addSTLClass()}{addSTLClass()}}
+{\footnotesize\ttfamily static void add\+STLClass (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&}]{root,  }\item[{const \mbox{\hyperlink{struct_s_t_l_info}{STLInfo}} $\ast$}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source}{stlsupport.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166 \{}
+\DoxyCodeLine{00167   \textcolor{comment}{//printf("{}Adding STL class \%s\(\backslash\)n"{},info-\/>className);}}
+\DoxyCodeLine{00168   \mbox{\hyperlink{class_q_c_string}{QCString}} fullName = info-\/>\mbox{\hyperlink{struct_s_t_l_info_a68208193ccbdf8900b954854e14a605d}{className}};}
+\DoxyCodeLine{00169   fullName.\mbox{\hyperlink{class_q_c_string_a0a6a8fe99e596b149ee15138fa8dcf0c}{prepend}}(\textcolor{stringliteral}{"{}std::"{}});}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171   \textcolor{comment}{// add fake Entry for the class}}
+\DoxyCodeLine{00172   std::shared\_ptr<Entry> classEntry = std::make\_shared<Entry>();}
+\DoxyCodeLine{00173   classEntry-\/>fileName  = \textcolor{stringliteral}{"{}[STL]"{}};}
+\DoxyCodeLine{00174   classEntry-\/>startLine = 1;}
+\DoxyCodeLine{00175   classEntry-\/>name      = fullName;}
+\DoxyCodeLine{00176   classEntry-\/>section   = \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9eaf5e46d7ba2df42f1c6a2dc683ba047d6}{Entry::CLASS\_SEC}};}
+\DoxyCodeLine{00177   classEntry-\/>brief     = \textcolor{stringliteral}{"{}STL class"{}};}
+\DoxyCodeLine{00178   classEntry-\/>hidden    = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00179   classEntry-\/>artificial= \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00180 }
+\DoxyCodeLine{00181   \textcolor{comment}{// add template arguments to class}}
+\DoxyCodeLine{00182   \textcolor{keywordflow}{if} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_a55abc5a84fc66fb356d9be227e501e3e}{templType1}})}
+\DoxyCodeLine{00183   \{}
+\DoxyCodeLine{00184     \mbox{\hyperlink{class_argument_list}{ArgumentList}} al;}
+\DoxyCodeLine{00185     \mbox{\hyperlink{struct_argument}{Argument}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}};}
+\DoxyCodeLine{00186     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.type=\textcolor{stringliteral}{"{}typename"{}};}
+\DoxyCodeLine{00187     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.name=info-\/>\mbox{\hyperlink{struct_s_t_l_info_a55abc5a84fc66fb356d9be227e501e3e}{templType1}};}
+\DoxyCodeLine{00188     al.\mbox{\hyperlink{class_argument_list_aa80c14f74871d9274671a9e33ac3c870}{push\_back}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}});}
+\DoxyCodeLine{00189     \textcolor{keywordflow}{if} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_a69fa3c2df682ea319abf43ab781a764e}{templType2}}) \textcolor{comment}{// another template argument}}
+\DoxyCodeLine{00190     \{}
+\DoxyCodeLine{00191       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.type=\textcolor{stringliteral}{"{}typename"{}};}
+\DoxyCodeLine{00192       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}.name=info-\/>\mbox{\hyperlink{struct_s_t_l_info_a69fa3c2df682ea319abf43ab781a764e}{templType2}};}
+\DoxyCodeLine{00193       al.\mbox{\hyperlink{class_argument_list_aa80c14f74871d9274671a9e33ac3c870}{push\_back}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}});}
+\DoxyCodeLine{00194     \}}
+\DoxyCodeLine{00195     classEntry-\/>tArgLists.push\_back(al);}
+\DoxyCodeLine{00196   \}}
+\DoxyCodeLine{00197   \textcolor{comment}{// add member variables}}
+\DoxyCodeLine{00198   \textcolor{keywordflow}{if} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_a778143a6646cb2fcf007b13a3afbe130}{templName1}})}
+\DoxyCodeLine{00199   \{}
+\DoxyCodeLine{00200     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a568c52cf665776d35aa0cb5c541d2563}{addSTLMember}}(classEntry,info-\/>\mbox{\hyperlink{struct_s_t_l_info_a55abc5a84fc66fb356d9be227e501e3e}{templType1}},info-\/>\mbox{\hyperlink{struct_s_t_l_info_a778143a6646cb2fcf007b13a3afbe130}{templName1}});}
+\DoxyCodeLine{00201   \}}
+\DoxyCodeLine{00202   \textcolor{keywordflow}{if} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_a80198a8845c6f673319508b1d7274bdc}{templName2}})}
+\DoxyCodeLine{00203   \{}
+\DoxyCodeLine{00204     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a568c52cf665776d35aa0cb5c541d2563}{addSTLMember}}(classEntry,info-\/>\mbox{\hyperlink{struct_s_t_l_info_a69fa3c2df682ea319abf43ab781a764e}{templType2}},info-\/>\mbox{\hyperlink{struct_s_t_l_info_a80198a8845c6f673319508b1d7274bdc}{templName2}});}
+\DoxyCodeLine{00205   \}}
+\DoxyCodeLine{00206   \textcolor{keywordflow}{if} (fullName==\textcolor{stringliteral}{"{}std::auto\_ptr"{}} ||}
+\DoxyCodeLine{00207       fullName==\textcolor{stringliteral}{"{}std::smart\_ptr"{}} ||}
+\DoxyCodeLine{00208       fullName==\textcolor{stringliteral}{"{}std::shared\_ptr"{}} ||}
+\DoxyCodeLine{00209       fullName==\textcolor{stringliteral}{"{}std::weak\_ptr"{}} ||}
+\DoxyCodeLine{00210       fullName==\textcolor{stringliteral}{"{}std::unique\_ptr"{}})}
+\DoxyCodeLine{00211   \{}
+\DoxyCodeLine{00212     std::shared\_ptr<Entry> memEntry = std::make\_shared<Entry>();}
+\DoxyCodeLine{00213     memEntry-\/>name       = \textcolor{stringliteral}{"{}operator-\/>"{}};}
+\DoxyCodeLine{00214     memEntry-\/>args       = \textcolor{stringliteral}{"{}()"{}};}
+\DoxyCodeLine{00215     memEntry-\/>type       = \textcolor{stringliteral}{"{}T*"{}};}
+\DoxyCodeLine{00216     memEntry-\/>protection = \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}};}
+\DoxyCodeLine{00217     memEntry-\/>section    = \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea130e2c2c56393400d2dd09d3e7f3d366}{Entry::FUNCTION\_SEC}};}
+\DoxyCodeLine{00218     memEntry-\/>brief      = \textcolor{stringliteral}{"{}STL member"{}};}
+\DoxyCodeLine{00219     memEntry-\/>hidden     = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00220     memEntry-\/>artificial = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00221     classEntry-\/>moveToSubEntryAndKeep(memEntry);}
+\DoxyCodeLine{00222   \}}
+\DoxyCodeLine{00223   \textcolor{keywordflow}{if} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_ae47ce7a3c1de734f98a054d9e4b1086a}{baseClass1}})}
+\DoxyCodeLine{00224   \{}
+\DoxyCodeLine{00225     classEntry-\/>extends.push\_back(\mbox{\hyperlink{struct_base_info}{BaseInfo}}(info-\/>\mbox{\hyperlink{struct_s_t_l_info_ae47ce7a3c1de734f98a054d9e4b1086a}{baseClass1}},\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}},info-\/>\mbox{\hyperlink{struct_s_t_l_info_adf7de0dd37358cb2f21c913adab4e2bc}{virtualInheritance}}?\mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea297d23a3dfc1e710a551d79c0679348f}{Virtual}}:\mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea5ecbcf0afce98b042f35ec71ba03fa4b}{Normal}}));}
+\DoxyCodeLine{00226   \}}
+\DoxyCodeLine{00227   \textcolor{keywordflow}{if} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_ae45158a2c0b73f0f17138ff8005f9d03}{baseClass2}})}
+\DoxyCodeLine{00228   \{}
+\DoxyCodeLine{00229     classEntry-\/>extends.push\_back(\mbox{\hyperlink{struct_base_info}{BaseInfo}}(info-\/>\mbox{\hyperlink{struct_s_t_l_info_ae45158a2c0b73f0f17138ff8005f9d03}{baseClass2}},\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}},info-\/>\mbox{\hyperlink{struct_s_t_l_info_adf7de0dd37358cb2f21c913adab4e2bc}{virtualInheritance}}?\mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea297d23a3dfc1e710a551d79c0679348f}{Virtual}}:\mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea5ecbcf0afce98b042f35ec71ba03fa4b}{Normal}}));}
+\DoxyCodeLine{00230   \}}
+\DoxyCodeLine{00231   \textcolor{keywordflow}{if} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_aa6a51c8426777163389453b971b338eb}{iterators}})}
+\DoxyCodeLine{00232   \{}
+\DoxyCodeLine{00233     \textcolor{comment}{// add iterator class}}
+\DoxyCodeLine{00234     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}{addSTLIterator}}(classEntry,fullName+\textcolor{stringliteral}{"{}::iterator"{}});}
+\DoxyCodeLine{00235     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}{addSTLIterator}}(classEntry,fullName+\textcolor{stringliteral}{"{}::const\_iterator"{}});}
+\DoxyCodeLine{00236     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}{addSTLIterator}}(classEntry,fullName+\textcolor{stringliteral}{"{}::reverse\_iterator"{}});}
+\DoxyCodeLine{00237     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}{addSTLIterator}}(classEntry,fullName+\textcolor{stringliteral}{"{}::const\_reverse\_iterator"{}});}
+\DoxyCodeLine{00238   \}}
+\DoxyCodeLine{00239   root-\/>moveToSubEntryAndKeep(classEntry);}
+\DoxyCodeLine{00240 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}}, \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}{add\+STLIterator()}}, \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a568c52cf665776d35aa0cb5c541d2563}{add\+STLMember()}}, \mbox{\hyperlink{struct_s_t_l_info_ae47ce7a3c1de734f98a054d9e4b1086a}{STLInfo\+::base\+Class1}}, \mbox{\hyperlink{struct_s_t_l_info_ae45158a2c0b73f0f17138ff8005f9d03}{STLInfo\+::base\+Class2}}, \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9eaf5e46d7ba2df42f1c6a2dc683ba047d6}{Entry\+::\+CLASS\+\_\+\+SEC}}, \mbox{\hyperlink{struct_s_t_l_info_a68208193ccbdf8900b954854e14a605d}{STLInfo\+::class\+Name}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea130e2c2c56393400d2dd09d3e7f3d366}{Entry\+::\+FUNCTION\+\_\+\+SEC}}, \mbox{\hyperlink{struct_s_t_l_info_aa6a51c8426777163389453b971b338eb}{STLInfo\+::iterators}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea5ecbcf0afce98b042f35ec71ba03fa4b}{Normal}}, \mbox{\hyperlink{class_q_c_string_a0a6a8fe99e596b149ee15138fa8dcf0c}{QCString\+::prepend()}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}}, \mbox{\hyperlink{class_argument_list_aa80c14f74871d9274671a9e33ac3c870}{Argument\+List\+::push\+\_\+back()}}, \mbox{\hyperlink{struct_s_t_l_info_a778143a6646cb2fcf007b13a3afbe130}{STLInfo\+::templ\+Name1}}, \mbox{\hyperlink{struct_s_t_l_info_a80198a8845c6f673319508b1d7274bdc}{STLInfo\+::templ\+Name2}}, \mbox{\hyperlink{struct_s_t_l_info_a55abc5a84fc66fb356d9be227e501e3e}{STLInfo\+::templ\+Type1}}, \mbox{\hyperlink{struct_s_t_l_info_a69fa3c2df682ea319abf43ab781a764e}{STLInfo\+::templ\+Type2}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_ab16236bdd10ddf4d73a9847350f0017ea297d23a3dfc1e710a551d79c0679348f}{Virtual}}, and \mbox{\hyperlink{struct_s_t_l_info_adf7de0dd37358cb2f21c913adab4e2bc}{STLInfo\+::virtual\+Inheritance}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a95efd6a7d367cd542aa4949c0e5bcdff}{add\+STLClasses()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2stlsupport_8cpp_a95efd6a7d367cd542aa4949c0e5bcdff}\label{build_2doxygen_2src_2stlsupport_8cpp_a95efd6a7d367cd542aa4949c0e5bcdff}} 
+\index{stlsupport.cpp@{stlsupport.cpp}!addSTLClasses@{addSTLClasses}}
+\index{addSTLClasses@{addSTLClasses}!stlsupport.cpp@{stlsupport.cpp}}
+\doxysubsubsection{\texorpdfstring{addSTLClasses()}{addSTLClasses()}}
+{\footnotesize\ttfamily static void add\+STLClasses (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&}]{root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source_l00243}{243}} of file \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source}{stlsupport.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00244 \{}
+\DoxyCodeLine{00245   std::shared\_ptr<Entry> namespaceEntry = std::make\_shared<Entry>();}
+\DoxyCodeLine{00246   namespaceEntry-\/>fileName  = \textcolor{stringliteral}{"{}[STL]"{}};}
+\DoxyCodeLine{00247   namespaceEntry-\/>startLine = 1;}
+\DoxyCodeLine{00248   namespaceEntry-\/>name      = \textcolor{stringliteral}{"{}std"{}};}
+\DoxyCodeLine{00249   namespaceEntry-\/>section   = \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea5d9ce147a8bec8e67e423a3595906b46}{Entry::NAMESPACE\_SEC}};}
+\DoxyCodeLine{00250   namespaceEntry-\/>brief     = \textcolor{stringliteral}{"{}STL namespace"{}};}
+\DoxyCodeLine{00251   namespaceEntry-\/>hidden    = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00252   namespaceEntry-\/>artificial= \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00254   \mbox{\hyperlink{struct_s_t_l_info}{STLInfo}} *info = \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a697826d201cc28c7f25b5687201563f4}{g\_stlinfo}};}
+\DoxyCodeLine{00255   \textcolor{keywordflow}{while} (info-\/>\mbox{\hyperlink{struct_s_t_l_info_a68208193ccbdf8900b954854e14a605d}{className}})}
+\DoxyCodeLine{00256   \{}
+\DoxyCodeLine{00257     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a7137defdca68d716cface04a9b9aa37e}{addSTLClass}}(namespaceEntry,info);}
+\DoxyCodeLine{00258     info++;}
+\DoxyCodeLine{00259   \}}
+\DoxyCodeLine{00260 }
+\DoxyCodeLine{00261   root-\/>moveToSubEntryAndKeep(namespaceEntry);}
+\DoxyCodeLine{00262 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a7137defdca68d716cface04a9b9aa37e}{add\+STLClass()}}, \mbox{\hyperlink{struct_s_t_l_info_a68208193ccbdf8900b954854e14a605d}{STLInfo\+::class\+Name}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a697826d201cc28c7f25b5687201563f4}{g\+\_\+stlinfo}}, \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea5d9ce147a8bec8e67e423a3595906b46}{Entry\+::\+NAMESPACE\+\_\+\+SEC}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a9e8cfe5b2cd5bf238c936a13169f7e76}{add\+STLSupport()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}\label{build_2doxygen_2src_2stlsupport_8cpp_aa1f8941ae2c1be58caee11fa6e3ec4f9}} 
+\index{stlsupport.cpp@{stlsupport.cpp}!addSTLIterator@{addSTLIterator}}
+\index{addSTLIterator@{addSTLIterator}!stlsupport.cpp@{stlsupport.cpp}}
+\doxysubsubsection{\texorpdfstring{addSTLIterator()}{addSTLIterator()}}
+{\footnotesize\ttfamily static void add\+STLIterator (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&}]{class\+Entry,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source_l00152}{152}} of file \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source}{stlsupport.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153 \{}
+\DoxyCodeLine{00154   std::shared\_ptr<Entry> iteratorClassEntry = std::make\_shared<Entry>();}
+\DoxyCodeLine{00155   iteratorClassEntry-\/>fileName  = \textcolor{stringliteral}{"{}[STL]"{}};}
+\DoxyCodeLine{00156   iteratorClassEntry-\/>startLine = 1;}
+\DoxyCodeLine{00157   iteratorClassEntry-\/>name      = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{00158   iteratorClassEntry-\/>section   = \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9eaf5e46d7ba2df42f1c6a2dc683ba047d6}{Entry::CLASS\_SEC}};}
+\DoxyCodeLine{00159   iteratorClassEntry-\/>brief     = \textcolor{stringliteral}{"{}STL iterator class"{}};}
+\DoxyCodeLine{00160   iteratorClassEntry-\/>hidden    = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00161   iteratorClassEntry-\/>artificial= \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00162   classEntry-\/>moveToSubEntryAndKeep(iteratorClassEntry);}
+\DoxyCodeLine{00163 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9eaf5e46d7ba2df42f1c6a2dc683ba047d6}{Entry\+::\+CLASS\+\_\+\+SEC}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a7137defdca68d716cface04a9b9aa37e}{add\+STLClass()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2stlsupport_8cpp_a568c52cf665776d35aa0cb5c541d2563}\label{build_2doxygen_2src_2stlsupport_8cpp_a568c52cf665776d35aa0cb5c541d2563}} 
+\index{stlsupport.cpp@{stlsupport.cpp}!addSTLMember@{addSTLMember}}
+\index{addSTLMember@{addSTLMember}!stlsupport.cpp@{stlsupport.cpp}}
+\doxysubsubsection{\texorpdfstring{addSTLMember()}{addSTLMember()}}
+{\footnotesize\ttfamily static void add\+STLMember (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&}]{root,  }\item[{const char $\ast$}]{type,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source_l00139}{139}} of file \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source}{stlsupport.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140 \{}
+\DoxyCodeLine{00141   std::shared\_ptr<Entry> memEntry = std::make\_shared<Entry>();}
+\DoxyCodeLine{00142   memEntry-\/>name       = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{00143   memEntry-\/>type       = type;}
+\DoxyCodeLine{00144   memEntry-\/>protection = \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}};}
+\DoxyCodeLine{00145   memEntry-\/>section    = \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea1953adbb3d32ed88b1b5d92ccd9d1903}{Entry::VARIABLE\_SEC}};}
+\DoxyCodeLine{00146   memEntry-\/>brief      = \textcolor{stringliteral}{"{}STL member"{}};}
+\DoxyCodeLine{00147   memEntry-\/>hidden     = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00148   memEntry-\/>artificial = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00149   root-\/>moveToSubEntryAndKeep(memEntry);}
+\DoxyCodeLine{00150 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, and \mbox{\hyperlink{class_entry_a1e615d53eb7db6d16c19fcb5788fbd9ea1953adbb3d32ed88b1b5d92ccd9d1903}{Entry\+::\+VARIABLE\+\_\+\+SEC}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a7137defdca68d716cface04a9b9aa37e}{add\+STLClass()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2stlsupport_8cpp_a9e8cfe5b2cd5bf238c936a13169f7e76}\label{build_2doxygen_2src_2stlsupport_8cpp_a9e8cfe5b2cd5bf238c936a13169f7e76}} 
+\index{stlsupport.cpp@{stlsupport.cpp}!addSTLSupport@{addSTLSupport}}
+\index{addSTLSupport@{addSTLSupport}!stlsupport.cpp@{stlsupport.cpp}}
+\doxysubsubsection{\texorpdfstring{addSTLSupport()}{addSTLSupport()}}
+{\footnotesize\ttfamily void add\+STLSupport (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&}]{root }\end{DoxyParamCaption})}
+
+Add stub entries for the most used classes in the standard template library 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the entry tree to add the entries to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source_l00264}{264}} of file \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source}{stlsupport.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00265 \{}
+\DoxyCodeLine{00266   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(BUILTIN\_STL\_SUPPORT))}
+\DoxyCodeLine{00267   \{}
+\DoxyCodeLine{00268     \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a95efd6a7d367cd542aa4949c0e5bcdff}{addSTLClasses}}(root);}
+\DoxyCodeLine{00269   \}}
+\DoxyCodeLine{00270 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a95efd6a7d367cd542aa4949c0e5bcdff}{add\+STLClasses()}}, and \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2stlsupport_8cpp_a697826d201cc28c7f25b5687201563f4}\label{build_2doxygen_2src_2stlsupport_8cpp_a697826d201cc28c7f25b5687201563f4}} 
+\index{stlsupport.cpp@{stlsupport.cpp}!g\_stlinfo@{g\_stlinfo}}
+\index{g\_stlinfo@{g\_stlinfo}!stlsupport.cpp@{stlsupport.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_stlinfo}{g\_stlinfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_s_t_l_info}{STLInfo}} g\+\_\+stlinfo\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_source}{stlsupport.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2stlsupport_8cpp_a95efd6a7d367cd542aa4949c0e5bcdff}{add\+STLClasses()}}.
+

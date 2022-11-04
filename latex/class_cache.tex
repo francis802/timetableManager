@@ -1,0 +1,1136 @@
+\hypertarget{class_cache}{}\doxysection{Cache\texorpdfstring{$<$}{<} K, V \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_cache}\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+
+
+{\ttfamily \#include $<$cache.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} = std\+::pair$<$ K, V $>$
+\item 
+using \mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} = typename std\+::list$<$ \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$\+::iterator
+\item 
+using \mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} = typename std\+::list$<$ \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$\+::const\+\_\+iterator
+\item 
+using \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} = std\+::pair$<$ K, V $>$
+\item 
+using \mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} = typename std\+::list$<$ \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$\+::iterator
+\item 
+using \mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} = typename std\+::list$<$ \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cache_aaa77900cf0925ea6e46653361bc6be29}{Cache}} (size\+\_\+t \mbox{\hyperlink{class_cache_a62ce1e1112e08368aff14b6627d2d039}{capacity}})
+\begin{DoxyCompactList}\small\item\em creates a cache that can hold {\itshape capacity} elements \end{DoxyCompactList}\item 
+V $\ast$ \mbox{\hyperlink{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}{insert}} (const K \&key, V \&\&value)
+\begin{DoxyCompactList}\small\item\em Inserts {\itshape value} under {\itshape key} in the cache. \end{DoxyCompactList}\item 
+V $\ast$ \mbox{\hyperlink{class_cache_a2346678720d2078c031e7ea436e402b6}{insert}} (const K \&key, const V \&value)
+\begin{DoxyCompactList}\small\item\em Inserts {\itshape value} under {\itshape key} in the cache. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}{remove}} (const K \&key)
+\item 
+V $\ast$ \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find}} (const K \&key)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_cache_a8b8abd9f417e818217ba17f9756f41eb}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of values stored in the cache. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_cache_a62ce1e1112e08368aff14b6627d2d039}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum number of values that can be stored in the cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{class_cache_ace97657a7c672dcc74d30e43c4006ea7}{hits}} () const
+\begin{DoxyCompactList}\small\item\em Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did find a value in the cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}{misses}} () const
+\begin{DoxyCompactList}\small\item\em Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did not found a value in the cache. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cache_aaa0c3a5019640bfd305277ac83ff553f}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears all values in the cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache_a710ca4c838a720d74a5a9063df23a27e}{begin}} ()
+\item 
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache_a3328cf128d88cc86cbf81ce38dc81f0f}{end}} ()
+\item 
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache_a5212a44b518fd416891d0a0751c8ae78}{begin}} () const
+\item 
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache_a980ba5495fea787d5e88a5f6a24a2f4b}{end}} () const
+\item 
+\mbox{\hyperlink{class_cache_aaa77900cf0925ea6e46653361bc6be29}{Cache}} (size\+\_\+t \mbox{\hyperlink{class_cache_a62ce1e1112e08368aff14b6627d2d039}{capacity}})
+\begin{DoxyCompactList}\small\item\em creates a cache that can hold {\itshape capacity} elements \end{DoxyCompactList}\item 
+V $\ast$ \mbox{\hyperlink{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}{insert}} (const K \&key, V \&\&value)
+\begin{DoxyCompactList}\small\item\em Inserts {\itshape value} under {\itshape key} in the cache. \end{DoxyCompactList}\item 
+V $\ast$ \mbox{\hyperlink{class_cache_a2346678720d2078c031e7ea436e402b6}{insert}} (const K \&key, const V \&value)
+\begin{DoxyCompactList}\small\item\em Inserts {\itshape value} under {\itshape key} in the cache. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}{remove}} (const K \&key)
+\item 
+V $\ast$ \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find}} (const K \&key)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_cache_a8b8abd9f417e818217ba17f9756f41eb}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of values stored in the cache. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_cache_a62ce1e1112e08368aff14b6627d2d039}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum number of values that can be stored in the cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{class_cache_ace97657a7c672dcc74d30e43c4006ea7}{hits}} () const
+\begin{DoxyCompactList}\small\item\em Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did find a value in the cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}{misses}} () const
+\begin{DoxyCompactList}\small\item\em Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did not found a value in the cache. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cache_aaa0c3a5019640bfd305277ac83ff553f}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears all values in the cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache_a710ca4c838a720d74a5a9063df23a27e}{begin}} ()
+\item 
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache_a3328cf128d88cc86cbf81ce38dc81f0f}{end}} ()
+\item 
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache_a5212a44b518fd416891d0a0751c8ae78}{begin}} () const
+\item 
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache_a980ba5495fea787d5e88a5f6a24a2f4b}{end}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{resize}} ()
+\item 
+void \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{resize}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{m\+\_\+capacity}}
+\item 
+std\+::list$<$ \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$ \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\+\_\+cache\+Item\+List}}
+\item 
+std\+::unordered\+\_\+map$<$ K, \mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} $>$ \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\+\_\+cache\+Item\+Map}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{m\+\_\+hits}} =0
+\item 
+uint64\+\_\+t \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{m\+\_\+misses}} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename K, typename V$>$\newline
+class Cache$<$ K, V $>$}
+Fixed size cache for value type V using keys of type K.
+
+When the maximum capacity has reached, the least recently used value is removed from the cache (LRU strategy). 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00031}{31}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_cache_a28677bb60d07d35d925f8d7852e8f142}\label{class_cache_a28677bb60d07d35d925f8d7852e8f142}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::const\+\_\+iterator =  typename std\+::list$<$\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}}$>$\+::const\+\_\+iterator}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00036}{36}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+\mbox{\Hypertarget{class_cache_a28677bb60d07d35d925f8d7852e8f142}\label{class_cache_a28677bb60d07d35d925f8d7852e8f142}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::const\+\_\+iterator =  typename std\+::list$<$\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}}$>$\+::const\+\_\+iterator}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00036}{36}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+\mbox{\Hypertarget{class_cache_a79258c643559f458b14ecb02a0258d00}\label{class_cache_a79258c643559f458b14ecb02a0258d00}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::iterator =  typename std\+::list$<$\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}}$>$\+::iterator}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00035}{35}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+\mbox{\Hypertarget{class_cache_a79258c643559f458b14ecb02a0258d00}\label{class_cache_a79258c643559f458b14ecb02a0258d00}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::iterator =  typename std\+::list$<$\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}}$>$\+::iterator}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00035}{35}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+\mbox{\Hypertarget{class_cache_a0378ae0d907403c4e9ae21da645f9331}\label{class_cache_a0378ae0d907403c4e9ae21da645f9331}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!kv\_pair@{kv\_pair}}
+\index{kv\_pair@{kv\_pair}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{kv\_pair}{kv\_pair}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::kv\+\_\+pair =  std\+::pair$<$K,V$>$}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00034}{34}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+\mbox{\Hypertarget{class_cache_a0378ae0d907403c4e9ae21da645f9331}\label{class_cache_a0378ae0d907403c4e9ae21da645f9331}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!kv\_pair@{kv\_pair}}
+\index{kv\_pair@{kv\_pair}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{kv\_pair}{kv\_pair}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::kv\+\_\+pair =  std\+::pair$<$K,V$>$}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00034}{34}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_cache_aaa77900cf0925ea6e46653361bc6be29}\label{class_cache_aaa77900cf0925ea6e46653361bc6be29}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!Cache@{Cache}}
+\index{Cache@{Cache}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{Cache()}{Cache()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\mbox{\hyperlink{class_cache}{\+::\+Cache}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+creates a cache that can hold {\itshape capacity} elements 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00039}{39}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039                            : \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{m\_capacity}}(\mbox{\hyperlink{class_cache_a62ce1e1112e08368aff14b6627d2d039}{capacity}})}
+\DoxyCodeLine{00040     \{}
+\DoxyCodeLine{00041     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cache_aaa77900cf0925ea6e46653361bc6be29}\label{class_cache_aaa77900cf0925ea6e46653361bc6be29}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!Cache@{Cache}}
+\index{Cache@{Cache}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{Cache()}{Cache()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\mbox{\hyperlink{class_cache}{\+::\+Cache}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+creates a cache that can hold {\itshape capacity} elements 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00039}{39}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039                            : \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{m\_capacity}}(\mbox{\hyperlink{class_cache_a62ce1e1112e08368aff14b6627d2d039}{capacity}})}
+\DoxyCodeLine{00040     \{}
+\DoxyCodeLine{00041     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cache_a710ca4c838a720d74a5a9063df23a27e}\label{class_cache_a710ca4c838a720d74a5a9063df23a27e}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!begin@{begin}}
+\index{begin@{begin}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00156}{156}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin();  \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a710ca4c838a720d74a5a9063df23a27e}\label{class_cache_a710ca4c838a720d74a5a9063df23a27e}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!begin@{begin}}
+\index{begin@{begin}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00156}{156}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin();  \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a5212a44b518fd416891d0a0751c8ae78}\label{class_cache_a5212a44b518fd416891d0a0751c8ae78}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!begin@{begin}}
+\index{begin@{begin}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00158}{158}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.cbegin(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a5212a44b518fd416891d0a0751c8ae78}\label{class_cache_a5212a44b518fd416891d0a0751c8ae78}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!begin@{begin}}
+\index{begin@{begin}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00158}{158}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.cbegin(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a62ce1e1112e08368aff14b6627d2d039}\label{class_cache_a62ce1e1112e08368aff14b6627d2d039}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the maximum number of values that can be stored in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00132}{132}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133     \{}
+\DoxyCodeLine{00134       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{m\_capacity}};}
+\DoxyCodeLine{00135     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{Cache$<$ K, V $>$\+::m\+\_\+capacity}}.
+
+\mbox{\Hypertarget{class_cache_a62ce1e1112e08368aff14b6627d2d039}\label{class_cache_a62ce1e1112e08368aff14b6627d2d039}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the maximum number of values that can be stored in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00132}{132}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133     \{}
+\DoxyCodeLine{00134       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{m\_capacity}};}
+\DoxyCodeLine{00135     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{Cache$<$ K, V $>$\+::m\+\_\+capacity}}.
+
+\mbox{\Hypertarget{class_cache_aaa0c3a5019640bfd305277ac83ff553f}\label{class_cache_aaa0c3a5019640bfd305277ac83ff553f}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!clear@{clear}}
+\index{clear@{clear}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears all values in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00150}{150}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151     \{}
+\DoxyCodeLine{00152       \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.clear();}
+\DoxyCodeLine{00153       \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.clear();}
+\DoxyCodeLine{00154     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, and \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input()}}.
+
+\mbox{\Hypertarget{class_cache_aaa0c3a5019640bfd305277ac83ff553f}\label{class_cache_aaa0c3a5019640bfd305277ac83ff553f}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!clear@{clear}}
+\index{clear@{clear}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears all values in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00150}{150}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151     \{}
+\DoxyCodeLine{00152       \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.clear();}
+\DoxyCodeLine{00153       \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.clear();}
+\DoxyCodeLine{00154     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, and \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}.
+
+\mbox{\Hypertarget{class_cache_a3328cf128d88cc86cbf81ce38dc81f0f}\label{class_cache_a3328cf128d88cc86cbf81ce38dc81f0f}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!end@{end}}
+\index{end@{end}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00157}{157}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.end();    \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a3328cf128d88cc86cbf81ce38dc81f0f}\label{class_cache_a3328cf128d88cc86cbf81ce38dc81f0f}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!end@{end}}
+\index{end@{end}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00157}{157}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.end();    \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a980ba5495fea787d5e88a5f6a24a2f4b}\label{class_cache_a980ba5495fea787d5e88a5f6a24a2f4b}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!end@{end}}
+\index{end@{end}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00159}{159}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.cend();   \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a980ba5495fea787d5e88a5f6a24a2f4b}\label{class_cache_a980ba5495fea787d5e88a5f6a24a2f4b}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!end@{end}}
+\index{end@{end}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{class_cache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00159}{159}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.cend();   \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}.
+
+\mbox{\Hypertarget{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}\label{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!find@{find}}
+\index{find@{find}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::find (\begin{DoxyParamCaption}\item[{const K \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Finds a value in the cache given the corresponding {\itshape key}. \begin{DoxyReturn}{Returns}
+a pointer to the value or nullptr if the key is not found in the cache 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The hit and miss counters are updated, see \mbox{\hyperlink{class_cache_ace97657a7c672dcc74d30e43c4006ea7}{hits()}} and \mbox{\hyperlink{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}{misses()}}. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00105}{105}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106     \{}
+\DoxyCodeLine{00107       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00108       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00109       \{}
+\DoxyCodeLine{00110         \textcolor{comment}{// move the item to the front of the list}}
+\DoxyCodeLine{00111         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.splice(\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin(),}
+\DoxyCodeLine{00112                                \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}},}
+\DoxyCodeLine{00113                                it-\/>second);}
+\DoxyCodeLine{00114         \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{m\_hits}}++;}
+\DoxyCodeLine{00115         \textcolor{comment}{// return the value}}
+\DoxyCodeLine{00116         \textcolor{keywordflow}{return} \&it-\/>second-\/>second;}
+\DoxyCodeLine{00117       \}}
+\DoxyCodeLine{00118       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00119       \{}
+\DoxyCodeLine{00120         \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{m\_misses}}++;}
+\DoxyCodeLine{00121       \}}
+\DoxyCodeLine{00122       \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00123     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{Cache$<$ K, V $>$\+::m\+\_\+hits}}, and \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{Cache$<$ K, V $>$\+::m\+\_\+misses}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_symbol_resolver_1_1_private_a1b353e10f16e1e03de54bdbc90c284b0}{Symbol\+Resolver\+::\+Private\+::get\+Resolved\+Symbol\+Rec()}}, and \mbox{\hyperlink{struct_symbol_resolver_1_1_private_a4b1064343083d6422f200e907d7fea1f}{Symbol\+Resolver\+::\+Private\+::get\+Resolved\+Type\+Rec()}}.
+
+\mbox{\Hypertarget{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}\label{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!find@{find}}
+\index{find@{find}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::find (\begin{DoxyParamCaption}\item[{const K \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Finds a value in the cache given the corresponding {\itshape key}. \begin{DoxyReturn}{Returns}
+a pointer to the value or nullptr if the key is not found in the cache 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The hit and miss counters are updated, see \mbox{\hyperlink{class_cache_ace97657a7c672dcc74d30e43c4006ea7}{hits()}} and \mbox{\hyperlink{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}{misses()}}. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00105}{105}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106     \{}
+\DoxyCodeLine{00107       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00108       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00109       \{}
+\DoxyCodeLine{00110         \textcolor{comment}{// move the item to the front of the list}}
+\DoxyCodeLine{00111         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.splice(\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin(),}
+\DoxyCodeLine{00112                                \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}},}
+\DoxyCodeLine{00113                                it-\/>second);}
+\DoxyCodeLine{00114         \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{m\_hits}}++;}
+\DoxyCodeLine{00115         \textcolor{comment}{// return the value}}
+\DoxyCodeLine{00116         \textcolor{keywordflow}{return} \&it-\/>second-\/>second;}
+\DoxyCodeLine{00117       \}}
+\DoxyCodeLine{00118       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00119       \{}
+\DoxyCodeLine{00120         \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{m\_misses}}++;}
+\DoxyCodeLine{00121       \}}
+\DoxyCodeLine{00122       \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00123     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{Cache$<$ K, V $>$\+::m\+\_\+hits}}, and \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{Cache$<$ K, V $>$\+::m\+\_\+misses}}.
+
+\mbox{\Hypertarget{class_cache_ace97657a7c672dcc74d30e43c4006ea7}\label{class_cache_ace97657a7c672dcc74d30e43c4006ea7}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!hits@{hits}}
+\index{hits@{hits}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{hits()}{hits()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::hits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did find a value in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00138}{138}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139     \{}
+\DoxyCodeLine{00140       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{m\_hits}};}
+\DoxyCodeLine{00141     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{Cache$<$ K, V $>$\+::m\+\_\+hits}}.
+
+\mbox{\Hypertarget{class_cache_ace97657a7c672dcc74d30e43c4006ea7}\label{class_cache_ace97657a7c672dcc74d30e43c4006ea7}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!hits@{hits}}
+\index{hits@{hits}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{hits()}{hits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::hits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did find a value in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00138}{138}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139     \{}
+\DoxyCodeLine{00140       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{m\_hits}};}
+\DoxyCodeLine{00141     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a848baa79896ab6ebca4433c41b0098a0}{Cache$<$ K, V $>$\+::m\+\_\+hits}}.
+
+\mbox{\Hypertarget{class_cache_a2346678720d2078c031e7ea436e402b6}\label{class_cache_a2346678720d2078c031e7ea436e402b6}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!insert@{insert}}
+\index{insert@{insert}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::insert (\begin{DoxyParamCaption}\item[{const K \&}]{key,  }\item[{const V \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts {\itshape value} under {\itshape key} in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00067}{67}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068     \{}
+\DoxyCodeLine{00069       \textcolor{comment}{// reuse item if it already exists}}
+\DoxyCodeLine{00070       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00071       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00072       \{}
+\DoxyCodeLine{00073         \textcolor{comment}{// move the item to the front of the list}}
+\DoxyCodeLine{00074         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.splice(\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin(),}
+\DoxyCodeLine{00075                                \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}},}
+\DoxyCodeLine{00076                                it-\/>second);}
+\DoxyCodeLine{00077         it-\/>second-\/>second = value;}
+\DoxyCodeLine{00078         \textcolor{keywordflow}{return} \&it-\/>second-\/>second;}
+\DoxyCodeLine{00079       \}}
+\DoxyCodeLine{00080       \textcolor{comment}{// store new item}}
+\DoxyCodeLine{00081       \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.push\_front(\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\_pair}}(key,value));}
+\DoxyCodeLine{00082       V *result = \&\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.front().second;}
+\DoxyCodeLine{00083       \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}[key] = \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin();}
+\DoxyCodeLine{00084       \textcolor{comment}{// remove least recently used item if cache is full}}
+\DoxyCodeLine{00085       \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{resize}}();}
+\DoxyCodeLine{00086       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00087     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, and \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{Cache$<$ K, V $>$\+::resize()}}.
+
+\mbox{\Hypertarget{class_cache_a2346678720d2078c031e7ea436e402b6}\label{class_cache_a2346678720d2078c031e7ea436e402b6}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!insert@{insert}}
+\index{insert@{insert}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::insert (\begin{DoxyParamCaption}\item[{const K \&}]{key,  }\item[{const V \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts {\itshape value} under {\itshape key} in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00067}{67}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068     \{}
+\DoxyCodeLine{00069       \textcolor{comment}{// reuse item if it already exists}}
+\DoxyCodeLine{00070       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00071       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00072       \{}
+\DoxyCodeLine{00073         \textcolor{comment}{// move the item to the front of the list}}
+\DoxyCodeLine{00074         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.splice(\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin(),}
+\DoxyCodeLine{00075                                \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}},}
+\DoxyCodeLine{00076                                it-\/>second);}
+\DoxyCodeLine{00077         it-\/>second-\/>second = value;}
+\DoxyCodeLine{00078         \textcolor{keywordflow}{return} \&it-\/>second-\/>second;}
+\DoxyCodeLine{00079       \}}
+\DoxyCodeLine{00080       \textcolor{comment}{// store new item}}
+\DoxyCodeLine{00081       \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.push\_front(\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\_pair}}(key,value));}
+\DoxyCodeLine{00082       V *result = \&\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.front().second;}
+\DoxyCodeLine{00083       \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}[key] = \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin();}
+\DoxyCodeLine{00084       \textcolor{comment}{// remove least recently used item if cache is full}}
+\DoxyCodeLine{00085       \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{resize}}();}
+\DoxyCodeLine{00086       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00087     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, and \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{Cache$<$ K, V $>$\+::resize()}}.
+
+\mbox{\Hypertarget{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}\label{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!insert@{insert}}
+\index{insert@{insert}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::insert (\begin{DoxyParamCaption}\item[{const K \&}]{key,  }\item[{V \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts {\itshape value} under {\itshape key} in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00044}{44}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045     \{}
+\DoxyCodeLine{00046       \textcolor{comment}{// reuse item if it already exists}}
+\DoxyCodeLine{00047       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00048       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00049       \{}
+\DoxyCodeLine{00050         \textcolor{comment}{// move the item to the front of the list}}
+\DoxyCodeLine{00051         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.splice(\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin(),}
+\DoxyCodeLine{00052                                \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}},}
+\DoxyCodeLine{00053                                it-\/>second);}
+\DoxyCodeLine{00054         std::exchange(it-\/>second-\/>second,value);}
+\DoxyCodeLine{00055         \textcolor{keywordflow}{return} \&it-\/>second-\/>second;}
+\DoxyCodeLine{00056       \}}
+\DoxyCodeLine{00057       \textcolor{comment}{// create new item}}
+\DoxyCodeLine{00058       \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.push\_front(\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\_pair}}(key,std::move(value)));}
+\DoxyCodeLine{00059       V *result = \&\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.front().second;}
+\DoxyCodeLine{00060       \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}[key] = \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin();}
+\DoxyCodeLine{00061       \textcolor{comment}{// remove least recently used item if cache is full}}
+\DoxyCodeLine{00062       \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{resize}}();}
+\DoxyCodeLine{00063       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00064     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, and \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{Cache$<$ K, V $>$\+::resize()}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_symbol_resolver_1_1_private_a1b353e10f16e1e03de54bdbc90c284b0}{Symbol\+Resolver\+::\+Private\+::get\+Resolved\+Symbol\+Rec()}}, and \mbox{\hyperlink{struct_symbol_resolver_1_1_private_a4b1064343083d6422f200e907d7fea1f}{Symbol\+Resolver\+::\+Private\+::get\+Resolved\+Type\+Rec()}}.
+
+\mbox{\Hypertarget{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}\label{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!insert@{insert}}
+\index{insert@{insert}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::insert (\begin{DoxyParamCaption}\item[{const K \&}]{key,  }\item[{V \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts {\itshape value} under {\itshape key} in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00044}{44}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045     \{}
+\DoxyCodeLine{00046       \textcolor{comment}{// reuse item if it already exists}}
+\DoxyCodeLine{00047       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00048       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00049       \{}
+\DoxyCodeLine{00050         \textcolor{comment}{// move the item to the front of the list}}
+\DoxyCodeLine{00051         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.splice(\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin(),}
+\DoxyCodeLine{00052                                \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}},}
+\DoxyCodeLine{00053                                it-\/>second);}
+\DoxyCodeLine{00054         std::exchange(it-\/>second-\/>second,value);}
+\DoxyCodeLine{00055         \textcolor{keywordflow}{return} \&it-\/>second-\/>second;}
+\DoxyCodeLine{00056       \}}
+\DoxyCodeLine{00057       \textcolor{comment}{// create new item}}
+\DoxyCodeLine{00058       \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.push\_front(\mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\_pair}}(key,std::move(value)));}
+\DoxyCodeLine{00059       V *result = \&\mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.front().second;}
+\DoxyCodeLine{00060       \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}[key] = \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.begin();}
+\DoxyCodeLine{00061       \textcolor{comment}{// remove least recently used item if cache is full}}
+\DoxyCodeLine{00062       \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{resize}}();}
+\DoxyCodeLine{00063       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00064     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, and \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{Cache$<$ K, V $>$\+::resize()}}.
+
+\mbox{\Hypertarget{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}\label{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!misses@{misses}}
+\index{misses@{misses}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{misses()}{misses()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::misses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did not found a value in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00144}{144}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00145     \{}
+\DoxyCodeLine{00146       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{m\_misses}};}
+\DoxyCodeLine{00147     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{Cache$<$ K, V $>$\+::m\+\_\+misses}}.
+
+\mbox{\Hypertarget{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}\label{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!misses@{misses}}
+\index{misses@{misses}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{misses()}{misses()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::misses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns how many of the \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did not found a value in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00144}{144}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00145     \{}
+\DoxyCodeLine{00146       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{m\_misses}};}
+\DoxyCodeLine{00147     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}{Cache$<$ K, V $>$\+::m\+\_\+misses}}.
+
+\mbox{\Hypertarget{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}\label{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!remove@{remove}}
+\index{remove@{remove}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::remove (\begin{DoxyParamCaption}\item[{const K \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes entry {\itshape key} from the cache. \begin{DoxyNote}{Note}
+this invalidates any iterators 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00091}{91}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092     \{}
+\DoxyCodeLine{00093       \textcolor{comment}{// remove item if it already exists}}
+\DoxyCodeLine{00094       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00095       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00096       \{}
+\DoxyCodeLine{00097         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.erase(it-\/>second);}
+\DoxyCodeLine{00098         \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.erase(it);}
+\DoxyCodeLine{00099       \}}
+\DoxyCodeLine{00100     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, and \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_adab2ba56491a0f74345ef3f38455bcc6}{doxmlparser.\+compound.\+memberdef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a525a532678f13c24e28f70aa7ba57a2a}{doxmlparser.\+compound.\+memberdef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_aef6554e5a3b993d4b43b324e67741192}{doxmlparser.\+compound.\+memberdef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a082d23658541704d3493a7a881583d55}{flush\+Cached\+Template\+Relations()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_aad3dd00ae1c58bfc06981afcc5f14a53}{flush\+Unresolved\+Relations()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a51096cf77f41e2b5bce0a6e7f3c12566}{doxmlparser.\+compound.\+memberdef\+Type\+::get\+\_\+remove()}}, and \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_aa7fcdfd087b9ab98de1a8119b306855e}{doxmlparser.\+compound.\+memberdef\+Type\+::set\+\_\+remove()}}.
+
+\mbox{\Hypertarget{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}\label{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!remove@{remove}}
+\index{remove@{remove}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::remove (\begin{DoxyParamCaption}\item[{const K \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes entry {\itshape key} from the cache. \begin{DoxyNote}{Note}
+this invalidates any iterators 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00091}{91}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092     \{}
+\DoxyCodeLine{00093       \textcolor{comment}{// remove item if it already exists}}
+\DoxyCodeLine{00094       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.find(key);}
+\DoxyCodeLine{00095       \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.end())}
+\DoxyCodeLine{00096       \{}
+\DoxyCodeLine{00097         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.erase(it-\/>second);}
+\DoxyCodeLine{00098         \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.erase(it);}
+\DoxyCodeLine{00099       \}}
+\DoxyCodeLine{00100     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, and \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_adab2ba56491a0f74345ef3f38455bcc6}{doxmlparser.\+compound.\+memberdef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a525a532678f13c24e28f70aa7ba57a2a}{doxmlparser.\+compound.\+memberdef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_aef6554e5a3b993d4b43b324e67741192}{doxmlparser.\+compound.\+memberdef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a51096cf77f41e2b5bce0a6e7f3c12566}{doxmlparser.\+compound.\+memberdef\+Type\+::get\+\_\+remove()}}, and \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_aa7fcdfd087b9ab98de1a8119b306855e}{doxmlparser.\+compound.\+memberdef\+Type\+::set\+\_\+remove()}}.
+
+\mbox{\Hypertarget{class_cache_a4da60b9993165ac0170ae98b91cd9299}\label{class_cache_a4da60b9993165ac0170ae98b91cd9299}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!resize@{resize}}
+\index{resize@{resize}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::resize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00163}{163}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164     \{}
+\DoxyCodeLine{00165       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.size() > \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{m\_capacity}})}
+\DoxyCodeLine{00166       \{}
+\DoxyCodeLine{00167         \textcolor{keyword}{auto} last\_it = \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.end();}
+\DoxyCodeLine{00168         -\/-\/last\_it;}
+\DoxyCodeLine{00169         \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.erase(last\_it-\/>first);}
+\DoxyCodeLine{00170         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.pop\_back();}
+\DoxyCodeLine{00171       \}}
+\DoxyCodeLine{00172     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, and \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{Cache$<$ K, V $>$\+::m\+\_\+capacity}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}{Cache$<$ K, V $>$\+::insert()}}.
+
+\mbox{\Hypertarget{class_cache_a4da60b9993165ac0170ae98b91cd9299}\label{class_cache_a4da60b9993165ac0170ae98b91cd9299}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!resize@{resize}}
+\index{resize@{resize}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::resize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00163}{163}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164     \{}
+\DoxyCodeLine{00165       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.size() > \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{m\_capacity}})}
+\DoxyCodeLine{00166       \{}
+\DoxyCodeLine{00167         \textcolor{keyword}{auto} last\_it = \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.end();}
+\DoxyCodeLine{00168         -\/-\/last\_it;}
+\DoxyCodeLine{00169         \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.erase(last\_it-\/>first);}
+\DoxyCodeLine{00170         \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{m\_cacheItemList}}.pop\_back();}
+\DoxyCodeLine{00171       \}}
+\DoxyCodeLine{00172     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+List}}, \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}, and \mbox{\hyperlink{class_cache_a779e62967f4cc5217b0fdc4158ca4311}{Cache$<$ K, V $>$\+::m\+\_\+capacity}}.
+
+\mbox{\Hypertarget{class_cache_a8b8abd9f417e818217ba17f9756f41eb}\label{class_cache_a8b8abd9f417e818217ba17f9756f41eb}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!size@{size}}
+\index{size@{size}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the number of values stored in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00126}{126}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127     \{}
+\DoxyCodeLine{00128       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.size();}
+\DoxyCodeLine{00129     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}.
+
+\mbox{\Hypertarget{class_cache_a8b8abd9f417e818217ba17f9756f41eb}\label{class_cache_a8b8abd9f417e818217ba17f9756f41eb}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!size@{size}}
+\index{size@{size}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the number of values stored in the cache. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2cache_8h_source_l00126}{126}} of file \mbox{\hyperlink{src_2cache_8h_source}{cache.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127     \{}
+\DoxyCodeLine{00128       \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{m\_cacheItemMap}}.size();}
+\DoxyCodeLine{00129     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_cache_a6100fb8fba2470237ad1a7be2434919a}{Cache$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}\label{class_cache_abf8dedaf372cd3f1cb073b093e2cce76}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!m\_cacheItemList@{m\_cacheItemList}}
+\index{m\_cacheItemList@{m\_cacheItemList}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{m\_cacheItemList}{m\_cacheItemList}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+std\+::list$<$ \mbox{\hyperlink{class_cache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::m\+\_\+cache\+Item\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00176}{176}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cache_a710ca4c838a720d74a5a9063df23a27e}{Cache$<$ K, V $>$\+::begin()}}, \mbox{\hyperlink{class_cache_aaa0c3a5019640bfd305277ac83ff553f}{Cache$<$ K, V $>$\+::clear()}}, \mbox{\hyperlink{class_cache_a3328cf128d88cc86cbf81ce38dc81f0f}{Cache$<$ K, V $>$\+::end()}}, \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{Cache$<$ K, V $>$\+::find()}}, \mbox{\hyperlink{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}{Cache$<$ K, V $>$\+::insert()}}, \mbox{\hyperlink{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}{Cache$<$ K, V $>$\+::remove()}}, and \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{Cache$<$ K, V $>$\+::resize()}}.
+
+\mbox{\Hypertarget{class_cache_a6100fb8fba2470237ad1a7be2434919a}\label{class_cache_a6100fb8fba2470237ad1a7be2434919a}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!m\_cacheItemMap@{m\_cacheItemMap}}
+\index{m\_cacheItemMap@{m\_cacheItemMap}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{m\_cacheItemMap}{m\_cacheItemMap}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+std\+::unordered\+\_\+map$<$ K, \mbox{\hyperlink{class_cache_a79258c643559f458b14ecb02a0258d00}{iterator}} $>$ \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::m\+\_\+cache\+Item\+Map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00178}{178}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cache_aaa0c3a5019640bfd305277ac83ff553f}{Cache$<$ K, V $>$\+::clear()}}, \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{Cache$<$ K, V $>$\+::find()}}, \mbox{\hyperlink{class_cache_a1cf01dfdbe1b56e62c25112e771b23fa}{Cache$<$ K, V $>$\+::insert()}}, \mbox{\hyperlink{class_cache_ac3a7d2f92c1e3652b0279dcafe563f8e}{Cache$<$ K, V $>$\+::remove()}}, \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{Cache$<$ K, V $>$\+::resize()}}, and \mbox{\hyperlink{class_cache_a8b8abd9f417e818217ba17f9756f41eb}{Cache$<$ K, V $>$\+::size()}}.
+
+\mbox{\Hypertarget{class_cache_a779e62967f4cc5217b0fdc4158ca4311}\label{class_cache_a779e62967f4cc5217b0fdc4158ca4311}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!m\_capacity@{m\_capacity}}
+\index{m\_capacity@{m\_capacity}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{m\_capacity}{m\_capacity}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::m\+\_\+capacity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00174}{174}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cache_a62ce1e1112e08368aff14b6627d2d039}{Cache$<$ K, V $>$\+::capacity()}}, and \mbox{\hyperlink{class_cache_a4da60b9993165ac0170ae98b91cd9299}{Cache$<$ K, V $>$\+::resize()}}.
+
+\mbox{\Hypertarget{class_cache_a848baa79896ab6ebca4433c41b0098a0}\label{class_cache_a848baa79896ab6ebca4433c41b0098a0}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!m\_hits@{m\_hits}}
+\index{m\_hits@{m\_hits}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{m\_hits}{m\_hits}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::m\+\_\+hits =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00179}{179}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{Cache$<$ K, V $>$\+::find()}}, and \mbox{\hyperlink{class_cache_ace97657a7c672dcc74d30e43c4006ea7}{Cache$<$ K, V $>$\+::hits()}}.
+
+\mbox{\Hypertarget{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}\label{class_cache_a16e8b2b3815ee6a0d9a025ee9b3896ee}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!m\_misses@{m\_misses}}
+\index{m\_misses@{m\_misses}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{m\_misses}{m\_misses}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{class_cache}{Cache}}$<$ K, V $>$\+::m\+\_\+misses =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source_l00180}{180}} of file \mbox{\hyperlink{build_2doxygen_2src_2cache_8h_source}{cache.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_cache_a31d7c56fdd7cf7147e93bbc7b5420901}{Cache$<$ K, V $>$\+::find()}}, and \mbox{\hyperlink{class_cache_aaea59f2a9da7bf4416ed4e2de1c955a3}{Cache$<$ K, V $>$\+::misses()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2cache_8h}{cache.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2cache_8h}{cache.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,145 @@
+\hypertarget{build_2doxygen_2src_2tagreader_8cpp}{}\doxysection{doxygen/build/doxygen/src/tagreader.cpp File Reference}
+\label{build_2doxygen_2src_2tagreader_8cpp}\index{doxygen/build/doxygen/src/tagreader.cpp@{doxygen/build/doxygen/src/tagreader.cpp}}
+{\ttfamily \#include \char`\"{}tagreader.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}xml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}section.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}containers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_anchor_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Anchor\+Info}}
+\item 
+class \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_enum_value_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Enum\+Value\+Info}}
+\item 
+class \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_include_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Include\+Info}}
+\item 
+class \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_member_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Member\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_compound_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Compound\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_class_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Class\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_concept_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Concept\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_namespace_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Namespace\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_package_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Package\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_group_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Group\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_page_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Page\+Info}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_tag_dir_info}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Dir\+Info}}
+\item 
+class \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_compound_variant}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Compound\+Variant}}
+\item 
+class \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_element_callbacks}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Element\+Callbacks}}
+\item 
+struct \mbox{\hyperlink{structanonymous__namespace_02tagreader_8cpp_03_1_1_compound_factory}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Compound\+Factory}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03}{anonymous\+\_\+namespace\{tagreader.\+cpp\}}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_ac18c90bd4e113b5c424d19de0ea1d32d}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Class\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+Class\+Info $>$
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_a86c8309a99e9f776d7d7a83fff822063}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Concept\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+Concept\+Info $>$
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_a889d7980686f57db80b3e5819fb6c64f}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Namespace\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+Namespace\+Info $>$
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_a792ea1b26d6bd0a8a8ef0901ab5acb75}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Package\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+Package\+Info $>$
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_a5f7994a9d7cd106994ee57df536ffa98}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+File\+Info $>$
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_a552cbd0dedb755ac27cdbc7b0b36e8af}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Group\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+Group\+Info $>$
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_abd7ad081cac4df2fa89e2ba3efab5eb9}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Page\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+Page\+Info $>$
+\item 
+using \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_a6128d1c5f56e60cdd8e640b040ad9d23}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+Dir\+Info\+Ptr}} = std\+::unique\+\_\+ptr$<$ Tag\+Dir\+Info $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Element\+Callbacks\+::\+Start\+Callback \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_ade637827814093f915b0dd7f81a7b4b3}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::start\+Cb}} (void(Tag\+File\+Parser\+::$\ast$fn)(const \mbox{\hyperlink{class_x_m_l_handlers_a15cedeea046e36465580e5654121387e}{XMLHandlers\+::\+Attributes}} \&))
+\item 
+Element\+Callbacks\+::\+End\+Callback \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_ac0e9db42f670dde8575a3a49e80e8ad0}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::end\+Cb}} (void(Tag\+File\+Parser\+::$\ast$fn)())
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2tagreader_8cpp_a1cb67a3965d52e8078507f0bfd354337}{parse\+Tag\+File}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&root, const char $\ast$full\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, Element\+Callbacks $>$ \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_ac4f239fedcca27a83995d7b9a02b683d}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::g\+\_\+element\+Handlers}}
+\item 
+static const std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, Compound\+Factory $>$ \mbox{\hyperlink{namespaceanonymous__namespace_02tagreader_8cpp_03_aa152a4c7667a4529af23ddb5fe6f80ee}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::g\+\_\+compound\+Factory}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2tagreader_8cpp_a1cb67a3965d52e8078507f0bfd354337}\label{build_2doxygen_2src_2tagreader_8cpp_a1cb67a3965d52e8078507f0bfd354337}} 
+\index{tagreader.cpp@{tagreader.cpp}!parseTagFile@{parseTagFile}}
+\index{parseTagFile@{parseTagFile}!tagreader.cpp@{tagreader.cpp}}
+\doxysubsubsection{\texorpdfstring{parseTagFile()}{parseTagFile()}}
+{\footnotesize\ttfamily void parse\+Tag\+File (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entry}{Entry}} $>$ \&}]{root,  }\item[{const char $\ast$}]{full\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2tagreader_8cpp_source_l01689}{1689}} of file \mbox{\hyperlink{build_2doxygen_2src_2tagreader_8cpp_source}{tagreader.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01690 \{}
+\DoxyCodeLine{01691   TagFileParser tagFileParser(fullName);}
+\DoxyCodeLine{01692   \mbox{\hyperlink{class_q_c_string}{QCString}} inputStr = \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{fileToString}}(fullName);}
+\DoxyCodeLine{01693   \mbox{\hyperlink{class_x_m_l_handlers}{XMLHandlers}} handlers;}
+\DoxyCodeLine{01694   \textcolor{comment}{// connect the generic events handlers of the XML parser to the specific handlers of the tagFileParser object}}
+\DoxyCodeLine{01695   handlers.\mbox{\hyperlink{class_x_m_l_handlers_aa7c9793c2fc77929fabdb671b23b6ae6}{startDocument}} = [\&tagFileParser]()                                                              \{ tagFileParser.startDocument(); \};}
+\DoxyCodeLine{01696   handlers.\mbox{\hyperlink{class_x_m_l_handlers_a945909036791f9ab9b57ae6de8533c70}{startElement}}  = [\&tagFileParser](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_x_m_l_handlers_a15cedeea046e36465580e5654121387e}{XMLHandlers::Attributes}} \&attrs)  \{ tagFileParser.startElement(\mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}),attrs); \};}
+\DoxyCodeLine{01697   handlers.\mbox{\hyperlink{class_x_m_l_handlers_a2c85948a865bc625f1445766d8756691}{endElement}}    = [\&tagFileParser](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})                                       \{ tagFileParser.endElement(\mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})); \};}
+\DoxyCodeLine{01698   handlers.\mbox{\hyperlink{class_x_m_l_handlers_a5559e63579f11525d00371e448805fa2}{characters}}    = [\&tagFileParser](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&chars)                                      \{ tagFileParser.characters(\mbox{\hyperlink{class_q_c_string}{QCString}}(chars)); \};}
+\DoxyCodeLine{01699   handlers.\mbox{\hyperlink{class_x_m_l_handlers_ab6441d4f863d7bbc0da013e4eae77f3d}{error}}         = [\&tagFileParser](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&fileName,\textcolor{keywordtype}{int} lineNr,\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}}) \{ tagFileParser.error(\mbox{\hyperlink{class_q_c_string}{QCString}}(fileName),lineNr,\mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}})); \};}
+\DoxyCodeLine{01700   \mbox{\hyperlink{class_x_m_l_parser}{XMLParser}} parser(handlers);}
+\DoxyCodeLine{01701   tagFileParser.setDocumentLocator(\&parser);}
+\DoxyCodeLine{01702   parser.parse(fullName,inputStr.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Debug::Lex}}));}
+\DoxyCodeLine{01703   tagFileParser.buildLists(root);}
+\DoxyCodeLine{01704   tagFileParser.addIncludes();}
+\DoxyCodeLine{01705   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}{Debug::Tag}}))}
+\DoxyCodeLine{01706   \{}
+\DoxyCodeLine{01707     tagFileParser.dump();}
+\DoxyCodeLine{01708   \}}
+\DoxyCodeLine{01709 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_x_m_l_handlers_a5559e63579f11525d00371e448805fa2}{XMLHandlers\+::characters}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_x_m_l_handlers_a2c85948a865bc625f1445766d8756691}{XMLHandlers\+::end\+Element}}, \mbox{\hyperlink{class_x_m_l_handlers_ab6441d4f863d7bbc0da013e4eae77f3d}{XMLHandlers\+::error}}, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{file\+To\+String()}}, \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug\+::is\+Flag\+Set()}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Debug\+::\+Lex}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{class_x_m_l_parser_ac9822f941d0e7686a4cf45af2a31bbf1}{XMLParser\+::parse()}}, \mbox{\hyperlink{class_x_m_l_handlers_aa7c9793c2fc77929fabdb671b23b6ae6}{XMLHandlers\+::start\+Document}}, \mbox{\hyperlink{class_x_m_l_handlers_a945909036791f9ab9b57ae6de8533c70}{XMLHandlers\+::start\+Element}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}{Debug\+::\+Tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a7389d7a8c7a2859d36b88ff0dc477cdb}{read\+Tag\+File()}}.
+

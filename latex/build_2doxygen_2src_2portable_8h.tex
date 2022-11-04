@@ -1,0 +1,186 @@
+\hypertarget{build_2doxygen_2src_2portable_8h}{}\doxysection{doxygen/build/doxygen/src/portable.h File Reference}
+\label{build_2doxygen_2src_2portable_8h}\index{doxygen/build/doxygen/src/portable.h@{doxygen/build/doxygen/src/portable.h}}
+
+
+\mbox{\hyperlink{namespace_portable}{Portable}} versions of functions that are platform dependent.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_portable}{Portable}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef off\+\_\+t \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\+\_\+off\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable\+::system}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&command, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&args, bool command\+Has\+Console=true)
+\item 
+unsigned int \mbox{\hyperlink{namespace_portable_a5944f5ca01ff6e756c447e11583b73a0}{Portable\+::pid}} ()
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable\+::getenv}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&variable)
+\item 
+void \mbox{\hyperlink{namespace_portable_abd244447df22d110ad410b69c357fdf3}{Portable\+::setenv}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&variable, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&value)
+\item 
+void \mbox{\hyperlink{namespace_portable_ac2e29048cffc72c3bed439cff5b02cd4}{Portable\+::unsetenv}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&variable)
+\item 
+\mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\+\_\+off\+\_\+t}} \mbox{\hyperlink{namespace_portable_a508bfa22b32f24c3920ab65097fd9d59}{Portable\+::fseek}} (FILE $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\+\_\+off\+\_\+t}} \mbox{\hyperlink{libmscgen_2gd_8h_ae8293bdb39668d0bafde58b6c1d836f0}{offset}}, int whence)
+\item 
+\mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\+\_\+off\+\_\+t}} \mbox{\hyperlink{namespace_portable_aa76fa3c0c598edac56b9fd5aa2aa1c30}{Portable\+::ftell}} (FILE $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}})
+\item 
+FILE $\ast$ \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{Portable\+::fopen}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}})
+\item 
+int \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{Portable\+::fclose}} (FILE $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}})
+\item 
+void \mbox{\hyperlink{namespace_portable_a394e935b6fd1899b26f8987f89a4cbfb}{Portable\+::unlink}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name)
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespace_portable_a0f30be3f0aed0b88804816f3e6310ee4}{Portable\+::path\+Separator}} ()
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{Portable\+::path\+List\+Separator}} ()
+\item 
+const char $\ast$ \mbox{\hyperlink{namespace_portable_a4c4c43977edb27e33f873fbacf11d528}{Portable\+::ghost\+Script\+Command}} ()
+\item 
+const char $\ast$ \mbox{\hyperlink{namespace_portable_acf75def6ec394875d4a3c380ffc301b7}{Portable\+::command\+Extension}} ()
+\item 
+bool \mbox{\hyperlink{namespace_portable_a8c6ba49e769f2990693fa40528d3c50e}{Portable\+::file\+System\+Is\+Case\+Sensitive}} ()
+\item 
+FILE $\ast$ \mbox{\hyperlink{namespace_portable_a15b92ac03be9e8f4d95d5e881342d83c}{Portable\+::popen}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&type)
+\item 
+int \mbox{\hyperlink{namespace_portable_a6cde8cab8c3dc3397ea5c6030fbf6e84}{Portable\+::pclose}} (FILE $\ast$stream)
+\item 
+void \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable\+::sys\+Timer\+Start}} ()
+\item 
+void \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable\+::sys\+Timer\+Stop}} ()
+\item 
+double \mbox{\hyperlink{namespace_portable_a248b5a87e07edc01e5ae424b6597142f}{Portable\+::get\+Sys\+Elapsed\+Time}} ()
+\item 
+void \mbox{\hyperlink{namespace_portable_a7e7faa33c4307edc0f95a742bad3a736}{Portable\+::sleep}} (int ms)
+\item 
+bool \mbox{\hyperlink{namespace_portable_a08dc4d7f652408d7fc2eaba792796cb1}{Portable\+::is\+Absolute\+Path}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name)
+\item 
+void \mbox{\hyperlink{namespace_portable_a7b0d9dbb919f445905c42fabb783c6f9}{Portable\+::correct\+\_\+path}} ()
+\item 
+void \mbox{\hyperlink{namespace_portable_aff6714c1d9aaed257fc48a7a535b1fd5}{Portable\+::set\+Short\+Dir}} ()
+\item 
+const char $\ast$ \mbox{\hyperlink{namespace_portable_ada69eeb681c8f036f6a3327478acbd75}{Portable\+::strnstr}} (const char $\ast$haystack, const char $\ast$needle, size\+\_\+t haystack\+\_\+len)
+\item 
+const char $\ast$ \mbox{\hyperlink{namespace_portable_aec45ff95f54eed28050e42d3638907cf}{Portable\+::dev\+Null}} ()
+\item 
+bool \mbox{\hyperlink{namespace_portable_a39228795dec07d8121645b0348e91712}{Portable\+::check\+For\+Executable}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name)
+\item 
+size\+\_\+t \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{Portable\+::recode\+Utf8\+String\+ToW}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&input\+Str, uint16\+\_\+t $\ast$$\ast$buf)
+\item 
+void $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a7bc4daae6d2c3e89837c44e2c3d4dac6}{portable\+\_\+iconv\+\_\+open}} (const char $\ast$tocode, const char $\ast$fromcode)
+\item 
+size\+\_\+t \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a5fc5ec1eedfa06b27448863f69ee2e1d}{portable\+\_\+iconv}} (void $\ast$cd, const char $\ast$$\ast$inbuf, size\+\_\+t $\ast$inbytesleft, char $\ast$$\ast$outbuf, size\+\_\+t $\ast$outbytesleft)
+\item 
+int \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a3f98144680118aada1a93d2d4ba6173b}{portable\+\_\+iconv\+\_\+close}} (void $\ast$cd)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespace_portable}{Portable}} versions of functions that are platform dependent. 
+
+
+
+Definition in file \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_source}{portable.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}\label{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}} 
+\index{portable.h@{portable.h}!portable\_off\_t@{portable\_off\_t}}
+\index{portable\_off\_t@{portable\_off\_t}!portable.h@{portable.h}}
+\doxysubsubsection{\texorpdfstring{portable\_off\_t}{portable\_off\_t}}
+{\footnotesize\ttfamily typedef off\+\_\+t \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\+\_\+off\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_source_l00015}{15}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8h_source}{portable.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8h_a5fc5ec1eedfa06b27448863f69ee2e1d}\label{build_2doxygen_2src_2portable_8h_a5fc5ec1eedfa06b27448863f69ee2e1d}} 
+\index{portable.h@{portable.h}!portable\_iconv@{portable\_iconv}}
+\index{portable\_iconv@{portable\_iconv}!portable.h@{portable.h}}
+\doxysubsubsection{\texorpdfstring{portable\_iconv()}{portable\_iconv()}}
+{\footnotesize\ttfamily size\+\_\+t portable\+\_\+iconv (\begin{DoxyParamCaption}\item[{void $\ast$}]{cd,  }\item[{const char $\ast$$\ast$}]{inbuf,  }\item[{size\+\_\+t $\ast$}]{inbytesleft,  }\item[{char $\ast$$\ast$}]{outbuf,  }\item[{size\+\_\+t $\ast$}]{outbytesleft }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source_l00024}{24}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source}{portable\+\_\+c.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026 \{}
+\DoxyCodeLine{00027   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a44c0f9426dd91c55d783618e535404b7}{iconv}}((\mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a72517f6ffadddaafa9d51dee9b535c9f}{iconv\_t}})cd,(\textcolor{keywordtype}{char}**)inbuf,inbytesleft,outbuf,outbytesleft);}
+\DoxyCodeLine{00028 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a44c0f9426dd91c55d783618e535404b7}{iconv}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_a6c24725da6b5b59e4c8867995e84648f}{config\+String\+Recode()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfgen_8cpp_ad2df37d9e386ae992a5aa98ab9a0515c}{encode\+For\+Output()}}, \mbox{\hyperlink{class_html_help_recoder_a54cf0d51cc8f1d0cbac630757606f50b}{Html\+Help\+Recoder\+::recode()}}, \mbox{\hyperlink{class_template_context_impl_ab8ea2d7cb44d90ec727586f9bf92369e}{Template\+Context\+Impl\+::recode()}}, \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{Portable\+::recode\+Utf8\+String\+To\+W()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_abf8cbf15184f95c988f3c2942e1ac2da}{transcode\+Character\+Buffer()}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aeb5836eb3b5b80517b79333f80128522}{transcode\+Character\+String\+To\+UTF8()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8h_a3f98144680118aada1a93d2d4ba6173b}\label{build_2doxygen_2src_2portable_8h_a3f98144680118aada1a93d2d4ba6173b}} 
+\index{portable.h@{portable.h}!portable\_iconv\_close@{portable\_iconv\_close}}
+\index{portable\_iconv\_close@{portable\_iconv\_close}!portable.h@{portable.h}}
+\doxysubsubsection{\texorpdfstring{portable\_iconv\_close()}{portable\_iconv\_close()}}
+{\footnotesize\ttfamily int portable\+\_\+iconv\+\_\+close (\begin{DoxyParamCaption}\item[{void $\ast$}]{cd }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source_l00030}{30}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source}{portable\+\_\+c.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{}
+\DoxyCodeLine{00032   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a0c4ff4bdefbf1576f3e7bab5fbc5ec89}{iconv\_close}}((\mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a72517f6ffadddaafa9d51dee9b535c9f}{iconv\_t}})cd);}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a0c4ff4bdefbf1576f3e7bab5fbc5ec89}{iconv\+\_\+close}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjust\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_a6c24725da6b5b59e4c8867995e84648f}{config\+String\+Recode()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfgen_8cpp_ad2df37d9e386ae992a5aa98ab9a0515c}{encode\+For\+Output()}}, \mbox{\hyperlink{class_html_help_recoder_a1a26634d3db023f8cdbe4f19db32ceee}{Html\+Help\+Recoder\+::finalize()}}, \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{Portable\+::recode\+Utf8\+String\+To\+W()}}, \mbox{\hyperlink{class_template_context_impl_a61eac0859ed4b50a8d0b996b1b2bba86}{Template\+Context\+Impl\+::set\+Encoding()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_abf8cbf15184f95c988f3c2942e1ac2da}{transcode\+Character\+Buffer()}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aeb5836eb3b5b80517b79333f80128522}{transcode\+Character\+String\+To\+UTF8()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8h_a7bc4daae6d2c3e89837c44e2c3d4dac6}\label{build_2doxygen_2src_2portable_8h_a7bc4daae6d2c3e89837c44e2c3d4dac6}} 
+\index{portable.h@{portable.h}!portable\_iconv\_open@{portable\_iconv\_open}}
+\index{portable\_iconv\_open@{portable\_iconv\_open}!portable.h@{portable.h}}
+\doxysubsubsection{\texorpdfstring{portable\_iconv\_open()}{portable\_iconv\_open()}}
+{\footnotesize\ttfamily void $\ast$ portable\+\_\+iconv\+\_\+open (\begin{DoxyParamCaption}\item[{const char $\ast$}]{tocode,  }\item[{const char $\ast$}]{fromcode }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source_l00019}{19}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source}{portable\+\_\+c.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{}
+\DoxyCodeLine{00021   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_abc93f77b3b8b5891765c9f3c483ec013}{iconv\_open}}(tocode,fromcode);}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_abc93f77b3b8b5891765c9f3c483ec013}{iconv\+\_\+open}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjust\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_a6c24725da6b5b59e4c8867995e84648f}{config\+String\+Recode()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfgen_8cpp_ad2df37d9e386ae992a5aa98ab9a0515c}{encode\+For\+Output()}}, \mbox{\hyperlink{class_html_help_recoder_aaf8015f456496f1510c8e8643f959376}{Html\+Help\+Recoder\+::initialize()}}, \mbox{\hyperlink{namespace_portable_a724f5508f1314342da28cc51b867431b}{Portable\+::recode\+Utf8\+String\+To\+W()}}, \mbox{\hyperlink{class_template_context_impl_a61eac0859ed4b50a8d0b996b1b2bba86}{Template\+Context\+Impl\+::set\+Encoding()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_abf8cbf15184f95c988f3c2942e1ac2da}{transcode\+Character\+Buffer()}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aeb5836eb3b5b80517b79333f80128522}{transcode\+Character\+String\+To\+UTF8()}}.
+

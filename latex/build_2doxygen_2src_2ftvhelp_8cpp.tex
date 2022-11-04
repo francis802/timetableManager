@@ -1,0 +1,735 @@
+\hypertarget{build_2doxygen_2src_2ftvhelp_8cpp}{}\doxysection{doxygen/build/doxygen/src/ftvhelp.cpp File Reference}
+\label{build_2doxygen_2src_2ftvhelp_8cpp}\index{doxygen/build/doxygen/src/ftvhelp.cpp@{doxygen/build/doxygen/src/ftvhelp.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}ftvhelp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmldocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}resourcemgr.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_t_v_node}{FTVNode}}
+\item 
+struct \mbox{\hyperlink{struct_f_t_v_help_1_1_private}{FTVHelp\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_nav_index_entry}{Nav\+Index\+Entry}}
+\item 
+class \mbox{\hyperlink{class_nav_index_entry_list}{Nav\+Index\+Entry\+List}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} = std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_f_t_v_node}{FTVNode}} $>$
+\item 
+using \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a9ed2bfd55026ce705d632e2def370936}{FTVNode\+Weak\+Ptr}} = std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{struct_f_t_v_node}{FTVNode}} $>$
+\item 
+using \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}{FTVNodes}} = \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}{node2\+URL}} (const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, bool overrule\+File=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}, bool src\+Link=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}})
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}{generate\+Indent\+Label}} (const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, int \mbox{\hyperlink{libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aa1a81456e5d00c9e3c4ff4d9f3e3c123}{generate\+Indent}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, bool opened)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a53124fcb14c157228188e339625da475}{generate\+Brief\+Doc}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{class_definition}{Definition}} $\ast$def)
+\item 
+static char \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a7db9cd15a920c0bfc3b396a6a1fa1584}{compound\+Icon}} (const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$cd)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{path\+To\+Node}} (const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&leaf, const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a24d81fe9c93c2e315bd713aed99379c4}{dup\+Of\+Parent}} (const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a3ec1633fe7ff4f8ae5374bff88c55b81}{generate\+JSLink}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aefb94fa4d5f207d7a1aa6c7fb5ab54b5}{convert\+File\+Id2\+Var}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Id)
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree}} (\mbox{\hyperlink{class_nav_index_entry_list}{Nav\+Index\+Entry\+List}} \&nav\+Index, \mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}{FTVNodes}} \&nl, int \mbox{\hyperlink{libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}, bool \&first)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aeeac5a3fc4ec080a5831f362ddee33f6}{generate\+JSNav\+Tree}} (const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}{FTVNodes}} \&node\+List)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a31f59f9826bff33dfe4a46af159daa4b}{folder\+Id}} =1
+\item 
+const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a753ac648d626b69287e3907409802dd3}{JAVASCRIPT\+\_\+\+LICENSE\+\_\+\+TEXT}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}\label{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!FTVNodePtr@{FTVNodePtr}}
+\index{FTVNodePtr@{FTVNodePtr}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{FTVNodePtr}{FTVNodePtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} =  std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{struct_f_t_v_node}{FTVNode}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}\label{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!FTVNodes@{FTVNodes}}
+\index{FTVNodes@{FTVNodes}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{FTVNodes}{FTVNodes}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}{FTVNodes}} =  \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a9ed2bfd55026ce705d632e2def370936}\label{build_2doxygen_2src_2ftvhelp_8cpp_a9ed2bfd55026ce705d632e2def370936}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!FTVNodeWeakPtr@{FTVNodeWeakPtr}}
+\index{FTVNodeWeakPtr@{FTVNodeWeakPtr}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{FTVNodeWeakPtr}{FTVNodeWeakPtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a9ed2bfd55026ce705d632e2def370936}{FTVNode\+Weak\+Ptr}} =  std\+::weak\+\_\+ptr$<$\mbox{\hyperlink{struct_f_t_v_node}{FTVNode}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a7db9cd15a920c0bfc3b396a6a1fa1584}\label{build_2doxygen_2src_2ftvhelp_8cpp_a7db9cd15a920c0bfc3b396a6a1fa1584}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!compoundIcon@{compoundIcon}}
+\index{compoundIcon@{compoundIcon}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{compoundIcon()}{compoundIcon()}}
+{\footnotesize\ttfamily static char compound\+Icon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_class_def}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00368}{368}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00369 \{}
+\DoxyCodeLine{00370   \textcolor{keywordtype}{char} icon=\textcolor{charliteral}{'C'};}
+\DoxyCodeLine{00371   \textcolor{keywordflow}{if} (cd-\/>\mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{getLanguage}}() == \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2ad1405098db2908c0b91654db840eb7e8}{SrcLangExt\_Slice}})}
+\DoxyCodeLine{00372   \{}
+\DoxyCodeLine{00373     \textcolor{keywordflow}{if} (cd-\/>\mbox{\hyperlink{class_class_def_ae8ba915e00984129bcbbaa4efff48b00}{compoundType}}()==\mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939a6c53aaa4a9100a5458d990fe5b1212cf}{ClassDef::Interface}})}
+\DoxyCodeLine{00374     \{}
+\DoxyCodeLine{00375       icon=\textcolor{charliteral}{'I'};}
+\DoxyCodeLine{00376     \}}
+\DoxyCodeLine{00377     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (cd-\/>\mbox{\hyperlink{class_class_def_ae8ba915e00984129bcbbaa4efff48b00}{compoundType}}()==\mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939ab3013b012f642e96281a4e06f811b50f}{ClassDef::Struct}})}
+\DoxyCodeLine{00378     \{}
+\DoxyCodeLine{00379       icon=\textcolor{charliteral}{'S'};}
+\DoxyCodeLine{00380     \}}
+\DoxyCodeLine{00381     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (cd-\/>\mbox{\hyperlink{class_class_def_ae8ba915e00984129bcbbaa4efff48b00}{compoundType}}()==\mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939ae35da095cee022707f8cc586bf9f8cc0}{ClassDef::Exception}})}
+\DoxyCodeLine{00382     \{}
+\DoxyCodeLine{00383       icon=\textcolor{charliteral}{'E'};}
+\DoxyCodeLine{00384     \}}
+\DoxyCodeLine{00385   \}}
+\DoxyCodeLine{00386   \textcolor{keywordflow}{return} icon;}
+\DoxyCodeLine{00387 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_class_def_ae8ba915e00984129bcbbaa4efff48b00}{Class\+Def\+::compound\+Type()}}, \mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939ae35da095cee022707f8cc586bf9f8cc0}{Class\+Def\+::\+Exception}}, \mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{Definition\+::get\+Language()}}, \mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939a6c53aaa4a9100a5458d990fe5b1212cf}{Class\+Def\+::\+Interface}}, \mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2ad1405098db2908c0b91654db840eb7e8}{Src\+Lang\+Ext\+\_\+\+Slice}}, and \mbox{\hyperlink{class_class_def_ae70cf86d35fe954a94c566fbcfc87939ab3013b012f642e96281a4e06f811b50f}{Class\+Def\+::\+Struct}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_f_t_v_help_1_1_private_a0bed14c4bee93963b64e37bb6532aad8}{FTVHelp\+::\+Private\+::generate\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_aefb94fa4d5f207d7a1aa6c7fb5ab54b5}\label{build_2doxygen_2src_2ftvhelp_8cpp_aefb94fa4d5f207d7a1aa6c7fb5ab54b5}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!convertFileId2Var@{convertFileId2Var}}
+\index{convertFileId2Var@{convertFileId2Var}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{convertFileId2Var()}{convertFileId2Var()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} convert\+File\+Id2\+Var (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00562}{562}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00563 \{}
+\DoxyCodeLine{00564   \mbox{\hyperlink{class_q_c_string}{QCString}} varId = fileId;}
+\DoxyCodeLine{00565   \textcolor{keywordtype}{int} i=varId.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'/'});}
+\DoxyCodeLine{00566   \textcolor{keywordflow}{if} (i>=0) varId = varId.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(i+1);}
+\DoxyCodeLine{00567   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(varId,\textcolor{stringliteral}{"{}-\/"{}},\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{00568 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{QCString\+::find\+Rev()}}, \mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{QCString\+::mid()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a24d81fe9c93c2e315bd713aed99379c4}\label{build_2doxygen_2src_2ftvhelp_8cpp_a24d81fe9c93c2e315bd713aed99379c4}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!dupOfParent@{dupOfParent}}
+\index{dupOfParent@{dupOfParent}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{dupOfParent()}{dupOfParent()}}
+{\footnotesize\ttfamily static bool dup\+Of\+Parent (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00539}{539}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00540 \{}
+\DoxyCodeLine{00541   \textcolor{keyword}{auto} \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>parent.lock();}
+\DoxyCodeLine{00542   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00543   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>file==\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}-\/>file) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00544   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00545 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a53124fcb14c157228188e339625da475}\label{build_2doxygen_2src_2ftvhelp_8cpp_a53124fcb14c157228188e339625da475}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!generateBriefDoc@{generateBriefDoc}}
+\index{generateBriefDoc@{generateBriefDoc}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{generateBriefDoc()}{generateBriefDoc()}}
+{\footnotesize\ttfamily static void generate\+Brief\+Doc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{def }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00346}{346}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00347 \{}
+\DoxyCodeLine{00348   \mbox{\hyperlink{class_q_c_string}{QCString}} brief = def-\/>\mbox{\hyperlink{class_definition_a8ca2bb51665eab1ffd981a38c2b5f188}{briefDescription}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00349   \textcolor{comment}{//printf("{}*** \%p: generateBriefDoc(\%s)='\%s'\(\backslash\)n"{},def,qPrint(def-\/>name()),qPrint(brief));}}
+\DoxyCodeLine{00350   \textcolor{keywordflow}{if} (!brief.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00351   \{}
+\DoxyCodeLine{00352     \textcolor{keyword}{auto} parser \{ \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_a7a169cbf0edeed85c90868675799b875}{createDocParser}}() \};}
+\DoxyCodeLine{00353     \textcolor{keyword}{auto} ast    \{ \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_ade7ad021f00f56e2222470e267b56f73}{validatingParseDoc}}(*parser.get(),}
+\DoxyCodeLine{00354                                      def-\/>\mbox{\hyperlink{class_definition_ac74d77550941a8f568ea56fecc30c873}{briefFile}}(),def-\/>\mbox{\hyperlink{class_definition_a8073d399d39c43e66a4b487b3e06ade1}{briefLine}}(),}
+\DoxyCodeLine{00355                                      def,0,brief,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},}
+\DoxyCodeLine{00356                                      \mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(MARKDOWN\_SUPPORT)) \};}
+\DoxyCodeLine{00357     \textcolor{keyword}{const} \mbox{\hyperlink{class_doc_node_a_s_t}{DocNodeAST}} *astImpl = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_doc_node_a_s_t}{DocNodeAST}}*\textcolor{keyword}{>}(ast.get());}
+\DoxyCodeLine{00358     \textcolor{keywordflow}{if} (astImpl)}
+\DoxyCodeLine{00359     \{}
+\DoxyCodeLine{00360       \mbox{\hyperlink{class_q_c_string}{QCString}} relPath = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a6cc78f4946029df8c7135fbf36e625e4}{relativePathToRoot}}(def-\/>\mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{getOutputFileBase}}());}
+\DoxyCodeLine{00361       \mbox{\hyperlink{class_html_code_generator}{HtmlCodeGenerator}} htmlGen(t,relPath);}
+\DoxyCodeLine{00362       \mbox{\hyperlink{class_html_doc_visitor}{HtmlDocVisitor}} visitor(t,htmlGen,def);}
+\DoxyCodeLine{00363       std::visit(visitor,astImpl-\/>\mbox{\hyperlink{class_doc_node_a_s_t_a77e351cc54c344eac97ef21709f44305}{root}});}
+\DoxyCodeLine{00364     \}}
+\DoxyCodeLine{00365   \}}
+\DoxyCodeLine{00366 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_definition_a8ca2bb51665eab1ffd981a38c2b5f188}{Definition\+::brief\+Description()}}, \mbox{\hyperlink{class_definition_ac74d77550941a8f568ea56fecc30c873}{Definition\+::brief\+File()}}, \mbox{\hyperlink{class_definition_a8073d399d39c43e66a4b487b3e06ade1}{Definition\+::brief\+Line()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_a7a169cbf0edeed85c90868675799b875}{create\+Doc\+Parser()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{Definition\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a6cc78f4946029df8c7135fbf36e625e4}{relative\+Path\+To\+Root()}}, \mbox{\hyperlink{class_doc_node_a_s_t_a77e351cc54c344eac97ef21709f44305}{Doc\+Node\+AST\+::root}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, and \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_ade7ad021f00f56e2222470e267b56f73}{validating\+Parse\+Doc()}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_f_t_v_help_1_1_private_a0bed14c4bee93963b64e37bb6532aad8}{FTVHelp\+::\+Private\+::generate\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_aa1a81456e5d00c9e3c4ff4d9f3e3c123}\label{build_2doxygen_2src_2ftvhelp_8cpp_aa1a81456e5d00c9e3c4ff4d9f3e3c123}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!generateIndent@{generateIndent}}
+\index{generateIndent@{generateIndent}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{generateIndent()}{generateIndent()}}
+{\footnotesize\ttfamily static void generate\+Indent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&}]{n,  }\item[{bool}]{opened }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00281}{281}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00282 \{}
+\DoxyCodeLine{00283   \textcolor{keywordtype}{int} indent=0;}
+\DoxyCodeLine{00284   \textcolor{keyword}{auto} \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>parent.lock();}
+\DoxyCodeLine{00285   \textcolor{keywordflow}{while} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}) \{ indent++; \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}=\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}-\/>parent.lock(); \}}
+\DoxyCodeLine{00286   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>isDir)}
+\DoxyCodeLine{00287   \{}
+\DoxyCodeLine{00288     \mbox{\hyperlink{class_q_c_string}{QCString}} dir = opened ? \textcolor{stringliteral}{"{}\&\#9660;"{}} : \textcolor{stringliteral}{"{}\&\#9658;"{}};}
+\DoxyCodeLine{00289     t << \textcolor{stringliteral}{"{}<span style=\(\backslash\)"{}width:"{}} << (indent*16) << \textcolor{stringliteral}{"{}px;display:inline-\/block;\(\backslash\)"{}>\&\#160;</span>"{}}}
+\DoxyCodeLine{00290       << \textcolor{stringliteral}{"{}<span id=\(\backslash\)"{}arr\_"{}} << \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}{generateIndentLabel}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},0) << \textcolor{stringliteral}{"{}\(\backslash\)"{} class=\(\backslash\)"{}arrow\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00291     t << \textcolor{stringliteral}{"{}onclick=\(\backslash\)"{}toggleFolder('"{}} << \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}{generateIndentLabel}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},0) << \textcolor{stringliteral}{"{}')\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00292     t << \textcolor{stringliteral}{"{}>"{}} << dir}
+\DoxyCodeLine{00293       << \textcolor{stringliteral}{"{}</span>"{}};}
+\DoxyCodeLine{00294   \}}
+\DoxyCodeLine{00295   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00296   \{}
+\DoxyCodeLine{00297     t << \textcolor{stringliteral}{"{}<span style=\(\backslash\)"{}width:"{}} << ((indent+1)*16) << \textcolor{stringliteral}{"{}px;display:inline-\/block;\(\backslash\)"{}>\&\#160;</span>"{}};}
+\DoxyCodeLine{00298   \}}
+\DoxyCodeLine{00299 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}{generate\+Indent\+Label()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_f_t_v_help_1_1_private_a0bed14c4bee93963b64e37bb6532aad8}{FTVHelp\+::\+Private\+::generate\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}\label{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!generateIndentLabel@{generateIndentLabel}}
+\index{generateIndentLabel@{generateIndentLabel}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{generateIndentLabel()}{generateIndentLabel()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} generate\+Indent\+Label (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&}]{n,  }\item[{int}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00269}{269}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00270 \{}
+\DoxyCodeLine{00271   \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{00272   \textcolor{keyword}{auto} \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>parent.lock();}
+\DoxyCodeLine{00273   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}})}
+\DoxyCodeLine{00274   \{}
+\DoxyCodeLine{00275     result=\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}{generateIndentLabel}}(\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}+1);}
+\DoxyCodeLine{00276   \}}
+\DoxyCodeLine{00277   result+=\mbox{\hyperlink{class_q_c_string}{QCString}}().\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>index)+\textcolor{stringliteral}{"{}\_"{}};}
+\DoxyCodeLine{00278   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00279 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}{generate\+Indent\+Label()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}, and \mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{QCString\+::set\+Num()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aa1a81456e5d00c9e3c4ff4d9f3e3c123}{generate\+Indent()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_af9cb5d8af596e5b9eb054f0b3a5c7e67}{generate\+Indent\+Label()}}, and \mbox{\hyperlink{struct_f_t_v_help_1_1_private_a0bed14c4bee93963b64e37bb6532aad8}{FTVHelp\+::\+Private\+::generate\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a3ec1633fe7ff4f8ae5374bff88c55b81}\label{build_2doxygen_2src_2ftvhelp_8cpp_a3ec1633fe7ff4f8ae5374bff88c55b81}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!generateJSLink@{generateJSLink}}
+\index{generateJSLink@{generateJSLink}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{generateJSLink()}{generateJSLink()}}
+{\footnotesize\ttfamily static void generate\+JSLink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00547}{547}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00548 \{}
+\DoxyCodeLine{00549   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>file.isEmpty()) \textcolor{comment}{// no link}}
+\DoxyCodeLine{00550   \{}
+\DoxyCodeLine{00551     t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convertToJSString}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>name) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, null, "{}};}
+\DoxyCodeLine{00552   \}}
+\DoxyCodeLine{00553   \textcolor{keywordflow}{else} \textcolor{comment}{// link into other page}}
+\DoxyCodeLine{00554   \{}
+\DoxyCodeLine{00555     t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convertToJSString}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>name) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, \(\backslash\)"{}"{}};}
+\DoxyCodeLine{00556     t << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a06ba0c2593b3fd5f103151bd342e206f}{externalRef}}(\textcolor{stringliteral}{"{}"{}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>ref,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00557     t << \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}{node2URL}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{00558     t << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}};}
+\DoxyCodeLine{00559   \}}
+\DoxyCodeLine{00560 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convert\+To\+JSString()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a06ba0c2593b3fd5f103151bd342e206f}{external\+Ref()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}{node2\+URL()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_aeeac5a3fc4ec080a5831f362ddee33f6}\label{build_2doxygen_2src_2ftvhelp_8cpp_aeeac5a3fc4ec080a5831f362ddee33f6}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!generateJSNavTree@{generateJSNavTree}}
+\index{generateJSNavTree@{generateJSNavTree}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{generateJSNavTree()}{generateJSNavTree()}}
+{\footnotesize\ttfamily static void generate\+JSNav\+Tree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}{FTVNodes}} \&}]{node\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00661}{661}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00662 \{}
+\DoxyCodeLine{00663   \mbox{\hyperlink{class_q_c_string}{QCString}} htmlOutput = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(HTML\_OUTPUT);}
+\DoxyCodeLine{00664   \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(htmlOutput.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}/navtreedata.js"{}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00665   \mbox{\hyperlink{class_nav_index_entry_list}{NavIndexEntryList}} navIndex;}
+\DoxyCodeLine{00666   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{00667   \{}
+\DoxyCodeLine{00668     \mbox{\hyperlink{class_text_stream}{TextStream}} t(\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{00669     \textcolor{comment}{//TextStream tidx(\&fidx);}}
+\DoxyCodeLine{00670     \textcolor{comment}{//tidx << "{}var NAVTREEINDEX =\(\backslash\)n"{};}}
+\DoxyCodeLine{00671     \textcolor{comment}{//tidx << "{}\{\(\backslash\)n"{};}}
+\DoxyCodeLine{00672     t << \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a753ac648d626b69287e3907409802dd3}{JAVASCRIPT\_LICENSE\_TEXT}};}
+\DoxyCodeLine{00673     t << \textcolor{stringliteral}{"{}var NAVTREE =\(\backslash\)n"{}};}
+\DoxyCodeLine{00674     t << \textcolor{stringliteral}{"{}[\(\backslash\)n"{}};}
+\DoxyCodeLine{00675     t << \textcolor{stringliteral}{"{}  [ "{}};}
+\DoxyCodeLine{00676     \mbox{\hyperlink{class_q_c_string}{QCString}} projName = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_NAME);}
+\DoxyCodeLine{00677     \textcolor{keywordflow}{if} (projName.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00678     \{}
+\DoxyCodeLine{00679       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a1d56f22de057d96035949f029dd6e4e8}{mainPageHasTitle}}()) \textcolor{comment}{// Use title of main page as root}}
+\DoxyCodeLine{00680       \{}
+\DoxyCodeLine{00681         t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convertToJSString}}(\mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen::mainPage}}-\/>title()) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}};}
+\DoxyCodeLine{00682       \}}
+\DoxyCodeLine{00683       \textcolor{keywordflow}{else} \textcolor{comment}{// Use default section title as root}}
+\DoxyCodeLine{00684       \{}
+\DoxyCodeLine{00685         \mbox{\hyperlink{struct_layout_nav_entry}{LayoutNavEntry}} *lne = \mbox{\hyperlink{class_layout_doc_manager_a87bc2288833b8769bd03e47c58fbba6a}{LayoutDocManager::instance}}().\mbox{\hyperlink{class_layout_doc_manager_ad70cfcbfc25b8f303a59cd8f76c61465}{rootNavEntry}}()-\/>\mbox{\hyperlink{struct_layout_nav_entry_ab983afb4157621ae3548364755a75002}{find}}(\mbox{\hyperlink{struct_layout_nav_entry_aef36305dd829f7cde87ca203ae647c7ca8d01303b1a2b0d3c5c8abfa90448e0d3}{LayoutNavEntry::MainPage}});}
+\DoxyCodeLine{00686         t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convertToJSString}}(lne-\/>\mbox{\hyperlink{struct_layout_nav_entry_a006dfaa93d3dee670dd4ae22d28a1db7}{title}}()) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}};}
+\DoxyCodeLine{00687       \}}
+\DoxyCodeLine{00688     \}}
+\DoxyCodeLine{00689     \textcolor{keywordflow}{else} \textcolor{comment}{// use PROJECT\_NAME as root tree element}}
+\DoxyCodeLine{00690     \{}
+\DoxyCodeLine{00691       t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convertToJSString}}(projName) << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}};}
+\DoxyCodeLine{00692     \}}
+\DoxyCodeLine{00693     t << \textcolor{stringliteral}{"{}\(\backslash\)"{}index"{}} << \mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen::htmlFileExtension}} << \textcolor{stringliteral}{"{}\(\backslash\)"{}, "{}};}
+\DoxyCodeLine{00694 }
+\DoxyCodeLine{00695     \textcolor{comment}{// add special entry for index page}}
+\DoxyCodeLine{00696     navIndex.emplace\_back(\textcolor{stringliteral}{"{}index"{}}+\mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen::htmlFileExtension}},\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00697     \textcolor{comment}{// related page index is written as a child of index.html, so add this as well}}
+\DoxyCodeLine{00698     navIndex.emplace\_back(\textcolor{stringliteral}{"{}pages"{}}+\mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen::htmlFileExtension}},\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00699 }
+\DoxyCodeLine{00700     \textcolor{keywordtype}{bool} first=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00701     \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generateJSTree}}(navIndex,t,nodeList,1,first);}
+\DoxyCodeLine{00702 }
+\DoxyCodeLine{00703     \textcolor{keywordflow}{if} (first)}
+\DoxyCodeLine{00704       t << \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{00705     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00706       t << \textcolor{stringliteral}{"{}\(\backslash\)n  ] ]\(\backslash\)n"{}};}
+\DoxyCodeLine{00707     t << \textcolor{stringliteral}{"{}];\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00708 }
+\DoxyCodeLine{00709     \textcolor{comment}{// write the navigation index (and sub-\/indices)}}
+\DoxyCodeLine{00710     std::sort(navIndex.begin(),navIndex.end(),[](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&n1,\textcolor{keyword}{const} \textcolor{keyword}{auto} \&n2)}
+\DoxyCodeLine{00711         \{ return !n1.url.isEmpty() \&\& (n2.url.isEmpty() || (n1.url<n2.url)); \});}
+\DoxyCodeLine{00712 }
+\DoxyCodeLine{00713     \textcolor{keywordtype}{int} subIndex=0;}
+\DoxyCodeLine{00714     \textcolor{keywordtype}{int} elemCount=0;}
+\DoxyCodeLine{00715     \textcolor{keyword}{const} \textcolor{keywordtype}{int} maxElemCount=250;}
+\DoxyCodeLine{00716     \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} tsidx(htmlOutput.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}/navtreeindex0.js"{}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00717     \textcolor{keywordflow}{if} (tsidx.is\_open())}
+\DoxyCodeLine{00718     \{}
+\DoxyCodeLine{00719       t << \textcolor{stringliteral}{"{}var NAVTREEINDEX =\(\backslash\)n"{}};}
+\DoxyCodeLine{00720       t << \textcolor{stringliteral}{"{}[\(\backslash\)n"{}};}
+\DoxyCodeLine{00721       tsidx << \textcolor{stringliteral}{"{}var NAVTREEINDEX"{}} << subIndex << \textcolor{stringliteral}{"{} =\(\backslash\)n"{}};}
+\DoxyCodeLine{00722       tsidx << \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}};}
+\DoxyCodeLine{00723       first=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00724       \textcolor{keyword}{auto} it = navIndex.begin();}
+\DoxyCodeLine{00725       \textcolor{keywordflow}{while} (it!=navIndex.end())}
+\DoxyCodeLine{00726       \{}
+\DoxyCodeLine{00727         \textcolor{keyword}{const} \mbox{\hyperlink{struct_nav_index_entry}{NavIndexEntry}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}} = *it;}
+\DoxyCodeLine{00728         \textcolor{keywordflow}{if} (elemCount==0)}
+\DoxyCodeLine{00729         \{}
+\DoxyCodeLine{00730           \textcolor{keywordflow}{if} (!first)}
+\DoxyCodeLine{00731           \{}
+\DoxyCodeLine{00732             t << \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{00733           \}}
+\DoxyCodeLine{00734           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00735           \{}
+\DoxyCodeLine{00736             first=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00737           \}}
+\DoxyCodeLine{00738           t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}.url << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00739         \}}
+\DoxyCodeLine{00740         tsidx << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}.url << \textcolor{stringliteral}{"{}\(\backslash\)"{}:["{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}.path << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00741         ++it;}
+\DoxyCodeLine{00742         \textcolor{keywordflow}{if} (it!=navIndex.end() \&\& elemCount<maxElemCount-\/1) tsidx << \textcolor{stringliteral}{"{},"{}}; \textcolor{comment}{// not last entry}}
+\DoxyCodeLine{00743         tsidx << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00744 }
+\DoxyCodeLine{00745         elemCount++;}
+\DoxyCodeLine{00746         \textcolor{keywordflow}{if} (it!=navIndex.end() \&\& elemCount>=maxElemCount) \textcolor{comment}{// switch to new sub-\/index}}
+\DoxyCodeLine{00747         \{}
+\DoxyCodeLine{00748           tsidx << \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}};}
+\DoxyCodeLine{00749           elemCount=0;}
+\DoxyCodeLine{00750           tsidx.close();}
+\DoxyCodeLine{00751           subIndex++;}
+\DoxyCodeLine{00752           \mbox{\hyperlink{class_q_c_string}{QCString}} fileName = htmlOutput+\textcolor{stringliteral}{"{}/navtreeindex"{}}+\mbox{\hyperlink{class_q_c_string}{QCString}}().\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(subIndex)+\textcolor{stringliteral}{"{}.js"{}};}
+\DoxyCodeLine{00753           tsidx.open(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00754           \textcolor{keywordflow}{if} (!tsidx.is\_open()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00755           tsidx << \textcolor{stringliteral}{"{}var NAVTREEINDEX"{}} << subIndex << \textcolor{stringliteral}{"{} =\(\backslash\)n"{}};}
+\DoxyCodeLine{00756           tsidx << \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}};}
+\DoxyCodeLine{00757         \}}
+\DoxyCodeLine{00758       \}}
+\DoxyCodeLine{00759       tsidx << \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}};}
+\DoxyCodeLine{00760       t << \textcolor{stringliteral}{"{}\(\backslash\)n];\(\backslash\)n"{}};}
+\DoxyCodeLine{00761     \}}
+\DoxyCodeLine{00762     t << \textcolor{stringliteral}{"{}\(\backslash\)nvar SYNCONMSG = '"{}}  << \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_ac02207b116aa38a252f1f192e320fafe}{trPanelSynchronisationTooltip}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}) << \textcolor{stringliteral}{"{}';"{}};}
+\DoxyCodeLine{00763     t << \textcolor{stringliteral}{"{}\(\backslash\)nvar SYNCOFFMSG = '"{}} << \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_ac02207b116aa38a252f1f192e320fafe}{trPanelSynchronisationTooltip}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}})  << \textcolor{stringliteral}{"{}';"{}};}
+\DoxyCodeLine{00764   \}}
+\DoxyCodeLine{00765   \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{ResourceMgr::instance}}().\mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{copyResource}}(\textcolor{stringliteral}{"{}navtree.js"{}},htmlOutput);}
+\DoxyCodeLine{00766 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convert\+To\+JSString()}}, \mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{Resource\+Mgr\+::copy\+Resource()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{struct_layout_nav_entry_ab983afb4157621ae3548364755a75002}{Layout\+Nav\+Entry\+::find()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}, \mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen\+::html\+File\+Extension}}, \mbox{\hyperlink{class_layout_doc_manager_a87bc2288833b8769bd03e47c58fbba6a}{Layout\+Doc\+Manager\+::instance()}}, \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{Resource\+Mgr\+::instance()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a753ac648d626b69287e3907409802dd3}{JAVASCRIPT\+\_\+\+LICENSE\+\_\+\+TEXT}}, \mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen\+::main\+Page}}, \mbox{\hyperlink{struct_layout_nav_entry_aef36305dd829f7cde87ca203ae647c7ca8d01303b1a2b0d3c5c8abfa90448e0d3}{Layout\+Nav\+Entry\+::\+Main\+Page}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a1d56f22de057d96035949f029dd6e4e8}{main\+Page\+Has\+Title()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{class_layout_doc_manager_ad70cfcbfc25b8f303a59cd8f76c61465}{Layout\+Doc\+Manager\+::root\+Nav\+Entry()}}, \mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{QCString\+::set\+Num()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{the\+Translator}}, \mbox{\hyperlink{struct_layout_nav_entry_a006dfaa93d3dee670dd4ae22d28a1db7}{Layout\+Nav\+Entry\+::title()}}, \mbox{\hyperlink{class_translator_ac02207b116aa38a252f1f192e320fafe}{Translator\+::tr\+Panel\+Synchronisation\+Tooltip()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_f_t_v_help_aad2b0bf5b5d217f8e0b77b486fed3527}{FTVHelp\+::generate\+Tree\+View\+Scripts()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}\label{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!generateJSTree@{generateJSTree}}
+\index{generateJSTree@{generateJSTree}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{generateJSTree()}{generateJSTree()}}
+{\footnotesize\ttfamily static bool generate\+JSTree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_nav_index_entry_list}{Nav\+Index\+Entry\+List}} \&}]{nav\+Index,  }\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a952cf08e7f1c581ae0e184f3ff2b240d}{FTVNodes}} \&}]{nl,  }\item[{int}]{level,  }\item[{bool \&}]{first }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00570}{570}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00572 \{}
+\DoxyCodeLine{00573   \mbox{\hyperlink{class_q_c_string}{QCString}} htmlOutput = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(HTML\_OUTPUT);}
+\DoxyCodeLine{00574   \mbox{\hyperlink{class_q_c_string}{QCString}} indentStr;}
+\DoxyCodeLine{00575   indentStr.\mbox{\hyperlink{class_q_c_string_a2061c09e8d70cd279d9cc9feef33d2bb}{fill}}(\textcolor{charliteral}{' '},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}*2);}
+\DoxyCodeLine{00576 }
+\DoxyCodeLine{00577   \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00578   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} : nl)}
+\DoxyCodeLine{00579   \{}
+\DoxyCodeLine{00580     \textcolor{comment}{// terminate previous entry}}
+\DoxyCodeLine{00581     \textcolor{keywordflow}{if} (!first) t << \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{00582     first=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00583 }
+\DoxyCodeLine{00584     \textcolor{comment}{// start entry}}
+\DoxyCodeLine{00585     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}})}
+\DoxyCodeLine{00586     \{}
+\DoxyCodeLine{00587       t << \textcolor{stringliteral}{"{}[\(\backslash\)n"{}};}
+\DoxyCodeLine{00588     \}}
+\DoxyCodeLine{00589     \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00590 }
+\DoxyCodeLine{00591     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>addToNavIndex) \textcolor{comment}{// add entry to the navigation index}}
+\DoxyCodeLine{00592     \{}
+\DoxyCodeLine{00593       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>def \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>def-\/>definitionType()==\mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eaeee8a08d9d35093585ea703951e8e465}{Definition::TypeFile}})}
+\DoxyCodeLine{00594       \{}
+\DoxyCodeLine{00595         \textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd = \mbox{\hyperlink{build_2doxygen_2src_2filedef_8cpp_a4114c484f3ccea1048608b9caa9f51de}{toFileDef}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>def);}
+\DoxyCodeLine{00596         \textcolor{keywordtype}{bool} doc,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}};}
+\DoxyCodeLine{00597         doc = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a78b0d7057156fc989474dc86bfb86187}{fileVisibleInIndex}}(fd,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}});}
+\DoxyCodeLine{00598         \textcolor{keywordflow}{if} (doc)}
+\DoxyCodeLine{00599         \{}
+\DoxyCodeLine{00600           navIndex.emplace\_back(\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}{node2URL}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}),\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{pathToNode}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}));}
+\DoxyCodeLine{00601         \}}
+\DoxyCodeLine{00602         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}})}
+\DoxyCodeLine{00603         \{}
+\DoxyCodeLine{00604           navIndex.emplace\_back(\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}{node2URL}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}),\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{pathToNode}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}));}
+\DoxyCodeLine{00605         \}}
+\DoxyCodeLine{00606       \}}
+\DoxyCodeLine{00607       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00608       \{}
+\DoxyCodeLine{00609         navIndex.emplace\_back(\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}{node2URL}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}),\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{pathToNode}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}));}
+\DoxyCodeLine{00610       \}}
+\DoxyCodeLine{00611     \}}
+\DoxyCodeLine{00612 }
+\DoxyCodeLine{00613     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>separateIndex) \textcolor{comment}{// store items in a separate file for dynamic loading}}
+\DoxyCodeLine{00614     \{}
+\DoxyCodeLine{00615       \textcolor{keywordtype}{bool} firstChild=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00616       t << indentStr << \textcolor{stringliteral}{"{}  [ "{}};}
+\DoxyCodeLine{00617       \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a3ec1633fe7ff4f8ae5374bff88c55b81}{generateJSLink}}(t,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{00618       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>children.empty()) \textcolor{comment}{// write children to separate file for dynamic loading}}
+\DoxyCodeLine{00619       \{}
+\DoxyCodeLine{00620         \mbox{\hyperlink{class_q_c_string}{QCString}} fileId = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>file;}
+\DoxyCodeLine{00621         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>anchor.isEmpty())}
+\DoxyCodeLine{00622         \{}
+\DoxyCodeLine{00623           fileId+=\textcolor{stringliteral}{"{}\_"{}}+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>anchor;}
+\DoxyCodeLine{00624         \}}
+\DoxyCodeLine{00625         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a24d81fe9c93c2e315bd713aed99379c4}{dupOfParent}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}))}
+\DoxyCodeLine{00626         \{}
+\DoxyCodeLine{00627           fileId+=\textcolor{stringliteral}{"{}\_dup"{}};}
+\DoxyCodeLine{00628         \}}
+\DoxyCodeLine{00629         \mbox{\hyperlink{class_q_c_string}{QCString}} fileName = htmlOutput+\textcolor{stringliteral}{"{}/"{}}+fileId+\textcolor{stringliteral}{"{}.js"{}};}
+\DoxyCodeLine{00630         \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00631         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{00632         \{}
+\DoxyCodeLine{00633           \mbox{\hyperlink{class_text_stream}{TextStream}} tt(\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{00634           tt << \textcolor{stringliteral}{"{}var "{}} << \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aefb94fa4d5f207d7a1aa6c7fb5ab54b5}{convertFileId2Var}}(fileId) << \textcolor{stringliteral}{"{} =\(\backslash\)n"{}};}
+\DoxyCodeLine{00635           \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generateJSTree}}(navIndex,tt,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>children,1,firstChild);}
+\DoxyCodeLine{00636           tt << \textcolor{stringliteral}{"{}\(\backslash\)n];"{}};}
+\DoxyCodeLine{00637         \}}
+\DoxyCodeLine{00638         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.close();}
+\DoxyCodeLine{00639         t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << fileId << \textcolor{stringliteral}{"{}\(\backslash\)"{} ]"{}};}
+\DoxyCodeLine{00640       \}}
+\DoxyCodeLine{00641       \textcolor{keywordflow}{else} \textcolor{comment}{// no children}}
+\DoxyCodeLine{00642       \{}
+\DoxyCodeLine{00643         t << \textcolor{stringliteral}{"{}null ]"{}};}
+\DoxyCodeLine{00644       \}}
+\DoxyCodeLine{00645     \}}
+\DoxyCodeLine{00646     \textcolor{keywordflow}{else} \textcolor{comment}{// show items in this file}}
+\DoxyCodeLine{00647     \{}
+\DoxyCodeLine{00648       \textcolor{keywordtype}{bool} firstChild=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00649       t << indentStr << \textcolor{stringliteral}{"{}  [ "{}};}
+\DoxyCodeLine{00650       \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a3ec1633fe7ff4f8ae5374bff88c55b81}{generateJSLink}}(t,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{00651       \textcolor{keywordtype}{bool} emptySection = !\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generateJSTree}}(navIndex,t,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>children,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}+1,firstChild);}
+\DoxyCodeLine{00652       \textcolor{keywordflow}{if} (emptySection)}
+\DoxyCodeLine{00653         t << \textcolor{stringliteral}{"{}null ]"{}};}
+\DoxyCodeLine{00654       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00655         t << \textcolor{stringliteral}{"{}\(\backslash\)n"{}} << indentStr << \textcolor{stringliteral}{"{}  ] ]"{}};}
+\DoxyCodeLine{00656     \}}
+\DoxyCodeLine{00657   \}}
+\DoxyCodeLine{00658   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}};}
+\DoxyCodeLine{00659 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aefb94fa4d5f207d7a1aa6c7fb5ab54b5}{convert\+File\+Id2\+Var()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a24d81fe9c93c2e315bd713aed99379c4}{dup\+Of\+Parent()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a78b0d7057156fc989474dc86bfb86187}{file\+Visible\+In\+Index()}}, \mbox{\hyperlink{class_q_c_string_a2061c09e8d70cd279d9cc9feef33d2bb}{QCString\+::fill()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a3ec1633fe7ff4f8ae5374bff88c55b81}{generate\+JSLink()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}{node2\+URL()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{path\+To\+Node()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ada8bec5c7106984a97eeabb95cae4731}{src}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2src_2filedef_8cpp_a4114c484f3ccea1048608b9caa9f51de}{to\+File\+Def()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, and \mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eaeee8a08d9d35093585ea703951e8e465}{Definition\+::\+Type\+File}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aeeac5a3fc4ec080a5831f362ddee33f6}{generate\+JSNav\+Tree()}}, and \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}\label{build_2doxygen_2src_2ftvhelp_8cpp_a4e52d619e02e6a48b41aa65affcac398}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!node2URL@{node2URL}}
+\index{node2URL@{node2URL}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{node2URL()}{node2URL()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} node2\+URL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&}]{n,  }\item[{bool}]{overrule\+File = {\ttfamily \mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}},  }\item[{bool}]{src\+Link = {\ttfamily \mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00237}{237}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00238 \{}
+\DoxyCodeLine{00239   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>file;}
+\DoxyCodeLine{00240   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}}.isEmpty() \&\& \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}}.at(0)==\textcolor{charliteral}{'!'})  \textcolor{comment}{// relative URL}}
+\DoxyCodeLine{00241   \{}
+\DoxyCodeLine{00242     \textcolor{comment}{// remove leading !}}
+\DoxyCodeLine{00243     \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}} = \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}}.mid(1);}
+\DoxyCodeLine{00244   \}}
+\DoxyCodeLine{00245   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}}.isEmpty() \&\& \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}}.at(0)==\textcolor{charliteral}{'\string^'}) \textcolor{comment}{// absolute URL}}
+\DoxyCodeLine{00246   \{}
+\DoxyCodeLine{00247     \textcolor{comment}{// skip, keep \string^ in the output}}
+\DoxyCodeLine{00248   \}}
+\DoxyCodeLine{00249   \textcolor{keywordflow}{else} \textcolor{comment}{// local file (with optional anchor)}}
+\DoxyCodeLine{00250   \{}
+\DoxyCodeLine{00251     \textcolor{keywordflow}{if} (overruleFile \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>def \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>def-\/>definitionType()==\mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eaeee8a08d9d35093585ea703951e8e465}{Definition::TypeFile}})}
+\DoxyCodeLine{00252     \{}
+\DoxyCodeLine{00253       \textcolor{keyword}{const} \mbox{\hyperlink{class_file_def}{FileDef}} *fd = \mbox{\hyperlink{build_2doxygen_2src_2filedef_8cpp_a4114c484f3ccea1048608b9caa9f51de}{toFileDef}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>def);}
+\DoxyCodeLine{00254       \textcolor{keywordflow}{if} (srcLink)}
+\DoxyCodeLine{00255       \{}
+\DoxyCodeLine{00256         \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}} = fd-\/>\mbox{\hyperlink{class_file_def_a284baec5302b8b20fc1c08088ff4e906}{getSourceFileBase}}();}
+\DoxyCodeLine{00257       \}}
+\DoxyCodeLine{00258       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00259       \{}
+\DoxyCodeLine{00260         \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}} = fd-\/>\mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{getOutputFileBase}}();}
+\DoxyCodeLine{00261       \}}
+\DoxyCodeLine{00262     \}}
+\DoxyCodeLine{00263     \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}} = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(\mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}});}
+\DoxyCodeLine{00264     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>anchor.isEmpty()) \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}}+=\textcolor{stringliteral}{"{}\#"{}}+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>anchor;}
+\DoxyCodeLine{00265   \}}
+\DoxyCodeLine{00266   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}};}
+\DoxyCodeLine{00267 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{add\+Html\+Extension\+If\+Missing()}}, \mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{File\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_file_def_a284baec5302b8b20fc1c08088ff4e906}{File\+Def\+::get\+Source\+File\+Base()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2filedef_8cpp_a4114c484f3ccea1048608b9caa9f51de}{to\+File\+Def()}}, \mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8eaeee8a08d9d35093585ea703951e8e465}{Definition\+::\+Type\+File}}, and \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{setup\+::url}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a3ec1633fe7ff4f8ae5374bff88c55b81}{generate\+JSLink()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}, and \mbox{\hyperlink{struct_f_t_v_help_1_1_private_a2ffca7a7650eddd1fc37799566ba38f5}{FTVHelp\+::\+Private\+::generate\+Link()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}\label{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!pathToNode@{pathToNode}}
+\index{pathToNode@{pathToNode}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{pathToNode()}{pathToNode()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} path\+To\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&}]{leaf,  }\item[{const \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_ab82fc85e68468828bd5c16b6e542d73b}{FTVNode\+Ptr}} \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00526}{526}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00527 \{}
+\DoxyCodeLine{00528   \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{00529   \textcolor{keyword}{auto} \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>parent.lock();}
+\DoxyCodeLine{00530   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}})}
+\DoxyCodeLine{00531   \{}
+\DoxyCodeLine{00532     result+=\mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{pathToNode}}(leaf,\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}});}
+\DoxyCodeLine{00533   \}}
+\DoxyCodeLine{00534   result+=\mbox{\hyperlink{class_q_c_string}{QCString}}().\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}-\/>index);}
+\DoxyCodeLine{00535   \textcolor{keywordflow}{if} (leaf!=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}) result+=\textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00536   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00537 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{path\+To\+Node()}}, and \mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{QCString\+::set\+Num()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a2945edc16c199a62e84ee85d81b9c854}{generate\+JSTree()}}, and \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_a8e90c9de4676d5baf1fb570c0c0c0495}{path\+To\+Node()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a31f59f9826bff33dfe4a46af159daa4b}\label{build_2doxygen_2src_2ftvhelp_8cpp_a31f59f9826bff33dfe4a46af159daa4b}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!folderId@{folderId}}
+\index{folderId@{folderId}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{folderId}{folderId}}
+{\footnotesize\ttfamily int folder\+Id =1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_f_t_v_help_1_1_private_a0bed14c4bee93963b64e37bb6532aad8}{FTVHelp\+::\+Private\+::generate\+Tree()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2ftvhelp_8cpp_a753ac648d626b69287e3907409802dd3}\label{build_2doxygen_2src_2ftvhelp_8cpp_a753ac648d626b69287e3907409802dd3}} 
+\index{ftvhelp.cpp@{ftvhelp.cpp}!JAVASCRIPT\_LICENSE\_TEXT@{JAVASCRIPT\_LICENSE\_TEXT}}
+\index{JAVASCRIPT\_LICENSE\_TEXT@{JAVASCRIPT\_LICENSE\_TEXT}!ftvhelp.cpp@{ftvhelp.cpp}}
+\doxysubsubsection{\texorpdfstring{JAVASCRIPT\_LICENSE\_TEXT}{JAVASCRIPT\_LICENSE\_TEXT}}
+{\footnotesize\ttfamily const char$\ast$ JAVASCRIPT\+\_\+\+LICENSE\+\_\+\+TEXT}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= R\textcolor{stringliteral}{"{}LIC(/*}}
+\DoxyCodeLine{\textcolor{stringliteral}{ @licstart  The following is the entire license notice for the JavaScript code in this file.}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{ The MIT License (MIT)}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{ Copyright (C) 1997-\/2020 by Dimitri van Heesch}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{ Permission is hereby granted, free of charge, to any person obtaining a copy of this software}}
+\DoxyCodeLine{\textcolor{stringliteral}{ and associated documentation files (the "{}Software"{}), to deal in the Software without restriction,}}
+\DoxyCodeLine{\textcolor{stringliteral}{ including without limitation the rights to use, copy, modify, merge, publish, distribute,}}
+\DoxyCodeLine{\textcolor{stringliteral}{ sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is}}
+\DoxyCodeLine{\textcolor{stringliteral}{ furnished to do so, subject to the following conditions:}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{ The above copyright notice and this permission notice shall be included in all copies or}}
+\DoxyCodeLine{\textcolor{stringliteral}{ substantial portions of the Software.}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{ THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING}}
+\DoxyCodeLine{\textcolor{stringliteral}{ BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND}}
+\DoxyCodeLine{\textcolor{stringliteral}{ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,}}
+\DoxyCodeLine{\textcolor{stringliteral}{ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,}}
+\DoxyCodeLine{\textcolor{stringliteral}{ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{ @licend  The above is the entire license notice for the JavaScript code in this file}}
+\DoxyCodeLine{\textcolor{stringliteral}{*/}}
+\DoxyCodeLine{\textcolor{stringliteral}{)LIC"{}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_source}{ftvhelp.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aeeac5a3fc4ec080a5831f362ddee33f6}{generate\+JSNav\+Tree()}}, and \mbox{\hyperlink{build_2doxygen_2src_2index_8cpp_add40a3a8212464c4914efbeba3d529a1}{write\+Menu\+Data()}}.
+

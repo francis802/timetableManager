@@ -1,0 +1,294 @@
+\hypertarget{src_2plantuml_8cpp}{}\doxysection{doxygen/src/plantuml.cpp File Reference}
+\label{src_2plantuml_8cpp}\index{doxygen/src/plantuml.cpp@{doxygen/src/plantuml.cpp}}
+{\ttfamily \#include \char`\"{}plantuml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}indexlist.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{src_2plantuml_8cpp_a309f3f6f3c75a77b4ce5b9760f319d62}{run\+Plantuml\+Content}} (const \mbox{\hyperlink{class_plantuml_manager_a048a99dc52eba3af7f76da9ec19932c1}{Plantuml\+Manager\+::\+Files\+Map}} \&plantuml\+Files, const \mbox{\hyperlink{class_plantuml_manager_a37056adb8bfd9b17785be907ff97a588}{Plantuml\+Manager\+::\+Content\+Map}} \&plantuml\+Content, \mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5}{Plantuml\+Manager\+::\+Output\+Format}} format)
+\item 
+static void \mbox{\hyperlink{src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}} (const \mbox{\hyperlink{class_plantuml_manager_a048a99dc52eba3af7f76da9ec19932c1}{Plantuml\+Manager\+::\+Files\+Map}} \&plantuml\+Files)
+\item 
+static void \mbox{\hyperlink{src_2plantuml_8cpp_ad6fcec8908014f46c8bb5f69e4bc3b37}{print}} (const \mbox{\hyperlink{class_plantuml_manager_a37056adb8bfd9b17785be907ff97a588}{Plantuml\+Manager\+::\+Content\+Map}} \&plantuml\+Content)
+\item 
+static void \mbox{\hyperlink{src_2plantuml_8cpp_ac3a7fb5f82f11c61008a85026460eab8}{add\+Plantuml\+Files}} (\mbox{\hyperlink{class_plantuml_manager_a048a99dc52eba3af7f76da9ec19932c1}{Plantuml\+Manager\+::\+Files\+Map}} \&plantuml\+Files, const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&key, const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&value)
+\item 
+static void \mbox{\hyperlink{src_2plantuml_8cpp_a7411ea2df505d0f75b24fdd14da9ba47}{add\+Plantuml\+Content}} (\mbox{\hyperlink{class_plantuml_manager_a37056adb8bfd9b17785be907ff97a588}{Plantuml\+Manager\+::\+Content\+Map}} \&plantuml\+Content, const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&key, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&out\+Dir, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&pu\+Content, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&src\+File, int src\+Line)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2plantuml_8cpp_a7411ea2df505d0f75b24fdd14da9ba47}\label{src_2plantuml_8cpp_a7411ea2df505d0f75b24fdd14da9ba47}} 
+\index{plantuml.cpp@{plantuml.cpp}!addPlantumlContent@{addPlantumlContent}}
+\index{addPlantumlContent@{addPlantumlContent}!plantuml.cpp@{plantuml.cpp}}
+\doxysubsubsection{\texorpdfstring{addPlantumlContent()}{addPlantumlContent()}}
+{\footnotesize\ttfamily static void add\+Plantuml\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plantuml_manager_a37056adb8bfd9b17785be907ff97a588}{Plantuml\+Manager\+::\+Content\+Map}} \&}]{plantuml\+Content,  }\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{key,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{out\+Dir,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{pu\+Content,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{src\+File,  }\item[{int}]{src\+Line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2plantuml_8cpp_source_l00326}{326}} of file \mbox{\hyperlink{src_2plantuml_8cpp_source}{plantuml.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00329 \{}
+\DoxyCodeLine{00330   \textcolor{keyword}{auto} kv = plantumlContent.find(key);}
+\DoxyCodeLine{00331   \textcolor{keywordflow}{if} (kv==plantumlContent.end())}
+\DoxyCodeLine{00332   \{}
+\DoxyCodeLine{00333     kv = plantumlContent.insert(std::make\_pair(key,\mbox{\hyperlink{struct_plantuml_content}{PlantumlContent}}(\textcolor{stringliteral}{"{}"{}},outDir,srcFile,srcLine))).first;}
+\DoxyCodeLine{00334   \}}
+\DoxyCodeLine{00335   kv-\/>second.content+=puContent;}
+\DoxyCodeLine{00336 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2plantuml_8cpp_ac3a7fb5f82f11c61008a85026460eab8}\label{src_2plantuml_8cpp_ac3a7fb5f82f11c61008a85026460eab8}} 
+\index{plantuml.cpp@{plantuml.cpp}!addPlantumlFiles@{addPlantumlFiles}}
+\index{addPlantumlFiles@{addPlantumlFiles}!plantuml.cpp@{plantuml.cpp}}
+\doxysubsubsection{\texorpdfstring{addPlantumlFiles()}{addPlantumlFiles()}}
+{\footnotesize\ttfamily static void add\+Plantuml\+Files (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plantuml_manager_a048a99dc52eba3af7f76da9ec19932c1}{Plantuml\+Manager\+::\+Files\+Map}} \&}]{plantuml\+Files,  }\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{key,  }\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2plantuml_8cpp_source_l00315}{315}} of file \mbox{\hyperlink{src_2plantuml_8cpp_source}{plantuml.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00317 \{}
+\DoxyCodeLine{00318   \textcolor{keyword}{auto} kv = plantumlFiles.find(key);}
+\DoxyCodeLine{00319   \textcolor{keywordflow}{if} (kv==plantumlFiles.end())}
+\DoxyCodeLine{00320   \{}
+\DoxyCodeLine{00321     kv = plantumlFiles.insert(std::make\_pair(key,\mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}}())).first;}
+\DoxyCodeLine{00322   \}}
+\DoxyCodeLine{00323   kv-\/>second.push\_back(value);}
+\DoxyCodeLine{00324 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2plantuml_8cpp_ad6fcec8908014f46c8bb5f69e4bc3b37}\label{src_2plantuml_8cpp_ad6fcec8908014f46c8bb5f69e4bc3b37}} 
+\index{plantuml.cpp@{plantuml.cpp}!print@{print}}
+\index{print@{print}!plantuml.cpp@{plantuml.cpp}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void print (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plantuml_manager_a37056adb8bfd9b17785be907ff97a588}{Plantuml\+Manager\+::\+Content\+Map}} \&}]{plantuml\+Content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2plantuml_8cpp_source_l00303}{303}} of file \mbox{\hyperlink{src_2plantuml_8cpp_source}{plantuml.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00304 \{}
+\DoxyCodeLine{00305   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}}))}
+\DoxyCodeLine{00306   \{}
+\DoxyCodeLine{00307     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&kv : plantumlContent)}
+\DoxyCodeLine{00308     \{}
+\DoxyCodeLine{00309       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}},0,\textcolor{stringliteral}{"{}*** \%s PlantumlContent key: \%s\(\backslash\)n"{}},\textcolor{stringliteral}{"{}PlantumlManager::print Content"{}},kv.first.c\_str());}
+\DoxyCodeLine{00310       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}},0,\textcolor{stringliteral}{"{}*** \%s                 Content:\(\backslash\)n\%s\(\backslash\)n"{}},\textcolor{stringliteral}{"{}PlantumlManager::print"{}},kv.second.content.data());}
+\DoxyCodeLine{00311     \}}
+\DoxyCodeLine{00312   \}}
+\DoxyCodeLine{00313 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug\+::is\+Flag\+Set()}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug\+::\+Plantuml}}, and \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug\+::print()}}.
+
+\mbox{\Hypertarget{src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}\label{src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}} 
+\index{plantuml.cpp@{plantuml.cpp}!print@{print}}
+\index{print@{print}!plantuml.cpp@{plantuml.cpp}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void print (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plantuml_manager_a048a99dc52eba3af7f76da9ec19932c1}{Plantuml\+Manager\+::\+Files\+Map}} \&}]{plantuml\+Files }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2plantuml_8cpp_source_l00288}{288}} of file \mbox{\hyperlink{src_2plantuml_8cpp_source}{plantuml.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00289 \{}
+\DoxyCodeLine{00290   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}}))}
+\DoxyCodeLine{00291   \{}
+\DoxyCodeLine{00292     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&kv : plantumlFiles)}
+\DoxyCodeLine{00293     \{}
+\DoxyCodeLine{00294       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}},0,\textcolor{stringliteral}{"{}*** \%s PlantumlFiles key:\%s size:\%zu\(\backslash\)n"{}},\textcolor{stringliteral}{"{}PlantumlManager::print Files"{}},kv.first.c\_str(),kv.second.size());}
+\DoxyCodeLine{00295       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} : kv.second)}
+\DoxyCodeLine{00296       \{}
+\DoxyCodeLine{00297         \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}},0,\textcolor{stringliteral}{"{}*** \%s             list:\%s\(\backslash\)n"{}},\textcolor{stringliteral}{"{}PlantumlManager::print"{}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.c\_str());}
+\DoxyCodeLine{00298       \}}
+\DoxyCodeLine{00299     \}}
+\DoxyCodeLine{00300   \}}
+\DoxyCodeLine{00301 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug\+::is\+Flag\+Set()}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug\+::\+Plantuml}}, \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug\+::print()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+\mbox{\Hypertarget{src_2plantuml_8cpp_a309f3f6f3c75a77b4ce5b9760f319d62}\label{src_2plantuml_8cpp_a309f3f6f3c75a77b4ce5b9760f319d62}} 
+\index{plantuml.cpp@{plantuml.cpp}!runPlantumlContent@{runPlantumlContent}}
+\index{runPlantumlContent@{runPlantumlContent}!plantuml.cpp@{plantuml.cpp}}
+\doxysubsubsection{\texorpdfstring{runPlantumlContent()}{runPlantumlContent()}}
+{\footnotesize\ttfamily static void run\+Plantuml\+Content (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plantuml_manager_a048a99dc52eba3af7f76da9ec19932c1}{Plantuml\+Manager\+::\+Files\+Map}} \&}]{plantuml\+Files,  }\item[{const \mbox{\hyperlink{class_plantuml_manager_a37056adb8bfd9b17785be907ff97a588}{Plantuml\+Manager\+::\+Content\+Map}} \&}]{plantuml\+Content,  }\item[{\mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5}{Plantuml\+Manager\+::\+Output\+Format}}}]{format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2plantuml_8cpp_source_l00131}{131}} of file \mbox{\hyperlink{src_2plantuml_8cpp_source}{plantuml.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134 \{}
+\DoxyCodeLine{00135   \textcolor{comment}{/* example : running: java -\/Djava.awt.headless=true}}
+\DoxyCodeLine{00136 \textcolor{comment}{               -\/jar "{}/usr/local/bin/plantuml.jar"{}}}
+\DoxyCodeLine{00137 \textcolor{comment}{               -\/o "{}test\_doxygen/DOXYGEN\_OUTPUT/html"{}}}
+\DoxyCodeLine{00138 \textcolor{comment}{               -\/tpng}}
+\DoxyCodeLine{00139 \textcolor{comment}{               "{}test\_doxygen/DOXYGEN\_OUTPUT/html/A.pu"{}}}
+\DoxyCodeLine{00140 \textcolor{comment}{               -\/charset UTF-\/8}}
+\DoxyCodeLine{00141 \textcolor{comment}{               outDir:test\_doxygen/DOXYGEN\_OUTPUT/html}}
+\DoxyCodeLine{00142 \textcolor{comment}{               test\_doxygen/DOXYGEN\_OUTPUT/html/A}}
+\DoxyCodeLine{00143 \textcolor{comment}{   */}}
+\DoxyCodeLine{00144   \textcolor{keywordtype}{int} exitCode;}
+\DoxyCodeLine{00145   \mbox{\hyperlink{class_q_c_string}{QCString}} plantumlJarPath = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PLANTUML\_JAR\_PATH);}
+\DoxyCodeLine{00146   \mbox{\hyperlink{class_q_c_string}{QCString}} plantumlConfigFile = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PLANTUML\_CFG\_FILE);}
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00148   \mbox{\hyperlink{class_q_c_string}{QCString}} pumlExe = \textcolor{stringliteral}{"{}java"{}};}
+\DoxyCodeLine{00149   \mbox{\hyperlink{class_q_c_string}{QCString}} pumlArgs = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00150   \mbox{\hyperlink{class_q_c_string}{QCString}} pumlType = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00151   \mbox{\hyperlink{class_q_c_string}{QCString}} pumlOutDir = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153   \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \&pumlIncludePathList = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\_getList}}(PLANTUML\_INCLUDE\_PATH);}
+\DoxyCodeLine{00154   \{}
+\DoxyCodeLine{00155     \textcolor{keyword}{auto} it = pumlIncludePathList.begin();}
+\DoxyCodeLine{00156     \textcolor{keywordflow}{if} (it!=pumlIncludePathList.end())}
+\DoxyCodeLine{00157     \{}
+\DoxyCodeLine{00158       pumlArgs += \textcolor{stringliteral}{"{}-\/Dplantuml.include.path=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00159       pumlArgs += it-\/>c\_str();}
+\DoxyCodeLine{00160       ++it;}
+\DoxyCodeLine{00161     \}}
+\DoxyCodeLine{00162     \textcolor{keywordflow}{while} (it!=pumlIncludePathList.end())}
+\DoxyCodeLine{00163     \{}
+\DoxyCodeLine{00164       pumlArgs += \mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{Portable::pathListSeparator}}();}
+\DoxyCodeLine{00165       pumlArgs += it-\/>c\_str();}
+\DoxyCodeLine{00166       ++it;}
+\DoxyCodeLine{00167     \}}
+\DoxyCodeLine{00168   \}}
+\DoxyCodeLine{00169   \textcolor{keywordflow}{if} (!pumlIncludePathList.empty()) pumlArgs += \textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00170   pumlArgs += \textcolor{stringliteral}{"{}-\/Djava.awt.headless=true -\/jar \(\backslash\)"{}"{}}+plantumlJarPath+\textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00171   \textcolor{keywordflow}{if} (!plantumlConfigFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00172   \{}
+\DoxyCodeLine{00173     pumlArgs += \textcolor{stringliteral}{"{}-\/config \(\backslash\)"{}"{}};}
+\DoxyCodeLine{00174     pumlArgs += plantumlConfigFile;}
+\DoxyCodeLine{00175     pumlArgs += \textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00176   \}}
+\DoxyCodeLine{00177   \textcolor{comment}{// the -\/graphvizdot option expects a relative or absolute path to the dot executable, so}}
+\DoxyCodeLine{00178   \textcolor{comment}{// we need to use the unverified DOT\_PATH option and check if it points to an existing file.}}
+\DoxyCodeLine{00179   \mbox{\hyperlink{class_q_c_string}{QCString}} dotPath = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(DOT\_PATH);}
+\DoxyCodeLine{00180   \mbox{\hyperlink{class_file_info}{FileInfo}} dp(dotPath.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00181   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(HAVE\_DOT) \&\& dp.exists() \&\& dp.isFile())}
+\DoxyCodeLine{00182   \{}
+\DoxyCodeLine{00183     pumlArgs += \textcolor{stringliteral}{"{}-\/graphvizdot \(\backslash\)"{}"{}};}
+\DoxyCodeLine{00184     pumlArgs += dotPath;}
+\DoxyCodeLine{00185     pumlArgs += \textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00186   \}}
+\DoxyCodeLine{00187   \textcolor{keywordflow}{switch} (format)}
+\DoxyCodeLine{00188   \{}
+\DoxyCodeLine{00189     \textcolor{keywordflow}{case} \mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5a956d7c25158225e05ab7f84d679e7cd7}{PlantumlManager::PUML\_BITMAP}}:}
+\DoxyCodeLine{00190       pumlType=\textcolor{stringliteral}{"{}png"{}};}
+\DoxyCodeLine{00191       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00192     \textcolor{keywordflow}{case} \mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5afca1010a1e0f3addc562335790bd6e40}{PlantumlManager::PUML\_EPS}}:}
+\DoxyCodeLine{00193       pumlType=\textcolor{stringliteral}{"{}eps"{}};}
+\DoxyCodeLine{00194       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00195     \textcolor{keywordflow}{case} \mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5ad54b7e07777425531f72280cdbbe14ee}{PlantumlManager::PUML\_SVG}}:}
+\DoxyCodeLine{00196       pumlType=\textcolor{stringliteral}{"{}svg"{}};}
+\DoxyCodeLine{00197       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00198   \}}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200   \{}
+\DoxyCodeLine{00201     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&kv : plantumlContent)}
+\DoxyCodeLine{00202     \{}
+\DoxyCodeLine{00203       \textcolor{keyword}{const} \mbox{\hyperlink{struct_plantuml_content}{PlantumlContent}} \&nb = kv.second;}
+\DoxyCodeLine{00204       \textcolor{keywordflow}{if} (nb.\mbox{\hyperlink{struct_plantuml_content_ae524c2dcc6627afc48c7330d075e644f}{content}}.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206       \mbox{\hyperlink{class_q_c_string}{QCString}} pumlArguments = pumlArgs;}
+\DoxyCodeLine{00207       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}}(\textcolor{stringliteral}{"{}Generating PlantUML \%s Files in \%s\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(pumlType),kv.first.c\_str());}
+\DoxyCodeLine{00208       pumlArguments+=\textcolor{stringliteral}{"{}-\/o \(\backslash\)"{}"{}};}
+\DoxyCodeLine{00209       pumlArguments+=nb.\mbox{\hyperlink{struct_plantuml_content_a7fa27a91f9b6267a46abcea77b867c18}{outDir}};}
+\DoxyCodeLine{00210       pumlArguments+=\textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00211       pumlArguments+=\textcolor{stringliteral}{"{}-\/charset UTF-\/8 -\/t"{}};}
+\DoxyCodeLine{00212       pumlArguments+=pumlType;}
+\DoxyCodeLine{00213       pumlArguments+=\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{00214 }
+\DoxyCodeLine{00215       \mbox{\hyperlink{class_q_c_string}{QCString}} puFileName(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00216       puFileName+=nb.\mbox{\hyperlink{struct_plantuml_content_a7fa27a91f9b6267a46abcea77b867c18}{outDir}};}
+\DoxyCodeLine{00217       puFileName+=\textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{00218       pumlOutDir=puFileName;}
+\DoxyCodeLine{00219       puFileName+=\textcolor{stringliteral}{"{}inline\_umlgraph\_"{}};}
+\DoxyCodeLine{00220       puFileName+=pumlType;}
+\DoxyCodeLine{00221       puFileName+=kv.first.c\_str();}
+\DoxyCodeLine{00222       puFileName+=\textcolor{stringliteral}{"{}.pu"{}};}
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{00224       pumlArguments+=\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00225       pumlArguments+=puFileName;}
+\DoxyCodeLine{00226       pumlArguments+=\textcolor{stringliteral}{"{}\(\backslash\)"{} "{}};}
+\DoxyCodeLine{00227 }
+\DoxyCodeLine{00228 }
+\DoxyCodeLine{00229       \mbox{\hyperlink{class_q_c_string}{QCString}} cachedContent;}
+\DoxyCodeLine{00230       \mbox{\hyperlink{class_file_info}{FileInfo}} fi(puFileName.str());}
+\DoxyCodeLine{00231       \textcolor{keywordflow}{if} (fi.exists())}
+\DoxyCodeLine{00232       \{}
+\DoxyCodeLine{00233         cachedContent = \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{fileToString}}(puFileName);}
+\DoxyCodeLine{00234       \}}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00236       \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}(puFileName.str(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00237       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}.is\_open())}
+\DoxyCodeLine{00238       \{}
+\DoxyCodeLine{00239         \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\_full}}(nb.\mbox{\hyperlink{struct_plantuml_content_a4c6687d2b665f51f631ac384e197394b}{srcFile}},nb.\mbox{\hyperlink{struct_plantuml_content_a4aa74c2430af8576d46aff1758a3a68b}{srcLine}},\textcolor{stringliteral}{"{}Could not open file \%s for writing\(\backslash\)n"{}},puFileName.data());}
+\DoxyCodeLine{00240       \}}
+\DoxyCodeLine{00241       \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}.write( nb.\mbox{\hyperlink{struct_plantuml_content_ae524c2dcc6627afc48c7330d075e644f}{content}}.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(), nb.\mbox{\hyperlink{struct_plantuml_content_ae524c2dcc6627afc48c7330d075e644f}{content}}.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}() );}
+\DoxyCodeLine{00242       \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}.close();}
+\DoxyCodeLine{00243       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}},0,\textcolor{stringliteral}{"{}*** \%s Running Plantuml arguments:\%s\(\backslash\)n"{}},\textcolor{stringliteral}{"{}PlantumlManager::runPlantumlContent"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(pumlArguments));}
+\DoxyCodeLine{00244 }
+\DoxyCodeLine{00245       \textcolor{keywordflow}{if} (cachedContent == nb.\mbox{\hyperlink{struct_plantuml_content_ae524c2dcc6627afc48c7330d075e644f}{content}}) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00246 }
+\DoxyCodeLine{00247       \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable::sysTimerStart}}();}
+\DoxyCodeLine{00248       \textcolor{keywordflow}{if} ((exitCode=\mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable::system}}(pumlExe.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),pumlArguments.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}))!=0)}
+\DoxyCodeLine{00249       \{}
+\DoxyCodeLine{00250         \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\_full}}(nb.\mbox{\hyperlink{struct_plantuml_content_a4c6687d2b665f51f631ac384e197394b}{srcFile}},nb.\mbox{\hyperlink{struct_plantuml_content_a4aa74c2430af8576d46aff1758a3a68b}{srcLine}},\textcolor{stringliteral}{"{}Problems running PlantUML. Verify that the command 'java -\/jar \(\backslash\)"{}\%s\(\backslash\)"{} -\/h' works from the command line. Exit code: \%d\(\backslash\)n"{}},}
+\DoxyCodeLine{00251             plantumlJarPath.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),exitCode);}
+\DoxyCodeLine{00252       \}}
+\DoxyCodeLine{00253       \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}();}
+\DoxyCodeLine{00254 }
+\DoxyCodeLine{00255       \textcolor{keywordflow}{if} ( (format==\mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5afca1010a1e0f3addc562335790bd6e40}{PlantumlManager::PUML\_EPS}}) \&\& (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX)) )}
+\DoxyCodeLine{00256       \{}
+\DoxyCodeLine{00257         \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}},0,\textcolor{stringliteral}{"{}*** \%s Running epstopdf\(\backslash\)n"{}},\textcolor{stringliteral}{"{}PlantumlManager::runPlantumlContent"{}});}
+\DoxyCodeLine{00258         \textcolor{keyword}{auto} files\_kv = plantumlFiles.find(kv.first);}
+\DoxyCodeLine{00259         \textcolor{keywordflow}{if} (files\_kv!=plantumlFiles.end())}
+\DoxyCodeLine{00260         \{}
+\DoxyCodeLine{00261           \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&str : files\_kv-\/>second)}
+\DoxyCodeLine{00262           \{}
+\DoxyCodeLine{00263             \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_ad1b6b56d95d64570f2be3ca005b63412}{maxCmdLine}} = 40960;}
+\DoxyCodeLine{00264             \mbox{\hyperlink{class_q_c_string}{QCString}} epstopdfArgs(\mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_ad1b6b56d95d64570f2be3ca005b63412}{maxCmdLine}});}
+\DoxyCodeLine{00265             epstopdfArgs.sprintf(\textcolor{stringliteral}{"{}\(\backslash\)"{}\%s\%s.eps\(\backslash\)"{} -\/-\/outfile=\(\backslash\)"{}\%s\%s.pdf\(\backslash\)"{}"{}},}
+\DoxyCodeLine{00266                 pumlOutDir.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),str.c\_str(), pumlOutDir.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),str.c\_str());}
+\DoxyCodeLine{00267             \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable::sysTimerStart}}();}
+\DoxyCodeLine{00268             \textcolor{keywordflow}{if} ((exitCode=\mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable::system}}(\textcolor{stringliteral}{"{}epstopdf"{}},epstopdfArgs.data()))!=0)}
+\DoxyCodeLine{00269             \{}
+\DoxyCodeLine{00270               \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\_full}}(nb.\mbox{\hyperlink{struct_plantuml_content_a4c6687d2b665f51f631ac384e197394b}{srcFile}},nb.\mbox{\hyperlink{struct_plantuml_content_a4aa74c2430af8576d46aff1758a3a68b}{srcLine}},\textcolor{stringliteral}{"{}Problems running epstopdf. Check your TeX installation! Exit code: \%d\(\backslash\)n"{}},exitCode);}
+\DoxyCodeLine{00271             \}}
+\DoxyCodeLine{00272             \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}();}
+\DoxyCodeLine{00273           \}}
+\DoxyCodeLine{00274         \}}
+\DoxyCodeLine{00275       \}}
+\DoxyCodeLine{00276     \}}
+\DoxyCodeLine{00277   \}}
+\DoxyCodeLine{00278 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\+\_\+get\+List}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{struct_plantuml_content_ae524c2dcc6627afc48c7330d075e644f}{Plantuml\+Content\+::content}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\+\_\+full()}}, \mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{File\+Info\+::exists()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{file\+To\+String()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_file_info_ab7840bb4fca4b3d9938c1b3f0e1352ef}{File\+Info\+::is\+File()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_ad1b6b56d95d64570f2be3ca005b63412}{max\+Cmd\+Line}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{struct_plantuml_content_a7fa27a91f9b6267a46abcea77b867c18}{Plantuml\+Content\+::out\+Dir}}, \mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{Portable\+::path\+List\+Separator()}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug\+::\+Plantuml}}, \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug\+::print()}}, \mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5a956d7c25158225e05ab7f84d679e7cd7}{Plantuml\+Manager\+::\+PUML\+\_\+\+BITMAP}}, \mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5afca1010a1e0f3addc562335790bd6e40}{Plantuml\+Manager\+::\+PUML\+\_\+\+EPS}}, \mbox{\hyperlink{class_plantuml_manager_a73ccdfc6400a28af7d9d2f92215b9af5ad54b7e07777425531f72280cdbbe14ee}{Plantuml\+Manager\+::\+PUML\+\_\+\+SVG}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{QCString\+::sprintf()}}, \mbox{\hyperlink{struct_plantuml_content_a4c6687d2b665f51f631ac384e197394b}{Plantuml\+Content\+::src\+File}}, \mbox{\hyperlink{struct_plantuml_content_a4aa74c2430af8576d46aff1758a3a68b}{Plantuml\+Content\+::src\+Line}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable\+::system()}}, \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable\+::sys\+Timer\+Start()}}, \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable\+::sys\+Timer\+Stop()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+

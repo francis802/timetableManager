@@ -1,0 +1,154 @@
+\hypertarget{build_2doxygen_2src_2outputgen_8cpp_source}{}\doxysection{outputgen.\+cpp}
+\label{build_2doxygen_2src_2outputgen_8cpp_source}\index{doxygen/build/doxygen/src/outputgen.cpp@{doxygen/build/doxygen/src/outputgen.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2outputgen_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00003}00003 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00005}00005 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00006}00006 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00007}00007 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00008}00008 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00009}00009 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00010}00010 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00011}00011 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00012}00012 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00013}00013 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00014}00014 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00015}00015 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00016}00016 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2doxygen_8h}{doxygen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2outputgen_8h}{outputgen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2message_8h}{message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2portable_8h}{portable.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00027}\mbox{\hyperlink{class_output_generator_a8716724782730065f43ea240f93917b0}{00027}} \mbox{\hyperlink{class_output_generator_a8716724782730065f43ea240f93917b0}{OutputGenerator::OutputGenerator}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&dir) : m\_t(nullptr), m\_dir(dir)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00028}00028 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00029}00029   \textcolor{comment}{//printf("{}OutputGenerator::OutputGenerator()\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00030}00030 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00032}\mbox{\hyperlink{class_output_generator_acd612f19fca6b44811a3320f9a5044fd}{00032}} \mbox{\hyperlink{class_output_generator_acd612f19fca6b44811a3320f9a5044fd}{OutputGenerator::\string~OutputGenerator}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00033}00033 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00034}00034   \textcolor{comment}{//printf("{}OutputGenerator::\string~OutputGenerator()\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00035}00035 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00037}\mbox{\hyperlink{class_output_generator_a2bbaebfe752451ae9e1d63d50e14e600}{00037}} \mbox{\hyperlink{class_output_generator_a8716724782730065f43ea240f93917b0}{OutputGenerator::OutputGenerator}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_output_generator}{OutputGenerator}} \&og) : m\_t(nullptr)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00038}00038 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00039}00039   \mbox{\hyperlink{class_output_generator_aaaa814308a1fd901771b9b6e4a176d58}{m\_dir}} = og.\mbox{\hyperlink{class_output_generator_aaaa814308a1fd901771b9b6e4a176d58}{m\_dir}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00040}00040   \textcolor{comment}{// we don't copy the other fields.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00041}00041   \textcolor{comment}{// after copying startPlainFile() should be called}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00042}00042   \textcolor{keywordflow}{if} (og.\mbox{\hyperlink{class_output_generator_aceba8f7a334d2e60297dcc727959796c}{m\_t}}.\mbox{\hyperlink{class_text_stream_a1d61011a2d8962b0bdbec11483ae5790}{stream}}()!=\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00043}00043   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00044}00044     \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}OutputGenerator copy constructor called while a file is processing"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00045}00045   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00046}00046 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00048}\mbox{\hyperlink{class_output_generator_a199015661a17fca46ba8c041408d4adc}{00048}} \mbox{\hyperlink{class_output_generator}{OutputGenerator}} \&\mbox{\hyperlink{class_output_generator_a199015661a17fca46ba8c041408d4adc}{OutputGenerator::operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_output_generator}{OutputGenerator}} \&og)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00049}00049 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00050}00050   \mbox{\hyperlink{class_output_generator_aaaa814308a1fd901771b9b6e4a176d58}{m\_dir}} = og.\mbox{\hyperlink{class_output_generator_aaaa814308a1fd901771b9b6e4a176d58}{m\_dir}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00051}00051   \textcolor{comment}{// we don't copy the other fields.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00052}00052   \textcolor{comment}{// after assignment startPlainFile() should be called}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00053}00053   \textcolor{keywordflow}{if} (og.\mbox{\hyperlink{class_output_generator_aceba8f7a334d2e60297dcc727959796c}{m\_t}}.\mbox{\hyperlink{class_text_stream_a1d61011a2d8962b0bdbec11483ae5790}{stream}}()!=\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00054}00054   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00055}00055     \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}OutputGenerator assignment operator called while a file is processing"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00056}00056   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00057}00057   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00058}00058 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00060}\mbox{\hyperlink{class_output_generator_a6d2b81663565fee4440ef02fe9b3a197}{00060}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_a6d2b81663565fee4440ef02fe9b3a197}{OutputGenerator::startPlainFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00061}00061 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00062}00062   \textcolor{comment}{//printf("{}startPlainFile(\%s)\(\backslash\)n"{},qPrint(name));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00063}00063   \mbox{\hyperlink{class_output_generator_ae3ebfdcdf8c6d12985d69330ca910dcc}{m\_fileName}}=\mbox{\hyperlink{class_output_generator_aaaa814308a1fd901771b9b6e4a176d58}{m\_dir}}+\textcolor{stringliteral}{"{}/"{}}+\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00064}00064   \mbox{\hyperlink{class_output_generator_a7f3e4b464e1d1329aa5d09ae3b4675f8}{m\_file}} = \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{Portable::fopen}}(\mbox{\hyperlink{class_output_generator_ae3ebfdcdf8c6d12985d69330ca910dcc}{m\_fileName}}.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),\textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00065}00065   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_output_generator_a7f3e4b464e1d1329aa5d09ae3b4675f8}{m\_file}}==0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00066}00066   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00067}00067     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}}(\textcolor{stringliteral}{"{}Could not open file \%s for writing\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{class_output_generator_ae3ebfdcdf8c6d12985d69330ca910dcc}{m\_fileName}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00068}00068   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00069}00069   \mbox{\hyperlink{class_output_generator_aceba8f7a334d2e60297dcc727959796c}{m\_t}}.\mbox{\hyperlink{class_text_stream_af285dfbd0040f7be9f3704738db024de}{setFile}}(\mbox{\hyperlink{class_output_generator_a7f3e4b464e1d1329aa5d09ae3b4675f8}{m\_file}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00070}00070 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00072}\mbox{\hyperlink{class_output_generator_aaacf2b4efc09a2c06b9dd8cc2af69046}{00072}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_aaacf2b4efc09a2c06b9dd8cc2af69046}{OutputGenerator::endPlainFile}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00073}00073 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00074}00074   \mbox{\hyperlink{class_output_generator_aceba8f7a334d2e60297dcc727959796c}{m\_t}}.\mbox{\hyperlink{class_text_stream_a907937b613a56aa4124608b3a092b820}{flush}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00075}00075   \mbox{\hyperlink{class_output_generator_aceba8f7a334d2e60297dcc727959796c}{m\_t}}.\mbox{\hyperlink{class_text_stream_a18a4ee87242fc2b8e31941a71e622fd2}{setStream}}(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00076}00076   \mbox{\hyperlink{namespace_portable_af099fa6239b4961887192d8eadfd2a44}{Portable::fclose}}(\mbox{\hyperlink{class_output_generator_a7f3e4b464e1d1329aa5d09ae3b4675f8}{m\_file}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00077}00077   \mbox{\hyperlink{class_output_generator_ae3ebfdcdf8c6d12985d69330ca910dcc}{m\_fileName}}.\mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00078}00078 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00080}\mbox{\hyperlink{class_output_generator_a595e39d22e92ac09d24706829b532b00}{00080}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_output_generator_a595e39d22e92ac09d24706829b532b00}{OutputGenerator::dir}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00081}00081 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00082}00082   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_output_generator_aaaa814308a1fd901771b9b6e4a176d58}{m\_dir}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00083}00083 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00085}\mbox{\hyperlink{class_output_generator_ae347a53e8ee0d9c43c0590134c8e965d}{00085}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_output_generator_ae347a53e8ee0d9c43c0590134c8e965d}{OutputGenerator::fileName}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00086}00086 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00087}00087   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_output_generator_ae3ebfdcdf8c6d12985d69330ca910dcc}{m\_fileName}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00088}00088 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00090}\mbox{\hyperlink{class_output_generator_a0e96bd0b61096478ec0eecfee3f609df}{00090}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_a0e96bd0b61096478ec0eecfee3f609df}{OutputGenerator::pushGeneratorState}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00091}00091 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00092}00092   \mbox{\hyperlink{class_output_generator_a7e9c82206404f37bda653f532787711c}{m\_genStack}}.push(\mbox{\hyperlink{class_output_generator_aefdf3f730d5c3ee46ae3d069f52b9e28}{isEnabled}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00093}00093   \textcolor{comment}{//printf("{}\%p:pushGeneratorState(\%d) enabled=\%d\(\backslash\)n"{},this,genStack-\/>count(),isEnabled());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00096}\mbox{\hyperlink{class_output_generator_ae8e915381e39d9c92674d7cb0e0e6589}{00096}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_ae8e915381e39d9c92674d7cb0e0e6589}{OutputGenerator::popGeneratorState}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00097}00097 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00098}00098   \textcolor{comment}{//printf("{}\%p:popGeneratorState(\%d) enabled=\%d\(\backslash\)n"{},this,genStack-\/>count(),isEnabled());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00099}00099   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_output_generator_a7e9c82206404f37bda653f532787711c}{m\_genStack}}.empty())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00100}00100   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00101}00101     \textcolor{keywordtype}{bool} lb = \mbox{\hyperlink{class_output_generator_a7e9c82206404f37bda653f532787711c}{m\_genStack}}.top();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00102}00102     \mbox{\hyperlink{class_output_generator_a7e9c82206404f37bda653f532787711c}{m\_genStack}}.pop();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00103}00103     \textcolor{keywordflow}{if} (lb) \mbox{\hyperlink{class_output_generator_a2fe91691b023b322f3ab6dbef5f9937a}{enable}}(); \textcolor{keywordflow}{else} \mbox{\hyperlink{class_output_generator_a7525c6d37fc6aeb6d3065bcf12bc74da}{disable}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00104}00104   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00107}\mbox{\hyperlink{class_output_generator_a2fe91691b023b322f3ab6dbef5f9937a}{00107}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_a2fe91691b023b322f3ab6dbef5f9937a}{OutputGenerator::enable}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00108}00108 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00109}00109   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_output_generator_a7e9c82206404f37bda653f532787711c}{m\_genStack}}.empty())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00110}00110   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00111}00111     \mbox{\hyperlink{class_output_generator_a0a637121fb060a7f167ba5282327eded}{m\_active}}=\mbox{\hyperlink{class_output_generator_a7e9c82206404f37bda653f532787711c}{m\_genStack}}.top();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00112}00112   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00113}00113   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00114}00114   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00115}00115     \mbox{\hyperlink{class_output_generator_a0a637121fb060a7f167ba5282327eded}{m\_active}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00116}00116   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00117}00117 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00119}\mbox{\hyperlink{class_output_generator_a7525c6d37fc6aeb6d3065bcf12bc74da}{00119}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_a7525c6d37fc6aeb6d3065bcf12bc74da}{OutputGenerator::disable}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00120}00120 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00121}00121   \mbox{\hyperlink{class_output_generator_a0a637121fb060a7f167ba5282327eded}{m\_active}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00122}00122 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00124}\mbox{\hyperlink{class_output_generator_af738a15d67c514f9f14c3124f100abbd}{00124}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_af738a15d67c514f9f14c3124f100abbd}{OutputGenerator::enableIf}}(\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cf}{OutputGenerator::OutputType}} o)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00125}00125 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00126}00126   \textcolor{keywordflow}{if} (o==\mbox{\hyperlink{class_output_generator_aca24be6325102c622c2a814e3c7d6b8a}{type}}()) \mbox{\hyperlink{class_output_generator_a2fe91691b023b322f3ab6dbef5f9937a}{enable}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00127}00127 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00129}\mbox{\hyperlink{class_output_generator_a8f700f7d03da6068b0c95696712449eb}{00129}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_a8f700f7d03da6068b0c95696712449eb}{OutputGenerator::disableIf}}(\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cf}{OutputGenerator::OutputType}} o)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00130}00130 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00131}00131   \textcolor{keywordflow}{if} (o==\mbox{\hyperlink{class_output_generator_aca24be6325102c622c2a814e3c7d6b8a}{type}}()) \mbox{\hyperlink{class_output_generator_a7525c6d37fc6aeb6d3065bcf12bc74da}{disable}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00132}00132 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00134}\mbox{\hyperlink{class_output_generator_a9485252f8affeba308930d92fe9ddc7f}{00134}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_output_generator_a9485252f8affeba308930d92fe9ddc7f}{OutputGenerator::disableIfNot}}(\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cf}{OutputGenerator::OutputType}} o)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00135}00135 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00136}00136   \textcolor{keywordflow}{if} (o!=\mbox{\hyperlink{class_output_generator_aca24be6325102c622c2a814e3c7d6b8a}{type}}()) \mbox{\hyperlink{class_output_generator_a7525c6d37fc6aeb6d3065bcf12bc74da}{disable}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00137}00137 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00139}\mbox{\hyperlink{class_output_generator_ab9a09387dbb69cbe01e03fb91a8d2661}{00139}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_output_generator_aefdf3f730d5c3ee46ae3d069f52b9e28}{OutputGenerator::isEnabled}}(\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cf}{OutputGenerator::OutputType}} o)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00140}00140 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00141}00141   \textcolor{keywordflow}{return} (o==\mbox{\hyperlink{class_output_generator_aca24be6325102c622c2a814e3c7d6b8a}{type}}() \&\& \mbox{\hyperlink{class_output_generator_a0a637121fb060a7f167ba5282327eded}{m\_active}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00142}00142 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00144}\mbox{\hyperlink{class_output_generator_a402dad5829da2aa7748b8a8c6e63e260}{00144}} \mbox{\hyperlink{class_output_generator}{OutputGenerator}} *\mbox{\hyperlink{class_output_generator_a402dad5829da2aa7748b8a8c6e63e260}{OutputGenerator::get}}(\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cf}{OutputGenerator::OutputType}} o)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00145}00145 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00146}00146   \textcolor{keywordflow}{return} (o==\mbox{\hyperlink{class_output_generator_aca24be6325102c622c2a814e3c7d6b8a}{type}}()) ? this : 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00147}00147 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2outputgen_8cpp_source_l00148}00148 }
+
+\end{DoxyCode}

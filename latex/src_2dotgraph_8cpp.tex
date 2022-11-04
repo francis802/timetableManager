@@ -1,0 +1,173 @@
+\hypertarget{src_2dotgraph_8cpp}{}\doxysection{doxygen/src/dotgraph.cpp File Reference}
+\label{src_2dotgraph_8cpp}\index{doxygen/src/dotgraph.cpp@{doxygen/src/dotgraph.cpp}}
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}indexlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}md5.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotrunner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotnode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotfilepatcher.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2dotgraph_8cpp_a8e61450eb94b16e866568ad3aed2d9f1}{MAP\+\_\+\+CMD}}~\char`\"{}cmapx\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{src_2dotgraph_8cpp_a272779001504a5c1f52817f54569298f}{same\+Md5\+Signature}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&base\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&md5)
+\item 
+static bool \mbox{\hyperlink{src_2dotgraph_8cpp_aad65fb794eac705b1f9e896602c59bbe}{deliverables\+Present}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file1, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file2)
+\item 
+static bool \mbox{\hyperlink{src_2dotgraph_8cpp_a174bf83fed06cf0780ec37022bfb931c}{insert\+Map\+File}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a1277960b5f2b37137fe9b0b5a1ea0beb}{out}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&map\+File, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&rel\+Path, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&map\+Label)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mutex \mbox{\hyperlink{src_2dotgraph_8cpp_ac4c77ee56010cac577323cba8c6a1ee4}{g\+\_\+dot\+Index\+List\+Mutex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2dotgraph_8cpp_a8e61450eb94b16e866568ad3aed2d9f1}\label{src_2dotgraph_8cpp_a8e61450eb94b16e866568ad3aed2d9f1}} 
+\index{dotgraph.cpp@{dotgraph.cpp}!MAP\_CMD@{MAP\_CMD}}
+\index{MAP\_CMD@{MAP\_CMD}!dotgraph.cpp@{dotgraph.cpp}}
+\doxysubsubsection{\texorpdfstring{MAP\_CMD}{MAP\_CMD}}
+{\footnotesize\ttfamily \#define MAP\+\_\+\+CMD~\char`\"{}cmapx\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dotgraph_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{src_2dotgraph_8cpp_source}{dotgraph.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2dotgraph_8cpp_aad65fb794eac705b1f9e896602c59bbe}\label{src_2dotgraph_8cpp_aad65fb794eac705b1f9e896602c59bbe}} 
+\index{dotgraph.cpp@{dotgraph.cpp}!deliverablesPresent@{deliverablesPresent}}
+\index{deliverablesPresent@{deliverablesPresent}!dotgraph.cpp@{dotgraph.cpp}}
+\doxysubsubsection{\texorpdfstring{deliverablesPresent()}{deliverablesPresent()}}
+{\footnotesize\ttfamily static bool deliverables\+Present (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file1,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dotgraph_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{src_2dotgraph_8cpp_source}{dotgraph.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070 \{}
+\DoxyCodeLine{00071   \textcolor{keywordtype}{bool} file1Ok = \textcolor{keyword}{true};}
+\DoxyCodeLine{00072   \textcolor{keywordtype}{bool} file2Ok = \textcolor{keyword}{true};}
+\DoxyCodeLine{00073   \textcolor{keywordflow}{if} (!file1.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00074   \{}
+\DoxyCodeLine{00075     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(file1.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00076     file1Ok = (fi.exists() \&\& fi.size()>0);}
+\DoxyCodeLine{00077   \}}
+\DoxyCodeLine{00078   \textcolor{keywordflow}{if} (!file2.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00079   \{}
+\DoxyCodeLine{00080     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(file2.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00081     file2Ok = (fi.exists() \&\& fi.size()>0);}
+\DoxyCodeLine{00082   \}}
+\DoxyCodeLine{00083   \textcolor{keywordflow}{return} file1Ok \&\& file2Ok;}
+\DoxyCodeLine{00084 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{File\+Info\+::exists()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_file_info_a5b5da50c67491de7a7e96ee10ccb9b1a}{File\+Info\+::size()}}, and \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}.
+
+\mbox{\Hypertarget{src_2dotgraph_8cpp_a174bf83fed06cf0780ec37022bfb931c}\label{src_2dotgraph_8cpp_a174bf83fed06cf0780ec37022bfb931c}} 
+\index{dotgraph.cpp@{dotgraph.cpp}!insertMapFile@{insertMapFile}}
+\index{insertMapFile@{insertMapFile}!dotgraph.cpp@{dotgraph.cpp}}
+\doxysubsubsection{\texorpdfstring{insertMapFile()}{insertMapFile()}}
+{\footnotesize\ttfamily static bool insert\+Map\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{out,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{map\+File,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{rel\+Path,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{map\+Label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dotgraph_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{src_2dotgraph_8cpp_source}{dotgraph.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088 \{}
+\DoxyCodeLine{00089   \mbox{\hyperlink{class_file_info}{FileInfo}} fi(mapFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00090   \textcolor{keywordflow}{if} (fi.exists() \&\& fi.size()>0) \textcolor{comment}{// reuse existing map file}}
+\DoxyCodeLine{00091   \{}
+\DoxyCodeLine{00092     \mbox{\hyperlink{class_text_stream}{TextStream}} t;}
+\DoxyCodeLine{00093     \mbox{\hyperlink{class_dot_file_patcher_a28f0ce1e173d0f12f0a4425af69958a5}{DotFilePatcher::convertMapFile}}(t,mapFile,relPath,\textcolor{keyword}{false});}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{if} (!t.\mbox{\hyperlink{class_text_stream_a0859a9bfd6a7b6bafc7050d9f3aef046}{empty}}())}
+\DoxyCodeLine{00095     \{}
+\DoxyCodeLine{00096       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}} << \textcolor{stringliteral}{"{}<map name=\(\backslash\)"{}"{}} << mapLabel << \textcolor{stringliteral}{"{}\(\backslash\)"{} id=\(\backslash\)"{}"{}} << mapLabel << \textcolor{stringliteral}{"{}\(\backslash\)"{}>\(\backslash\)n"{}};}
+\DoxyCodeLine{00097       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}} << t.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}();}
+\DoxyCodeLine{00098       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}} << \textcolor{stringliteral}{"{}</map>\(\backslash\)n"{}};}
+\DoxyCodeLine{00099     \}}
+\DoxyCodeLine{00100     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00101   \}}
+\DoxyCodeLine{00102   \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \textcolor{comment}{// no map file yet, need to generate it}}
+\DoxyCodeLine{00103 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dot_file_patcher_a28f0ce1e173d0f12f0a4425af69958a5}{Dot\+File\+Patcher\+::convert\+Map\+File()}}, \mbox{\hyperlink{class_text_stream_a0859a9bfd6a7b6bafc7050d9f3aef046}{Text\+Stream\+::empty()}}, \mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{File\+Info\+::exists()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{class_file_info_a5b5da50c67491de7a7e96ee10ccb9b1a}{File\+Info\+::size()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, and \mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{Text\+Stream\+::str()}}.
+
+\mbox{\Hypertarget{src_2dotgraph_8cpp_a272779001504a5c1f52817f54569298f}\label{src_2dotgraph_8cpp_a272779001504a5c1f52817f54569298f}} 
+\index{dotgraph.cpp@{dotgraph.cpp}!sameMd5Signature@{sameMd5Signature}}
+\index{sameMd5Signature@{sameMd5Signature}!dotgraph.cpp@{dotgraph.cpp}}
+\doxysubsubsection{\texorpdfstring{sameMd5Signature()}{sameMd5Signature()}}
+{\footnotesize\ttfamily static bool same\+Md5\+Signature (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{base\+Name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{md5 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Checks if a file \char`\"{}base\+Name\char`\"{}.md5 exists. If so the contents are compared with {\itshape md5}. If equal FALSE is returned. The .md5 is created or updated after successful creation of the output file. 
+
+Definition at line \mbox{\hyperlink{src_2dotgraph_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{src_2dotgraph_8cpp_source}{dotgraph.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046   \textcolor{keywordtype}{bool} same = \textcolor{keyword}{false};}
+\DoxyCodeLine{00047   \textcolor{keywordtype}{char} md5stored[33];}
+\DoxyCodeLine{00048   md5stored[0]=0;}
+\DoxyCodeLine{00049   \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{std::ifstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(baseName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}.md5"{}},std::ifstream::in | std::ifstream::binary);}
+\DoxyCodeLine{00050   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{00051   \{}
+\DoxyCodeLine{00052     \textcolor{comment}{// read checksum}}
+\DoxyCodeLine{00053     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.read(md5stored,32);}
+\DoxyCodeLine{00054     md5stored[32]=\textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00055     \textcolor{comment}{// compare checksum}}
+\DoxyCodeLine{00056     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.fail() \&\& md5==md5stored)}
+\DoxyCodeLine{00057     \{}
+\DoxyCodeLine{00058       same = \textcolor{keyword}{true};}
+\DoxyCodeLine{00059     \}}
+\DoxyCodeLine{00060     \textcolor{comment}{//printf("{}sameSignature(\%s,\%s==\%s)=\%d\(\backslash\)n"{},qPrint(baseName),md5stored,qPrint(md5),same);}}
+\DoxyCodeLine{00061   \}}
+\DoxyCodeLine{00062   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00063   \{}
+\DoxyCodeLine{00064     \textcolor{comment}{//printf("{}sameSignature(\%s) not found\(\backslash\)n"{},qPrint(baseName));}}
+\DoxyCodeLine{00065   \}}
+\DoxyCodeLine{00066   \textcolor{keywordflow}{return} same;}
+\DoxyCodeLine{00067 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, and \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{src_2dotgraph_8cpp_ac4c77ee56010cac577323cba8c6a1ee4}\label{src_2dotgraph_8cpp_ac4c77ee56010cac577323cba8c6a1ee4}} 
+\index{dotgraph.cpp@{dotgraph.cpp}!g\_dotIndexListMutex@{g\_dotIndexListMutex}}
+\index{g\_dotIndexListMutex@{g\_dotIndexListMutex}!dotgraph.cpp@{dotgraph.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_dotIndexListMutex}{g\_dotIndexListMutex}}
+{\footnotesize\ttfamily std\+::mutex g\+\_\+dot\+Index\+List\+Mutex}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dotgraph_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{src_2dotgraph_8cpp_source}{dotgraph.\+cpp}}.
+

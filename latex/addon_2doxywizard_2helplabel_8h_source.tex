@@ -1,0 +1,57 @@
+\hypertarget{addon_2doxywizard_2helplabel_8h_source}{}\doxysection{helplabel.\+h}
+\label{addon_2doxywizard_2helplabel_8h_source}\index{doxygen/addon/doxywizard/helplabel.h@{doxygen/addon/doxywizard/helplabel.h}}
+\mbox{\hyperlink{addon_2doxywizard_2helplabel_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00011}00011 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00013}00013 \textcolor{preprocessor}{\#ifndef HELPLABEL\_H}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00014}00014 \textcolor{preprocessor}{\#define HELPLABEL\_H}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <QLabel>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <QMenu>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00019}\mbox{\hyperlink{class_help_label}{00019}} \textcolor{keyword}{class }\mbox{\hyperlink{class_help_label}{HelpLabel}} : \textcolor{keyword}{public} QLabel}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00020}00020 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00021}00021     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00022}00022   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00023}\mbox{\hyperlink{class_help_label_af2e77b1563c15c02a21ba70670818d88}{00023}}     \mbox{\hyperlink{class_help_label_af2e77b1563c15c02a21ba70670818d88}{HelpLabel}}(\textcolor{keyword}{const} QString \&text) : QLabel(text)}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00024}00024     \{ setContextMenuPolicy(Qt::CustomContextMenu);}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00025}00025       connect(\textcolor{keyword}{this},SIGNAL(customContextMenuRequested(\textcolor{keyword}{const} QPoint\&)),}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00026}00026               \textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_help_label_a12c2c6a35114d5e36f2c59be3ed61773}{showMenu}}(\textcolor{keyword}{const} QPoint\&)));}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00027}00027     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00028}00028   signals:}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00029}\mbox{\hyperlink{class_help_label_a0440696e3a2e2eb57655595c49f0515e}{00029}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_help_label_a0440696e3a2e2eb57655595c49f0515e}{enter}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00030}\mbox{\hyperlink{class_help_label_a9a099d149d6189ed6f0f024893915216}{00030}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_help_label_a9a099d149d6189ed6f0f024893915216}{reset}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00031}00031   \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00032}\mbox{\hyperlink{class_help_label_a12c2c6a35114d5e36f2c59be3ed61773}{00032}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_help_label_a12c2c6a35114d5e36f2c59be3ed61773}{showMenu}}(\textcolor{keyword}{const} QPoint \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00033}00033     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00034}00034       QMenu menu(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00035}00035       QAction *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}} = menu.addAction(tr(\textcolor{stringliteral}{"{}Reset to default"{}}));}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00036}00036       \textcolor{keywordflow}{if} (menu.exec(mapToGlobal(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}))==\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae1c02e9f36a12e377487affe87df4bb6}{a}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00037}00037       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00038}00038         \mbox{\hyperlink{class_help_label_a9a099d149d6189ed6f0f024893915216}{reset}}();}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00039}00039       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00040}00040     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00041}00041   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00042}\mbox{\hyperlink{class_help_label_afe01010d097875ee0428cd820d297f49}{00042}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_help_label_afe01010d097875ee0428cd820d297f49}{enterEvent}}(}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00043}00043 \#\textcolor{keywordflow}{if} QT\_VERSION < QT\_VERSION\_CHECK(6, 0, 0)}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00044}00044         QEvent * event}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00045}00045 \#\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00046}00046         QEnterEvent * event}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00047}00047 \#endif}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00048}00048     ) \{ \mbox{\hyperlink{class_help_label_a0440696e3a2e2eb57655595c49f0515e}{enter}}(); QLabel::enterEvent(event); \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00049}00049 \};}
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{addon_2doxywizard_2helplabel_8h_source_l00051}00051 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

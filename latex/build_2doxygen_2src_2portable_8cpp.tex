@@ -1,0 +1,257 @@
+\hypertarget{build_2doxygen_2src_2portable_8cpp}{}\doxysection{doxygen/build/doxygen/src/portable.cpp File Reference}
+\label{build_2doxygen_2src_2portable_8cpp}\index{doxygen/build/doxygen/src/portable.cpp@{doxygen/build/doxygen/src/portable.cpp}}
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{load\+Environment}} ()
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}{Exists\+On\+Path}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name)
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a9ecb00561bffb0bffa3cce647d399c6f}{portable\+\_\+memmem}} (const char $\ast$haystack, size\+\_\+t haystack\+\_\+len, const char $\ast$needle, size\+\_\+t needle\+\_\+len)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}}
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{environment\+Loaded}} = false
+\item 
+static std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\+\_\+env}} = std\+::map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}$>$()
+\item 
+static double \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a1cf22a076099dc716b95f83698b54182}{g\+\_\+sys\+Elapsed\+Time}}
+\item 
+static std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4acb0a5fe2ac2ce53538303ea3552118}{g\+\_\+start\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}\label{build_2doxygen_2src_2portable_8cpp_a1a05b42d6baa2f85ed112c8a7c67ac01}} 
+\index{portable.cpp@{portable.cpp}!ExistsOnPath@{ExistsOnPath}}
+\index{ExistsOnPath@{ExistsOnPath}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{ExistsOnPath()}{ExistsOnPath()}}
+{\footnotesize\ttfamily static bool Exists\+On\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source_l00359}{359}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source}{portable.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00360 \{}
+\DoxyCodeLine{00361   \mbox{\hyperlink{class_file_info}{FileInfo}} fi1(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00362   \textcolor{keywordflow}{if} (fi1.exists()) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00363 }
+\DoxyCodeLine{00364   \mbox{\hyperlink{class_q_c_string}{QCString}} paths = \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable::getenv}}(\textcolor{stringliteral}{"{}PATH"{}});}
+\DoxyCodeLine{00365   \textcolor{keywordtype}{char} listSep = \mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{Portable::pathListSeparator}}()[0];}
+\DoxyCodeLine{00366   \textcolor{keywordtype}{char} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}} = \mbox{\hyperlink{namespace_portable_a0f30be3f0aed0b88804816f3e6310ee4}{Portable::pathSeparator}}()[0];}
+\DoxyCodeLine{00367   \textcolor{keywordtype}{int} strt = 0;}
+\DoxyCodeLine{00368   \textcolor{keywordtype}{int} idx;}
+\DoxyCodeLine{00369   \textcolor{keywordflow}{while} ((idx = paths.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(listSep,strt)) != -\/1)}
+\DoxyCodeLine{00370   \{}
+\DoxyCodeLine{00371     \mbox{\hyperlink{class_q_c_string}{QCString}} locFile(paths.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(strt,idx-\/strt));}
+\DoxyCodeLine{00372     locFile += \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}};}
+\DoxyCodeLine{00373     locFile += fileName;}
+\DoxyCodeLine{00374     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(locFile.str());}
+\DoxyCodeLine{00375     \textcolor{keywordflow}{if} (fi.exists()) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00376     strt = idx + 1;}
+\DoxyCodeLine{00377   \}}
+\DoxyCodeLine{00378   \textcolor{comment}{// to be sure the last path component is checked as well}}
+\DoxyCodeLine{00379   \mbox{\hyperlink{class_q_c_string}{QCString}} locFile(paths.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(strt));}
+\DoxyCodeLine{00380   \textcolor{keywordflow}{if} (!locFile.isEmpty())}
+\DoxyCodeLine{00381   \{}
+\DoxyCodeLine{00382     locFile += \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}};}
+\DoxyCodeLine{00383     locFile += fileName;}
+\DoxyCodeLine{00384     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(locFile.str());}
+\DoxyCodeLine{00385     \textcolor{keywordflow}{if} (fi.exists()) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00386   \}}
+\DoxyCodeLine{00387   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00388 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{File\+Info\+::exists()}}, \mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{QCString\+::find()}}, \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable\+::getenv()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{QCString\+::mid()}}, \mbox{\hyperlink{namespace_portable_a33ec52ac55c4d58e0748239920ee3e14}{Portable\+::path\+List\+Separator()}}, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{path\+Sep}}, \mbox{\hyperlink{namespace_portable_a0f30be3f0aed0b88804816f3e6310ee4}{Portable\+::path\+Separator()}}, and \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespace_portable_a39228795dec07d8121645b0348e91712}{Portable\+::check\+For\+Executable()}}, and \mbox{\hyperlink{namespace_portable_a4c4c43977edb27e33f873fbacf11d528}{Portable\+::ghost\+Script\+Command()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}\label{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}} 
+\index{portable.cpp@{portable.cpp}!loadEnvironment@{loadEnvironment}}
+\index{loadEnvironment@{loadEnvironment}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{loadEnvironment()}{loadEnvironment()}}
+{\footnotesize\ttfamily void load\+Environment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source_l00213}{213}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source}{portable.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214 \{}
+\DoxyCodeLine{00215   \textcolor{keywordflow}{if}(\mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}} != NULL)}
+\DoxyCodeLine{00216   \{}
+\DoxyCodeLine{00217     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{00218     \textcolor{keywordtype}{char}* current = \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}}[i];}
+\DoxyCodeLine{00219 }
+\DoxyCodeLine{00220     \textcolor{keywordflow}{while}(current != NULL)                            \textcolor{comment}{// parse all strings contained by environ til the last element (NULL)}}
+\DoxyCodeLine{00221     \{}
+\DoxyCodeLine{00222       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} env\_var(current);                   \textcolor{comment}{// load current environment variable string}}
+\DoxyCodeLine{00223       \textcolor{keywordtype}{size\_t} pos = env\_var.find(\textcolor{stringliteral}{"{}="{}});}
+\DoxyCodeLine{00224       \textcolor{keywordflow}{if}(pos != std::string::npos)                    \textcolor{comment}{// only parse the variable, if it is a valid environment variable...}}
+\DoxyCodeLine{00225       \{                                               \textcolor{comment}{// ...which has to contain an equal sign as delimiter by definition}}
+\DoxyCodeLine{00226         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} = env\_var.substr(0,pos);     \textcolor{comment}{// the string til the equal sign contains the name}}
+\DoxyCodeLine{00227         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} value = env\_var.substr(pos + 1);  \textcolor{comment}{// the string from the equal sign contains the value}}
+\DoxyCodeLine{00228 }
+\DoxyCodeLine{00229         \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\_env}}[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}] = value;                       \textcolor{comment}{// save the value by the name as its key in the classes map}}
+\DoxyCodeLine{00230       \}}
+\DoxyCodeLine{00231       i++;}
+\DoxyCodeLine{00232       current = \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}}[i];}
+\DoxyCodeLine{00233     \}}
+\DoxyCodeLine{00234   \}}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00236   \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{environmentLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00237 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}{environ}}, \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}{environment\+Loaded}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}{proc\+\_\+env}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable\+::getenv()}}, and \mbox{\hyperlink{namespace_portable_abd244447df22d110ad410b69c357fdf3}{Portable\+::setenv()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_a9ecb00561bffb0bffa3cce647d399c6f}\label{build_2doxygen_2src_2portable_8cpp_a9ecb00561bffb0bffa3cce647d399c6f}} 
+\index{portable.cpp@{portable.cpp}!portable\_memmem@{portable\_memmem}}
+\index{portable\_memmem@{portable\_memmem}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{portable\_memmem()}{portable\_memmem()}}
+{\footnotesize\ttfamily static const char $\ast$ portable\+\_\+memmem (\begin{DoxyParamCaption}\item[{const char $\ast$}]{haystack,  }\item[{size\+\_\+t}]{haystack\+\_\+len,  }\item[{const char $\ast$}]{needle,  }\item[{size\+\_\+t}]{needle\+\_\+len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source_l00547}{547}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source}{portable.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00549 \{}
+\DoxyCodeLine{00550   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keyword}{const} last\_possible = haystack + haystack\_len -\/ needle\_len;}
+\DoxyCodeLine{00551 }
+\DoxyCodeLine{00552   \textcolor{keywordflow}{if} (needle\_len == 0)}
+\DoxyCodeLine{00553     \textcolor{comment}{// The first occurrence of the empty string should to occur at the beginning of the string.}}
+\DoxyCodeLine{00554   \{}
+\DoxyCodeLine{00555     \textcolor{keywordflow}{return} haystack;}
+\DoxyCodeLine{00556   \}}
+\DoxyCodeLine{00557 }
+\DoxyCodeLine{00558   \textcolor{comment}{// Sanity check}}
+\DoxyCodeLine{00559   \textcolor{keywordflow}{if} (haystack\_len < needle\_len)}
+\DoxyCodeLine{00560   \{}
+\DoxyCodeLine{00561     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00562   \}}
+\DoxyCodeLine{00563 }
+\DoxyCodeLine{00564   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}} = haystack; \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}} <= last\_possible; ++\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}})}
+\DoxyCodeLine{00565   \{}
+\DoxyCodeLine{00566     \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}}[0] == needle[0] \&\& !memcmp(\&\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}}[1], needle + 1, needle\_len -\/ 1))}
+\DoxyCodeLine{00567     \{}
+\DoxyCodeLine{00568       \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}};}
+\DoxyCodeLine{00569     \}}
+\DoxyCodeLine{00570   \}}
+\DoxyCodeLine{00571 }
+\DoxyCodeLine{00572   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00573 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{ghc\+::filesystem\+::begin()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespace_portable_ada69eeb681c8f036f6a3327478acbd75}{Portable\+::strnstr()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}\label{build_2doxygen_2src_2portable_8cpp_aa006daaf11f1e2e45a6ababaf463212b}} 
+\index{portable.cpp@{portable.cpp}!environ@{environ}}
+\index{environ@{environ}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{environ}{environ}}
+{\footnotesize\ttfamily char$\ast$$\ast$ environ\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{load\+Environment()}}, and \mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable\+::system()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}\label{build_2doxygen_2src_2portable_8cpp_a48493a2ee9d65cbcd60ddea27a029a39}} 
+\index{portable.cpp@{portable.cpp}!environmentLoaded@{environmentLoaded}}
+\index{environmentLoaded@{environmentLoaded}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{environmentLoaded}{environmentLoaded}}
+{\footnotesize\ttfamily bool environment\+Loaded = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source}{portable.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable\+::getenv()}}, \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{load\+Environment()}}, and \mbox{\hyperlink{namespace_portable_abd244447df22d110ad410b69c357fdf3}{Portable\+::setenv()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_a4acb0a5fe2ac2ce53538303ea3552118}\label{build_2doxygen_2src_2portable_8cpp_a4acb0a5fe2ac2ce53538303ea3552118}} 
+\index{portable.cpp@{portable.cpp}!g\_startTime@{g\_startTime}}
+\index{g\_startTime@{g\_startTime}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_startTime}{g\_startTime}}
+{\footnotesize\ttfamily std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point g\+\_\+start\+Time\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source}{portable.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable\+::sys\+Timer\+Start()}}, and \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable\+::sys\+Timer\+Stop()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_a1cf22a076099dc716b95f83698b54182}\label{build_2doxygen_2src_2portable_8cpp_a1cf22a076099dc716b95f83698b54182}} 
+\index{portable.cpp@{portable.cpp}!g\_sysElapsedTime@{g\_sysElapsedTime}}
+\index{g\_sysElapsedTime@{g\_sysElapsedTime}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_sysElapsedTime}{g\_sysElapsedTime}}
+{\footnotesize\ttfamily double g\+\_\+sys\+Elapsed\+Time\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source}{portable.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespace_portable_a248b5a87e07edc01e5ae424b6597142f}{Portable\+::get\+Sys\+Elapsed\+Time()}}, and \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable\+::sys\+Timer\+Stop()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}\label{build_2doxygen_2src_2portable_8cpp_a4f8bf02818b7f772ff25cdc2791a5f3a}} 
+\index{portable.cpp@{portable.cpp}!proc\_env@{proc\_env}}
+\index{proc\_env@{proc\_env}!portable.cpp@{portable.cpp}}
+\doxysubsubsection{\texorpdfstring{proc\_env}{proc\_env}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}$>$ proc\+\_\+env = std\+::map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}$>$()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_source}{portable.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespace_portable_ae1a7516287ca7c75eebc3fa7aa12e970}{Portable\+::getenv()}}, \mbox{\hyperlink{build_2doxygen_2src_2portable_8cpp_ac1233c865d099e1135978850510ca4da}{load\+Environment()}}, \mbox{\hyperlink{namespace_portable_abd244447df22d110ad410b69c357fdf3}{Portable\+::setenv()}}, and \mbox{\hyperlink{namespace_portable_ac2e29048cffc72c3bed439cff5b02cd4}{Portable\+::unsetenv()}}.
+

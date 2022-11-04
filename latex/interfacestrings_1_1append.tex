@@ -1,0 +1,410 @@
+\hypertarget{interfacestrings_1_1append}{}\doxysection{strings\+::append Interface Reference}
+\label{interfacestrings_1_1append}\index{strings::append@{strings::append}}
+
+
+Append a string or vector of strings to another vector of strings.  
+
+
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1append_ac6346f6a40d3a7f5a32b9892dfb28da1}{append\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, item)
+\begin{DoxyCompactList}\small\item\em Adds a single item to the end of the vector of Strings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1append_a4ec7ddd5fd369f6dcb2361d788cffbad}{append\+\_\+scalar}} (\mbox{\hyperlink{structvector}{vector}}, item)
+\begin{DoxyCompactList}\small\item\em Adds a single item to the end of the vector of Strings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1append_aad33bb7b5e37fe745bbb409d97ae0f87}{append\+\_\+vector}} (\mbox{\hyperlink{structvector}{vector}}, items, mask)
+\begin{DoxyCompactList}\small\item\em Appends a vector of Strings to another vector of Strings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1append_ac6346f6a40d3a7f5a32b9892dfb28da1}{append\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, item)
+\begin{DoxyCompactList}\small\item\em Adds a single item to the end of the vector of Strings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1append_a4ec7ddd5fd369f6dcb2361d788cffbad}{append\+\_\+scalar}} (\mbox{\hyperlink{structvector}{vector}}, item)
+\begin{DoxyCompactList}\small\item\em Adds a single item to the end of the vector of Strings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1append_aad33bb7b5e37fe745bbb409d97ae0f87}{append\+\_\+vector}} (\mbox{\hyperlink{structvector}{vector}}, items, mask)
+\begin{DoxyCompactList}\small\item\em Appends a vector of Strings to another vector of Strings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Append a string or vector of strings to another vector of strings. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00067}{67}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+
+\doxysubsection{Member Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{interfacestrings_1_1append_ac6346f6a40d3a7f5a32b9892dfb28da1}\label{interfacestrings_1_1append_ac6346f6a40d3a7f5a32b9892dfb28da1}} 
+\index{strings::append@{strings::append}!append\_@{append\_}}
+\index{append\_@{append\_}!strings::append@{strings::append}}
+\doxysubsubsection{\texorpdfstring{append\_()}{append\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine strings\+::append\+::append\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{character($\ast$,kind=\mbox{\hyperlink{namespacestrings_ae9b4b80b475c76b9094677bf46c6b8b0}{ck}}), intent(in)}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a single item to the end of the vector of Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of strings.\\
+\hline
+\mbox{\texttt{ in}}  & {\em item} & The CHARACTER object to append as a new item. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00267}{267}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268     }
+\DoxyCodeLine{00269     \textcolor{keywordtype}{USE }charutils}
+\DoxyCodeLine{00270     }
+\DoxyCodeLine{00271     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00272     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00273     }
+\DoxyCodeLine{00274     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00275     \textcolor{keywordtype}{CHARACTER(*,KIND=ck)}, \textcolor{keywordtype}{INTENT(IN)} :: item}
+\DoxyCodeLine{00276     }
+\DoxyCodeLine{00277     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00278     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00279     }
+\DoxyCodeLine{00280     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00281     }
+\DoxyCodeLine{00282     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00283     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00284     }
+\DoxyCodeLine{00285     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00286     }
+\DoxyCodeLine{00287     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00288       \textcolor{keyword}{ALLOCATE}(tmp(1))}
+\DoxyCodeLine{00289     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00290       \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})+1))}
+\DoxyCodeLine{00291       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00292         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00293 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00294 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00295     tmp(\textcolor{keyword}{SIZE}(tmp))\%item = item}
+\DoxyCodeLine{00296     }
+\DoxyCodeLine{00297     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00298     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1append_ac6346f6a40d3a7f5a32b9892dfb28da1}\label{interfacestrings_1_1append_ac6346f6a40d3a7f5a32b9892dfb28da1}} 
+\index{strings::append@{strings::append}!append\_@{append\_}}
+\index{append\_@{append\_}!strings::append@{strings::append}}
+\doxysubsubsection{\texorpdfstring{append\_()}{append\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine strings\+::append\+::append\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{character($\ast$,kind=\mbox{\hyperlink{namespacestrings_ae9b4b80b475c76b9094677bf46c6b8b0}{ck}}), intent(in)}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a single item to the end of the vector of Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of strings.\\
+\hline
+\mbox{\texttt{ in}}  & {\em item} & The CHARACTER object to append as a new item. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00267}{267}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268     }
+\DoxyCodeLine{00269     \textcolor{keywordtype}{USE }charutils}
+\DoxyCodeLine{00270     }
+\DoxyCodeLine{00271     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00272     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00273     }
+\DoxyCodeLine{00274     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00275     \textcolor{keywordtype}{CHARACTER(*,KIND=ck)}, \textcolor{keywordtype}{INTENT(IN)} :: item}
+\DoxyCodeLine{00276     }
+\DoxyCodeLine{00277     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00278     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00279     }
+\DoxyCodeLine{00280     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00281     }
+\DoxyCodeLine{00282     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00283     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00284     }
+\DoxyCodeLine{00285     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00286     }
+\DoxyCodeLine{00287     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00288       \textcolor{keyword}{ALLOCATE}(tmp(1))}
+\DoxyCodeLine{00289     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00290       \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})+1))}
+\DoxyCodeLine{00291       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00292         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00293 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00294 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00295     tmp(\textcolor{keyword}{SIZE}(tmp))\%item = item}
+\DoxyCodeLine{00296     }
+\DoxyCodeLine{00297     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00298     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1append_a4ec7ddd5fd369f6dcb2361d788cffbad}\label{interfacestrings_1_1append_a4ec7ddd5fd369f6dcb2361d788cffbad}} 
+\index{strings::append@{strings::append}!append\_scalar@{append\_scalar}}
+\index{append\_scalar@{append\_scalar}!strings::append@{strings::append}}
+\doxysubsubsection{\texorpdfstring{append\_scalar()}{append\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine strings\+::append\+::append\+\_\+scalar (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a single item to the end of the vector of Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of strings.\\
+\hline
+\mbox{\texttt{ in}}  & {\em item} & The scalar \mbox{\hyperlink{class_string}{String}} object to append as a new item. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00311}{311}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00312     }
+\DoxyCodeLine{00313     \textcolor{keywordtype}{USE }charutils}
+\DoxyCodeLine{00314     }
+\DoxyCodeLine{00315     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00316     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00317     }
+\DoxyCodeLine{00318     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00319     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: item}
+\DoxyCodeLine{00320     }
+\DoxyCodeLine{00321     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00322     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00323     }
+\DoxyCodeLine{00324     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00325     }
+\DoxyCodeLine{00326     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00327     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00328     }
+\DoxyCodeLine{00329     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00330     }
+\DoxyCodeLine{00331     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00332       \textcolor{keyword}{ALLOCATE}(tmp(1))}
+\DoxyCodeLine{00333     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00334       \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})+1))}
+\DoxyCodeLine{00335       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00336         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00337 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00338 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00339     tmp(\textcolor{keyword}{SIZE}(tmp)) = item}
+\DoxyCodeLine{00340     }
+\DoxyCodeLine{00341     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00342     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1append_a4ec7ddd5fd369f6dcb2361d788cffbad}\label{interfacestrings_1_1append_a4ec7ddd5fd369f6dcb2361d788cffbad}} 
+\index{strings::append@{strings::append}!append\_scalar@{append\_scalar}}
+\index{append\_scalar@{append\_scalar}!strings::append@{strings::append}}
+\doxysubsubsection{\texorpdfstring{append\_scalar()}{append\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine strings\+::append\+::append\+\_\+scalar (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a single item to the end of the vector of Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of strings.\\
+\hline
+\mbox{\texttt{ in}}  & {\em item} & The scalar \mbox{\hyperlink{class_string}{String}} object to append as a new item. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00311}{311}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00312     }
+\DoxyCodeLine{00313     \textcolor{keywordtype}{USE }charutils}
+\DoxyCodeLine{00314     }
+\DoxyCodeLine{00315     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00316     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00317     }
+\DoxyCodeLine{00318     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00319     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: item}
+\DoxyCodeLine{00320     }
+\DoxyCodeLine{00321     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00322     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00323     }
+\DoxyCodeLine{00324     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00325     }
+\DoxyCodeLine{00326     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00327     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00328     }
+\DoxyCodeLine{00329     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00330     }
+\DoxyCodeLine{00331     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00332       \textcolor{keyword}{ALLOCATE}(tmp(1))}
+\DoxyCodeLine{00333     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00334       \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})+1))}
+\DoxyCodeLine{00335       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00336         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00337 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00338 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00339     tmp(\textcolor{keyword}{SIZE}(tmp)) = item}
+\DoxyCodeLine{00340     }
+\DoxyCodeLine{00341     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00342     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1append_aad33bb7b5e37fe745bbb409d97ae0f87}\label{interfacestrings_1_1append_aad33bb7b5e37fe745bbb409d97ae0f87}} 
+\index{strings::append@{strings::append}!append\_vector@{append\_vector}}
+\index{append\_vector@{append\_vector}!strings::append@{strings::append}}
+\doxysubsubsection{\texorpdfstring{append\_vector()}{append\_vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine strings\+::append\+::append\+\_\+vector (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{items,  }\item[{logical, dimension(\+:), intent(in), optional}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Appends a vector of Strings to another vector of Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of Strings to be appended to.\\
+\hline
+\mbox{\texttt{ in}}  & {\em items} & The potential selection of Strings to be appended.\\
+\hline
+\mbox{\texttt{ in}}  & {\em mask} & \mbox{\hyperlink{class_a}{A}} mask that designates which elements from {\itshape items} will be appended. If not present then all elements from {\itshape items} will be appended. If present must be the same size as {\itshape items}.\\
+\hline
+\end{DoxyParams}
+Note that {\itshape items} is left unchanged. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00362}{362}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00363     }
+\DoxyCodeLine{00364     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00365     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00366     }
+\DoxyCodeLine{00367     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00368     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: items(:)}
+\DoxyCodeLine{00369     \textcolor{keywordtype}{LOGICAL}, \textcolor{keywordtype}{INTENT(IN)}, \textcolor{keywordtype}{OPTIONAL} :: mask(:)}
+\DoxyCodeLine{00370     }
+\DoxyCodeLine{00371     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00372     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00373     }
+\DoxyCodeLine{00374     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00375     \textcolor{keywordtype}{INTEGER} :: count          \textcolor{comment}{! Number of elements to be appended.}}
+\DoxyCodeLine{00376     }
+\DoxyCodeLine{00377     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00378     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00379     }
+\DoxyCodeLine{00380     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00381     }
+\DoxyCodeLine{00382     count = 0}
+\DoxyCodeLine{00383     \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(items)}
+\DoxyCodeLine{00384       \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(mask)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00385         \textcolor{keywordflow}{IF} (.NOT. mask(i)) cycle}
+\DoxyCodeLine{00386 \textcolor{keywordflow}{      END IF}}
+\DoxyCodeLine{00387       count = count + 1}
+\DoxyCodeLine{00388 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00389     }
+\DoxyCodeLine{00390     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00391       \textcolor{keyword}{ALLOCATE}(tmp(count))}
+\DoxyCodeLine{00392     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00393       \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}}) + count))}
+\DoxyCodeLine{00394       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00395         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00396 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00397 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00398     }
+\DoxyCodeLine{00399     count = \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00400     \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(items)}
+\DoxyCodeLine{00401       \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(mask)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00402         \textcolor{keywordflow}{IF} (.NOT. mask(i)) cycle}
+\DoxyCodeLine{00403 \textcolor{keywordflow}{      END IF}}
+\DoxyCodeLine{00404       count = count + 1}
+\DoxyCodeLine{00405       tmp(count)\%item = items(i)\%item}
+\DoxyCodeLine{00406 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00407     }
+\DoxyCodeLine{00408     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00409     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1append_aad33bb7b5e37fe745bbb409d97ae0f87}\label{interfacestrings_1_1append_aad33bb7b5e37fe745bbb409d97ae0f87}} 
+\index{strings::append@{strings::append}!append\_vector@{append\_vector}}
+\index{append\_vector@{append\_vector}!strings::append@{strings::append}}
+\doxysubsubsection{\texorpdfstring{append\_vector()}{append\_vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine strings\+::append\+::append\+\_\+vector (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{items,  }\item[{logical, dimension(\+:), intent(in), optional}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Appends a vector of Strings to another vector of Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of Strings to be appended to.\\
+\hline
+\mbox{\texttt{ in}}  & {\em items} & The potential selection of Strings to be appended.\\
+\hline
+\mbox{\texttt{ in}}  & {\em mask} & \mbox{\hyperlink{class_a}{A}} mask that designates which elements from {\itshape items} will be appended. If not present then all elements from {\itshape items} will be appended. If present must be the same size as {\itshape items}.\\
+\hline
+\end{DoxyParams}
+Note that {\itshape items} is left unchanged. 
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00362}{362}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00363     }
+\DoxyCodeLine{00364     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00365     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00366     }
+\DoxyCodeLine{00367     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00368     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: items(:)}
+\DoxyCodeLine{00369     \textcolor{keywordtype}{LOGICAL}, \textcolor{keywordtype}{INTENT(IN)}, \textcolor{keywordtype}{OPTIONAL} :: mask(:)}
+\DoxyCodeLine{00370     }
+\DoxyCodeLine{00371     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00372     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00373     }
+\DoxyCodeLine{00374     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00375     \textcolor{keywordtype}{INTEGER} :: count          \textcolor{comment}{! Number of elements to be appended.}}
+\DoxyCodeLine{00376     }
+\DoxyCodeLine{00377     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00378     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00379     }
+\DoxyCodeLine{00380     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00381     }
+\DoxyCodeLine{00382     count = 0}
+\DoxyCodeLine{00383     \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(items)}
+\DoxyCodeLine{00384       \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(mask)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00385         \textcolor{keywordflow}{IF} (.NOT. mask(i)) cycle}
+\DoxyCodeLine{00386 \textcolor{keywordflow}{      END IF}}
+\DoxyCodeLine{00387       count = count + 1}
+\DoxyCodeLine{00388 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00389     }
+\DoxyCodeLine{00390     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00391       \textcolor{keyword}{ALLOCATE}(tmp(count))}
+\DoxyCodeLine{00392     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00393       \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}}) + count))}
+\DoxyCodeLine{00394       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00395         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00396 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00397 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00398     }
+\DoxyCodeLine{00399     count = \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00400     \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(items)}
+\DoxyCodeLine{00401       \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(mask)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00402         \textcolor{keywordflow}{IF} (.NOT. mask(i)) cycle}
+\DoxyCodeLine{00403 \textcolor{keywordflow}{      END IF}}
+\DoxyCodeLine{00404       count = count + 1}
+\DoxyCodeLine{00405       tmp(count)\%item = items(i)\%item}
+\DoxyCodeLine{00406 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00407     }
+\DoxyCodeLine{00408     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00409     }
+
+\end{DoxyCode}
+
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/testing/\mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\item 
+doxygen/testing/\mbox{\hyperlink{testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\end{DoxyCompactItemize}

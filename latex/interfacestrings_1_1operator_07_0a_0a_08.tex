@@ -1,0 +1,202 @@
+\hypertarget{interfacestrings_1_1operator_07_0a_0a_08}{}\doxysection{strings\+::operator(==) Interface Reference}
+\label{interfacestrings_1_1operator_07_0a_0a_08}\index{strings::operator(==)@{strings::operator(==)}}
+
+
+Elemental comparison of two strings or of a string and a character scalar.  
+
+
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} \mbox{\hyperlink{interfacestrings_1_1operator_07_0a_0a_08_a22eaf942e2152394fa8b7228a1bb5627}{compare}} (lhs, rhs)
+\begin{DoxyCompactList}\small\item\em Implementation of OPERATOR(==) -\/ compare two Strings. \end{DoxyCompactList}\item 
+elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} \mbox{\hyperlink{interfacestrings_1_1operator_07_0a_0a_08_ae1c3d14b8650130cbffc130479440e5e}{compare\+\_\+str}} (lhs, rhs)
+\begin{DoxyCompactList}\small\item\em Implementation of OPERATOR(==) -\/ compare a \mbox{\hyperlink{class_string}{String}} with a character scalar. \end{DoxyCompactList}\item 
+elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} \mbox{\hyperlink{interfacestrings_1_1operator_07_0a_0a_08_a22eaf942e2152394fa8b7228a1bb5627}{compare}} (lhs, rhs)
+\begin{DoxyCompactList}\small\item\em Implementation of OPERATOR(==) -\/ compare two Strings. \end{DoxyCompactList}\item 
+elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} \mbox{\hyperlink{interfacestrings_1_1operator_07_0a_0a_08_ae1c3d14b8650130cbffc130479440e5e}{compare\+\_\+str}} (lhs, rhs)
+\begin{DoxyCompactList}\small\item\em Implementation of OPERATOR(==) -\/ compare a \mbox{\hyperlink{class_string}{String}} with a character scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Elemental comparison of two strings or of a string and a character scalar. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00088}{88}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+
+\doxysubsection{Member Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{interfacestrings_1_1operator_07_0a_0a_08_a22eaf942e2152394fa8b7228a1bb5627}\label{interfacestrings_1_1operator_07_0a_0a_08_a22eaf942e2152394fa8b7228a1bb5627}} 
+\index{strings::operator(==)@{strings::operator(==)}!compare@{compare}}
+\index{compare@{compare}!strings::operator(==)@{strings::operator(==)}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} strings\+::operator(==)\+::compare (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{lhs,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Implementation of OPERATOR(==) -\/ compare two Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lhs} & The left hand string.\\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & The right hand string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+.TRUE. if the strings compare equal (Fortran rules), .FALSE. otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00577}{577}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00578     }
+\DoxyCodeLine{00579     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00580     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00581     }
+\DoxyCodeLine{00582     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: lhs}
+\DoxyCodeLine{00583     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: rhs}
+\DoxyCodeLine{00584     }
+\DoxyCodeLine{00585     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00586     \textcolor{keywordtype}{LOGICAL} :: b}
+\DoxyCodeLine{00587     }
+\DoxyCodeLine{00588     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00589     }
+\DoxyCodeLine{00590     b = lhs\%item == rhs\%item}
+\DoxyCodeLine{00591     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1operator_07_0a_0a_08_a22eaf942e2152394fa8b7228a1bb5627}\label{interfacestrings_1_1operator_07_0a_0a_08_a22eaf942e2152394fa8b7228a1bb5627}} 
+\index{strings::operator(==)@{strings::operator(==)}!compare@{compare}}
+\index{compare@{compare}!strings::operator(==)@{strings::operator(==)}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} strings\+::operator(==)\+::compare (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{lhs,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Implementation of OPERATOR(==) -\/ compare two Strings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lhs} & The left hand string.\\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & The right hand string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+.TRUE. if the strings compare equal (Fortran rules), .FALSE. otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00577}{577}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00578     }
+\DoxyCodeLine{00579     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00580     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00581     }
+\DoxyCodeLine{00582     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: lhs}
+\DoxyCodeLine{00583     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: rhs}
+\DoxyCodeLine{00584     }
+\DoxyCodeLine{00585     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00586     \textcolor{keywordtype}{LOGICAL} :: b}
+\DoxyCodeLine{00587     }
+\DoxyCodeLine{00588     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00589     }
+\DoxyCodeLine{00590     b = lhs\%item == rhs\%item}
+\DoxyCodeLine{00591     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1operator_07_0a_0a_08_ae1c3d14b8650130cbffc130479440e5e}\label{interfacestrings_1_1operator_07_0a_0a_08_ae1c3d14b8650130cbffc130479440e5e}} 
+\index{strings::operator(==)@{strings::operator(==)}!compare\_str@{compare\_str}}
+\index{compare\_str@{compare\_str}!strings::operator(==)@{strings::operator(==)}}
+\doxysubsubsection{\texorpdfstring{compare\_str()}{compare\_str()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} strings\+::operator(==)\+::compare\+\_\+str (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{lhs,  }\item[{character($\ast$,kind=\mbox{\hyperlink{namespacestrings_ae9b4b80b475c76b9094677bf46c6b8b0}{ck}}), intent(in)}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Implementation of OPERATOR(==) -\/ compare a \mbox{\hyperlink{class_string}{String}} with a character scalar. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lhs} & The string to compare.\\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & The character scalar to compare.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+.TRUE. if string and the character variable compare equal (Fortran rules), .FALSE. otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00607}{607}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00608     }
+\DoxyCodeLine{00609     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00610     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00611     }
+\DoxyCodeLine{00612     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: lhs}
+\DoxyCodeLine{00613     \textcolor{keywordtype}{CHARACTER(*,KIND=ck)}, \textcolor{keywordtype}{INTENT(IN)} :: rhs}
+\DoxyCodeLine{00614     }
+\DoxyCodeLine{00615     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00616     \textcolor{keywordtype}{LOGICAL} :: b}
+\DoxyCodeLine{00617     }
+\DoxyCodeLine{00618     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00619     }
+\DoxyCodeLine{00620     b = lhs\%item == rhs}
+\DoxyCodeLine{00621     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1operator_07_0a_0a_08_ae1c3d14b8650130cbffc130479440e5e}\label{interfacestrings_1_1operator_07_0a_0a_08_ae1c3d14b8650130cbffc130479440e5e}} 
+\index{strings::operator(==)@{strings::operator(==)}!compare\_str@{compare\_str}}
+\index{compare\_str@{compare\_str}!strings::operator(==)@{strings::operator(==)}}
+\doxysubsubsection{\texorpdfstring{compare\_str()}{compare\_str()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily elemental logical \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} strings\+::operator(==)\+::compare\+\_\+str (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), intent(in)}]{lhs,  }\item[{character($\ast$,kind=\mbox{\hyperlink{namespacestrings_ae9b4b80b475c76b9094677bf46c6b8b0}{ck}}), intent(in)}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Implementation of OPERATOR(==) -\/ compare a \mbox{\hyperlink{class_string}{String}} with a character scalar. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lhs} & The string to compare.\\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & The character scalar to compare.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+.TRUE. if string and the character variable compare equal (Fortran rules), .FALSE. otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00607}{607}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00608     }
+\DoxyCodeLine{00609     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00610     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00611     }
+\DoxyCodeLine{00612     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: lhs}
+\DoxyCodeLine{00613     \textcolor{keywordtype}{CHARACTER(*,KIND=ck)}, \textcolor{keywordtype}{INTENT(IN)} :: rhs}
+\DoxyCodeLine{00614     }
+\DoxyCodeLine{00615     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00616     \textcolor{keywordtype}{LOGICAL} :: b}
+\DoxyCodeLine{00617     }
+\DoxyCodeLine{00618     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00619     }
+\DoxyCodeLine{00620     b = lhs\%item == rhs}
+\DoxyCodeLine{00621     }
+
+\end{DoxyCode}
+
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/testing/\mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\item 
+doxygen/testing/\mbox{\hyperlink{testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\end{DoxyCompactItemize}

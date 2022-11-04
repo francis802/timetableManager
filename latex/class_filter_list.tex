@@ -1,0 +1,100 @@
+\hypertarget{class_filter_list}{}\doxysection{Filter\+List Class Reference}
+\label{class_filter_list}\index{FilterList@{FilterList}}
+
+
+The implementation of the \char`\"{}list\char`\"{} filter.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_list_a7ed00ddac13e8e704fe45d5baf7e8c2b}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_list_a7ed00ddac13e8e704fe45d5baf7e8c2b}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}list\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00861}{861}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_list_a7ed00ddac13e8e704fe45d5baf7e8c2b}\label{class_filter_list_a7ed00ddac13e8e704fe45d5baf7e8c2b}} 
+\index{FilterList@{FilterList}!apply@{apply}}
+\index{apply@{apply}!FilterList@{FilterList}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+List\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l00864}{864}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00865     \{}
+\DoxyCodeLine{00866       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}())}
+\DoxyCodeLine{00867       \{}
+\DoxyCodeLine{00868         \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}()) \textcolor{comment}{// input is already a list}}
+\DoxyCodeLine{00869         \{}
+\DoxyCodeLine{00870           \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00871         \}}
+\DoxyCodeLine{00872         \textcolor{comment}{// create a list with v as the only element}}
+\DoxyCodeLine{00873         \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} list = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{00874         list-\/>append(v);}
+\DoxyCodeLine{00875         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(list));}
+\DoxyCodeLine{00876       \}}
+\DoxyCodeLine{00877       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00878       \{}
+\DoxyCodeLine{00879         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00880       \}}
+\DoxyCodeLine{00881     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, and \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}.
+
+\mbox{\Hypertarget{class_filter_list_a7ed00ddac13e8e704fe45d5baf7e8c2b}\label{class_filter_list_a7ed00ddac13e8e704fe45d5baf7e8c2b}} 
+\index{FilterList@{FilterList}!apply@{apply}}
+\index{apply@{apply}!FilterList@{FilterList}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+List\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l00864}{864}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00865     \{}
+\DoxyCodeLine{00866       \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}())}
+\DoxyCodeLine{00867       \{}
+\DoxyCodeLine{00868         \textcolor{keywordflow}{if} (v.\mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{isList}}()) \textcolor{comment}{// input is already a list}}
+\DoxyCodeLine{00869         \{}
+\DoxyCodeLine{00870           \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00871         \}}
+\DoxyCodeLine{00872         \textcolor{comment}{// create a list with v as the only element}}
+\DoxyCodeLine{00873         \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a73f99c5c02d86d4db5ac1e465da9de54}{TemplateListPtr}} list = \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{TemplateList::alloc}}();}
+\DoxyCodeLine{00874         list-\/>append(v);}
+\DoxyCodeLine{00875         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(std::static\_pointer\_cast<TemplateListIntf>(list));}
+\DoxyCodeLine{00876       \}}
+\DoxyCodeLine{00877       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00878       \{}
+\DoxyCodeLine{00879         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{00880       \}}
+\DoxyCodeLine{00881     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_list_a6840730b8664bc08ef26924fa1cd76b9}{Template\+List\+::alloc()}}, \mbox{\hyperlink{class_template_variant_aab08b440a5a394f068baea34bc63afa4}{Template\+Variant\+::is\+List()}}, and \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{build_2doxygen_2src_2pre__lex_8py_source}{}\doxysection{pre\+\_\+lex.\+py}
+\label{build_2doxygen_2src_2pre__lex_8py_source}\index{doxygen/build/doxygen/src/pre\_lex.py@{doxygen/build/doxygen/src/pre\_lex.py}}
+\mbox{\hyperlink{build_2doxygen_2src_2pre__lex_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00001}\mbox{\hyperlink{namespacepre__lex}{00001}} \textcolor{comment}{\#!/usr/bin/python}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00002}00002 \textcolor{comment}{\# python script to include common parts in lex file}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00003}00003 \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00004}00004 \textcolor{comment}{\# Copyright (C) 1997-\/2022 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00005}00005 \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00006}00006 \textcolor{comment}{\# Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00007}00007 \textcolor{comment}{\# documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00008}00008 \textcolor{comment}{\# granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00009}00009 \textcolor{comment}{\# for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00010}00010 \textcolor{comment}{\# See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00011}00011 \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00012}00012 \textcolor{comment}{\# Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00013}00013 \textcolor{comment}{\# input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00014}00014 \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00015}00015 \textcolor{keyword}{import} sys}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00016}00016 \textcolor{keyword}{import} os}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00017}00017 \textcolor{keyword}{import} re}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00019}\mbox{\hyperlink{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}{00019}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}{main}}():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00020}00020     \textcolor{keywordflow}{if} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(sys.argv)!=6:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00021}00021         sys.exit(\textcolor{stringliteral}{'Usage: \{0\} <input\_lex\_file> <output\_lex\_file> <correction\_file> <dependency\_lex\_file> <include\_path>'}.format(sys.argv[0]))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00023}00023     inp\_lex\_file, out\_lex\_file, corr\_lex\_file, dep\_lex\_file, inc\_path = sys.argv[1:]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00025}00025     out\_cnt = rd\_cnt = add\_cnt = 0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00026}00026     \textcolor{keywordflow}{if} (os.path.exists(inp\_lex\_file)):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00027}00027         \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(out\_lex\_file,\textcolor{stringliteral}{"{}w"{}}) \textcolor{keyword}{as} out\_file:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00028}00028             \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(corr\_lex\_file,\textcolor{stringliteral}{"{}w"{}}) \textcolor{keyword}{as} corr\_file:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00029}00029                 first\_corr  = \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00030}00030                 \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(dep\_lex\_file,\textcolor{stringliteral}{"{}w"{}}) \textcolor{keyword}{as} dep\_file:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00031}00031                     dep\_file.write(\textcolor{stringliteral}{"{}\{0\}:"{}}.format(out\_lex\_file))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00032}00032                     \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(inp\_lex\_file) \textcolor{keyword}{as} in\_file:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00033}00033                         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} in\_file:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00034}00034                             \textcolor{keywordflow}{if} re.search(\textcolor{stringliteral}{r'\string^\%doxygen'}, line): \textcolor{comment}{\# special include file marker}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00035}00035                                 inc\_file = inc\_path + \textcolor{stringliteral}{"{}/"{}} + line.split()[1]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00036}00036                                 dep\_file.write(\textcolor{stringliteral}{"{} \{0\}"{}}.format(inc\_file))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00037}00037                                 first\_line = \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00038}00038                                 \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(inc\_file) \textcolor{keyword}{as} f\_inc:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00039}00039                                     \textcolor{keywordflow}{for} inc\_line \textcolor{keywordflow}{in} f\_inc:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00040}00040                                         \textcolor{keywordflow}{if} first\_line:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00041}00041                                             first\_line = \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00042}00042                                             out\_file.write(\textcolor{stringliteral}{"{}  /* \#line 1 \{0\} */\(\backslash\)n"{}}.format(inc\_file))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00043}00043                                         out\_cnt += 1}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00044}00044                                         add\_cnt += 1}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00045}00045                                         out\_file.write(inc\_line)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00046}00046                                     f\_inc.close()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00047}00047                                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} first\_line:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00048}00048                                     out\_file.write(\textcolor{stringliteral}{"{}  /* \#line \{0\} \{1\} */\(\backslash\)n"{}}.format(rd\_cnt+2,inp\_lex\_file))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00049}00049                                     out\_cnt += 2}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00050}00050                                     add\_cnt += 1}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00051}00051                                     \textcolor{keywordflow}{if} first\_corr:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00052}00052                                         corr\_file.write(\textcolor{stringliteral}{"{}\{0\} \{1\}\(\backslash\)n"{}}.format(0,0))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00053}00053                                         first\_corr = \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00054}00054                                     corr\_file.write(\textcolor{stringliteral}{"{}\{0\} \{1\}\(\backslash\)n"{}}.format(out\_cnt,add\_cnt))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00055}00055                             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00056}00056                                 out\_cnt += 1}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00057}00057                                 rd\_cnt  += 1}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00058}00058                                 out\_file.write(line)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00059}00059                     dep\_file.write(\textcolor{stringliteral}{"{}\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00060}00060     \textcolor{keywordflow}{else}: \textcolor{comment}{\# input file does not exist}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00061}00061         sys.exit(\textcolor{stringliteral}{"{}Input lex file '\{0\}' does not exist."{}}.format(sys.argv[1]))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00063}00063 \textcolor{keywordflow}{if} \_\_name\_\_ == \textcolor{stringliteral}{'\_\_main\_\_'}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2pre__lex_8py_source_l00064}00064     \mbox{\hyperlink{namespacepre__lex_a5cc74723b334b554d0bc04f3ea8a9a60}{main}}()}
+
+\end{DoxyCode}

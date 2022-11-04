@@ -1,0 +1,75 @@
+\hypertarget{build_2doxygen_2src_2config_8h_source}{}\doxysection{config.\+h}
+\label{build_2doxygen_2src_2config_8h_source}\index{doxygen/build/doxygen/src/config.h@{doxygen/build/doxygen/src/config.h}}
+\mbox{\hyperlink{build_2doxygen_2src_2config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00016}00016 \textcolor{preprocessor}{\#ifndef CONFIG\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00017}00017 \textcolor{preprocessor}{\#define CONFIG\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00019}00019 \textcolor{comment}{// note: this header file is generated from config.xml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00020}00020 \textcolor{preprocessor}{\#include "{}configvalues.h"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00025}00025 \textcolor{comment}{//\#if DYNAMIC\_LOOKUP // for debug purposes}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00026}00026 \textcolor{comment}{//\#define Config\_getString(val) (ConfigValues::instance().*((ConfigValues::InfoString*)ConfigValues::instance().get(\#val))-\/>item)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00027}00027 \textcolor{comment}{//\#define Config\_getBool(val)   (ConfigValues::instance().*((ConfigValues::InfoBool*)ConfigValues::instance().get(\#val))-\/>item)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00028}00028 \textcolor{comment}{//\#define Config\_getInt(val)    (ConfigValues::instance().*((ConfigValues::InfoInt*)ConfigValues::instance().get(\#val))-\/>item)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00029}00029 \textcolor{comment}{//\#define Config\_getEnum(val)   (ConfigValues::instance().*((ConfigValues::InfoString*)ConfigValues::instance().get(\#val))-\/>item)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00030}00030 \textcolor{comment}{//\#define Config\_getList(val)   (ConfigValues::instance().*((ConfigValues::InfoList*)ConfigValues::instance().get(\#val))-\/>item)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00031}00031 \textcolor{comment}{//\#else // direct access}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00032}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{00032}} \textcolor{preprocessor}{\#define Config\_getString(name) (ConfigValues::instance().name())}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00033}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{00033}} \textcolor{preprocessor}{\#define Config\_getBool(name)   (ConfigValues::instance().name())}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00034}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{00034}} \textcolor{preprocessor}{\#define Config\_getInt(name)    (ConfigValues::instance().name())}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00035}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_afe899eec751dfb75a60c37ec3840e288}{00035}} \textcolor{preprocessor}{\#define Config\_getEnum(name)   (ConfigValues::instance().name())}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00036}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a251399cde30dd4c356bbd5634c6eb472}{00036}} \textcolor{preprocessor}{\#define Config\_getEnumAsString(name)   (ConfigValues::instance().name\#\#\_str())}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00037}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{00037}} \textcolor{preprocessor}{\#define Config\_getList(name)   (ConfigValues::instance().name())}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00038}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a168f2876d56397a94af9140753974f38}{00038}} \textcolor{preprocessor}{\#define Config\_updateString(name,value) (ConfigValues::instance().update\_\#\#name(value));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00039}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{00039}} \textcolor{preprocessor}{\#define Config\_updateBool(name,value)   (ConfigValues::instance().update\_\#\#name(value));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00040}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a24f565457c1536240757e5c8ebbf2e97}{00040}} \textcolor{preprocessor}{\#define Config\_updateInt(name,value)    (ConfigValues::instance().update\_\#\#name(value));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00041}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a8c58e5a30ece3e745e1561edd00f6c68}{00041}} \textcolor{preprocessor}{\#define Config\_updateEnum(name,value)   (ConfigValues::instance().update\_\#\#name(value));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00042}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a77eefd6119ed441632a00d7d274184af}{00042}} \textcolor{preprocessor}{\#define Config\_updateList(name,...)   (ConfigValues::instance().update\_\#\#name(\_\_VA\_ARGS\_\_));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00044}\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a6f9c44a0d76faf919b0517a9931d6817}{00044}} \textcolor{preprocessor}{\#define Config\_isAvailableEnum(name,value)   (ConfigValues::instance().isAvailable\_\#\#name(value))}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00045}00045 \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00047}00047 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00048}00048 \textcolor{keyword}{class }\mbox{\hyperlink{class_text_stream}{TextStream}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00051}\mbox{\hyperlink{namespace_config}{00051}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_config}{Config}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00052}00052 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00053}\mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940}{00053}}   \textcolor{keyword}{enum class} \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940}{CompareMode}} \{ \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940abbd47109890259c0127154db1af26c75}{Full}}, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940a4d602abc0c0f2f7c1a5156d964517e4e}{Compressed}}, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940aa0ba248fb99f2c67cce98a6822482fba}{CompressedNoEnv}} \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00056}00056   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_a91bcb187ed95ec673137e413a4d77203}{init}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00062}00062   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_a98dcadaa623b84d8929dc38239f31cb2}{writeTemplate}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t,\textcolor{keywordtype}{bool} shortList,\textcolor{keywordtype}{bool} updateOnly=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00067}00067   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_a6cc61dde8935f986295262513d2feb2d}{compareDoxyfile}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940}{CompareMode}} compareMode);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00072}00072   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_a5744a411e57f8a3a18ce6569e843b11e}{writeXMLDoxyfile}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00078}00078   \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_config_a88ed583dc36b1439108163403cc4224f}{parse}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName,\textcolor{keywordtype}{bool} update=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940}{CompareMode}} compareMode = \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940abbd47109890259c0127154db1af26c75}{CompareMode::Full}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00086}00086   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_a04731f96560c04835ce340aa776251cb}{postProcess}}(\textcolor{keywordtype}{bool} clearHeaderAndFooter, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940}{CompareMode}} compareMode = \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940abbd47109890259c0127154db1af26c75}{CompareMode::Full}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00092}00092   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_a43f9512cdb148a0f68a30519debac43f}{checkAndCorrect}}(\textcolor{keywordtype}{bool} quiet, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} check);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00095}00095   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_ad27e22c157d0c2d33414923d0a41c200}{updateObsolete}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00098}00098   \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_config_a7b3346b2e70cc73d231d540df5d67e57}{deinit}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00099}00099 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2config_8h_source_l00101}00101 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

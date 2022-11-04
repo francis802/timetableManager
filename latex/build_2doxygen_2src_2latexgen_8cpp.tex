@@ -1,0 +1,602 @@
+\hypertarget{build_2doxygen_2src_2latexgen_8cpp}{}\doxysection{doxygen/build/doxygen/src/latexgen.cpp File Reference}
+\label{build_2doxygen_2src_2latexgen_8cpp}\index{doxygen/build/doxygen/src/latexgen.cpp@{doxygen/build/doxygen/src/latexgen.cpp}}
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}latexgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}diagram.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotcallgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotclassgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotdirdeps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotgroupcollaboration.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotincldepgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docnode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}resourcemgr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a9a7f04a1060dfff4cad9f82379053257}{COPYCHAR}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a5ccdad61a2bd619961d1546602a03322}{write\+Latex\+Makefile}} ()
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_ab02ed8a64b15dea3af44838d67a039a5}{write\+Make\+Bat}} ()
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_ac7339dc7ff25bcb7a9fbea1d671a16da}{write\+Default\+Style\+Sheet}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a94fbb614f459de73cf139b286f1f1ce1}{extra\+Latex\+Style\+Sheet}} ()
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a539e2c5c670b530000917c0492e07850}{make\+Index}} ()
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a73e220f6be9c815bb0c708be88e68997}{substitute\+Latex\+Keywords}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&str, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&title)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a3498eed8e2e90303039a4e2245c319d3}{g\+\_\+header}}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a6ef18a9e8d540c96bde81562abb60e42}{g\+\_\+footer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_a9a7f04a1060dfff4cad9f82379053257}\label{build_2doxygen_2src_2latexgen_8cpp_a9a7f04a1060dfff4cad9f82379053257}} 
+\index{latexgen.cpp@{latexgen.cpp}!COPYCHAR@{COPYCHAR}}
+\index{COPYCHAR@{COPYCHAR}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{COPYCHAR}{COPYCHAR}}
+{\footnotesize\ttfamily \#define COPYCHAR(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                     \textcolor{keywordflow}{do} \{                                           \(\backslash\)}
+\DoxyCodeLine{                     int bytes = \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{getUTF8CharNumBytes}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});          \(\backslash\)}
+\DoxyCodeLine{                     if (lresult < (i + bytes + 1))               \(\backslash\)}
+\DoxyCodeLine{                     \{                                            \(\backslash\)}
+\DoxyCodeLine{                       lresult += 512;                            \(\backslash\)}
+\DoxyCodeLine{                       result = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(realloc(result, lresult)); \(\backslash\)}
+\DoxyCodeLine{                     \}                                            \(\backslash\)}
+\DoxyCodeLine{                     for (\textcolor{keywordtype}{int} j=0; j<bytes \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}; j++)            \(\backslash\)}
+\DoxyCodeLine{                     \{                                            \(\backslash\)}
+\DoxyCodeLine{                       result[i++]=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;                          \(\backslash\)}
+\DoxyCodeLine{                     \}                                            \(\backslash\)}
+\DoxyCodeLine{                     m\_col++;                                     \(\backslash\)}
+\DoxyCodeLine{                   \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_a94fbb614f459de73cf139b286f1f1ce1}\label{build_2doxygen_2src_2latexgen_8cpp_a94fbb614f459de73cf139b286f1f1ce1}} 
+\index{latexgen.cpp@{latexgen.cpp}!extraLatexStyleSheet@{extraLatexStyleSheet}}
+\index{extraLatexStyleSheet@{extraLatexStyleSheet}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{extraLatexStyleSheet()}{extraLatexStyleSheet()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} extra\+Latex\+Style\+Sheet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00590}{590}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00591 \{}
+\DoxyCodeLine{00592   \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{00593   \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \&extraLatexStyles = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\_getList}}(LATEX\_EXTRA\_STYLESHEET);}
+\DoxyCodeLine{00594   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fileName : extraLatexStyles)}
+\DoxyCodeLine{00595   \{}
+\DoxyCodeLine{00596     \textcolor{keywordflow}{if} (!fileName.empty())}
+\DoxyCodeLine{00597     \{}
+\DoxyCodeLine{00598       \mbox{\hyperlink{class_file_info}{FileInfo}} fi(fileName);}
+\DoxyCodeLine{00599       \textcolor{keywordflow}{if} (fi.exists())}
+\DoxyCodeLine{00600       \{}
+\DoxyCodeLine{00601         result += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{"{}};}
+\DoxyCodeLine{00602         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7b984704d9d6ad6819140f993d6bce4e}{checkExtension}}(fi.fileName().c\_str(), \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8h_a6243d84ee6552fd5282db11d491c2e18}{LATEX\_STYLE\_EXTENSION}}))}
+\DoxyCodeLine{00603         \{}
+\DoxyCodeLine{00604           \textcolor{comment}{// strip the extension, it will be added by the usepackage in the tex conversion process}}
+\DoxyCodeLine{00605           result += \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a73d2ea8014e5ac678dac39cfd56ba148}{stripExtensionGeneral}}(fi.fileName().c\_str(), \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8h_a6243d84ee6552fd5282db11d491c2e18}{LATEX\_STYLE\_EXTENSION}});}
+\DoxyCodeLine{00606         \}}
+\DoxyCodeLine{00607         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00608         \{}
+\DoxyCodeLine{00609           result += fi.fileName();}
+\DoxyCodeLine{00610         \}}
+\DoxyCodeLine{00611         result += \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00612       \}}
+\DoxyCodeLine{00613     \}}
+\DoxyCodeLine{00614   \}}
+\DoxyCodeLine{00615   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00616 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7b984704d9d6ad6819140f993d6bce4e}{check\+Extension()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\+\_\+get\+List}}, \mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{File\+Info\+::exists()}}, \mbox{\hyperlink{class_file_info_a8ae2069796787d27306bb49bd70e3e3a}{File\+Info\+::file\+Name()}}, \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8h_a6243d84ee6552fd5282db11d491c2e18}{LATEX\+\_\+\+STYLE\+\_\+\+EXTENSION}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a73d2ea8014e5ac678dac39cfd56ba148}{strip\+Extension\+General()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a73e220f6be9c815bb0c708be88e68997}{substitute\+Latex\+Keywords()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_a539e2c5c670b530000917c0492e07850}\label{build_2doxygen_2src_2latexgen_8cpp_a539e2c5c670b530000917c0492e07850}} 
+\index{latexgen.cpp@{latexgen.cpp}!makeIndex@{makeIndex}}
+\index{makeIndex@{makeIndex}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{makeIndex()}{makeIndex()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} make\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00618}{618}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00619 \{}
+\DoxyCodeLine{00620   \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{00621   \mbox{\hyperlink{class_q_c_string}{QCString}} latex\_mkidx\_command = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_MAKEINDEX\_CMD);}
+\DoxyCodeLine{00622   \textcolor{keywordflow}{if} (!latex\_mkidx\_command.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00623   \{}
+\DoxyCodeLine{00624     \textcolor{keywordflow}{if} (latex\_mkidx\_command[0] == \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'})}
+\DoxyCodeLine{00625       result += latex\_mkidx\_command;}
+\DoxyCodeLine{00626     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00627       result += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}}+latex\_mkidx\_command;}
+\DoxyCodeLine{00628   \}}
+\DoxyCodeLine{00629   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00630   \{}
+\DoxyCodeLine{00631     result += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)makeindex"{}};}
+\DoxyCodeLine{00632   \}}
+\DoxyCodeLine{00633   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00634 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, and \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a73e220f6be9c815bb0c708be88e68997}{substitute\+Latex\+Keywords()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_a73e220f6be9c815bb0c708be88e68997}\label{build_2doxygen_2src_2latexgen_8cpp_a73e220f6be9c815bb0c708be88e68997}} 
+\index{latexgen.cpp@{latexgen.cpp}!substituteLatexKeywords@{substituteLatexKeywords}}
+\index{substituteLatexKeywords@{substituteLatexKeywords}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{substituteLatexKeywords()}{substituteLatexKeywords()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} substitute\+Latex\+Keywords (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{str,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00636}{636}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00638 \{}
+\DoxyCodeLine{00639   \textcolor{keywordtype}{bool} compactLatex = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(COMPACT\_LATEX);}
+\DoxyCodeLine{00640   \textcolor{keywordtype}{bool} pdfHyperlinks = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(PDF\_HYPERLINKS);}
+\DoxyCodeLine{00641   \textcolor{keywordtype}{bool} usePdfLatex = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX);}
+\DoxyCodeLine{00642   \textcolor{keywordtype}{bool} latexBatchmode = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(LATEX\_BATCHMODE);}
+\DoxyCodeLine{00643   \mbox{\hyperlink{class_q_c_string}{QCString}} paperType = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a251399cde30dd4c356bbd5634c6eb472}{Config\_getEnumAsString}}(PAPER\_TYPE);}
+\DoxyCodeLine{00644 }
+\DoxyCodeLine{00645   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}} = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_BIB\_STYLE);}
+\DoxyCodeLine{00646   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}}.isEmpty())}
+\DoxyCodeLine{00647   \{}
+\DoxyCodeLine{00648     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}}=\textcolor{stringliteral}{"{}plain"{}};}
+\DoxyCodeLine{00649   \}}
+\DoxyCodeLine{00650 }
+\DoxyCodeLine{00651   \mbox{\hyperlink{class_text_stream}{TextStream}} tg;}
+\DoxyCodeLine{00652   \textcolor{keywordtype}{bool} timeStamp = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(LATEX\_TIMESTAMP);}
+\DoxyCodeLine{00653   \mbox{\hyperlink{class_q_c_string}{QCString}} generatedBy;}
+\DoxyCodeLine{00654   \textcolor{keywordflow}{if} (timeStamp)}
+\DoxyCodeLine{00655   \{}
+\DoxyCodeLine{00656     generatedBy = \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_ade034ca30aff9cee3e24c3b498cdc3bc}{trGeneratedAt}}(\mbox{\hyperlink{build_2doxygen_2src_2datetime_8cpp_ab756d2158c17cfe62c5c51a7cf09d4a5}{dateToString}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}).\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}(),}
+\DoxyCodeLine{00657                                                \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_NAME).\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}());}
+\DoxyCodeLine{00658   \}}
+\DoxyCodeLine{00659   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00660   \{}
+\DoxyCodeLine{00661     generatedBy = \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a8ba96cf4ebea87a6706e8544661cb0c9}{trGeneratedBy}}();}
+\DoxyCodeLine{00662   \}}
+\DoxyCodeLine{00663   \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a96afd525d79a1a43fbaabae3483b2e6b}{filterLatexString}}(tg, generatedBy,}
+\DoxyCodeLine{00664                     \textcolor{keyword}{false}, \textcolor{comment}{// insideTabbing}}
+\DoxyCodeLine{00665                     \textcolor{keyword}{false}, \textcolor{comment}{// insidePre}}
+\DoxyCodeLine{00666                     \textcolor{keyword}{false}, \textcolor{comment}{// insideItem}}
+\DoxyCodeLine{00667                     \textcolor{keyword}{false}, \textcolor{comment}{// insideTable}}
+\DoxyCodeLine{00668                     \textcolor{keyword}{false}  \textcolor{comment}{// keepSpaces}}
+\DoxyCodeLine{00669                    );}
+\DoxyCodeLine{00670   generatedBy = tg.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}();}
+\DoxyCodeLine{00671 }
+\DoxyCodeLine{00672   \mbox{\hyperlink{class_q_c_string}{QCString}} latexFontenc = \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a573b483369d8d7cf7d85831a9da356be}{latexFontenc}}();}
+\DoxyCodeLine{00673 }
+\DoxyCodeLine{00674   \mbox{\hyperlink{class_q_c_string}{QCString}} latexEmojiDirectory = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_EMOJI\_DIRECTORY);}
+\DoxyCodeLine{00675   \textcolor{keywordflow}{if} (latexEmojiDirectory.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) latexEmojiDirectory = \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00676   latexEmojiDirectory = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(latexEmojiDirectory,\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}},\textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{00677 }
+\DoxyCodeLine{00678   \mbox{\hyperlink{class_text_stream}{TextStream}} tg1;}
+\DoxyCodeLine{00679   \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ace2411e2a91d0794515d7319a05a96e4}{writeExtraLatexPackages}}(tg1);}
+\DoxyCodeLine{00680   \mbox{\hyperlink{class_q_c_string}{QCString}} extraLatexPackages = tg1.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}();}
+\DoxyCodeLine{00681 }
+\DoxyCodeLine{00682   \mbox{\hyperlink{class_text_stream}{TextStream}} tg2;}
+\DoxyCodeLine{00683   \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_afb096be4b2c37adc54becb763cc99470}{writeLatexSpecialFormulaChars}}(tg2);}
+\DoxyCodeLine{00684   \mbox{\hyperlink{class_q_c_string}{QCString}} latexSpecialFormulaChars = tg2.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}();}
+\DoxyCodeLine{00685 }
+\DoxyCodeLine{00686   \mbox{\hyperlink{class_q_c_string}{QCString}} formulaMacrofile = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(FORMULA\_MACROFILE);}
+\DoxyCodeLine{00687   \mbox{\hyperlink{class_q_c_string}{QCString}} stripMacroFile;}
+\DoxyCodeLine{00688   \textcolor{keywordflow}{if} (!formulaMacrofile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00689   \{}
+\DoxyCodeLine{00690     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(formulaMacrofile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00691     formulaMacrofile=fi.absFilePath();}
+\DoxyCodeLine{00692     stripMacroFile = fi.fileName();}
+\DoxyCodeLine{00693     \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}{copyFile}}(formulaMacrofile,\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_OUTPUT) + \textcolor{stringliteral}{"{}/"{}} + stripMacroFile);}
+\DoxyCodeLine{00694   \}}
+\DoxyCodeLine{00695 }
+\DoxyCodeLine{00696   \mbox{\hyperlink{class_q_c_string}{QCString}} projectNumber = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_NUMBER);}
+\DoxyCodeLine{00697 }
+\DoxyCodeLine{00698   \textcolor{comment}{// first substitute generic keywords}}
+\DoxyCodeLine{00699   \mbox{\hyperlink{class_q_c_string}{QCString}} result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ad2837e99807e1f7cad4d35de87f28cbd}{substituteKeywords}}(str,title,}
+\DoxyCodeLine{00700     \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5261de94ef3b325400ae7b7a0f71630a}{convertToLaTeX}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_NAME)),}
+\DoxyCodeLine{00701     \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5261de94ef3b325400ae7b7a0f71630a}{convertToLaTeX}}(projectNumber),}
+\DoxyCodeLine{00702         \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5261de94ef3b325400ae7b7a0f71630a}{convertToLaTeX}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_BRIEF)));}
+\DoxyCodeLine{00703 }
+\DoxyCodeLine{00704   \textcolor{comment}{// additional LaTeX only keywords}}
+\DoxyCodeLine{00705   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexdocumentpre"{}},\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a9fe33a516bc0ec6825a967294dd5d686}{latexDocumentPre}}());}
+\DoxyCodeLine{00706   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexdocumentpost"{}},\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a4bcba7a46f227760b534b35760688da6}{latexDocumentPost}}());}
+\DoxyCodeLine{00707   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$generatedby"{}},generatedBy);}
+\DoxyCodeLine{00708   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexbibstyle"{}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}});}
+\DoxyCodeLine{00709   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexcitereference"{}},\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a3a5e754a2583632dfe5d49a1f7dd5b74}{trCiteReferences}}());}
+\DoxyCodeLine{00710   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexbibfiles"{}},\mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{CitationManager::instance}}().latexBibFiles());}
+\DoxyCodeLine{00711   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$papertype"{}},paperType+\textcolor{stringliteral}{"{}paper"{}});}
+\DoxyCodeLine{00712   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$extralatexstylesheet"{}},\mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a94fbb614f459de73cf139b286f1f1ce1}{extraLatexStyleSheet}}());}
+\DoxyCodeLine{00713   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$languagesupport"{}},\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_aa2cff88fa1aa000c9f5efe2ac12c4448}{latexLanguageSupportCommand}}());}
+\DoxyCodeLine{00714   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexfontenc"{}},latexFontenc);}
+\DoxyCodeLine{00715   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexfont"{}},\mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_aa515f98fc4cdc6fba85aa02ec6c98b87}{latexFont}}());}
+\DoxyCodeLine{00716   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexemojidirectory"{}},latexEmojiDirectory);}
+\DoxyCodeLine{00717   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$makeindex"{}},\mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a539e2c5c670b530000917c0492e07850}{makeIndex}}());}
+\DoxyCodeLine{00718   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$extralatexpackages"{}},extraLatexPackages);}
+\DoxyCodeLine{00719   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$latexspecialformulachars"{}},latexSpecialFormulaChars);}
+\DoxyCodeLine{00720   result = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\$formulamacrofile"{}},stripMacroFile);}
+\DoxyCodeLine{00721 }
+\DoxyCodeLine{00722   \textcolor{comment}{// additional LaTeX only conditional blocks}}
+\DoxyCodeLine{00723   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}CITATIONS\_PRESENT"{}}, !\mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{CitationManager::instance}}().isEmpty(),\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00724   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}COMPACT\_LATEX"{}},compactLatex,\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00725   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}PDF\_HYPERLINKS"{}},pdfHyperlinks,\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00726   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}USE\_PDFLATEX"{}},usePdfLatex,\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00727   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}LATEX\_TIMESTAMP"{}},timeStamp,\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00728   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}LATEX\_BATCHMODE"{}},latexBatchmode,\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00729   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}LATEX\_FONTENC"{}},!latexFontenc.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}(),\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00730   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}FORMULA\_MACROFILE"{}},!formulaMacrofile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}(),\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00731   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{selectBlock}}(result,\textcolor{stringliteral}{"{}PROJECT\_NUMBER"{}},!projectNumber.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}(),\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{OutputGenerator::Latex}});}
+\DoxyCodeLine{00732 }
+\DoxyCodeLine{00733   result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a3f2329035cfde039380d267efff68c76}{removeEmptyLines}}(result);}
+\DoxyCodeLine{00734 }
+\DoxyCodeLine{00735   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00736 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_info_af69e3949475014dcdbd504d742bdf270}{File\+Info\+::abs\+File\+Path()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a251399cde30dd4c356bbd5634c6eb472}{Config\+\_\+get\+Enum\+As\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5261de94ef3b325400ae7b7a0f71630a}{convert\+To\+La\+Te\+X()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}{copy\+File()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{build_2doxygen_2src_2datetime_8cpp_ab756d2158c17cfe62c5c51a7cf09d4a5}{date\+To\+String()}}, \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a94fbb614f459de73cf139b286f1f1ce1}{extra\+Latex\+Style\+Sheet()}}, \mbox{\hyperlink{class_file_info_a8ae2069796787d27306bb49bd70e3e3a}{File\+Info\+::file\+Name()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a96afd525d79a1a43fbaabae3483b2e6b}{filter\+Latex\+String()}}, \mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{Citation\+Manager\+::instance()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa31a2ee20bfa57c640c891c5ce2cd874a}{Output\+Generator\+::\+Latex}}, \mbox{\hyperlink{class_translator_a4bcba7a46f227760b534b35760688da6}{Translator\+::latex\+Document\+Post()}}, \mbox{\hyperlink{class_translator_a9fe33a516bc0ec6825a967294dd5d686}{Translator\+::latex\+Document\+Pre()}}, \mbox{\hyperlink{class_translator_aa515f98fc4cdc6fba85aa02ec6c98b87}{Translator\+::latex\+Font()}}, \mbox{\hyperlink{class_translator_a573b483369d8d7cf7d85831a9da356be}{Translator\+::latex\+Fontenc()}}, \mbox{\hyperlink{class_translator_aa2cff88fa1aa000c9f5efe2ac12c4448}{Translator\+::latex\+Language\+Support\+Command()}}, \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a539e2c5c670b530000917c0492e07850}{make\+Index()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a3f2329035cfde039380d267efff68c76}{remove\+Empty\+Lines()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a53a397ef3e55a91d790d49743433d579}{select\+Block()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{Text\+Stream\+::str()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a83adb69d9f54bfc92ceb3ceb6d965eb7}{style}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ad2837e99807e1f7cad4d35de87f28cbd}{substitute\+Keywords()}}, \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{the\+Translator}}, \mbox{\hyperlink{class_translator_a3a5e754a2583632dfe5d49a1f7dd5b74}{Translator\+::tr\+Cite\+References()}}, \mbox{\hyperlink{class_translator_ade034ca30aff9cee3e24c3b498cdc3bc}{Translator\+::tr\+Generated\+At()}}, \mbox{\hyperlink{class_translator_a8ba96cf4ebea87a6706e8544661cb0c9}{Translator\+::tr\+Generated\+By()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ace2411e2a91d0794515d7319a05a96e4}{write\+Extra\+Latex\+Packages()}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_afb096be4b2c37adc54becb763cc99470}{write\+Latex\+Special\+Formula\+Chars()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_generator_a6380cb1cf2ed1498d638b889fe4165ca}{Latex\+Generator\+::end\+Index\+Section()}}, and \mbox{\hyperlink{class_latex_generator_a94d916061c6268e319d34645f8cd84f6}{Latex\+Generator\+::start\+Index\+Section()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_ac7339dc7ff25bcb7a9fbea1d671a16da}\label{build_2doxygen_2src_2latexgen_8cpp_ac7339dc7ff25bcb7a9fbea1d671a16da}} 
+\index{latexgen.cpp@{latexgen.cpp}!writeDefaultStyleSheet@{writeDefaultStyleSheet}}
+\index{writeDefaultStyleSheet@{writeDefaultStyleSheet}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeDefaultStyleSheet()}{writeDefaultStyleSheet()}}
+{\footnotesize\ttfamily static void write\+Default\+Style\+Sheet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00538}{538}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00539 \{}
+\DoxyCodeLine{00540   t << \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{ResourceMgr::instance}}().\mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{getAsString}}(\textcolor{stringliteral}{"{}doxygen.sty"{}});}
+\DoxyCodeLine{00541 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{Resource\+Mgr\+::get\+As\+String()}}, and \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{Resource\+Mgr\+::instance()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_generator_ac1feab4756dc9795d056b72cc74379e4}{Latex\+Generator\+::write\+Style\+Info()}}, and \mbox{\hyperlink{class_latex_generator_a6f04b647eec1bdaa79f1c5f5a9dc85d8}{Latex\+Generator\+::write\+Style\+Sheet\+File()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_a5ccdad61a2bd619961d1546602a03322}\label{build_2doxygen_2src_2latexgen_8cpp_a5ccdad61a2bd619961d1546602a03322}} 
+\index{latexgen.cpp@{latexgen.cpp}!writeLatexMakefile@{writeLatexMakefile}}
+\index{writeLatexMakefile@{writeLatexMakefile}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeLatexMakefile()}{writeLatexMakefile()}}
+{\footnotesize\ttfamily static void write\+Latex\+Makefile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00286}{286}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00287 \{}
+\DoxyCodeLine{00288   \textcolor{keywordtype}{bool} generateBib = !\mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{CitationManager::instance}}().\mbox{\hyperlink{class_citation_manager_ade88ab31021df991b8f2b6b31e9c24e4}{isEmpty}}();}
+\DoxyCodeLine{00289   \mbox{\hyperlink{class_q_c_string}{QCString}} fileName=\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_OUTPUT)+\textcolor{stringliteral}{"{}/Makefile"{}};}
+\DoxyCodeLine{00290   \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00291   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{00292   \{}
+\DoxyCodeLine{00293     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}}(\textcolor{stringliteral}{"{}Could not open file \%s for writing\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{00294   \}}
+\DoxyCodeLine{00295   \mbox{\hyperlink{class_text_stream}{TextStream}} t(\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{00296   \textcolor{comment}{// inserted by KONNO Akihisa <konno@researchers.jp> 2002-\/03-\/05}}
+\DoxyCodeLine{00297   \mbox{\hyperlink{class_q_c_string}{QCString}} latex\_command = \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a9e87df46e59ca15713f43205aeb17ea0}{latexCommandName}}().\mbox{\hyperlink{class_q_c_string_af428b9307683dc2c090f7d837138b438}{quoted}}();}
+\DoxyCodeLine{00298   \mbox{\hyperlink{class_q_c_string}{QCString}} mkidx\_command = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(MAKEINDEX\_CMD\_NAME).quoted();}
+\DoxyCodeLine{00299   \mbox{\hyperlink{class_q_c_string}{QCString}} bibtex\_command = \textcolor{stringliteral}{"{}bibtex"{}};}
+\DoxyCodeLine{00300   \mbox{\hyperlink{class_q_c_string}{QCString}} manual\_file = \textcolor{stringliteral}{"{}refman"{}};}
+\DoxyCodeLine{00301   \textcolor{keyword}{const} \textcolor{keywordtype}{int} latex\_count = 8;}
+\DoxyCodeLine{00302   \textcolor{comment}{// end insertion by KONNO Akihisa <konno@researchers.jp> 2002-\/03-\/05}}
+\DoxyCodeLine{00303     t << \textcolor{stringliteral}{"{}LATEX\_CMD?="{}} << latex\_command << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00304       << \textcolor{stringliteral}{"{}MKIDX\_CMD?="{}} << mkidx\_command << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00305       << \textcolor{stringliteral}{"{}BIBTEX\_CMD?="{}} << bibtex\_command << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00306       << \textcolor{stringliteral}{"{}LATEX\_COUNT?="{}} << latex\_count << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00307       << \textcolor{stringliteral}{"{}MANUAL\_FILE?="{}} << manual\_file << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00308       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00309   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX)) \textcolor{comment}{// use plain old latex}}
+\DoxyCodeLine{00310   \{}
+\DoxyCodeLine{00311     t << \textcolor{stringliteral}{"{}all: \$(MANUAL\_FILE).dvi\(\backslash\)n"{}}}
+\DoxyCodeLine{00312       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00313       << \textcolor{stringliteral}{"{}ps: \$(MANUAL\_FILE).ps\(\backslash\)n"{}}}
+\DoxyCodeLine{00314       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00315       << \textcolor{stringliteral}{"{}pdf: \$(MANUAL\_FILE).pdf\(\backslash\)n"{}}}
+\DoxyCodeLine{00316       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00317       << \textcolor{stringliteral}{"{}ps\_2on1: \$(MANUAL\_FILE).ps\(\backslash\)n"{}}}
+\DoxyCodeLine{00318       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00319       << \textcolor{stringliteral}{"{}pdf\_2on1: \$(MANUAL\_FILE).pdf\(\backslash\)n"{}}}
+\DoxyCodeLine{00320       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00321       << \textcolor{stringliteral}{"{}\$(MANUAL\_FILE).ps: \$(MANUAL\_FILE).dvi\(\backslash\)n"{}}}
+\DoxyCodeLine{00322       << \textcolor{stringliteral}{"{}\(\backslash\)tdvips -\/o \$(MANUAL\_FILE).ps \$(MANUAL\_FILE).dvi\(\backslash\)n"{}}}
+\DoxyCodeLine{00323       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00324     t << \textcolor{stringliteral}{"{}\$(MANUAL\_FILE).pdf: \$(MANUAL\_FILE).ps\(\backslash\)n"{}};}
+\DoxyCodeLine{00325     t << \textcolor{stringliteral}{"{}\(\backslash\)tps2pdf \$(MANUAL\_FILE).ps \$(MANUAL\_FILE).pdf\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00326     t << \textcolor{stringliteral}{"{}\$(MANUAL\_FILE).dvi: clean \$(MANUAL\_FILE).tex doxygen.sty\(\backslash\)n"{}}}
+\DoxyCodeLine{00327       << \textcolor{stringliteral}{"{}\(\backslash\)techo \(\backslash\)"{}Running latex...\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00328       << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE).tex\(\backslash\)n"{}}}
+\DoxyCodeLine{00329       << \textcolor{stringliteral}{"{}\(\backslash\)techo \(\backslash\)"{}Running makeindex...\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00330       << \textcolor{stringliteral}{"{}\(\backslash\)t\$(MKIDX\_CMD) \$(MANUAL\_FILE).idx\(\backslash\)n"{}};}
+\DoxyCodeLine{00331     \textcolor{keywordflow}{if} (generateBib)}
+\DoxyCodeLine{00332     \{}
+\DoxyCodeLine{00333       t << \textcolor{stringliteral}{"{}\(\backslash\)techo \(\backslash\)"{}Running bibtex...\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00334       t << \textcolor{stringliteral}{"{}\(\backslash\)t\$(BIBTEX\_CMD) \$(MANUAL\_FILE)\(\backslash\)n"{}};}
+\DoxyCodeLine{00335       t << \textcolor{stringliteral}{"{}\(\backslash\)techo \(\backslash\)"{}Rerunning latex....\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00336       t << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE).tex\(\backslash\)n"{}};}
+\DoxyCodeLine{00337     \}}
+\DoxyCodeLine{00338     t << \textcolor{stringliteral}{"{}\(\backslash\)techo \(\backslash\)"{}Rerunning latex....\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00339       << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE).tex\(\backslash\)n"{}}}
+\DoxyCodeLine{00340       << \textcolor{stringliteral}{"{}\(\backslash\)tlatex\_count=\$(LATEX\_COUNT) ; \(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00341       << \textcolor{stringliteral}{"{}\(\backslash\)twhile egrep -\/s 'Rerun (LaTeX|to get cross-\/references right|to get bibliographical references right)' \$(MANUAL\_FILE).log \&\& [ \$\$latex\_count -\/gt 0 ] ;\(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00342       << \textcolor{stringliteral}{"{}\(\backslash\)t    do \(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00343       << \textcolor{stringliteral}{"{}\(\backslash\)t      echo \(\backslash\)"{}Rerunning latex....\(\backslash\)"{} ;\(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00344       << \textcolor{stringliteral}{"{}\(\backslash\)t      \$(LATEX\_CMD) \$(MANUAL\_FILE).tex ; \(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00345       << \textcolor{stringliteral}{"{}\(\backslash\)t      latex\_count=`expr \$\$latex\_count -\/ 1` ;\(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00346       << \textcolor{stringliteral}{"{}\(\backslash\)t    done\(\backslash\)n"{}}}
+\DoxyCodeLine{00347       << \textcolor{stringliteral}{"{}\(\backslash\)t\$(MKIDX\_CMD) \$(MANUAL\_FILE).idx\(\backslash\)n"{}}}
+\DoxyCodeLine{00348       << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE).tex\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{00349       << \textcolor{stringliteral}{"{}\$(MANUAL\_FILE).ps: \$(MANUAL\_FILE).ps\(\backslash\)n"{}}}
+\DoxyCodeLine{00350       << \textcolor{stringliteral}{"{}\(\backslash\)tpsnup -\/2 \$(MANUAL\_FILE).ps >\$(MANUAL\_FILE).ps\(\backslash\)n"{}}}
+\DoxyCodeLine{00351       << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00352       << \textcolor{stringliteral}{"{}\$(MANUAL\_FILE).pdf: \$(MANUAL\_FILE).ps\(\backslash\)n"{}}}
+\DoxyCodeLine{00353       << \textcolor{stringliteral}{"{}\(\backslash\)tps2pdf \$(MANUAL\_FILE).ps \$(MANUAL\_FILE).pdf\(\backslash\)n"{}};}
+\DoxyCodeLine{00354   \}}
+\DoxyCodeLine{00355   \textcolor{keywordflow}{else} \textcolor{comment}{// use pdflatex for higher quality output}}
+\DoxyCodeLine{00356   \{}
+\DoxyCodeLine{00357     t << \textcolor{stringliteral}{"{}all: \$(MANUAL\_FILE).pdf\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{00358       << \textcolor{stringliteral}{"{}pdf: \$(MANUAL\_FILE).pdf\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00359     t << \textcolor{stringliteral}{"{}\$(MANUAL\_FILE).pdf: clean \$(MANUAL\_FILE).tex\(\backslash\)n"{}};}
+\DoxyCodeLine{00360     t << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE)\(\backslash\)n"{}};}
+\DoxyCodeLine{00361     t << \textcolor{stringliteral}{"{}\(\backslash\)t\$(MKIDX\_CMD) \$(MANUAL\_FILE).idx\(\backslash\)n"{}};}
+\DoxyCodeLine{00362     \textcolor{keywordflow}{if} (generateBib)}
+\DoxyCodeLine{00363     \{}
+\DoxyCodeLine{00364       t << \textcolor{stringliteral}{"{}\(\backslash\)t\$(BIBTEX\_CMD) \$(MANUAL\_FILE)\(\backslash\)n"{}};}
+\DoxyCodeLine{00365       t << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE)\(\backslash\)n"{}};}
+\DoxyCodeLine{00366     \}}
+\DoxyCodeLine{00367     t << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE)\(\backslash\)n"{}}}
+\DoxyCodeLine{00368       << \textcolor{stringliteral}{"{}\(\backslash\)tlatex\_count=\$(LATEX\_COUNT) ; \(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00369       << \textcolor{stringliteral}{"{}\(\backslash\)twhile egrep -\/s 'Rerun (LaTeX|to get cross-\/references right|to get bibliographical references right)' \$(MANUAL\_FILE).log \&\& [ \$\$latex\_count -\/gt 0 ] ;\(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00370       << \textcolor{stringliteral}{"{}\(\backslash\)t    do \(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00371       << \textcolor{stringliteral}{"{}\(\backslash\)t      echo \(\backslash\)"{}Rerunning latex....\(\backslash\)"{} ;\(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00372       << \textcolor{stringliteral}{"{}\(\backslash\)t      \$(LATEX\_CMD) \$(MANUAL\_FILE) ;\(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00373       << \textcolor{stringliteral}{"{}\(\backslash\)t      latex\_count=`expr \$\$latex\_count -\/ 1` ;\(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00374       << \textcolor{stringliteral}{"{}\(\backslash\)t    done\(\backslash\)n"{}}}
+\DoxyCodeLine{00375       << \textcolor{stringliteral}{"{}\(\backslash\)t\$(MKIDX\_CMD) \$(MANUAL\_FILE).idx\(\backslash\)n"{}}}
+\DoxyCodeLine{00376       << \textcolor{stringliteral}{"{}\(\backslash\)t\$(LATEX\_CMD) \$(MANUAL\_FILE)\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00377   \}}
+\DoxyCodeLine{00378 }
+\DoxyCodeLine{00379   t << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00380     << \textcolor{stringliteral}{"{}clean:\(\backslash\)n"{}}}
+\DoxyCodeLine{00381     << \textcolor{stringliteral}{"{}\(\backslash\)trm -\/f "{}}}
+\DoxyCodeLine{00382     << \textcolor{stringliteral}{"{}*.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out *.brf *.blg *.bbl \$(MANUAL\_FILE).pdf\(\backslash\)n"{}};}
+\DoxyCodeLine{00383 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{Citation\+Manager\+::instance()}}, \mbox{\hyperlink{class_citation_manager_ade88ab31021df991b8f2b6b31e9c24e4}{Citation\+Manager\+::is\+Empty()}}, \mbox{\hyperlink{class_translator_a9e87df46e59ca15713f43205aeb17ea0}{Translator\+::latex\+Command\+Name()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{class_q_c_string_af428b9307683dc2c090f7d837138b438}{QCString\+::quoted()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term()}}, and \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{the\+Translator}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_generator_af9a70007c56adecf1af4b4c29591e423}{Latex\+Generator\+::init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_ab02ed8a64b15dea3af44838d67a039a5}\label{build_2doxygen_2src_2latexgen_8cpp_ab02ed8a64b15dea3af44838d67a039a5}} 
+\index{latexgen.cpp@{latexgen.cpp}!writeMakeBat@{writeMakeBat}}
+\index{writeMakeBat@{writeMakeBat}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{writeMakeBat()}{writeMakeBat()}}
+{\footnotesize\ttfamily static void write\+Make\+Bat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00385}{385}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00386 \{}
+\DoxyCodeLine{00387 \textcolor{preprocessor}{\#if defined(\_MSC\_VER)}}
+\DoxyCodeLine{00388   \mbox{\hyperlink{class_q_c_string}{QCString}} dir=\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_OUTPUT);}
+\DoxyCodeLine{00389   \mbox{\hyperlink{class_q_c_string}{QCString}} fileName=dir+\textcolor{stringliteral}{"{}/make.bat"{}};}
+\DoxyCodeLine{00390   \mbox{\hyperlink{class_q_c_string}{QCString}} latex\_command = \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{theTranslator}}-\/>\mbox{\hyperlink{class_translator_a9e87df46e59ca15713f43205aeb17ea0}{latexCommandName}}().\mbox{\hyperlink{class_q_c_string_af428b9307683dc2c090f7d837138b438}{quoted}}();}
+\DoxyCodeLine{00391   \mbox{\hyperlink{class_q_c_string}{QCString}} mkidx\_command = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(MAKEINDEX\_CMD\_NAME).quoted();}
+\DoxyCodeLine{00392   \mbox{\hyperlink{class_q_c_string}{QCString}} bibtex\_command = \textcolor{stringliteral}{"{}bibtex"{}};}
+\DoxyCodeLine{00393   \mbox{\hyperlink{class_q_c_string}{QCString}} manual\_file = \textcolor{stringliteral}{"{}refman"{}};}
+\DoxyCodeLine{00394   \textcolor{keyword}{const} \textcolor{keywordtype}{int} latex\_count = 8;}
+\DoxyCodeLine{00395   \textcolor{keywordtype}{bool} generateBib = !\mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{CitationManager::instance}}().\mbox{\hyperlink{class_citation_manager_ade88ab31021df991b8f2b6b31e9c24e4}{isEmpty}}();}
+\DoxyCodeLine{00396   \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} t(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00397   \textcolor{keywordflow}{if} (!t.is\_open())}
+\DoxyCodeLine{00398   \{}
+\DoxyCodeLine{00399     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}}(\textcolor{stringliteral}{"{}Could not open file \%s for writing\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{00400   \}}
+\DoxyCodeLine{00401   t << \textcolor{stringliteral}{"{}set Dir\_Old=\%cd\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00402   t << \textcolor{stringliteral}{"{}cd /D \%\string~dp0\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00403   t << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00404   t << \textcolor{stringliteral}{"{}set ORG\_LATEX\_CMD=\%LATEX\_CMD\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00405   t << \textcolor{stringliteral}{"{}set ORG\_MKIDX\_CMD=\%MKIDX\_CMD\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00406   t << \textcolor{stringliteral}{"{}set ORG\_BIBTEX\_CMD=\%BIBTEX\_CMD\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00407   t << \textcolor{stringliteral}{"{}set ORG\_LATEX\_COUNT=\%LATEX\_COUNT\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00408   t << \textcolor{stringliteral}{"{}set ORG\_MANUAL\_FILE=\%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00409   t << \textcolor{stringliteral}{"{}if \(\backslash\)"{}X\(\backslash\)"{}\%LATEX\_CMD\% == \(\backslash\)"{}X\(\backslash\)"{} set LATEX\_CMD="{}} << latex\_command << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00410   t << \textcolor{stringliteral}{"{}if \(\backslash\)"{}X\(\backslash\)"{}\%MKIDX\_CMD\% == \(\backslash\)"{}X\(\backslash\)"{} set MKIDX\_CMD="{}} << mkidx\_command << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00411   t << \textcolor{stringliteral}{"{}if \(\backslash\)"{}X\(\backslash\)"{}\%BIBTEX\_CMD\% == \(\backslash\)"{}X\(\backslash\)"{} set BIBTEX\_CMD="{}} << bibtex\_command << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00412   t << \textcolor{stringliteral}{"{}if \(\backslash\)"{}X\(\backslash\)"{}\%LATEX\_COUNT\% == \(\backslash\)"{}X\(\backslash\)"{} set LATEX\_COUNT="{}} << latex\_count << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00413   t << \textcolor{stringliteral}{"{}if \(\backslash\)"{}X\(\backslash\)"{}\%MANUAL\_FILE\% == \(\backslash\)"{}X\(\backslash\)"{} set MANUAL\_FILE="{}} << manual\_file << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00414   t << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00415   t << \textcolor{stringliteral}{"{}del /s /f *.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out *.brf *.blg *.bbl \%MANUAL\_FILE\%.pdf\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00416   t << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00417   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX)) \textcolor{comment}{// use plain old latex}}
+\DoxyCodeLine{00418   \{}
+\DoxyCodeLine{00419     t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%.tex\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00420     t << \textcolor{stringliteral}{"{}echo -\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00421     t << \textcolor{stringliteral}{"{}\%MKIDX\_CMD\% \%MANUAL\_FILE\%.idx\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00422     \textcolor{keywordflow}{if} (generateBib)}
+\DoxyCodeLine{00423     \{}
+\DoxyCodeLine{00424       t << \textcolor{stringliteral}{"{}\%BIBTEX\_CMD\% \%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00425       t << \textcolor{stringliteral}{"{}echo -\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00426       t << \textcolor{stringliteral}{"{}\(\backslash\)t\%LATEX\_CMD\% \%MANUAL\_FILE\%.tex\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00427     \}}
+\DoxyCodeLine{00428     t << \textcolor{stringliteral}{"{}setlocal enabledelayedexpansion\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00429     t << \textcolor{stringliteral}{"{}set count=\%LAT\#EX\_COUNT\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00430     t << \textcolor{stringliteral}{"{}:repeat\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00431     t << \textcolor{stringliteral}{"{}set content=X\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00432     t << \textcolor{stringliteral}{"{}for /F \(\backslash\)"{}tokens=*\(\backslash\)"{} \%\%T in ( 'findstr /C:\(\backslash\)"{}Rerun LaTeX\(\backslash\)"{} \%MANUAL\_FILE\%.log' ) do set content=\(\backslash\)"{}\%\%\string~T\(\backslash\)"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00433     t << \textcolor{stringliteral}{"{}if !content! == X for /F \(\backslash\)"{}tokens=*\(\backslash\)"{} \%\%T in ( 'findstr /C:\(\backslash\)"{}Rerun to get cross-\/references right\(\backslash\)"{} \%MANUAL\_FILE\%.log' ) do set content=\(\backslash\)"{}\%\%\string~T\(\backslash\)"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00434     t << \textcolor{stringliteral}{"{}if !content! == X for /F \(\backslash\)"{}tokens=*\(\backslash\)"{} \%\%T in ( 'findstr /C:\(\backslash\)"{}Rerun to get bibliographical references right\(\backslash\)"{} \%MANUAL\_FILE\%.log' ) do set content=\(\backslash\)"{}\%\%\string~T\(\backslash\)"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00435     t << \textcolor{stringliteral}{"{}if !content! == X goto :skip\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00436     t << \textcolor{stringliteral}{"{}set /a count-\/=1\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00437     t << \textcolor{stringliteral}{"{}if !count! EQU 0 goto :skip\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00438     t << \textcolor{stringliteral}{"{}echo -\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00439     t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%.tex\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00440     t << \textcolor{stringliteral}{"{}goto :repeat\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00441     t << \textcolor{stringliteral}{"{}:skip\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00442     t << \textcolor{stringliteral}{"{}endlocal\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00443     t << \textcolor{stringliteral}{"{}\%MKIDX\_CMD\% \%MANUAL\_FILE\%.idx\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00444     t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%.tex\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00445     t << \textcolor{stringliteral}{"{}dvips -\/o \%MANUAL\_FILE\%.ps \%MANUAL\_FILE\%.dvi\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00446     t << \mbox{\hyperlink{namespace_portable_a4c4c43977edb27e33f873fbacf11d528}{Portable::ghostScriptCommand}}();}
+\DoxyCodeLine{00447     t << \textcolor{stringliteral}{"{} -\/q -\/dNOPAUSE -\/dBATCH -\/sDEVICE=pdfwrite "{}}}
+\DoxyCodeLine{00448          \textcolor{stringliteral}{"{}-\/sOutputFile=\%MANUAL\_FILE\%.pdf -\/c save pop -\/f \%MANUAL\_FILE\%.ps\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00449   \}}
+\DoxyCodeLine{00450   \textcolor{keywordflow}{else} \textcolor{comment}{// use pdflatex}}
+\DoxyCodeLine{00451   \{}
+\DoxyCodeLine{00452     t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00453     t << \textcolor{stringliteral}{"{}echo -\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00454     t << \textcolor{stringliteral}{"{}\%MKIDX\_CMD\% \%MANUAL\_FILE\%.idx\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00455     \textcolor{keywordflow}{if} (generateBib)}
+\DoxyCodeLine{00456     \{}
+\DoxyCodeLine{00457       t << \textcolor{stringliteral}{"{}\%BIBTEX\_CMD\% \%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00458       t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00459     \}}
+\DoxyCodeLine{00460     t << \textcolor{stringliteral}{"{}echo -\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00461     t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00462     t << \textcolor{stringliteral}{"{}setlocal enabledelayedexpansion\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00463     t << \textcolor{stringliteral}{"{}set count=\%LATEX\_COUNT\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00464     t << \textcolor{stringliteral}{"{}:repeat\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00465     t << \textcolor{stringliteral}{"{}set content=X\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00466     t << \textcolor{stringliteral}{"{}for /F \(\backslash\)"{}tokens=*\(\backslash\)"{} \%\%T in ( 'findstr /C:\(\backslash\)"{}Rerun LaTeX\(\backslash\)"{} \%MANUAL\_FILE\%.log' ) do set content=\(\backslash\)"{}\%\%\string~T\(\backslash\)"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00467     t << \textcolor{stringliteral}{"{}if !content! == X for /F \(\backslash\)"{}tokens=*\(\backslash\)"{} \%\%T in ( 'findstr /C:\(\backslash\)"{}Rerun to get cross-\/references right\(\backslash\)"{} \%MANUAL\_FILE\%.log' ) do set content=\(\backslash\)"{}\%\%\string~T\(\backslash\)"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00468     t << \textcolor{stringliteral}{"{}if !content! == X for /F \(\backslash\)"{}tokens=*\(\backslash\)"{} \%\%T in ( 'findstr /C:\(\backslash\)"{}Rerun to get bibliographical references right\(\backslash\)"{} \%MANUAL\_FILE\%.log' ) do set content=\(\backslash\)"{}\%\%\string~T\(\backslash\)"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00469     t << \textcolor{stringliteral}{"{}if !content! == X goto :skip\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00470     t << \textcolor{stringliteral}{"{}set /a count-\/=1\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00471     t << \textcolor{stringliteral}{"{}if !count! EQU 0 goto :skip\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00472     t << \textcolor{stringliteral}{"{}echo -\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00473     t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00474     t << \textcolor{stringliteral}{"{}goto :repeat\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00475     t << \textcolor{stringliteral}{"{}:skip\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00476     t << \textcolor{stringliteral}{"{}endlocal\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00477     t << \textcolor{stringliteral}{"{}\%MKIDX\_CMD\% \%MANUAL\_FILE\%.idx\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00478     t << \textcolor{stringliteral}{"{}\%LATEX\_CMD\% \%MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00479   \}}
+\DoxyCodeLine{00480   t<< \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00481   t<< \textcolor{stringliteral}{"{}@REM reset environment\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00482   t<< \textcolor{stringliteral}{"{}cd /D \%Dir\_Old\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00483   t<< \textcolor{stringliteral}{"{}set Dir\_Old=\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00484   t<< \textcolor{stringliteral}{"{}set LATEX\_CMD=\%ORG\_LATEX\_CMD\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00485   t<< \textcolor{stringliteral}{"{}set ORG\_LATEX\_CMD=\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00486   t<< \textcolor{stringliteral}{"{}set MKIDX\_CMD=\%ORG\_MKIDX\_CMD\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00487   t<< \textcolor{stringliteral}{"{}set ORG\_MKIDX\_CMD=\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00488   t<< \textcolor{stringliteral}{"{}set BIBTEX\_CMD=\%ORG\_BIBTEX\_CMD\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00489   t<< \textcolor{stringliteral}{"{}set ORG\_BIBTEX\_CMD=\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00490   t<< \textcolor{stringliteral}{"{}set MANUAL\_FILE=\%ORG\_MANUAL\_FILE\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00491   t<< \textcolor{stringliteral}{"{}set ORG\_MANUAL\_FILE=\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00492   t<< \textcolor{stringliteral}{"{}set LATEX\_COUNT=\%ORG\_LATEX\_COUNT\%\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00493   t<< \textcolor{stringliteral}{"{}set ORG\_LATEX\_COUNT=\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00494 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00495 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{namespace_portable_a4c4c43977edb27e33f873fbacf11d528}{Portable\+::ghost\+Script\+Command()}}, \mbox{\hyperlink{class_citation_manager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{Citation\+Manager\+::instance()}}, \mbox{\hyperlink{class_citation_manager_ade88ab31021df991b8f2b6b31e9c24e4}{Citation\+Manager\+::is\+Empty()}}, \mbox{\hyperlink{class_translator_a9e87df46e59ca15713f43205aeb17ea0}{Translator\+::latex\+Command\+Name()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{class_q_c_string_af428b9307683dc2c090f7d837138b438}{QCString\+::quoted()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term()}}, and \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a07b18e39f7c5156cd370829e7e6f8534}{the\+Translator}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_generator_af9a70007c56adecf1af4b4c29591e423}{Latex\+Generator\+::init()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_a6ef18a9e8d540c96bde81562abb60e42}\label{build_2doxygen_2src_2latexgen_8cpp_a6ef18a9e8d540c96bde81562abb60e42}} 
+\index{latexgen.cpp@{latexgen.cpp}!g\_footer@{g\_footer}}
+\index{g\_footer@{g\_footer}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_footer}{g\_footer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} g\+\_\+footer\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_generator_a6380cb1cf2ed1498d638b889fe4165ca}{Latex\+Generator\+::end\+Index\+Section()}}, and \mbox{\hyperlink{class_latex_generator_af9a70007c56adecf1af4b4c29591e423}{Latex\+Generator\+::init()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2latexgen_8cpp_a3498eed8e2e90303039a4e2245c319d3}\label{build_2doxygen_2src_2latexgen_8cpp_a3498eed8e2e90303039a4e2245c319d3}} 
+\index{latexgen.cpp@{latexgen.cpp}!g\_header@{g\_header}}
+\index{g\_header@{g\_header}!latexgen.cpp@{latexgen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_header}{g\_header}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} g\+\_\+header\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_source}{latexgen.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_latex_generator_af9a70007c56adecf1af4b4c29591e423}{Latex\+Generator\+::init()}}, and \mbox{\hyperlink{class_latex_generator_a94d916061c6268e319d34645f8cd84f6}{Latex\+Generator\+::start\+Index\+Section()}}.
+

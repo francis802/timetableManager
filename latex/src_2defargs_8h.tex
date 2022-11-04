@@ -1,0 +1,65 @@
+\hypertarget{src_2defargs_8h}{}\doxysection{doxygen/src/defargs.h File Reference}
+\label{src_2defargs_8h}\index{doxygen/src/defargs.h@{doxygen/src/defargs.h}}
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_argument_list}{Argument\+List}} $>$ \mbox{\hyperlink{src_2defargs_8h_a62b4f6848321915b2b9b70c949bd0904}{string\+To\+Argument\+List}} (\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&args\+String, \mbox{\hyperlink{class_q_c_string}{QCString}} $\ast$extra\+Type\+Chars=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2defargs_8h_a62b4f6848321915b2b9b70c949bd0904}\label{src_2defargs_8h_a62b4f6848321915b2b9b70c949bd0904}} 
+\index{defargs.h@{defargs.h}!stringToArgumentList@{stringToArgumentList}}
+\index{stringToArgumentList@{stringToArgumentList}!defargs.h@{defargs.h}}
+\doxysubsubsection{\texorpdfstring{stringToArgumentList()}{stringToArgumentList()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_argument_list}{Argument\+List}} $>$ string\+To\+Argument\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{args\+String,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} $\ast$}]{extra\+Type\+Chars }\end{DoxyParamCaption})}
+
+Converts an argument string into an \mbox{\hyperlink{class_argument_list}{Argument\+List}}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lang} & language of the current argument list \\
+\hline
+\mbox{\texttt{ in}}  & {\em args\+String} & the list of Arguments. \\
+\hline
+\mbox{\texttt{ out}}  & {\em extra\+Type\+Chars} & point to string to which trailing characters for complex types are written to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2defargs_8l_source_l00814}{814}} of file \mbox{\hyperlink{build_2doxygen_2src_2defargs_8l_source}{defargs.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00815 \{}
+\DoxyCodeLine{00816   std::unique\_ptr<ArgumentList> al = std::make\_unique<ArgumentList>();}
+\DoxyCodeLine{00817   \textcolor{keywordflow}{if} (argsString.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return} al;}
+\DoxyCodeLine{00818 }
+\DoxyCodeLine{00819   \mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\_t}} yyscanner;}
+\DoxyCodeLine{00820   \mbox{\hyperlink{structdefargs_y_y__state}{defargsYY\_state}} extra(argsString.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),al,lang);}
+\DoxyCodeLine{00821   defargsYYlex\_init\_extra(\&extra,\&yyscanner);}
+\DoxyCodeLine{00822 \textcolor{preprocessor}{\#ifdef FLEX\_DEBUG}}
+\DoxyCodeLine{00823   defargsYYset\_debug(1,yyscanner);}
+\DoxyCodeLine{00824 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00825   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{00826   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \_\_FILE\_\_, NULL);}
+\DoxyCodeLine{00827 }
+\DoxyCodeLine{00828   defargsYYrestart( 0, yyscanner );}
+\DoxyCodeLine{00829   BEGIN( Start );}
+\DoxyCodeLine{00830   defargsYYlex(yyscanner);}
+\DoxyCodeLine{00831   \textcolor{keywordflow}{if} (yyextra-\/>argList-\/>empty())}
+\DoxyCodeLine{00832   \{}
+\DoxyCodeLine{00833     yyextra-\/>argList-\/>setNoParameters(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{00834   \}}
+\DoxyCodeLine{00835   \textcolor{keywordflow}{if} (extraTypeChars) *extraTypeChars=yyextra-\/>extraTypeChars;}
+\DoxyCodeLine{00836   \textcolor{comment}{//printf("{}stringToArgumentList(\%s) result=\%s\(\backslash\)n"{},argsString,qPrint(argListToString(*al)));}}
+\DoxyCodeLine{00837   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(yy\_flex\_debug, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \_\_FILE\_\_, NULL);}
+\DoxyCodeLine{00838   defargsYYlex\_destroy(yyscanner);}
+\DoxyCodeLine{00839   \textcolor{keywordflow}{return} al;}
+\DoxyCodeLine{00840 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+

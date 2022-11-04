@@ -1,0 +1,357 @@
+\hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source}{}\doxysection{dotgraph.\+cpp}
+\label{build_2doxygen_2src_2dotgraph_8cpp_source}\index{doxygen/build/doxygen/src/dotgraph.cpp@{doxygen/build/doxygen/src/dotgraph.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00002}00002 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00003}00003 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00004}00004 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00005}00005 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00006}00006 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00007}00007 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00008}00008 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00009}00009 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00010}00010 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00011}00011 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00012}00012 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00013}00013 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00014}00014 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2doxygen_8h}{doxygen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2indexlist_8h}{indexlist.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}md5.h"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2message_8h}{message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2util_8h}{util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00027}00027 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dot_8h}{dot.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00028}00028 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dotrunner_8h}{dotrunner.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00029}00029 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dotgraph_8h}{dotgraph.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00030}00030 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dotnode_8h}{dotnode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dotfilepatcher_8h}{dotfilepatcher.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00032}00032 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2fileinfo_8h}{fileinfo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00034}\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a8e61450eb94b16e866568ad3aed2d9f1}{00034}} \textcolor{preprocessor}{\#define MAP\_CMD "{}cmapx"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00036}00036 \textcolor{comment}{//QCString DotGraph::DOT\_FONTNAME; // will be initialized in initDot}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00037}00037 \textcolor{comment}{//int DotGraph::DOT\_FONTSIZE;      // will be initialized in initDot}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00043}\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a272779001504a5c1f52817f54569298f}{00043}} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a272779001504a5c1f52817f54569298f}{sameMd5Signature}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&baseName,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00044}00044                              \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&md5)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00045}00045 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00046}00046   \textcolor{keywordtype}{bool} same = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00047}00047   \textcolor{keywordtype}{char} md5stored[33];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00048}00048   md5stored[0]=0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00049}00049   \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{std::ifstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(baseName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}.md5"{}},std::ifstream::in | std::ifstream::binary);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00050}00050   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00051}00051   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00052}00052     \textcolor{comment}{// read checksum}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00053}00053     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.read(md5stored,32);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00054}00054     md5stored[32]=\textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00055}00055     \textcolor{comment}{// compare checksum}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00056}00056     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.fail() \&\& md5==md5stored)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00057}00057     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00058}00058       same = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00060}00060     \textcolor{comment}{//printf("{}sameSignature(\%s,\%s==\%s)=\%d\(\backslash\)n"{},qPrint(baseName),md5stored,qPrint(md5),same);}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00061}00061   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00062}00062   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00063}00063   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00064}00064     \textcolor{comment}{//printf("{}sameSignature(\%s) not found\(\backslash\)n"{},qPrint(baseName));}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00065}00065   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00066}00066   \textcolor{keywordflow}{return} same;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00067}00067 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00069}\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_aad65fb794eac705b1f9e896602c59bbe}{00069}} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_aad65fb794eac705b1f9e896602c59bbe}{deliverablesPresent}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&file1,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&file2)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00070}00070 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00071}00071   \textcolor{keywordtype}{bool} file1Ok = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00072}00072   \textcolor{keywordtype}{bool} file2Ok = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00073}00073   \textcolor{keywordflow}{if} (!file1.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00074}00074   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00075}00075     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(file1.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00076}00076     file1Ok = (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}() \&\& fi.\mbox{\hyperlink{class_file_info_a5b5da50c67491de7a7e96ee10ccb9b1a}{size}}()>0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00077}00077   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00078}00078   \textcolor{keywordflow}{if} (!file2.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00079}00079   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00080}00080     \mbox{\hyperlink{class_file_info}{FileInfo}} fi(file2.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00081}00081     file2Ok = (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}() \&\& fi.\mbox{\hyperlink{class_file_info_a5b5da50c67491de7a7e96ee10ccb9b1a}{size}}()>0);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00082}00082   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00083}00083   \textcolor{keywordflow}{return} file1Ok \&\& file2Ok;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00084}00084 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00086}\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a174bf83fed06cf0780ec37022bfb931c}{00086}} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a174bf83fed06cf0780ec37022bfb931c}{insertMapFile}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}},\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&mapFile,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00087}00087                           \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&mapLabel)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00088}00088 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00089}00089   \mbox{\hyperlink{class_file_info}{FileInfo}} fi(mapFile.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00090}00090   \textcolor{keywordflow}{if} (fi.\mbox{\hyperlink{class_file_info_a47d49db8cb8797153885c4d5b7b0911f}{exists}}() \&\& fi.\mbox{\hyperlink{class_file_info_a5b5da50c67491de7a7e96ee10ccb9b1a}{size}}()>0) \textcolor{comment}{// reuse existing map file}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00091}00091   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00092}00092     \mbox{\hyperlink{class_text_stream}{TextStream}} t;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00093}00093     \mbox{\hyperlink{class_dot_file_patcher_a28f0ce1e173d0f12f0a4425af69958a5}{DotFilePatcher::convertMapFile}}(t,mapFile,relPath,\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00094}00094     \textcolor{keywordflow}{if} (!t.\mbox{\hyperlink{class_text_stream_a0859a9bfd6a7b6bafc7050d9f3aef046}{empty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00095}00095     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00096}00096       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}} << \textcolor{stringliteral}{"{}<map name=\(\backslash\)"{}"{}} << mapLabel << \textcolor{stringliteral}{"{}\(\backslash\)"{} id=\(\backslash\)"{}"{}} << mapLabel << \textcolor{stringliteral}{"{}\(\backslash\)"{}>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00097}00097       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}} << t.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00098}00098       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}} << \textcolor{stringliteral}{"{}</map>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00099}00099     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00100}00100     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00101}00101   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00102}00102   \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \textcolor{comment}{// no map file yet, need to generate it}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00103}00103 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00105}00105 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00107}\mbox{\hyperlink{class_dot_graph_a1726c8a5cfe365905c7079ae7913c11f}{00107}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_dot_graph_a1726c8a5cfe365905c7079ae7913c11f}{DotGraph::imgName}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00108}00108 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00109}00109   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}} + ((\mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}} == \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523fa4cab0638aeb754692801b1e07fa3db74}{GOF\_BITMAP}}) ?}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00110}00110                       (\textcolor{stringliteral}{"{}."{}} + \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()) : (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX) ? \textcolor{stringliteral}{"{}.pdf"{}} : \textcolor{stringliteral}{"{}.eps"{}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00111}00111 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00113}\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_ac4c77ee56010cac577323cba8c6a1ee4}{00113}} std::mutex \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_ac4c77ee56010cac577323cba8c6a1ee4}{g\_dotIndexListMutex}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00115}\mbox{\hyperlink{class_dot_graph_ae6cbbb6ad88d59dec93692d8c6f70a07}{00115}} \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_dot_graph_ae6cbbb6ad88d59dec93692d8c6f70a07}{DotGraph::writeGraph}}(}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00116}00116         \mbox{\hyperlink{class_text_stream}{TextStream}}\& t,            \textcolor{comment}{// output stream for the code file (html, ...)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00117}00117         \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523f}{GraphOutputFormat}} gf,     \textcolor{comment}{// bitmap(png/svg) or ps(eps/pdf)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00118}00118         \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a8680135da08a5ef57cebe20060912dcc}{EmbeddedOutputFormat}} ef,  \textcolor{comment}{// html, latex, ...}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00119}00119         \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&path,     \textcolor{comment}{// output folder}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00120}00120         \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName, \textcolor{comment}{// name of the code file (for code patcher)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00121}00121         \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&relPath,  \textcolor{comment}{// output folder relative to code file}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00122}00122         \textcolor{keywordtype}{bool} generateImageMap,    \textcolor{comment}{// in case of bitmap, shall there be code generated?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00123}00123         \textcolor{keywordtype}{int} graphId)              \textcolor{comment}{// number of this graph in the current code, used in svg code}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00124}00124 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00125}00125   \mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}} = gf;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00126}00126   \mbox{\hyperlink{class_dot_graph_a1643e59813110d2de48391a7702f7fe0}{m\_textFormat}} = ef;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00127}00127   \mbox{\hyperlink{class_dot_graph_a13cb4bcf211606897a034f10ca4a13ba}{m\_dir}} = \mbox{\hyperlink{class_dir}{Dir}}(path.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00128}00128   \mbox{\hyperlink{class_dot_graph_a189eca191db3ff305f0b1f8dec98bf99}{m\_fileName}} = fileName;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00129}00129   \mbox{\hyperlink{class_dot_graph_afb7891f2c19e38a54bd0f71799719c72}{m\_relPath}} = relPath;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00130}00130   \mbox{\hyperlink{class_dot_graph_af8bb6fe78b25a0d550152918628762b0}{m\_generateImageMap}} = generateImageMap;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00131}00131   \mbox{\hyperlink{class_dot_graph_a140cead45aed4c1a357c7edb01c90452}{m\_graphId}} = graphId;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00133}00133   \mbox{\hyperlink{class_dot_graph_a67f70709f12d3d436aedfcee37f929ab}{m\_absPath}}  = \mbox{\hyperlink{class_dot_graph_a13cb4bcf211606897a034f10ca4a13ba}{m\_dir}}.\mbox{\hyperlink{class_dir_a226b0db1117e46393bbb241e545f8609}{absPath}}() + \textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00134}00134   \mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}} = \mbox{\hyperlink{class_dot_graph_a2f7be5cad20f58313d31aeff025d051f}{getBaseName}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00136}00136   \mbox{\hyperlink{class_dot_graph_ae79ec58a242b807d29c0c71a87e5dfad}{computeTheGraph}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00138}00138   \mbox{\hyperlink{class_dot_graph_a93140fc3cf497f89577cb391c93c350b}{m\_regenerate}} = \mbox{\hyperlink{class_dot_graph_a45d99cae5ecb12b8735454b57c505e42}{prepareDotFile}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00140}00140   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_dot_graph_a8e161ad6a2fe2bb4cd58fccb1338f304}{m\_doNotAddImageToIndex}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00141}00141   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00142}00142     std::lock\_guard<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_ac4c77ee56010cac577323cba8c6a1ee4}{g\_dotIndexListMutex}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00143}00143     \mbox{\hyperlink{class_doxygen_a52fd39c003e72f197e3ee164cbf2ff82}{Doxygen::indexList}}-\/>\mbox{\hyperlink{class_index_list_aac3c1b70be363f488269cd9054cc7621}{addImageFile}}(\mbox{\hyperlink{class_dot_graph_a1726c8a5cfe365905c7079ae7913c11f}{imgName}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00144}00144   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00146}00146   \mbox{\hyperlink{class_dot_graph_a456518c674e7ae8f45d4eea8935bdc38}{generateCode}}(t);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00148}00148   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00149}00149 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00151}\mbox{\hyperlink{class_dot_graph_a45d99cae5ecb12b8735454b57c505e42}{00151}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_dot_graph_a45d99cae5ecb12b8735454b57c505e42}{DotGraph::prepareDotFile}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00152}00152 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00153}00153   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_dot_graph_a13cb4bcf211606897a034f10ca4a13ba}{m\_dir}}.\mbox{\hyperlink{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}{exists}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00154}00154   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00155}00155     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}}(\textcolor{stringliteral}{"{}Output dir \%s does not exist!\(\backslash\)n"{}}, \mbox{\hyperlink{class_dot_graph_a13cb4bcf211606897a034f10ca4a13ba}{m\_dir}}.\mbox{\hyperlink{class_dir_ac277cdc273640905e941d9e6262bc594}{path}}().c\_str());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00156}00156   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00157}00157 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00158}00158   \textcolor{keywordtype}{char} sigStr[33];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00159}00159   \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} md5\_sig[16];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00160}00160   \textcolor{comment}{// calculate md5}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00161}00161   \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8c_a3e5495d121e73dba5e01cf3f64dd201e}{MD5Buffer}}(\mbox{\hyperlink{class_dot_graph_ab5e616cb48fb662c41e80b713792bc58}{m\_theGraph}}.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(), \mbox{\hyperlink{class_dot_graph_ab5e616cb48fb662c41e80b713792bc58}{m\_theGraph}}.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}(), md5\_sig);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00162}00162   \textcolor{comment}{// convert result to a string}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00163}00163   \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8c_aebe458ba3d537ee8e1fb6b4e29fa4537}{MD5SigToString}}(md5\_sig, sigStr);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00164}00164 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00165}00165   \textcolor{comment}{// already queued files are processed again in case the output format has changed}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00167}00167   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a272779001504a5c1f52817f54569298f}{sameMd5Signature}}(\mbox{\hyperlink{class_dot_graph_a00a105210cfc45c863c9cdc3ffbf846b}{absBaseName}}(), sigStr) \&\&}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00168}00168       \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_aad65fb794eac705b1f9e896602c59bbe}{deliverablesPresent}}(\mbox{\hyperlink{class_dot_graph_a241721d514fbcc695b83683c2be89018}{absImgName}}(),}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00169}00169                           \mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}} == \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523fa4cab0638aeb754692801b1e07fa3db74}{GOF\_BITMAP}} \&\& \mbox{\hyperlink{class_dot_graph_af8bb6fe78b25a0d550152918628762b0}{m\_generateImageMap}} ? \mbox{\hyperlink{class_dot_graph_a11f86f4e7a9ca5a10e43dedc6824775e}{absMapName}}() : \mbox{\hyperlink{class_q_c_string}{QCString}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00170}00170                          )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00171}00171      )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00172}00172   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00173}00173     \textcolor{comment}{// all needed files are there}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00174}00174     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00175}00175   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00177}00177   \textcolor{comment}{// need to rebuild the image}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00179}00179   \textcolor{comment}{// write .dot file because image was new or has changed}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00180}00180   \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(\mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}().str(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00181}00181   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00182}00182   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00183}00183     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Could not open file \%s for writing\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}()));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00184}00184     \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00185}00185   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00186}00186   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}} << \mbox{\hyperlink{class_dot_graph_ab5e616cb48fb662c41e80b713792bc58}{m\_theGraph}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00187}00187   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.close();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00189}00189   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}} == \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523fa4cab0638aeb754692801b1e07fa3db74}{GOF\_BITMAP}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00190}00190   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00191}00191     \textcolor{comment}{// run dot to create a bitmap image}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00192}00192     \mbox{\hyperlink{class_dot_runner}{DotRunner}} * dotRun = \mbox{\hyperlink{class_dot_manager_af6eb5ac505738992f7440e4a5948997f}{DotManager::instance}}()-\/>\mbox{\hyperlink{class_dot_manager_affaee30a9c348252f29053e3dc53c77f}{createRunner}}(\mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}(), sigStr);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00193}00193     dotRun-\/>\mbox{\hyperlink{class_dot_runner_aa225ccd454acbadc5b6a23d9534e574f}{addJob}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a251399cde30dd4c356bbd5634c6eb472}{Config\_getEnumAsString}}(DOT\_IMAGE\_FORMAT), \mbox{\hyperlink{class_dot_graph_a241721d514fbcc695b83683c2be89018}{absImgName}}(), \mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}(), 1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00194}00194     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_af8bb6fe78b25a0d550152918628762b0}{m\_generateImageMap}}) dotRun-\/>\mbox{\hyperlink{class_dot_runner_aa225ccd454acbadc5b6a23d9534e574f}{addJob}}(\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a8e61450eb94b16e866568ad3aed2d9f1}{MAP\_CMD}}, \mbox{\hyperlink{class_dot_graph_a11f86f4e7a9ca5a10e43dedc6824775e}{absMapName}}(), \mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}(), 1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00195}00195   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00196}00196   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}} == \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523fa12efde0dedd2fed14ddd17d36e33071c}{GOF\_EPS}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00197}00197   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00198}00198     \textcolor{comment}{// run dot to create a .eps image}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00199}00199     \mbox{\hyperlink{class_dot_runner}{DotRunner}} *dotRun = \mbox{\hyperlink{class_dot_manager_af6eb5ac505738992f7440e4a5948997f}{DotManager::instance}}()-\/>\mbox{\hyperlink{class_dot_manager_affaee30a9c348252f29053e3dc53c77f}{createRunner}}(\mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}(), sigStr);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00200}00200     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00201}00201     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00202}00202       dotRun-\/>\mbox{\hyperlink{class_dot_runner_aa225ccd454acbadc5b6a23d9534e574f}{addJob}}(\textcolor{stringliteral}{"{}pdf"{}},\mbox{\hyperlink{class_dot_graph_a241721d514fbcc695b83683c2be89018}{absImgName}}(),\mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}(),1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00203}00203     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00204}00204     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00205}00205     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00206}00206       dotRun-\/>\mbox{\hyperlink{class_dot_runner_aa225ccd454acbadc5b6a23d9534e574f}{addJob}}(\textcolor{stringliteral}{"{}ps"{}},\mbox{\hyperlink{class_dot_graph_a241721d514fbcc695b83683c2be89018}{absImgName}}(),\mbox{\hyperlink{class_dot_graph_aab4a8f9adf30aef71ea3640f1ae91ba3}{absDotName}}(),1);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00207}00207     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00208}00208   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00209}00209   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00210}00210 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00211}00211 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00212}\mbox{\hyperlink{class_dot_graph_a456518c674e7ae8f45d4eea8935bdc38}{00212}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_graph_a456518c674e7ae8f45d4eea8935bdc38}{DotGraph::generateCode}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00213}00213 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00214}00214   \mbox{\hyperlink{class_q_c_string}{QCString}} imgExt = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00215}00215   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}}==\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523fa4cab0638aeb754692801b1e07fa3db74}{GOF\_BITMAP}} \&\& \mbox{\hyperlink{class_dot_graph_a1643e59813110d2de48391a7702f7fe0}{m\_textFormat}}==\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a8680135da08a5ef57cebe20060912dccae4581acab1b8d3c03cfdd9a0772586a8}{EOF\_DocBook}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00216}00216   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00217}00217     t << \textcolor{stringliteral}{"{}<para>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00218}00218     t << \textcolor{stringliteral}{"{}    <informalfigure>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00219}00219     t << \textcolor{stringliteral}{"{}        <mediaobject>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00220}00220     t << \textcolor{stringliteral}{"{}            <imageobject>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00221}00221     t << \textcolor{stringliteral}{"{}                <imagedata"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00222}00222     t << \textcolor{stringliteral}{"{} width=\(\backslash\)"{}50\%\(\backslash\)"{} align=\(\backslash\)"{}center\(\backslash\)"{} valign=\(\backslash\)"{}middle\(\backslash\)"{} scalefit=\(\backslash\)"{}0\(\backslash\)"{} fileref=\(\backslash\)"{}"{}} << \mbox{\hyperlink{class_dot_graph_afb7891f2c19e38a54bd0f71799719c72}{m\_relPath}} << \mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}} << \textcolor{stringliteral}{"{}."{}} << imgExt << \textcolor{stringliteral}{"{}\(\backslash\)"{}>"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00223}00223     t << \textcolor{stringliteral}{"{}</imagedata>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00224}00224     t << \textcolor{stringliteral}{"{}            </imageobject>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00225}00225     t << \textcolor{stringliteral}{"{}        </mediaobject>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00226}00226     t << \textcolor{stringliteral}{"{}    </informalfigure>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00227}00227     t << \textcolor{stringliteral}{"{}</para>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00228}00228   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00229}00229   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}}==\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523fa4cab0638aeb754692801b1e07fa3db74}{GOF\_BITMAP}} \&\& \mbox{\hyperlink{class_dot_graph_af8bb6fe78b25a0d550152918628762b0}{m\_generateImageMap}}) \textcolor{comment}{// produce HTML to include the image}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00230}00230   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00231}00231     \textcolor{keywordflow}{if} (imgExt==\textcolor{stringliteral}{"{}svg"{}}) \textcolor{comment}{// add link to SVG file without map file}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00232}00232     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00233}00233       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_dot_graph_a0e2edc905a769cb9613f050ef092f82b}{m\_noDivTag}}) t << \textcolor{stringliteral}{"{}<div class=\(\backslash\)"{}center\(\backslash\)"{}>"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00234}00234       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a93140fc3cf497f89577cb391c93c350b}{m\_regenerate}} || !\mbox{\hyperlink{class_dot_file_patcher_ae41b4e8b1817e1d1de1732e4c4f9069c}{DotFilePatcher::writeSVGFigureLink}}(t,\mbox{\hyperlink{class_dot_graph_afb7891f2c19e38a54bd0f71799719c72}{m\_relPath}},\mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}},\mbox{\hyperlink{class_dot_graph_a241721d514fbcc695b83683c2be89018}{absImgName}}())) \textcolor{comment}{// need to patch the links in the generated SVG file}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00235}00235       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00236}00236         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a93140fc3cf497f89577cb391c93c350b}{m\_regenerate}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00237}00237         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00238}00238           \mbox{\hyperlink{class_dot_manager_af6eb5ac505738992f7440e4a5948997f}{DotManager::instance}}()-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00239}00239                createFilePatcher(\mbox{\hyperlink{class_dot_graph_a241721d514fbcc695b83683c2be89018}{absImgName}}())-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00240}00240                addSVGConversion(\mbox{\hyperlink{class_dot_graph_afb7891f2c19e38a54bd0f71799719c72}{m\_relPath}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{class_dot_graph_aa7fd99414b3925cf99fcffb171ce3d1b}{m\_zoomable}},\mbox{\hyperlink{class_dot_graph_a140cead45aed4c1a357c7edb01c90452}{m\_graphId}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00241}00241         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00242}00242         \textcolor{keywordtype}{int} mapId = \mbox{\hyperlink{class_dot_manager_af6eb5ac505738992f7440e4a5948997f}{DotManager::instance}}()-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00243}00243                createFilePatcher(\mbox{\hyperlink{class_dot_graph_a189eca191db3ff305f0b1f8dec98bf99}{m\_fileName}})-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00244}00244                addSVGObject(\mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}},\mbox{\hyperlink{class_dot_graph_a241721d514fbcc695b83683c2be89018}{absImgName}}(),\mbox{\hyperlink{class_dot_graph_afb7891f2c19e38a54bd0f71799719c72}{m\_relPath}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00245}00245         t << \textcolor{stringliteral}{"{}<!-\/-\/ SVG "{}} << mapId << \textcolor{stringliteral}{"{} -\/-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00246}00246       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00247}00247       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_dot_graph_a0e2edc905a769cb9613f050ef092f82b}{m\_noDivTag}}) t << \textcolor{stringliteral}{"{}</div>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00248}00248     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00249}00249     \textcolor{keywordflow}{else} \textcolor{comment}{// add link to bitmap file with image map}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00250}00250     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00251}00251       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_dot_graph_a0e2edc905a769cb9613f050ef092f82b}{m\_noDivTag}}) t << \textcolor{stringliteral}{"{}<div class=\(\backslash\)"{}center\(\backslash\)"{}>"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00252}00252       t << \textcolor{stringliteral}{"{}<img src=\(\backslash\)"{}"{}} << \mbox{\hyperlink{class_dot_graph_a6110ac1999e18c81167d2a60c45baeef}{relImgName}}() << \textcolor{stringliteral}{"{}\(\backslash\)"{} border=\(\backslash\)"{}0\(\backslash\)"{} usemap=\(\backslash\)"{}\#"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa9203c86bf68f5df83a758b49fae64a1}{correctId}}(\mbox{\hyperlink{class_dot_graph_a72cbb05f87bc1bf2696575ffe20df37e}{getMapLabel}}()) << \textcolor{stringliteral}{"{}\(\backslash\)"{} alt=\(\backslash\)"{}"{}} << \mbox{\hyperlink{class_dot_graph_a573939b174729c51496d841a2dd7c70d}{getImgAltText}}() << \textcolor{stringliteral}{"{}\(\backslash\)"{}/>"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00253}00253       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_dot_graph_a0e2edc905a769cb9613f050ef092f82b}{m\_noDivTag}}) t << \textcolor{stringliteral}{"{}</div>"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00254}00254       t << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00255}00255       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a93140fc3cf497f89577cb391c93c350b}{m\_regenerate}} || !\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8cpp_a174bf83fed06cf0780ec37022bfb931c}{insertMapFile}}(t, \mbox{\hyperlink{class_dot_graph_a11f86f4e7a9ca5a10e43dedc6824775e}{absMapName}}(), \mbox{\hyperlink{class_dot_graph_afb7891f2c19e38a54bd0f71799719c72}{m\_relPath}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa9203c86bf68f5df83a758b49fae64a1}{correctId}}(\mbox{\hyperlink{class_dot_graph_a72cbb05f87bc1bf2696575ffe20df37e}{getMapLabel}}())))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00256}00256       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00257}00257         \textcolor{keywordtype}{int} mapId = \mbox{\hyperlink{class_dot_manager_af6eb5ac505738992f7440e4a5948997f}{DotManager::instance}}()-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00258}00258           createFilePatcher(\mbox{\hyperlink{class_dot_graph_a189eca191db3ff305f0b1f8dec98bf99}{m\_fileName}})-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00259}00259           addMap(\mbox{\hyperlink{class_dot_graph_a11f86f4e7a9ca5a10e43dedc6824775e}{absMapName}}(), \mbox{\hyperlink{class_dot_graph_afb7891f2c19e38a54bd0f71799719c72}{m\_relPath}}, \mbox{\hyperlink{class_dot_graph_a2967bd18d9a60e4f6738eb0b6e3698ec}{m\_urlOnly}}, \mbox{\hyperlink{class_q_c_string}{QCString}}(), \mbox{\hyperlink{class_dot_graph_a72cbb05f87bc1bf2696575ffe20df37e}{getMapLabel}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00260}00260         t << \textcolor{stringliteral}{"{}<!-\/-\/ MAP "{}} << mapId << \textcolor{stringliteral}{"{} -\/-\/>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00261}00261       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00262}00262     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00263}00263   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00264}00264   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}}==\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523fa12efde0dedd2fed14ddd17d36e33071c}{GOF\_EPS}}) \textcolor{comment}{// produce tex to include the .eps image}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00265}00265   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00266}00266     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_dot_graph_a93140fc3cf497f89577cb391c93c350b}{m\_regenerate}} || !\mbox{\hyperlink{class_dot_file_patcher_a1e56aa086c8135c76d84de764845c20e}{DotFilePatcher::writeVecGfxFigure}}(t,\mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}},\mbox{\hyperlink{class_dot_graph_a00a105210cfc45c863c9cdc3ffbf846b}{absBaseName}}()))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00267}00267     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00268}00268       \textcolor{keywordtype}{int} figId = \mbox{\hyperlink{class_dot_manager_af6eb5ac505738992f7440e4a5948997f}{DotManager::instance}}()-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00269}00269                   createFilePatcher(\mbox{\hyperlink{class_dot_graph_a189eca191db3ff305f0b1f8dec98bf99}{m\_fileName}})-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00270}00270                   addFigure(\mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}},\mbox{\hyperlink{class_dot_graph_a00a105210cfc45c863c9cdc3ffbf846b}{absBaseName}}(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}} \textcolor{comment}{/*TRUE*/});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00271}00271       t << \textcolor{stringliteral}{"{}\(\backslash\)n\% FIG "{}} << figId << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00272}00272     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00273}00273   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00274}00274 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00275}00275 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00276}\mbox{\hyperlink{class_dot_graph_a4e1ec8b0e7ecc8e0d27c869e43d75640}{00276}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_graph_a4e1ec8b0e7ecc8e0d27c869e43d75640}{DotGraph::writeGraphHeader}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&title)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00277}00277 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00278}00278   t << \textcolor{stringliteral}{"{}digraph "{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00279}00279   \textcolor{keywordflow}{if} (title.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00280}00280   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00281}00281     t << \textcolor{stringliteral}{"{}\(\backslash\)"{}Dot Graph\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00282}00282   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00283}00283   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00284}00284   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00285}00285     t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}} << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a93c7f78ab05807663dd8947d0dd5423f}{convertToXML}}(title) << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00286}00286   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00287}00287   t << \textcolor{stringliteral}{"{}\(\backslash\)n\{\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00288}00288   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(INTERACTIVE\_SVG)) \textcolor{comment}{// insert a comment to force regeneration when this}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00289}00289                        \textcolor{comment}{// option is toggled}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00290}00290   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00291}00291     t << \textcolor{stringliteral}{"{} // INTERACTIVE\_SVG=YES\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00292}00292   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00293}00293   t << \textcolor{stringliteral}{"{} // LATEX\_PDF\_SIZE\(\backslash\)n"{}}; \textcolor{comment}{// write placeholder for LaTeX PDF bounding box size replacement}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00294}00294   t << \textcolor{stringliteral}{"{}  bgcolor=\(\backslash\)"{}transparent\(\backslash\)"{};\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00295}00295   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(DOT\_COMMON\_ATTR);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00296}00296   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}.isEmpty()) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} += \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00297}00297   t << \textcolor{stringliteral}{"{}  edge ["{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} << \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(DOT\_EDGE\_ATTR) << \textcolor{stringliteral}{"{}];\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00298}00298   t << \textcolor{stringliteral}{"{}  node ["{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} << \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(DOT\_NODE\_ATTR) << \textcolor{stringliteral}{"{}];\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00299}00299 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00300}00300 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00301}\mbox{\hyperlink{class_dot_graph_a256ce4336c69cbb9b15e473afc456805}{00301}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_graph_a256ce4336c69cbb9b15e473afc456805}{DotGraph::writeGraphFooter}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00302}00302 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00303}00303   t << \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00304}00304 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00305}00305 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00306}\mbox{\hyperlink{class_dot_graph_a15f2b9e1a8eeea607edeac8805528446}{00306}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_graph_a15f2b9e1a8eeea607edeac8805528446}{DotGraph::computeGraph}}(\mbox{\hyperlink{class_dot_node}{DotNode}} *root,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00307}00307                             \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a0c7c85309652245e03563b127f451f72}{GraphType}} gt,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00308}00308                             \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523f}{GraphOutputFormat}} format,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00309}00309                             \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&rank, \textcolor{comment}{// either "{}LR"{}, "{}RL"{}, or "{}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00310}00310                             \textcolor{keywordtype}{bool} renderParents,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00311}00311                             \textcolor{keywordtype}{bool} backArrows,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00312}00312                             \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&title,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00313}00313                             \mbox{\hyperlink{class_q_c_string}{QCString}} \&graphStr)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00314}00314 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00315}00315   \textcolor{comment}{//printf("{}computeMd5Signature\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00316}00316   \mbox{\hyperlink{class_text_stream}{TextStream}} md5stream;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00317}00317   \mbox{\hyperlink{class_dot_graph_a4e1ec8b0e7ecc8e0d27c869e43d75640}{writeGraphHeader}}(md5stream,title);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00318}00318   \textcolor{keywordflow}{if} (!rank.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00319}00319   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00320}00320     md5stream << \textcolor{stringliteral}{"{}  rankdir=\(\backslash\)"{}"{}} << rank << \textcolor{stringliteral}{"{}\(\backslash\)"{};\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00321}00321   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00322}00322   root-\/>\mbox{\hyperlink{class_dot_node_a27692f33c86a577ad85ab7176539d4de}{clearWriteFlag}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00323}00323   root-\/>\mbox{\hyperlink{class_dot_node_ae8ef878d8915809eccc602a7e896d81b}{write}}(md5stream, gt, format, gt!=\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a0c7c85309652245e03563b127f451f72a2edc7a6d2de6c3fcb2b97f20bb68ae8d}{CallGraph}} \&\& gt!=\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a0c7c85309652245e03563b127f451f72a04ba5510c0046869cfe400ee78d06387}{Dependency}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, backArrows);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00324}00324   \textcolor{keywordflow}{if} (renderParents)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00325}00325   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00326}00326     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&pn : root-\/>\mbox{\hyperlink{class_dot_node_aca9b5bf9d87bd3f71d4e7d1e6f8c6239}{parents}}())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00327}00327     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00328}00328       \textcolor{keywordflow}{if} (pn-\/>isVisible())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00329}00329       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00330}00330         \textcolor{keyword}{const} \textcolor{keyword}{auto} \&children = pn-\/>children();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00331}00331         \textcolor{keyword}{auto} child\_it = std::find(children.begin(),children.end(),root);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00332}00332         \textcolor{keywordtype}{size\_t} index = child\_it -\/ children.begin();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00333}00333         root-\/>\mbox{\hyperlink{class_dot_node_aeb01acd1ef9dbeb87e35e7eae24143b1}{writeArrow}}(md5stream,                              \textcolor{comment}{// stream}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00334}00334             gt,                                                  \textcolor{comment}{// graph type}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00335}00335             format,                                              \textcolor{comment}{// output format}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00336}00336             pn,                                                  \textcolor{comment}{// child node}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00337}00337             \&pn-\/>edgeInfo()[index],                              \textcolor{comment}{// edge info}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00338}00338             \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},                                               \textcolor{comment}{// topDown?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00339}00339             backArrows                                           \textcolor{comment}{// point back?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00340}00340           );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00341}00341       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00342}00342       pn-\/>write(md5stream,      \textcolor{comment}{// stream}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00343}00343                 gt,             \textcolor{comment}{// graph type}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00344}00344                 format,         \textcolor{comment}{// output format}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00345}00345                 \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},           \textcolor{comment}{// topDown?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00346}00346                 \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},          \textcolor{comment}{// toChildren?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00347}00347                 backArrows      \textcolor{comment}{// backward pointing arrows?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00348}00348       );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00349}00349     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00350}00350   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00351}00351   \mbox{\hyperlink{class_dot_graph_a256ce4336c69cbb9b15e473afc456805}{writeGraphFooter}}(md5stream);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00352}00352 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00353}00353   graphStr=md5stream.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00354}00354 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dotgraph_8cpp_source_l00355}00355 }
+
+\end{DoxyCode}

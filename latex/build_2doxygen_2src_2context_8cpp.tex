@@ -1,0 +1,950 @@
+\hypertarget{build_2doxygen_2src_2context_8cpp}{}\doxysection{doxygen/build/doxygen/src/context.cpp File Reference}
+\label{build_2doxygen_2src_2context_8cpp}\index{doxygen/build/doxygen/src/context.cpp@{doxygen/build/doxygen/src/context.cpp}}
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}context.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}index.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmldocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlhelp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotcallgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotclassgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotdirdeps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotgfxhierarchytable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotgroupcollaboration.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotincldepgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}diagram.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}example.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membername.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}resourcemgr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_context_globals}{Context\+Globals}}
+\item 
+class \mbox{\hyperlink{class_cached_item}{Cached\+Item$<$ T, TOwner, creator $>$}}
+\item 
+class \mbox{\hyperlink{class_property_map}{Property\+Map$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_generic_const_iterator}{Generic\+Const\+Iterator}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_template}{Template}} List iterator support. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_generic_node_list_context}{Generic\+Node\+List\+Context}}
+\begin{DoxyCompactList}\small\item\em standard template list implementation \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_config_context_1_1_private}{Config\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_doxygen_context_1_1_private}{Doxygen\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_translate_context_1_1_private}{Translate\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_definition_context}{Definition\+Context$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_definition_context_1_1_cachable}{Definition\+Context$<$ T $>$\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_include_info_context_1_1_private}{Include\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_include_info_list_context_1_1_private}{Include\+Info\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_class_context_1_1_private}{Class\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_class_context_1_1_private_1_1_cachable}{Class\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_namespace_context_1_1_private}{Namespace\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_namespace_context_1_1_private_1_1_cachable}{Namespace\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_file_context_1_1_private}{File\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_file_context_1_1_private_1_1_cachable}{File\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_dir_context_1_1_private}{Dir\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_dir_context_1_1_private_1_1_cachable}{Dir\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_page_context_1_1_private}{Page\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_page_context_1_1_private_1_1_cachable}{Page\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_text_generator_html}{Text\+Generator\+Html}}
+\item 
+class \mbox{\hyperlink{class_text_generator_latex}{Text\+Generator\+Latex}}
+\item 
+class \mbox{\hyperlink{class_text_generator_factory}{Text\+Generator\+Factory}}
+\item 
+class \mbox{\hyperlink{class_member_context_1_1_private}{Member\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_member_context_1_1_private_1_1_cachable}{Member\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_concept_context_1_1_private}{Concept\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_concept_context_1_1_private_1_1_cachable}{Concept\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_module_context_1_1_private}{Module\+Context\+::\+Private}}
+\item 
+struct \mbox{\hyperlink{struct_module_context_1_1_private_1_1_cachable}{Module\+Context\+::\+Private\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{class_class_list_context_1_1_private}{Class\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_class_index_context_1_1_private}{Class\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_class_hierarchy_context_1_1_private}{Class\+Hierarchy\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_nesting_node_context_1_1_private}{Nesting\+Node\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_nesting_context_1_1_private}{Nesting\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_class_tree_context_1_1_private}{Class\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_concept_list_context_1_1_private}{Concept\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_namespace_list_context_1_1_private}{Namespace\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_namespace_tree_context_1_1_private}{Namespace\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_file_list_context_1_1_private}{File\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_dir_list_context_1_1_private}{Dir\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_used_files_context_1_1_private}{Used\+Files\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_file_tree_context_1_1_private}{File\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_page_tree_context_1_1_private}{Page\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_page_list_context_1_1_private}{Page\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_example_list_context_1_1_private}{Example\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_module_list_context_1_1_private}{Module\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_concept_tree_context_1_1_private}{Concept\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_module_tree_context_1_1_private}{Module\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_example_tree_context_1_1_private}{Example\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_nav_path_elem_context_1_1_private}{Nav\+Path\+Elem\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_globals_index_context_1_1_private}{Globals\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_class_members_index_context_1_1_private}{Class\+Members\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_namespace_members_index_context_1_1_private}{Namespace\+Members\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_inheritance_graph_context_1_1_private}{Inheritance\+Graph\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_inheritance_node_context_1_1_private}{Inheritance\+Node\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_inheritance_list_context_1_1_private}{Inheritance\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_member_list_context_1_1_private}{Member\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_member_info_context_1_1_private}{Member\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_all_members_list_context_1_1_private}{All\+Members\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_member_group_info_context_1_1_private}{Member\+Group\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_member_group_list_context_1_1_private}{Member\+Group\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_member_list_info_context_1_1_private}{Member\+List\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_inherited_member_info_context_1_1_private}{Inherited\+Member\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_inherited_member_info_list_context_1_1_private}{Inherited\+Member\+Info\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_argument_context_1_1_private}{Argument\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_argument_list_context_1_1_private}{Argument\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_symbol_context_1_1_private}{Symbol\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_symbol_list_context_1_1_private}{Symbol\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_symbol_group_context_1_1_private}{Symbol\+Group\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_symbol_group_list_context_1_1_private}{Symbol\+Group\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_symbol_index_context_1_1_private}{Symbol\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_symbol_indices_context_1_1_private}{Symbol\+Indices\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_search_index_context_1_1_private}{Search\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_search_indices_context_1_1_private}{Search\+Indices\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_html_escaper}{Html\+Escaper}}
+\item 
+class \mbox{\hyperlink{class_latex_spaceless}{Latex\+Spaceless}}
+\item 
+class \mbox{\hyperlink{class_html_spaceless}{Html\+Spaceless}}
+\item 
+class \mbox{\hyperlink{class_latex_escaper}{Latex\+Escaper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a40cbe664f17fa66f38a8ebf9eaa4846f}{BASE\+\_\+\+PROPERTIES}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}{Context\+Output\+Format}} \{ \newline
+\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}{Context\+Output\+Format\+\_\+\+Unspecified}} =0
+, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{Context\+Output\+Format\+\_\+\+Html}}
+, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{Context\+Output\+Format\+\_\+\+Latex}}
+, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}{Context\+Output\+Format\+\_\+\+Rtf}}
+, \newline
+\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}{Context\+Output\+Format\+\_\+\+Man\+Page}}
+, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}{Context\+Output\+Format\+\_\+\+Doc\+Book}}
+, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}{Context\+Output\+Format\+\_\+\+Xml}}
+, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}{Context\+Output\+Format\+\_\+\+Tag\+File}}
+, \newline
+\mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}{Context\+Output\+Format\+\_\+\+Unspecified}} =0
+, \mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{Context\+Output\+Format\+\_\+\+Html}}
+, \mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{Context\+Output\+Format\+\_\+\+Latex}}
+, \mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}{Context\+Output\+Format\+\_\+\+Rtf}}
+, \newline
+\mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}{Context\+Output\+Format\+\_\+\+Man\+Page}}
+, \mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}{Context\+Output\+Format\+\_\+\+Doc\+Book}}
+, \mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}{Context\+Output\+Format\+\_\+\+Xml}}
+, \mbox{\hyperlink{src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}{Context\+Output\+Format\+\_\+\+Tag\+File}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a18e055fb6c5600e64bff4a7a95f31b34}{parse\+Doc}} (const \mbox{\hyperlink{class_definition}{Definition}} $\ast$def, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&rel\+Path, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&doc\+Str, bool is\+Brief)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a56b84b3a18518bbe1f958dc6fb88e888}{parse\+Code}} (const \mbox{\hyperlink{class_definition}{Definition}} $\ast$d, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&scope\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&rel\+Path, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&code, int start\+Line=-\/1, int end\+Line=-\/1, bool show\+Line\+Numbers=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}})
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a379e50255942d7c4836808d7cf2df6f1}{parse\+Code}} (const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&rel\+Path)
+\item 
+\mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_af7cb7d854ab5d5628a7bfc3ac0df3b5d}{create\+Linked\+Text}} (const \mbox{\hyperlink{class_definition}{Definition}} $\ast$def, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&rel\+Path, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_afd9ae2cfa752d7d2f61eaf406b360128}{compute\+Max\+Depth}} (const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{Template\+List\+Intf\+Ptr}} list)
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}{compute\+Num\+Nodes\+At\+Level}} (const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{Template\+Struct\+Intf\+Ptr}} \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, int \mbox{\hyperlink{libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}, int max\+Level)
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a016a7ed22aabc382dd161f0082fe2b23}{compute\+Preferred\+Depth}} (const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{Template\+List\+Intf\+Ptr}} list, int max\+Depth)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a8434e7e4dd13bb6f45b499a6f5de33b2}{generate\+Output\+Via\+Template}} ()
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}{generate\+Template\+Files}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&template\+Dir)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_context_globals}{Context\+Globals}} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\+\_\+globals}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a40cbe664f17fa66f38a8ebf9eaa4846f}\label{build_2doxygen_2src_2context_8cpp_a40cbe664f17fa66f38a8ebf9eaa4846f}} 
+\index{context.cpp@{context.cpp}!BASE\_PROPERTIES@{BASE\_PROPERTIES}}
+\index{BASE\_PROPERTIES@{BASE\_PROPERTIES}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{BASE\_PROPERTIES}{BASE\_PROPERTIES}}
+{\footnotesize\ttfamily \#define BASE\+\_\+\+PROPERTIES}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}name"{}},               \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{Private::name}}                \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}bareName"{}},           \&Private::bareName            \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}relPath"{}},            \&Private::relPath             \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}fileName"{}},           \&Private::fileName            \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}anchor"{}},             \&Private::anchor              \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}details"{}},            \&Private::details             \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}brief"{}},              \&Private::brief               \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}inbodyDocs"{}},         \&Private::inbodyDocs          \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}sourceFileName"{}},     \&Private::sourceFileName      \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}isLinkable"{}},         \&Private::isLinkable          \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}isLinkableInProject"{}},\&Private::isLinkableInProject \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}dynSectionId"{}},       \&Private::dynSectionId        \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}language"{}},           \&Private::language            \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}sourceDef"{}},          \&Private::sourceDef           \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}navigationPath"{}},     \&Private::navigationPath      \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}partOfGroups"{}},       \&Private::partOfGroups        \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}compoundKind"{}},       \&Private::compoundKind        \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}isReference"{}},        \&Private::isReference         \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}externalReference"{}},  \&Private::externalReference   \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l01572}{1572}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}} 
+\index{context.cpp@{context.cpp}!ContextOutputFormat@{ContextOutputFormat}}
+\index{ContextOutputFormat@{ContextOutputFormat}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{ContextOutputFormat}{ContextOutputFormat}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}{Context\+Output\+Format}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Unspecified@{ContextOutputFormat\_Unspecified}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Unspecified@{ContextOutputFormat\_Unspecified}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}} 
+Context\+Output\+Format\+\_\+\+Unspecified&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Html@{ContextOutputFormat\_Html}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Html@{ContextOutputFormat\_Html}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}} 
+Context\+Output\+Format\+\_\+\+Html&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Latex@{ContextOutputFormat\_Latex}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Latex@{ContextOutputFormat\_Latex}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}} 
+Context\+Output\+Format\+\_\+\+Latex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Rtf@{ContextOutputFormat\_Rtf}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Rtf@{ContextOutputFormat\_Rtf}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}} 
+Context\+Output\+Format\+\_\+\+Rtf&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_ManPage@{ContextOutputFormat\_ManPage}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_ManPage@{ContextOutputFormat\_ManPage}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}} 
+Context\+Output\+Format\+\_\+\+Man\+Page&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_DocBook@{ContextOutputFormat\_DocBook}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_DocBook@{ContextOutputFormat\_DocBook}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}} 
+Context\+Output\+Format\+\_\+\+Doc\+Book&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Xml@{ContextOutputFormat\_Xml}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Xml@{ContextOutputFormat\_Xml}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}} 
+Context\+Output\+Format\+\_\+\+Xml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_TagFile@{ContextOutputFormat\_TagFile}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_TagFile@{ContextOutputFormat\_TagFile}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}} 
+Context\+Output\+Format\+\_\+\+Tag\+File&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Unspecified@{ContextOutputFormat\_Unspecified}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Unspecified@{ContextOutputFormat\_Unspecified}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}} 
+Context\+Output\+Format\+\_\+\+Unspecified&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Html@{ContextOutputFormat\_Html}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Html@{ContextOutputFormat\_Html}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}} 
+Context\+Output\+Format\+\_\+\+Html&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Latex@{ContextOutputFormat\_Latex}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Latex@{ContextOutputFormat\_Latex}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}} 
+Context\+Output\+Format\+\_\+\+Latex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Rtf@{ContextOutputFormat\_Rtf}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Rtf@{ContextOutputFormat\_Rtf}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}} 
+Context\+Output\+Format\+\_\+\+Rtf&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_ManPage@{ContextOutputFormat\_ManPage}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_ManPage@{ContextOutputFormat\_ManPage}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}} 
+Context\+Output\+Format\+\_\+\+Man\+Page&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_DocBook@{ContextOutputFormat\_DocBook}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_DocBook@{ContextOutputFormat\_DocBook}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}} 
+Context\+Output\+Format\+\_\+\+Doc\+Book&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Xml@{ContextOutputFormat\_Xml}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Xml@{ContextOutputFormat\_Xml}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}} 
+Context\+Output\+Format\+\_\+\+Xml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_TagFile@{ContextOutputFormat\_TagFile}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_TagFile@{ContextOutputFormat\_TagFile}}}\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}\label{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}} 
+Context\+Output\+Format\+\_\+\+Tag\+File&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063 \{}
+\DoxyCodeLine{00064   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}{ContextOutputFormat\_Unspecified}}=0,}
+\DoxyCodeLine{00065   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{ContextOutputFormat\_Html}},}
+\DoxyCodeLine{00066   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{ContextOutputFormat\_Latex}},}
+\DoxyCodeLine{00067   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}{ContextOutputFormat\_Rtf}},}
+\DoxyCodeLine{00068   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}{ContextOutputFormat\_ManPage}},}
+\DoxyCodeLine{00069   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}{ContextOutputFormat\_DocBook}},}
+\DoxyCodeLine{00070   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}{ContextOutputFormat\_Xml}},}
+\DoxyCodeLine{00071   \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}{ContextOutputFormat\_TagFile}}}
+\DoxyCodeLine{00072 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_afd9ae2cfa752d7d2f61eaf406b360128}\label{build_2doxygen_2src_2context_8cpp_afd9ae2cfa752d7d2f61eaf406b360128}} 
+\index{context.cpp@{context.cpp}!computeMaxDepth@{computeMaxDepth}}
+\index{computeMaxDepth@{computeMaxDepth}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{computeMaxDepth()}{computeMaxDepth()}}
+{\footnotesize\ttfamily static int compute\+Max\+Depth (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{Template\+List\+Intf\+Ptr}}}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l05126}{5126}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{05127 \{}
+\DoxyCodeLine{05128   \textcolor{keywordtype}{int} maxDepth=0;}
+\DoxyCodeLine{05129   \textcolor{keywordflow}{if} (list)}
+\DoxyCodeLine{05130   \{}
+\DoxyCodeLine{05131     \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{05132     \mbox{\hyperlink{class_template_variant}{TemplateVariant}} v;}
+\DoxyCodeLine{05133     \textcolor{keywordflow}{for} (it-\/>toFirst();it-\/>current(v);it-\/>toNext())}
+\DoxyCodeLine{05134     \{}
+\DoxyCodeLine{05135       \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = v.\mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{toStruct}}();}
+\DoxyCodeLine{05136       \mbox{\hyperlink{class_template_variant}{TemplateVariant}} child = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}-\/>get(\textcolor{stringliteral}{"{}children"{}});}
+\DoxyCodeLine{05137       \textcolor{keywordtype}{int} d = \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_afd9ae2cfa752d7d2f61eaf406b360128}{computeMaxDepth}}(child.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}())+1;}
+\DoxyCodeLine{05138       \textcolor{keywordflow}{if} (d>maxDepth) maxDepth=d;}
+\DoxyCodeLine{05139     \}}
+\DoxyCodeLine{05140   \}}
+\DoxyCodeLine{05141   \textcolor{keywordflow}{return} maxDepth;}
+\DoxyCodeLine{05142 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_afd9ae2cfa752d7d2f61eaf406b360128}{compute\+Max\+Depth()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, and \mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{Template\+Variant\+::to\+Struct()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_afd9ae2cfa752d7d2f61eaf406b360128}{compute\+Max\+Depth()}}, \mbox{\hyperlink{class_class_hierarchy_context_1_1_private_a912e6efe742d73b0848f9980eb7323d9}{Class\+Hierarchy\+Context\+::\+Private\+::create\+Max\+Depth()}}, \mbox{\hyperlink{class_class_tree_context_1_1_private_af5732ff44d740c174b305ab5220c0618}{Class\+Tree\+Context\+::\+Private\+::create\+Max\+Depth()}}, \mbox{\hyperlink{class_namespace_tree_context_1_1_private_a9924127af79265264a1590d0cee5eeea}{Namespace\+Tree\+Context\+::\+Private\+::create\+Max\+Depth()}}, \mbox{\hyperlink{class_file_tree_context_1_1_private_ad581dfb2fdbdacef60f09d1af671dac7}{File\+Tree\+Context\+::\+Private\+::create\+Max\+Depth()}}, \mbox{\hyperlink{class_page_tree_context_1_1_private_a6f8b8d4056a027dba0578fd58d701ff9}{Page\+Tree\+Context\+::\+Private\+::create\+Max\+Depth()}}, \mbox{\hyperlink{class_concept_tree_context_1_1_private_a7ab46daf7a9d878d1dde4ffc26931acc}{Concept\+Tree\+Context\+::\+Private\+::create\+Max\+Depth()}}, \mbox{\hyperlink{class_module_tree_context_1_1_private_a2b622670025e1b05e5b4080e135528aa}{Module\+Tree\+Context\+::\+Private\+::create\+Max\+Depth()}}, and \mbox{\hyperlink{class_example_tree_context_1_1_private_af16d3e4c19ba180de60e9a56d91d244d}{Example\+Tree\+Context\+::\+Private\+::create\+Max\+Depth()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}\label{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}} 
+\index{context.cpp@{context.cpp}!computeNumNodesAtLevel@{computeNumNodesAtLevel}}
+\index{computeNumNodesAtLevel@{computeNumNodesAtLevel}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{computeNumNodesAtLevel()}{computeNumNodesAtLevel()}}
+{\footnotesize\ttfamily static int compute\+Num\+Nodes\+At\+Level (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{Template\+Struct\+Intf\+Ptr}}}]{s,  }\item[{int}]{level,  }\item[{int}]{max\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l05144}{5144}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{05145 \{}
+\DoxyCodeLine{05146   \textcolor{keywordtype}{int} num=0;}
+\DoxyCodeLine{05147   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}<maxLevel)}
+\DoxyCodeLine{05148   \{}
+\DoxyCodeLine{05149     num++;}
+\DoxyCodeLine{05150     \mbox{\hyperlink{class_template_variant}{TemplateVariant}} child = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}-\/>get(\textcolor{stringliteral}{"{}children"{}});}
+\DoxyCodeLine{05151     \textcolor{keywordflow}{if} (child.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}())}
+\DoxyCodeLine{05152     \{}
+\DoxyCodeLine{05153       \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = child.\mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{toList}}()-\/>createIterator();}
+\DoxyCodeLine{05154       \mbox{\hyperlink{class_template_variant}{TemplateVariant}} v;}
+\DoxyCodeLine{05155       \textcolor{keywordflow}{for} (it-\/>toFirst();it-\/>current(v);it-\/>toNext())}
+\DoxyCodeLine{05156       \{}
+\DoxyCodeLine{05157         num+=\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}{computeNumNodesAtLevel}}(v.\mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{toStruct}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}+1,maxLevel);}
+\DoxyCodeLine{05158       \}}
+\DoxyCodeLine{05159     \}}
+\DoxyCodeLine{05160   \}}
+\DoxyCodeLine{05161   \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{05162 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}{compute\+Num\+Nodes\+At\+Level()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a68fa175816cc25c7c9ea3553ea2aab98}{level}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{class_template_variant_aa4c2ddd3b4bc32df5df3a83ea9cf5a0b}{Template\+Variant\+::to\+List()}}, and \mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{Template\+Variant\+::to\+Struct()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}{compute\+Num\+Nodes\+At\+Level()}}, and \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a016a7ed22aabc382dd161f0082fe2b23}{compute\+Preferred\+Depth()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a016a7ed22aabc382dd161f0082fe2b23}\label{build_2doxygen_2src_2context_8cpp_a016a7ed22aabc382dd161f0082fe2b23}} 
+\index{context.cpp@{context.cpp}!computePreferredDepth@{computePreferredDepth}}
+\index{computePreferredDepth@{computePreferredDepth}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{computePreferredDepth()}{computePreferredDepth()}}
+{\footnotesize\ttfamily static int compute\+Preferred\+Depth (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{Template\+List\+Intf\+Ptr}}}]{list,  }\item[{int}]{max\+Depth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l05164}{5164}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{05165 \{}
+\DoxyCodeLine{05166   \textcolor{keywordtype}{int} preferredNumEntries = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(HTML\_INDEX\_NUM\_ENTRIES);}
+\DoxyCodeLine{05167   \textcolor{keywordtype}{int} preferredDepth=1;}
+\DoxyCodeLine{05168   \textcolor{keywordflow}{if} (preferredNumEntries>0)}
+\DoxyCodeLine{05169   \{}
+\DoxyCodeLine{05170     \textcolor{keywordtype}{int} depth = maxDepth;}
+\DoxyCodeLine{05171     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=1;i<=depth;i++)}
+\DoxyCodeLine{05172     \{}
+\DoxyCodeLine{05173       \textcolor{keywordtype}{int} num=0;}
+\DoxyCodeLine{05174       \mbox{\hyperlink{class_template_list_intf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} it = list-\/>createIterator();}
+\DoxyCodeLine{05175       \mbox{\hyperlink{class_template_variant}{TemplateVariant}} v;}
+\DoxyCodeLine{05176       \textcolor{keywordflow}{for} (it-\/>toFirst();it-\/>current(v);it-\/>toNext())}
+\DoxyCodeLine{05177       \{}
+\DoxyCodeLine{05178         num+=\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}{computeNumNodesAtLevel}}(v.\mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{toStruct}}(),0,i);}
+\DoxyCodeLine{05179       \}}
+\DoxyCodeLine{05180       \textcolor{keywordflow}{if} (num<=preferredNumEntries)}
+\DoxyCodeLine{05181       \{}
+\DoxyCodeLine{05182         preferredDepth=i;}
+\DoxyCodeLine{05183       \}}
+\DoxyCodeLine{05184       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{05185       \{}
+\DoxyCodeLine{05186         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{05187       \}}
+\DoxyCodeLine{05188     \}}
+\DoxyCodeLine{05189   \}}
+\DoxyCodeLine{05190   \textcolor{keywordflow}{return} preferredDepth;}
+\DoxyCodeLine{05191 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a481495c060596374344280d502a72297}{compute\+Num\+Nodes\+At\+Level()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\+\_\+get\+Int}}, and \mbox{\hyperlink{class_template_variant_a33115f5750646b55d70d01acbce41736}{Template\+Variant\+::to\+Struct()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_class_hierarchy_context_1_1_private_a756b6375dc40a434cbbbcf6808f72221}{Class\+Hierarchy\+Context\+::\+Private\+::create\+Preferred\+Depth()}}, \mbox{\hyperlink{class_class_tree_context_1_1_private_aa7ba55a41041827439e4bf1f71afe342}{Class\+Tree\+Context\+::\+Private\+::create\+Preferred\+Depth()}}, \mbox{\hyperlink{class_namespace_tree_context_1_1_private_a963ccc759c669b75d2a50763fd3806fc}{Namespace\+Tree\+Context\+::\+Private\+::create\+Preferred\+Depth()}}, \mbox{\hyperlink{class_file_tree_context_1_1_private_abc744182bac9a026743daa36bb77e692}{File\+Tree\+Context\+::\+Private\+::create\+Preferred\+Depth()}}, \mbox{\hyperlink{class_page_tree_context_1_1_private_a5979557cfee1e7c5119a7366ed066fd9}{Page\+Tree\+Context\+::\+Private\+::create\+Preferred\+Depth()}}, \mbox{\hyperlink{class_concept_tree_context_1_1_private_a23461151402bbbb174606d694fc9560a}{Concept\+Tree\+Context\+::\+Private\+::create\+Preferred\+Depth()}}, \mbox{\hyperlink{class_module_tree_context_1_1_private_a9d49104f620b4641fdc490daa0dc6d48}{Module\+Tree\+Context\+::\+Private\+::create\+Preferred\+Depth()}}, and \mbox{\hyperlink{class_example_tree_context_1_1_private_af1e5a36c74fba1cdab469ea018f4e321}{Example\+Tree\+Context\+::\+Private\+::create\+Preferred\+Depth()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_af7cb7d854ab5d5628a7bfc3ac0df3b5d}\label{build_2doxygen_2src_2context_8cpp_af7cb7d854ab5d5628a7bfc3ac0df3b5d}} 
+\index{context.cpp@{context.cpp}!createLinkedText@{createLinkedText}}
+\index{createLinkedText@{createLinkedText}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{createLinkedText()}{createLinkedText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_template_variant}{Template\+Variant}} create\+Linked\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{def,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{rel\+Path,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l03558}{3558}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03559 \{}
+\DoxyCodeLine{03560   \mbox{\hyperlink{class_text_stream}{TextStream}} ts;}
+\DoxyCodeLine{03561   \mbox{\hyperlink{class_text_generator_intf}{TextGeneratorIntf}} *tg = \mbox{\hyperlink{class_text_generator_factory_a38d896b82a89974a560262f349e62045}{TextGeneratorFactory::instance}}()-\/>\mbox{\hyperlink{class_text_generator_factory_a67249695939c9794794682347f395c2b}{create}}(ts,relPath);}
+\DoxyCodeLine{03562   \textcolor{keywordflow}{if} (tg)}
+\DoxyCodeLine{03563   \{}
+\DoxyCodeLine{03564     \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ae61ca16879462ab6bd55475fa265b251}{linkifyText}}(*tg,def-\/>\mbox{\hyperlink{class_definition_acabf5ee4ca8de43bbcc5cd5736f150e5}{getOuterScope}}(),def-\/>\mbox{\hyperlink{class_definition_a7ea253be90981d4a6f0cfdb6dff1d2fd}{getBodyDef}}(),def,text);}
+\DoxyCodeLine{03565     \textcolor{keyword}{delete} tg;}
+\DoxyCodeLine{03566     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(ts.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}().c\_str(),\textcolor{keyword}{true});}
+\DoxyCodeLine{03567   \}}
+\DoxyCodeLine{03568   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{03569   \{}
+\DoxyCodeLine{03570     \textcolor{keywordflow}{return} text;}
+\DoxyCodeLine{03571   \}}
+\DoxyCodeLine{03572 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_generator_factory_a67249695939c9794794682347f395c2b}{Text\+Generator\+Factory\+::create()}}, \mbox{\hyperlink{class_definition_a7ea253be90981d4a6f0cfdb6dff1d2fd}{Definition\+::get\+Body\+Def()}}, \mbox{\hyperlink{class_definition_acabf5ee4ca8de43bbcc5cd5736f150e5}{Definition\+::get\+Outer\+Scope()}}, \mbox{\hyperlink{class_text_generator_factory_a38d896b82a89974a560262f349e62045}{Text\+Generator\+Factory\+::instance()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ae61ca16879462ab6bd55475fa265b251}{linkify\+Text()}}, and \mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{Text\+Stream\+::str()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_member_context_1_1_private_a211a47c843cfd56c0b9e4e8fca5da93e}{Member\+Context\+::\+Private\+::create\+Bitfields()}}, \mbox{\hyperlink{class_member_context_1_1_private_a1f4a443ce24bb138bb4e0eb68b59ce93}{Member\+Context\+::\+Private\+::create\+Decl\+Args()}}, \mbox{\hyperlink{class_member_context_1_1_private_a503134b232788202cab0241b07e4f911}{Member\+Context\+::\+Private\+::create\+Decl\+Type()}}, \mbox{\hyperlink{class_member_context_1_1_private_ab497a35007f81b02efee0f0663221f5e}{Member\+Context\+::\+Private\+::create\+Definition()}}, \mbox{\hyperlink{class_argument_context_1_1_private_a1730b1138475cd8ac6f2bdb1a9e44e0c}{Argument\+Context\+::\+Private\+::create\+Defval()}}, \mbox{\hyperlink{class_member_context_1_1_private_a689e966d44421a2448fb32c8b32d311a}{Member\+Context\+::\+Private\+::create\+Exception()}}, \mbox{\hyperlink{class_member_context_1_1_private_a4fcb4d8f96da05a2b66dd046e2f5080e}{Member\+Context\+::\+Private\+::create\+Field\+Type()}}, \mbox{\hyperlink{class_member_context_1_1_private_af3bcbe92dfc97aee089a220822548b46}{Member\+Context\+::\+Private\+::create\+Initializer()}}, \mbox{\hyperlink{class_concept_context_1_1_private_ae453e9143b8e372c820e2bc86fc173c4}{Concept\+Context\+::\+Private\+::create\+Initializer()}}, \mbox{\hyperlink{class_member_context_1_1_private_aa74a528855953847c47590de9d297cb4}{Member\+Context\+::\+Private\+::create\+Template\+Alias()}}, \mbox{\hyperlink{class_member_context_1_1_private_aaab19f83e7ad4c20472cb75f1a054020}{Member\+Context\+::\+Private\+::create\+Trailing\+Return\+Type()}}, and \mbox{\hyperlink{class_argument_context_1_1_private_aaf54d71cc5362bbde7b8c286dccef652}{Argument\+Context\+::\+Private\+::create\+Type()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a8434e7e4dd13bb6f45b499a6f5de33b2}\label{build_2doxygen_2src_2context_8cpp_a8434e7e4dd13bb6f45b499a6f5de33b2}} 
+\index{context.cpp@{context.cpp}!generateOutputViaTemplate@{generateOutputViaTemplate}}
+\index{generateOutputViaTemplate@{generateOutputViaTemplate}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{generateOutputViaTemplate()}{generateOutputViaTemplate()}}
+{\footnotesize\ttfamily void generate\+Output\+Via\+Template (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l09001}{9001}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{09002 \{}
+\DoxyCodeLine{09003   \{}
+\DoxyCodeLine{09004     \textcolor{keyword}{auto} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}} = std::make\_unique<TemplateEngine>();}
+\DoxyCodeLine{09005     \textcolor{keyword}{auto} ctx = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>createContext();}
+\DoxyCodeLine{09006     \textcolor{keywordflow}{if} (ctx)}
+\DoxyCodeLine{09007     \{}
+\DoxyCodeLine{09008       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} doxygen              (\mbox{\hyperlink{class_doxygen_context_aca6cb9ab052176ec827af2fc93691806}{DoxygenContext::alloc}}());}
+\DoxyCodeLine{09009       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} config               (\mbox{\hyperlink{class_config_context_a5d509e30e0f236cbb4b76f6d862aaa9b}{ConfigContext::alloc}}());}
+\DoxyCodeLine{09010       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} tr                   (\mbox{\hyperlink{class_translate_context_ae35d2cbba7b82c4a7eab0672bb76c6f9}{TranslateContext::alloc}}());}
+\DoxyCodeLine{09011       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   classList            (\mbox{\hyperlink{class_class_list_context_ac646f62fa86d99e57d51e45d058c045a}{ClassListContext::alloc}}());}
+\DoxyCodeLine{09012       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} classIndex           (\mbox{\hyperlink{class_class_index_context_a091a849376bd2cb2f5fccf56541dd8b5}{ClassIndexContext::alloc}}());}
+\DoxyCodeLine{09013       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} classTree            (\mbox{\hyperlink{class_class_tree_context_a5aa0fd9ce454c2c656fc16d37b75dfc9}{ClassTreeContext::alloc}}());}
+\DoxyCodeLine{09014       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} classHierarchy       (\mbox{\hyperlink{class_class_hierarchy_context_a1ef8faf70d384252924b1fcc191b5c70}{ClassHierarchyContext::alloc}}());}
+\DoxyCodeLine{09015       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   conceptList          (\mbox{\hyperlink{class_concept_list_context_a30f15583c0ad0d4f20c51fca3c8dea1f}{ConceptListContext::alloc}}());}
+\DoxyCodeLine{09016       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} conceptTree          (\mbox{\hyperlink{class_concept_tree_context_acf1f64c88625d458275097d541a54afc}{ConceptTreeContext::alloc}}());}
+\DoxyCodeLine{09017       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   namespaceList        (\mbox{\hyperlink{class_namespace_list_context_a5de8529be3d23112eb263821e088806a}{NamespaceListContext::alloc}}());}
+\DoxyCodeLine{09018       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} namespaceTree        (\mbox{\hyperlink{class_namespace_tree_context_a122131b9d01180ec42a6732ffd2c20ed}{NamespaceTreeContext::alloc}}());}
+\DoxyCodeLine{09019       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   dirList              (\mbox{\hyperlink{class_dir_list_context_aebebfb6731b85e79f1065c59be90af92}{DirListContext::alloc}}());}
+\DoxyCodeLine{09020       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   fileList             (\mbox{\hyperlink{class_file_list_context_a43c1da87fbe4cdee290546432622a4e1}{FileListContext::alloc}}());}
+\DoxyCodeLine{09021       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} fileTree             (\mbox{\hyperlink{class_file_tree_context_aab1c62fa1c8d6b5e0459fae771978a78}{FileTreeContext::alloc}}());}
+\DoxyCodeLine{09022       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} pageTree             (\mbox{\hyperlink{class_page_tree_context_a92a030dda17dcbbda0c37aaa0a8ea662}{PageTreeContext::alloc}}(*\mbox{\hyperlink{class_doxygen_a6d4e260473a54a2d9bf543e5f97de037}{Doxygen::pageLinkedMap}}));}
+\DoxyCodeLine{09023       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   pageList             (\mbox{\hyperlink{class_page_list_context_ab45d2d0bad2394181d806fbb52fbd8e9}{PageListContext::alloc}}(*\mbox{\hyperlink{class_doxygen_a6d4e260473a54a2d9bf543e5f97de037}{Doxygen::pageLinkedMap}}));}
+\DoxyCodeLine{09024       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} exampleTree          (\mbox{\hyperlink{class_example_tree_context_a3a75dd19b7736cff012585cd3cf4c192}{ExampleTreeContext::alloc}}());}
+\DoxyCodeLine{09025       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   exampleList          (\mbox{\hyperlink{class_example_list_context_acf15bbda604ae4193d42fc4370076e18}{ExampleListContext::alloc}}());}
+\DoxyCodeLine{09026       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} moduleTree           (\mbox{\hyperlink{class_module_tree_context_ac802afc864901c56fda47def69c71280}{ModuleTreeContext::alloc}}());}
+\DoxyCodeLine{09027       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   moduleList           (\mbox{\hyperlink{class_module_list_context_afb3cac25b3433e338341356b47d9ac8e}{ModuleListContext::alloc}}());}
+\DoxyCodeLine{09028       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} globalsIndex         (\mbox{\hyperlink{class_globals_index_context_abd78d3aa2af3741a8c12c537230ee8de}{GlobalsIndexContext::alloc}}());}
+\DoxyCodeLine{09029       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} classMembersIndex    (\mbox{\hyperlink{class_class_members_index_context_a4b76b2f5fd60b1dda84a82b74efa17c2}{ClassMembersIndexContext::alloc}}());}
+\DoxyCodeLine{09030       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} namespaceMembersIndex(\mbox{\hyperlink{class_namespace_members_index_context_ac95c1fc3b8e44527a11eeb7faceff22d}{NamespaceMembersIndexContext::alloc}}());}
+\DoxyCodeLine{09031       \mbox{\hyperlink{build_2doxygen_2src_2template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}}   searchIndices        (\mbox{\hyperlink{class_search_indices_context_aae3fac5d0924f0b4a580b36051e37421}{SearchIndicesContext::alloc}}());}
+\DoxyCodeLine{09032 }
+\DoxyCodeLine{09033       \textcolor{comment}{//\%\% Doxygen doxygen:}}
+\DoxyCodeLine{09034       ctx-\/>set(\textcolor{stringliteral}{"{}doxygen"{}},doxygen);}
+\DoxyCodeLine{09035       \textcolor{comment}{//\%\% Translator tr:}}
+\DoxyCodeLine{09036       ctx-\/>set(\textcolor{stringliteral}{"{}tr"{}},tr);}
+\DoxyCodeLine{09037       \textcolor{comment}{//\%\% Config config:}}
+\DoxyCodeLine{09038       ctx-\/>set(\textcolor{stringliteral}{"{}config"{}},config);}
+\DoxyCodeLine{09039       \textcolor{comment}{//\%\% ClassList classList:}}
+\DoxyCodeLine{09040       ctx-\/>set(\textcolor{stringliteral}{"{}classList"{}},classList); \textcolor{comment}{// not used for standard HTML}}
+\DoxyCodeLine{09041       \textcolor{comment}{//\%\% ClassTree classTree:}}
+\DoxyCodeLine{09042       ctx-\/>set(\textcolor{stringliteral}{"{}classTree"{}},classTree);}
+\DoxyCodeLine{09043       \textcolor{comment}{//\%\% ClassIndex classIndex:}}
+\DoxyCodeLine{09044       ctx-\/>set(\textcolor{stringliteral}{"{}classIndex"{}},classIndex);}
+\DoxyCodeLine{09045       \textcolor{comment}{//\%\% ClassHierarchy classHierarchy:}}
+\DoxyCodeLine{09046       ctx-\/>set(\textcolor{stringliteral}{"{}classHierarchy"{}},classHierarchy);}
+\DoxyCodeLine{09047       \textcolor{comment}{//\%\% ConceptList conceptList:}}
+\DoxyCodeLine{09048       ctx-\/>set(\textcolor{stringliteral}{"{}conceptList"{}},conceptList);}
+\DoxyCodeLine{09049       \textcolor{comment}{//\%\% ConceptTree conceptTree:}}
+\DoxyCodeLine{09050       ctx-\/>set(\textcolor{stringliteral}{"{}conceptTree"{}},conceptTree);}
+\DoxyCodeLine{09051       \textcolor{comment}{//\%\% NamespaceList namespaceList:}}
+\DoxyCodeLine{09052       ctx-\/>set(\textcolor{stringliteral}{"{}namespaceList"{}},namespaceList);}
+\DoxyCodeLine{09053       \textcolor{comment}{//\%\% NamespaceTree namespaceTree:}}
+\DoxyCodeLine{09054       ctx-\/>set(\textcolor{stringliteral}{"{}namespaceTree"{}},namespaceTree);}
+\DoxyCodeLine{09055       \textcolor{comment}{//\%\% FileList fileList:}}
+\DoxyCodeLine{09056       ctx-\/>set(\textcolor{stringliteral}{"{}fileList"{}},fileList);}
+\DoxyCodeLine{09057       \textcolor{comment}{//\%\% FileTree fileTree:}}
+\DoxyCodeLine{09058       ctx-\/>set(\textcolor{stringliteral}{"{}fileTree"{}},fileTree);}
+\DoxyCodeLine{09059       \textcolor{comment}{//\%\% PageList pageList}}
+\DoxyCodeLine{09060       ctx-\/>set(\textcolor{stringliteral}{"{}pageList"{}},pageList);}
+\DoxyCodeLine{09061       \textcolor{comment}{//\%\% PageTree pageTree}}
+\DoxyCodeLine{09062       ctx-\/>set(\textcolor{stringliteral}{"{}pageTree"{}},pageTree);}
+\DoxyCodeLine{09063       \textcolor{comment}{//\%\% ExampleTree exampleTree}}
+\DoxyCodeLine{09064       ctx-\/>set(\textcolor{stringliteral}{"{}exampleTree"{}},exampleTree);}
+\DoxyCodeLine{09065       \textcolor{comment}{//\%\% ExampleList exampleList}}
+\DoxyCodeLine{09066       ctx-\/>set(\textcolor{stringliteral}{"{}exampleList"{}},exampleList);}
+\DoxyCodeLine{09067       \textcolor{comment}{//\%\% ModuleTree moduleTree}}
+\DoxyCodeLine{09068       ctx-\/>set(\textcolor{stringliteral}{"{}moduleTree"{}},moduleTree);}
+\DoxyCodeLine{09069       \textcolor{comment}{//\%\% ModuleList moduleList}}
+\DoxyCodeLine{09070       ctx-\/>set(\textcolor{stringliteral}{"{}moduleList"{}},moduleList);}
+\DoxyCodeLine{09071       \textcolor{comment}{//\%\% DirList dirList}}
+\DoxyCodeLine{09072       ctx-\/>set(\textcolor{stringliteral}{"{}dirList"{}},dirList);}
+\DoxyCodeLine{09073       \textcolor{comment}{//\%\% Page mainPage}}
+\DoxyCodeLine{09074       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen::mainPage}})}
+\DoxyCodeLine{09075       \{}
+\DoxyCodeLine{09076         \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} mainPage = \mbox{\hyperlink{class_page_context_a428d9546525e916035785da72f540df1}{PageContext::alloc}}(\mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen::mainPage}}.get(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{09077         ctx-\/>set(\textcolor{stringliteral}{"{}mainPage"{}},mainPage);}
+\DoxyCodeLine{09078       \}}
+\DoxyCodeLine{09079       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{09080       \{}
+\DoxyCodeLine{09081         \textcolor{comment}{// TODO: for LaTeX output index should be main... => solve in template}}
+\DoxyCodeLine{09082         \mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen::mainPage}}.reset(\mbox{\hyperlink{build_2doxygen_2src_2pagedef_8cpp_a69b6c545e449dcb3298e0d826e45fd61}{createPageDef}}(\textcolor{stringliteral}{"{}[generated]"{}},1,\textcolor{stringliteral}{"{}index"{}},\textcolor{stringliteral}{"{}"{}},\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_NAME)));}
+\DoxyCodeLine{09083         \mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen::mainPage}}-\/>setFileName(\textcolor{stringliteral}{"{}index"{}});}
+\DoxyCodeLine{09084         \mbox{\hyperlink{build_2doxygen_2src_2template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} mainPage = \mbox{\hyperlink{class_page_context_a428d9546525e916035785da72f540df1}{PageContext::alloc}}(\mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen::mainPage}}.get(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{09085         ctx-\/>set(\textcolor{stringliteral}{"{}mainPage"{}},mainPage);}
+\DoxyCodeLine{09086       \}}
+\DoxyCodeLine{09087       \textcolor{comment}{//\%\% GlobalsIndex globalsIndex:}}
+\DoxyCodeLine{09088       ctx-\/>set(\textcolor{stringliteral}{"{}globalsIndex"{}},globalsIndex);}
+\DoxyCodeLine{09089       \textcolor{comment}{//\%\% ClassMembersIndex classMembersIndex:}}
+\DoxyCodeLine{09090       ctx-\/>set(\textcolor{stringliteral}{"{}classMembersIndex"{}},classMembersIndex);}
+\DoxyCodeLine{09091       \textcolor{comment}{//\%\% NamespaceMembersIndex namespaceMembersIndex:}}
+\DoxyCodeLine{09092       ctx-\/>set(\textcolor{stringliteral}{"{}namespaceMembersIndex"{}},namespaceMembersIndex);}
+\DoxyCodeLine{09093       \textcolor{comment}{//\%\% SearchIndices searchIndices}}
+\DoxyCodeLine{09094       ctx-\/>set(\textcolor{stringliteral}{"{}searchIndices"{}},searchIndices);}
+\DoxyCodeLine{09095       \textcolor{comment}{//\%\% string space}}
+\DoxyCodeLine{09096       ctx-\/>set(\textcolor{stringliteral}{"{}space"{}},\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{09097 }
+\DoxyCodeLine{09098       \textcolor{comment}{//if (Config\_getBool(GENERATE\_HTML))}}
+\DoxyCodeLine{09099       \{ \textcolor{comment}{// render HTML output}}
+\DoxyCodeLine{09100         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>setTemplateDir(\textcolor{stringliteral}{"{}templates/html"{}}); \textcolor{comment}{// TODO: make template part user configurable}}
+\DoxyCodeLine{09101         \mbox{\hyperlink{class_template}{Template}} *tpl = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>loadByName(\textcolor{stringliteral}{"{}htmllayout.tpl"{}},1);}
+\DoxyCodeLine{09102         \textcolor{keywordflow}{if} (tpl)}
+\DoxyCodeLine{09103         \{}
+\DoxyCodeLine{09104           \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{outputFormat}} = \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{ContextOutputFormat\_Html}};}
+\DoxyCodeLine{09105           \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_aa8f55e29c7473839278831567228fed2}{dynSectionId}} = 0;}
+\DoxyCodeLine{09106           \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_a258997491223c384351384e24c73a63e}{outputDir}}    = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(HTML\_OUTPUT);}
+\DoxyCodeLine{09107           \mbox{\hyperlink{class_dir}{Dir}} dir(\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_a258997491223c384351384e24c73a63e}{outputDir}}.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{09108           \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a77685956f8517f3a6e062e66925fc93c}{createSubDirs}}(dir);}
+\DoxyCodeLine{09109           ctx-\/>setEscapeIntf(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(HTML\_FILE\_EXTENSION),std::make\_unique<HtmlEscaper>());}
+\DoxyCodeLine{09110           ctx-\/>setSpacelessIntf(std::make\_unique<HtmlSpaceless>());}
+\DoxyCodeLine{09111           ctx-\/>setOutputDirectory(\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_a258997491223c384351384e24c73a63e}{outputDir}});}
+\DoxyCodeLine{09112           \mbox{\hyperlink{class_text_stream}{TextStream}} ts;}
+\DoxyCodeLine{09113           tpl-\/>\mbox{\hyperlink{class_template_a3d99497fd784c1746d9c718f58bc69c1}{render}}(ts,ctx.get());}
+\DoxyCodeLine{09114         \}}
+\DoxyCodeLine{09115         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>unload(tpl);}
+\DoxyCodeLine{09116       \}}
+\DoxyCodeLine{09117 }
+\DoxyCodeLine{09118       \textcolor{comment}{// TODO: clean index before each run...}}
+\DoxyCodeLine{09119 }
+\DoxyCodeLine{09120       \textcolor{comment}{//if (Config\_getBool(GENERATE\_LATEX))}}
+\DoxyCodeLine{09121       \textcolor{keywordflow}{if} (0)}
+\DoxyCodeLine{09122       \{ \textcolor{comment}{// render LaTeX output}}
+\DoxyCodeLine{09123         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>setTemplateDir(\textcolor{stringliteral}{"{}templates/latex"{}}); \textcolor{comment}{// TODO: make template part user configurable}}
+\DoxyCodeLine{09124         \mbox{\hyperlink{class_template}{Template}} *tpl = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>loadByName(\textcolor{stringliteral}{"{}latexlayout.tpl"{}},1);}
+\DoxyCodeLine{09125         \textcolor{keywordflow}{if} (tpl)}
+\DoxyCodeLine{09126         \{}
+\DoxyCodeLine{09127           \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{outputFormat}} = \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{ContextOutputFormat\_Latex}};}
+\DoxyCodeLine{09128           \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_aa8f55e29c7473839278831567228fed2}{dynSectionId}} = 0;}
+\DoxyCodeLine{09129           \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_a258997491223c384351384e24c73a63e}{outputDir}}    = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_OUTPUT);}
+\DoxyCodeLine{09130           \mbox{\hyperlink{class_dir}{Dir}} dir(\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_a258997491223c384351384e24c73a63e}{outputDir}}.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{09131           \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a77685956f8517f3a6e062e66925fc93c}{createSubDirs}}(dir);}
+\DoxyCodeLine{09132           ctx-\/>setEscapeIntf(\textcolor{stringliteral}{"{}.tex"{}},std::make\_unique<LatexEscaper>());}
+\DoxyCodeLine{09133           ctx-\/>setSpacelessIntf(std::make\_unique<LatexSpaceless>());}
+\DoxyCodeLine{09134           ctx-\/>setOutputDirectory(\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_a258997491223c384351384e24c73a63e}{outputDir}});}
+\DoxyCodeLine{09135           \mbox{\hyperlink{class_text_stream}{TextStream}} ts;}
+\DoxyCodeLine{09136           tpl-\/>\mbox{\hyperlink{class_template_a3d99497fd784c1746d9c718f58bc69c1}{render}}(ts,ctx.get());}
+\DoxyCodeLine{09137         \}}
+\DoxyCodeLine{09138         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}-\/>unload(tpl);}
+\DoxyCodeLine{09139       \}}
+\DoxyCodeLine{09140     \}}
+\DoxyCodeLine{09141   \}}
+\DoxyCodeLine{09142 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_config_context_a5d509e30e0f236cbb4b76f6d862aaa9b}{Config\+Context\+::alloc()}}, \mbox{\hyperlink{class_doxygen_context_aca6cb9ab052176ec827af2fc93691806}{Doxygen\+Context\+::alloc()}}, \mbox{\hyperlink{class_translate_context_ae35d2cbba7b82c4a7eab0672bb76c6f9}{Translate\+Context\+::alloc()}}, \mbox{\hyperlink{class_class_list_context_ac646f62fa86d99e57d51e45d058c045a}{Class\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_class_index_context_a091a849376bd2cb2f5fccf56541dd8b5}{Class\+Index\+Context\+::alloc()}}, \mbox{\hyperlink{class_class_hierarchy_context_a1ef8faf70d384252924b1fcc191b5c70}{Class\+Hierarchy\+Context\+::alloc()}}, \mbox{\hyperlink{class_class_tree_context_a5aa0fd9ce454c2c656fc16d37b75dfc9}{Class\+Tree\+Context\+::alloc()}}, \mbox{\hyperlink{class_concept_list_context_a30f15583c0ad0d4f20c51fca3c8dea1f}{Concept\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_namespace_list_context_a5de8529be3d23112eb263821e088806a}{Namespace\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_namespace_tree_context_a122131b9d01180ec42a6732ffd2c20ed}{Namespace\+Tree\+Context\+::alloc()}}, \mbox{\hyperlink{class_dir_list_context_aebebfb6731b85e79f1065c59be90af92}{Dir\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_file_list_context_a43c1da87fbe4cdee290546432622a4e1}{File\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_file_tree_context_aab1c62fa1c8d6b5e0459fae771978a78}{File\+Tree\+Context\+::alloc()}}, \mbox{\hyperlink{class_module_list_context_afb3cac25b3433e338341356b47d9ac8e}{Module\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_concept_tree_context_acf1f64c88625d458275097d541a54afc}{Concept\+Tree\+Context\+::alloc()}}, \mbox{\hyperlink{class_module_tree_context_ac802afc864901c56fda47def69c71280}{Module\+Tree\+Context\+::alloc()}}, \mbox{\hyperlink{class_example_list_context_acf15bbda604ae4193d42fc4370076e18}{Example\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_example_tree_context_a3a75dd19b7736cff012585cd3cf4c192}{Example\+Tree\+Context\+::alloc()}}, \mbox{\hyperlink{class_globals_index_context_abd78d3aa2af3741a8c12c537230ee8de}{Globals\+Index\+Context\+::alloc()}}, \mbox{\hyperlink{class_class_members_index_context_a4b76b2f5fd60b1dda84a82b74efa17c2}{Class\+Members\+Index\+Context\+::alloc()}}, \mbox{\hyperlink{class_namespace_members_index_context_ac95c1fc3b8e44527a11eeb7faceff22d}{Namespace\+Members\+Index\+Context\+::alloc()}}, \mbox{\hyperlink{class_search_indices_context_aae3fac5d0924f0b4a580b36051e37421}{Search\+Indices\+Context\+::alloc()}}, \mbox{\hyperlink{class_page_context_a428d9546525e916035785da72f540df1}{Page\+Context\+::alloc()}}, \mbox{\hyperlink{class_page_list_context_ab45d2d0bad2394181d806fbb52fbd8e9}{Page\+List\+Context\+::alloc()}}, \mbox{\hyperlink{class_page_tree_context_a92a030dda17dcbbda0c37aaa0a8ea662}{Page\+Tree\+Context\+::alloc()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{Context\+Output\+Format\+\_\+\+Html}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{Context\+Output\+Format\+\_\+\+Latex}}, \mbox{\hyperlink{build_2doxygen_2src_2pagedef_8cpp_a69b6c545e449dcb3298e0d826e45fd61}{create\+Page\+Def()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a77685956f8517f3a6e062e66925fc93c}{create\+Sub\+Dirs()}}, \mbox{\hyperlink{struct_context_globals_aa8f55e29c7473839278831567228fed2}{Context\+Globals\+::dyn\+Section\+Id}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\+\_\+globals}}, \mbox{\hyperlink{class_doxygen_a8a353dd2171d68451d9b7d73c7533345}{Doxygen\+::main\+Page}}, \mbox{\hyperlink{struct_context_globals_a258997491223c384351384e24c73a63e}{Context\+Globals\+::output\+Dir}}, \mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{Context\+Globals\+::output\+Format}}, \mbox{\hyperlink{class_doxygen_a6d4e260473a54a2d9bf543e5f97de037}{Doxygen\+::page\+Linked\+Map}}, \mbox{\hyperlink{class_template_a3d99497fd784c1746d9c718f58bc69c1}{Template\+::render()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}\label{build_2doxygen_2src_2context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}} 
+\index{context.cpp@{context.cpp}!generateTemplateFiles@{generateTemplateFiles}}
+\index{generateTemplateFiles@{generateTemplateFiles}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{generateTemplateFiles()}{generateTemplateFiles()}}
+{\footnotesize\ttfamily void generate\+Template\+Files (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{template\+Dir }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l09144}{9144}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{09145 \{}
+\DoxyCodeLine{09146   \textcolor{keywordflow}{if} (templateDir.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{09147   \mbox{\hyperlink{class_dir}{Dir}} thisDir;}
+\DoxyCodeLine{09148   \textcolor{keywordflow}{if} (!thisDir.\mbox{\hyperlink{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}{exists}}(templateDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()) \&\& !thisDir.\mbox{\hyperlink{class_dir_a286f4b1852b489ffcc8b6837c7e6bd8e}{mkdir}}(templateDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()))}
+\DoxyCodeLine{09149   \{}
+\DoxyCodeLine{09150     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Failed to create output directory '\%s'\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(templateDir));}
+\DoxyCodeLine{09151     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{09152   \}}
+\DoxyCodeLine{09153   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} outDir = templateDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}/html"{}};}
+\DoxyCodeLine{09154   \textcolor{keywordflow}{if} (!thisDir.\mbox{\hyperlink{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}{exists}}(outDir) \&\& !thisDir.\mbox{\hyperlink{class_dir_a286f4b1852b489ffcc8b6837c7e6bd8e}{mkdir}}(outDir))}
+\DoxyCodeLine{09155   \{}
+\DoxyCodeLine{09156     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Failed to create output directory '\%s'\(\backslash\)n"{}},outDir.c\_str());}
+\DoxyCodeLine{09157     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{09158   \}}
+\DoxyCodeLine{09159   \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{ResourceMgr::instance}}().\mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{writeCategory}}(\textcolor{stringliteral}{"{}html"{}},outDir.c\_str());}
+\DoxyCodeLine{09160 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}{Dir\+::exists()}}, \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{Resource\+Mgr\+::instance()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_dir_a286f4b1852b489ffcc8b6837c7e6bd8e}{Dir\+::mkdir()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{Resource\+Mgr\+::write\+Category()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab0fa1b0c948e78e0d0d749ff1f5740b5}{read\+Configuration()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a56b84b3a18518bbe1f958dc6fb88e888}\label{build_2doxygen_2src_2context_8cpp_a56b84b3a18518bbe1f958dc6fb88e888}} 
+\index{context.cpp@{context.cpp}!parseCode@{parseCode}}
+\index{parseCode@{parseCode}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{parseCode()}{parseCode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} parse\+Code (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{scope\+Name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{rel\+Path,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{code,  }\item[{int}]{start\+Line = {\ttfamily -\/1},  }\item[{int}]{end\+Line = {\ttfamily -\/1},  }\item[{bool}]{show\+Line\+Numbers = {\ttfamily \mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l01282}{1282}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01284 \{}
+\DoxyCodeLine{01285   \textcolor{keyword}{auto} intf = \mbox{\hyperlink{class_doxygen_a2a1b1172d0c1be7df5737a2569e8434a}{Doxygen::parserManager}}-\/>\mbox{\hyperlink{class_parser_manager_a691952e0c5c944e83d4a6e88117471a6}{getCodeParser}}(d-\/>\mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{getDefFileExtension}}());}
+\DoxyCodeLine{01286   intf-\/>resetCodeParserState();}
+\DoxyCodeLine{01287   \mbox{\hyperlink{class_text_stream}{TextStream}} t;}
+\DoxyCodeLine{01288   \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{outputFormat}})}
+\DoxyCodeLine{01289   \{}
+\DoxyCodeLine{01290     \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{ContextOutputFormat\_Html}}:}
+\DoxyCodeLine{01291       \{}
+\DoxyCodeLine{01292         \mbox{\hyperlink{class_html_code_generator}{HtmlCodeGenerator}} codeGen(t,relPath);}
+\DoxyCodeLine{01293         intf-\/>parseCode(codeGen,scopeName,code,d-\/>\mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{getLanguage}}(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\mbox{\hyperlink{class_q_c_string}{QCString}}(),d-\/>\mbox{\hyperlink{class_definition_a7ea253be90981d4a6f0cfdb6dff1d2fd}{getBodyDef}}(),}
+\DoxyCodeLine{01294             startLine,endLine,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2memberdef_8cpp_af5b90e1ee6115fc2c7c6ce672c3dd157}{toMemberDef}}(d),showLineNumbers,d);}
+\DoxyCodeLine{01295       \}}
+\DoxyCodeLine{01296       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01297     \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{ContextOutputFormat\_Latex}}:}
+\DoxyCodeLine{01298       \{}
+\DoxyCodeLine{01299         \mbox{\hyperlink{class_latex_code_generator}{LatexCodeGenerator}} codeGen(t,relPath,d-\/>\mbox{\hyperlink{class_definition_a00915f52f3b708bec07aab2b44f03d34}{docFile}}());}
+\DoxyCodeLine{01300         intf-\/>parseCode(codeGen,scopeName,code,d-\/>\mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{getLanguage}}(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\mbox{\hyperlink{class_q_c_string}{QCString}}(),d-\/>\mbox{\hyperlink{class_definition_a7ea253be90981d4a6f0cfdb6dff1d2fd}{getBodyDef}}(),}
+\DoxyCodeLine{01301             startLine,endLine,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2memberdef_8cpp_af5b90e1ee6115fc2c7c6ce672c3dd157}{toMemberDef}}(d),showLineNumbers,d);}
+\DoxyCodeLine{01302       \}}
+\DoxyCodeLine{01303       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01304     \textcolor{comment}{// TODO: support other generators}}
+\DoxyCodeLine{01305     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{01306       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}context.cpp: output format not yet supported\(\backslash\)n"{}});}
+\DoxyCodeLine{01307       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01308   \}}
+\DoxyCodeLine{01309   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(t.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{01310 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{Context\+Output\+Format\+\_\+\+Html}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{Context\+Output\+Format\+\_\+\+Latex}}, \mbox{\hyperlink{class_definition_a00915f52f3b708bec07aab2b44f03d34}{Definition\+::doc\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\+\_\+globals}}, \mbox{\hyperlink{class_definition_a7ea253be90981d4a6f0cfdb6dff1d2fd}{Definition\+::get\+Body\+Def()}}, \mbox{\hyperlink{class_parser_manager_a691952e0c5c944e83d4a6e88117471a6}{Parser\+Manager\+::get\+Code\+Parser()}}, \mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{Definition\+::get\+Def\+File\+Extension()}}, \mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{Definition\+::get\+Language()}}, \mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{Context\+Globals\+::output\+Format}}, \mbox{\hyperlink{class_doxygen_a2a1b1172d0c1be7df5737a2569e8434a}{Doxygen\+::parser\+Manager}}, \mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{Text\+Stream\+::str()}}, \mbox{\hyperlink{build_2doxygen_2src_2memberdef_8cpp_af5b90e1ee6115fc2c7c6ce672c3dd157}{to\+Member\+Def()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_member_context_1_1_private_acc36e6056cc9b64ea53ceb9a7df82cc2}{Member\+Context\+::\+Private\+::create\+Initializer\+As\+Code()}}, \mbox{\hyperlink{class_concept_context_1_1_private_a8e5b942a7d01b7910f9e0e7d52eb5cf3}{Concept\+Context\+::\+Private\+::create\+Initializer\+As\+Code()}}, \mbox{\hyperlink{class_member_context_1_1_private_afaae22ff149f20ca7e7ebf9ece542e71}{Member\+Context\+::\+Private\+::create\+Source\+Code()}}, \mbox{\hyperlink{class_file_context_1_1_private_ae31798cc96f6a1a4883a73d66c8b7eed}{File\+Context\+::\+Private\+::create\+Sources()}}, and \mbox{\hyperlink{class_perl_mod_doc_visitor_a6a9734f16f6d5b0ab24039d710af84cd}{Perl\+Mod\+Doc\+Visitor\+::operator()()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a379e50255942d7c4836808d7cf2df6f1}\label{build_2doxygen_2src_2context_8cpp_a379e50255942d7c4836808d7cf2df6f1}} 
+\index{context.cpp@{context.cpp}!parseCode@{parseCode}}
+\index{parseCode@{parseCode}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{parseCode()}{parseCode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} parse\+Code (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{rel\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l01312}{1312}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01313 \{}
+\DoxyCodeLine{01314   \textcolor{keywordtype}{bool} filterSourceFiles = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(FILTER\_SOURCE\_FILES);}
+\DoxyCodeLine{01315   \textcolor{keyword}{auto} intf = \mbox{\hyperlink{class_doxygen_a2a1b1172d0c1be7df5737a2569e8434a}{Doxygen::parserManager}}-\/>\mbox{\hyperlink{class_parser_manager_a691952e0c5c944e83d4a6e88117471a6}{getCodeParser}}(fd-\/>\mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{getDefFileExtension}}());}
+\DoxyCodeLine{01316   intf-\/>resetCodeParserState();}
+\DoxyCodeLine{01317   \mbox{\hyperlink{class_text_stream}{TextStream}} t;}
+\DoxyCodeLine{01318   \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{outputFormat}})}
+\DoxyCodeLine{01319   \{}
+\DoxyCodeLine{01320     \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{ContextOutputFormat\_Html}}:}
+\DoxyCodeLine{01321       \{}
+\DoxyCodeLine{01322         \mbox{\hyperlink{class_html_code_generator}{HtmlCodeGenerator}} codeGen(t,relPath);}
+\DoxyCodeLine{01323         intf-\/>parseCode(codeGen,\mbox{\hyperlink{class_q_c_string}{QCString}}(),}
+\DoxyCodeLine{01324               \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{fileToString}}(fd-\/>\mbox{\hyperlink{class_file_def_a800e157b3a9d9d68b3961528e60117d9}{absFilePath}}(),filterSourceFiles,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}), \textcolor{comment}{// the sources}}
+\DoxyCodeLine{01325               fd-\/>\mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{getLanguage}}(),  \textcolor{comment}{// lang}}
+\DoxyCodeLine{01326               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},              \textcolor{comment}{// isExampleBlock}}
+\DoxyCodeLine{01327               \mbox{\hyperlink{class_q_c_string}{QCString}}(),         \textcolor{comment}{// exampleName}}
+\DoxyCodeLine{01328               \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{class_file_def}{FileDef}}*\textcolor{keyword}{>}(fd),  \textcolor{comment}{// fileDef, TODO: should be const}}
+\DoxyCodeLine{01329               -\/1,                 \textcolor{comment}{// startLine}}
+\DoxyCodeLine{01330               -\/1,                 \textcolor{comment}{// endLine}}
+\DoxyCodeLine{01331               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},              \textcolor{comment}{// inlineFragment}}
+\DoxyCodeLine{01332               0,                  \textcolor{comment}{// memberDef}}
+\DoxyCodeLine{01333               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},               \textcolor{comment}{// showLineNumbers}}
+\DoxyCodeLine{01334               0,                  \textcolor{comment}{// searchCtx}}
+\DoxyCodeLine{01335               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}                \textcolor{comment}{// collectXRefs, TODO: should become FALSE}}
+\DoxyCodeLine{01336               );}
+\DoxyCodeLine{01337       \}}
+\DoxyCodeLine{01338       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01339     \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{ContextOutputFormat\_Latex}}:}
+\DoxyCodeLine{01340       \{}
+\DoxyCodeLine{01341         \mbox{\hyperlink{class_latex_code_generator}{LatexCodeGenerator}} codeGen(t,relPath,fd-\/>\mbox{\hyperlink{class_definition_a00915f52f3b708bec07aab2b44f03d34}{docFile}}());}
+\DoxyCodeLine{01342         intf-\/>parseCode(codeGen,\mbox{\hyperlink{class_q_c_string}{QCString}}(),}
+\DoxyCodeLine{01343               \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{fileToString}}(fd-\/>\mbox{\hyperlink{class_file_def_a800e157b3a9d9d68b3961528e60117d9}{absFilePath}}(),filterSourceFiles,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}), \textcolor{comment}{// the sources}}
+\DoxyCodeLine{01344               fd-\/>\mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{getLanguage}}(),  \textcolor{comment}{// lang}}
+\DoxyCodeLine{01345               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},              \textcolor{comment}{// isExampleBlock}}
+\DoxyCodeLine{01346               \mbox{\hyperlink{class_q_c_string}{QCString}}(),         \textcolor{comment}{// exampleName}}
+\DoxyCodeLine{01347               \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{class_file_def}{FileDef}}*\textcolor{keyword}{>}(fd),  \textcolor{comment}{// fileDef, TODO: should be const}}
+\DoxyCodeLine{01348               -\/1,                 \textcolor{comment}{// startLine}}
+\DoxyCodeLine{01349               -\/1,                 \textcolor{comment}{// endLine}}
+\DoxyCodeLine{01350               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},              \textcolor{comment}{// inlineFragment}}
+\DoxyCodeLine{01351               0,                  \textcolor{comment}{// memberDef}}
+\DoxyCodeLine{01352               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},               \textcolor{comment}{// showLineNumbers}}
+\DoxyCodeLine{01353               0,                  \textcolor{comment}{// searchCtx}}
+\DoxyCodeLine{01354               \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}                \textcolor{comment}{// collectXRefs, TODO: should become FALSE}}
+\DoxyCodeLine{01355               );}
+\DoxyCodeLine{01356       \}}
+\DoxyCodeLine{01357       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01358     \textcolor{comment}{// TODO: support other generators}}
+\DoxyCodeLine{01359     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{01360       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}context.cpp: output format not yet supported\(\backslash\)n"{}});}
+\DoxyCodeLine{01361       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01362   \}}
+\DoxyCodeLine{01363   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(t.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}().c\_str(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{01364 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_def_a800e157b3a9d9d68b3961528e60117d9}{File\+Def\+::abs\+File\+Path()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{Context\+Output\+Format\+\_\+\+Html}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{Context\+Output\+Format\+\_\+\+Latex}}, \mbox{\hyperlink{class_definition_a00915f52f3b708bec07aab2b44f03d34}{Definition\+::doc\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{file\+To\+String()}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\+\_\+globals}}, \mbox{\hyperlink{class_parser_manager_a691952e0c5c944e83d4a6e88117471a6}{Parser\+Manager\+::get\+Code\+Parser()}}, \mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{Definition\+::get\+Def\+File\+Extension()}}, \mbox{\hyperlink{class_definition_a0dda9f50f2f9754e6341a10373eafec7}{Definition\+::get\+Language()}}, \mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{Context\+Globals\+::output\+Format}}, \mbox{\hyperlink{class_doxygen_a2a1b1172d0c1be7df5737a2569e8434a}{Doxygen\+::parser\+Manager}}, \mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{Text\+Stream\+::str()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_a18e055fb6c5600e64bff4a7a95f31b34}\label{build_2doxygen_2src_2context_8cpp_a18e055fb6c5600e64bff4a7a95f31b34}} 
+\index{context.cpp@{context.cpp}!parseDoc@{parseDoc}}
+\index{parseDoc@{parseDoc}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{parseDoc()}{parseDoc()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} parse\+Doc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{def,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{rel\+Path,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{doc\+Str,  }\item[{bool}]{is\+Brief }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l01240}{1240}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01242 \{}
+\DoxyCodeLine{01243   \mbox{\hyperlink{class_template_variant}{TemplateVariant}} result;}
+\DoxyCodeLine{01244   \textcolor{keyword}{auto} parser \{ \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_a7a169cbf0edeed85c90868675799b875}{createDocParser}}() \};}
+\DoxyCodeLine{01245   \textcolor{keyword}{auto} ast    \{ \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_ade7ad021f00f56e2222470e267b56f73}{validatingParseDoc}}(*parser.get(),\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},line,def,0,docStr,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},}
+\DoxyCodeLine{01246                                    \mbox{\hyperlink{class_q_c_string}{QCString}}(),isBrief,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(MARKDOWN\_SUPPORT))}
+\DoxyCodeLine{01247               \};}
+\DoxyCodeLine{01248   \textcolor{keyword}{const} \mbox{\hyperlink{class_doc_node_a_s_t}{DocNodeAST}} *astImpl = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_doc_node_a_s_t}{DocNodeAST}}*\textcolor{keyword}{>}(ast.get());}
+\DoxyCodeLine{01249   \textcolor{keywordflow}{if} (astImpl)}
+\DoxyCodeLine{01250   \{}
+\DoxyCodeLine{01251     \mbox{\hyperlink{class_text_stream}{TextStream}} ts;}
+\DoxyCodeLine{01252     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\_globals}}.\mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{outputFormat}})}
+\DoxyCodeLine{01253     \{}
+\DoxyCodeLine{01254       \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{ContextOutputFormat\_Html}}:}
+\DoxyCodeLine{01255         \{}
+\DoxyCodeLine{01256           \mbox{\hyperlink{class_html_code_generator}{HtmlCodeGenerator}} codeGen(ts,relPath);}
+\DoxyCodeLine{01257           \mbox{\hyperlink{class_html_doc_visitor}{HtmlDocVisitor}} visitor(ts,codeGen,def);}
+\DoxyCodeLine{01258           std::visit(visitor,astImpl-\/>\mbox{\hyperlink{class_doc_node_a_s_t_a77e351cc54c344eac97ef21709f44305}{root}});}
+\DoxyCodeLine{01259         \}}
+\DoxyCodeLine{01260         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01261       \textcolor{keywordflow}{case} \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{ContextOutputFormat\_Latex}}:}
+\DoxyCodeLine{01262         \{}
+\DoxyCodeLine{01263           \mbox{\hyperlink{class_latex_code_generator}{LatexCodeGenerator}} codeGen(ts,relPath,\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}});}
+\DoxyCodeLine{01264           \mbox{\hyperlink{class_latex_doc_visitor}{LatexDocVisitor}} visitor(ts,codeGen,def-\/>\mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{getDefFileExtension}}(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{01265           std::visit(visitor,astImpl-\/>\mbox{\hyperlink{class_doc_node_a_s_t_a77e351cc54c344eac97ef21709f44305}{root}});}
+\DoxyCodeLine{01266         \}}
+\DoxyCodeLine{01267         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01268         \textcolor{comment}{// TODO: support other generators}}
+\DoxyCodeLine{01269       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{01270         \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}context.cpp: output format not yet supported\(\backslash\)n"{}});}
+\DoxyCodeLine{01271         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01272     \}}
+\DoxyCodeLine{01273     \textcolor{keywordtype}{bool} isEmpty = astImpl-\/>\mbox{\hyperlink{class_doc_node_a_s_t_a642834a987948f2245a0c0d05e350f91}{isEmpty}}();}
+\DoxyCodeLine{01274     \textcolor{keywordflow}{if} (isEmpty)}
+\DoxyCodeLine{01275       result = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{01276     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01277       result = \mbox{\hyperlink{class_template_variant}{TemplateVariant}}(ts.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}().c\_str(),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{01278   \}}
+\DoxyCodeLine{01279   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{01280 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{Context\+Output\+Format\+\_\+\+Html}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{Context\+Output\+Format\+\_\+\+Latex}}, \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_a7a169cbf0edeed85c90868675799b875}{create\+Doc\+Parser()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\+\_\+globals}}, \mbox{\hyperlink{class_definition_adbe53b15923a143881154dd7c0f04f9b}{Definition\+::get\+Def\+File\+Extension()}}, \mbox{\hyperlink{class_doc_node_a_s_t_a642834a987948f2245a0c0d05e350f91}{Doc\+Node\+AST\+::is\+Empty()}}, \mbox{\hyperlink{struct_context_globals_ac63f8ff2b05d14db4764c0ba481f81ce}{Context\+Globals\+::output\+Format}}, \mbox{\hyperlink{class_doc_node_a_s_t_a77e351cc54c344eac97ef21709f44305}{Doc\+Node\+AST\+::root}}, \mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{Text\+Stream\+::str()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, and \mbox{\hyperlink{build_2doxygen_2src_2docparser_8cpp_ade7ad021f00f56e2222470e267b56f73}{validating\+Parse\+Doc()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_definition_context_acc2cd804a9c6299f025d813a617cfcf9}{Definition\+Context$<$ T $>$\+::create\+Brief()}}, \mbox{\hyperlink{class_nesting_node_context_1_1_private_a3e575aba602d152155061cd16f6f83ae}{Nesting\+Node\+Context\+::\+Private\+::create\+Brief()}}, \mbox{\hyperlink{class_definition_context_a26dcb6435e0f82383022b02cc08781f5}{Definition\+Context$<$ T $>$\+::create\+Details()}}, \mbox{\hyperlink{class_member_group_info_context_1_1_private_aae96dae3a26871f1348cecc01a398d90}{Member\+Group\+Info\+Context\+::\+Private\+::create\+Docs()}}, \mbox{\hyperlink{class_argument_context_1_1_private_ad993bd32b8fa1a3ef5aa9b19c50551a0}{Argument\+Context\+::\+Private\+::create\+Docs()}}, \mbox{\hyperlink{class_page_context_1_1_private_aa7c14acb247f6b4f0d5f3e926a8ba94d}{Page\+Context\+::\+Private\+::create\+Example()}}, \mbox{\hyperlink{class_definition_context_ae6d0218e905d0b4ca1eb375e07fcf1e3}{Definition\+Context$<$ T $>$\+::create\+Inbody\+Docs()}}, and \mbox{\hyperlink{class_member_context_1_1_private_a73b045b82a23c4c3b5ed52e7e5e04316}{Member\+Context\+::\+Private\+::create\+Param\+Docs()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}\label{build_2doxygen_2src_2context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}} 
+\index{context.cpp@{context.cpp}!g\_globals@{g\_globals}}
+\index{g\_globals@{g\_globals}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_globals}{g\_globals}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_context_globals}{Context\+Globals}} g\+\_\+globals}
+
+
+
+Referenced by \mbox{\hyperlink{class_member_context_1_1_private_a7ff50ffaa9c378f7d8300539670a67a3}{Member\+Context\+::\+Private\+::caller\+Graph()}}, \mbox{\hyperlink{class_member_context_1_1_private_ad2e340fabf502590b6c9716db171b1a1}{Member\+Context\+::\+Private\+::call\+Graph()}}, \mbox{\hyperlink{class_class_context_1_1_private_a8fbf87ef73447f49fa5b5dd550f2bccd}{Class\+Context\+::\+Private\+::collaboration\+Diagram()}}, \mbox{\hyperlink{class_text_generator_factory_a67249695939c9794794682347f395c2b}{Text\+Generator\+Factory\+::create()}}, \mbox{\hyperlink{class_inheritance_graph_context_1_1_private_a6a23ef13377ca0739d73748c93d88b48}{Inheritance\+Graph\+Context\+::\+Private\+::create\+Graph()}}, \mbox{\hyperlink{class_dir_context_1_1_private_a8a826e4960e9a943c6681e4873ac594c}{Dir\+Context\+::\+Private\+::dir\+Graph()}}, \mbox{\hyperlink{class_definition_context_a8dba4a8ac7b39cf2762416b5fe001e54}{Definition\+Context$<$ T $>$\+::dyn\+Section\+Id()}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a8434e7e4dd13bb6f45b499a6f5de33b2}{generate\+Output\+Via\+Template()}}, \mbox{\hyperlink{class_module_context_1_1_private_a125052a27a6fd0ad6dc6f88e353de8cd}{Module\+Context\+::\+Private\+::group\+Graph()}}, \mbox{\hyperlink{class_file_context_1_1_private_a3340216d1c09675ab9a0b39e0a167ab5}{File\+Context\+::\+Private\+::included\+By\+Graph()}}, \mbox{\hyperlink{class_file_context_1_1_private_a0732b587fe19b40788267790cc929e3d}{File\+Context\+::\+Private\+::include\+Graph()}}, \mbox{\hyperlink{class_class_context_1_1_private_a0430dcbbb94adb30893d5dc8ede0a21a}{Class\+Context\+::\+Private\+::inheritance\+Diagram()}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a56b84b3a18518bbe1f958dc6fb88e888}{parse\+Code()}}, and \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a18e055fb6c5600e64bff4a7a95f31b34}{parse\+Doc()}}.
+

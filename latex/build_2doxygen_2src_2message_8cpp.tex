@@ -1,0 +1,841 @@
+\hypertarget{build_2doxygen_2src_2message_8cpp}{}\doxysection{doxygen/build/doxygen/src/message.cpp File Reference}
+\label{build_2doxygen_2src_2message_8cpp}\index{doxygen/build/doxygen/src/message.cpp@{doxygen/build/doxygen/src/message.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format}} ()
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\+\_\+warn\+\_\+as\+\_\+error}} ()
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn}} (bool enabled, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$prefix, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, va\+\_\+list args)
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a4149b6b3cb3e0246eb2e0d47de02538f}{warn\+\_\+line}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a93c2070f58918c66ba1faccc3e182391}{va\+\_\+warn}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, va\+\_\+list args)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ae6153a6152e57505cfd23fbc4d8cf366}{warn\+\_\+simple}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$text)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9a15ec1dabd302823c110bf10fa4ca37}{warn\+\_\+undoc}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a851c04a43e751fe02be2d12eec9e8da3}{warn\+\_\+incomplete\+\_\+doc}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a64240af0f75c8052d6bb3a4d1c684936}{warn\+\_\+doc\+\_\+error}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a1fd98c6976d3826490804976e17eb83f}{warn\+\_\+uncond}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\+\_\+full}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file, int line, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}},...)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aad9799c2a434877f36bc92beb8966567}{warn\+\_\+flush}} ()
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex}} (int dbg, bool enter, const char $\ast$lex\+Name, const char $\ast$file\+Name)
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ae3d3e3fe0dd73eb3fe463e99d2bd4a73}{finish\+Warn\+Exit}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aad4ae1643bcdbcff1680a322e5bbae8d}{g\+\_\+warn\+Format}}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a7a6bddc99419347af9c2d3569bada867}{g\+\_\+warn\+Line\+Format}}
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}} = \char`\"{}warning\+: \char`\"{}
+\item 
+static const char $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\+\_\+error\+Str}} = \char`\"{}error\+: \char`\"{}
+\item 
+static FILE $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}} = stderr
+\item 
+static WARN\+\_\+\+AS\+\_\+\+ERROR\+\_\+t \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\+\_\+warn\+Behavior}} = WARN\+\_\+\+AS\+\_\+\+ERROR\+\_\+t\+::\+NO
+\item 
+static std\+::atomic\+\_\+bool \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}{g\+\_\+warn\+Stat}} = false
+\item 
+static std\+::mutex \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\+\_\+mutex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}\label{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}} 
+\index{message.cpp@{message.cpp}!do\_warn@{do\_warn}}
+\index{do\_warn@{do\_warn}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_warn()}{do\_warn()}}
+{\footnotesize\ttfamily static void do\+\_\+warn (\begin{DoxyParamCaption}\item[{bool}]{enabled,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{prefix,  }\item[{const char $\ast$}]{fmt,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139 \{}
+\DoxyCodeLine{00140   \textcolor{keywordflow}{if} (!enabled) \textcolor{keywordflow}{return}; \textcolor{comment}{// warning type disabled}}
+\DoxyCodeLine{00141 }
+\DoxyCodeLine{00142   va\_list argsCopy;}
+\DoxyCodeLine{00143   va\_copy(argsCopy, args);}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145   \textcolor{keywordtype}{size\_t} l=0;}
+\DoxyCodeLine{00146   \textcolor{keywordflow}{if} (prefix)}
+\DoxyCodeLine{00147   \{}
+\DoxyCodeLine{00148     l=strlen(prefix);}
+\DoxyCodeLine{00149   \}}
+\DoxyCodeLine{00150   \textcolor{comment}{// determine needed buffersize based on:}}
+\DoxyCodeLine{00151   \textcolor{comment}{// format + arguments}}
+\DoxyCodeLine{00152   \textcolor{comment}{// prefix}}
+\DoxyCodeLine{00153   \textcolor{comment}{// 1 position for `\(\backslash\)0`}}
+\DoxyCodeLine{00154   \textcolor{keywordtype}{size\_t} bufSize = vsnprintf(NULL, 0, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args) + l + 1;}
+\DoxyCodeLine{00155   \mbox{\hyperlink{class_q_c_string}{QCString}} text(bufSize);}
+\DoxyCodeLine{00156   \textcolor{keywordflow}{if} (prefix)}
+\DoxyCodeLine{00157   \{}
+\DoxyCodeLine{00158     \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a0c79403319144d439393ae9be9488c95}{qstrncpy}}(text.rawData(),prefix,bufSize);}
+\DoxyCodeLine{00159   \}}
+\DoxyCodeLine{00160   vsnprintf(text.rawData()+l, bufSize-\/l, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, argsCopy);}
+\DoxyCodeLine{00161   text[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(bufSize)-\/1]=\textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00162   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\_warn}}(\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},line,text);}
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00164   va\_end(argsCopy);}
+\DoxyCodeLine{00165 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a0c79403319144d439393ae9be9488c95}{qstrncpy()}}, and \mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{QCString\+::raw\+Data()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\+\_\+full()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a93c2070f58918c66ba1faccc3e182391}{va\+\_\+warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a64240af0f75c8052d6bb3a4d1c684936}{warn\+\_\+doc\+\_\+error()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a851c04a43e751fe02be2d12eec9e8da3}{warn\+\_\+incomplete\+\_\+doc()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9a15ec1dabd302823c110bf10fa4ca37}{warn\+\_\+undoc()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}\label{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}} 
+\index{message.cpp@{message.cpp}!err@{err}}
+\index{err@{err}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{err()}{err()}}
+{\footnotesize\ttfamily void err (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00231}{231}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00232 \{}
+\DoxyCodeLine{00233   va\_list args;}
+\DoxyCodeLine{00234   va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00235   vfprintf(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}}, (\mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\_errorStr}}) + \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}).\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}(), args);}
+\DoxyCodeLine{00236   va\_end(args);}
+\DoxyCodeLine{00237   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\_warn\_as\_error}}();}
+\DoxyCodeLine{00238 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\+\_\+error\+Str}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\+\_\+warn\+\_\+as\+\_\+error()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_member_def_impl_ad2dcf0394d47fc2228362b4cd0d6109e}{Member\+Def\+Impl\+::\+\_\+write\+Reimplements()}}, \mbox{\hyperlink{class_file_def_impl_a3e6c42b51465b9d08e7e894fe3673b5b}{File\+Def\+Impl\+::acquire\+File\+Version()}}, \mbox{\hyperlink{class_definition_impl_a06c06cab59b23f6460ef8fd84566e40c}{Definition\+Impl\+::add\+Inner\+Compound()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_ad8f84f9572072b97ac930fb0f1a7ba9f}{adjust\+Bool\+Setting()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_a16c4b1e165f06becc4b5debd88592a49}{adjust\+Color\+Style\+Setting()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjust\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_a0fba7b39cbe6dd4fe499dcd29ae2af0c}{adjust\+String\+Setting()}}, \mbox{\hyperlink{class_member_context_1_1_private_a7ff50ffaa9c378f7d8300539670a67a3}{Member\+Context\+::\+Private\+::caller\+Graph()}}, \mbox{\hyperlink{class_member_context_1_1_private_ad2e340fabf502590b6c9716db171b1a1}{Member\+Context\+::\+Private\+::call\+Graph()}}, \mbox{\hyperlink{namespace_config_a43f9512cdb148a0f68a30519debac43f}{Config\+::check\+And\+Correct()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_ac191ad1786e980d514c4535505cf99d6}{check\+File\+Name()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_abb0ac5ce17fb9a60710a1ad77a2ebb14}{check\+List()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_a651ad97ecc3800fb7d2590c6cf0c0f6a}{check\+Png\+Result()}}, \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_ad1c7d957765b81dbe423423b2f5e5b48}{class\+Inherited\+Protection\+Level()}}, \mbox{\hyperlink{class_class_context_1_1_private_a8fbf87ef73447f49fa5b5dd550f2bccd}{Class\+Context\+::\+Private\+::collaboration\+Diagram()}}, \mbox{\hyperlink{class_dot_file_patcher_a28f0ce1e173d0f12f0a4425af69958a5}{Dot\+File\+Patcher\+::convert\+Map\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2msc_8cpp_a65ba8fb10caeeda580b79835b7443ade}{convert\+Map\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a8a0571475ac3bbd7f056485fdc1aea55}{copy\+Extra\+Files()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}{copy\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0b6e771472be8544a7e1af3ec30dce25}{copy\+Latex\+Style\+Sheet()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a6e5984219541c97536c13b07baadb83f}{copy\+Logo()}}, \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{Resource\+Mgr\+::copy\+Resource\+As()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a1e3ec8fc9a7cd41405fc0c2039b07b57}{copy\+Style\+Sheet()}}, \mbox{\hyperlink{class_member_list_a393ee5dda002be396f08d4d473afedd9}{Member\+List\+::count\+Dec\+Members()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_a322962831f30dce16a3323a67d6e2c44}{create\+Cropped\+EPS()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_a751decfa83144bf64f1cd1cb492db3fe}{create\+Cropped\+PDF()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_a704ccf2352fafe16ddf093abbaa6f7b4}{create\+DVIFile()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_a92954fc40f0e05879c1726f8d8207b1f}{create\+EPSbbox\+File()}}, \mbox{\hyperlink{class_formula_manager_ab24723d7cedd2c780f895fea971fb484}{Formula\+Manager\+::create\+Formulas\+Tex\+File()}}, \mbox{\hyperlink{class_perl_mod_generator_a2ed7475d94b3bc527009ebcc50621004}{Perl\+Mod\+Generator\+::create\+Output\+Dir()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ac3000b9ef927fdbbdf460fcf5d1c712e}{create\+Output\+Directory()}}, \mbox{\hyperlink{class_perl_mod_generator_ac12f2a17915bb4023585afb081f7f39a}{Perl\+Mod\+Generator\+::create\+Output\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_a0cc00317e5a4482a2e7df401bd480f38}{create\+PNG()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_a57b6802045cb92594d1f65e5b8821456}{create\+Postscript\+File()}}, \mbox{\hyperlink{class_html_help_1_1_private_a38e9087180f5ff4adc6bf59d38fa71a2}{Html\+Help\+::\+Private\+::create\+Project\+File()}}, \mbox{\hyperlink{class_dot_manager_affaee30a9c348252f29053e3dc53c77f}{Dot\+Manager\+::create\+Runner()}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_af5cd5bc160da3ea896d8d60e0a56f1fe}{create\+SVG()}}, \mbox{\hyperlink{class_flow_chart_a7848f4e846cafbec9e8a6ecca50d4fb2}{Flow\+Chart\+::create\+SVG()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_ad88d54d53a499dad6fda6617d2dc952e}{create\+SVGFrom\+PDF()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_a4a9f805d74ef5c5e0e38427ccf5719f7}{create\+SVGFrom\+PDFvia\+Inkscape()}}, \mbox{\hyperlink{class_r_t_f_generator_ac78f7d93bce88494cfde78f63f16dcdb}{RTFGenerator\+::dec\+Indent\+Level()}}, \mbox{\hyperlink{class_namespace_linked_ref_map_ad8e6abc4211a4481ccd467d63d04a1eb}{Namespace\+Linked\+Ref\+Map\+::decl\+Visible()}}, \mbox{\hyperlink{class_dir_context_1_1_private_a8a826e4960e9a943c6681e4873ac594c}{Dir\+Context\+::\+Private\+::dir\+Graph()}}, \mbox{\hyperlink{build_2doxygen_2src_2layout_8cpp_a655e33094d44e8925db5939ca9d68d36}{elem\+Is\+Visible()}}, \mbox{\hyperlink{struct_htags_a459ba4c5a4e6d3308cee25b93448f0cf}{Htags\+::execute()}}, \mbox{\hyperlink{class_expert_a78d4a5457ab31eae8b3b95127182611e}{Expert\+::\+Expert()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_ac7978878c5e2989e9739423aa06f805a}{extract\+Bounding\+Box()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a71d0079fa5936a41b6ff2d1ca5eb5480}{file\+To\+String()}}, \mbox{\hyperlink{class_doc_parser_a3d46e03d176edeb9ec7044f80ffe3a81}{Doc\+Parser\+::find\+And\+Copy\+Image()}}, \mbox{\hyperlink{class_flow_chart_a590a484692d935d4850c7e6bce508d01}{Flow\+Chart\+::find\+Label()}}, \mbox{\hyperlink{build_2doxygen_2src_2defgen_8cpp_a39444ed87f324cf10eca40dca31c8bf9}{generate\+DEF()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a375e6b50aae4e1c7c264ea3dd816993d}{generate\+Link()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}, \mbox{\hyperlink{class_citation_manager_aeea4b3347215e1eb97b639c96a1dcadd}{Citation\+Manager\+::generate\+Page()}}, \mbox{\hyperlink{build_2doxygen_2src_2sqlite3gen_8cpp_ae5b36a2f93dadba9f8c7d762564154e1}{generate\+Sqlite3()}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}{generate\+Template\+Files()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a0f9b3e222369b7d908441a0825b0da84}{generate\+XML()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a4dc2c1db665be657de3548de437246d2}{generate\+XMLFor\+Class()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_aac5793331bb86627d87dd42dcaa637b4}{generate\+XMLFor\+Concept()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_af23bb9f6e1a0a0bddb2da660425f7da4}{generate\+XMLFor\+Dir()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a541a7f1681d4e6c18ba0fb4902f2b9d3}{generate\+XMLFor\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a0da7be0853343b6580993a525ed72a62}{generate\+XMLFor\+Group()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a9371126c00d478f6d9b76346e4fa77dd}{generate\+XMLFor\+Namespace()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_afa324f7a9171409ff704f91dd087e8de}{generate\+XMLFor\+Page()}}, \mbox{\hyperlink{class_filter_cache_a47fdf15e198bf751e5cce596e8abcbdf}{Filter\+Cache\+::get\+File\+Contents()}}, \mbox{\hyperlink{class_module_context_1_1_private_a125052a27a6fd0ad6dc6f88e353de8cd}{Module\+Context\+::\+Private\+::group\+Graph()}}, \mbox{\hyperlink{class_translate_context_1_1_private_ac257642836d6b31b3b7fdd7e80c3f53e}{Translate\+Context\+::\+Private\+::handle\+Collaboration\+Diagram\+For()}}, \mbox{\hyperlink{class_member_context_1_1_private_a6fc271292cc7e63390fc1cdde54022b3}{Member\+Context\+::\+Private\+::handle\+Details\+Visible\+For()}}, \mbox{\hyperlink{class_translate_context_1_1_private_a18c40252a0d0a090ed61708d2373473a}{Translate\+Context\+::\+Private\+::handle\+Dir\+Dependency\+Graph\+For()}}, \mbox{\hyperlink{class_translate_context_1_1_private_aa289ade1d46c4e3da7557fd66999bfcd}{Translate\+Context\+::\+Private\+::handle\+Generated\+At()}}, \mbox{\hyperlink{class_translate_context_1_1_private_a121863b23e79b3da6bbdb8c76e351af1}{Translate\+Context\+::\+Private\+::handle\+Implemented\+By()}}, \mbox{\hyperlink{class_translate_context_1_1_private_af21cb4a5fa324725cfdd5a69f22ab64c}{Translate\+Context\+::\+Private\+::handle\+Include\+Dependency\+Graph()}}, \mbox{\hyperlink{class_translate_context_1_1_private_a754dd733bd8fa858b6550ee37a4b981a}{Translate\+Context\+::\+Private\+::handle\+Inheritance\+Diagram\+For()}}, \mbox{\hyperlink{class_translate_context_1_1_private_ae1b19586b92b69e64212e83284a7048b}{Translate\+Context\+::\+Private\+::handle\+Inherited\+By\+List()}}, \mbox{\hyperlink{class_translate_context_1_1_private_a34fa4ca176cabaa1b5c70a2029042f4a}{Translate\+Context\+::\+Private\+::handle\+Inherits\+List()}}, \mbox{\hyperlink{class_member_context_1_1_private_a44e8432884a97e4560e5c898c0397342}{Member\+Context\+::\+Private\+::handle\+Name\+With\+Context\+For()}}, \mbox{\hyperlink{class_translate_context_1_1_private_a2e9e4244f3804385dcaaf4e24240d36c}{Translate\+Context\+::\+Private\+::handle\+Reimplemented\+By()}}, \mbox{\hyperlink{class_doc_para_af3d3734deacca7fec73d6c617b65d4b7}{Doc\+Para\+::handle\+Show\+Date()}}, \mbox{\hyperlink{class_translate_context_1_1_private_a8c49b6a0066050eda045d0f4b6c6ba9d}{Translate\+Context\+::\+Private\+::handle\+Source\+Ref\+Bys()}}, \mbox{\hyperlink{class_translate_context_1_1_private_a172118f36f982deb92c257c4c8439616}{Translate\+Context\+::\+Private\+::handle\+Source\+Refs()}}, \mbox{\hyperlink{class_translate_context_1_1_private_adb6947b01f665607fcf00108d91eac28}{Translate\+Context\+::\+Private\+::handle\+Write\+List()}}, \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_a566364d58b27f9c2324d9caeda697818}{has\+Non\+Reference\+Super\+Class\+Rec()}}, \mbox{\hyperlink{class_latex_doc_visitor_a119bb54272cc6a3dbe0c01ee6f60e9a3}{Latex\+Doc\+Visitor\+::inc\+Indent\+Level()}}, \mbox{\hyperlink{class_r_t_f_doc_visitor_a346f4b14ce5276df49857a01b0c501c8}{RTFDoc\+Visitor\+::inc\+Indent\+Level()}}, \mbox{\hyperlink{class_r_t_f_generator_a1035d94b135026fe1782bff9d2b32096}{RTFGenerator\+::inc\+Indent\+Level()}}, \mbox{\hyperlink{class_file_context_1_1_private_a3340216d1c09675ab9a0b39e0a167ab5}{File\+Context\+::\+Private\+::included\+By\+Graph()}}, \mbox{\hyperlink{class_file_context_1_1_private_a0732b587fe19b40788267790cc929e3d}{File\+Context\+::\+Private\+::include\+Graph()}}, \mbox{\hyperlink{class_class_context_1_1_private_a0430dcbbb94adb30893d5dc8ede0a21a}{Class\+Context\+::\+Private\+::inheritance\+Diagram()}}, \mbox{\hyperlink{class_r_t_f_generator_a20ebc13fc3ca037f977dc8144847db73}{RTFGenerator\+::init()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format()}}, \mbox{\hyperlink{class_citation_manager_a07ca80df8cb26c1c11d0cb22e326b01d}{Citation\+Manager\+::insert\+Cross\+References\+For\+Bib\+File()}}, \mbox{\hyperlink{class_group_def_impl_a8edd167a7db94c0451af6e67322b3f6d}{Group\+Def\+Impl\+::insert\+Member()}}, \mbox{\hyperlink{class_file_def_impl_a301993335365ee5a1544bb3e7eec618a}{File\+Def\+Impl\+::insert\+Member()}}, \mbox{\hyperlink{class_namespace_def_impl_a4db9f2bd68ed096fd03c6896e93dc1ce}{Namespace\+Def\+Impl\+::insert\+Member()}}, \mbox{\hyperlink{class_class_def_impl_a18b491cf29baf304194a5e7e8622132e}{Class\+Def\+Impl\+::internal\+Insert\+Member()}}, \mbox{\hyperlink{class_class_def_impl_ac5272c08ec633ffc960f5401b5bb2483}{Class\+Def\+Impl\+::is\+Base\+Class()}}, \mbox{\hyperlink{class_class_def_impl_ad4d3693f4f9a669c681795228876bbf6}{Class\+Def\+Impl\+::is\+Sub\+Class()}}, \mbox{\hyperlink{class_vhdl_doc_gen_ac7d0f125a2bffca08e8c52644bf8c6f2}{Vhdl\+Doc\+Gen\+::is\+Sub\+Class()}}, \mbox{\hyperlink{class_template_engine_1_1_private_ae463b323a12298ccc4f9e8e249f2ac7c}{Template\+Engine\+::\+Private\+::load\+By\+Name()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfstyle_8cpp_a36e764c0a931ef05c53d3695489d198e}{load\+Extensions()}}, \mbox{\hyperlink{struct_htags_a91a5a1322fbff8f8ad136a3372964512}{Htags\+::load\+Filemap()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfstyle_8cpp_a1a60858edb01bcbd780025cecdf65c8f}{load\+Stylesheet()}}, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a7162972825f2972e1c480db8a442000b}{ghc\+::filesystem\+::detail\+::make\+\_\+error\+\_\+code()}}, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_aede3550430c0597465e260066f242755}{ghc\+::filesystem\+::detail\+::make\+\_\+system\+\_\+error()}}, \mbox{\hyperlink{class_template_node_creator_a9959c5311e541a6d02e54f7da70c2dd0}{Template\+Node\+Creator$<$ T $>$\+::mkpath()}}, \mbox{\hyperlink{class_man_doc_visitor_a103c34bd91c4bf67cadfca22f2b61466}{Man\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_print_doc_visitor_a193a00ab964a64974f8207a0da1f51d3}{Print\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_docbook_doc_visitor_af30a5c4fe2669a2bdb78dd0c964af909}{Docbook\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_html_doc_visitor_a942ef73e03ae4a8e306dd6e1e98fcd99}{Html\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_latex_doc_visitor_abfe122c272f139d98332b7630945da0f}{Latex\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_perl_mod_doc_visitor_abcc43541a23f6c0e0bc5c3a25950493b}{Perl\+Mod\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_r_t_f_doc_visitor_a8123582499bf0458dc938ff66c4724e7}{RTFDoc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_text_doc_visitor_a3af6b81e834fce376849077c0fa6b565}{Text\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_xml_doc_visitor_ad9f36acc2f17b5a95a12d047ed0f4d08}{Xml\+Doc\+Visitor\+::operator()()}}, \mbox{\hyperlink{class_doc_include_a2be994f3b58d8cabcbc775b0286441ab}{Doc\+Include\+::parse()}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a56b84b3a18518bbe1f958dc6fb88e888}{parse\+Code()}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_a18e055fb6c5600e64bff4a7a95f31b34}{parse\+Doc()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input()}}, \mbox{\hyperlink{class_dot_graph_a45d99cae5ecb12b8735454b57c505e42}{Dot\+Graph\+::prepare\+Dot\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfgen_8cpp_a150812b55508914d2ff539710b5aa7ce}{pre\+Process\+File()}}, \mbox{\hyperlink{class_r_t_f_generator_a33f1f9f82bc9683769a6be6cdfc76270}{RTFGenerator\+::pre\+Process\+File\+Inplace()}}, \mbox{\hyperlink{class_dot_runner_aec96a0d40271cb4f17bf0290e145d74b}{Dot\+Runner\+::read\+Bounding\+Box()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab0fa1b0c948e78e0d0d749ff1f5740b5}{read\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a072282000f8267019c6fa91b63b359c9}{read\+Input\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a7389d7a8c7a2859d36b88ff0dc477cdb}{read\+Tag\+File()}}, \mbox{\hyperlink{class_member_context_1_1_private_aed696ad1da734ab2639351089abc97df}{Member\+Context\+::\+Private\+::referenced\+By\+Relation()}}, \mbox{\hyperlink{class_member_context_1_1_private_a4aedd078da9ee5577d0e5365a3df4536}{Member\+Context\+::\+Private\+::references\+Relation()}}, \mbox{\hyperlink{class_group_def_impl_a42458263fe653dd3301c21828e8579f8}{Group\+Def\+Impl\+::remove\+Member()}}, \mbox{\hyperlink{build_2doxygen_2src_2dotrunner_8cpp_af2aa6035c4917cd2d139f59850c5a008}{reset\+PDFSize()}}, \mbox{\hyperlink{class_dot_file_patcher_a02cd92c7c61a35c61c601ff6b409c5e5}{Dot\+File\+Patcher\+::run()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a91768fc1635556eefd2d96ea1751435d}{run\+Html\+Help\+Compiler()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10e8f1fbd720c602f867aa536e450462}{run\+QHelp\+Generator()}}, \mbox{\hyperlink{struct_style_data_a7a9ef51c3d04534f0d123bc771ab3367}{Style\+Data\+::set\+Style()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfgen_8cpp_a61fa723a2a2eb50d0d52734936d06db4}{test\+RTFOutput()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aeb5836eb3b5b80517b79333f80128522}{transcode\+Character\+String\+To\+UTF8()}}, \mbox{\hyperlink{build_2doxygen_2src_2formula_8cpp_afa25bb4d45f6063809f1c8cd70038d94}{update\+EPSBounding\+Box()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_ae4f8196aff5be2c0b8046c45e3830fab}{update\+Language\+Mapping()}}, \mbox{\hyperlink{class_search_index_external_a26213153a818560376115add72925aaa}{Search\+Index\+External\+::write()}}, \mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{Resource\+Mgr\+::write\+Category()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_afdcb651fa099a6b705bd08e02e24333f}{write\+Combine\+Script()}}, \mbox{\hyperlink{build_2doxygen_2src_2layout_8cpp_a8ccb483586d18bd75a15720be22f90cb}{write\+Default\+Layout\+File()}}, \mbox{\hyperlink{class_file_def_impl_a7c694a762bc9b8989af9e12a0c072e24}{File\+Def\+Impl\+::write\+Detailed\+Description()}}, \mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_a6791d60c7183801a8dcbdd7e9fc7a896}{write\+Dia\+Graph\+From\+File()}}, \mbox{\hyperlink{class_concept_def_impl_a510693c0ff843ad351d82dae719b570f}{Concept\+Def\+Impl\+::write\+Documentation()}}, \mbox{\hyperlink{class_dir_def_impl_acaef020b4a2411c18ea6357320cb3d5f}{Dir\+Def\+Impl\+::write\+Documentation()}}, \mbox{\hyperlink{class_file_def_impl_ad96d975d2ce17d070230040777740f4e}{File\+Def\+Impl\+::write\+Documentation()}}, \mbox{\hyperlink{class_group_def_impl_ae5e95421690818577df678228e8681fa}{Group\+Def\+Impl\+::write\+Documentation()}}, \mbox{\hyperlink{class_namespace_def_impl_a13dc59526e41fb90c3a278a5423b38e4}{Namespace\+Def\+Impl\+::write\+Documentation()}}, \mbox{\hyperlink{class_member_list_ac77f359d13384cf56ce9f7067173913a}{Member\+List\+::write\+Documentation()}}, \mbox{\hyperlink{class_class_def_impl_ae849568cb2c125f1d3a89a41e3ded5d7}{Class\+Def\+Impl\+::write\+Documentation\+Contents()}}, \mbox{\hyperlink{class_html_generator_a9588784ebebaad9cb24e153c07aeb662}{Html\+Generator\+::write\+External\+Search\+Page()}}, \mbox{\hyperlink{class_class_diagram_acb331a908252968ca8ba371ee560aa51}{Class\+Diagram\+::write\+Figure()}}, \mbox{\hyperlink{class_flow_chart_a66989e6892ad6bbb539241dedbfc4f9e}{Flow\+Chart\+::write\+Flow\+Chart()}}, \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8cpp_ae8e105816d60cf56b75c2d13f9d85048}{write\+Java\+Script\+Search\+Index()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a658c57fb74c0fde61d0002a979710416}{Vhdl\+Doc\+Gen\+::write\+Overview()}}, \mbox{\hyperlink{class_member_list_a500c888195de0410c5d56ded7b67da4b}{Member\+List\+::write\+Plain\+Declarations()}}, \mbox{\hyperlink{class_html_generator_a1fd6971ba73b744d9ceb90478194d61d}{Html\+Generator\+::write\+Search\+Page()}}, \mbox{\hyperlink{class_definition_impl_a8bf471d96df314cc18b29cab79e2af26}{Definition\+Impl\+::write\+Source\+Def()}}, \mbox{\hyperlink{class_html_generator_a67494e4d92c2b6f4bf19a51ab9417659}{Html\+Generator\+::write\+Style\+Info()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_acbd9db076ae71bddeb6c5e9b27dd23da}{write\+Tag\+File()}}, and \mbox{\hyperlink{class_doc_parser_a637fc4d565eaf2927ee9b88bbe23e3cb}{Doc\+Parser\+::$\sim$\+Doc\+Parser()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}\label{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}} 
+\index{message.cpp@{message.cpp}!err\_full@{err\_full}}
+\index{err\_full@{err\_full}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{err\_full()}{err\_full()}}
+{\footnotesize\ttfamily void err\+\_\+full (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00240}{240}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00241 \{}
+\DoxyCodeLine{00242   va\_list args;}
+\DoxyCodeLine{00243   va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00244   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\_warn}}(\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, line, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\_errorStr}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00245   va\_end(args);}
+\DoxyCodeLine{00246 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\+\_\+error\+Str}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_namespace_def_impl_a54192ab35ec074296fce8308a20497de}{Namespace\+Def\+Impl\+::compound\+Type\+String()}}, \mbox{\hyperlink{build_2doxygen_2src_2msc_8cpp_aa8c8c6c3d95a4cecac01a76d09697d31}{get\+Msc\+Image\+Map\+From\+File()}}, \mbox{\hyperlink{class_dot_runner_ac1afaee16ddd8bf0bc6b18aaed6b44fd}{Dot\+Runner\+::run()}}, \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_a309f3f6f3c75a77b4ce5b9760f319d62}{run\+Plantuml\+Content()}}, \mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_a6791d60c7183801a8dcbdd7e9fc7a896}{write\+Dia\+Graph\+From\+File()}}, and \mbox{\hyperlink{build_2doxygen_2src_2msc_8cpp_a9bc09a2eafdeb16f4333068ebdf962ca}{write\+Msc\+Graph\+From\+File()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_ae3d3e3fe0dd73eb3fe463e99d2bd4a73}\label{build_2doxygen_2src_2message_8cpp_ae3d3e3fe0dd73eb3fe463e99d2bd4a73}} 
+\index{message.cpp@{message.cpp}!finishWarnExit@{finishWarnExit}}
+\index{finishWarnExit@{finishWarnExit}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{finishWarnExit()}{finishWarnExit()}}
+{\footnotesize\ttfamily void finish\+Warn\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00301}{301}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00302 \{}
+\DoxyCodeLine{00303   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}{g\_warnStat}} \&\& \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\_warnBehavior}} == WARN\_AS\_ERROR\_t::FAIL\_ON\_WARNINGS)}
+\DoxyCodeLine{00304   \{}
+\DoxyCodeLine{00305     \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen::terminating}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{00306     exit(1);}
+\DoxyCodeLine{00307   \}}
+\DoxyCodeLine{00308 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\+\_\+warn\+Behavior}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}{g\+\_\+warn\+Stat}}, and \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen\+::terminating}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}\label{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}} 
+\index{message.cpp@{message.cpp}!format\_warn@{format\_warn}}
+\index{format\_warn@{format\_warn}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{format\_warn()}{format\_warn()}}
+{\footnotesize\ttfamily static void format\+\_\+warn (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084 \{}
+\DoxyCodeLine{00085   \mbox{\hyperlink{class_q_c_string}{QCString}} fileSubst = \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}.isEmpty() ? \textcolor{stringliteral}{"{}<unknown>"{}} : \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}};}
+\DoxyCodeLine{00086   \mbox{\hyperlink{class_q_c_string}{QCString}} lineSubst; lineSubst.\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(line);}
+\DoxyCodeLine{00087   \mbox{\hyperlink{class_q_c_string}{QCString}} textSubst = text;}
+\DoxyCodeLine{00088   \mbox{\hyperlink{class_q_c_string}{QCString}} versionSubst;}
+\DoxyCodeLine{00089   \textcolor{comment}{// substitute markers by actual values}}
+\DoxyCodeLine{00090   \mbox{\hyperlink{class_q_c_string}{QCString}} msgText =}
+\DoxyCodeLine{00091       \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(}
+\DoxyCodeLine{00092         \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(}
+\DoxyCodeLine{00093           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(}
+\DoxyCodeLine{00094             \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(}
+\DoxyCodeLine{00095               \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aad4ae1643bcdbcff1680a322e5bbae8d}{g\_warnFormat}},}
+\DoxyCodeLine{00096               \textcolor{stringliteral}{"{}\$file"{}},fileSubst}
+\DoxyCodeLine{00097             ),}
+\DoxyCodeLine{00098             \textcolor{stringliteral}{"{}\$line"{}},lineSubst}
+\DoxyCodeLine{00099           ),}
+\DoxyCodeLine{00100           \textcolor{stringliteral}{"{}\$version"{}},versionSubst}
+\DoxyCodeLine{00101         ),}
+\DoxyCodeLine{00102         \textcolor{stringliteral}{"{}\$text"{}},textSubst}
+\DoxyCodeLine{00103       );}
+\DoxyCodeLine{00104   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\_warnBehavior}} == WARN\_AS\_ERROR\_t::YES)}
+\DoxyCodeLine{00105   \{}
+\DoxyCodeLine{00106     msgText += \textcolor{stringliteral}{"{} (warning treated as error, aborting now)"{}};}
+\DoxyCodeLine{00107   \}}
+\DoxyCodeLine{00108   msgText += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110   \{}
+\DoxyCodeLine{00111     std::unique\_lock<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\_mutex}});}
+\DoxyCodeLine{00112     \textcolor{comment}{// print resulting message}}
+\DoxyCodeLine{00113     fwrite(msgText.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),1,msgText.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}(),\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}});}
+\DoxyCodeLine{00114   \}}
+\DoxyCodeLine{00115   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\_warnBehavior}} == WARN\_AS\_ERROR\_t::YES)}
+\DoxyCodeLine{00116   \{}
+\DoxyCodeLine{00117     \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen::terminating}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{00118     exit(1);}
+\DoxyCodeLine{00119   \}}
+\DoxyCodeLine{00120   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}{g\_warnStat}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00121 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\+\_\+mutex}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\+\_\+warn\+Behavior}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aad4ae1643bcdbcff1680a322e5bbae8d}{g\+\_\+warn\+Format}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}{g\+\_\+warn\+Stat}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{QCString\+::set\+Num()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}, and \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen\+::terminating}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ae6153a6152e57505cfd23fbc4d8cf366}{warn\+\_\+simple()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}\label{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}} 
+\index{message.cpp@{message.cpp}!handle\_warn\_as\_error@{handle\_warn\_as\_error}}
+\index{handle\_warn\_as\_error@{handle\_warn\_as\_error}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{handle\_warn\_as\_error()}{handle\_warn\_as\_error()}}
+{\footnotesize\ttfamily static void handle\+\_\+warn\+\_\+as\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124 \{}
+\DoxyCodeLine{00125   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\_warnBehavior}} == WARN\_AS\_ERROR\_t::YES)}
+\DoxyCodeLine{00126   \{}
+\DoxyCodeLine{00127     \{}
+\DoxyCodeLine{00128       std::unique\_lock<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\_mutex}});}
+\DoxyCodeLine{00129       \mbox{\hyperlink{class_q_c_string}{QCString}} msgText = \textcolor{stringliteral}{"{} (warning treated as error, aborting now)\(\backslash\)n"{}};}
+\DoxyCodeLine{00130       fwrite(msgText.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),1,msgText.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}(),\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}});}
+\DoxyCodeLine{00131     \}}
+\DoxyCodeLine{00132     \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen::terminating}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{00133     exit(1);}
+\DoxyCodeLine{00134   \}}
+\DoxyCodeLine{00135   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}{g\_warnStat}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00136 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\+\_\+mutex}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\+\_\+warn\+Behavior}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}{g\+\_\+warn\+Stat}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, and \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen\+::terminating}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a1fd98c6976d3826490804976e17eb83f}{warn\+\_\+uncond()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}\label{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}} 
+\index{message.cpp@{message.cpp}!initWarningFormat@{initWarningFormat}}
+\index{initWarningFormat@{initWarningFormat}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{initWarningFormat()}{initWarningFormat()}}
+{\footnotesize\ttfamily void init\+Warning\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037 \{}
+\DoxyCodeLine{00038   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aad4ae1643bcdbcff1680a322e5bbae8d}{g\_warnFormat}} = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(WARN\_FORMAT);}
+\DoxyCodeLine{00039   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a7a6bddc99419347af9c2d3569bada867}{g\_warnLineFormat}} = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(WARN\_LINE\_FORMAT);}
+\DoxyCodeLine{00040   \mbox{\hyperlink{class_q_c_string}{QCString}} logFile = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(WARN\_LOGFILE);}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042   \textcolor{keywordflow}{if} (!logFile.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00043   \{}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (logFile == \textcolor{stringliteral}{"{}-\/"{}})}
+\DoxyCodeLine{00045     \{}
+\DoxyCodeLine{00046       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}} = stdout;}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}} = \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{Portable::fopen}}(logFile,\textcolor{stringliteral}{"{}w"{}})))}
+\DoxyCodeLine{00049     \{}
+\DoxyCodeLine{00050       \textcolor{comment}{// point it to something valid, because warn() relies on it}}
+\DoxyCodeLine{00051       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}} = stderr;}
+\DoxyCodeLine{00052       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Cannot open '\%s' for writing, redirecting 'WARN\_LOGFILE' output to 'stderr'\(\backslash\)n"{}},logFile.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{00053     \}}
+\DoxyCodeLine{00054   \}}
+\DoxyCodeLine{00055   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00056   \{}
+\DoxyCodeLine{00057     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}} = stderr;}
+\DoxyCodeLine{00058   \}}
+\DoxyCodeLine{00059   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\_warnBehavior}} = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_afe899eec751dfb75a60c37ec3840e288}{Config\_getEnum}}(WARN\_AS\_ERROR);}
+\DoxyCodeLine{00060   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\_warnBehavior}} != WARN\_AS\_ERROR\_t::NO)}
+\DoxyCodeLine{00061   \{}
+\DoxyCodeLine{00062     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}} = \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\_errorStr}};}
+\DoxyCodeLine{00063   \}}
+\DoxyCodeLine{00064 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_afe899eec751dfb75a60c37ec3840e288}{Config\+\_\+get\+Enum}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{namespace_portable_a4dbb08c3de409bd1a73be3da6d93ac57}{Portable\+::fopen()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\+\_\+error\+Str}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}{g\+\_\+warn\+Behavior}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aad4ae1643bcdbcff1680a322e5bbae8d}{g\+\_\+warn\+Format}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a7a6bddc99419347af9c2d3569bada867}{g\+\_\+warn\+Line\+Format}}, and \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a2426bb829c785229969c3052f3e37fb1}{check\+Configuration()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}\label{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}} 
+\index{message.cpp@{message.cpp}!msg@{msg}}
+\index{msg@{msg}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{msg()}{msg()}}
+{\footnotesize\ttfamily void msg (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068 \{}
+\DoxyCodeLine{00069   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(QUIET))}
+\DoxyCodeLine{00070   \{}
+\DoxyCodeLine{00071     std::unique\_lock<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\_mutex}});}
+\DoxyCodeLine{00072     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Debug::Time}}))}
+\DoxyCodeLine{00073     \{}
+\DoxyCodeLine{00074       printf(\textcolor{stringliteral}{"{}\%.3f sec: "{}},(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(\mbox{\hyperlink{class_debug_accc1a68a6e51b015caee0ab90ddb6e87}{Debug::elapsedTime}}())));}
+\DoxyCodeLine{00075     \}}
+\DoxyCodeLine{00076     va\_list args;}
+\DoxyCodeLine{00077     va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00078     vfprintf(stdout, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00079     va\_end(args);}
+\DoxyCodeLine{00080   \}}
+\DoxyCodeLine{00081 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{class_debug_accc1a68a6e51b015caee0ab90ddb6e87}{Debug\+::elapsed\+Time()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\+\_\+mutex}}, \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug\+::is\+Flag\+Set()}}, and \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Debug\+::\+Time}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_member_def_impl_a0410c3e0f3f2fd5fdb341546e40d4a7d}{Member\+Def\+Impl\+::\+\_\+write\+Caller\+Graph()}}, \mbox{\hyperlink{class_member_def_impl_af8b226a288cd0a1825db1a191d10a760}{Member\+Def\+Impl\+::\+\_\+write\+Call\+Graph()}}, \mbox{\hyperlink{class_main_window_a7be6a5d98970ac1a6296c6f9aee1e9bb}{Main\+Window\+::about()}}, \mbox{\hyperlink{class_file_def_impl_a3e6c42b51465b9d08e7e894fe3673b5b}{File\+Def\+Impl\+::acquire\+File\+Version()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjust\+Configuration()}}, \mbox{\hyperlink{class_statistics_a98a419d6e4e62c2bccac88b27a9769ca}{Statistics\+::begin()}}, \mbox{\hyperlink{class_r_t_f_generator_aaaed62b7c9e0ef2c5ba6133eba8203a1}{RTFGenerator\+::begin\+RTFDocument()}}, \mbox{\hyperlink{build_2doxygen_2libxml_2xml_8l_a9548ad823958af7d01d61abd1d703074}{check\+And\+Update\+Path()}}, \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_a81f2c4920983d14700a8ce5e7ba21a2d}{config\+\_\+err()}}, \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_a0836efa9e89d59703a4a53405353d248}{config\+\_\+term()}}, \mbox{\hyperlink{addon_2doxywizard_2config__msg_8cpp_ab929b9d6d4de82562ee0b9fa541ff198}{config\+\_\+warn()}}, \mbox{\hyperlink{class_formula_manager_ab24723d7cedd2c780f895fea971fb484}{Formula\+Manager\+::create\+Formulas\+Tex\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a7a6a5293009b6fe08ac25a4040350552}{dev\+Usage()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a6bd1e95f8dd3062e45ad9c14ef6ff3bc}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::error()}}, \mbox{\hyperlink{class_x_m_l_content_handler_a89ea3a1a85367288ebda30700af5ea1b}{XMLContent\+Handler\+::error()}}, \mbox{\hyperlink{class_layout_parser_a4bec4061de53be8bf8585c227844737d}{Layout\+Parser\+::error()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a882f8946181d574488d7ff86eab17659}{exit\+Doxygen()}}, \mbox{\hyperlink{class_expert_a78d4a5457ab31eae8b3b95127182611e}{Expert\+::\+Expert()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ae7c1288552887f734e87c470ea2c91c1}{generate\+Concept\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a41448de2244811dc71fc91a111c2012a}{generate\+Config\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0cb7d6c9c783e1376142dbe33d01f821}{generate\+Docs\+For\+Class\+List()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3eb9720ae877e5d2ae987bce9c91f6a2}{generate\+Example\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a57a6bc5421d2bc55208fa100ee7d4a0b}{generate\+File\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a6d0fb628b1fc96844bb2836317a3ce5a}{generate\+File\+Sources()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a61b713e61e238a458b7a64ef221973a4}{generate\+Namespace\+Class\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a34eca88c480e8203f29afff92f5393df}{generate\+Namespace\+Concept\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_aca55661d627c7aa878d722fc2d1ae882}{generate\+Namespace\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a64c79a6bf80aea67d87e0cb885f7c2ed}{generate\+Page\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a0f9b3e222369b7d908441a0825b0da84}{generate\+XML()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a4dc2c1db665be657de3548de437246d2}{generate\+XMLFor\+Class()}}, \mbox{\hyperlink{class_layout_doc_manager_a920748477d4262faf758d21ddbe2329d}{Layout\+Doc\+Manager\+::init()}}, \mbox{\hyperlink{class_formula_manager_a10998c967b5e151acf3dad299deb0bc9}{Formula\+Manager\+::init\+From\+Repository()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfstyle_8cpp_a36e764c0a931ef05c53d3695489d198e}{load\+Extensions()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfstyle_8cpp_a1a60858edb01bcbd780025cecdf65c8f}{load\+Stylesheet()}}, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a217dbf8b442f20279ea00b898af96f52}{main()}}, \mbox{\hyperlink{class_x_m_l_parser_ac9822f941d0e7686a4cf45af2a31bbf1}{XMLParser\+::parse()}}, \mbox{\hyperlink{class_layout_doc_manager_a03dc5870a20d29063731ac6ef96d883c}{Layout\+Doc\+Manager\+::parse()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0de2d0d31a0d8029d99e005537ded33b}{parse\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_af69cff788100ddb682f88658018d3969}{parse\+Files\+Multi\+Threading()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input()}}, \mbox{\hyperlink{build_2doxygen_2src_2fortranscanner_8l_a4481d3eae9a04af883d868f23c4cbffc}{parse\+Main()}}, \mbox{\hyperlink{build_2doxygen_2src_2tagreader_8cpp_a1cb67a3965d52e8078507f0bfd354337}{parse\+Tag\+File()}}, \mbox{\hyperlink{class_statistics_a681d86ad7e9121de36d517420e135415}{Statistics\+::print()}}, \mbox{\hyperlink{class_debug_a2d8ac411144a380f838a1766118c6a03}{Debug\+::print\+Flags()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a001e5e4b6b99ed83d3333cc3adf5afd2}{print\+Nav\+Tree()}}, \mbox{\hyperlink{build_2doxygen_2libxml_2xml_8l_aa52888e930f47681f9a1e04a004461ad}{process\+Data()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab0fa1b0c948e78e0d0d749ff1f5740b5}{read\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a372975cd1a9079359db4efad4018d034}{read\+Dir()}}, \mbox{\hyperlink{addon_2doxywizard_2config__doxyw_8l_a70bed75117a313dcf8211499139eadc3}{read\+Include\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a7389d7a8c7a2859d36b88ff0dc477cdb}{read\+Tag\+File()}}, \mbox{\hyperlink{class_template_node_extend_aea8c493b67e3406fa38bfa561dfa3342}{Template\+Node\+Extend\+::render()}}, \mbox{\hyperlink{build_2doxygen_2libxml_2xml_8l_a6207ba2d15395f88f479b1b8a61ee94c}{report\+Error()}}, \mbox{\hyperlink{class_dot_manager_a27d0eeafc0748ce44f369faed8f495d9}{Dot\+Manager\+::run()}}, \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_a309f3f6f3c75a77b4ce5b9760f319d62}{run\+Plantuml\+Content()}}, \mbox{\hyperlink{build_2doxygen_2src_2language_8cpp_a1035c7c56bdac87a032ba8a18a58eb38}{set\+Translator()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3f01f3ca33f0c1e062153fbf59c552a3}{stop\+Doxygen()}}, \mbox{\hyperlink{namespaceghc_1_1filesystem_1_1detail_a6ce09d1ad19698dccdd2ddc92400aba9}{ghc\+::filesystem\+::detail\+::system\+Error\+Text()}}, \mbox{\hyperlink{struct_layout_nav_entry_a1c873f2a034fd33d3c1ddcfcd0c2ecf0}{Layout\+Nav\+Entry\+::url()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a6fb9dbb3758f88f97192002d3a48bb2d}{usage()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a94b2a502ca15f65f6111c08f674fae4a}{version()}}, \mbox{\hyperlink{class_dir_def_impl_aaeb27386c274dd8189167e1a12fe8f1d}{Dir\+Def\+Impl\+::write\+Directory\+Graph()}}, \mbox{\hyperlink{class_class_def_impl_a9a7beb8dbf8913a00f6c727b89aed392}{Class\+Def\+Impl\+::write\+Documentation\+For\+Inner\+Classes()}}, \mbox{\hyperlink{class_group_def_impl_a6ac6dfccae4079d225ca50634529b384}{Group\+Def\+Impl\+::write\+Group\+Graph()}}, and \mbox{\hyperlink{build_2doxygen_2src_2index_8cpp_a0d8342dd518223a45f160f8b2f081c32}{write\+Index\+Hierarchy\+Entries()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}\label{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}} 
+\index{message.cpp@{message.cpp}!printlex@{printlex}}
+\index{printlex@{printlex}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{printlex()}{printlex()}}
+{\footnotesize\ttfamily void printlex (\begin{DoxyParamCaption}\item[{int}]{dbg,  }\item[{bool}]{enter,  }\item[{const char $\ast$}]{lex\+Name,  }\item[{const char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00273}{273}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00274 \{}
+\DoxyCodeLine{00275   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *enter\_txt = \textcolor{stringliteral}{"{}entering"{}};}
+\DoxyCodeLine{00276   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *enter\_txt\_uc = \textcolor{stringliteral}{"{}Entering"{}};}
+\DoxyCodeLine{00277 }
+\DoxyCodeLine{00278   \textcolor{keywordflow}{if} (!enter)}
+\DoxyCodeLine{00279   \{}
+\DoxyCodeLine{00280     enter\_txt = \textcolor{stringliteral}{"{}finished"{}};}
+\DoxyCodeLine{00281     enter\_txt\_uc = \textcolor{stringliteral}{"{}Finished"{}};}
+\DoxyCodeLine{00282   \}}
+\DoxyCodeLine{00283 }
+\DoxyCodeLine{00284   std::unique\_lock<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\_mutex}});}
+\DoxyCodeLine{00285   \textcolor{keywordflow}{if} (dbg)}
+\DoxyCodeLine{00286   \{}
+\DoxyCodeLine{00287     \textcolor{keywordflow}{if} (fileName)}
+\DoxyCodeLine{00288       fprintf(stderr,\textcolor{stringliteral}{"{}-\/-\/\%s lexical analyzer: \%s (for: \%s)\(\backslash\)n"{}},enter\_txt, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(lexName), \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{00289     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00290       fprintf(stderr,\textcolor{stringliteral}{"{}-\/-\/\%s lexical analyzer: \%s\(\backslash\)n"{}},enter\_txt, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(lexName));}
+\DoxyCodeLine{00291   \}}
+\DoxyCodeLine{00292   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00293   \{}
+\DoxyCodeLine{00294     \textcolor{keywordflow}{if} (fileName)}
+\DoxyCodeLine{00295       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Debug::Lex}},0,\textcolor{stringliteral}{"{}\%s lexical analyzer: \%s (for: \%s)\(\backslash\)n"{}},enter\_txt\_uc, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(lexName), \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{00296     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00297       \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug::print}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Debug::Lex}},0,\textcolor{stringliteral}{"{}\%s lexical analyzer: \%s\(\backslash\)n"{}},enter\_txt\_uc, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(lexName));}
+\DoxyCodeLine{00298   \}}
+\DoxyCodeLine{00299 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\+\_\+mutex}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Debug\+::\+Lex}}, \mbox{\hyperlink{class_debug_a5d86ffebf96f9f75b6c957db5f831da3}{Debug\+::print()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8h_a04d92f4281c65ebe972f5bf92bcb4a09}{convert\+Cpp\+Comments()}}, \mbox{\hyperlink{class_doc_tokenizer_a640bce791d53e83dcbd47f7ab01620e8}{Doc\+Tokenizer\+::find\+Sections()}}, \mbox{\hyperlink{class_const_expression_parser_a49a7c5141111b8be29a9975d0fd2c7a6}{Const\+Expression\+Parser\+::parse()}}, \mbox{\hyperlink{class_config_impl_a5d06627b2afb76668e8315613a76b9d3}{Config\+Impl\+::parse()}}, \mbox{\hyperlink{class_c_code_parser_abe80053c52c16b64365b2f65e73b3617}{CCode\+Parser\+::parse\+Code()}}, \mbox{\hyperlink{class_fortran_code_parser_ac476d9ee7019f70168a3fa6c3aeec17f}{Fortran\+Code\+Parser\+::parse\+Code()}}, \mbox{\hyperlink{class_python_code_parser_acee2e88b013522f5669570e0dd669f68}{Python\+Code\+Parser\+::parse\+Code()}}, \mbox{\hyperlink{class_v_h_d_l_code_parser_a4b80a1d654204a6d551a30a7edee577b}{VHDLCode\+Parser\+::parse\+Code()}}, \mbox{\hyperlink{class_lex_code_parser_a7d9fdb15c91a93ff98b0947433561c4a}{Lex\+Code\+Parser\+::parse\+Code()}}, \mbox{\hyperlink{class_s_q_l_code_parser_afe750935436d4528ca795fbb0f7c4231}{SQLCode\+Parser\+::parse\+Code()}}, \mbox{\hyperlink{class_x_m_l_code_parser_ae58c9f8afddc0a2b136a56aa621bc401}{XMLCode\+Parser\+::parse\+Code()}}, \mbox{\hyperlink{class_comment_scanner_a146e92fcb6ce0bc79b429192aba6bc49}{Comment\+Scanner\+::parse\+Comment\+Block()}}, \mbox{\hyperlink{build_2doxygen_2src_2declinfo_8h_a4d239b57da0bda3d616434d8a2250546}{parse\+Func\+Decl()}}, \mbox{\hyperlink{class_fortran_outline_parser_afa7fb7add92a862b32f22032e69fe583}{Fortran\+Outline\+Parser\+::parse\+Input()}}, \mbox{\hyperlink{class_lex_outline_parser_aa15a62641b1eea32bfb8e3e2c88e03a6}{Lex\+Outline\+Parser\+::parse\+Input()}}, \mbox{\hyperlink{class_python_outline_parser_a82b613d877eb78866fe172fbf85fc667}{Python\+Outline\+Parser\+::parse\+Input()}}, \mbox{\hyperlink{class_c_outline_parser_ab29ff7519601510e414da9fae6a82c28}{COutline\+Parser\+::parse\+Input()}}, \mbox{\hyperlink{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}{Preprocessor\+::process\+File()}}, and \mbox{\hyperlink{build_2doxygen_2src_2defargs_8h_a62b4f6848321915b2b9b70c949bd0904}{string\+To\+Argument\+List()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}\label{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}} 
+\index{message.cpp@{message.cpp}!term@{term}}
+\index{term@{term}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{term()}{term()}}
+{\footnotesize\ttfamily void term (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00248}{248}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00249 \{}
+\DoxyCodeLine{00250   \{}
+\DoxyCodeLine{00251     std::unique\_lock<std::mutex> lock(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\_mutex}});}
+\DoxyCodeLine{00252     va\_list args;}
+\DoxyCodeLine{00253     va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00254     vfprintf(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}}, (\mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\_errorStr}}) + \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}).\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}(), args);}
+\DoxyCodeLine{00255     va\_end(args);}
+\DoxyCodeLine{00256     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}} != stderr)}
+\DoxyCodeLine{00257     \{}
+\DoxyCodeLine{00258       \textcolor{keywordtype}{size\_t} l = strlen(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\_errorStr}});}
+\DoxyCodeLine{00259       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0; i<l; i++) fprintf(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}}, \textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00260       fprintf(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}}, \textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, \textcolor{stringliteral}{"{}Exiting..."{}});}
+\DoxyCodeLine{00261     \}}
+\DoxyCodeLine{00262   \}}
+\DoxyCodeLine{00263   \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen::terminating}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{00264   exit(1);}
+\DoxyCodeLine{00265 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}{g\+\_\+error\+Str}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}{g\+\_\+mutex}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}}, and \mbox{\hyperlink{class_doxygen_a230f6b25a9ed09bc8c57f33455fd91a6}{Doxygen\+::terminating}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a85ca09716ec64cec10e5a734bb0ed2e8}{add\+Till\+End\+Of\+String()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjust\+Configuration()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab8f6cdb1a0374f49399a31bd2ea0226a}{check\+Page\+Relations()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a66afbf89d01cdca028632ff568be036d}{compare\+Doxyfile()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_abc809fca2014e90fe0aee477a1964ed7}{compute\+Page\+Relations()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a77685956f8517f3a6e062e66925fc93c}{create\+Sub\+Dirs()}}, \mbox{\hyperlink{class_x_m_l_content_handler_a73cca57ee5d4d033fd6cb4f1fa636e6e}{XMLContent\+Handler\+::end\+Element()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a41448de2244811dc71fc91a111c2012a}{generate\+Config\+File()}}, \mbox{\hyperlink{class_formula_manager_aef1d730d619e5441ab6206a8fd5b1a45}{Formula\+Manager\+::generate\+Images()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}, \mbox{\hyperlink{class_docbook_generator_af4363bcfe3875a66c7f2512feb6be13e}{Docbook\+Generator\+::init()}}, \mbox{\hyperlink{class_html_generator_a0c4c6cd48e43f74bf258851f8b109faf}{Html\+Generator\+::init()}}, \mbox{\hyperlink{class_latex_generator_af9a70007c56adecf1af4b4c29591e423}{Latex\+Generator\+::init()}}, \mbox{\hyperlink{class_man_generator_ac85a1b3f99ceba03bd7be38caa0b7600}{Man\+Generator\+::init()}}, \mbox{\hyperlink{class_r_t_f_generator_a20ebc13fc3ca037f977dc8144847db73}{RTFGenerator\+::init()}}, \mbox{\hyperlink{class_doc_sets_a7cad610aa745779c12a50c3dcf2cdf61}{Doc\+Sets\+::initialize()}}, \mbox{\hyperlink{class_eclipse_help_aefada9c9b474d36ef9b771e2361c8dc1}{Eclipse\+Help\+::initialize()}}, \mbox{\hyperlink{class_html_help_recoder_aaf8015f456496f1510c8e8643f959376}{Html\+Help\+Recoder\+::initialize()}}, \mbox{\hyperlink{class_html_help_acf6cb7c477c71f2031b5831f979991d5}{Html\+Help\+::initialize()}}, \mbox{\hyperlink{class_qhp_a7ee6480507e32d9142ec04d4e499ae7e}{Qhp\+::initialize()}}, \mbox{\hyperlink{class_dot_graph_a45d99cae5ecb12b8735454b57c505e42}{Dot\+Graph\+::prepare\+Dot\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_ad5a00bad9b10b8fe9542cba69f171028}{process\+Until\+Matching\+Terminator()}}, \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safe\+Add\+Term()}}, \mbox{\hyperlink{class_output_generator_a6d2b81663565fee4440ef02fe9b3a197}{Output\+Generator\+::start\+Plain\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_abf8cbf15184f95c988f3c2942e1ac2da}{transcode\+Character\+Buffer()}}, \mbox{\hyperlink{build_2doxygen_2src_2dot_8cpp_aee48308a96887ccde586df24f0b73ca4}{write\+Dot\+Graph\+From\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2dot_8cpp_ada988a5303d67622cb43bd75c247fec2}{write\+Dot\+Image\+Map\+From\+File()}}, \mbox{\hyperlink{class_class_diagram_acb331a908252968ca8ba371ee560aa51}{Class\+Diagram\+::write\+Figure()}}, \mbox{\hyperlink{class_dot_gfx_hierarchy_table_a47c5aeaf257c00ebecc958a4c78c5de9}{Dot\+Gfx\+Hierarchy\+Table\+::write\+Graph()}}, \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_a5ccdad61a2bd619961d1546602a03322}{write\+Latex\+Makefile()}}, and \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_ab02ed8a64b15dea3af44838d67a039a5}{write\+Make\+Bat()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a93c2070f58918c66ba1faccc3e182391}\label{build_2doxygen_2src_2message_8cpp_a93c2070f58918c66ba1faccc3e182391}} 
+\index{message.cpp@{message.cpp}!va\_warn@{va\_warn}}
+\index{va\_warn@{va\_warn}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{va\_warn()}{va\_warn()}}
+{\footnotesize\ttfamily void va\+\_\+warn (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{fmt,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00187}{187}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188 \{}
+\DoxyCodeLine{00189   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\_warn}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(WARNINGS), \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, line, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00190 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_context_impl_a5cacf842afb50c0dabb5cd1213fa310f}{Template\+Context\+Impl\+::warn()}}, and \mbox{\hyperlink{class_template_parser_aea4e82d9a24d74444e62340def6e201c}{Template\+Parser\+::warn()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}\label{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}} 
+\index{message.cpp@{message.cpp}!warn@{warn}}
+\index{warn@{warn}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily void warn (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00179}{179}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00180 \{}
+\DoxyCodeLine{00181   va\_list args;}
+\DoxyCodeLine{00182   va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00183   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\_warn}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(WARNINGS), \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, line, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00184   va\_end(args);}
+\DoxyCodeLine{00185 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a8434c9661a3265c761a4fc2f08248507}{add\+Anchor()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a04e4220513820012d31302361cf4f24d}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::add\+Doc\+Anchors()}}, \mbox{\hyperlink{build_2doxygen_2src_2groupdef_8cpp_a0b501f4e23a2e8465946abfdfe294c4c}{add\+Group\+To\+Groups()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a13a18d70232db6c9889f7f473a5cf3d3}{add\+Include\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_abbb34c2257e9673ab18b6790f8bc5afa}{add\+Member\+Docs()}}, \mbox{\hyperlink{build_2doxygen_2src_2groupdef_8cpp_affd271e102af38c14812ccc21a86401c}{add\+Member\+To\+Groups()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_abf3cf996188e39e9eba3a381563cc8aa}{add\+Related\+Page()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a1c39fc89955c50c0096a66ab1a2c2b84}{add\+Section()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_ad14a1e786887639d5383cbcd8427bba8}{add\+XRef\+Item()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_aad0c3ffb33cd6ae914d3e4013f2f142a}{build\+Example\+List()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ad31622c7a3471af7d6bb17cc8fb29579}{build\+File\+List()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a91506ed6aa0fb8cb5d20e9ed27f05509}{build\+Group\+List\+Filtered()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_affc21459e67958aac09bcb4d942439d4}{check\+Formula()}}, \mbox{\hyperlink{class_doc_group_a7610569d96adb6bd19ed159a5f53a26c}{Doc\+Group\+::close()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8h_a04d92f4281c65ebe972f5bf92bcb4a09}{convert\+Cpp\+Comments()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a1917523a9eee16ade8021a9135d5e1da}{decr\+Level()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a42aff7a35ce87a4df59d4a05f374f54e}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Anchor()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a898f929ad250f095d46ce638e8fce78a}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Anchor\+File()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a005718bfd790617c0cf8b3ab0c86a6c3}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Arglist()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a1ac7de66e90ffbf93cd637c67c7cc76c}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Base()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_ab27d1e74556a11f12e2d6a3b0dfa1225}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Clang\+Id()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_ab0af5855a848b20e3136d941d7840732}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Class()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a3e0857519c95a2ab4f2649588f52b244}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Compound()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a88c616e8f2d519406f88102cf9913811}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Concept()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentcnv_8l_a34860cedec3675010f3293403abd9bd3}{end\+Cond\+Section()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_af120fd7d4ed4df2d800e4a531152728d}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Dir()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a5b2c9b8ab174e898f87b90803529766c}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Doc\+Anchor()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a3e01aed32d5dbf43b922e4152b65b54f}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Element()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a34e5a973da1491d711704a2ee6ee8ae0}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+File()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_acb8e913e38db3f6aa9c1bbb9a641a17f}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Filename()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a18f64ce17ad437b8675f4bd7b9f8a974}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Includes()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_afce64693b86203b0106f25a6697a8076}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Member()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_af5d579a5b02bb8153e8be2ffe25d2b90}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Name()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a5f364b44aa47f45ead81e1892359c3ee}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Namespace()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a40b954bb215265f9d331f673102f8e11}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Page()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a8020f9f5e883fd98854ac72e4e6e776d}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Path()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_ab01b451a3fc33322e98c40bd5cca5878}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Subgroup()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a942847def781fe793b9bf3b1a7179c3f}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Template\+Arg()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_aa6e06a88bac03298d1b7b1d960786089}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Title()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a1f6885619a9e437468650af93b8f05f3}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::end\+Type()}}, \mbox{\hyperlink{class_doc_group_ae49d781442d3cbceed9b62859b3d4b89}{Doc\+Group\+::enter\+Compound()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a6bd1e95f8dd3062e45ad9c14ef6ff3bc}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::error()}}, \mbox{\hyperlink{class_layout_parser_a4bec4061de53be8bf8585c227844737d}{Layout\+Parser\+::error()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a2855c4f3905bf9bd629622f65075b558}{find\+Class\+Relation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a589e3e52c7dc0599e7342171a7531064}{find\+Define\+Documentation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a22fc3a59333345115c87ef3474369ba4}{find\+Dir\+Documentation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab97b7f9be435590df65d9bb0d31fba06}{find\+Enum\+Documentation()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a18307d943d41d2ed5849c6faf3d02a1d}{find\+Global\+Member()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a9807194e65b4cbe485854d383aabdb21}{find\+Main\+Page()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3572f62a602ab473a38ae5ae27e66611}{find\+Member()}}, \mbox{\hyperlink{build_2doxygen_2src_2htmlgen_8cpp_a880152a6988921d6248a7640983bef9e}{get\+Convert\+Latex\+Macro()}}, \mbox{\hyperlink{class_expression_parser_a4c08a8b728b8d44ee258d0adff911bf8}{Expression\+Parser\+::get\+Next\+Token()}}, \mbox{\hyperlink{class_member_def_impl_a7b86e9da0a84d58850c06d6b9a9eb175}{Member\+Def\+Impl\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_doc_para_ab2dab53dd0a139cb646dcfec1b1b75ef}{Doc\+Para\+::handle\+Command()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_ada75e9a5f667868c728b9bc27b4a40b0}{handle\+Else()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a5e077fb2a80dbb11a1acdc0a6cda4fbc}{handle\+Else\+If()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a742aeafcb6cf5861b225a23f9b55281e}{handle\+End\+If()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_ada657b4767e050871f11c68def40acb5}{handle\+End\+Par\+Block()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_af51f2fefd248df46556f79c53ff4308a}{handle\+Example()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a2472f907a64f51f86ca4190871b78f21}{handle\+File\+Info()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a603bd3eb125dd0477fbb6a52a1dea540}{handle\+Member\+Of()}}, \mbox{\hyperlink{classvhdl_1_1parser_1_1_vhdl_error_handler_ae26eac56c7949dd982446d6ab657c7ec}{vhdl\+::parser\+::\+Vhdl\+Error\+Handler\+::handle\+Other\+Error()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a644f36935a906ed5fe52451f4768420e}{handle\+Par\+Block()}}, \mbox{\hyperlink{classvhdl_1_1parser_1_1_vhdl_error_handler_a622c20bee99ded9d17909de74ffbb6eb}{vhdl\+::parser\+::\+Vhdl\+Error\+Handler\+::handle\+Parse\+Error()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a524777b747acb0d347996d73538b5703}{handle\+Related()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_ac3dbf128433ccc2955d65ac9401fd537}{handle\+Related\+Also()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_ad010a22f512818ee157ce84151286d22}{handle\+Subpage()}}, \mbox{\hyperlink{build_2doxygen_2src_2commentscan_8l_a635a7915c47893c3aa1f40fbb9d288ac}{handle\+Toc()}}, \mbox{\hyperlink{classvhdl_1_1parser_1_1_vhdl_error_handler_ae3101aa60350eabfac721aba6db7d56c}{vhdl\+::parser\+::\+Vhdl\+Error\+Handler\+::handle\+Unexpected\+Token()}}, \mbox{\hyperlink{class_class_def_impl_a18b491cf29baf304194a5e7e8622132e}{Class\+Def\+Impl\+::internal\+Insert\+Member()}}, \mbox{\hyperlink{class_doc_group_a15c99d30cd779d86716ffb2f341db5e1}{Doc\+Group\+::leave\+File()}}, \mbox{\hyperlink{classvhdl_1_1parser_1_1_vhdl_token_manager_error_handler_acb535116db12e58ce12ce5334dfe6ce9}{vhdl\+::parser\+::\+Vhdl\+Token\+Manager\+Error\+Handler\+::lexical\+Error()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfstyle_8cpp_a36e764c0a931ef05c53d3695489d198e}{load\+Extensions()}}, \mbox{\hyperlink{build_2doxygen_2src_2rtfstyle_8cpp_a1a60858edb01bcbd780025cecdf65c8f}{load\+Stylesheet()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_abec6a57b1258c5230a0dde8cf6e2c91f}{other\+Case\+Done()}}, \mbox{\hyperlink{class_cond_parser_af254c02cc742b034cf62a9846b7b9749}{Cond\+Parser\+::parse()}}, \mbox{\hyperlink{class_comment_scanner_a146e92fcb6ce0bc79b429192aba6bc49}{Comment\+Scanner\+::parse\+Comment\+Block()}}, \mbox{\hyperlink{build_2doxygen_2src_2scanner_8l_a434a1f775b7fe0a37ad69ba2499cfdfb}{parse\+Main()}}, \mbox{\hyperlink{class_expression_parser_a0cb374ecff811a37f8eb5f9499478c37}{Expression\+Parser\+::parse\+Not\+Expression()}}, \mbox{\hyperlink{class_expression_parser_a1610188c4f7add076f4c4b0ed5a38fc9}{Expression\+Parser\+::parse\+Primary\+Expression()}}, \mbox{\hyperlink{build_2doxygen_2src_2pyscanner_8l_a4e7dce846ca75b58d7010c2855a84ed6}{parse\+Prototype()}}, \mbox{\hyperlink{build_2doxygen_2src_2fortrancode_8l_a84f9bfb00f12e8fc287ed97f3e1d693c}{pop\+\_\+state()}}, \mbox{\hyperlink{class_template_engine_1_1_private_a23918ee093d1337d9522ac32648b9843}{Template\+Engine\+::\+Private\+::print\+Include\+Context()}}, \mbox{\hyperlink{class_preprocessor_af169c4f59484ad0456dd3f3ac6b08be9}{Preprocessor\+::process\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doctokenizer_8l_a4c2746ace65d9b91347502c11ccb43cf}{process\+Section()}}, \mbox{\hyperlink{build_2doxygen_2src_2pre_8l_a9af0795be28dcf4551e57a2a3650a552}{read\+Include\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a34157df0fe53d6d10cc4560ca942f488}{resolve\+Class\+Nesting\+Relations()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a6927f64d6b3e45878b5102852e1e2fac}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::start\+Base()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_ab17fadda7f7d30dce3d68f186aaed55d}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::start\+Compound()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_a487b3d40047a75c0612f66ab78f61d96}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::start\+Element()}}, \mbox{\hyperlink{class_layout_parser_aec3d26d68ff653ee286a16533ba98560}{Layout\+Parser\+::start\+Element()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_afc3a2293108d7a644b0c57ad06f29c11}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::start\+Enum\+Value()}}, \mbox{\hyperlink{class_layout_parser_a0453198aa58ad5179bc027f789d365bc}{Layout\+Parser\+::start\+Nav\+Entry()}}, \mbox{\hyperlink{build_2doxygen_2src_2fortranscanner_8l_a6c5f6e8cda9aa291a041f511f3a2329a}{subr\+Handle\+Comment\+Block()}}, \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{Template\+Lexer\+::tokenize()}}, \mbox{\hyperlink{class_member_def_impl_aacaa532086785bfd85631ac81bf586c7}{Member\+Def\+Impl\+::virtualness()}}, \mbox{\hyperlink{classanonymous__namespace_02tagreader_8cpp_03_1_1_tag_file_parser_ae2f9b7c04eae958044389db551bd7045}{anonymous\+\_\+namespace\{tagreader.\+cpp\}\+::\+Tag\+File\+Parser\+::warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2index_8cpp_acb884e6e6f8ac5068b23a6f7e9512441}{write\+Dir\+Tree\+Node()}}, \mbox{\hyperlink{build_2doxygen_2src_2memberdef_8cpp_a25431a65b263de7827454ea81eb8be29}{write\+Exception\+List\+Impl()}}, and \mbox{\hyperlink{build_2doxygen_2src_2index_8cpp_ae2c24526468232c3a2c4f93669225392}{write\+Group\+Tree\+Node()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a64240af0f75c8052d6bb3a4d1c684936}\label{build_2doxygen_2src_2message_8cpp_a64240af0f75c8052d6bb3a4d1c684936}} 
+\index{message.cpp@{message.cpp}!warn\_doc\_error@{warn\_doc\_error}}
+\index{warn\_doc\_error@{warn\_doc\_error}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn\_doc\_error()}{warn\_doc\_error()}}
+{\footnotesize\ttfamily void warn\+\_\+doc\+\_\+error (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00214}{214}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00215 \{}
+\DoxyCodeLine{00216   va\_list args;}
+\DoxyCodeLine{00217   va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00218   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\_warn}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(WARN\_IF\_DOC\_ERROR), \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, line, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00219   va\_end(args);}
+\DoxyCodeLine{00220 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_doc_parser_ad426893f12b2bc919bc61b3d95e8f471}{Doc\+Parser\+::check\+Argument\+Name()}}, \mbox{\hyperlink{class_doc_parser_a3fce1509c4bb1494537fe53ea294fa8c}{Doc\+Parser\+::check\+Retval\+Name()}}, \mbox{\hyperlink{class_doc_parser_a9ca6efdbb8e10b7908ad6906f26ff1bd}{Doc\+Parser\+::check\+Un\+Or\+Multiple\+Documented\+Params()}}, \mbox{\hyperlink{class_doc_parser_addf079446af96ad916600cb9d7987da7}{Doc\+Parser\+::default\+Handle\+Title\+And\+Size()}}, \mbox{\hyperlink{class_doc_parser_a873efb42d961fbec86ab86a12b9f2c42}{Doc\+Parser\+::default\+Handle\+Token()}}, \mbox{\hyperlink{class_doc_anchor_a7dbcc0b3d8792f7eb24a5586609bd020}{Doc\+Anchor\+::\+Doc\+Anchor()}}, \mbox{\hyperlink{class_doc_cite_a3aa65ca0fa4fec6a4fcdaba314fbc984}{Doc\+Cite\+::\+Doc\+Cite()}}, \mbox{\hyperlink{class_doc_emoji_a0f8d09770b5024c02b1777e2b8801962}{Doc\+Emoji\+::\+Doc\+Emoji()}}, \mbox{\hyperlink{class_doc_formula_ae40d1dafb6c93681ddf0a9bc2e961053}{Doc\+Formula\+::\+Doc\+Formula()}}, \mbox{\hyperlink{class_doc_html_caption_a26024c34c8fc5cbe9ba0d57218e17f1f}{Doc\+Html\+Caption\+::\+Doc\+Html\+Caption()}}, \mbox{\hyperlink{class_doc_link_ac29d67178173446fbc14dd28378daec3}{Doc\+Link\+::\+Doc\+Link()}}, \mbox{\hyperlink{class_doc_ref_acb234cd7235b7c61a4c6f9dfd0cd586b}{Doc\+Ref\+::\+Doc\+Ref()}}, \mbox{\hyperlink{class_doc_parser_ada630dcb3cc7694c5298293b6741f3a1}{Doc\+Parser\+::error\+Handle\+Default\+Token()}}, \mbox{\hyperlink{class_doc_parser_a3d46e03d176edeb9ec7044f80ffe3a81}{Doc\+Parser\+::find\+And\+Copy\+Image()}}, \mbox{\hyperlink{class_doc_parser_a0695b7bc85df82a3f2f761eaf71fe825}{Doc\+Parser\+::handle\+AHref()}}, \mbox{\hyperlink{class_doc_parser_adf24a6cf025048b8a3235ca2c897dc06}{Doc\+Parser\+::handle\+Anchor()}}, \mbox{\hyperlink{class_doc_para_a5ce2e5a61f0ef65e739f2fb13cd9250f}{Doc\+Para\+::handle\+Cite()}}, \mbox{\hyperlink{class_doc_para_ab2dab53dd0a139cb646dcfec1b1b75ef}{Doc\+Para\+::handle\+Command()}}, \mbox{\hyperlink{class_doc_para_afd69ce996eb4bf29eb62e83025f7efdf}{Doc\+Para\+::handle\+Emoji()}}, \mbox{\hyperlink{class_doc_para_a57e9f0101dc617d53627c41da2f83535}{Doc\+Para\+::handle\+File()}}, \mbox{\hyperlink{class_doc_para_a162e967cb48fb2b45f9ef929cb76904e}{Doc\+Para\+::handle\+Html\+End\+Tag()}}, \mbox{\hyperlink{class_doc_para_acf15adeeded3d014c3110c605fdb8462}{Doc\+Para\+::handle\+Html\+Start\+Tag()}}, \mbox{\hyperlink{class_doc_para_a5ad491246a4817cae51b6167ba446659}{Doc\+Para\+::handle\+IFile()}}, \mbox{\hyperlink{class_doc_para_a1a80f8a68296e19f3d8b1e055d0b5c41}{Doc\+Para\+::handle\+ILine()}}, \mbox{\hyperlink{class_doc_parser_aa923af2c2ca8d81fa9b65a6fa1e65a83}{Doc\+Parser\+::handle\+Image()}}, \mbox{\hyperlink{class_doc_parser_ae3321ce556544cc7281b783f2b250be4}{Doc\+Parser\+::handle\+Img()}}, \mbox{\hyperlink{class_doc_para_ae0ae7a94a591f216461bded3eeb43b5c}{Doc\+Para\+::handle\+Include()}}, \mbox{\hyperlink{class_doc_para_ae5757fea6dab61c785e6e2ba8d427997}{Doc\+Para\+::handle\+Include\+Operator()}}, \mbox{\hyperlink{class_doc_parser_a334b7286f0a4445d85743cce35a3c090}{Doc\+Parser\+::handle\+Internal\+Ref()}}, \mbox{\hyperlink{class_doc_para_a5e4ad532381707fa0c98cb7409b548a0}{Doc\+Para\+::handle\+Link()}}, \mbox{\hyperlink{class_doc_parser_a2b2971ad53e50d90ca4affca6a6e1d67}{Doc\+Parser\+::handle\+Linked\+Word()}}, \mbox{\hyperlink{class_doc_para_ac31d379af6da6c825472fd3ec810ed39}{Doc\+Para\+::handle\+Ref()}}, \mbox{\hyperlink{class_doc_para_a5809e8f544b31b004a4e804918ff316c}{Doc\+Para\+::handle\+Section()}}, \mbox{\hyperlink{class_doc_para_af3d3734deacca7fec73d6c617b65d4b7}{Doc\+Para\+::handle\+Show\+Date()}}, \mbox{\hyperlink{class_doc_para_ac36fcb763246e5087bb10c57ffc779f0}{Doc\+Para\+::handle\+Start\+Code()}}, \mbox{\hyperlink{class_doc_parser_a840e2bed602c941157871de1a8ff2819}{Doc\+Parser\+::handle\+Style\+Argument()}}, \mbox{\hyperlink{class_doc_parser_a92d044475f815e09877c88ce15399802}{Doc\+Parser\+::handle\+Style\+Leave()}}, \mbox{\hyperlink{class_doc_parser_af097a0f67abbe29e09a9956e88eb7642}{Doc\+Parser\+::handle\+Unclosed\+Style\+Commands()}}, \mbox{\hyperlink{class_doc_include_a2be994f3b58d8cabcbc775b0286441ab}{Doc\+Include\+::parse()}}, \mbox{\hyperlink{class_doc_inc_operator_a433e07cb7e83aa02075c493dbaede312}{Doc\+Inc\+Operator\+::parse()}}, \mbox{\hyperlink{class_doc_index_entry_aefa812dc30551b6f20435fbe4cf51cab}{Doc\+Index\+Entry\+::parse()}}, \mbox{\hyperlink{class_doc_dot_file_a6ef89ac26d9ab0064a82e4e45e8c10e4}{Doc\+Dot\+File\+::parse()}}, \mbox{\hyperlink{class_doc_msc_file_a44db5788baf63d2003032d08500b9d1d}{Doc\+Msc\+File\+::parse()}}, \mbox{\hyperlink{class_doc_dia_file_ab5dfc3f6c294119066d700854de6f8bf}{Doc\+Dia\+File\+::parse()}}, \mbox{\hyperlink{class_doc_h_ref_abafbc9756ef85e92a53d9cf30c08eb49}{Doc\+HRef\+::parse()}}, \mbox{\hyperlink{class_doc_html_header_ac2eec8f4523c155e9093e6b325c4b2f9}{Doc\+Html\+Header\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_title_adae4fee1f061f16a8ec9df0b3e3fb078}{Doc\+Html\+Desc\+Title\+::parse()}}, \mbox{\hyperlink{class_doc_html_desc_list_a790243e50653158983e46f9411a2e719}{Doc\+Html\+Desc\+List\+::parse()}}, \mbox{\hyperlink{class_doc_section_aab1aed4ab6aa3393eca2012911fcb511}{Doc\+Section\+::parse()}}, \mbox{\hyperlink{class_doc_sec_ref_item_a5b8477d356c7ac29bb540b6079f3da35}{Doc\+Sec\+Ref\+Item\+::parse()}}, \mbox{\hyperlink{class_doc_sec_ref_list_a73174ede1f0d927ba7a205dad7f8b809}{Doc\+Sec\+Ref\+List\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_a21726903a9116af1fc0db60a6a026777}{Doc\+Html\+List\+::parse()}}, \mbox{\hyperlink{class_doc_para_ad287572fb2dcdc4d2d8edde57aed54c7}{Doc\+Para\+::parse()}}, \mbox{\hyperlink{class_doc_html_caption_ad57e7de680b7f43187f0a8746487109a}{Doc\+Html\+Caption\+::parse()}}, \mbox{\hyperlink{class_doc_html_row_a3ce36d0ebbf4daab80a263ff326bfde6}{Doc\+Html\+Row\+::parse()}}, \mbox{\hyperlink{class_doc_html_table_a035ec950edb27c36ba1c4f5e3c5e0e87}{Doc\+Html\+Table\+::parse()}}, \mbox{\hyperlink{class_doc_text_a50b43ce41fc1de332a00e0af7642406b}{Doc\+Text\+::parse()}}, \mbox{\hyperlink{class_doc_root_a5037e11529ba2ebaa14c20647586368b}{Doc\+Root\+::parse()}}, \mbox{\hyperlink{class_doc_link_a5f9ffebd0e75fb8922132edbdf8ba693}{Doc\+Link\+::parse()}}, \mbox{\hyperlink{class_doc_param_list_a6d3568a744771d5b32d02f5844192352}{Doc\+Param\+List\+::parse()}}, \mbox{\hyperlink{class_doc_internal_a959cb28ef72a1d37021975190b52379d}{Doc\+Internal\+::parse()}}, \mbox{\hyperlink{class_doc_html_list_aa0ad18a7b2e99279c22f4998ff75d03c}{Doc\+Html\+List\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_html_row_a31be2781f87ba9d86a722e8a92338f6d}{Doc\+Html\+Row\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_param_list_a234b676b5ae951e3cfafa84a07e76588}{Doc\+Param\+List\+::parse\+Xml()}}, \mbox{\hyperlink{class_doc_parser_a0926310306bc7a703878d9dec9c73160}{Doc\+Parser\+::process\+Copy\+Doc()}}, \mbox{\hyperlink{class_doc_parser_a5340de5ad1c86c5c2d03b02e721b51e0}{Doc\+Parser\+::read\+Text\+File\+By\+Name()}}, and \mbox{\hyperlink{class_member_def_impl_a6ea704e88a2483e4605a64546c615502}{Member\+Def\+Impl\+::warn\+If\+Undocumented\+Params()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_aad9799c2a434877f36bc92beb8966567}\label{build_2doxygen_2src_2message_8cpp_aad9799c2a434877f36bc92beb8966567}} 
+\index{message.cpp@{message.cpp}!warn\_flush@{warn\_flush}}
+\index{warn\_flush@{warn\_flush}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn\_flush()}{warn\_flush()}}
+{\footnotesize\ttfamily void warn\+\_\+flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00267}{267}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268 \{}
+\DoxyCodeLine{00269   fflush(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}});}
+\DoxyCodeLine{00270 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a851c04a43e751fe02be2d12eec9e8da3}\label{build_2doxygen_2src_2message_8cpp_a851c04a43e751fe02be2d12eec9e8da3}} 
+\index{message.cpp@{message.cpp}!warn\_incomplete\_doc@{warn\_incomplete\_doc}}
+\index{warn\_incomplete\_doc@{warn\_incomplete\_doc}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn\_incomplete\_doc()}{warn\_incomplete\_doc()}}
+{\footnotesize\ttfamily void warn\+\_\+incomplete\+\_\+doc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00206}{206}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00207 \{}
+\DoxyCodeLine{00208   va\_list args;}
+\DoxyCodeLine{00209   va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00210   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\_warn}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(WARN\_IF\_INCOMPLETE\_DOC), \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, line, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00211   va\_end(args);}
+\DoxyCodeLine{00212 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_doc_parser_a9ca6efdbb8e10b7908ad6906f26ff1bd}{Doc\+Parser\+::check\+Un\+Or\+Multiple\+Documented\+Params()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a4149b6b3cb3e0246eb2e0d47de02538f}\label{build_2doxygen_2src_2message_8cpp_a4149b6b3cb3e0246eb2e0d47de02538f}} 
+\index{message.cpp@{message.cpp}!warn\_line@{warn\_line}}
+\index{warn\_line@{warn\_line}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn\_line()}{warn\_line()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} warn\+\_\+line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00167}{167}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168 \{}
+\DoxyCodeLine{00169   \mbox{\hyperlink{class_q_c_string}{QCString}} fileSubst = \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}.isEmpty() ? \textcolor{stringliteral}{"{}<unknown>"{}} : \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}};}
+\DoxyCodeLine{00170   \mbox{\hyperlink{class_q_c_string}{QCString}} lineSubst; lineSubst.\mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(line);}
+\DoxyCodeLine{00171   \textcolor{keywordflow}{return}  \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(}
+\DoxyCodeLine{00172             \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(}
+\DoxyCodeLine{00173               \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a7a6bddc99419347af9c2d3569bada867}{g\_warnLineFormat}},}
+\DoxyCodeLine{00174               \textcolor{stringliteral}{"{}\$file"{}},fileSubst}
+\DoxyCodeLine{00175             ),}
+\DoxyCodeLine{00176             \textcolor{stringliteral}{"{}\$line"{}},lineSubst}
+\DoxyCodeLine{00177           );}
+\DoxyCodeLine{00178 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a7a6bddc99419347af9c2d3569bada867}{g\+\_\+warn\+Line\+Format}}, \mbox{\hyperlink{class_q_c_string_a87d2bfa3fcbf407c32fab784df368b2d}{QCString\+::set\+Num()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ad91bf6bb6d112247a56e3e8bcbafc76b}{add\+Member\+Function()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab8f6cdb1a0374f49399a31bd2ea0226a}{check\+Page\+Relations()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_abc809fca2014e90fe0aee477a1964ed7}{compute\+Page\+Relations()}}, and \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a18307d943d41d2ed5849c6faf3d02a1d}{find\+Global\+Member()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_ae6153a6152e57505cfd23fbc4d8cf366}\label{build_2doxygen_2src_2message_8cpp_ae6153a6152e57505cfd23fbc4d8cf366}} 
+\index{message.cpp@{message.cpp}!warn\_simple@{warn\_simple}}
+\index{warn\_simple@{warn\_simple}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn\_simple()}{warn\_simple()}}
+{\footnotesize\ttfamily void warn\+\_\+simple (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193 \{}
+\DoxyCodeLine{00194   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(WARNINGS)) \textcolor{keywordflow}{return}; \textcolor{comment}{// warning type disabled}}
+\DoxyCodeLine{00195   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\_warn}}(\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},line,\mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}}) + text);}
+\DoxyCodeLine{00196 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ad91bf6bb6d112247a56e3e8bcbafc76b}{add\+Member\+Function()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a1fd98c6976d3826490804976e17eb83f}\label{build_2doxygen_2src_2message_8cpp_a1fd98c6976d3826490804976e17eb83f}} 
+\index{message.cpp@{message.cpp}!warn\_uncond@{warn\_uncond}}
+\index{warn\_uncond@{warn\_uncond}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn\_uncond()}{warn\_uncond()}}
+{\footnotesize\ttfamily void warn\+\_\+uncond (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00222}{222}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00223 \{}
+\DoxyCodeLine{00224   va\_list args;}
+\DoxyCodeLine{00225   va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00226   vfprintf(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\_warnFile}}, (\mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}}) + \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}).\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}(), args);}
+\DoxyCodeLine{00227   va\_end(args);}
+\DoxyCodeLine{00228   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\_warn\_as\_error}}();}
+\DoxyCodeLine{00229 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}{g\+\_\+warn\+File}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\+\_\+warn\+\_\+as\+\_\+error()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_member_def_impl_a0410c3e0f3f2fd5fdb341546e40d4a7d}{Member\+Def\+Impl\+::\+\_\+write\+Caller\+Graph()}}, \mbox{\hyperlink{class_member_def_impl_af8b226a288cd0a1825db1a191d10a760}{Member\+Def\+Impl\+::\+\_\+write\+Call\+Graph()}}, \mbox{\hyperlink{namespace_config_a43f9512cdb148a0f68a30519debac43f}{Config\+::check\+And\+Correct()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_acf309728fac71ec225044c1afe6ae9f7}{compute\+Verified\+Dot\+Path()}}, \mbox{\hyperlink{build_2doxygen_2src_2datetime_8cpp_aad46a931d39d3d99fc5d2ad2ecd5e0bf}{get\+Current\+Date\+Time()}}, \mbox{\hyperlink{build_2doxygen_2src_2namespacedef_8cpp_ac29daa4ae4a11022a30d2deb6934624c}{get\+Resolved\+Namespace()}}, \mbox{\hyperlink{class_formula_manager_a10998c967b5e151acf3dad299deb0bc9}{Formula\+Manager\+::init\+From\+Repository()}}, \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_a649670159a00e0a1c323df1b40bf01e6}{min\+Class\+Distance()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a372975cd1a9079359db4efad4018d034}{read\+Dir()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_afe13c7f7b30d6f6a92dc108e74d5d76b}{read\+File\+Or\+Directory()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a7ed1fdd15e6ed566c33a63fcd30d53c4}{search\+Input\+Files()}}, \mbox{\hyperlink{namespace_config_ad27e22c157d0c2d33414923d0a41c200}{Config\+::update\+Obsolete()}}, \mbox{\hyperlink{class_html_entity_mapper_ac80b42ee1d05037eed6e1c88bc844ece}{Html\+Entity\+Mapper\+::validate()}}, \mbox{\hyperlink{class_file_def_impl_a8598b3b432f7ab0571d567f0232f1722}{File\+Def\+Impl\+::write\+Included\+By\+Graph()}}, \mbox{\hyperlink{class_file_def_impl_ac6c6a9672dd8b23a1971a7ac17278bfd}{File\+Def\+Impl\+::write\+Include\+Graph()}}, and \mbox{\hyperlink{class_class_def_impl_a24a546c83a0d35d0f034b822def5e2d7}{Class\+Def\+Impl\+::write\+Inheritance\+Graph()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a9a15ec1dabd302823c110bf10fa4ca37}\label{build_2doxygen_2src_2message_8cpp_a9a15ec1dabd302823c110bf10fa4ca37}} 
+\index{message.cpp@{message.cpp}!warn\_undoc@{warn\_undoc}}
+\index{warn\_undoc@{warn\_undoc}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{warn\_undoc()}{warn\_undoc()}}
+{\footnotesize\ttfamily void warn\+\_\+undoc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00198}{198}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00199 \{}
+\DoxyCodeLine{00200   va\_list args;}
+\DoxyCodeLine{00201   va\_start(args, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}});}
+\DoxyCodeLine{00202   \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\_warn}}(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(WARN\_IF\_UNDOCUMENTED), \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, line, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\_warningStr}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, args);}
+\DoxyCodeLine{00203   va\_end(args);}
+\DoxyCodeLine{00204 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeff7d8537701b1e84b31a724be98a3e}{do\+\_\+warn()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a385b176a615b615a1efd83838ffdc24f}{fmt}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}{g\+\_\+warning\+Str}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_ab6c1ebf5d50811e57eee6f8d2e201744}{compute\+Class\+Relations()}}, \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a3572f62a602ab473a38ae5ae27e66611}{find\+Member()}}, and \mbox{\hyperlink{class_member_def_impl_a0256c543b1bd7115c87dfe55470de5aa}{Member\+Def\+Impl\+::warn\+If\+Undocumented()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}\label{build_2doxygen_2src_2message_8cpp_a8a0504f5cfc80ac9db15736e27d04554}} 
+\index{message.cpp@{message.cpp}!g\_errorStr@{g\_errorStr}}
+\index{g\_errorStr@{g\_errorStr}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_errorStr}{g\_errorStr}}
+{\footnotesize\ttfamily const char$\ast$ g\+\_\+error\+Str = \char`\"{}error\+: \char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\+\_\+full()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}\label{build_2doxygen_2src_2message_8cpp_abf45c484c585bd82d2d892c29de4a0be}} 
+\index{message.cpp@{message.cpp}!g\_mutex@{g\_mutex}}
+\index{g\_mutex@{g\_mutex}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_mutex}{g\_mutex}}
+{\footnotesize\ttfamily std\+::mutex g\+\_\+mutex\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\+\_\+warn\+\_\+as\+\_\+error()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_afeaf3cf484d932b2198498b3209f7e03}{printlex()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}\label{build_2doxygen_2src_2message_8cpp_a8e1d65011b82b41029cea922b7b3c298}} 
+\index{message.cpp@{message.cpp}!g\_warnBehavior@{g\_warnBehavior}}
+\index{g\_warnBehavior@{g\_warnBehavior}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_warnBehavior}{g\_warnBehavior}}
+{\footnotesize\ttfamily WARN\+\_\+\+AS\+\_\+\+ERROR\+\_\+t g\+\_\+warn\+Behavior = WARN\+\_\+\+AS\+\_\+\+ERROR\+\_\+t\+::\+NO\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ae3d3e3fe0dd73eb3fe463e99d2bd4a73}{finish\+Warn\+Exit()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\+\_\+warn\+\_\+as\+\_\+error()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}\label{build_2doxygen_2src_2message_8cpp_abfb684889b2b27eb72e96af8478b5f85}} 
+\index{message.cpp@{message.cpp}!g\_warnFile@{g\_warnFile}}
+\index{g\_warnFile@{g\_warnFile}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_warnFile}{g\_warnFile}}
+{\footnotesize\ttfamily FILE$\ast$ g\+\_\+warn\+File = stderr\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\+\_\+warn\+\_\+as\+\_\+error()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aad9799c2a434877f36bc92beb8966567}{warn\+\_\+flush()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a1fd98c6976d3826490804976e17eb83f}{warn\+\_\+uncond()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_aad4ae1643bcdbcff1680a322e5bbae8d}\label{build_2doxygen_2src_2message_8cpp_aad4ae1643bcdbcff1680a322e5bbae8d}} 
+\index{message.cpp@{message.cpp}!g\_warnFormat@{g\_warnFormat}}
+\index{g\_warnFormat@{g\_warnFormat}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_warnFormat}{g\_warnFormat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} g\+\_\+warn\+Format\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}\label{build_2doxygen_2src_2message_8cpp_a9d34be93b99045d723b7edc562d10ce4}} 
+\index{message.cpp@{message.cpp}!g\_warningStr@{g\_warningStr}}
+\index{g\_warningStr@{g\_warningStr}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_warningStr}{g\_warningStr}}
+{\footnotesize\ttfamily const char$\ast$ g\+\_\+warning\+Str = \char`\"{}warning\+: \char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a93c2070f58918c66ba1faccc3e182391}{va\+\_\+warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a64240af0f75c8052d6bb3a4d1c684936}{warn\+\_\+doc\+\_\+error()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a851c04a43e751fe02be2d12eec9e8da3}{warn\+\_\+incomplete\+\_\+doc()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ae6153a6152e57505cfd23fbc4d8cf366}{warn\+\_\+simple()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a1fd98c6976d3826490804976e17eb83f}{warn\+\_\+uncond()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a9a15ec1dabd302823c110bf10fa4ca37}{warn\+\_\+undoc()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a7a6bddc99419347af9c2d3569bada867}\label{build_2doxygen_2src_2message_8cpp_a7a6bddc99419347af9c2d3569bada867}} 
+\index{message.cpp@{message.cpp}!g\_warnLineFormat@{g\_warnLineFormat}}
+\index{g\_warnLineFormat@{g\_warnLineFormat}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_warnLineFormat}{g\_warnLineFormat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} g\+\_\+warn\+Line\+Format\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aa0b7262dc94aba9476d8669db4f3920e}{init\+Warning\+Format()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a4149b6b3cb3e0246eb2e0d47de02538f}{warn\+\_\+line()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}\label{build_2doxygen_2src_2message_8cpp_a807b8e20fe24490244de4bfdaf531bef}} 
+\index{message.cpp@{message.cpp}!g\_warnStat@{g\_warnStat}}
+\index{g\_warnStat@{g\_warnStat}!message.cpp@{message.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_warnStat}{g\_warnStat}}
+{\footnotesize\ttfamily std\+::atomic\+\_\+bool g\+\_\+warn\+Stat = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_source}{message.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ae3d3e3fe0dd73eb3fe463e99d2bd4a73}{finish\+Warn\+Exit()}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad150b78be80374eb1373be71e75a67b0}{format\+\_\+warn()}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aed763574c33aa626cd8209d9d681938a}{handle\+\_\+warn\+\_\+as\+\_\+error()}}.
+

@@ -1,0 +1,1146 @@
+\hypertarget{classreg_1_1_p_token}{}\doxysection{reg\+::PToken Class Reference}
+\label{classreg_1_1_p_token}\index{reg::PToken@{reg::PToken}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{End}} = 0x0000
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{White\+Space}} = 0x1001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Digit}} = 0x1002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Alpha}} = 0x1003
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Alpha\+Num}} = 0x1004
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}} = 0x2001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}} = 0x2002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Begin\+Of\+Line}} = 0x4001
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{End\+Of\+Line}} = 0x4002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Begin\+Of\+Word}} = 0x4003
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{End\+Of\+Word}} = 0x4004
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Begin\+Capture}} = 0x4005
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{End\+Capture}} = 0x4006
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Any}} = 0x4007
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Star}} = 0x4008
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Optional}} = 0x4009
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Character}} = 0x8000
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{End}} = 0x0000
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{White\+Space}} = 0x1001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Digit}} = 0x1002
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Alpha}} = 0x1003
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Alpha\+Num}} = 0x1004
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}} = 0x2001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}} = 0x2002
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Begin\+Of\+Line}} = 0x4001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{End\+Of\+Line}} = 0x4002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Begin\+Of\+Word}} = 0x4003
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{End\+Of\+Word}} = 0x4004
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Begin\+Capture}} = 0x4005
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{End\+Capture}} = 0x4006
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Any}} = 0x4007
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Star}} = 0x4008
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Optional}} = 0x4009
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Character}} = 0x8000
+ \}
+\item 
+enum class \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{End}} = 0x0000
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{White\+Space}} = 0x1001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Digit}} = 0x1002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Alpha}} = 0x1003
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Alpha\+Num}} = 0x1004
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}} = 0x2001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}} = 0x2002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Begin\+Of\+Line}} = 0x4001
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{End\+Of\+Line}} = 0x4002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Begin\+Of\+Word}} = 0x4003
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{End\+Of\+Word}} = 0x4004
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Begin\+Capture}} = 0x4005
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{End\+Capture}} = 0x4006
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Any}} = 0x4007
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Star}} = 0x4008
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Optional}} = 0x4009
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Character}} = 0x8000
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{End}} = 0x0000
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{White\+Space}} = 0x1001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Digit}} = 0x1002
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Alpha}} = 0x1003
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Alpha\+Num}} = 0x1004
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}} = 0x2001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}} = 0x2002
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Begin\+Of\+Line}} = 0x4001
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{End\+Of\+Line}} = 0x4002
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Begin\+Of\+Word}} = 0x4003
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{End\+Of\+Word}} = 0x4004
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Begin\+Capture}} = 0x4005
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{End\+Capture}} = 0x4006
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Any}} = 0x4007
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Star}} = 0x4008
+, \newline
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Optional}} = 0x4009
+, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Character}} = 0x8000
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{classreg_1_1_p_token_a9648ec9cffa7fc0d1ef165fc5882a552}{kind\+Str}} () const
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a63a09d68f5ded8c563f5a06cdd32db27}{PToken}} ()
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a383d4137455b9fdc268fd0db4b050db0}{PToken}} (\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} k)
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a3c769c7cb9e8961e5f52187237f94992}{PToken}} (char \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_aec4f875592b933d86407f7e98bff68ee}{PToken}} (uint16\+\_\+t v)
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_af7714d26eaa9913922be030737df02b2}{PToken}} (uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}}, uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}})
+\item 
+void \mbox{\hyperlink{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}{set\+Value}} (uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value}})
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind}} () const
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}} () const
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}} () const
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value}} () const
+\item 
+char \mbox{\hyperlink{classreg_1_1_p_token_a34589c92a4e8ff59eb14c5536e760929}{ascii\+Value}} () const
+\item 
+bool \mbox{\hyperlink{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}{is\+Range}} () const
+\item 
+bool \mbox{\hyperlink{classreg_1_1_p_token_aef9ece1aec9504adcf4deb03d803c378}{is\+Char\+Class}} () const
+\item 
+const char $\ast$ \mbox{\hyperlink{classreg_1_1_p_token_a9648ec9cffa7fc0d1ef165fc5882a552}{kind\+Str}} () const
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a63a09d68f5ded8c563f5a06cdd32db27}{PToken}} ()
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a383d4137455b9fdc268fd0db4b050db0}{PToken}} (\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} k)
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a3c769c7cb9e8961e5f52187237f94992}{PToken}} (char \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_aec4f875592b933d86407f7e98bff68ee}{PToken}} (uint16\+\_\+t v)
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_af7714d26eaa9913922be030737df02b2}{PToken}} (uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}}, uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}})
+\item 
+void \mbox{\hyperlink{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}{set\+Value}} (uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value}})
+\item 
+\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind}} () const
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}} () const
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}} () const
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value}} () const
+\item 
+char \mbox{\hyperlink{classreg_1_1_p_token_a34589c92a4e8ff59eb14c5536e760929}{ascii\+Value}} () const
+\item 
+bool \mbox{\hyperlink{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}{is\+Range}} () const
+\item 
+bool \mbox{\hyperlink{classreg_1_1_p_token_aef9ece1aec9504adcf4deb03d803c378}{is\+Char\+Class}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_class}{Class}} representing a token in the compiled regular expression token stream. \mbox{\hyperlink{class_a}{A}} token has a kind and an optional value whose meaning depends on the kind. It is also possible to store a (from,to) character range in a token. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}} 
+\index{reg::PToken@{reg::PToken}!Kind@{Kind}}
+\index{Kind@{Kind}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{Kind}{Kind}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{reg\+::\+PToken\+::\+Kind}} \+: uint16\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+The kind of token.
+
+Ranges per bit mask\+:
+\begin{DoxyItemize}
+\item {\ttfamily 0x00\+FF} from part of a range, except for {\ttfamily 0x0000} which is the End marker
+\item {\ttfamily 0x1\+FFF} built-\/in ranges
+\item {\ttfamily 0x2\+FFF} user defined ranges
+\item {\ttfamily 0x4\+FFF} special operations
+\item {\ttfamily 0x8000} literal character 
+\end{DoxyItemize}\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{End@{End}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!End@{End}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}} 
+End&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WhiteSpace@{WhiteSpace}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!WhiteSpace@{WhiteSpace}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}} 
+White\+Space&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Digit@{Digit}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Digit@{Digit}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}} 
+Digit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Alpha@{Alpha}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Alpha@{Alpha}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}} 
+Alpha&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaNum@{AlphaNum}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!AlphaNum@{AlphaNum}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}} 
+Alpha\+Num&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CharClass@{CharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!CharClass@{CharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}} 
+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NegCharClass@{NegCharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!NegCharClass@{NegCharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}} 
+Neg\+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfLine@{BeginOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfLine@{BeginOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}} 
+Begin\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfLine@{EndOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfLine@{EndOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}} 
+End\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfWord@{BeginOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfWord@{BeginOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}} 
+Begin\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfWord@{EndOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfWord@{EndOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}} 
+End\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginCapture@{BeginCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginCapture@{BeginCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}} 
+Begin\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndCapture@{EndCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndCapture@{EndCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}} 
+End\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Any@{Any}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Any@{Any}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}} 
+Any&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Star@{Star}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Star@{Star}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}} 
+Star&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Optional@{Optional}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Optional@{Optional}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}} 
+Optional&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Character@{Character}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Character@{Character}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}} 
+Character&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{End@{End}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!End@{End}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}} 
+End&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WhiteSpace@{WhiteSpace}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!WhiteSpace@{WhiteSpace}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}} 
+White\+Space&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Digit@{Digit}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Digit@{Digit}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}} 
+Digit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Alpha@{Alpha}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Alpha@{Alpha}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}} 
+Alpha&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaNum@{AlphaNum}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!AlphaNum@{AlphaNum}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}} 
+Alpha\+Num&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CharClass@{CharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!CharClass@{CharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}} 
+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NegCharClass@{NegCharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!NegCharClass@{NegCharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}} 
+Neg\+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfLine@{BeginOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfLine@{BeginOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}} 
+Begin\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfLine@{EndOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfLine@{EndOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}} 
+End\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfWord@{BeginOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfWord@{BeginOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}} 
+Begin\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfWord@{EndOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfWord@{EndOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}} 
+End\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginCapture@{BeginCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginCapture@{BeginCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}} 
+Begin\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndCapture@{EndCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndCapture@{EndCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}} 
+End\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Any@{Any}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Any@{Any}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}} 
+Any&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Star@{Star}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Star@{Star}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}} 
+Star&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Optional@{Optional}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Optional@{Optional}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}} 
+Optional&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Character@{Character}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Character@{Character}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}} 
+Character&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071     \{}
+\DoxyCodeLine{00072       End            = 0x0000,}
+\DoxyCodeLine{00073       WhiteSpace     = 0x1001,    \textcolor{comment}{// \(\backslash\)s    range [ \(\backslash\)t\(\backslash\)r\(\backslash\)n]}}
+\DoxyCodeLine{00074       Digit          = 0x1002,    \textcolor{comment}{// \(\backslash\)d    range [0-\/9]}}
+\DoxyCodeLine{00075       Alpha          = 0x1003,    \textcolor{comment}{// \(\backslash\)a    range [a-\/z\_A-\/Z\(\backslash\)x80-\/\(\backslash\)xFF]}}
+\DoxyCodeLine{00076       AlphaNum       = 0x1004,    \textcolor{comment}{// \(\backslash\)w    range [a-\/Z\_A-\/Z0-\/9\(\backslash\)x80-\/\(\backslash\)xFF]}}
+\DoxyCodeLine{00077       CharClass      = 0x2001,    \textcolor{comment}{// []}}
+\DoxyCodeLine{00078       NegCharClass   = 0x2002,    \textcolor{comment}{// [\string^]}}
+\DoxyCodeLine{00079       BeginOfLine    = 0x4001,    \textcolor{comment}{// \string^}}
+\DoxyCodeLine{00080       EndOfLine      = 0x4002,    \textcolor{comment}{// \$}}
+\DoxyCodeLine{00081       BeginOfWord    = 0x4003,    \textcolor{comment}{// \(\backslash\)<}}
+\DoxyCodeLine{00082       EndOfWord      = 0x4004,    \textcolor{comment}{// \(\backslash\)>}}
+\DoxyCodeLine{00083       BeginCapture   = 0x4005,    \textcolor{comment}{// (}}
+\DoxyCodeLine{00084       EndCapture     = 0x4006,    \textcolor{comment}{// )}}
+\DoxyCodeLine{00085       Any            = 0x4007,    \textcolor{comment}{// .}}
+\DoxyCodeLine{00086       Star           = 0x4008,    \textcolor{comment}{// *}}
+\DoxyCodeLine{00087       Optional       = 0x4009,    \textcolor{comment}{// ?}}
+\DoxyCodeLine{00088       Character      = 0x8000     \textcolor{comment}{// c}}
+\DoxyCodeLine{00089     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}} 
+\index{reg::PToken@{reg::PToken}!Kind@{Kind}}
+\index{Kind@{Kind}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{Kind}{Kind}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{reg\+::\+PToken\+::\+Kind}} \+: uint16\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+The kind of token.
+
+Ranges per bit mask\+:
+\begin{DoxyItemize}
+\item {\ttfamily 0x00\+FF} from part of a range, except for {\ttfamily 0x0000} which is the End marker
+\item {\ttfamily 0x1\+FFF} built-\/in ranges
+\item {\ttfamily 0x2\+FFF} user defined ranges
+\item {\ttfamily 0x4\+FFF} special operations
+\item {\ttfamily 0x8000} literal character 
+\end{DoxyItemize}\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{End@{End}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!End@{End}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}} 
+End&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WhiteSpace@{WhiteSpace}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!WhiteSpace@{WhiteSpace}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}} 
+White\+Space&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Digit@{Digit}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Digit@{Digit}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}} 
+Digit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Alpha@{Alpha}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Alpha@{Alpha}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}} 
+Alpha&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaNum@{AlphaNum}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!AlphaNum@{AlphaNum}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}} 
+Alpha\+Num&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CharClass@{CharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!CharClass@{CharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}} 
+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NegCharClass@{NegCharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!NegCharClass@{NegCharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}} 
+Neg\+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfLine@{BeginOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfLine@{BeginOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}} 
+Begin\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfLine@{EndOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfLine@{EndOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}} 
+End\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfWord@{BeginOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfWord@{BeginOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}} 
+Begin\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfWord@{EndOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfWord@{EndOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}} 
+End\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginCapture@{BeginCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginCapture@{BeginCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}} 
+Begin\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndCapture@{EndCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndCapture@{EndCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}} 
+End\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Any@{Any}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Any@{Any}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}} 
+Any&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Star@{Star}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Star@{Star}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}} 
+Star&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Optional@{Optional}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Optional@{Optional}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}} 
+Optional&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Character@{Character}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Character@{Character}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}} 
+Character&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{End@{End}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!End@{End}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}} 
+End&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WhiteSpace@{WhiteSpace}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!WhiteSpace@{WhiteSpace}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}} 
+White\+Space&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Digit@{Digit}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Digit@{Digit}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}} 
+Digit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Alpha@{Alpha}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Alpha@{Alpha}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}} 
+Alpha&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaNum@{AlphaNum}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!AlphaNum@{AlphaNum}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}} 
+Alpha\+Num&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CharClass@{CharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!CharClass@{CharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}} 
+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NegCharClass@{NegCharClass}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!NegCharClass@{NegCharClass}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}} 
+Neg\+Char\+Class&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfLine@{BeginOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfLine@{BeginOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}} 
+Begin\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfLine@{EndOfLine}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfLine@{EndOfLine}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}} 
+End\+Of\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginOfWord@{BeginOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginOfWord@{BeginOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}} 
+Begin\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndOfWord@{EndOfWord}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndOfWord@{EndOfWord}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}} 
+End\+Of\+Word&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginCapture@{BeginCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!BeginCapture@{BeginCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}} 
+Begin\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EndCapture@{EndCapture}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!EndCapture@{EndCapture}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}} 
+End\+Capture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Any@{Any}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Any@{Any}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}} 
+Any&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Star@{Star}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Star@{Star}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}} 
+Star&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Optional@{Optional}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Optional@{Optional}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}} 
+Optional&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Character@{Character}!reg::PToken@{reg::PToken}}\index{reg::PToken@{reg::PToken}!Character@{Character}}}\mbox{\Hypertarget{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}\label{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}} 
+Character&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071     \{}
+\DoxyCodeLine{00072       End            = 0x0000,}
+\DoxyCodeLine{00073       WhiteSpace     = 0x1001,    \textcolor{comment}{// \(\backslash\)s    range [ \(\backslash\)t\(\backslash\)r\(\backslash\)n]}}
+\DoxyCodeLine{00074       Digit          = 0x1002,    \textcolor{comment}{// \(\backslash\)d    range [0-\/9]}}
+\DoxyCodeLine{00075       Alpha          = 0x1003,    \textcolor{comment}{// \(\backslash\)a    range [a-\/z\_A-\/Z\(\backslash\)x80-\/\(\backslash\)xFF]}}
+\DoxyCodeLine{00076       AlphaNum       = 0x1004,    \textcolor{comment}{// \(\backslash\)w    range [a-\/Z\_A-\/Z0-\/9\(\backslash\)x80-\/\(\backslash\)xFF]}}
+\DoxyCodeLine{00077       CharClass      = 0x2001,    \textcolor{comment}{// []}}
+\DoxyCodeLine{00078       NegCharClass   = 0x2002,    \textcolor{comment}{// [\string^]}}
+\DoxyCodeLine{00079       BeginOfLine    = 0x4001,    \textcolor{comment}{// \string^}}
+\DoxyCodeLine{00080       EndOfLine      = 0x4002,    \textcolor{comment}{// \$}}
+\DoxyCodeLine{00081       BeginOfWord    = 0x4003,    \textcolor{comment}{// \(\backslash\)<}}
+\DoxyCodeLine{00082       EndOfWord      = 0x4004,    \textcolor{comment}{// \(\backslash\)>}}
+\DoxyCodeLine{00083       BeginCapture   = 0x4005,    \textcolor{comment}{// (}}
+\DoxyCodeLine{00084       EndCapture     = 0x4006,    \textcolor{comment}{// )}}
+\DoxyCodeLine{00085       Any            = 0x4007,    \textcolor{comment}{// .}}
+\DoxyCodeLine{00086       Star           = 0x4008,    \textcolor{comment}{// *}}
+\DoxyCodeLine{00087       Optional       = 0x4009,    \textcolor{comment}{// ?}}
+\DoxyCodeLine{00088       Character      = 0x8000     \textcolor{comment}{// c}}
+\DoxyCodeLine{00089     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classreg_1_1_p_token_a63a09d68f5ded8c563f5a06cdd32db27}\label{classreg_1_1_p_token_a63a09d68f5ded8c563f5a06cdd32db27}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a token of kind \textquotesingle{}End\textquotesingle{} 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124 : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}(0) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_a383d4137455b9fdc268fd0db4b050db0}\label{classreg_1_1_p_token_a383d4137455b9fdc268fd0db4b050db0}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}}}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Creates a token of the given kind {\itshape k} 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127 : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(k)<<16) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_a3c769c7cb9e8961e5f52187237f94992}\label{classreg_1_1_p_token_a3c769c7cb9e8961e5f52187237f94992}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a token for an ASCII character 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130                                : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}((\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Kind::Character}})<<16) |}
+\DoxyCodeLine{00131                                         \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_aec4f875592b933d86407f7e98bff68ee}\label{classreg_1_1_p_token_aec4f875592b933d86407f7e98bff68ee}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a token for a byte of an UTF-\/8 character 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134                                : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}((\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Kind::Character}})<<16) |}
+\DoxyCodeLine{00135                                         \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(v)) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_af7714d26eaa9913922be030737df02b2}\label{classreg_1_1_p_token_af7714d26eaa9913922be030737df02b2}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{from,  }\item[{uint16\+\_\+t}]{to }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a token representing a range from one character {\itshape from} to another character {\itshape to} 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138 : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}})<<16 | \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}}) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_a63a09d68f5ded8c563f5a06cdd32db27}\label{classreg_1_1_p_token_a63a09d68f5ded8c563f5a06cdd32db27}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a token of kind \textquotesingle{}End\textquotesingle{} 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124 : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}(0) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_a383d4137455b9fdc268fd0db4b050db0}\label{classreg_1_1_p_token_a383d4137455b9fdc268fd0db4b050db0}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}}}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Creates a token of the given kind {\itshape k} 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127 : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(k)<<16) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_a3c769c7cb9e8961e5f52187237f94992}\label{classreg_1_1_p_token_a3c769c7cb9e8961e5f52187237f94992}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a token for an ASCII character 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130                                : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}((\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Kind::Character}})<<16) |}
+\DoxyCodeLine{00131                                         \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_aec4f875592b933d86407f7e98bff68ee}\label{classreg_1_1_p_token_aec4f875592b933d86407f7e98bff68ee}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a token for a byte of an UTF-\/8 character 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134                                : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}((\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Kind::Character}})<<16) |}
+\DoxyCodeLine{00135                                         \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(v)) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classreg_1_1_p_token_af7714d26eaa9913922be030737df02b2}\label{classreg_1_1_p_token_af7714d26eaa9913922be030737df02b2}} 
+\index{reg::PToken@{reg::PToken}!PToken@{PToken}}
+\index{PToken@{PToken}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{PToken()}{PToken()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily reg\+::\+PToken\+::\+PToken (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{from,  }\item[{uint16\+\_\+t}]{to }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a token representing a range from one character {\itshape from} to another character {\itshape to} 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138 : \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}})<<16 | \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}}) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classreg_1_1_p_token_a34589c92a4e8ff59eb14c5536e760929}\label{classreg_1_1_p_token_a34589c92a4e8ff59eb14c5536e760929}} 
+\index{reg::PToken@{reg::PToken}!asciiValue@{asciiValue}}
+\index{asciiValue@{asciiValue}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{asciiValue()}{asciiValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily char reg\+::\+PToken\+::ascii\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the value for this token as a ASCII character 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+
+
+Referenced by \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a5ae763e5ab5231eae1133e68093c49be}{reg\+::\+Ex\+::\+Private\+::compile()}}, \mbox{\hyperlink{classreg_1_1_ex_a9fc6293038a87e8995a13c0fdfd11499}{reg\+::\+Ex\+::match()}}, and \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a26bba20b316615c53a77eb522602df8a}{reg\+::\+Ex\+::\+Private\+::match\+At()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a34589c92a4e8ff59eb14c5536e760929}\label{classreg_1_1_p_token_a34589c92a4e8ff59eb14c5536e760929}} 
+\index{reg::PToken@{reg::PToken}!asciiValue@{asciiValue}}
+\index{asciiValue@{asciiValue}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{asciiValue()}{asciiValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily char reg\+::\+PToken\+::ascii\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the value for this token as a ASCII character 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}\label{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}} 
+\index{reg::PToken@{reg::PToken}!from@{from}}
+\index{from@{from}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{from()}{from()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t reg\+::\+PToken\+::from (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \textquotesingle{}from\textquotesingle{} part of the character range. Only valid if this token represents a range 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00147}{147}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+
+
+Referenced by \mbox{\hyperlink{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}{is\+Range()}}, and \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a26bba20b316615c53a77eb522602df8a}{reg\+::\+Ex\+::\+Private\+::match\+At()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}\label{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}} 
+\index{reg::PToken@{reg::PToken}!from@{from}}
+\index{from@{from}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{from()}{from()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t reg\+::\+PToken\+::from (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \textquotesingle{}from\textquotesingle{} part of the character range. Only valid if this token represents a range 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00147}{147}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_aef9ece1aec9504adcf4deb03d803c378}\label{classreg_1_1_p_token_aef9ece1aec9504adcf4deb03d803c378}} 
+\index{reg::PToken@{reg::PToken}!isCharClass@{isCharClass}}
+\index{isCharClass@{isCharClass}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{isCharClass()}{isCharClass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool reg\+::\+PToken\+::is\+Char\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns true iff this token is a positive or negative character class 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00162}{162}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind}}()==\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Kind::CharClass}} || \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind}}()==\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Kind::NegCharClass}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}}, \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind()}}, and \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}}.
+
+
+
+Referenced by \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a26bba20b316615c53a77eb522602df8a}{reg\+::\+Ex\+::\+Private\+::match\+At()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_aef9ece1aec9504adcf4deb03d803c378}\label{classreg_1_1_p_token_aef9ece1aec9504adcf4deb03d803c378}} 
+\index{reg::PToken@{reg::PToken}!isCharClass@{isCharClass}}
+\index{isCharClass@{isCharClass}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{isCharClass()}{isCharClass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool reg\+::\+PToken\+::is\+Char\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns true iff this token is a positive or negative character class 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00162}{162}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind}}()==\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Kind::CharClass}} || \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind}}()==\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Kind::NegCharClass}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}}, \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind()}}, and \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}\label{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}} 
+\index{reg::PToken@{reg::PToken}!isRange@{isRange}}
+\index{isRange@{isRange}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{isRange()}{isRange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool reg\+::\+PToken\+::is\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns true iff this token represents a range of characters 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}!=0 \&\& \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}}()<=\mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}}(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from()}}, \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}, and \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}\label{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}} 
+\index{reg::PToken@{reg::PToken}!isRange@{isRange}}
+\index{isRange@{isRange}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{isRange()}{isRange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool reg\+::\+PToken\+::is\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns true iff this token represents a range of characters 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}!=0 \&\& \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from}}()<=\mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to}}(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from()}}, \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}, and \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}\label{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}} 
+\index{reg::PToken@{reg::PToken}!kind@{kind}}
+\index{kind@{kind}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{kind()}{kind()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} reg\+::\+PToken\+::kind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the kind of the token 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}}\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_a7f92ad66f12d7d45a2550d13e23368f3}{doxmlparser.\+compound.\+compounddef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_ad1990c53ef1a999187173fec25e7d4b6}{doxmlparser.\+compound.\+sectiondef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_adab2ba56491a0f74345ef3f38455bcc6}{doxmlparser.\+compound.\+memberdef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a96936817d1c9696c0ef60bfd38218f3b}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a0d7d91c8b16298948b3681b73a71110c}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_aa17522f697df8b5772809c9e2ea59bfc}{doxmlparser.\+index.\+Member\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_a4b6973608e8461b1f3a429b1d65f3222}{doxmlparser.\+index.\+Compound\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_afe58e051e88e6bba4a29fad029889ec8}{doxmlparser.\+compound.\+compounddef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_a064738623a805793820c42b9c86c94a0}{doxmlparser.\+compound.\+sectiondef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a525a532678f13c24e28f70aa7ba57a2a}{doxmlparser.\+compound.\+memberdef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_aac6a2f5f672e3cbce71c034678191118}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a8f1377833ddde1e6a52636f124db182c}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_ac6826a9a6b32e757f799899a3b4f8014}{doxmlparser.\+index.\+Compound\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_a3d649603c609de199db76183c6b3c8d4}{doxmlparser.\+index.\+Member\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a5ae763e5ab5231eae1133e68093c49be}{reg\+::\+Ex\+::\+Private\+::compile()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_ab7f8c936d54514c8fdf7de08a6d61d9a}{doxmlparser.\+compound.\+compounddef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_a5ce31c19e069827a60237d7e710e9f7d}{doxmlparser.\+index.\+Compound\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a0af6a52e80a2e9cf5f3f772778554576}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a6d70cd4e309e568a2b4fd4e8697629fe}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_aef6554e5a3b993d4b43b324e67741192}{doxmlparser.\+compound.\+memberdef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_a78c84793c4c43da2d31ccad89f1b57eb}{doxmlparser.\+index.\+Member\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_a726aadf553c89497afe52322bff46630}{doxmlparser.\+compound.\+sectiondef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_adb40e5c9ecff5101ddd0afbb7e195a96}{doxmlparser.\+compound.\+compounddef\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_a8a558289272bcfd84bda7b215a94f975}{doxmlparser.\+compound.\+sectiondef\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a56d1421d4c858da88a94fa3bd6ac8130}{doxmlparser.\+compound.\+memberdef\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a2de9231458c00127babac6566ca047b3}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a1aba8a6bfb1886b6d460a7318cceee31}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_afc69903bf1aee30aea1882156d5438c2}{doxmlparser.\+index.\+Compound\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_a0d6d17e9931a883ab74006b760e90359}{doxmlparser.\+index.\+Member\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classreg_1_1_p_token_aef9ece1aec9504adcf4deb03d803c378}{is\+Char\+Class()}}, \mbox{\hyperlink{classreg_1_1_ex_a9fc6293038a87e8995a13c0fdfd11499}{reg\+::\+Ex\+::match()}}, \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a26bba20b316615c53a77eb522602df8a}{reg\+::\+Ex\+::\+Private\+::match\+At()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_af36f0a5f4ba8e9a7da9facd56a63e23e}{doxmlparser.\+compound.\+compounddef\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_aeb4e06d381efefbc65d255c662feb240}{doxmlparser.\+compound.\+sectiondef\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a8daadff54a2d4a9697123052890243ff}{doxmlparser.\+compound.\+memberdef\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a590176907c4a9e07113d234abdf93531}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a87961ebab8778c48bfb0e69f03398252}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_a4033ad53af469ffe6ebf2b96e19059ef}{doxmlparser.\+index.\+Compound\+Type\+::set\+\_\+kind()}}, and \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_abdbe5c237bea20f3128e17576fab2e3f}{doxmlparser.\+index.\+Member\+Type\+::set\+\_\+kind()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}\label{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}} 
+\index{reg::PToken@{reg::PToken}!kind@{kind}}
+\index{kind@{kind}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{kind()}{kind()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}} reg\+::\+PToken\+::kind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the kind of the token 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}}\textcolor{keyword}{>}(\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_a7f92ad66f12d7d45a2550d13e23368f3}{doxmlparser.\+compound.\+compounddef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_ad1990c53ef1a999187173fec25e7d4b6}{doxmlparser.\+compound.\+sectiondef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_adab2ba56491a0f74345ef3f38455bcc6}{doxmlparser.\+compound.\+memberdef\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a96936817d1c9696c0ef60bfd38218f3b}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a0d7d91c8b16298948b3681b73a71110c}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_aa17522f697df8b5772809c9e2ea59bfc}{doxmlparser.\+index.\+Member\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_a4b6973608e8461b1f3a429b1d65f3222}{doxmlparser.\+index.\+Compound\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_afe58e051e88e6bba4a29fad029889ec8}{doxmlparser.\+compound.\+compounddef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_a064738623a805793820c42b9c86c94a0}{doxmlparser.\+compound.\+sectiondef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a525a532678f13c24e28f70aa7ba57a2a}{doxmlparser.\+compound.\+memberdef\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_aac6a2f5f672e3cbce71c034678191118}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a8f1377833ddde1e6a52636f124db182c}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_ac6826a9a6b32e757f799899a3b4f8014}{doxmlparser.\+index.\+Compound\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_a3d649603c609de199db76183c6b3c8d4}{doxmlparser.\+index.\+Member\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_ab7f8c936d54514c8fdf7de08a6d61d9a}{doxmlparser.\+compound.\+compounddef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_a5ce31c19e069827a60237d7e710e9f7d}{doxmlparser.\+index.\+Compound\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a0af6a52e80a2e9cf5f3f772778554576}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a6d70cd4e309e568a2b4fd4e8697629fe}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_aef6554e5a3b993d4b43b324e67741192}{doxmlparser.\+compound.\+memberdef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_a78c84793c4c43da2d31ccad89f1b57eb}{doxmlparser.\+index.\+Member\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_a726aadf553c89497afe52322bff46630}{doxmlparser.\+compound.\+sectiondef\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_adb40e5c9ecff5101ddd0afbb7e195a96}{doxmlparser.\+compound.\+compounddef\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_a8a558289272bcfd84bda7b215a94f975}{doxmlparser.\+compound.\+sectiondef\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a56d1421d4c858da88a94fa3bd6ac8130}{doxmlparser.\+compound.\+memberdef\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a2de9231458c00127babac6566ca047b3}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a1aba8a6bfb1886b6d460a7318cceee31}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_afc69903bf1aee30aea1882156d5438c2}{doxmlparser.\+index.\+Compound\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_a0d6d17e9931a883ab74006b760e90359}{doxmlparser.\+index.\+Member\+Type\+::get\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1compounddef_type_af36f0a5f4ba8e9a7da9facd56a63e23e}{doxmlparser.\+compound.\+compounddef\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sectiondef_type_aeb4e06d381efefbc65d255c662feb240}{doxmlparser.\+compound.\+sectiondef\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1memberdef_type_a8daadff54a2d4a9697123052890243ff}{doxmlparser.\+compound.\+memberdef\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_simple_sect_type_a590176907c4a9e07113d234abdf93531}{doxmlparser.\+compound.\+doc\+Simple\+Sect\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_param_list_type_a87961ebab8778c48bfb0e69f03398252}{doxmlparser.\+compound.\+doc\+Param\+List\+Type\+::set\+\_\+kind()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_compound_type_a4033ad53af469ffe6ebf2b96e19059ef}{doxmlparser.\+index.\+Compound\+Type\+::set\+\_\+kind()}}, and \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_member_type_abdbe5c237bea20f3128e17576fab2e3f}{doxmlparser.\+index.\+Member\+Type\+::set\+\_\+kind()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a9648ec9cffa7fc0d1ef165fc5882a552}\label{classreg_1_1_p_token_a9648ec9cffa7fc0d1ef165fc5882a552}} 
+\index{reg::PToken@{reg::PToken}!kindStr@{kindStr}}
+\index{kindStr@{kindStr}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{kindStr()}{kindStr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const char $\ast$ reg\+::\+PToken\+::kind\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns a string representation of the tokens kind (useful for debugging). 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093     \{}
+\DoxyCodeLine{00094       \textcolor{keywordflow}{if} ((\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16)>=0x1000 || \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}==0)}
+\DoxyCodeLine{00095       \{}
+\DoxyCodeLine{00096         \textcolor{keywordflow}{switch}(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}}\textcolor{keyword}{>}((\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16)))}
+\DoxyCodeLine{00097         \{}
+\DoxyCodeLine{00098           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{Kind::End}}:           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}End"{}};}
+\DoxyCodeLine{00099           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Kind::Alpha}}:         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Alpha"{}};}
+\DoxyCodeLine{00100           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Kind::AlphaNum}}:      \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}AlphaNum"{}};}
+\DoxyCodeLine{00101           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{Kind::WhiteSpace}}:    \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}WhiteSpace"{}};}
+\DoxyCodeLine{00102           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Kind::Digit}}:         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Digit"{}};}
+\DoxyCodeLine{00103           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Kind::CharClass}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CharClass"{}};}
+\DoxyCodeLine{00104           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Kind::NegCharClass}}:  \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}NegCharClass"{}};}
+\DoxyCodeLine{00105           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Kind::Character}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Character"{}};}
+\DoxyCodeLine{00106           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Kind::BeginOfLine}}:   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BeginOfLine"{}};}
+\DoxyCodeLine{00107           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{Kind::EndOfLine}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EndOfLine"{}};}
+\DoxyCodeLine{00108           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Kind::BeginOfWord}}:   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BeginOfWord"{}};}
+\DoxyCodeLine{00109           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{Kind::EndOfWord}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EndOfWord"{}};}
+\DoxyCodeLine{00110           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Kind::BeginCapture}}:  \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BeginCapture"{}};}
+\DoxyCodeLine{00111           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{Kind::EndCapture}}:    \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EndCapture"{}};}
+\DoxyCodeLine{00112           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Kind::Any}}:           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Any"{}};}
+\DoxyCodeLine{00113           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Kind::Star}}:          \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Star"{}};}
+\DoxyCodeLine{00114           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Kind::Optional}}:      \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Optional"{}};}
+\DoxyCodeLine{00115         \}}
+\DoxyCodeLine{00116       \}}
+\DoxyCodeLine{00117       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00118       \{}
+\DoxyCodeLine{00119         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Range"{}};}
+\DoxyCodeLine{00120       \}}
+\DoxyCodeLine{00121     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Alpha}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Alpha\+Num}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Any}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Begin\+Capture}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Begin\+Of\+Line}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Begin\+Of\+Word}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Character}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Digit}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{End}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{End\+Capture}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{End\+Of\+Line}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{End\+Of\+Word}}, \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Optional}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Star}}, and \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{White\+Space}}.
+
+
+
+Referenced by \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a26bba20b316615c53a77eb522602df8a}{reg\+::\+Ex\+::\+Private\+::match\+At()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a9648ec9cffa7fc0d1ef165fc5882a552}\label{classreg_1_1_p_token_a9648ec9cffa7fc0d1ef165fc5882a552}} 
+\index{reg::PToken@{reg::PToken}!kindStr@{kindStr}}
+\index{kindStr@{kindStr}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{kindStr()}{kindStr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const char $\ast$ reg\+::\+PToken\+::kind\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns a string representation of the tokens kind (useful for debugging). 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093     \{}
+\DoxyCodeLine{00094       \textcolor{keywordflow}{if} ((\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16)>=0x1000 || \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}==0)}
+\DoxyCodeLine{00095       \{}
+\DoxyCodeLine{00096         \textcolor{keywordflow}{switch}(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0}{Kind}}\textcolor{keyword}{>}((\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}}>>16)))}
+\DoxyCodeLine{00097         \{}
+\DoxyCodeLine{00098           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{Kind::End}}:           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}End"{}};}
+\DoxyCodeLine{00099           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Kind::Alpha}}:         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Alpha"{}};}
+\DoxyCodeLine{00100           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Kind::AlphaNum}}:      \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}AlphaNum"{}};}
+\DoxyCodeLine{00101           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{Kind::WhiteSpace}}:    \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}WhiteSpace"{}};}
+\DoxyCodeLine{00102           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Kind::Digit}}:         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Digit"{}};}
+\DoxyCodeLine{00103           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Kind::CharClass}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CharClass"{}};}
+\DoxyCodeLine{00104           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Kind::NegCharClass}}:  \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}NegCharClass"{}};}
+\DoxyCodeLine{00105           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Kind::Character}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Character"{}};}
+\DoxyCodeLine{00106           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Kind::BeginOfLine}}:   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BeginOfLine"{}};}
+\DoxyCodeLine{00107           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{Kind::EndOfLine}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EndOfLine"{}};}
+\DoxyCodeLine{00108           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Kind::BeginOfWord}}:   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BeginOfWord"{}};}
+\DoxyCodeLine{00109           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{Kind::EndOfWord}}:     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EndOfWord"{}};}
+\DoxyCodeLine{00110           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Kind::BeginCapture}}:  \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BeginCapture"{}};}
+\DoxyCodeLine{00111           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{Kind::EndCapture}}:    \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EndCapture"{}};}
+\DoxyCodeLine{00112           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Kind::Any}}:           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Any"{}};}
+\DoxyCodeLine{00113           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Kind::Star}}:          \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Star"{}};}
+\DoxyCodeLine{00114           \textcolor{keywordflow}{case} \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Kind::Optional}}:      \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Optional"{}};}
+\DoxyCodeLine{00115         \}}
+\DoxyCodeLine{00116       \}}
+\DoxyCodeLine{00117       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00118       \{}
+\DoxyCodeLine{00119         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Range"{}};}
+\DoxyCodeLine{00120       \}}
+\DoxyCodeLine{00121     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6132295fcf5570fb8b0a944ef322a598}{Alpha}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ace2517d5ebbfbacb523d54ac962ec398}{Alpha\+Num}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aed36a1ef76a59ee3f15180e0441188ad}{Any}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ae3d62aaae3ff1d7c42a73fb4e5c7770e}{Begin\+Capture}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a6ed83ba4fb11c5a677335f0e3e60c153}{Begin\+Of\+Line}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ab906a68270604e574f9efe7e4e04fb00}{Begin\+Of\+Word}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a76a40e4f974fd895a0a2598c1cee28b4}{Character}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0ac1033972d40514e4ae13188bd76154a3}{Char\+Class}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a83d25adab16b42ea36124318d7e6f4c1}{Digit}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a87557f11575c0ad78e4e28abedc13b6e}{End}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7a8c9c3e0b4b26bfe0ac9f9eb0745666}{End\+Capture}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a5d8c95ca9e91a87bd9c90b0f309fd740}{End\+Of\+Line}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a0074dd6a055a769d905f34a741d19511}{End\+Of\+Word}}, \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a7751fdcc5884cd61bbf7c0e9ddc4d5b9}{Neg\+Char\+Class}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0aebb061953c0454b2c8ee7b0ac615ebcd}{Optional}}, \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a26f93e6e68e28a698377e941cb59f29a}{Star}}, and \mbox{\hyperlink{classreg_1_1_p_token_a9649bb8ecf7bd3f7faf60b56c6fa72f0a1043facb02056549cfa595ce3622fe77}{White\+Space}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}\label{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}} 
+\index{reg::PToken@{reg::PToken}!setValue@{setValue}}
+\index{setValue@{setValue}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{setValue()}{setValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void reg\+::\+PToken\+::set\+Value (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the value for a token 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141 \{ \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} = (\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} \& 0xFFFF0000) | \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}, and \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}\label{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}} 
+\index{reg::PToken@{reg::PToken}!setValue@{setValue}}
+\index{setValue@{setValue}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{setValue()}{setValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void reg\+::\+PToken\+::set\+Value (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the value for a token 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141 \{ \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} = (\mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} \& 0xFFFF0000) | \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}, and \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}\label{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}} 
+\index{reg::PToken@{reg::PToken}!to@{to}}
+\index{to@{to}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{to()}{to()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t reg\+::\+PToken\+::to (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \textquotesingle{}to\textquotesingle{} part of the character range. Only valid if this token represents a range 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} \& 0xFFFF; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+
+
+Referenced by \mbox{\hyperlink{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}{is\+Range()}}, and \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a26bba20b316615c53a77eb522602df8a}{reg\+::\+Ex\+::\+Private\+::match\+At()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}\label{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}} 
+\index{reg::PToken@{reg::PToken}!to@{to}}
+\index{to@{to}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{to()}{to()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t reg\+::\+PToken\+::to (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \textquotesingle{}to\textquotesingle{} part of the character range. Only valid if this token represents a range 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} \& 0xFFFF; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}\label{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}} 
+\index{reg::PToken@{reg::PToken}!value@{value}}
+\index{value@{value}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t reg\+::\+PToken\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the value for this token 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} \& 0xFFFF; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_a6bba97816bf66f179f7b5e305251712d}{doxmlparser.\+compound.\+Mixed\+Container\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a73db539e6aff2c384072850524b60a2e}{doxmlparser.\+index.\+Mixed\+Container\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_a77a1ab3dd5ed8b657ec71a65ec766675}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a8e3d9a7746f4e26b3202c10683031e4d}{doxmlparser.\+compound.\+sp\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a3645c47a25aafd4811ca973b4c3c81b3}{doxmlparser.\+compound.\+sp\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_aec6e3362f7be89a4516fa7e8c265e564}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a5ae763e5ab5231eae1133e68093c49be}{reg\+::\+Ex\+::\+Private\+::compile()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_a29a347857121169c378a71d704cf98bf}{doxmlparser.\+compound.\+Mixed\+Container\+::export()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_ac09403afd5d2ba826e5b94cb2b3e032c}{doxmlparser.\+index.\+Mixed\+Container\+::export()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_acbdd0847abc717ff477b2fa5e5e3f5a9}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_ae5773a444f2224e36a34e70e98cfd733}{doxmlparser.\+compound.\+sp\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_ab9de88ff66a6020243f9805f46deb7be}{doxmlparser.\+compound.\+Mixed\+Container\+::export\+Literal()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a3c55cec0b75a04ba89a06ea94a76fe54}{doxmlparser.\+index.\+Mixed\+Container\+::export\+Literal()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_aeec5a44cf672dc06d1e3d8c8d09e371b}{doxmlparser.\+compound.\+Mixed\+Container\+::export\+Simple()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a7651178bb8729a366621f14edb876370}{doxmlparser.\+index.\+Mixed\+Container\+::export\+Simple()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a881501f15ef6585808e9159df5c8afac}{doxmlparser.\+compound.\+sp\+Type\+::get\+\_\+value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_a4d125ce102342a76dee2f73f7c073579}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::get\+\_\+value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_a4f1de63d59e9bcdd2a466578051e771a}{doxmlparser.\+compound.\+Mixed\+Container\+::get\+Value()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a5e1558b5e82c71921533a5763704ff48}{doxmlparser.\+index.\+Mixed\+Container\+::get\+Value()}}, \mbox{\hyperlink{classreg_1_1_ex_1_1_private_a26bba20b316615c53a77eb522602df8a}{reg\+::\+Ex\+::\+Private\+::match\+At()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a14e75808f01c6016295184d622191252}{doxmlparser.\+compound.\+sp\+Type\+::set\+\_\+value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_a6d2ce1a39bce4c51adce0db0553e8fb4}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::set\+\_\+value()}}, \mbox{\hyperlink{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}{set\+Value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_ab48e66adc6c8a1ff8390edf0d3a0dc2f}{doxmlparser.\+compound.\+Mixed\+Container\+::to\+\_\+etree()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_adf46a3f0eb30d50cdd95e28c745a40d9}{doxmlparser.\+index.\+Mixed\+Container\+::to\+\_\+etree()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_ab230d93be26e10da42bb1234dd8b8aa8}{doxmlparser.\+compound.\+Mixed\+Container\+::to\+\_\+etree\+\_\+simple()}}, and \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a6edcc18a99c9364d1b19864788743fb0}{doxmlparser.\+index.\+Mixed\+Container\+::to\+\_\+etree\+\_\+simple()}}.
+
+\mbox{\Hypertarget{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}\label{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}} 
+\index{reg::PToken@{reg::PToken}!value@{value}}
+\index{value@{value}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t reg\+::\+PToken\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the value for this token 
+
+Definition at line \mbox{\hyperlink{src_2regex_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\_rep}} \& 0xFFFF; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}{m\+\_\+rep}}.
+
+
+
+Referenced by \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_a6bba97816bf66f179f7b5e305251712d}{doxmlparser.\+compound.\+Mixed\+Container\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a73db539e6aff2c384072850524b60a2e}{doxmlparser.\+index.\+Mixed\+Container\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_a77a1ab3dd5ed8b657ec71a65ec766675}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a8e3d9a7746f4e26b3202c10683031e4d}{doxmlparser.\+compound.\+sp\+Type\+::\+\_\+\+\_\+init\+\_\+\+\_\+()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a3645c47a25aafd4811ca973b4c3c81b3}{doxmlparser.\+compound.\+sp\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_aec6e3362f7be89a4516fa7e8c265e564}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::build\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_a29a347857121169c378a71d704cf98bf}{doxmlparser.\+compound.\+Mixed\+Container\+::export()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_ac09403afd5d2ba826e5b94cb2b3e032c}{doxmlparser.\+index.\+Mixed\+Container\+::export()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_acbdd0847abc717ff477b2fa5e5e3f5a9}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_ae5773a444f2224e36a34e70e98cfd733}{doxmlparser.\+compound.\+sp\+Type\+::export\+Attributes()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_ab9de88ff66a6020243f9805f46deb7be}{doxmlparser.\+compound.\+Mixed\+Container\+::export\+Literal()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a3c55cec0b75a04ba89a06ea94a76fe54}{doxmlparser.\+index.\+Mixed\+Container\+::export\+Literal()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_aeec5a44cf672dc06d1e3d8c8d09e371b}{doxmlparser.\+compound.\+Mixed\+Container\+::export\+Simple()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a7651178bb8729a366621f14edb876370}{doxmlparser.\+index.\+Mixed\+Container\+::export\+Simple()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a881501f15ef6585808e9159df5c8afac}{doxmlparser.\+compound.\+sp\+Type\+::get\+\_\+value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_a4d125ce102342a76dee2f73f7c073579}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::get\+\_\+value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_a4f1de63d59e9bcdd2a466578051e771a}{doxmlparser.\+compound.\+Mixed\+Container\+::get\+Value()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a5e1558b5e82c71921533a5763704ff48}{doxmlparser.\+index.\+Mixed\+Container\+::get\+Value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1sp_type_a14e75808f01c6016295184d622191252}{doxmlparser.\+compound.\+sp\+Type\+::set\+\_\+value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1doc_list_item_type_a6d2ce1a39bce4c51adce0db0553e8fb4}{doxmlparser.\+compound.\+doc\+List\+Item\+Type\+::set\+\_\+value()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_ab48e66adc6c8a1ff8390edf0d3a0dc2f}{doxmlparser.\+compound.\+Mixed\+Container\+::to\+\_\+etree()}}, \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_adf46a3f0eb30d50cdd95e28c745a40d9}{doxmlparser.\+index.\+Mixed\+Container\+::to\+\_\+etree()}}, \mbox{\hyperlink{classdoxmlparser_1_1compound_1_1_mixed_container_ab230d93be26e10da42bb1234dd8b8aa8}{doxmlparser.\+compound.\+Mixed\+Container\+::to\+\_\+etree\+\_\+simple()}}, and \mbox{\hyperlink{classdoxmlparser_1_1index_1_1_mixed_container_a6edcc18a99c9364d1b19864788743fb0}{doxmlparser.\+index.\+Mixed\+Container\+::to\+\_\+etree\+\_\+simple()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}\label{classreg_1_1_p_token_aa6204b59dad3115e3fd810bab9d6f255}} 
+\index{reg::PToken@{reg::PToken}!m\_rep@{m\_rep}}
+\index{m\_rep@{m\_rep}!reg::PToken@{reg::PToken}}
+\doxysubsubsection{\texorpdfstring{m\_rep}{m\_rep}}
+{\footnotesize\ttfamily uint32\+\_\+t reg\+::\+PToken\+::m\+\_\+rep\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp_source}{regex.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{classreg_1_1_p_token_a34589c92a4e8ff59eb14c5536e760929}{ascii\+Value()}}, \mbox{\hyperlink{classreg_1_1_p_token_a93203bf3f74828336b477ea31fde1a1c}{from()}}, \mbox{\hyperlink{classreg_1_1_p_token_a4bcf1a48342ff492138d3aff1e0a6fc0}{is\+Range()}}, \mbox{\hyperlink{classreg_1_1_p_token_a5b947291aff91a346d6526074989a9fa}{kind()}}, \mbox{\hyperlink{classreg_1_1_p_token_a9648ec9cffa7fc0d1ef165fc5882a552}{kind\+Str()}}, \mbox{\hyperlink{classreg_1_1_p_token_ac3fca62e036f3fa3cc2ce3a6e79e709b}{set\+Value()}}, \mbox{\hyperlink{classreg_1_1_p_token_a2def1e14eeb96c08b25e4c906af071b6}{to()}}, and \mbox{\hyperlink{classreg_1_1_p_token_ac897faa4d75c143ca24924a5754aa369}{value()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2regex_8cpp}{regex.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2regex_8cpp}{regex.\+cpp}}\end{DoxyCompactItemize}

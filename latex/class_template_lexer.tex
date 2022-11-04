@@ -1,0 +1,488 @@
+\hypertarget{class_template_lexer}{}\doxysection{Template\+Lexer Class Reference}
+\label{class_template_lexer}\index{TemplateLexer@{TemplateLexer}}
+
+
+Lexer class for turning a template into a list of tokens.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}{Template\+Lexer}} (const \mbox{\hyperlink{class_template_engine}{Template\+Engine}} $\ast$engine, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}})
+\item 
+void \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize}} (\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&tokens)
+\item 
+void \mbox{\hyperlink{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}{set\+Open\+Close\+Characters}} (char open\+Char, char close\+Char)
+\item 
+\mbox{\hyperlink{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}{Template\+Lexer}} (const \mbox{\hyperlink{class_template_engine}{Template\+Engine}} $\ast$engine, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}})
+\item 
+void \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize}} (\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&tokens)
+\item 
+void \mbox{\hyperlink{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}{set\+Open\+Close\+Characters}} (char open\+Char, char close\+Char)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{add\+Token}} (\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&tokens, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}}, int line, int start\+Pos, int end\+Pos, \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77}{Template\+Token\+::\+Type}} type)
+\item 
+void \mbox{\hyperlink{class_template_lexer_aa26c5d01c751e0e8d829b6b2cd12409c}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{add\+Token}} (\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&tokens, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}}, int line, int start\+Pos, int end\+Pos, \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77}{Template\+Token\+::\+Type}} type)
+\item 
+void \mbox{\hyperlink{class_template_lexer_aa26c5d01c751e0e8d829b6b2cd12409c}{reset}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_template_engine}{Template\+Engine}} $\ast$ \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\+\_\+engine}} = 0
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\+\_\+file\+Name}}
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\+\_\+data}}
+\item 
+char \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\+\_\+open\+Char}} = 0
+\item 
+char \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\+\_\+close\+Char}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Lexer class for turning a template into a list of tokens. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04804}{4804}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}\label{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}} 
+\index{TemplateLexer@{TemplateLexer}!TemplateLexer@{TemplateLexer}}
+\index{TemplateLexer@{TemplateLexer}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{TemplateLexer()}{TemplateLexer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Template\+Lexer\+::\+Template\+Lexer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_engine}{Template\+Engine}} $\ast$}]{engine,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04823}{4823}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04823                                                                                                        :}
+\DoxyCodeLine{04824   \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\_engine}}(engine), \mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}}(fileName), \mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}})}
+\DoxyCodeLine{04825 \{}
+\DoxyCodeLine{04826   \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}}=\textcolor{charliteral}{'\{'};}
+\DoxyCodeLine{04827   \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}}=\textcolor{charliteral}{'\}'};}
+\DoxyCodeLine{04828 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\+\_\+close\+Char}}, and \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\+\_\+open\+Char}}.
+
+\mbox{\Hypertarget{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}\label{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}} 
+\index{TemplateLexer@{TemplateLexer}!TemplateLexer@{TemplateLexer}}
+\index{TemplateLexer@{TemplateLexer}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{TemplateLexer()}{TemplateLexer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Template\+Lexer\+::\+Template\+Lexer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_engine}{Template\+Engine}} $\ast$}]{engine,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}\label{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}} 
+\index{TemplateLexer@{TemplateLexer}!addToken@{addToken}}
+\index{addToken@{addToken}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{addToken()}{addToken()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::add\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&}]{tokens,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{data,  }\item[{int}]{line,  }\item[{int}]{start\+Pos,  }\item[{int}]{end\+Pos,  }\item[{\mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77}{Template\+Token\+::\+Type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l05033}{5033}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{05037 \{}
+\DoxyCodeLine{05038   \textcolor{keywordflow}{if} (startPos<endPos)}
+\DoxyCodeLine{05039   \{}
+\DoxyCodeLine{05040     \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}} = endPos-\/startPos;}
+\DoxyCodeLine{05041     \mbox{\hyperlink{class_q_c_string}{QCString}} text = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}.mid(startPos,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{05042     \textcolor{keywordflow}{if} (type!=\mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a179b4827197cc32219207bbc69d6168e}{TemplateToken::Text}}) text = text.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{05043     tokens.push\_back(std::make\_unique<TemplateToken>(type,text,line));}
+\DoxyCodeLine{05044   \}}
+\DoxyCodeLine{05045 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{QCString\+::strip\+White\+Space()}}, and \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a179b4827197cc32219207bbc69d6168e}{Template\+Token\+::\+Text}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize()}}.
+
+\mbox{\Hypertarget{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}\label{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}} 
+\index{TemplateLexer@{TemplateLexer}!addToken@{addToken}}
+\index{addToken@{addToken}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{addToken()}{addToken()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::add\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&}]{tokens,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{data,  }\item[{int}]{line,  }\item[{int}]{start\+Pos,  }\item[{int}]{end\+Pos,  }\item[{\mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77}{Template\+Token\+::\+Type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_template_lexer_aa26c5d01c751e0e8d829b6b2cd12409c}\label{class_template_lexer_aa26c5d01c751e0e8d829b6b2cd12409c}} 
+\index{TemplateLexer@{TemplateLexer}!reset@{reset}}
+\index{reset@{reset}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_template_lexer_aa26c5d01c751e0e8d829b6b2cd12409c}\label{class_template_lexer_aa26c5d01c751e0e8d829b6b2cd12409c}} 
+\index{TemplateLexer@{TemplateLexer}!reset@{reset}}
+\index{reset@{reset}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}\label{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}} 
+\index{TemplateLexer@{TemplateLexer}!setOpenCloseCharacters@{setOpenCloseCharacters}}
+\index{setOpenCloseCharacters@{setOpenCloseCharacters}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{setOpenCloseCharacters()}{setOpenCloseCharacters()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::set\+Open\+Close\+Characters (\begin{DoxyParamCaption}\item[{char}]{open\+Char,  }\item[{char}]{close\+Char }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04809}{4809}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04810     \{ \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}}=openChar; \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}}=closeChar; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\+\_\+close\+Char}}, and \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\+\_\+open\+Char}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_impl_a31d4c634a18a30d183118f4f69e6f53d}{Template\+Impl\+::\+Template\+Impl()}}.
+
+\mbox{\Hypertarget{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}\label{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}} 
+\index{TemplateLexer@{TemplateLexer}!setOpenCloseCharacters@{setOpenCloseCharacters}}
+\index{setOpenCloseCharacters@{setOpenCloseCharacters}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{setOpenCloseCharacters()}{setOpenCloseCharacters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::set\+Open\+Close\+Characters (\begin{DoxyParamCaption}\item[{char}]{open\+Char,  }\item[{char}]{close\+Char }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l04809}{4809}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04810     \{ \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}}=openChar; \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}}=closeChar; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\+\_\+close\+Char}}, and \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\+\_\+open\+Char}}.
+
+\mbox{\Hypertarget{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}\label{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}} 
+\index{TemplateLexer@{TemplateLexer}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{tokenize()}{tokenize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::tokenize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&}]{tokens }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04830}{4830}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04831 \{}
+\DoxyCodeLine{04832   \textcolor{keyword}{enum} LexerStates}
+\DoxyCodeLine{04833   \{}
+\DoxyCodeLine{04834     StateText,}
+\DoxyCodeLine{04835     StateBeginTemplate,}
+\DoxyCodeLine{04836     StateTag,}
+\DoxyCodeLine{04837     StateEndTag,}
+\DoxyCodeLine{04838     StateComment,}
+\DoxyCodeLine{04839     StateEndComment,}
+\DoxyCodeLine{04840     StateMaybeVar,}
+\DoxyCodeLine{04841     StateVariable,}
+\DoxyCodeLine{04842     StateEndVariable}
+\DoxyCodeLine{04843   \};}
+\DoxyCodeLine{04844 }
+\DoxyCodeLine{04845   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}}.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{04846   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}}.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{04847   \textcolor{keywordtype}{int}  state=StateText;}
+\DoxyCodeLine{04848   \textcolor{keywordtype}{int}  pos=0;}
+\DoxyCodeLine{04849   \textcolor{keywordtype}{int}  lastTokenPos=0;}
+\DoxyCodeLine{04850   \textcolor{keywordtype}{int}  startLinePos=0;}
+\DoxyCodeLine{04851   \textcolor{keywordtype}{bool} emptyOutputLine=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{04852   \textcolor{keywordtype}{int}  line=1;}
+\DoxyCodeLine{04853   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{04854   \textcolor{keywordtype}{int}  markStartPos=-\/1;}
+\DoxyCodeLine{04855   \textcolor{keywordflow}{for} (;(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}});\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++,pos++)}
+\DoxyCodeLine{04856   \{}
+\DoxyCodeLine{04857     \textcolor{keywordflow}{switch} (state)}
+\DoxyCodeLine{04858     \{}
+\DoxyCodeLine{04859       \textcolor{keywordflow}{case} StateText:}
+\DoxyCodeLine{04860         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}}) \textcolor{comment}{// \{\{ or \{\% or \{\# or something else}}
+\DoxyCodeLine{04861         \{}
+\DoxyCodeLine{04862           state=StateBeginTemplate;}
+\DoxyCodeLine{04863         \}}
+\DoxyCodeLine{04864         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{' '} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)t'} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)n'}) \textcolor{comment}{// non-\/whitespace text}}
+\DoxyCodeLine{04865         \{}
+\DoxyCodeLine{04866           emptyOutputLine=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{04867         \}}
+\DoxyCodeLine{04868         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04869       \textcolor{keywordflow}{case} StateBeginTemplate:}
+\DoxyCodeLine{04870         \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})}
+\DoxyCodeLine{04871         \{}
+\DoxyCodeLine{04872           \textcolor{keywordflow}{case} \textcolor{charliteral}{'\%'}: \textcolor{comment}{// \{\%}}
+\DoxyCodeLine{04873             state=StateTag;}
+\DoxyCodeLine{04874             markStartPos=pos-\/1;}
+\DoxyCodeLine{04875             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04876           \textcolor{keywordflow}{case} \textcolor{charliteral}{'\#'}: \textcolor{comment}{// \{\#}}
+\DoxyCodeLine{04877             state=StateComment;}
+\DoxyCodeLine{04878             markStartPos=pos-\/1;}
+\DoxyCodeLine{04879             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04880           \textcolor{keywordflow}{case} \textcolor{charliteral}{'\{'}: \textcolor{comment}{// \{\{}}
+\DoxyCodeLine{04881             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}}==\textcolor{charliteral}{'\{'})}
+\DoxyCodeLine{04882             \{}
+\DoxyCodeLine{04883               state=StateMaybeVar;}
+\DoxyCodeLine{04884             \}}
+\DoxyCodeLine{04885             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{04886             \{}
+\DoxyCodeLine{04887               state=StateVariable;}
+\DoxyCodeLine{04888             \}}
+\DoxyCodeLine{04889             markStartPos=pos-\/1;}
+\DoxyCodeLine{04890             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04891           \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{04892             state=StateText;}
+\DoxyCodeLine{04893             emptyOutputLine=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{04894             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04895         \}}
+\DoxyCodeLine{04896         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04897       \textcolor{keywordflow}{case} StateTag:}
+\DoxyCodeLine{04898         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{04899         \{}
+\DoxyCodeLine{04900           \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line,\textcolor{stringliteral}{"{}unexpected new line inside \%c\%\%...\%\%\%c block"{}},\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}},\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}});}
+\DoxyCodeLine{04901           \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\_engine}}-\/>\mbox{\hyperlink{class_template_engine_a159aaf3096efbfd42cb2a0321d1ec961}{printIncludeContext}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line);}
+\DoxyCodeLine{04902         \}}
+\DoxyCodeLine{04903         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\%'}) \textcolor{comment}{// \%\} or something else}}
+\DoxyCodeLine{04904         \{}
+\DoxyCodeLine{04905           state=StateEndTag;}
+\DoxyCodeLine{04906         \}}
+\DoxyCodeLine{04907         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04908       \textcolor{keywordflow}{case} StateEndTag:}
+\DoxyCodeLine{04909         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}}) \textcolor{comment}{// \%\}}}
+\DoxyCodeLine{04910         \{}
+\DoxyCodeLine{04911           \textcolor{comment}{// found tag!}}
+\DoxyCodeLine{04912           state=StateText;}
+\DoxyCodeLine{04913           \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{addToken}}(tokens,\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}},line,lastTokenPos,}
+\DoxyCodeLine{04914                    emptyOutputLine ? startLinePos : markStartPos,}
+\DoxyCodeLine{04915                    \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a179b4827197cc32219207bbc69d6168e}{TemplateToken::Text}});}
+\DoxyCodeLine{04916           \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{addToken}}(tokens,\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}},line,markStartPos+2,}
+\DoxyCodeLine{04917                    pos-\/1,\mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a613e06176cf4b09e0c59818bb941bc97}{TemplateToken::Block}});}
+\DoxyCodeLine{04918           lastTokenPos = pos+1;}
+\DoxyCodeLine{04919         \}}
+\DoxyCodeLine{04920         \textcolor{keywordflow}{else} \textcolor{comment}{// something else}}
+\DoxyCodeLine{04921         \{}
+\DoxyCodeLine{04922           \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{04923           \{}
+\DoxyCodeLine{04924             \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line,\textcolor{stringliteral}{"{}unexpected new line inside \%c\%\%...\%\%\%c block"{}},\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}},\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}});}
+\DoxyCodeLine{04925             \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\_engine}}-\/>\mbox{\hyperlink{class_template_engine_a159aaf3096efbfd42cb2a0321d1ec961}{printIncludeContext}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line);}
+\DoxyCodeLine{04926           \}}
+\DoxyCodeLine{04927           state=StateTag;}
+\DoxyCodeLine{04928         \}}
+\DoxyCodeLine{04929         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04930       \textcolor{keywordflow}{case} StateComment:}
+\DoxyCodeLine{04931         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{04932         \{}
+\DoxyCodeLine{04933           \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line,\textcolor{stringliteral}{"{}unexpected new line inside \%c\#...\#\%c block"{}},\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}},\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}});}
+\DoxyCodeLine{04934           \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\_engine}}-\/>\mbox{\hyperlink{class_template_engine_a159aaf3096efbfd42cb2a0321d1ec961}{printIncludeContext}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line);}
+\DoxyCodeLine{04935         \}}
+\DoxyCodeLine{04936         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\#'}) \textcolor{comment}{// \#\} or something else}}
+\DoxyCodeLine{04937         \{}
+\DoxyCodeLine{04938           state=StateEndComment;}
+\DoxyCodeLine{04939         \}}
+\DoxyCodeLine{04940         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04941       \textcolor{keywordflow}{case} StateEndComment:}
+\DoxyCodeLine{04942         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}}) \textcolor{comment}{// \#\}}}
+\DoxyCodeLine{04943         \{}
+\DoxyCodeLine{04944           \textcolor{comment}{// found comment tag!}}
+\DoxyCodeLine{04945           state=StateText;}
+\DoxyCodeLine{04946           \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{addToken}}(tokens,\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}},line,lastTokenPos,}
+\DoxyCodeLine{04947                    emptyOutputLine ? startLinePos : markStartPos,}
+\DoxyCodeLine{04948                    \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a179b4827197cc32219207bbc69d6168e}{TemplateToken::Text}});}
+\DoxyCodeLine{04949           lastTokenPos = pos+1;}
+\DoxyCodeLine{04950         \}}
+\DoxyCodeLine{04951         \textcolor{keywordflow}{else} \textcolor{comment}{// something else}}
+\DoxyCodeLine{04952         \{}
+\DoxyCodeLine{04953           \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{04954           \{}
+\DoxyCodeLine{04955             \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line,\textcolor{stringliteral}{"{}unexpected new line inside \%c\#...\#\%c block"{}},\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}},\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}});}
+\DoxyCodeLine{04956             \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\_engine}}-\/>\mbox{\hyperlink{class_template_engine_a159aaf3096efbfd42cb2a0321d1ec961}{printIncludeContext}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line);}
+\DoxyCodeLine{04957           \}}
+\DoxyCodeLine{04958           state=StateComment;}
+\DoxyCodeLine{04959         \}}
+\DoxyCodeLine{04960         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04961       \textcolor{keywordflow}{case} StateMaybeVar:}
+\DoxyCodeLine{04962         \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})}
+\DoxyCodeLine{04963         \{}
+\DoxyCodeLine{04964           \textcolor{keywordflow}{case} \textcolor{charliteral}{'\#'}: \textcolor{comment}{// \{\{\#}}
+\DoxyCodeLine{04965             state=StateComment;}
+\DoxyCodeLine{04966             markStartPos=pos-\/1;}
+\DoxyCodeLine{04967             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04968           \textcolor{keywordflow}{case} \textcolor{charliteral}{'\%'}: \textcolor{comment}{// \{\{\%}}
+\DoxyCodeLine{04969             state=StateTag;}
+\DoxyCodeLine{04970             markStartPos=pos-\/1;}
+\DoxyCodeLine{04971             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04972           \textcolor{keywordflow}{default}:  \textcolor{comment}{// \{\{}}
+\DoxyCodeLine{04973             state=StateVariable;}
+\DoxyCodeLine{04974             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04975         \}}
+\DoxyCodeLine{04976         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04977       \textcolor{keywordflow}{case} StateVariable:}
+\DoxyCodeLine{04978         emptyOutputLine=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}; \textcolor{comment}{// assume a variable expands to content}}
+\DoxyCodeLine{04979         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{04980         \{}
+\DoxyCodeLine{04981           \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line,\textcolor{stringliteral}{"{}unexpected new line inside \%c\{...\}\%c block"{}},\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}},\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}});}
+\DoxyCodeLine{04982           \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\_engine}}-\/>\mbox{\hyperlink{class_template_engine_a159aaf3096efbfd42cb2a0321d1ec961}{printIncludeContext}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line);}
+\DoxyCodeLine{04983         \}}
+\DoxyCodeLine{04984         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\}'}) \textcolor{comment}{// \}\} or something else}}
+\DoxyCodeLine{04985         \{}
+\DoxyCodeLine{04986           state=StateEndVariable;}
+\DoxyCodeLine{04987         \}}
+\DoxyCodeLine{04988         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{04989       \textcolor{keywordflow}{case} StateEndVariable:}
+\DoxyCodeLine{04990         \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}}) \textcolor{comment}{// \}\}}}
+\DoxyCodeLine{04991         \{}
+\DoxyCodeLine{04992           \textcolor{comment}{// found variable tag!}}
+\DoxyCodeLine{04993           state=StateText;}
+\DoxyCodeLine{04994           \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{addToken}}(tokens,\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}},line,lastTokenPos,}
+\DoxyCodeLine{04995                    emptyOutputLine ? startLinePos : markStartPos,}
+\DoxyCodeLine{04996                    \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a179b4827197cc32219207bbc69d6168e}{TemplateToken::Text}});}
+\DoxyCodeLine{04997           \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{addToken}}(tokens,\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}},line,markStartPos+2,}
+\DoxyCodeLine{04998                    pos-\/1,\mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a581459c4bf003584e96fde6f7fa2fdec}{TemplateToken::Variable}});}
+\DoxyCodeLine{04999           lastTokenPos = pos+1;}
+\DoxyCodeLine{05000         \}}
+\DoxyCodeLine{05001         \textcolor{keywordflow}{else} \textcolor{comment}{// something else}}
+\DoxyCodeLine{05002         \{}
+\DoxyCodeLine{05003           \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{05004           \{}
+\DoxyCodeLine{05005             \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line,\textcolor{stringliteral}{"{}unexpected new line inside \%c\{...\}\%c block"{}},\mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\_openChar}},\mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\_closeChar}});}
+\DoxyCodeLine{05006             \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\_engine}}-\/>\mbox{\hyperlink{class_template_engine_a159aaf3096efbfd42cb2a0321d1ec961}{printIncludeContext}}(\mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\_fileName}},line);}
+\DoxyCodeLine{05007           \}}
+\DoxyCodeLine{05008           state=StateVariable;}
+\DoxyCodeLine{05009         \}}
+\DoxyCodeLine{05010         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{05011     \}}
+\DoxyCodeLine{05012     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'}) \textcolor{comment}{// new line}}
+\DoxyCodeLine{05013     \{}
+\DoxyCodeLine{05014       state=StateText;}
+\DoxyCodeLine{05015       startLinePos=pos+1;}
+\DoxyCodeLine{05016       \textcolor{comment}{// if the current line only contain commands and whitespace,}}
+\DoxyCodeLine{05017       \textcolor{comment}{// then skip it in the output by moving lastTokenPos}}
+\DoxyCodeLine{05018       \textcolor{keywordflow}{if} (markStartPos!=-\/1 \&\& emptyOutputLine) lastTokenPos = startLinePos;}
+\DoxyCodeLine{05019       \textcolor{comment}{// reset markers}}
+\DoxyCodeLine{05020       markStartPos=-\/1;}
+\DoxyCodeLine{05021       line++;}
+\DoxyCodeLine{05022       emptyOutputLine=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{05023     \}}
+\DoxyCodeLine{05024   \}}
+\DoxyCodeLine{05025   \textcolor{keywordflow}{if} (lastTokenPos<pos)}
+\DoxyCodeLine{05026   \{}
+\DoxyCodeLine{05027     \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{addToken}}(tokens,\mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\_data}},line,}
+\DoxyCodeLine{05028              lastTokenPos,pos,}
+\DoxyCodeLine{05029              \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a179b4827197cc32219207bbc69d6168e}{TemplateToken::Text}});}
+\DoxyCodeLine{05030   \}}
+\DoxyCodeLine{05031 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_template_lexer_a747e574ba93394a911d2a68eedea5a15}{add\+Token()}}, \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a613e06176cf4b09e0c59818bb941bc97}{Template\+Token\+::\+Block}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}{m\+\_\+close\+Char}}, \mbox{\hyperlink{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}{m\+\_\+data}}, \mbox{\hyperlink{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}{m\+\_\+engine}}, \mbox{\hyperlink{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}{m\+\_\+file\+Name}}, \mbox{\hyperlink{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}{m\+\_\+open\+Char}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, \mbox{\hyperlink{class_template_engine_a159aaf3096efbfd42cb2a0321d1ec961}{Template\+Engine\+::print\+Include\+Context()}}, \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a179b4827197cc32219207bbc69d6168e}{Template\+Token\+::\+Text}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \mbox{\hyperlink{class_template_token_a45cf31d317b7b01b08e7d0b471284e77a581459c4bf003584e96fde6f7fa2fdec}{Template\+Token\+::\+Variable}}, and \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ab9900b0a7af62acd881e57901b0418a1}{warn()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_impl_a31d4c634a18a30d183118f4f69e6f53d}{Template\+Impl\+::\+Template\+Impl()}}.
+
+\mbox{\Hypertarget{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}\label{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}} 
+\index{TemplateLexer@{TemplateLexer}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{tokenize()}{tokenize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Template\+Lexer\+::tokenize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_a2c233adb0784d2ab5020eaab2614c572}{Template\+Token\+Stream}} \&}]{tokens }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}\label{class_template_lexer_a8d6f4caea162232cb04570255fbb1feb}} 
+\index{TemplateLexer@{TemplateLexer}!m\_closeChar@{m\_closeChar}}
+\index{m\_closeChar@{m\_closeChar}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{m\_closeChar}{m\_closeChar}}
+{\footnotesize\ttfamily char Template\+Lexer\+::m\+\_\+close\+Char = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04820}{4820}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}{set\+Open\+Close\+Characters()}}, \mbox{\hyperlink{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}{Template\+Lexer()}}, and \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize()}}.
+
+\mbox{\Hypertarget{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}\label{class_template_lexer_ae6579f072acae9136961d4f6bbab523f}} 
+\index{TemplateLexer@{TemplateLexer}!m\_data@{m\_data}}
+\index{m\_data@{m\_data}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{m\_data}{m\_data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} Template\+Lexer\+::m\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04818}{4818}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize()}}.
+
+\mbox{\Hypertarget{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}\label{class_template_lexer_ac26454f6ea91e6991e53d336b6e12e38}} 
+\index{TemplateLexer@{TemplateLexer}!m\_engine@{m\_engine}}
+\index{m\_engine@{m\_engine}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{m\_engine}{m\_engine}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_template_engine}{Template\+Engine}} $\ast$ Template\+Lexer\+::m\+\_\+engine = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04816}{4816}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize()}}.
+
+\mbox{\Hypertarget{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}\label{class_template_lexer_af1533e7b4dafaf57d3d6c69e18962f6f}} 
+\index{TemplateLexer@{TemplateLexer}!m\_fileName@{m\_fileName}}
+\index{m\_fileName@{m\_fileName}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{m\_fileName}{m\_fileName}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} Template\+Lexer\+::m\+\_\+file\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04817}{4817}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize()}}.
+
+\mbox{\Hypertarget{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}\label{class_template_lexer_ac65c888f1ca9229ffca2463a5698da7f}} 
+\index{TemplateLexer@{TemplateLexer}!m\_openChar@{m\_openChar}}
+\index{m\_openChar@{m\_openChar}!TemplateLexer@{TemplateLexer}}
+\doxysubsubsection{\texorpdfstring{m\_openChar}{m\_openChar}}
+{\footnotesize\ttfamily char Template\+Lexer\+::m\+\_\+open\+Char = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l04819}{4819}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_template_lexer_a725375d2d2c117ac98aa2191c09749a7}{set\+Open\+Close\+Characters()}}, \mbox{\hyperlink{class_template_lexer_a66516554b1836bbf3e98dec5650964ee}{Template\+Lexer()}}, and \mbox{\hyperlink{class_template_lexer_ad0fe4d702b5b8f34ad1ad9b45fac3537}{tokenize()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

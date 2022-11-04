@@ -1,0 +1,162 @@
+\hypertarget{build_2doxygen_2src_2docbookvisitor_8cpp}{}\doxysection{doxygen/build/doxygen/src/docbookvisitor.cpp File Reference}
+\label{build_2doxygen_2src_2docbookvisitor_8cpp}\index{doxygen/build/doxygen/src/docbookvisitor.cpp@{doxygen/build/doxygen/src/docbookvisitor.cpp}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}docbookvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docbookgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}msc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dia.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlentity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}emoji.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plantuml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}growbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_a7cb6b1e61aa0556ab096f11e04418b99}{DB\+\_\+\+VIS\+\_\+C}}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_af12ed68841c0b4918c498797ef0d9312}{DB\+\_\+\+VIS\+\_\+\+C1}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_ac625b8993c09e0adefac75dd2be11f80}{DB\+\_\+\+VIS\+\_\+\+C2}}(\mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}})
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_a836d3f613efc3b01def439656e51e428}{DB\+\_\+\+VIS\+\_\+\+C2a}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}},  \mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_a2696c55cf5da503843057747b989140c}{filter\+Id}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_a9e2036260f430686eab1509bb5087359}{supported\+Html\+Attribute}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2docbookvisitor_8cpp_a7cb6b1e61aa0556ab096f11e04418b99}\label{build_2doxygen_2src_2docbookvisitor_8cpp_a7cb6b1e61aa0556ab096f11e04418b99}} 
+\index{docbookvisitor.cpp@{docbookvisitor.cpp}!DB\_VIS\_C@{DB\_VIS\_C}}
+\index{DB\_VIS\_C@{DB\_VIS\_C}!docbookvisitor.cpp@{docbookvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{DB\_VIS\_C}{DB\_VIS\_C}}
+{\footnotesize\ttfamily \#define DB\+\_\+\+VIS\+\_\+C}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source}{docbookvisitor.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2docbookvisitor_8cpp_af12ed68841c0b4918c498797ef0d9312}\label{build_2doxygen_2src_2docbookvisitor_8cpp_af12ed68841c0b4918c498797ef0d9312}} 
+\index{docbookvisitor.cpp@{docbookvisitor.cpp}!DB\_VIS\_C1@{DB\_VIS\_C1}}
+\index{DB\_VIS\_C1@{DB\_VIS\_C1}!docbookvisitor.cpp@{docbookvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{DB\_VIS\_C1}{DB\_VIS\_C1}}
+{\footnotesize\ttfamily \#define DB\+\_\+\+VIS\+\_\+\+C1(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source}{docbookvisitor.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2docbookvisitor_8cpp_ac625b8993c09e0adefac75dd2be11f80}\label{build_2doxygen_2src_2docbookvisitor_8cpp_ac625b8993c09e0adefac75dd2be11f80}} 
+\index{docbookvisitor.cpp@{docbookvisitor.cpp}!DB\_VIS\_C2@{DB\_VIS\_C2}}
+\index{DB\_VIS\_C2@{DB\_VIS\_C2}!docbookvisitor.cpp@{docbookvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{DB\_VIS\_C2}{DB\_VIS\_C2}}
+{\footnotesize\ttfamily \#define DB\+\_\+\+VIS\+\_\+\+C2(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source}{docbookvisitor.\+cpp}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2docbookvisitor_8cpp_a836d3f613efc3b01def439656e51e428}\label{build_2doxygen_2src_2docbookvisitor_8cpp_a836d3f613efc3b01def439656e51e428}} 
+\index{docbookvisitor.cpp@{docbookvisitor.cpp}!DB\_VIS\_C2a@{DB\_VIS\_C2a}}
+\index{DB\_VIS\_C2a@{DB\_VIS\_C2a}!docbookvisitor.cpp@{docbookvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{DB\_VIS\_C2a}{DB\_VIS\_C2a}}
+{\footnotesize\ttfamily \#define DB\+\_\+\+VIS\+\_\+\+C2a(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}},  }\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_af1202c02b14870c18fb3a1da73e9e7c7}{y}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source}{docbookvisitor.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2docbookvisitor_8cpp_a2696c55cf5da503843057747b989140c}\label{build_2doxygen_2src_2docbookvisitor_8cpp_a2696c55cf5da503843057747b989140c}} 
+\index{docbookvisitor.cpp@{docbookvisitor.cpp}!filterId@{filterId}}
+\index{filterId@{filterId}!docbookvisitor.cpp@{docbookvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{filterId()}{filterId()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} filter\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source}{docbookvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052 \{}
+\DoxyCodeLine{00053   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.isEmpty()) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{00054   \mbox{\hyperlink{class_grow_buf}{GrowBuf}} growBuf;}
+\DoxyCodeLine{00055   growBuf.\mbox{\hyperlink{class_grow_buf_a7aadcbc3d02fe6e01acf45d892cff0ba}{clear}}();}
+\DoxyCodeLine{00056   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.\mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{data}}();}
+\DoxyCodeLine{00057   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00058   \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++))}
+\DoxyCodeLine{00059   \{}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})}
+\DoxyCodeLine{00061     \{}
+\DoxyCodeLine{00062       \textcolor{keywordflow}{case} \textcolor{charliteral}{':'}:  growBuf.\mbox{\hyperlink{class_grow_buf_a5e0ff6d9f7a7139725d77a9d669340f3}{addStr}}(\textcolor{stringliteral}{"{}\_1"{}});   \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00063       \textcolor{keywordflow}{default}:   growBuf.\mbox{\hyperlink{class_grow_buf_a46b4677f555d2abc718f26e71a59efda}{addChar}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00064     \}}
+\DoxyCodeLine{00065   \}}
+\DoxyCodeLine{00066   growBuf.\mbox{\hyperlink{class_grow_buf_a46b4677f555d2abc718f26e71a59efda}{addChar}}(0);}
+\DoxyCodeLine{00067   \textcolor{keywordflow}{return} growBuf.\mbox{\hyperlink{class_grow_buf_a88d6408723b8c1a58187f24da81dfd5e}{get}}();}
+\DoxyCodeLine{00068 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_grow_buf_a46b4677f555d2abc718f26e71a59efda}{Grow\+Buf\+::add\+Char()}}, \mbox{\hyperlink{class_grow_buf_a5e0ff6d9f7a7139725d77a9d669340f3}{Grow\+Buf\+::add\+Str()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_grow_buf_a7aadcbc3d02fe6e01acf45d892cff0ba}{Grow\+Buf\+::clear()}}, \mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{gd\+Font\+::data}}, \mbox{\hyperlink{class_grow_buf_a88d6408723b8c1a58187f24da81dfd5e}{Grow\+Buf\+::get()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_docbook_doc_visitor_ab7fced02c41e630be0ba0d38ec7445e4}{Docbook\+Doc\+Visitor\+::operator()()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2docbookvisitor_8cpp_a9e2036260f430686eab1509bb5087359}\label{build_2doxygen_2src_2docbookvisitor_8cpp_a9e2036260f430686eab1509bb5087359}} 
+\index{docbookvisitor.cpp@{docbookvisitor.cpp}!supportedHtmlAttribute@{supportedHtmlAttribute}}
+\index{supportedHtmlAttribute@{supportedHtmlAttribute}!docbookvisitor.cpp@{docbookvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{supportedHtmlAttribute()}{supportedHtmlAttribute()}}
+{\footnotesize\ttfamily static bool supported\+Html\+Attribute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{build_2doxygen_2src_2docbookvisitor_8cpp_source}{docbookvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071 \{}
+\DoxyCodeLine{00072   \textcolor{keywordflow}{return} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}align"{}} ||}
+\DoxyCodeLine{00073           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}bgcolor"{}} ||}
+\DoxyCodeLine{00074           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}border"{}} ||}
+\DoxyCodeLine{00075           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}cellpadding"{}} ||}
+\DoxyCodeLine{00076           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}cellspacing"{}} ||}
+\DoxyCodeLine{00077           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}class"{}} ||}
+\DoxyCodeLine{00078           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}frame"{}} ||}
+\DoxyCodeLine{00079           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}label"{}} ||}
+\DoxyCodeLine{00080           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}style"{}} ||}
+\DoxyCodeLine{00081           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}width"{}} ||}
+\DoxyCodeLine{00082           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}tabstyle"{}} ||}
+\DoxyCodeLine{00083           \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}title"{}});}
+\DoxyCodeLine{00084 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_docbook_doc_visitor_ab21bc8c6017db61778cf6e60cea89abe}{Docbook\+Doc\+Visitor\+::operator()()}}.
+

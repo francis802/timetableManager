@@ -1,0 +1,94 @@
+\hypertarget{build_2doxygen_2src_2dia_8cpp_source}{}\doxysection{dia.\+cpp}
+\label{build_2doxygen_2src_2dia_8cpp_source}\index{doxygen/build/doxygen/src/dia.cpp@{doxygen/build/doxygen/src/dia.cpp}}
+\mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2021 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dia_8h}{dia.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2portable_8h}{portable.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2message_8h}{message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2util_8h}{util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dir_8h}{dir.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00024}\mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_ad1b6b56d95d64570f2be3ca005b63412}{00024}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_ad1b6b56d95d64570f2be3ca005b63412}{maxCmdLine}} = 40960;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00026}\mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_a6791d60c7183801a8dcbdd7e9fc7a896}{00026}} \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_a6791d60c7183801a8dcbdd7e9fc7a896}{writeDiaGraphFromFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&inFile,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&outDir,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00027}00027                            \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a9af8a34a1d63fa9ed984b7cdd97daee1}{outFile}},\mbox{\hyperlink{build_2doxygen_2src_2dia_8h_abc13e8949e66677e61029ee294434c35}{DiaOutputFormat}} format,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00028}00028                            \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00029}00029 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00030}00030   \mbox{\hyperlink{class_q_c_string}{QCString}} absOutFile = outDir;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00031}00031   absOutFile+=\mbox{\hyperlink{namespace_portable_a0f30be3f0aed0b88804816f3e6310ee4}{Portable::pathSeparator}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00032}00032   absOutFile+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a9af8a34a1d63fa9ed984b7cdd97daee1}{outFile}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00034}00034   \textcolor{comment}{// chdir to the output dir, so dot can find the font file.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00035}00035   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} oldDir = \mbox{\hyperlink{class_dir_a0f62ab07068c5f966bca7ce280f4ed49}{Dir::currentDirPath}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00036}00036   \textcolor{comment}{// go to the html output directory (i.e. path)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00037}00037   \mbox{\hyperlink{class_dir_ab3b09edc88159dc30426999bdc7d6d7b}{Dir::setCurrent}}(outDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00038}00038   \textcolor{comment}{//printf("{}Going to dir \%s\(\backslash\)n"{},Dir::currentDirPath().c\_str());}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00039}00039   \mbox{\hyperlink{class_q_c_string}{QCString}} diaExe = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(DIA\_PATH)+\textcolor{stringliteral}{"{}dia"{}}+\mbox{\hyperlink{namespace_portable_acf75def6ec394875d4a3c380ffc301b7}{Portable::commandExtension}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00040}00040   \mbox{\hyperlink{class_q_c_string}{QCString}} diaArgs;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00041}00041   \mbox{\hyperlink{class_q_c_string}{QCString}} extension;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00042}00042   diaArgs+=\textcolor{stringliteral}{"{}-\/n "{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00043}00043   \textcolor{keywordflow}{if} (format==\mbox{\hyperlink{build_2doxygen_2src_2dia_8h_abc13e8949e66677e61029ee294434c35a8067840da68a1d3cf61db03c1f164193}{DIA\_BITMAP}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00044}00044   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00045}00045     diaArgs+=\textcolor{stringliteral}{"{}-\/t png-\/libart"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00046}00046     extension=\textcolor{stringliteral}{"{}.png"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00047}00047   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00048}00048   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (format==\mbox{\hyperlink{build_2doxygen_2src_2dia_8h_abc13e8949e66677e61029ee294434c35a62a855ce0069d65a378be40ea7c01af3}{DIA\_EPS}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00049}00049   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00050}00050     diaArgs+=\textcolor{stringliteral}{"{}-\/t eps"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00051}00051     extension=\textcolor{stringliteral}{"{}.eps"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00052}00052   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00054}00054   diaArgs+=\textcolor{stringliteral}{"{} -\/e \(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00055}00055   diaArgs+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a9af8a34a1d63fa9ed984b7cdd97daee1}{outFile}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00056}00056   diaArgs+=extension+\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00058}00058   diaArgs+=\textcolor{stringliteral}{"{} \(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00059}00059   diaArgs+=inFile;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00060}00060   diaArgs+=\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00062}00062   \textcolor{comment}{//printf("{}*** running: \%s \%s outDir:\%s \%s\(\backslash\)n"{},qPrint(diaExe),qPrint(diaArgs),outDir,outFile);}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00063}00063   \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable::sysTimerStart}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00064}00064   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable::system}}(diaExe,diaArgs,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}})!=0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00065}00065   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00066}00066     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_a45377f8cd3057206a6b19d65300e7415}{err\_full}}(srcFile,srcLine,\textcolor{stringliteral}{"{}Problems running \%s. Check your installation or look typos in you dia file \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00067}00067         \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(diaExe),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(inFile));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00068}00068     \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00069}00069     \textcolor{keywordflow}{goto} error;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00070}00070   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00071}00071   \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00072}00072   \textcolor{keywordflow}{if} ( (format==\mbox{\hyperlink{build_2doxygen_2src_2dia_8h_abc13e8949e66677e61029ee294434c35a62a855ce0069d65a378be40ea7c01af3}{DIA\_EPS}}) \&\& (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX)) )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00073}00073   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00074}00074     \mbox{\hyperlink{class_q_c_string}{QCString}} epstopdfArgs(\mbox{\hyperlink{build_2doxygen_2src_2dia_8cpp_ad1b6b56d95d64570f2be3ca005b63412}{maxCmdLine}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00075}00075     epstopdfArgs.\mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\(\backslash\)"{}\%s.eps\(\backslash\)"{} -\/-\/outfile=\(\backslash\)"{}\%s.pdf\(\backslash\)"{}"{}},}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00076}00076                          \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a9af8a34a1d63fa9ed984b7cdd97daee1}{outFile}}),\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a9af8a34a1d63fa9ed984b7cdd97daee1}{outFile}}));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00077}00077     \mbox{\hyperlink{namespace_portable_ada9653ce1cfc72cc4923aac726435962}{Portable::sysTimerStart}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00078}00078     \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_portable_ab30a636186b72a67d57e9f7f1e917e99}{Portable::system}}(\textcolor{stringliteral}{"{}epstopdf"{}},epstopdfArgs)!=0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00079}00079     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00080}00080       \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Problems running epstopdf. Check your TeX installation!\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00082}00082     \mbox{\hyperlink{namespace_portable_a3131c9d07ca7ce1ad22542ce9e417068}{Portable::sysTimerStop}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00083}00083   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00085}00085 error:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00086}00086   \mbox{\hyperlink{class_dir_ab3b09edc88159dc30426999bdc7d6d7b}{Dir::setCurrent}}(oldDir);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00087}00087 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2dia_8cpp_source_l00088}00088 }
+
+\end{DoxyCode}

@@ -1,0 +1,182 @@
+\hypertarget{build_2doxygen_2src_2vhdljjparser_8cpp}{}\doxysection{doxygen/build/doxygen/src/vhdljjparser.cpp File Reference}
+\label{build_2doxygen_2src_2vhdljjparser_8cpp}\index{doxygen/build/doxygen/src/vhdljjparser.cpp@{doxygen/build/doxygen/src/vhdljjparser.cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}containers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdljjparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentscan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definition.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}growbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}markdown.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Vhdl\+Parser\+Token\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Vhdl\+Parser\+Error\+Handler.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_v_h_d_l_doc_info}{VHDLDoc\+Info}}
+\item 
+struct \mbox{\hyperlink{struct_v_h_d_l_outline_parser_1_1_private}{VHDLOutline\+Parser\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a710af507a150913251c3885189b77fb8}{is\+Constraint\+File}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&ext)
+\item 
+const \mbox{\hyperlink{build_2doxygen_2src_2entry_8h_abd47085ad2ebd874e6b5d92f426e31b1}{Entry\+List}} \& \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a182203e7e4b8c08526f2bda22d394855}{get\+Vhdl\+Inst\+List}} ()
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a0e267341fc8fcfd1947c8b2d69d2ebb2}{filter2008\+Vhdl\+Comment}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{build_2doxygen_2src_2entry_8h_abd47085ad2ebd874e6b5d92f426e31b1}{Entry\+List}} \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a61ffdba0efc8d9b6390969cb7fa5d37b}{g\+\_\+inst\+Files}}
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a3d194504e944c7d48d1bb8d8223e506e}{id\+Counter}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdljjparser_8cpp_a0e267341fc8fcfd1947c8b2d69d2ebb2}\label{build_2doxygen_2src_2vhdljjparser_8cpp_a0e267341fc8fcfd1947c8b2d69d2ebb2}} 
+\index{vhdljjparser.cpp@{vhdljjparser.cpp}!filter2008VhdlComment@{filter2008VhdlComment}}
+\index{filter2008VhdlComment@{filter2008VhdlComment}!vhdljjparser.cpp@{vhdljjparser.cpp}}
+\doxysubsubsection{\texorpdfstring{filter2008VhdlComment()}{filter2008VhdlComment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} filter2008\+Vhdl\+Comment (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source_l00861}{861}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source}{vhdljjparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00862 \{}
+\DoxyCodeLine{00863   \mbox{\hyperlink{class_grow_buf}{GrowBuf}} growBuf;}
+\DoxyCodeLine{00864   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}+3; \textcolor{comment}{// skip /*!}}
+\DoxyCodeLine{00865   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=\textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00866   \textcolor{keywordflow}{while} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} == \textcolor{charliteral}{' '} || *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} == \textcolor{charliteral}{'\(\backslash\)t'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00867   \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++))}
+\DoxyCodeLine{00868   \{}
+\DoxyCodeLine{00869     growBuf.\mbox{\hyperlink{class_grow_buf_a46b4677f555d2abc718f26e71a59efda}{addChar}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{00870     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} == \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00871     \{}
+\DoxyCodeLine{00872       \textcolor{comment}{// special handling of space followed by * at beginning of line}}
+\DoxyCodeLine{00873       \textcolor{keywordflow}{while} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} == \textcolor{charliteral}{' '} || *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} == \textcolor{charliteral}{'\(\backslash\)t'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00874       \textcolor{keywordflow}{while} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} == \textcolor{charliteral}{'*'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00875       \textcolor{comment}{// special attention in case character at end is /}}
+\DoxyCodeLine{00876       \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} == \textcolor{charliteral}{'/'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00877     \}}
+\DoxyCodeLine{00878   \}}
+\DoxyCodeLine{00879   \textcolor{comment}{// special attention in case */ at end of last line}}
+\DoxyCodeLine{00880   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}} = growBuf.\mbox{\hyperlink{class_grow_buf_a1a0ecc7a79837ed02005befe12d49994}{getPos}}();}
+\DoxyCodeLine{00881   \textcolor{keywordflow}{if} (growBuf.\mbox{\hyperlink{class_grow_buf_a0b374b413fef36107db3131180486a90}{at}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/1) == \textcolor{charliteral}{'/'} \&\& growBuf.\mbox{\hyperlink{class_grow_buf_a0b374b413fef36107db3131180486a90}{at}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/2) == \textcolor{charliteral}{'*'})}
+\DoxyCodeLine{00882   \{}
+\DoxyCodeLine{00883     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}} -\/= 2;}
+\DoxyCodeLine{00884     \textcolor{keywordflow}{while} (growBuf.\mbox{\hyperlink{class_grow_buf_a0b374b413fef36107db3131180486a90}{at}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/1) == \textcolor{charliteral}{'*'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/-\/;}
+\DoxyCodeLine{00885     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = growBuf.\mbox{\hyperlink{class_grow_buf_a0b374b413fef36107db3131180486a90}{at}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/1);}
+\DoxyCodeLine{00886     \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = growBuf.\mbox{\hyperlink{class_grow_buf_a0b374b413fef36107db3131180486a90}{at}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/1)) == \textcolor{charliteral}{' '} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} == \textcolor{charliteral}{'\(\backslash\)t'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/-\/;}
+\DoxyCodeLine{00887     growBuf.\mbox{\hyperlink{class_grow_buf_a98f7e0590791e42fcbd31bdfd8c75d2a}{setPos}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00888   \}}
+\DoxyCodeLine{00889   growBuf.\mbox{\hyperlink{class_grow_buf_a46b4677f555d2abc718f26e71a59efda}{addChar}}(0);}
+\DoxyCodeLine{00890   \textcolor{keywordflow}{return} growBuf.\mbox{\hyperlink{class_grow_buf_a88d6408723b8c1a58187f24da81dfd5e}{get}}();}
+\DoxyCodeLine{00891 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_grow_buf_a46b4677f555d2abc718f26e71a59efda}{Grow\+Buf\+::add\+Char()}}, \mbox{\hyperlink{class_grow_buf_a0b374b413fef36107db3131180486a90}{Grow\+Buf\+::at()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_grow_buf_a88d6408723b8c1a58187f24da81dfd5e}{Grow\+Buf\+::get()}}, \mbox{\hyperlink{class_grow_buf_a1a0ecc7a79837ed02005befe12d49994}{Grow\+Buf\+::get\+Pos()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, and \mbox{\hyperlink{class_grow_buf_a98f7e0590791e42fcbd31bdfd8c75d2a}{Grow\+Buf\+::set\+Pos()}}.
+
+
+
+Referenced by \mbox{\hyperlink{classvhdl_1_1parser_1_1_vhdl_parser_token_manager_aaf3e9777b25cd23111cf8d3e0b52b626}{vhdl\+::parser\+::\+Vhdl\+Parser\+Token\+Manager\+::\+Skip\+Lexical\+Actions()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdljjparser_8cpp_a182203e7e4b8c08526f2bda22d394855}\label{build_2doxygen_2src_2vhdljjparser_8cpp_a182203e7e4b8c08526f2bda22d394855}} 
+\index{vhdljjparser.cpp@{vhdljjparser.cpp}!getVhdlInstList@{getVhdlInstList}}
+\index{getVhdlInstList@{getVhdlInstList}!vhdljjparser.cpp@{vhdljjparser.cpp}}
+\doxysubsubsection{\texorpdfstring{getVhdlInstList()}{getVhdlInstList()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{build_2doxygen_2src_2entry_8h_abd47085ad2ebd874e6b5d92f426e31b1}{Entry\+List}} \& get\+Vhdl\+Inst\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source_l00838}{838}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source}{vhdljjparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00839 \{}
+\DoxyCodeLine{00840   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a61ffdba0efc8d9b6390969cb7fa5d37b}{g\_instFiles}};}
+\DoxyCodeLine{00841 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a61ffdba0efc8d9b6390969cb7fa5d37b}{g\+\_\+inst\+Files}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_vhdl_doc_gen_ab8681769cd2f027fbf46a4836d3825e9}{Vhdl\+Doc\+Gen\+::compute\+Vhdl\+Component\+Relations()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdljjparser_8cpp_a710af507a150913251c3885189b77fb8}\label{build_2doxygen_2src_2vhdljjparser_8cpp_a710af507a150913251c3885189b77fb8}} 
+\index{vhdljjparser.cpp@{vhdljjparser.cpp}!isConstraintFile@{isConstraintFile}}
+\index{isConstraintFile@{isConstraintFile}!vhdljjparser.cpp@{vhdljjparser.cpp}}
+\doxysubsubsection{\texorpdfstring{isConstraintFile()}{isConstraintFile()}}
+{\footnotesize\ttfamily static bool is\+Constraint\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{ext }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source}{vhdljjparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00049   \textcolor{keywordflow}{return} fileName.\mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{right}}(ext.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}())==ext;}
+\DoxyCodeLine{00050 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, and \mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{QCString\+::right()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_v_h_d_l_outline_parser_afe98061778ab170da03108ad813fa2e2}{VHDLOutline\+Parser\+::parse\+Input()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdljjparser_8cpp_a61ffdba0efc8d9b6390969cb7fa5d37b}\label{build_2doxygen_2src_2vhdljjparser_8cpp_a61ffdba0efc8d9b6390969cb7fa5d37b}} 
+\index{vhdljjparser.cpp@{vhdljjparser.cpp}!g\_instFiles@{g\_instFiles}}
+\index{g\_instFiles@{g\_instFiles}!vhdljjparser.cpp@{vhdljjparser.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_instFiles}{g\_instFiles}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2src_2entry_8h_abd47085ad2ebd874e6b5d92f426e31b1}{Entry\+List}} g\+\_\+inst\+Files\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source}{vhdljjparser.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_v_h_d_l_outline_parser_a25ca0d3dfb592d9137d79e2ac60c308a}{VHDLOutline\+Parser\+::add\+Comp\+Inst()}}, and \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_a182203e7e4b8c08526f2bda22d394855}{get\+Vhdl\+Inst\+List()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2vhdljjparser_8cpp_a3d194504e944c7d48d1bb8d8223e506e}\label{build_2doxygen_2src_2vhdljjparser_8cpp_a3d194504e944c7d48d1bb8d8223e506e}} 
+\index{vhdljjparser.cpp@{vhdljjparser.cpp}!idCounter@{idCounter}}
+\index{idCounter@{idCounter}!vhdljjparser.cpp@{vhdljjparser.cpp}}
+\doxysubsubsection{\texorpdfstring{idCounter}{idCounter}}
+{\footnotesize\ttfamily int id\+Counter\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source_l00241}{241}} of file \mbox{\hyperlink{build_2doxygen_2src_2vhdljjparser_8cpp_source}{vhdljjparser.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_v_h_d_l_outline_parser_ada253943236861987284e1b340603dbd}{VHDLOutline\+Parser\+::get\+Name\+ID()}}.
+

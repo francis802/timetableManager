@@ -1,0 +1,490 @@
+\hypertarget{class_resource_mgr}{}\doxysection{Resource\+Mgr Class Reference}
+\label{class_resource_mgr}\index{ResourceMgr@{ResourceMgr}}
+
+
+Singleton for managing resources compiled into an executable.  
+
+
+
+
+{\ttfamily \#include $<$resourcemgr.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_resource_mgr_1_1_private}{Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}{register\+Resources}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{struct_resource}{Resource}} $>$ resources)
+\item 
+bool \mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{write\+Category}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&category\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Dir) const
+\item 
+bool \mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{copy\+Resource}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Dir) const
+\item 
+bool \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{copy\+Resource\+As}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Dir, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Name, bool append=false) const
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{get\+As\+String}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name) const
+\item 
+void \mbox{\hyperlink{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}{register\+Resources}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{struct_resource}{Resource}} $>$ resources)
+\item 
+bool \mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{write\+Category}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&category\+Name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Dir) const
+\item 
+bool \mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{copy\+Resource}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Dir) const
+\item 
+bool \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{copy\+Resource\+As}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Dir, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&target\+Name, bool append=false) const
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{get\+As\+String}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_resource_mgr}{Resource\+Mgr}} \& \mbox{\hyperlink{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}{instance}} ()
+\item 
+static \mbox{\hyperlink{class_resource_mgr}{Resource\+Mgr}} \& \mbox{\hyperlink{class_resource_mgr_aaba4f6a9be9d92c4f816fd760d1916bf}{instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct_resource}{Resource}} $\ast$ \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name) const
+\item 
+\mbox{\hyperlink{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}{Resource\+Mgr}} ()
+\item 
+\mbox{\hyperlink{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}{$\sim$\+Resource\+Mgr}} ()
+\item 
+const \mbox{\hyperlink{struct_resource}{Resource}} $\ast$ \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name) const
+\item 
+\mbox{\hyperlink{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}{Resource\+Mgr}} ()
+\item 
+\mbox{\hyperlink{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}{$\sim$\+Resource\+Mgr}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_resource_mgr_1_1_private}{Private}} $>$ \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton for managing resources compiled into an executable. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8h_source_l00035}{35}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8h_source}{resourcemgr.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}\label{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}} 
+\index{ResourceMgr@{ResourceMgr}!ResourceMgr@{ResourceMgr}}
+\index{ResourceMgr@{ResourceMgr}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{ResourceMgr()}{ResourceMgr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Resource\+Mgr\+::\+Resource\+Mgr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038                          : \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}(std::make\_unique<Private>())}
+\DoxyCodeLine{00039 \{}
+\DoxyCodeLine{00040 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}\label{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}} 
+\index{ResourceMgr@{ResourceMgr}!````~ResourceMgr@{$\sim$ResourceMgr}}
+\index{````~ResourceMgr@{$\sim$ResourceMgr}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{$\sim$ResourceMgr()}{~ResourceMgr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Resource\+Mgr\+::$\sim$\+Resource\+Mgr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043 \{}
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}\label{class_resource_mgr_add6ae734009ee107cd2b644fe6fbb39a}} 
+\index{ResourceMgr@{ResourceMgr}!ResourceMgr@{ResourceMgr}}
+\index{ResourceMgr@{ResourceMgr}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{ResourceMgr()}{ResourceMgr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Resource\+Mgr\+::\+Resource\+Mgr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}\label{class_resource_mgr_af9daad2dabbe144b6c7f8cdf0d25568b}} 
+\index{ResourceMgr@{ResourceMgr}!````~ResourceMgr@{$\sim$ResourceMgr}}
+\index{````~ResourceMgr@{$\sim$ResourceMgr}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{$\sim$ResourceMgr()}{~ResourceMgr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Resource\+Mgr\+::$\sim$\+Resource\+Mgr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}\label{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}} 
+\index{ResourceMgr@{ResourceMgr}!copyResource@{copyResource}}
+\index{copyResource@{copyResource}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{copyResource()}{copyResource()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Resource\+Mgr\+::copy\+Resource (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Dir }\end{DoxyParamCaption}) const}
+
+Copies a registered resource to a given target directory 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00180}{180}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00181 \{}
+\DoxyCodeLine{00182   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{copyResourceAs}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},targetDir,\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00183 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{copy\+Resource\+As()}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aeeac5a3fc4ec080a5831f362ddee33f6}{generate\+JSNav\+Tree()}}, \mbox{\hyperlink{class_citation_manager_aeea4b3347215e1eb97b639c96a1dcadd}{Citation\+Manager\+::generate\+Page()}}, \mbox{\hyperlink{class_f_t_v_help_a9e858dee960cc0e73c2d269171dd17a7}{FTVHelp\+::generate\+Tree\+View\+Images()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a0f9b3e222369b7d908441a0825b0da84}{generate\+XML()}}, \mbox{\hyperlink{class_html_generator_a0c4c6cd48e43f74bf258851f8b109faf}{Html\+Generator\+::init()}}, \mbox{\hyperlink{class_template_node_resource_ad3b011a4d9431df8d4f59b6c41c47ea6}{Template\+Node\+Resource\+::render()}}, \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8cpp_ae8e105816d60cf56b75c2d13f9d85048}{write\+Java\+Script\+Search\+Index()}}, \mbox{\hyperlink{class_html_generator_a9114c68d96141e80c08efdd497fc010e}{Html\+Generator\+::write\+Search\+Data()}}, \mbox{\hyperlink{class_html_generator_a1fd6971ba73b744d9ceb90478194d61d}{Html\+Generator\+::write\+Search\+Page()}}, and \mbox{\hyperlink{class_html_generator_a7306ef9abbceafd6074b4d883a59f033}{Html\+Generator\+::write\+Tab\+Data()}}.
+
+\mbox{\Hypertarget{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}\label{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}} 
+\index{ResourceMgr@{ResourceMgr}!copyResource@{copyResource}}
+\index{copyResource@{copyResource}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{copyResource()}{copyResource()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Resource\+Mgr\+::copy\+Resource (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Dir }\end{DoxyParamCaption}) const}
+
+Copies a registered resource to a given target directory \mbox{\Hypertarget{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}\label{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}} 
+\index{ResourceMgr@{ResourceMgr}!copyResourceAs@{copyResourceAs}}
+\index{copyResourceAs@{copyResourceAs}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{copyResourceAs()}{copyResourceAs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Resource\+Mgr\+::copy\+Resource\+As (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Dir,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Name,  }\item[{bool}]{append = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+Copies a registered resource to a given target directory under a given target name 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080 \{}
+\DoxyCodeLine{00081   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} pathName = targetDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}/"{}}+targetName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}();}
+\DoxyCodeLine{00082   std::ios\_base::openmode \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary;}
+\DoxyCodeLine{00083   \textcolor{keywordflow}{if} (append) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}} |= std::ofstream::app;}
+\DoxyCodeLine{00084   \textcolor{keyword}{const} \mbox{\hyperlink{struct_resource}{Resource}} *res = \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00085   \textcolor{keywordflow}{if} (res)}
+\DoxyCodeLine{00086   \{}
+\DoxyCodeLine{00087     \textcolor{keywordflow}{switch} (res-\/>\mbox{\hyperlink{struct_resource_ae73282ad08d3c990c8a0ff353e231ab3}{type}})}
+\DoxyCodeLine{00088     \{}
+\DoxyCodeLine{00089       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eacfa9730bc7f3ad0b68041a64b85f2528}{Resource::Verbatim}}:}
+\DoxyCodeLine{00090         \{}
+\DoxyCodeLine{00091           \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}});}
+\DoxyCodeLine{00092           \textcolor{keywordtype}{bool} ok=\textcolor{keyword}{false};}
+\DoxyCodeLine{00093           \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{00094           \{}
+\DoxyCodeLine{00095             \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}}),res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{00096             ok = !\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.fail();}
+\DoxyCodeLine{00097           \}}
+\DoxyCodeLine{00098           \textcolor{keywordflow}{if} (ok)}
+\DoxyCodeLine{00099           \{}
+\DoxyCodeLine{00100             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00101           \}}
+\DoxyCodeLine{00102         \}}
+\DoxyCodeLine{00103         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382ea8bcfdd27d2be279edc90b72faf3ffd65}{Resource::Luminance}}:}
+\DoxyCodeLine{00105         \{}
+\DoxyCodeLine{00106           \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{00107           \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.left(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.length()-\/4)+\textcolor{stringliteral}{"{}.png"{}}; \textcolor{comment}{// replace .lum by .png}}
+\DoxyCodeLine{00108           \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} = res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}};}
+\DoxyCodeLine{00109           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} width   = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[0]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[1];}
+\DoxyCodeLine{00110           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} height  = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[2]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[3];}
+\DoxyCodeLine{00111           \mbox{\hyperlink{struct_colored_img_data_item}{ColoredImgDataItem}} images[2];}
+\DoxyCodeLine{00112           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.data();}
+\DoxyCodeLine{00113           images[0].\mbox{\hyperlink{struct_colored_img_data_item_aebc8ef167c7bbdf928fcc59b3c9d436b}{width}}   = width;}
+\DoxyCodeLine{00114           images[0].\mbox{\hyperlink{struct_colored_img_data_item_acfac94346e3f7837df12c487bce866f2}{height}}  = height;}
+\DoxyCodeLine{00115           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a295add303cf505546bcd369ff5cee8ff}{content}} = \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[4];}
+\DoxyCodeLine{00116           images[0].\mbox{\hyperlink{struct_colored_img_data_item_af338e78f415c28507fd7a3f4de813458}{alpha}}   = 0;}
+\DoxyCodeLine{00117           images[1].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = 0; \textcolor{comment}{// terminator}}
+\DoxyCodeLine{00118           \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af543a98b46249a2b115f47f0166e9a81}{writeColoredImgData}}(targetDir,images);}
+\DoxyCodeLine{00119           \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00120         \}}
+\DoxyCodeLine{00121         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00122       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eadd0994932e84ccaf2c5b61e2d208b1ec}{Resource::LumAlpha}}:}
+\DoxyCodeLine{00123         \{}
+\DoxyCodeLine{00124           \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{00125           \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.left(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.length()-\/5)+\textcolor{stringliteral}{"{}.png"{}}; \textcolor{comment}{// replace .luma by .png}}
+\DoxyCodeLine{00126           \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}} = res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}};}
+\DoxyCodeLine{00127           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} width   = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[0]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[1];}
+\DoxyCodeLine{00128           \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} height  = (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[2]<<8)+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[3];}
+\DoxyCodeLine{00129           \mbox{\hyperlink{struct_colored_img_data_item}{ColoredImgDataItem}} images[2];}
+\DoxyCodeLine{00130           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}.data();}
+\DoxyCodeLine{00131           images[0].\mbox{\hyperlink{struct_colored_img_data_item_aebc8ef167c7bbdf928fcc59b3c9d436b}{width}}   = width;}
+\DoxyCodeLine{00132           images[0].\mbox{\hyperlink{struct_colored_img_data_item_acfac94346e3f7837df12c487bce866f2}{height}}  = height;}
+\DoxyCodeLine{00133           images[0].\mbox{\hyperlink{struct_colored_img_data_item_a295add303cf505546bcd369ff5cee8ff}{content}} = \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[4];}
+\DoxyCodeLine{00134           images[0].\mbox{\hyperlink{struct_colored_img_data_item_af338e78f415c28507fd7a3f4de813458}{alpha}}   = \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[4+width*height];}
+\DoxyCodeLine{00135           images[1].\mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{name}}    = 0; \textcolor{comment}{// terminator}}
+\DoxyCodeLine{00136           \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af543a98b46249a2b115f47f0166e9a81}{writeColoredImgData}}(targetDir,images);}
+\DoxyCodeLine{00137           \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00138         \}}
+\DoxyCodeLine{00139         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00140       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eabcc90f380aeb61589315aac3e25992c5}{Resource::CSS}}:}
+\DoxyCodeLine{00141         \{}
+\DoxyCodeLine{00142           \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} t(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}});}
+\DoxyCodeLine{00143           \textcolor{keywordflow}{if} (t.is\_open())}
+\DoxyCodeLine{00144           \{}
+\DoxyCodeLine{00145             \mbox{\hyperlink{class_q_c_string}{QCString}} buf(res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}}+1);}
+\DoxyCodeLine{00146             memcpy(buf.rawData(),res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}},res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{00147             buf = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af10f5e35396e550af824e3029bab8dd4}{replaceColorMarkers}}(buf);}
+\DoxyCodeLine{00148             \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}navtree.css"{}})}
+\DoxyCodeLine{00149             \{}
+\DoxyCodeLine{00150               t << \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(buf,\textcolor{stringliteral}{"{}\$width"{}},\mbox{\hyperlink{class_q_c_string}{QCString}}().setNum(\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\_getInt}}(TREEVIEW\_WIDTH))+\textcolor{stringliteral}{"{}px"{}});}
+\DoxyCodeLine{00151             \}}
+\DoxyCodeLine{00152             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00153             \{}
+\DoxyCodeLine{00154               t << \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(buf,\textcolor{stringliteral}{"{}\$doxygenversion"{}},\mbox{\hyperlink{doxygen_2build_2generated__src_2doxyversion_8cpp_aa1cb7e18f8f32b90f9750d5e47a5276c}{getDoxygenVersion}}());}
+\DoxyCodeLine{00155             \}}
+\DoxyCodeLine{00156             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00157           \}}
+\DoxyCodeLine{00158         \}}
+\DoxyCodeLine{00159         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00160       \textcolor{keywordflow}{case} \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eaf7a1a7ba47c69ff6ce016381e26ef299}{Resource::SVG}}:}
+\DoxyCodeLine{00161         \{}
+\DoxyCodeLine{00162           \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} t(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}});}
+\DoxyCodeLine{00163           \textcolor{keywordflow}{if} (t.is\_open())}
+\DoxyCodeLine{00164           \{}
+\DoxyCodeLine{00165             \mbox{\hyperlink{class_q_c_string}{QCString}} buf(res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}}+1);}
+\DoxyCodeLine{00166             memcpy(buf.rawData(),res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}},res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{00167             t << \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af10f5e35396e550af824e3029bab8dd4}{replaceColorMarkers}}(buf);}
+\DoxyCodeLine{00168             \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00169           \}}
+\DoxyCodeLine{00170         \}}
+\DoxyCodeLine{00171     \}}
+\DoxyCodeLine{00172   \}}
+\DoxyCodeLine{00173   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00174   \{}
+\DoxyCodeLine{00175     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}requested resource '\%s' not compiled in!\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}));}
+\DoxyCodeLine{00176   \}}
+\DoxyCodeLine{00177   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00178 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_colored_img_data_item_af338e78f415c28507fd7a3f4de813458}{Colored\+Img\+Data\+Item\+::alpha}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\+\_\+get\+Int}}, \mbox{\hyperlink{struct_colored_img_data_item_a295add303cf505546bcd369ff5cee8ff}{Colored\+Img\+Data\+Item\+::content}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eabcc90f380aeb61589315aac3e25992c5}{Resource\+::\+CSS}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}, \mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{Resource\+::data}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get()}}, \mbox{\hyperlink{doxygen_2build_2generated__src_2doxyversion_8cpp_aa1cb7e18f8f32b90f9750d5e47a5276c}{get\+Doxygen\+Version()}}, \mbox{\hyperlink{struct_colored_img_data_item_acfac94346e3f7837df12c487bce866f2}{Colored\+Img\+Data\+Item\+::height}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eadd0994932e84ccaf2c5b61e2d208b1ec}{Resource\+::\+Lum\+Alpha}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382ea8bcfdd27d2be279edc90b72faf3ffd65}{Resource\+::\+Luminance}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adfd79db267a2c3b3684968e06c3b9155}{mode}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{struct_colored_img_data_item_a366baf49b00c6abc0bcadc9312e2d8ea}{Colored\+Img\+Data\+Item\+::name}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{QCString\+::raw\+Data()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af10f5e35396e550af824e3029bab8dd4}{replace\+Color\+Markers()}}, \mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{Resource\+::size}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eaf7a1a7ba47c69ff6ce016381e26ef299}{Resource\+::\+SVG}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, \mbox{\hyperlink{struct_resource_ae73282ad08d3c990c8a0ff353e231ab3}{Resource\+::type}}, \mbox{\hyperlink{struct_resource_abde5e686869a8c7241557d18033b382eacfa9730bc7f3ad0b68041a64b85f2528}{Resource\+::\+Verbatim}}, \mbox{\hyperlink{struct_colored_img_data_item_aebc8ef167c7bbdf928fcc59b3c9d436b}{Colored\+Img\+Data\+Item\+::width}}, and \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_af543a98b46249a2b115f47f0166e9a81}{write\+Colored\+Img\+Data()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_resource_mgr_a32b8297da656a43a255a3a1b27c210b9}{copy\+Resource()}}, and \mbox{\hyperlink{class_template_node_resource_ad3b011a4d9431df8d4f59b6c41c47ea6}{Template\+Node\+Resource\+::render()}}.
+
+\mbox{\Hypertarget{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}\label{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}} 
+\index{ResourceMgr@{ResourceMgr}!copyResourceAs@{copyResourceAs}}
+\index{copyResourceAs@{copyResourceAs}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{copyResourceAs()}{copyResourceAs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Resource\+Mgr\+::copy\+Resource\+As (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Dir,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Name,  }\item[{bool}]{append = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+Copies a registered resource to a given target directory under a given target name \mbox{\Hypertarget{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}\label{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}} 
+\index{ResourceMgr@{ResourceMgr}!get@{get}}
+\index{get@{get}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_resource}{Resource}} $\ast$ Resource\+Mgr\+::get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Returns a pointer to the resource object with the given name. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00185}{185}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186 \{}
+\DoxyCodeLine{00187   \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{00188   \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources.end()) \textcolor{keywordflow}{return} \&it-\/>second;}
+\DoxyCodeLine{00189   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00190 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_resource_mgr_ad396917a059d354b1ff240b9af3a006c}{copy\+Resource\+As()}}, and \mbox{\hyperlink{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}{get\+As\+String()}}.
+
+\mbox{\Hypertarget{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}\label{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}} 
+\index{ResourceMgr@{ResourceMgr}!get@{get}}
+\index{get@{get}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_resource}{Resource}} $\ast$ Resource\+Mgr\+::get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Returns a pointer to the resource object with the given name. \mbox{\Hypertarget{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}\label{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}} 
+\index{ResourceMgr@{ResourceMgr}!getAsString@{getAsString}}
+\index{getAsString@{getAsString}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{getAsString()}{getAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} Resource\+Mgr\+::get\+As\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption}) const}
+
+Gets the resource data as a \mbox{\hyperlink{class_c}{C}} string 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193 \{}
+\DoxyCodeLine{00194   \textcolor{keyword}{const} \mbox{\hyperlink{struct_resource}{Resource}} *res = \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00195   \textcolor{keywordflow}{if} (res)}
+\DoxyCodeLine{00196   \{}
+\DoxyCodeLine{00197     \mbox{\hyperlink{class_q_c_string}{QCString}} result(res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}}+1);}
+\DoxyCodeLine{00198     memcpy(result.rawData(),res-\/>\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}},res-\/>\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{00199     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00200   \}}
+\DoxyCodeLine{00201   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00202   \{}
+\DoxyCodeLine{00203     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_q_c_string}{QCString}}();}
+\DoxyCodeLine{00204   \}}
+\DoxyCodeLine{00205 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{Resource\+::data}}, \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{QCString\+::raw\+Data()}}, and \mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{Resource\+::size}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2htmlgen_8cpp_ac082e13d5df852dc8a34fd6e84668dff}{fill\+Color\+Style\+Maps()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a0f9b3e222369b7d908441a0825b0da84}{generate\+XML()}}, \mbox{\hyperlink{class_html_generator_a3874b75d86f996ce7d7ca32bea785c56}{Html\+Generator\+::get\+Nav\+Tree\+Css()}}, \mbox{\hyperlink{class_html_generator_a0c4c6cd48e43f74bf258851f8b109faf}{Html\+Generator\+::init()}}, \mbox{\hyperlink{class_latex_generator_af9a70007c56adecf1af4b4c29591e423}{Latex\+Generator\+::init()}}, \mbox{\hyperlink{class_layout_doc_manager_a920748477d4262faf758d21ddbe2329d}{Layout\+Doc\+Manager\+::init()}}, \mbox{\hyperlink{class_template_engine_1_1_private_ae463b323a12298ccc4f9e8e249f2ac7c}{Template\+Engine\+::\+Private\+::load\+By\+Name()}}, \mbox{\hyperlink{build_2doxygen_2src_2layout_8cpp_a8ccb483586d18bd75a15720be22f90cb}{write\+Default\+Layout\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2latexgen_8cpp_ac7339dc7ff25bcb7a9fbea1d671a16da}{write\+Default\+Style\+Sheet()}}, \mbox{\hyperlink{class_html_generator_a9588784ebebaad9cb24e153c07aeb662}{Html\+Generator\+::write\+External\+Search\+Page()}}, \mbox{\hyperlink{class_html_generator_a6c1132096e93e030970694a61ea6c65f}{Html\+Generator\+::write\+Footer\+File()}}, \mbox{\hyperlink{class_latex_generator_a541f0867d38638ee1d3c7611e3d04029}{Latex\+Generator\+::write\+Footer\+File()}}, \mbox{\hyperlink{class_latex_generator_ada1c307f5625a7d4b90fc3e1b9ce4da5}{Latex\+Generator\+::write\+Header\+File()}}, \mbox{\hyperlink{class_html_generator_ab00e0c98e1c833ae27198d1e10c9c22e}{Html\+Generator\+::write\+Header\+File()}}, \mbox{\hyperlink{class_html_generator_a9114c68d96141e80c08efdd497fc010e}{Html\+Generator\+::write\+Search\+Data()}}, \mbox{\hyperlink{class_html_generator_a1fd6971ba73b744d9ceb90478194d61d}{Html\+Generator\+::write\+Search\+Page()}}, and \mbox{\hyperlink{class_latex_generator_ac1feab4756dc9795d056b72cc74379e4}{Latex\+Generator\+::write\+Style\+Info()}}.
+
+\mbox{\Hypertarget{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}\label{class_resource_mgr_aa60ef164e79a11cfa31de29221db11aa}} 
+\index{ResourceMgr@{ResourceMgr}!getAsString@{getAsString}}
+\index{getAsString@{getAsString}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{getAsString()}{getAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} Resource\+Mgr\+::get\+As\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption}) const}
+
+Gets the resource data as a \mbox{\hyperlink{class_c}{C}} string \mbox{\Hypertarget{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}\label{class_resource_mgr_a02fb3176893696eaf659d680c8b08064}} 
+\index{ResourceMgr@{ResourceMgr}!instance@{instance}}
+\index{instance@{instance}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_resource_mgr}{Resource\+Mgr}} \& Resource\+Mgr\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the one and only instance of this class 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033 \{}
+\DoxyCodeLine{00034   \textcolor{keyword}{static} \mbox{\hyperlink{class_resource_mgr}{ResourceMgr}} theInstance;}
+\DoxyCodeLine{00035   \textcolor{keywordflow}{return} theInstance;}
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2htmlgen_8cpp_ac082e13d5df852dc8a34fd6e84668dff}{fill\+Color\+Style\+Maps()}}, \mbox{\hyperlink{build_2doxygen_2src_2ftvhelp_8cpp_aeeac5a3fc4ec080a5831f362ddee33f6}{generate\+JSNav\+Tree()}}, \mbox{\hyperlink{class_citation_manager_aeea4b3347215e1eb97b639c96a1dcadd}{Citation\+Manager\+::generate\+Page()}}, \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}{generate\+Template\+Files()}}, \mbox{\hyperlink{class_f_t_v_help_a9e858dee960cc0e73c2d269171dd17a7}{FTVHelp\+::generate\+Tree\+View\+Images()}}, \mbox{\hyperlink{class_f_t_v_help_aad2b0bf5b5d217f8e0b77b486fed3527}{FTVHelp\+::generate\+Tree\+View\+Scripts()}}, \mbox{\hyperlink{build_2doxygen_2src_2xmlgen_8cpp_a0f9b3e222369b7d908441a0825b0da84}{generate\+XML()}}, \mbox{\hyperlink{class_html_generator_a3874b75d86f996ce7d7ca32bea785c56}{Html\+Generator\+::get\+Nav\+Tree\+Css()}}, \mbox{\hyperlink{class_html_generator_a0c4c6cd48e43f74bf258851f8b109faf}{Html\+Generator\+::init()}}, \mbox{\hyperlink{class_latex_generator_af9a70007c56adecf1af4b4c29591e423}{Latex\+Generator\+::init()}}, \mbox{\hyperlink{class_layout_doc_manager_a920748477d4262faf758d21ddbe2329d}{Layout\+Doc\+Manager\+::init()}}, \mbox{\hyperlink{class_template_engine_1_1_private_ae463b323a12298ccc4f9e8e249f2ac7c}{Template\+Engine\+::\+Private\+::load\+By\+Name()}}, \mbox{\hyperlink{class_template_node_resource_ad3b011a4d9431df8d4f59b6c41c47ea6}{Template\+Node\+Resource\+::render()}}, \mbox{\hyperlink{build_2doxygen_2src_2layout_8cpp_a8ccb483586d18bd75a15720be22f90cb}{write\+Default\+Layout\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2htmlgen_8cpp_ac7339dc7ff25bcb7a9fbea1d671a16da}{write\+Default\+Style\+Sheet()}}, \mbox{\hyperlink{class_html_generator_a9588784ebebaad9cb24e153c07aeb662}{Html\+Generator\+::write\+External\+Search\+Page()}}, \mbox{\hyperlink{class_html_generator_a6c1132096e93e030970694a61ea6c65f}{Html\+Generator\+::write\+Footer\+File()}}, \mbox{\hyperlink{class_latex_generator_a541f0867d38638ee1d3c7611e3d04029}{Latex\+Generator\+::write\+Footer\+File()}}, \mbox{\hyperlink{class_latex_generator_ada1c307f5625a7d4b90fc3e1b9ce4da5}{Latex\+Generator\+::write\+Header\+File()}}, \mbox{\hyperlink{class_html_generator_ab00e0c98e1c833ae27198d1e10c9c22e}{Html\+Generator\+::write\+Header\+File()}}, \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8cpp_ae8e105816d60cf56b75c2d13f9d85048}{write\+Java\+Script\+Search\+Index()}}, \mbox{\hyperlink{class_html_generator_a9114c68d96141e80c08efdd497fc010e}{Html\+Generator\+::write\+Search\+Data()}}, \mbox{\hyperlink{class_html_generator_a1fd6971ba73b744d9ceb90478194d61d}{Html\+Generator\+::write\+Search\+Page()}}, \mbox{\hyperlink{class_latex_generator_ac1feab4756dc9795d056b72cc74379e4}{Latex\+Generator\+::write\+Style\+Info()}}, and \mbox{\hyperlink{class_html_generator_a7306ef9abbceafd6074b4d883a59f033}{Html\+Generator\+::write\+Tab\+Data()}}.
+
+\mbox{\Hypertarget{class_resource_mgr_aaba4f6a9be9d92c4f816fd760d1916bf}\label{class_resource_mgr_aaba4f6a9be9d92c4f816fd760d1916bf}} 
+\index{ResourceMgr@{ResourceMgr}!instance@{instance}}
+\index{instance@{instance}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_resource_mgr}{Resource\+Mgr}} \& Resource\+Mgr\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the one and only instance of this class \mbox{\Hypertarget{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}\label{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}} 
+\index{ResourceMgr@{ResourceMgr}!registerResources@{registerResources}}
+\index{registerResources@{registerResources}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{registerResources()}{registerResources()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Resource\+Mgr\+::register\+Resources (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{struct_resource}{Resource}} $>$}]{resources }\end{DoxyParamCaption})}
+
+Registers an array of resources 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047 \{}
+\DoxyCodeLine{00048   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&res : resources)}
+\DoxyCodeLine{00049   \{}
+\DoxyCodeLine{00050     \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources.insert(\{res.name,res\});}
+\DoxyCodeLine{00051   \}}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}.
+
+\mbox{\Hypertarget{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}\label{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}} 
+\index{ResourceMgr@{ResourceMgr}!registerResources@{registerResources}}
+\index{registerResources@{registerResources}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{registerResources()}{registerResources()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Resource\+Mgr\+::register\+Resources (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{struct_resource}{Resource}} $>$}]{resources }\end{DoxyParamCaption})}
+
+Registers an array of resources \mbox{\Hypertarget{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}\label{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}} 
+\index{ResourceMgr@{ResourceMgr}!writeCategory@{writeCategory}}
+\index{writeCategory@{writeCategory}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{writeCategory()}{writeCategory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Resource\+Mgr\+::write\+Category (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{category\+Name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Dir }\end{DoxyParamCaption}) const}
+
+Writes all resource belonging to a given category to a given target directory 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp_source}{resourcemgr.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055 \{}
+\DoxyCodeLine{00056   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&kv : \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}-\/>resources)}
+\DoxyCodeLine{00057   \{}
+\DoxyCodeLine{00058     \mbox{\hyperlink{struct_resource}{Resource}} \&res = kv.second;}
+\DoxyCodeLine{00059     \textcolor{keywordflow}{if} (res.\mbox{\hyperlink{struct_resource_a3b8e230f7b733e68241809a01cf65d78}{category}}==categoryName)}
+\DoxyCodeLine{00060     \{}
+\DoxyCodeLine{00061       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} pathName = targetDir.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()+\textcolor{stringliteral}{"{}/"{}}+res.\mbox{\hyperlink{struct_resource_a4f6a87145f57606562453e2f8ab0b453}{name}};}
+\DoxyCodeLine{00062       \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(pathName,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ofstream::out}} | std::ofstream::binary);}
+\DoxyCodeLine{00063       \textcolor{keywordtype}{bool} ok=\textcolor{keyword}{false};}
+\DoxyCodeLine{00064       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{00065       \{}
+\DoxyCodeLine{00066         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(res.\mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{data}}),res.\mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{size}});}
+\DoxyCodeLine{00067         ok = !\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.fail();}
+\DoxyCodeLine{00068       \}}
+\DoxyCodeLine{00069       \textcolor{keywordflow}{if} (!ok)}
+\DoxyCodeLine{00070       \{}
+\DoxyCodeLine{00071         \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Failed to write resource '\%s' to directory '\%s'\(\backslash\)n"{}},res.\mbox{\hyperlink{struct_resource_a4f6a87145f57606562453e2f8ab0b453}{name}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(targetDir));}
+\DoxyCodeLine{00072         \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00073       \}}
+\DoxyCodeLine{00074     \}}
+\DoxyCodeLine{00075   \}}
+\DoxyCodeLine{00076   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00077 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{struct_resource_a3b8e230f7b733e68241809a01cf65d78}{Resource\+::category}}, \mbox{\hyperlink{struct_resource_ac6a9c13c272e55237bddd06ff498d06e}{Resource\+::data}}, \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{struct_resource_a4f6a87145f57606562453e2f8ab0b453}{Resource\+::name}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{out}}, \mbox{\hyperlink{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}{p}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, \mbox{\hyperlink{struct_resource_a0f8739be95e0d934239663ea7551060b}{Resource\+::size}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}{generate\+Template\+Files()}}.
+
+\mbox{\Hypertarget{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}\label{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}} 
+\index{ResourceMgr@{ResourceMgr}!writeCategory@{writeCategory}}
+\index{writeCategory@{writeCategory}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{writeCategory()}{writeCategory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Resource\+Mgr\+::write\+Category (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{category\+Name,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{target\+Dir }\end{DoxyParamCaption}) const}
+
+Writes all resource belonging to a given category to a given target directory 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}\label{class_resource_mgr_aa5f8967ba280d49be77fc93b1ce83ef3}} 
+\index{ResourceMgr@{ResourceMgr}!p@{p}}
+\index{p@{p}!ResourceMgr@{ResourceMgr}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_resource_mgr_1_1_private}{Private}} $>$ Resource\+Mgr\+::p\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8h_source_l00063}{63}} of file \mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8h_source}{resourcemgr.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_resource_mgr_a2bc16163bd7e09f324093b641113b077}{get()}}, \mbox{\hyperlink{class_resource_mgr_af1f39af9986eadf7af87bdc52e607f0e}{register\+Resources()}}, and \mbox{\hyperlink{class_resource_mgr_a64d65000b297d313a09e4c1cca1f17e0}{write\+Category()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8h}{resourcemgr.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2resourcemgr_8h}{resourcemgr.\+h}}\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2resourcemgr_8cpp}{resourcemgr.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2resourcemgr_8cpp}{resourcemgr.\+cpp}}\end{DoxyCompactItemize}

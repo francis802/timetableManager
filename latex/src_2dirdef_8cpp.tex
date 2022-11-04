@@ -1,0 +1,505 @@
+\hypertarget{src_2dirdef_8cpp}{}\doxysection{doxygen/src/dirdef.cpp File Reference}
+\label{src_2dirdef_8cpp}\index{doxygen/src/dirdef.cpp@{doxygen/src/dirdef.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}md5.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotdirdeps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definitionimpl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_dir_def_impl}{Dir\+Def\+Impl}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$ \mbox{\hyperlink{src_2dirdef_8cpp_a1bb84e2b964caa76229f38c794ff8e06}{create\+Dir\+Def}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&path)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2dirdef_8cpp_a8d91af0a6807cf2a6b66896bfdef6732}{encode\+Dir\+Name}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&anchor)
+\item 
+static void \mbox{\hyperlink{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}{write\+Partial\+Dir\+Path}} (\mbox{\hyperlink{class_output_list}{Output\+List}} \&ol, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$root, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$target)
+\item 
+static void \mbox{\hyperlink{src_2dirdef_8cpp_a50a5ca2a633e8e9e98f1fdb284b96186}{write\+Partial\+File\+Path}} (\mbox{\hyperlink{class_output_list}{Output\+List}} \&ol, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$root, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\item 
+static void \mbox{\hyperlink{src_2dirdef_8cpp_ad85444ffee4818fe7415a7158385f3d1}{compute\+Common\+Dir\+Prefix}} ()
+\item 
+void \mbox{\hyperlink{src_2dirdef_8cpp_a9d5caa3df18ab19e549d3b603a716780}{build\+Directories}} ()
+\item 
+void \mbox{\hyperlink{src_2dirdef_8cpp_abf61ee43dee8d980a631843cd26b71cb}{compute\+Dir\+Dependencies}} ()
+\item 
+void \mbox{\hyperlink{src_2dirdef_8cpp_aeb63b0db3ac92afc6ef8fd7a34129001}{generate\+Dir\+Docs}} (\mbox{\hyperlink{class_output_list}{Output\+List}} \&ol)
+\item 
+bool \mbox{\hyperlink{src_2dirdef_8cpp_a868969982c8fee16854bcc7735cd977e}{compare\+Dir\+Defs}} (const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$item1, const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$item2)
+\item 
+\mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$ \mbox{\hyperlink{src_2dirdef_8cpp_ad0d3cefa1a824ceaccafcb643850ee5e}{to\+Dir\+Def}} (\mbox{\hyperlink{class_definition}{Definition}} $\ast$d)
+\item 
+const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$ \mbox{\hyperlink{src_2dirdef_8cpp_aa988af4fda69d6c9e87a3680b1cb4633}{to\+Dir\+Def}} (const \mbox{\hyperlink{class_definition}{Definition}} $\ast$d)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2dirdef_8cpp_a9d5caa3df18ab19e549d3b603a716780}\label{src_2dirdef_8cpp_a9d5caa3df18ab19e549d3b603a716780}} 
+\index{dirdef.cpp@{dirdef.cpp}!buildDirectories@{buildDirectories}}
+\index{buildDirectories@{buildDirectories}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{buildDirectories()}{buildDirectories()}}
+{\footnotesize\ttfamily void build\+Directories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l01015}{1015}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01016 \{}
+\DoxyCodeLine{01017   \textcolor{comment}{// for each input file}}
+\DoxyCodeLine{01018   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fn : *\mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen::inputNameLinkedMap}})}
+\DoxyCodeLine{01019   \{}
+\DoxyCodeLine{01020     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fd : *fn)}
+\DoxyCodeLine{01021     \{}
+\DoxyCodeLine{01022       \textcolor{keywordflow}{if} (fd-\/>getReference().isEmpty())}
+\DoxyCodeLine{01023       \{}
+\DoxyCodeLine{01024         \mbox{\hyperlink{class_dir_def}{DirDef}} *dir;}
+\DoxyCodeLine{01025         \textcolor{keywordflow}{if} ((dir=\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}}-\/>find(fd-\/>getPath()))==0) \textcolor{comment}{// new directory}}
+\DoxyCodeLine{01026         \{}
+\DoxyCodeLine{01027           dir = \mbox{\hyperlink{class_dir_def_impl_abc751e8cc79b9f7cc8040ba7ecce6e1f}{DirDefImpl::mergeDirectoryInTree}}(fd-\/>getPath());}
+\DoxyCodeLine{01028         \}}
+\DoxyCodeLine{01029         \textcolor{keywordflow}{if} (dir \&\& !fd-\/>isDocumentationFile()) dir-\/>\mbox{\hyperlink{class_dir_def_a27bd05b3cd5090cc15bab855722a2304}{addFile}}(fd.get());}
+\DoxyCodeLine{01030       \}}
+\DoxyCodeLine{01031       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01032       \{}
+\DoxyCodeLine{01033         \textcolor{comment}{// do something for file imported via tag files.}}
+\DoxyCodeLine{01034       \}}
+\DoxyCodeLine{01035     \}}
+\DoxyCodeLine{01036   \}}
+\DoxyCodeLine{01037 }
+\DoxyCodeLine{01038   \textcolor{comment}{// compute relations between directories => introduce container dirs.}}
+\DoxyCodeLine{01039   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{01040   \{}
+\DoxyCodeLine{01041     \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} = dir-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{01042     \textcolor{keywordtype}{int} i=\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.findRev(\textcolor{charliteral}{'/'},\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.length()-\/2);}
+\DoxyCodeLine{01043     \textcolor{keywordflow}{if} (i>0)}
+\DoxyCodeLine{01044     \{}
+\DoxyCodeLine{01045       \mbox{\hyperlink{class_dir_def}{DirDef}} *\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}} = \mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}}-\/>\mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{find}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.left(i+1));}
+\DoxyCodeLine{01046       \textcolor{comment}{//if (parent==0) parent=root;}}
+\DoxyCodeLine{01047       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}})}
+\DoxyCodeLine{01048       \{}
+\DoxyCodeLine{01049         \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}}-\/>addSubDir(dir.get());}
+\DoxyCodeLine{01050         \textcolor{comment}{//printf("{}DirDefImpl::addSubdir(): Adding subdir\(\backslash\)n\%s to\(\backslash\)n\%s\(\backslash\)n"{},}}
+\DoxyCodeLine{01051         \textcolor{comment}{//  qPrint(dir-\/>displayName()), qPrint(parent-\/>displayName()));}}
+\DoxyCodeLine{01052       \}}
+\DoxyCodeLine{01053     \}}
+\DoxyCodeLine{01054   \}}
+\DoxyCodeLine{01055 }
+\DoxyCodeLine{01056   \textcolor{comment}{// sort the directory contents}}
+\DoxyCodeLine{01057   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{01058   \{}
+\DoxyCodeLine{01059     dir-\/>\mbox{\hyperlink{class_dir_def_a04a8557aa86a9e48a43f8d323263ed77}{sort}}();}
+\DoxyCodeLine{01060   \}}
+\DoxyCodeLine{01061 }
+\DoxyCodeLine{01062   \textcolor{comment}{// short the directories themselves}}
+\DoxyCodeLine{01063   std::sort(\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}}-\/>\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}}(),}
+\DoxyCodeLine{01064             \mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}}-\/>\mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}}(),}
+\DoxyCodeLine{01065             [](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&d1,\textcolor{keyword}{const} \textcolor{keyword}{auto} \&d2)}
+\DoxyCodeLine{01066             \{}
+\DoxyCodeLine{01067               \mbox{\hyperlink{class_q_c_string}{QCString}} s1 = d1-\/>shortName(), s2 = d2-\/>shortName();}
+\DoxyCodeLine{01068               \textcolor{keywordtype}{int} i = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(s1,s2);}
+\DoxyCodeLine{01069               \textcolor{keywordflow}{if} (i==0) \textcolor{comment}{// if sort name are equal, sort on full path}}
+\DoxyCodeLine{01070               \{}
+\DoxyCodeLine{01071                 \mbox{\hyperlink{class_q_c_string}{QCString}} n1 = d1-\/>name(), n2 = d2-\/>name();}
+\DoxyCodeLine{01072                 \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} = \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(n1,n2);}
+\DoxyCodeLine{01073                 \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} < 0;}
+\DoxyCodeLine{01074               \}}
+\DoxyCodeLine{01075               \textcolor{keywordflow}{return} i < 0;}
+\DoxyCodeLine{01076             \});}
+\DoxyCodeLine{01077 }
+\DoxyCodeLine{01078   \textcolor{comment}{// set the directory count identifier}}
+\DoxyCodeLine{01079   \textcolor{keywordtype}{int} dirCount=0;}
+\DoxyCodeLine{01080   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{01081   \{}
+\DoxyCodeLine{01082     dir-\/>\mbox{\hyperlink{class_dir_def_abb0f2798cf135ad4439b8b5bb3c8a3d8}{setDirCount}}(dirCount++);}
+\DoxyCodeLine{01083   \}}
+\DoxyCodeLine{01084 }
+\DoxyCodeLine{01085   \mbox{\hyperlink{src_2dirdef_8cpp_ad85444ffee4818fe7415a7158385f3d1}{computeCommonDirPrefix}}();}
+\DoxyCodeLine{01086 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dir_def_a27bd05b3cd5090cc15bab855722a2304}{Dir\+Def\+::add\+File()}}, \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{ghc\+::filesystem\+::begin()}}, \mbox{\hyperlink{src_2dirdef_8cpp_ad85444ffee4818fe7415a7158385f3d1}{compute\+Common\+Dir\+Prefix()}}, \mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen\+::dir\+Linked\+Map}}, \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end()}}, \mbox{\hyperlink{class_linked_map_ad7659775b7de962b4fe0921456baf4f4}{Linked\+Map$<$ T, Hash, Key\+Equal, Map $>$\+::find()}}, \mbox{\hyperlink{class_file_def_a4fa6cc178c30328fa1ae5efec0fea794}{File\+Def\+::get\+Path()}}, \mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{Definition\+::get\+Reference()}}, \mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen\+::input\+Name\+Linked\+Map}}, \mbox{\hyperlink{class_file_def_ad64ab8e7db62dd0d9ddde26d0a7a1263}{File\+Def\+::is\+Documentation\+File()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_dir_def_impl_abc751e8cc79b9f7cc8040ba7ecce6e1f}{Dir\+Def\+Impl\+::merge\+Directory\+In\+Tree()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp()}}, \mbox{\hyperlink{class_dir_def_abb0f2798cf135ad4439b8b5bb3c8a3d8}{Dir\+Def\+::set\+Dir\+Count()}}, and \mbox{\hyperlink{class_dir_def_a04a8557aa86a9e48a43f8d323263ed77}{Dir\+Def\+::sort()}}.
+
+\mbox{\Hypertarget{src_2dirdef_8cpp_a868969982c8fee16854bcc7735cd977e}\label{src_2dirdef_8cpp_a868969982c8fee16854bcc7735cd977e}} 
+\index{dirdef.cpp@{dirdef.cpp}!compareDirDefs@{compareDirDefs}}
+\index{compareDirDefs@{compareDirDefs}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{compareDirDefs()}{compareDirDefs()}}
+{\footnotesize\ttfamily bool compare\+Dir\+Defs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$}]{item1,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$}]{item2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l01125}{1125}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01126 \{}
+\DoxyCodeLine{01127   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp}}(item1-\/>\mbox{\hyperlink{class_dir_def_aa198c67f6d58fdae57c8502913ed35d7}{shortName}}(),item2-\/>\mbox{\hyperlink{class_dir_def_aa198c67f6d58fdae57c8502913ed35d7}{shortName}}()) < 0;}
+\DoxyCodeLine{01128 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a773d5813108052583cde43cc8517893d}{qstricmp()}}, and \mbox{\hyperlink{class_dir_def_aa198c67f6d58fdae57c8502913ed35d7}{Dir\+Def\+::short\+Name()}}.
+
+\mbox{\Hypertarget{src_2dirdef_8cpp_ad85444ffee4818fe7415a7158385f3d1}\label{src_2dirdef_8cpp_ad85444ffee4818fe7415a7158385f3d1}} 
+\index{dirdef.cpp@{dirdef.cpp}!computeCommonDirPrefix@{computeCommonDirPrefix}}
+\index{computeCommonDirPrefix@{computeCommonDirPrefix}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{computeCommonDirPrefix()}{computeCommonDirPrefix()}}
+{\footnotesize\ttfamily static void compute\+Common\+Dir\+Prefix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+In order to create stable, but unique directory names, we compute the common part of the path shared by all directories. 
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l00940}{940}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00941 \{}
+\DoxyCodeLine{00942   \mbox{\hyperlink{class_q_c_string}{QCString}} path;}
+\DoxyCodeLine{00943   \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}}-\/>\mbox{\hyperlink{class_linked_map_a4f9f85656f6481dc10277057d168d74e}{begin}}();}
+\DoxyCodeLine{00944   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}}-\/>empty()) \textcolor{comment}{// we have at least one dir}}
+\DoxyCodeLine{00945   \{}
+\DoxyCodeLine{00946     \textcolor{comment}{// start will full path of first dir}}
+\DoxyCodeLine{00947     path=(*it)-\/>name();}
+\DoxyCodeLine{00948     \textcolor{keywordtype}{int} i=path.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'/'},path.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()-\/2);}
+\DoxyCodeLine{00949     path=path.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(i+1);}
+\DoxyCodeLine{00950     \textcolor{keywordtype}{bool} done=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{00951     \textcolor{keywordflow}{if} (i==-\/1)}
+\DoxyCodeLine{00952     \{}
+\DoxyCodeLine{00953       path=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00954     \}}
+\DoxyCodeLine{00955     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00956     \{}
+\DoxyCodeLine{00957       \textcolor{keywordflow}{while} (!done)}
+\DoxyCodeLine{00958       \{}
+\DoxyCodeLine{00959         \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} l = path.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}();}
+\DoxyCodeLine{00960         \textcolor{keywordtype}{size\_t} count=0;}
+\DoxyCodeLine{00961         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{00962         \{}
+\DoxyCodeLine{00963           \mbox{\hyperlink{class_q_c_string}{QCString}} dirName = dir-\/>name();}
+\DoxyCodeLine{00964           \textcolor{keywordflow}{if} (dirName.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()>path.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}())}
+\DoxyCodeLine{00965           \{}
+\DoxyCodeLine{00966             \textcolor{keywordflow}{if} (dirName.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(l)!=path) \textcolor{comment}{// dirName does not start with path}}
+\DoxyCodeLine{00967             \{}
+\DoxyCodeLine{00968               i=path.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'/'},l-\/2);}
+\DoxyCodeLine{00969               \textcolor{keywordflow}{if} (i==-\/1) \textcolor{comment}{// no unique prefix -\/> stop}}
+\DoxyCodeLine{00970               \{}
+\DoxyCodeLine{00971                 path=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00972                 done=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00973               \}}
+\DoxyCodeLine{00974               \textcolor{keywordflow}{else} \textcolor{comment}{// restart with shorter path}}
+\DoxyCodeLine{00975               \{}
+\DoxyCodeLine{00976                 path=path.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(i+1);}
+\DoxyCodeLine{00977                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00978               \}}
+\DoxyCodeLine{00979             \}}
+\DoxyCodeLine{00980           \}}
+\DoxyCodeLine{00981           \textcolor{keywordflow}{else} \textcolor{comment}{// dir is shorter than path -\/> take path of dir as new start}}
+\DoxyCodeLine{00982           \{}
+\DoxyCodeLine{00983             path=dir-\/>name();}
+\DoxyCodeLine{00984             l=path.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}();}
+\DoxyCodeLine{00985             i=path.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'/'},l-\/2);}
+\DoxyCodeLine{00986             \textcolor{keywordflow}{if} (i==-\/1) \textcolor{comment}{// no unique prefix -\/> stop}}
+\DoxyCodeLine{00987             \{}
+\DoxyCodeLine{00988               path=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00989               done=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{00990             \}}
+\DoxyCodeLine{00991             \textcolor{keywordflow}{else} \textcolor{comment}{// restart with shorter path}}
+\DoxyCodeLine{00992             \{}
+\DoxyCodeLine{00993               path=path.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(i+1);}
+\DoxyCodeLine{00994             \}}
+\DoxyCodeLine{00995             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00996           \}}
+\DoxyCodeLine{00997           count++;}
+\DoxyCodeLine{00998         \}}
+\DoxyCodeLine{00999         \textcolor{keywordflow}{if} (count==\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}}-\/>\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}())}
+\DoxyCodeLine{01000           \textcolor{comment}{// path matches for all directories -\/> found the common prefix}}
+\DoxyCodeLine{01001         \{}
+\DoxyCodeLine{01002           done=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{01003         \}}
+\DoxyCodeLine{01004       \}}
+\DoxyCodeLine{01005     \}}
+\DoxyCodeLine{01006   \}}
+\DoxyCodeLine{01007   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{01008   \{}
+\DoxyCodeLine{01009     \mbox{\hyperlink{class_q_c_string}{QCString}} diskName = dir-\/>name().\mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{right}}(dir-\/>name().length()-\/path.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}());}
+\DoxyCodeLine{01010     dir-\/>setDiskName(diskName);}
+\DoxyCodeLine{01011     \textcolor{comment}{//printf("{}set disk name: \%s -\/> \%s\(\backslash\)n"{},qPrint(dir-\/>name()),qPrint(diskName));}}
+\DoxyCodeLine{01012   \}}
+\DoxyCodeLine{01013 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_linked_map_a4f9f85656f6481dc10277057d168d74e}{Linked\+Map$<$ T, Hash, Key\+Equal, Map $>$\+::begin()}}, \mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen\+::dir\+Linked\+Map}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, \mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{QCString\+::find\+Rev()}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, \mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{QCString\+::right()}}, \mbox{\hyperlink{class_dir_def_afe6abc229cda99ea58cd1baf0f5f9947}{Dir\+Def\+::set\+Disk\+Name()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2dirdef_8cpp_a9d5caa3df18ab19e549d3b603a716780}{build\+Directories()}}.
+
+\mbox{\Hypertarget{src_2dirdef_8cpp_abf61ee43dee8d980a631843cd26b71cb}\label{src_2dirdef_8cpp_abf61ee43dee8d980a631843cd26b71cb}} 
+\index{dirdef.cpp@{dirdef.cpp}!computeDirDependencies@{computeDirDependencies}}
+\index{computeDirDependencies@{computeDirDependencies}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{computeDirDependencies()}{computeDirDependencies()}}
+{\footnotesize\ttfamily void compute\+Dir\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l01088}{1088}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01089 \{}
+\DoxyCodeLine{01090   \textcolor{comment}{// compute nesting level for each directory}}
+\DoxyCodeLine{01091   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{01092   \{}
+\DoxyCodeLine{01093     dir-\/>setLevel();}
+\DoxyCodeLine{01094   \}}
+\DoxyCodeLine{01095 }
+\DoxyCodeLine{01096   \textcolor{comment}{// compute uses dependencies between directories}}
+\DoxyCodeLine{01097   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{01098   \{}
+\DoxyCodeLine{01099     \textcolor{comment}{//printf("{}computeDependencies for \%s: \#dirs=\%d\(\backslash\)n"{},qPrint(dir-\/>name()),Doxygen::directories.count());}}
+\DoxyCodeLine{01100     dir-\/>computeDependencies();}
+\DoxyCodeLine{01101   \}}
+\DoxyCodeLine{01102 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dir_def_a30adfc53f0749f09c2e633841872739b}{Dir\+Def\+::compute\+Dependencies()}}, \mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen\+::dir\+Linked\+Map}}, and \mbox{\hyperlink{class_dir_def_a14f12566739a8f408796d45d77e53d34}{Dir\+Def\+::set\+Level()}}.
+
+\mbox{\Hypertarget{src_2dirdef_8cpp_a1bb84e2b964caa76229f38c794ff8e06}\label{src_2dirdef_8cpp_a1bb84e2b964caa76229f38c794ff8e06}} 
+\index{dirdef.cpp@{dirdef.cpp}!createDirDef@{createDirDef}}
+\index{createDirDef@{createDirDef}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{createDirDef()}{createDirDef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$ create\+Dir\+Def (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103 \{}
+\DoxyCodeLine{00104   \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_dir_def_impl}{DirDefImpl}}(path);}
+\DoxyCodeLine{00105 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2dirdef_8cpp_a8d91af0a6807cf2a6b66896bfdef6732}\label{src_2dirdef_8cpp_a8d91af0a6807cf2a6b66896bfdef6732}} 
+\index{dirdef.cpp@{dirdef.cpp}!encodeDirName@{encodeDirName}}
+\index{encodeDirName@{encodeDirName}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{encodeDirName()}{encodeDirName()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} encode\+Dir\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{anchor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182 \{}
+\DoxyCodeLine{00183   \textcolor{comment}{// convert to md5 hash}}
+\DoxyCodeLine{00184   \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} md5\_sig[16];}
+\DoxyCodeLine{00185   \textcolor{keywordtype}{char} sigStr[33];}
+\DoxyCodeLine{00186   \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8c_a3e5495d121e73dba5e01cf3f64dd201e}{MD5Buffer}}(anchor.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),anchor.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}(),md5\_sig);}
+\DoxyCodeLine{00187   \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8c_aebe458ba3d537ee8e1fb6b4e29fa4537}{MD5SigToString}}(md5\_sig,sigStr);}
+\DoxyCodeLine{00188   \textcolor{keywordflow}{return} sigStr;}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00190   \textcolor{comment}{// old algorithm}}
+\DoxyCodeLine{00191 \textcolor{comment}{//  QCString result;}}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193 \textcolor{comment}{//  int l = anchor.length(),i;}}
+\DoxyCodeLine{00194 \textcolor{comment}{//  for (i=0;i<l;i++)}}
+\DoxyCodeLine{00195 \textcolor{comment}{//  \{}}
+\DoxyCodeLine{00196 \textcolor{comment}{//    char c = anchor.at(i);}}
+\DoxyCodeLine{00197 \textcolor{comment}{//    if ((c>='a' \&\& c<='z') || (c>='A' \&\& c<='Z') || (c>='0' \&\& c<='9'))}}
+\DoxyCodeLine{00198 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{00199 \textcolor{comment}{//      result+=c;}}
+\DoxyCodeLine{00200 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{00201 \textcolor{comment}{//    else}}
+\DoxyCodeLine{00202 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{00203 \textcolor{comment}{//      static char hexStr[]="{}0123456789ABCDEF"{};}}
+\DoxyCodeLine{00204 \textcolor{comment}{//      char escChar[]=\{ '\_', 0, 0, 0 \};}}
+\DoxyCodeLine{00205 \textcolor{comment}{//      escChar[1]=hexStr[c>>4];}}
+\DoxyCodeLine{00206 \textcolor{comment}{//      escChar[2]=hexStr[c\&0xf];}}
+\DoxyCodeLine{00207 \textcolor{comment}{//      result+=escChar;}}
+\DoxyCodeLine{00208 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{00209 \textcolor{comment}{//  \}}}
+\DoxyCodeLine{00210 \textcolor{comment}{//  return result;}}
+\DoxyCodeLine{00211 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8c_a3e5495d121e73dba5e01cf3f64dd201e}{MD5\+Buffer()}}, and \mbox{\hyperlink{build_2doxygen_2libmd5_2md5_8c_aebe458ba3d537ee8e1fb6b4e29fa4537}{MD5\+Sig\+To\+String()}}.
+
+\mbox{\Hypertarget{src_2dirdef_8cpp_aeb63b0db3ac92afc6ef8fd7a34129001}\label{src_2dirdef_8cpp_aeb63b0db3ac92afc6ef8fd7a34129001}} 
+\index{dirdef.cpp@{dirdef.cpp}!generateDirDocs@{generateDirDocs}}
+\index{generateDirDocs@{generateDirDocs}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{generateDirDocs()}{generateDirDocs()}}
+{\footnotesize\ttfamily void generate\+Dir\+Docs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_list}{Output\+List}} \&}]{ol }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l01104}{1104}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01105 \{}
+\DoxyCodeLine{01106   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dir : *\mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen::dirLinkedMap}})}
+\DoxyCodeLine{01107   \{}
+\DoxyCodeLine{01108     ol.\mbox{\hyperlink{class_output_list_a885957a64f7d87aefb663c4ec903188f}{pushGeneratorState}}();}
+\DoxyCodeLine{01109     \textcolor{keywordflow}{if} (!dir-\/>hasDocumentation())}
+\DoxyCodeLine{01110     \{}
+\DoxyCodeLine{01111       ol.\mbox{\hyperlink{class_output_list_a73f9be626eea01f1ccd1b446dcf2c003}{disableAllBut}}(\mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa3bb9936c8594ebc650ae6a77b5cf5c7d}{OutputGenerator::Html}});}
+\DoxyCodeLine{01112     \}}
+\DoxyCodeLine{01113     dir-\/>writeDocumentation(ol);}
+\DoxyCodeLine{01114     ol.\mbox{\hyperlink{class_output_list_a94eb1af2ea07425ef1faa539d24adcf8}{popGeneratorState}}();}
+\DoxyCodeLine{01115   \}}
+\DoxyCodeLine{01116   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(DIRECTORY\_GRAPH))}
+\DoxyCodeLine{01117   \{}
+\DoxyCodeLine{01118     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&dr : \mbox{\hyperlink{class_doxygen_a470fbf85b968187bea5d0178c4c60cc5}{Doxygen::dirRelations}})}
+\DoxyCodeLine{01119     \{}
+\DoxyCodeLine{01120       dr-\/>writeDocumentation(ol);}
+\DoxyCodeLine{01121     \}}
+\DoxyCodeLine{01122   \}}
+\DoxyCodeLine{01123 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{class_doxygen_afabd8f80edaff1c831dbc4940a26fecb}{Doxygen\+::dir\+Linked\+Map}}, \mbox{\hyperlink{class_doxygen_a470fbf85b968187bea5d0178c4c60cc5}{Doxygen\+::dir\+Relations}}, \mbox{\hyperlink{class_output_list_a73f9be626eea01f1ccd1b446dcf2c003}{Output\+List\+::disable\+All\+But()}}, \mbox{\hyperlink{class_definition_a81f5c355e27d6e159e1598be748aa4de}{Definition\+::has\+Documentation()}}, \mbox{\hyperlink{class_output_generator_ab79b5d3c19d95c8a5929c07f5b2918cfa3bb9936c8594ebc650ae6a77b5cf5c7d}{Output\+Generator\+::\+Html}}, \mbox{\hyperlink{class_output_list_a94eb1af2ea07425ef1faa539d24adcf8}{Output\+List\+::pop\+Generator\+State()}}, \mbox{\hyperlink{class_output_list_a885957a64f7d87aefb663c4ec903188f}{Output\+List\+::push\+Generator\+State()}}, and \mbox{\hyperlink{class_dir_def_a18b146ceae4f86a05243c6410932e0df}{Dir\+Def\+::write\+Documentation()}}.
+
+\mbox{\Hypertarget{src_2dirdef_8cpp_aa988af4fda69d6c9e87a3680b1cb4633}\label{src_2dirdef_8cpp_aa988af4fda69d6c9e87a3680b1cb4633}} 
+\index{dirdef.cpp@{dirdef.cpp}!toDirDef@{toDirDef}}
+\index{toDirDef@{toDirDef}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{toDirDef()}{toDirDef()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$ to\+Dir\+Def (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l01145}{1145}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01146 \{}
+\DoxyCodeLine{01147   \textcolor{keywordflow}{if} (d==0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01148   \textcolor{keywordflow}{if} (d \&\& \textcolor{keyword}{typeid}(*d)==\textcolor{keyword}{typeid}(\mbox{\hyperlink{class_dir_def_impl}{DirDefImpl}}))}
+\DoxyCodeLine{01149   \{}
+\DoxyCodeLine{01150     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{class_dir_def}{DirDef}}*\textcolor{keyword}{>}(d);}
+\DoxyCodeLine{01151   \}}
+\DoxyCodeLine{01152   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01153   \{}
+\DoxyCodeLine{01154     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01155   \}}
+\DoxyCodeLine{01156 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2dirdef_8cpp_ad0d3cefa1a824ceaccafcb643850ee5e}\label{src_2dirdef_8cpp_ad0d3cefa1a824ceaccafcb643850ee5e}} 
+\index{dirdef.cpp@{dirdef.cpp}!toDirDef@{toDirDef}}
+\index{toDirDef@{toDirDef}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{toDirDef()}{toDirDef()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$ to\+Dir\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l01132}{1132}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01133 \{}
+\DoxyCodeLine{01134   \textcolor{keywordflow}{if} (d==0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01135   \textcolor{keywordflow}{if} (d \&\& \textcolor{keyword}{typeid}(*d)==\textcolor{keyword}{typeid}(\mbox{\hyperlink{class_dir_def_impl}{DirDefImpl}}))}
+\DoxyCodeLine{01136   \{}
+\DoxyCodeLine{01137     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_dir_def}{DirDef}}*\textcolor{keyword}{>}(d);}
+\DoxyCodeLine{01138   \}}
+\DoxyCodeLine{01139   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01140   \{}
+\DoxyCodeLine{01141     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{01142   \}}
+\DoxyCodeLine{01143 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}\label{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}} 
+\index{dirdef.cpp@{dirdef.cpp}!writePartialDirPath@{writePartialDirPath}}
+\index{writePartialDirPath@{writePartialDirPath}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{writePartialDirPath()}{writePartialDirPath()}}
+{\footnotesize\ttfamily static void write\+Partial\+Dir\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_list}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$}]{root,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l00853}{853}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00854 \{}
+\DoxyCodeLine{00855   \textcolor{keywordflow}{if} (target-\/>\mbox{\hyperlink{class_dir_def_a6ddd6f5e08f9a04cc43cf15e388bc2af}{parent}}()!=root)}
+\DoxyCodeLine{00856   \{}
+\DoxyCodeLine{00857     \mbox{\hyperlink{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}{writePartialDirPath}}(ol,root,target-\/>\mbox{\hyperlink{class_dir_def_a6ddd6f5e08f9a04cc43cf15e388bc2af}{parent}}());}
+\DoxyCodeLine{00858     ol.\mbox{\hyperlink{class_output_list_a07cac8a8981da35314f77d8f3edb7f76}{writeString}}(\textcolor{stringliteral}{"{}\&\#160;/\&\#160;"{}});}
+\DoxyCodeLine{00859   \}}
+\DoxyCodeLine{00860   ol.\mbox{\hyperlink{class_output_list_a411807a84d5f9e2fb716a0f66bde56b6}{writeObjectLink}}(target-\/>\mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{getReference}}(),target-\/>\mbox{\hyperlink{class_dir_def_a1fdadd32de095dd846b619f8d220f03c}{getOutputFileBase}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),target-\/>\mbox{\hyperlink{class_dir_def_aa198c67f6d58fdae57c8502913ed35d7}{shortName}}());}
+\DoxyCodeLine{00861 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_dir_def_a1fdadd32de095dd846b619f8d220f03c}{Dir\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{Definition\+::get\+Reference()}}, \mbox{\hyperlink{class_dir_def_a6ddd6f5e08f9a04cc43cf15e388bc2af}{Dir\+Def\+::parent()}}, \mbox{\hyperlink{class_dir_def_aa198c67f6d58fdae57c8502913ed35d7}{Dir\+Def\+::short\+Name()}}, \mbox{\hyperlink{class_output_list_a411807a84d5f9e2fb716a0f66bde56b6}{Output\+List\+::write\+Object\+Link()}}, \mbox{\hyperlink{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}{write\+Partial\+Dir\+Path()}}, and \mbox{\hyperlink{class_output_list_a07cac8a8981da35314f77d8f3edb7f76}{Output\+List\+::write\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}{write\+Partial\+Dir\+Path()}}, and \mbox{\hyperlink{src_2dirdef_8cpp_a50a5ca2a633e8e9e98f1fdb284b96186}{write\+Partial\+File\+Path()}}.
+
+\mbox{\Hypertarget{src_2dirdef_8cpp_a50a5ca2a633e8e9e98f1fdb284b96186}\label{src_2dirdef_8cpp_a50a5ca2a633e8e9e98f1fdb284b96186}} 
+\index{dirdef.cpp@{dirdef.cpp}!writePartialFilePath@{writePartialFilePath}}
+\index{writePartialFilePath@{writePartialFilePath}!dirdef.cpp@{dirdef.cpp}}
+\doxysubsubsection{\texorpdfstring{writePartialFilePath()}{writePartialFilePath()}}
+{\footnotesize\ttfamily static void write\+Partial\+File\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_list}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_dir_def}{Dir\+Def}} $\ast$}]{root,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2dirdef_8cpp_source_l00863}{863}} of file \mbox{\hyperlink{src_2dirdef_8cpp_source}{dirdef.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00864 \{}
+\DoxyCodeLine{00865   \textcolor{keywordflow}{if} (fd-\/>\mbox{\hyperlink{class_file_def_af21458ff3331bd2e517b67f1a374c139}{getDirDef}}() \&\& fd-\/>\mbox{\hyperlink{class_file_def_af21458ff3331bd2e517b67f1a374c139}{getDirDef}}()!=root)}
+\DoxyCodeLine{00866   \{}
+\DoxyCodeLine{00867     \mbox{\hyperlink{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}{writePartialDirPath}}(ol,root,fd-\/>\mbox{\hyperlink{class_file_def_af21458ff3331bd2e517b67f1a374c139}{getDirDef}}());}
+\DoxyCodeLine{00868     ol.\mbox{\hyperlink{class_output_list_a07cac8a8981da35314f77d8f3edb7f76}{writeString}}(\textcolor{stringliteral}{"{}\&\#160;/\&\#160;"{}});}
+\DoxyCodeLine{00869   \}}
+\DoxyCodeLine{00870   \textcolor{keywordflow}{if} (fd-\/>\mbox{\hyperlink{class_file_def_a18cecb4e062e28d65f18313b9357601e}{isLinkable}}())}
+\DoxyCodeLine{00871   \{}
+\DoxyCodeLine{00872     ol.\mbox{\hyperlink{class_output_list_a411807a84d5f9e2fb716a0f66bde56b6}{writeObjectLink}}(fd-\/>\mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{getReference}}(),fd-\/>\mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{getOutputFileBase}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),fd-\/>\mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{name}}());}
+\DoxyCodeLine{00873   \}}
+\DoxyCodeLine{00874   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00875   \{}
+\DoxyCodeLine{00876     ol.\mbox{\hyperlink{class_output_list_a796018ee85949771252f36fea9a288d0}{startBold}}();}
+\DoxyCodeLine{00877     ol.\mbox{\hyperlink{class_output_list_a5647a62e8819abb6e6b2378a7c115bbd}{docify}}(fd-\/>\mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{name}}());}
+\DoxyCodeLine{00878     ol.\mbox{\hyperlink{class_output_list_aa3f855a4e60d2a7c6769b66d43c69b23}{endBold}}();}
+\DoxyCodeLine{00879   \}}
+\DoxyCodeLine{00880 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_output_list_a5647a62e8819abb6e6b2378a7c115bbd}{Output\+List\+::docify()}}, \mbox{\hyperlink{class_output_list_aa3f855a4e60d2a7c6769b66d43c69b23}{Output\+List\+::end\+Bold()}}, \mbox{\hyperlink{class_file_def_af21458ff3331bd2e517b67f1a374c139}{File\+Def\+::get\+Dir\+Def()}}, \mbox{\hyperlink{class_file_def_a9179d91d067ba32f0e51aaffb2ea2f3b}{File\+Def\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{Definition\+::get\+Reference()}}, \mbox{\hyperlink{class_file_def_a18cecb4e062e28d65f18313b9357601e}{File\+Def\+::is\+Linkable()}}, \mbox{\hyperlink{class_file_def_ad305f1328487bfce411ebfd9d4966b02}{File\+Def\+::name()}}, \mbox{\hyperlink{class_output_list_a796018ee85949771252f36fea9a288d0}{Output\+List\+::start\+Bold()}}, \mbox{\hyperlink{class_output_list_a411807a84d5f9e2fb716a0f66bde56b6}{Output\+List\+::write\+Object\+Link()}}, \mbox{\hyperlink{src_2dirdef_8cpp_a8bb54d0765a6b45bf091337783b4680a}{write\+Partial\+Dir\+Path()}}, and \mbox{\hyperlink{class_output_list_a07cac8a8981da35314f77d8f3edb7f76}{Output\+List\+::write\+String()}}.
+

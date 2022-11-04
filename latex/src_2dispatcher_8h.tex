@@ -1,0 +1,102 @@
+\hypertarget{src_2dispatcher_8h}{}\doxysection{doxygen/src/dispatcher.h File Reference}
+\label{src_2dispatcher_8h}\index{doxygen/src/dispatcher.h@{doxygen/src/dispatcher.h}}
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1_dispatcher_3_01false_01_4}{detail\+::\+Dispatcher$<$ false $>$}}
+\begin{DoxyCompactList}\small\item\em specialization for the invalid case, signaling the compiler that the path is unreachable \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdetail_1_1_dispatcher_3_01true_01_4}{detail\+::\+Dispatcher$<$ true $>$}}
+\begin{DoxyCompactList}\small\item\em specialization for the valid case, where {\ttfamily case\+\_\+} invokes a specific method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\+\_\+\+AT}}(\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})~case n\+: \mbox{\hyperlink{structdetail_1_1_dispatcher}{detail\+::\+Dispatcher}}$<$ ((\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})$<$\mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{size}}) $>$\+::template case\+\_\+$<$W,\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}$>$(v,std\+::forward$<$As$>$(args)...); break;
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacedetail_a813e5bcc6785357f4ca1f4b19436c5ad}{detail\+::unreachable}} ()
+\begin{DoxyCompactList}\small\item\em Represents an unreachable piece of code. \end{DoxyCompactList}\item 
+{\footnotesize template$<$template$<$ class $>$ class W, class V , class... As$>$ }\\static constexpr void \mbox{\hyperlink{src_2dispatcher_8h_ae816ba4191db47635a574d6037cc11b5}{dispatch\+\_\+call}} (V \&\&v, As \&\&... args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}\label{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}} 
+\index{dispatcher.h@{dispatcher.h}!DISPATCH\_AT@{DISPATCH\_AT}}
+\index{DISPATCH\_AT@{DISPATCH\_AT}!dispatcher.h@{dispatcher.h}}
+\doxysubsubsection{\texorpdfstring{DISPATCH\_AT}{DISPATCH\_AT}}
+{\footnotesize\ttfamily \#define DISPATCH\+\_\+\+AT(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} }\end{DoxyParamCaption})~case n\+: \mbox{\hyperlink{structdetail_1_1_dispatcher}{detail\+::\+Dispatcher}}$<$ ((\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})$<$\mbox{\hyperlink{libmscgen_2gd_8h_a6fb912b9ec2a8817a3aa0d91c6866ffc}{size}}) $>$\+::template case\+\_\+$<$W,\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}$>$(v,std\+::forward$<$As$>$(args)...); break;}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2dispatcher_8h_ae816ba4191db47635a574d6037cc11b5}\label{src_2dispatcher_8h_ae816ba4191db47635a574d6037cc11b5}} 
+\index{dispatcher.h@{dispatcher.h}!dispatch\_call@{dispatch\_call}}
+\index{dispatch\_call@{dispatch\_call}!dispatcher.h@{dispatcher.h}}
+\doxysubsubsection{\texorpdfstring{dispatch\_call()}{dispatch\_call()}}
+{\footnotesize\ttfamily template$<$template$<$ class $>$ class W, class V , class... As$>$ \\
+static constexpr void dispatch\+\_\+call (\begin{DoxyParamCaption}\item[{V \&\&}]{v,  }\item[{As \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+Invokes the method of a class {\ttfamily X} whose member pointer type is defined by {\ttfamily W\texorpdfstring{$<$}{<}X\texorpdfstring{$>$}{>}::method} where {\ttfamily X} matches the type of the object held by {\ttfamily v} that is stored in a variant {\ttfamily V}. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em W} & a template class where {\ttfamily W\texorpdfstring{$<$}{<}X\texorpdfstring{$>$}{>}::method} points to a method of class {\ttfamily X} one of the types of {\ttfamily V}. \\
+\hline
+{\em V} & the type of the variant \\
+\hline
+{\em As} & the parameter types used to invoke the method \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & a object of the variant type for which to invoke the method \\
+\hline
+{\em args} & the parameters to pass to the method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This implementation assumes a maximum of 10 types in the variant (easy to extend though by adding more cases). 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{src_2dispatcher_8h_source_l00078}{78}} of file \mbox{\hyperlink{src_2dispatcher_8h_source}{dispatcher.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079 \{}
+\DoxyCodeLine{00080   \textcolor{comment}{// size holds the number of type of variant `V`}}
+\DoxyCodeLine{00081   \textcolor{keyword}{constexpr} std::size\_t \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}} = std::variant\_size\_v<std::decay\_t<V>>;}
+\DoxyCodeLine{00082   \textcolor{comment}{// which on a worst case maximum number of types in `V`.}}
+\DoxyCodeLine{00083   \textcolor{comment}{// fills in an unreachable branch for indices equal or higher than size.}}
+\DoxyCodeLine{00084   \textcolor{keywordflow}{switch} (v.index())}
+\DoxyCodeLine{00085   \{}
+\DoxyCodeLine{00086 \textcolor{preprocessor}{\#define DISPATCH\_AT(n) case n: detail::Dispatcher< ((n)<size) >::template case\_<W,n>(v,std::forward<As>(args)...); break;}}
+\DoxyCodeLine{00087     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(0)}
+\DoxyCodeLine{00088     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(1)}
+\DoxyCodeLine{00089     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(2)}
+\DoxyCodeLine{00090     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(3)}
+\DoxyCodeLine{00091     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(4)}
+\DoxyCodeLine{00092     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(5)}
+\DoxyCodeLine{00093     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(6)}
+\DoxyCodeLine{00094     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(7)}
+\DoxyCodeLine{00095     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(8)}
+\DoxyCodeLine{00096     \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\_AT}}(9)}
+\DoxyCodeLine{00097 \textcolor{preprocessor}{\#undef DISPATCH\_AT}}
+\DoxyCodeLine{00098   \}}
+\DoxyCodeLine{00099 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2dispatcher_8h_ac489b080b3b1dc91b38198c09dac4882}{DISPATCH\+\_\+\+AT}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}.
+

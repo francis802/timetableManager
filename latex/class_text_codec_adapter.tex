@@ -1,0 +1,316 @@
+\hypertarget{class_text_codec_adapter}{}\doxysection{Text\+Codec\+Adapter Class Reference}
+\label{class_text_codec_adapter}\index{TextCodecAdapter@{TextCodecAdapter}}
+
+
+{\ttfamily \#include $<$adapter.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}{Text\+Codec\+Adapter}} (const QByte\+Array \&name)
+\item 
+QByte\+Array \mbox{\hyperlink{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}{encode}} (const QString \&input)
+\item 
+QString \mbox{\hyperlink{class_text_codec_adapter_a5adcc041e155f4733a69db0cf9adf6f3}{decode}} (const QByte\+Array \&input)
+\item 
+void \mbox{\hyperlink{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}{apply\+To\+Stream}} (QText\+Stream \&t)
+\item 
+bool \mbox{\hyperlink{class_text_codec_adapter_a3edc6129fe7585f73fb588a33600c1f6}{is\+Valid}} () const
+\item 
+\mbox{\hyperlink{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}{Text\+Codec\+Adapter}} (const QByte\+Array \&name)
+\item 
+QByte\+Array \mbox{\hyperlink{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}{encode}} (const QString \&input)
+\item 
+QString \mbox{\hyperlink{class_text_codec_adapter_a5adcc041e155f4733a69db0cf9adf6f3}{decode}} (const QByte\+Array \&input)
+\item 
+void \mbox{\hyperlink{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}{apply\+To\+Stream}} (QText\+Stream \&t)
+\item 
+bool \mbox{\hyperlink{class_text_codec_adapter_a3edc6129fe7585f73fb588a33600c1f6}{is\+Valid}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ QString\+Encoder $>$ \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\+\_\+encoder}}
+\item 
+std\+::unique\+\_\+ptr$<$ QString\+Decoder $>$ \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\+\_\+decoder}}
+\item 
+QString\+Converter\+::\+Encoding \mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\+\_\+encoding}} = QString\+Converter\+::\+Utf8
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00051}{51}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}\label{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!TextCodecAdapter@{TextCodecAdapter}}
+\index{TextCodecAdapter@{TextCodecAdapter}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{TextCodecAdapter()}{TextCodecAdapter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Text\+Codec\+Adapter\+::\+Text\+Codec\+Adapter (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00054}{54}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055     \{}
+\DoxyCodeLine{00056       \textcolor{keyword}{auto} encodingOpt = QStringConverter::encodingForName(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00057       \textcolor{keywordflow}{if} (encodingOpt)}
+\DoxyCodeLine{00058       \{}
+\DoxyCodeLine{00059         \mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}} = *encodingOpt;}
+\DoxyCodeLine{00060       \}}
+\DoxyCodeLine{00061       \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\_encoder}} = std::make\_unique<QStringEncoder>(\mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}});}
+\DoxyCodeLine{00062       \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}} = std::make\_unique<QStringDecoder>(\mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}});}
+\DoxyCodeLine{00063     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\+\_\+decoder}}, \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\+\_\+encoder}}, \mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\+\_\+encoding}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}\label{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!TextCodecAdapter@{TextCodecAdapter}}
+\index{TextCodecAdapter@{TextCodecAdapter}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{TextCodecAdapter()}{TextCodecAdapter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Text\+Codec\+Adapter\+::\+Text\+Codec\+Adapter (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source_l00054}{54}} of file \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055     \{}
+\DoxyCodeLine{00056       \textcolor{keyword}{auto} encodingOpt = QStringConverter::encodingForName(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00057       \textcolor{keywordflow}{if} (encodingOpt)}
+\DoxyCodeLine{00058       \{}
+\DoxyCodeLine{00059         \mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}} = *encodingOpt;}
+\DoxyCodeLine{00060       \}}
+\DoxyCodeLine{00061       \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\_encoder}} = std::make\_unique<QStringEncoder>(\mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}});}
+\DoxyCodeLine{00062       \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}} = std::make\_unique<QStringDecoder>(\mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}});}
+\DoxyCodeLine{00063     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\+\_\+decoder}}, \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\+\_\+encoder}}, \mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\+\_\+encoding}}, and \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}\label{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!applyToStream@{applyToStream}}
+\index{applyToStream@{applyToStream}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{applyToStream()}{applyToStream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Text\+Codec\+Adapter\+::apply\+To\+Stream (\begin{DoxyParamCaption}\item[{QText\+Stream \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00066}{66}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066 \{ t.setEncoding(\mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}}); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\+\_\+encoding}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxywizard_2config_8h_a082676dc92bb9123ed03ca8491f9e87d}{write\+String\+Value()}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}\label{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!applyToStream@{applyToStream}}
+\index{applyToStream@{applyToStream}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{applyToStream()}{applyToStream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Text\+Codec\+Adapter\+::apply\+To\+Stream (\begin{DoxyParamCaption}\item[{QText\+Stream \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source_l00066}{66}} of file \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066 \{ t.setEncoding(\mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\_encoding}}); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}{m\+\_\+encoding}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_a5adcc041e155f4733a69db0cf9adf6f3}\label{class_text_codec_adapter_a5adcc041e155f4733a69db0cf9adf6f3}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!decode@{decode}}
+\index{decode@{decode}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily QString Text\+Codec\+Adapter\+::decode (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00065}{65}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}} ? \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}}-\/>decode(input) : QString::fromLatin1(input); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\+\_\+decoder}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_a5adcc041e155f4733a69db0cf9adf6f3}\label{class_text_codec_adapter_a5adcc041e155f4733a69db0cf9adf6f3}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!decode@{decode}}
+\index{decode@{decode}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily QString Text\+Codec\+Adapter\+::decode (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source_l00065}{65}} of file \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}} ? \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}}-\/>decode(input) : QString::fromLatin1(input); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\+\_\+decoder}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}\label{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!encode@{encode}}
+\index{encode@{encode}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily QByte\+Array Text\+Codec\+Adapter\+::encode (\begin{DoxyParamCaption}\item[{const QString \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00064}{64}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\_encoder}} ? \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\_encoder}}-\/>encode(input) : input.toLatin1(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\+\_\+encoder}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_input_bool_a627f87e6f7609851848feecde0234063}{Input\+Bool\+::write\+Value()}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}\label{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!encode@{encode}}
+\index{encode@{encode}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily QByte\+Array Text\+Codec\+Adapter\+::encode (\begin{DoxyParamCaption}\item[{const QString \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source_l00064}{64}} of file \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\_encoder}} ? \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\_encoder}}-\/>encode(input) : input.toLatin1(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}{m\+\_\+encoder}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_a3edc6129fe7585f73fb588a33600c1f6}\label{class_text_codec_adapter_a3edc6129fe7585f73fb588a33600c1f6}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!isValid@{isValid}}
+\index{isValid@{isValid}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Text\+Codec\+Adapter\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00067}{67}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}}!=0; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\+\_\+decoder}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_a3edc6129fe7585f73fb588a33600c1f6}\label{class_text_codec_adapter_a3edc6129fe7585f73fb588a33600c1f6}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!isValid@{isValid}}
+\index{isValid@{isValid}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Text\+Codec\+Adapter\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source_l00067}{67}} of file \mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\_decoder}}!=0; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}{m\+\_\+decoder}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}\label{class_text_codec_adapter_a27e3dc0a6ff8f24eaa34c77e1c0a1c16}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!m\_decoder@{m\_decoder}}
+\index{m\_decoder@{m\_decoder}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{m\_decoder}{m\_decoder}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ QString\+Decoder $>$ Text\+Codec\+Adapter\+::m\+\_\+decoder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00070}{70}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_text_codec_adapter_a5adcc041e155f4733a69db0cf9adf6f3}{decode()}}, \mbox{\hyperlink{class_text_codec_adapter_a3edc6129fe7585f73fb588a33600c1f6}{is\+Valid()}}, and \mbox{\hyperlink{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}{Text\+Codec\+Adapter()}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}\label{class_text_codec_adapter_a4527f724b6addcba4ea0739ded343ef4}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!m\_encoder@{m\_encoder}}
+\index{m\_encoder@{m\_encoder}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{m\_encoder}{m\_encoder}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ QString\+Encoder $>$ Text\+Codec\+Adapter\+::m\+\_\+encoder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00069}{69}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_text_codec_adapter_acbc306ec5b793a18812a82deecb08070}{encode()}}, and \mbox{\hyperlink{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}{Text\+Codec\+Adapter()}}.
+
+\mbox{\Hypertarget{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}\label{class_text_codec_adapter_a891cd94d8796d24dcf666c7c6318f40d}} 
+\index{TextCodecAdapter@{TextCodecAdapter}!m\_encoding@{m\_encoding}}
+\index{m\_encoding@{m\_encoding}!TextCodecAdapter@{TextCodecAdapter}}
+\doxysubsubsection{\texorpdfstring{m\_encoding}{m\_encoding}}
+{\footnotesize\ttfamily QString\+Converter\+::\+Encoding Text\+Codec\+Adapter\+::m\+\_\+encoding = QString\+Converter\+::\+Utf8\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source_l00071}{71}} of file \mbox{\hyperlink{addon_2doxywizard_2adapter_8h_source}{adapter.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_text_codec_adapter_af42653e70c06bb735eda98d22213ce35}{apply\+To\+Stream()}}, and \mbox{\hyperlink{class_text_codec_adapter_a924d9887780167f00503dd13f61d0a49}{Text\+Codec\+Adapter()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/addon/doxywizard/\mbox{\hyperlink{addon_2doxywizard_2adapter_8h}{adapter.\+h}}\item 
+doxygen/build/doxygen/addon/doxywizard/\mbox{\hyperlink{build_2doxygen_2addon_2doxywizard_2adapter_8h}{adapter.\+h}}\end{DoxyCompactItemize}

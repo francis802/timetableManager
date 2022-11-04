@@ -1,0 +1,533 @@
+\hypertarget{src_2docnode_8h}{}\doxysection{doxygen/src/docnode.h File Reference}
+\label{src_2docnode_8h}\index{doxygen/src/docnode.h@{doxygen/src/docnode.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlattrib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlentity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}growvector.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_doc_node}{Doc\+Node}}
+\item 
+struct \mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}}
+\item 
+class \mbox{\hyperlink{class_doc_compound_node}{Doc\+Compound\+Node}}
+\item 
+class \mbox{\hyperlink{class_doc_word}{Doc\+Word}}
+\item 
+class \mbox{\hyperlink{class_doc_linked_word}{Doc\+Linked\+Word}}
+\item 
+class \mbox{\hyperlink{class_doc_u_r_l}{Doc\+URL}}
+\item 
+class \mbox{\hyperlink{class_doc_line_break}{Doc\+Line\+Break}}
+\item 
+class \mbox{\hyperlink{class_doc_hor_ruler}{Doc\+Hor\+Ruler}}
+\item 
+class \mbox{\hyperlink{class_doc_anchor}{Doc\+Anchor}}
+\item 
+class \mbox{\hyperlink{class_doc_cite}{Doc\+Cite}}
+\item 
+class \mbox{\hyperlink{class_doc_style_change}{Doc\+Style\+Change}}
+\item 
+class \mbox{\hyperlink{class_doc_symbol}{Doc\+Symbol}}
+\item 
+class \mbox{\hyperlink{class_doc_emoji}{Doc\+Emoji}}
+\item 
+class \mbox{\hyperlink{class_doc_white_space}{Doc\+White\+Space}}
+\item 
+class \mbox{\hyperlink{class_doc_separator}{Doc\+Separator}}
+\item 
+class \mbox{\hyperlink{class_doc_verbatim}{Doc\+Verbatim}}
+\item 
+struct \mbox{\hyperlink{struct_doc_verbatim_1_1_private}{Doc\+Verbatim\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_doc_include}{Doc\+Include}}
+\item 
+class \mbox{\hyperlink{class_doc_inc_operator}{Doc\+Inc\+Operator}}
+\item 
+class \mbox{\hyperlink{class_doc_formula}{Doc\+Formula}}
+\item 
+class \mbox{\hyperlink{class_doc_index_entry}{Doc\+Index\+Entry}}
+\item 
+class \mbox{\hyperlink{class_doc_auto_list}{Doc\+Auto\+List}}
+\item 
+class \mbox{\hyperlink{class_doc_auto_list_item}{Doc\+Auto\+List\+Item}}
+\item 
+class \mbox{\hyperlink{class_doc_title}{Doc\+Title}}
+\item 
+class \mbox{\hyperlink{class_doc_x_ref_item}{Doc\+XRef\+Item}}
+\item 
+class \mbox{\hyperlink{class_doc_image}{Doc\+Image}}
+\item 
+struct \mbox{\hyperlink{struct_doc_image_1_1_private}{Doc\+Image\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_doc_diagram_file_base}{Doc\+Diagram\+File\+Base}}
+\item 
+struct \mbox{\hyperlink{struct_doc_diagram_file_base_1_1_private}{Doc\+Diagram\+File\+Base\+::\+Private}}
+\item 
+class \mbox{\hyperlink{class_doc_dot_file}{Doc\+Dot\+File}}
+\item 
+class \mbox{\hyperlink{class_doc_msc_file}{Doc\+Msc\+File}}
+\item 
+class \mbox{\hyperlink{class_doc_dia_file}{Doc\+Dia\+File}}
+\item 
+class \mbox{\hyperlink{class_doc_vhdl_flow}{Doc\+Vhdl\+Flow}}
+\item 
+class \mbox{\hyperlink{class_doc_link}{Doc\+Link}}
+\item 
+class \mbox{\hyperlink{class_doc_ref}{Doc\+Ref}}
+\item 
+class \mbox{\hyperlink{class_doc_internal_ref}{Doc\+Internal\+Ref}}
+\item 
+class \mbox{\hyperlink{class_doc_h_ref}{Doc\+HRef}}
+\item 
+class \mbox{\hyperlink{class_doc_html_summary}{Doc\+Html\+Summary}}
+\item 
+class \mbox{\hyperlink{class_doc_html_details}{Doc\+Html\+Details}}
+\item 
+class \mbox{\hyperlink{class_doc_html_header}{Doc\+Html\+Header}}
+\item 
+class \mbox{\hyperlink{class_doc_html_desc_title}{Doc\+Html\+Desc\+Title}}
+\item 
+class \mbox{\hyperlink{class_doc_html_desc_list}{Doc\+Html\+Desc\+List}}
+\item 
+class \mbox{\hyperlink{class_doc_section}{Doc\+Section}}
+\item 
+class \mbox{\hyperlink{class_doc_sec_ref_item}{Doc\+Sec\+Ref\+Item}}
+\item 
+class \mbox{\hyperlink{class_doc_sec_ref_list}{Doc\+Sec\+Ref\+List}}
+\item 
+class \mbox{\hyperlink{class_doc_internal}{Doc\+Internal}}
+\item 
+class \mbox{\hyperlink{class_doc_par_block}{Doc\+Par\+Block}}
+\item 
+class \mbox{\hyperlink{class_doc_simple_list}{Doc\+Simple\+List}}
+\item 
+class \mbox{\hyperlink{class_doc_html_list}{Doc\+Html\+List}}
+\item 
+class \mbox{\hyperlink{class_doc_simple_sect}{Doc\+Simple\+Sect}}
+\item 
+class \mbox{\hyperlink{class_doc_simple_sect_sep}{Doc\+Simple\+Sect\+Sep}}
+\item 
+class \mbox{\hyperlink{class_doc_param_sect}{Doc\+Param\+Sect}}
+\item 
+class \mbox{\hyperlink{class_doc_para}{Doc\+Para}}
+\item 
+class \mbox{\hyperlink{class_doc_param_list}{Doc\+Param\+List}}
+\item 
+class \mbox{\hyperlink{class_doc_simple_list_item}{Doc\+Simple\+List\+Item}}
+\item 
+class \mbox{\hyperlink{class_doc_html_list_item}{Doc\+Html\+List\+Item}}
+\item 
+class \mbox{\hyperlink{class_doc_html_desc_data}{Doc\+Html\+Desc\+Data}}
+\item 
+class \mbox{\hyperlink{class_doc_html_cell}{Doc\+Html\+Cell}}
+\item 
+class \mbox{\hyperlink{class_doc_html_caption}{Doc\+Html\+Caption}}
+\item 
+class \mbox{\hyperlink{class_doc_html_row}{Doc\+Html\+Row}}
+\item 
+class \mbox{\hyperlink{class_doc_html_table}{Doc\+Html\+Table}}
+\item 
+class \mbox{\hyperlink{class_doc_html_block_quote}{Doc\+Html\+Block\+Quote}}
+\item 
+class \mbox{\hyperlink{class_doc_text}{Doc\+Text}}
+\item 
+class \mbox{\hyperlink{class_doc_root}{Doc\+Root}}
+\item 
+struct \mbox{\hyperlink{structdetails_1_1_impl}{details\+::\+Impl$<$ T, Ts $>$}}
+\item 
+struct \mbox{\hyperlink{structdetails_1_1_impl_3_01_t_01_4}{details\+::\+Impl$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_doc_node_a_s_t}{Doc\+Node\+AST}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetails}{details}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\+\_\+\+NODES}}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~class \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}};
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\+\_\+\+SEP}}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\+\_\+\+SEP}}~,
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~constexpr const char $\ast$\mbox{\hyperlink{src_2docnode_8h_ad6c2b2b9786502bb407f7858cc1deef7}{doc\+Node\+Name}}(const \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}) \{ return \#\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}; \}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\+\_\+\+SEP}}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~\#\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\+\_\+\+SEP}}~,
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~\#\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\+\_\+\+SEP}}~,
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~sizeof(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\+\_\+\+SEP}}~,
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} = std\+::variant$<$ \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\+\_\+\+NODES}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ \mbox{\hyperlink{src_2docnode_8h_aa08872da61afee56859056e5a0612633}{parent}} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\begin{DoxyCompactList}\small\item\em returns the parent node of a given node {\itshape n} or 0 if the node has no parent. \end{DoxyCompactList}\item 
+constexpr const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ \mbox{\hyperlink{src_2docnode_8h_ab4feec38265e781de0502142e696763a}{parent}} (const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}})
+\begin{DoxyCompactList}\small\item\em returns the parent node of a given node {\itshape n} or 0 if the node has no parent. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Ts$>$ }\\constexpr bool \mbox{\hyperlink{src_2docnode_8h_a1c1632e37b281677f09baa3acce082cf}{holds\+\_\+one\+\_\+of\+\_\+alternatives}} (const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} \&v)
+\begin{DoxyCompactList}\small\item\em returns true iff {\itshape v} holds one of types passed as template parameters \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{src_2docnode_8h_ad6c2b2b9786502bb407f7858cc1deef7}{doc\+Node\+Name}} (const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} \&v)
+\item 
+void \mbox{\hyperlink{src_2docnode_8h_a0cee4ebd85699ca3a3e70eb19dc5a199}{dump\+Doc\+Node\+Sizes}} ()
+\item 
+void \mbox{\hyperlink{src_2docnode_8h_ae06df9ac205468d82301870dbe23905c}{dump\+Doc\+Node\+List}} (const \mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&children)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}\label{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}} 
+\index{docnode.h@{docnode.h}!DN@{DN}}
+\index{DN@{DN}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN}{DN}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \#define DN(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~class \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}};}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01350}{1350}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}\label{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}} 
+\index{docnode.h@{docnode.h}!DN@{DN}}
+\index{DN@{DN}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN}{DN}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \#define DN(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01350}{1350}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}\label{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}} 
+\index{docnode.h@{docnode.h}!DN@{DN}}
+\index{DN@{DN}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN}{DN}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \#define DN(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~constexpr const char $\ast$\mbox{\hyperlink{src_2docnode_8h_ad6c2b2b9786502bb407f7858cc1deef7}{doc\+Node\+Name}}(const \mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} \&\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}) \{ return \#\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}; \}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01350}{1350}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}\label{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}} 
+\index{docnode.h@{docnode.h}!DN@{DN}}
+\index{DN@{DN}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN}{DN}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \#define DN(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~\#\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01350}{1350}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}\label{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}} 
+\index{docnode.h@{docnode.h}!DN@{DN}}
+\index{DN@{DN}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN}{DN}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \#define DN(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~\#\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01350}{1350}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}\label{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}} 
+\index{docnode.h@{docnode.h}!DN@{DN}}
+\index{DN@{DN}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN}{DN}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \#define DN(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~sizeof(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01350}{1350}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}\label{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}} 
+\index{docnode.h@{docnode.h}!DN\_SEP@{DN\_SEP}}
+\index{DN\_SEP@{DN\_SEP}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN\_SEP}{DN\_SEP}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \#define DN\+\_\+\+SEP}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01351}{1351}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}\label{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}} 
+\index{docnode.h@{docnode.h}!DN\_SEP@{DN\_SEP}}
+\index{DN\_SEP@{DN\_SEP}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN\_SEP}{DN\_SEP}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \#define DN\+\_\+\+SEP~,}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01351}{1351}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}\label{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}} 
+\index{docnode.h@{docnode.h}!DN\_SEP@{DN\_SEP}}
+\index{DN\_SEP@{DN\_SEP}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN\_SEP}{DN\_SEP}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \#define DN\+\_\+\+SEP}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01351}{1351}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}\label{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}} 
+\index{docnode.h@{docnode.h}!DN\_SEP@{DN\_SEP}}
+\index{DN\_SEP@{DN\_SEP}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN\_SEP}{DN\_SEP}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \#define DN\+\_\+\+SEP~,}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01351}{1351}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}\label{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}} 
+\index{docnode.h@{docnode.h}!DN\_SEP@{DN\_SEP}}
+\index{DN\_SEP@{DN\_SEP}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN\_SEP}{DN\_SEP}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \#define DN\+\_\+\+SEP~,}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01351}{1351}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}\label{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}} 
+\index{docnode.h@{docnode.h}!DN\_SEP@{DN\_SEP}}
+\index{DN\_SEP@{DN\_SEP}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DN\_SEP}{DN\_SEP}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \#define DN\+\_\+\+SEP~,}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01351}{1351}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}\label{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}} 
+\index{docnode.h@{docnode.h}!DOC\_NODES@{DOC\_NODES}}
+\index{DOC\_NODES@{DOC\_NODES}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DOC\_NODES}{DOC\_NODES}}
+{\footnotesize\ttfamily \#define DOC\+\_\+\+NODES}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*  0 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_word}{DocWord}})           \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_linked_word}{DocLinkedWord}})    \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_u_r_l}{DocURL}})            \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_line_break}{DocLineBreak}})    \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_hor_ruler}{DocHorRuler}})    \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/*  5 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_anchor}{DocAnchor}})         \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_cite}{DocCite}})          \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_style_change}{DocStyleChange}})    \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_symbol}{DocSymbol}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_emoji}{DocEmoji}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 10 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_white_space}{DocWhiteSpace}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_separator}{DocSeparator}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_verbatim}{DocVerbatim}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_include}{DocInclude}})      \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_inc_operator}{DocIncOperator}}) \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 15 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_formula}{DocFormula}})        \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_index_entry}{DocIndexEntry}})    \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_auto_list}{DocAutoList}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_auto_list_item}{DocAutoListItem}}) \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_title}{DocTitle}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 20 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_x_ref_item}{DocXRefItem}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_image}{DocImage}})         \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_dot_file}{DocDotFile}})        \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_msc_file}{DocMscFile}})      \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_dia_file}{DocDiaFile}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 25 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_vhdl_flow}{DocVhdlFlow}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_link}{DocLink}})          \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_ref}{DocRef}})            \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_internal_ref}{DocInternalRef}})  \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_h_ref}{DocHRef}})        \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 30 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_header}{DocHtmlHeader}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_desc_title}{DocHtmlDescTitle}}) \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_desc_list}{DocHtmlDescList}})   \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_section}{DocSection}})      \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_sec_ref_item}{DocSecRefItem}})  \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 35 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_sec_ref_list}{DocSecRefList}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_internal}{DocInternal}})      \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_par_block}{DocParBlock}})       \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_simple_list}{DocSimpleList}})   \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_list}{DocHtmlList}})    \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 40 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_simple_sect}{DocSimpleSect}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_simple_sect_sep}{DocSimpleSectSep}}) \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_param_sect}{DocParamSect}})      \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_para}{DocPara}})         \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_param_list}{DocParamList}})   \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 45 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_simple_list_item}{DocSimpleListItem}}) \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_list_item}{DocHtmlListItem}})  \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_desc_data}{DocHtmlDescData}})   \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_cell}{DocHtmlCell}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_caption}{DocHtmlCaption}}) \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 50 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_row}{DocHtmlRow}})        \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_table}{DocHtmlTable}})     \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_block_quote}{DocHtmlBlockQuote}}) \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_text}{DocText}})         \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_root}{DocRoot}})        \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}}   \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/* 55 */}  \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_details}{DocHtmlDetails}})    \mbox{\hyperlink{src_2docnode_8h_aac3b8854dead0ba7c6a9e83d49b7d945}{DN\_SEP}} \mbox{\hyperlink{src_2docnode_8h_a6de37e0933d92bb91fcdc1b70ef32e2b}{DN}}(\mbox{\hyperlink{class_doc_html_summary}{DocHtmlSummary}})                                                                                              \(\backslash\)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l00037}{37}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}\label{src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}} 
+\index{docnode.h@{docnode.h}!DocNodeVariant@{DocNodeVariant}}
+\index{DocNodeVariant@{DocNodeVariant}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{DocNodeVariant}{DocNodeVariant}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} =  std\+::variant$<$ \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\+\_\+\+NODES}} $>$}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l00061}{61}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2docnode_8h_ad6c2b2b9786502bb407f7858cc1deef7}\label{src_2docnode_8h_ad6c2b2b9786502bb407f7858cc1deef7}} 
+\index{docnode.h@{docnode.h}!docNodeName@{docNodeName}}
+\index{docNodeName@{docNodeName}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{docNodeName()}{docNodeName()}}
+{\footnotesize\ttfamily const char $\ast$ doc\+Node\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01352}{1352}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01353 \{}
+\DoxyCodeLine{01354   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *table[] = \{ \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\_NODES}} \};}
+\DoxyCodeLine{01355   \textcolor{keywordflow}{return} table[v.index()];}
+\DoxyCodeLine{01356 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\+\_\+\+NODES}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_ae06df9ac205468d82301870dbe23905c}\label{src_2docnode_8h_ae06df9ac205468d82301870dbe23905c}} 
+\index{docnode.h@{docnode.h}!dumpDocNodeList@{dumpDocNodeList}}
+\index{dumpDocNodeList@{dumpDocNodeList}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{dumpDocNodeList()}{dumpDocNodeList()}}
+{\footnotesize\ttfamily void dump\+Doc\+Node\+List (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&}]{children }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01384}{1384}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01385 \{}
+\DoxyCodeLine{01386   printf(\textcolor{stringliteral}{"{}children=[\(\backslash\)n"{}});}
+\DoxyCodeLine{01387   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&child : children)}
+\DoxyCodeLine{01388   \{}
+\DoxyCodeLine{01389     \textcolor{keyword}{const} \mbox{\hyperlink{class_doc_word}{DocWord}} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}} = std::get\_if<DocWord>(\&child);}
+\DoxyCodeLine{01390     printf(\textcolor{stringliteral}{"{}  \%s (\%p) \%s\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_ad6c2b2b9786502bb407f7858cc1deef7}{docNodeName}}(child),(\textcolor{keywordtype}{void}*)\&child,\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}?\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}-\/>word():\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{01391   \}}
+\DoxyCodeLine{01392   printf(\textcolor{stringliteral}{"{}]\(\backslash\)n"{}});}
+\DoxyCodeLine{01393 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_ad6c2b2b9786502bb407f7858cc1deef7}{doc\+Node\+Name()}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{q\+Print()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a0133765daeaba536cb40f54e1eaa43c9}{w}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a0cee4ebd85699ca3a3e70eb19dc5a199}\label{src_2docnode_8h_a0cee4ebd85699ca3a3e70eb19dc5a199}} 
+\index{docnode.h@{docnode.h}!dumpDocNodeSizes@{dumpDocNodeSizes}}
+\index{dumpDocNodeSizes@{dumpDocNodeSizes}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{dumpDocNodeSizes()}{dumpDocNodeSizes()}}
+{\footnotesize\ttfamily void dump\+Doc\+Node\+Sizes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01360}{1360}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01361 \{}
+\DoxyCodeLine{01362 \textcolor{preprocessor}{\#define DN(x)  \#x}}
+\DoxyCodeLine{01363 \textcolor{preprocessor}{\#define DN\_SEP ,}}
+\DoxyCodeLine{01364   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *tableWithNames[] = \{ \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\_NODES}} \};}
+\DoxyCodeLine{01365 \textcolor{preprocessor}{\#undef DN}}
+\DoxyCodeLine{01366 \textcolor{preprocessor}{\#undef DN\_SEP}}
+\DoxyCodeLine{01367 }
+\DoxyCodeLine{01368 \textcolor{preprocessor}{\#define DN(x)  sizeof(x)}}
+\DoxyCodeLine{01369 \textcolor{preprocessor}{\#define DN\_SEP ,}}
+\DoxyCodeLine{01370   \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} tableWithSizes[] = \{ \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\_NODES}} \};}
+\DoxyCodeLine{01371 \textcolor{preprocessor}{\#undef DN}}
+\DoxyCodeLine{01372 \textcolor{preprocessor}{\#undef DN\_SEP}}
+\DoxyCodeLine{01373 }
+\DoxyCodeLine{01374   \textcolor{keywordtype}{size\_t} maxSize=0;}
+\DoxyCodeLine{01375   printf(\textcolor{stringliteral}{"{}DocNodeVariant(\(\backslash\)n"{}});}
+\DoxyCodeLine{01376   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0;i<\textcolor{keyword}{sizeof}(tableWithNames)/\textcolor{keyword}{sizeof}(tableWithNames[0]);i++)}
+\DoxyCodeLine{01377   \{}
+\DoxyCodeLine{01378     printf(\textcolor{stringliteral}{"{}  /* \%2zu */ sizeof(\%s)=\%zu\(\backslash\)n"{}},i,tableWithNames[i],tableWithSizes[i]);}
+\DoxyCodeLine{01379     \textcolor{keywordflow}{if} (tableWithSizes[i]>maxSize) maxSize = tableWithSizes[i];}
+\DoxyCodeLine{01380   \}}
+\DoxyCodeLine{01381   printf(\textcolor{stringliteral}{"{})=\%zu\(\backslash\)n"{}},maxSize);}
+\DoxyCodeLine{01382 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2docnode_8h_a9a1f232ee7a2138f67140f80ce7c6628}{DOC\+\_\+\+NODES}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_a1c1632e37b281677f09baa3acce082cf}\label{src_2docnode_8h_a1c1632e37b281677f09baa3acce082cf}} 
+\index{docnode.h@{docnode.h}!holds\_one\_of\_alternatives@{holds\_one\_of\_alternatives}}
+\index{holds\_one\_of\_alternatives@{holds\_one\_of\_alternatives}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{holds\_one\_of\_alternatives()}{holds\_one\_of\_alternatives()}}
+{\footnotesize\ttfamily template$<$class... Ts$>$ \\
+constexpr bool holds\+\_\+one\+\_\+of\+\_\+alternatives (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+returns true iff {\itshape v} holds one of types passed as template parameters 
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01319}{1319}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01320 \{}
+\DoxyCodeLine{01321   \textcolor{keywordflow}{return} \mbox{\hyperlink{structdetails_1_1_impl_a0fd4278ad6e530e3ed836849026072b6}{details::Impl<Ts...>::holds\_one\_of\_alternatives}}(v);}
+\DoxyCodeLine{01322 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structdetails_1_1_impl_a0fd4278ad6e530e3ed836849026072b6}{details\+::\+Impl$<$ T, Ts $>$\+::holds\+\_\+one\+\_\+of\+\_\+alternatives()}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_ab4feec38265e781de0502142e696763a}\label{src_2docnode_8h_ab4feec38265e781de0502142e696763a}} 
+\index{docnode.h@{docnode.h}!parent@{parent}}
+\index{parent@{parent}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ parent (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+returns the parent node of a given node {\itshape n} or 0 if the node has no parent. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01289}{1289}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01290 \{}
+\DoxyCodeLine{01291   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} ? std::visit([](\textcolor{keyword}{auto} \&\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})-\/>\textcolor{keyword}{decltype}(\textcolor{keyword}{auto}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}.parent(); \}, *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}) : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{01292 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}.
+
+\mbox{\Hypertarget{src_2docnode_8h_aa08872da61afee56859056e5a0612633}\label{src_2docnode_8h_aa08872da61afee56859056e5a0612633}} 
+\index{docnode.h@{docnode.h}!parent@{parent}}
+\index{parent@{parent}!docnode.h@{docnode.h}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$ parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+returns the parent node of a given node {\itshape n} or 0 if the node has no parent. 
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8h_source_l01283}{1283}} of file \mbox{\hyperlink{src_2docnode_8h_source}{docnode.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01284 \{}
+\DoxyCodeLine{01285   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}} ? std::visit([](\textcolor{keyword}{auto} \&\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})-\/>\textcolor{keyword}{decltype}(\textcolor{keyword}{auto}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}.parent(); \}, *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}) : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{01286 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}.
+

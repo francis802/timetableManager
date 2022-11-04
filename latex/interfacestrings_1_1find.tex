@@ -1,0 +1,120 @@
+\hypertarget{interfacestrings_1_1find}{}\doxysection{strings\+::find Interface Reference}
+\label{interfacestrings_1_1find}\index{strings::find@{strings::find}}
+
+
+Function to find a string in a vector of strings.  
+
+
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} \mbox{\hyperlink{interfacestrings_1_1find_aa735757e9081545da734ec183a3a8d68}{find\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, item)
+\begin{DoxyCompactList}\small\item\em Find the index in a vector of Strings of a particular character string. \end{DoxyCompactList}\item 
+integer \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} \mbox{\hyperlink{interfacestrings_1_1find_aa735757e9081545da734ec183a3a8d68}{find\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, item)
+\begin{DoxyCompactList}\small\item\em Find the index in a vector of Strings of a particular character string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function to find a string in a vector of strings. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00082}{82}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+
+\doxysubsection{Member Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{interfacestrings_1_1find_aa735757e9081545da734ec183a3a8d68}\label{interfacestrings_1_1find_aa735757e9081545da734ec183a3a8d68}} 
+\index{strings::find@{strings::find}!find\_@{find\_}}
+\index{find\_@{find\_}!strings::find@{strings::find}}
+\doxysubsubsection{\texorpdfstring{find\_()}{find\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily integer \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} strings\+::find\+::find\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{vector,  }\item[{character($\ast$,kind=\mbox{\hyperlink{namespacestrings_ae9b4b80b475c76b9094677bf46c6b8b0}{ck}}), intent(in)}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find the index in a vector of Strings of a particular character string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of Strings to search.\\
+\hline
+\mbox{\texttt{ in}}  & {\em item} & The string to search for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the element of {\itshape vector} that corresponds to {\itshape item}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00545}{545}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00546     }
+\DoxyCodeLine{00547     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00548     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00549     }
+\DoxyCodeLine{00550     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: vector(:)}
+\DoxyCodeLine{00551     \textcolor{keywordtype}{CHARACTER(*,KIND=ck)}, \textcolor{keywordtype}{INTENT(IN)} :: item}
+\DoxyCodeLine{00552     }
+\DoxyCodeLine{00553     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00554     \textcolor{keywordtype}{INTEGER} :: i}
+\DoxyCodeLine{00555     }
+\DoxyCodeLine{00556     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00557     }
+\DoxyCodeLine{00558     \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00559       \textcolor{keywordflow}{IF} (\mbox{\hyperlink{structvector}{vector}}(i)\%item == item) \textcolor{keywordflow}{RETURN}}
+\DoxyCodeLine{00560 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00561     i = 0}
+\DoxyCodeLine{00562     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1find_aa735757e9081545da734ec183a3a8d68}\label{interfacestrings_1_1find_aa735757e9081545da734ec183a3a8d68}} 
+\index{strings::find@{strings::find}!find\_@{find\_}}
+\index{find\_@{find\_}!strings::find@{strings::find}}
+\doxysubsubsection{\texorpdfstring{find\_()}{find\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily integer \mbox{\hyperlink{testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} strings\+::find\+::find\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{vector,  }\item[{character($\ast$,kind=\mbox{\hyperlink{namespacestrings_ae9b4b80b475c76b9094677bf46c6b8b0}{ck}}), intent(in)}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find the index in a vector of Strings of a particular character string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector of Strings to search.\\
+\hline
+\mbox{\texttt{ in}}  & {\em item} & The string to search for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the element of {\itshape vector} that corresponds to {\itshape item}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00545}{545}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00546     }
+\DoxyCodeLine{00547     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00548     \textcolor{comment}{! Characteristics}}
+\DoxyCodeLine{00549     }
+\DoxyCodeLine{00550     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: vector(:)}
+\DoxyCodeLine{00551     \textcolor{keywordtype}{CHARACTER(*,KIND=ck)}, \textcolor{keywordtype}{INTENT(IN)} :: item}
+\DoxyCodeLine{00552     }
+\DoxyCodeLine{00553     \textcolor{comment}{! Function result}}
+\DoxyCodeLine{00554     \textcolor{keywordtype}{INTEGER} :: i}
+\DoxyCodeLine{00555     }
+\DoxyCodeLine{00556     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00557     }
+\DoxyCodeLine{00558     \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00559       \textcolor{keywordflow}{IF} (\mbox{\hyperlink{structvector}{vector}}(i)\%item == item) \textcolor{keywordflow}{RETURN}}
+\DoxyCodeLine{00560 \textcolor{keywordflow}{    END DO}}
+\DoxyCodeLine{00561     i = 0}
+\DoxyCodeLine{00562     }
+
+\end{DoxyCode}
+
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/testing/\mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\item 
+doxygen/testing/\mbox{\hyperlink{testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\end{DoxyCompactItemize}

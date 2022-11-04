@@ -1,0 +1,409 @@
+\hypertarget{class_clang_t_u_parser}{}\doxysection{Clang\+TUParser Class Reference}
+\label{class_clang_t_u_parser}\index{ClangTUParser@{ClangTUParser}}
+
+
+Clang parser object for a single translation unit, which consists of a source file and the directly or indirectly included headers.  
+
+
+
+
+{\ttfamily \#include $<$clangparser.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_clang_t_u_parser_1_1_private}{Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}{Clang\+TUParser}} (const \mbox{\hyperlink{class_clang_parser}{Clang\+Parser}} \&parser, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\item 
+virtual \mbox{\hyperlink{class_clang_t_u_parser_a916b7d9bae60790c26067bb9da3fc3b3}{$\sim$\+Clang\+TUParser}} ()
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}{parse}} ()
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}{switch\+To\+File}} (const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\item 
+\mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \mbox{\hyperlink{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}{files\+In\+Same\+TU}} () const
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}{lookup}} (\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line, const char $\ast$symbol)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}{write\+Sources}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\item 
+\mbox{\hyperlink{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}{Clang\+TUParser}} (const \mbox{\hyperlink{class_clang_parser}{Clang\+Parser}} \&parser, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\item 
+virtual \mbox{\hyperlink{class_clang_t_u_parser_a82806777404764e0af59e77cb916410b}{$\sim$\+Clang\+TUParser}} ()
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}{parse}} ()
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}{switch\+To\+File}} (const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\item 
+\mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \mbox{\hyperlink{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}{files\+In\+Same\+TU}} () const
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}{lookup}} (\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line, const char $\ast$symbol)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}{write\+Sources}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}{detect\+Function\+Body}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}{write\+Line\+Number}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line, bool write\+Line\+Anchor)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}{codify\+Lines}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, const char $\ast$text, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$font\+Class=0)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}{write\+Multi\+Line\+Code\+Link}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const \mbox{\hyperlink{class_definition}{Definition}} $\ast$d, const char $\ast$text)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}{link\+Identifier}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$text, int token\+Index)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}{link\+Macro}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$text)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}{link\+Include}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$text)
+\item 
+\mbox{\hyperlink{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}{Clang\+TUParser}} (const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&)=delete
+\item 
+\mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \& \mbox{\hyperlink{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}{operator=}} (const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}{detect\+Function\+Body}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}{write\+Line\+Number}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line, bool write\+Line\+Anchor)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}{codify\+Lines}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, const char $\ast$text, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$font\+Class=0)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}{write\+Multi\+Line\+Code\+Link}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const \mbox{\hyperlink{class_definition}{Definition}} $\ast$d, const char $\ast$text)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}{link\+Identifier}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$text, int token\+Index)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}{link\+Macro}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$text)
+\item 
+void \mbox{\hyperlink{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}{link\+Include}} (\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$fd, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column, const char $\ast$text)
+\item 
+\mbox{\hyperlink{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}{Clang\+TUParser}} (const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&)=delete
+\item 
+\mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \& \mbox{\hyperlink{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}{operator=}} (const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_clang_t_u_parser_1_1_private}{Private}} $>$ \mbox{\hyperlink{class_clang_t_u_parser_a86df93ac8a230173d2de89d27f89d83e}{p}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clang parser object for a single translation unit, which consists of a source file and the directly or indirectly included headers. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8h_source_l00021}{21}} of file \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8h_source}{clangparser.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}\label{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}} 
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{ClangTUParser()}{ClangTUParser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Clang\+TUParser\+::\+Clang\+TUParser (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_clang_parser}{Clang\+Parser}} \&}]{parser,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source_l00923}{923}} of file \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source}{clangparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00923                                                                 : \mbox{\hyperlink{class_clang_t_u_parser_a86df93ac8a230173d2de89d27f89d83e}{p}}(std::make\_unique<Private>())}
+\DoxyCodeLine{00924 \{}
+\DoxyCodeLine{00925 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_clang_t_u_parser_a916b7d9bae60790c26067bb9da3fc3b3}\label{class_clang_t_u_parser_a916b7d9bae60790c26067bb9da3fc3b3}} 
+\index{ClangTUParser@{ClangTUParser}!````~ClangTUParser@{$\sim$ClangTUParser}}
+\index{````~ClangTUParser@{$\sim$ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{$\sim$ClangTUParser()}{~ClangTUParser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Clang\+TUParser\+::$\sim$\+Clang\+TUParser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source_l00927}{927}} of file \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source}{clangparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00928 \{}
+\DoxyCodeLine{00929 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}\label{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}} 
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{ClangTUParser()}{ClangTUParser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Clang\+TUParser\+::\+Clang\+TUParser (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}\label{class_clang_t_u_parser_a2ae7d7d6cd684002b29fe2e71832fb59}} 
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{ClangTUParser()}{ClangTUParser()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Clang\+TUParser\+::\+Clang\+TUParser (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_clang_parser}{Clang\+Parser}} \&}]{parser,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a82806777404764e0af59e77cb916410b}\label{class_clang_t_u_parser_a82806777404764e0af59e77cb916410b}} 
+\index{ClangTUParser@{ClangTUParser}!````~ClangTUParser@{$\sim$ClangTUParser}}
+\index{````~ClangTUParser@{$\sim$ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{$\sim$ClangTUParser()}{~ClangTUParser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual Clang\+TUParser\+::$\sim$\+Clang\+TUParser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}\label{class_clang_t_u_parser_a55493325766c6227ed1fefe133d96c30}} 
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{ClangTUParser()}{ClangTUParser()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Clang\+TUParser\+::\+Clang\+TUParser (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}\label{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}} 
+\index{ClangTUParser@{ClangTUParser}!codifyLines@{codifyLines}}
+\index{codifyLines@{codifyLines}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{codifyLines()}{codifyLines()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::codify\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{const char $\ast$}]{text,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{font\+Class = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}\label{class_clang_t_u_parser_ab32d68e8a0734730da28fcec87572712}} 
+\index{ClangTUParser@{ClangTUParser}!codifyLines@{codifyLines}}
+\index{codifyLines@{codifyLines}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{codifyLines()}{codifyLines()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::codify\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{const char $\ast$}]{text,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{font\+Class = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}\label{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}} 
+\index{ClangTUParser@{ClangTUParser}!detectFunctionBody@{detectFunctionBody}}
+\index{detectFunctionBody@{detectFunctionBody}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{detectFunctionBody()}{detectFunctionBody()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::detect\+Function\+Body (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}\label{class_clang_t_u_parser_ae3c280c7fcbe5dbcea58544c5005d50b}} 
+\index{ClangTUParser@{ClangTUParser}!detectFunctionBody@{detectFunctionBody}}
+\index{detectFunctionBody@{detectFunctionBody}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{detectFunctionBody()}{detectFunctionBody()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::detect\+Function\+Body (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}\label{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}} 
+\index{ClangTUParser@{ClangTUParser}!filesInSameTU@{filesInSameTU}}
+\index{filesInSameTU@{filesInSameTU}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{filesInSameTU()}{filesInSameTU()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} Clang\+TUParser\+::files\+In\+Same\+TU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the list of files for this translation unit \mbox{\Hypertarget{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}\label{class_clang_t_u_parser_a08401778d9cffa32a18d6fa4d386c52b}} 
+\index{ClangTUParser@{ClangTUParser}!filesInSameTU@{filesInSameTU}}
+\index{filesInSameTU@{filesInSameTU}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{filesInSameTU()}{filesInSameTU()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} Clang\+TUParser\+::files\+In\+Same\+TU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the list of files for this translation unit \mbox{\Hypertarget{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}\label{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}} 
+\index{ClangTUParser@{ClangTUParser}!linkIdentifier@{linkIdentifier}}
+\index{linkIdentifier@{linkIdentifier}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{linkIdentifier()}{linkIdentifier()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::link\+Identifier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{text,  }\item[{int}]{token\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}\label{class_clang_t_u_parser_a8eaddc90ca8865b2b257d39fd7120c2e}} 
+\index{ClangTUParser@{ClangTUParser}!linkIdentifier@{linkIdentifier}}
+\index{linkIdentifier@{linkIdentifier}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{linkIdentifier()}{linkIdentifier()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::link\+Identifier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{text,  }\item[{int}]{token\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}\label{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}} 
+\index{ClangTUParser@{ClangTUParser}!linkInclude@{linkInclude}}
+\index{linkInclude@{linkInclude}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{linkInclude()}{linkInclude()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::link\+Include (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}\label{class_clang_t_u_parser_aad931bbdff65ae302d68ed45f407e7bd}} 
+\index{ClangTUParser@{ClangTUParser}!linkInclude@{linkInclude}}
+\index{linkInclude@{linkInclude}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{linkInclude()}{linkInclude()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::link\+Include (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}\label{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}} 
+\index{ClangTUParser@{ClangTUParser}!linkMacro@{linkMacro}}
+\index{linkMacro@{linkMacro}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{linkMacro()}{linkMacro()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::link\+Macro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}\label{class_clang_t_u_parser_aad3c6f0c0956670306679f23047972d7}} 
+\index{ClangTUParser@{ClangTUParser}!linkMacro@{linkMacro}}
+\index{linkMacro@{linkMacro}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{linkMacro()}{linkMacro()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::link\+Macro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}\label{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}} 
+\index{ClangTUParser@{ClangTUParser}!lookup@{lookup}}
+\index{lookup@{lookup}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{lookup()}{lookup()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} Clang\+TUParser\+::lookup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}}]{line,  }\item[{const char $\ast$}]{symbol }\end{DoxyParamCaption})}
+
+Looks for {\itshape symbol} which should be found at {\itshape line}. returns a clang unique reference to the symbol. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source_l00931}{931}} of file \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source}{clangparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00932 \{}
+\DoxyCodeLine{00933   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}();}
+\DoxyCodeLine{00934 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}\label{class_clang_t_u_parser_a0b5cf16c806e0589d6e94a9167fa06cc}} 
+\index{ClangTUParser@{ClangTUParser}!lookup@{lookup}}
+\index{lookup@{lookup}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{lookup()}{lookup()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} Clang\+TUParser\+::lookup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}}]{line,  }\item[{const char $\ast$}]{symbol }\end{DoxyParamCaption})}
+
+Looks for {\itshape symbol} which should be found at {\itshape line}. returns a clang unique reference to the symbol. \mbox{\Hypertarget{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}\label{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}} 
+\index{ClangTUParser@{ClangTUParser}!operator=@{operator=}}
+\index{operator=@{operator=}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \& Clang\+TUParser\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}\label{class_clang_t_u_parser_a989a83e4b5e4c2a7950ce2ec7979dc65}} 
+\index{ClangTUParser@{ClangTUParser}!operator=@{operator=}}
+\index{operator=@{operator=}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \& Clang\+TUParser\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_clang_t_u_parser}{Clang\+TUParser}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}\label{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}} 
+\index{ClangTUParser@{ClangTUParser}!parse@{parse}}
+\index{parse@{parse}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::parse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Parse the file given at construction time as a translation unit This file should already be preprocessed by doxygen preprocessor at the time of calling. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source_l00919}{919}} of file \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source}{clangparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00920 \{}
+\DoxyCodeLine{00921 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0de2d0d31a0d8029d99e005537ded33b}{parse\+File()}}.
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}\label{class_clang_t_u_parser_a83aab5c9a3514bd9fdcc7f811f76f3b6}} 
+\index{ClangTUParser@{ClangTUParser}!parse@{parse}}
+\index{parse@{parse}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::parse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Parse the file given at construction time as a translation unit This file should already be preprocessed by doxygen preprocessor at the time of calling. \mbox{\Hypertarget{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}\label{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}} 
+\index{ClangTUParser@{ClangTUParser}!switchToFile@{switchToFile}}
+\index{switchToFile@{switchToFile}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{switchToFile()}{switchToFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::switch\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+Switches to another file within the translation unit started with start(). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & The file definition with the name of the file to switch to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source_l00915}{915}} of file \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp_source}{clangparser.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00916 \{}
+\DoxyCodeLine{00917 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2doxygen_8cpp_a0de2d0d31a0d8029d99e005537ded33b}{parse\+File()}}, \mbox{\hyperlink{class_file_def_impl_a1f3350097130497d2168d88db7b81434}{File\+Def\+Impl\+::parse\+Source()}}, and \mbox{\hyperlink{class_file_def_impl_a6f460116bc2d754d566da0fbe32f9a9c}{File\+Def\+Impl\+::write\+Source\+Body()}}.
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}\label{class_clang_t_u_parser_a6cc2a92490b9356caccec16a1691d6f6}} 
+\index{ClangTUParser@{ClangTUParser}!switchToFile@{switchToFile}}
+\index{switchToFile@{switchToFile}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{switchToFile()}{switchToFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::switch\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+Switches to another file within the translation unit started with start(). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & The file definition with the name of the file to switch to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}\label{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}} 
+\index{ClangTUParser@{ClangTUParser}!writeLineNumber@{writeLineNumber}}
+\index{writeLineNumber@{writeLineNumber}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{writeLineNumber()}{writeLineNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::write\+Line\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}}]{line,  }\item[{bool}]{write\+Line\+Anchor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}\label{class_clang_t_u_parser_a8b20f1dd0e4c609e742a2d7aab0fae33}} 
+\index{ClangTUParser@{ClangTUParser}!writeLineNumber@{writeLineNumber}}
+\index{writeLineNumber@{writeLineNumber}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{writeLineNumber()}{writeLineNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::write\+Line\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}}]{line,  }\item[{bool}]{write\+Line\+Anchor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}\label{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}} 
+\index{ClangTUParser@{ClangTUParser}!writeMultiLineCodeLink@{writeMultiLineCodeLink}}
+\index{writeMultiLineCodeLink@{writeMultiLineCodeLink}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{writeMultiLineCodeLink()}{writeMultiLineCodeLink()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::write\+Multi\+Line\+Code\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}\label{class_clang_t_u_parser_a5e17feb540d60323b36854394cd879ad}} 
+\index{ClangTUParser@{ClangTUParser}!writeMultiLineCodeLink@{writeMultiLineCodeLink}}
+\index{writeMultiLineCodeLink@{writeMultiLineCodeLink}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{writeMultiLineCodeLink()}{writeMultiLineCodeLink()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::write\+Multi\+Line\+Code\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{line,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&}]{column,  }\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}\label{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}} 
+\index{ClangTUParser@{ClangTUParser}!writeSources@{writeSources}}
+\index{writeSources@{writeSources}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{writeSources()}{writeSources()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::write\+Sources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+writes the syntax highlighted source code for a file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ol} & The output generator list to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & The file to write sources for. \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by \mbox{\hyperlink{class_file_def_impl_a1f3350097130497d2168d88db7b81434}{File\+Def\+Impl\+::parse\+Source()}}, and \mbox{\hyperlink{class_file_def_impl_a6f460116bc2d754d566da0fbe32f9a9c}{File\+Def\+Impl\+::write\+Source\+Body()}}.
+
+\mbox{\Hypertarget{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}\label{class_clang_t_u_parser_a2ad9346acb0e075b32e697f21574155e}} 
+\index{ClangTUParser@{ClangTUParser}!writeSources@{writeSources}}
+\index{writeSources@{writeSources}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{writeSources()}{writeSources()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::write\+Sources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_file_def}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+writes the syntax highlighted source code for a file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ol} & The output generator list to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & The file to write sources for. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_clang_t_u_parser_a86df93ac8a230173d2de89d27f89d83e}\label{class_clang_t_u_parser_a86df93ac8a230173d2de89d27f89d83e}} 
+\index{ClangTUParser@{ClangTUParser}!p@{p}}
+\index{p@{p}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_clang_t_u_parser_1_1_private}{Private}} $>$ Clang\+TUParser\+::p\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8h_source_l00071}{71}} of file \mbox{\hyperlink{build_2doxygen_2src_2clangparser_8h_source}{clangparser.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2clangparser_8h}{clangparser.\+h}}\item 
+doxygen/src/\mbox{\hyperlink{src_2clangparser_8h}{clangparser.\+h}}\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2clangparser_8cpp}{clangparser.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2clangparser_8cpp}{clangparser.\+cpp}}\end{DoxyCompactItemize}

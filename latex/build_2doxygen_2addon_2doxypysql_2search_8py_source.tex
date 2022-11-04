@@ -1,0 +1,403 @@
+\hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source}{}\doxysection{search.\+py}
+\label{build_2doxygen_2addon_2doxypysql_2search_8py_source}\index{doxygen/build/doxygen/addon/doxypysql/search.py@{doxygen/build/doxygen/addon/doxypysql/search.py}}
+\mbox{\hyperlink{build_2doxygen_2addon_2doxypysql_2search_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00001}00001 \textcolor{comment}{\#!/usr/bin/env python}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00003}00003 \textcolor{comment}{\# python script to search through doxygen\_sqlite3.db}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00004}00004 \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00005}00005 \textcolor{comment}{\# Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00006}00006 \textcolor{comment}{\# documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00007}00007 \textcolor{comment}{\# granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00008}00008 \textcolor{comment}{\# for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00009}00009 \textcolor{comment}{\# See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00010}00010 \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00012}00012 \textcolor{keyword}{import} sqlite3}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00013}00013 \textcolor{keyword}{import} sys}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00014}00014 \textcolor{keyword}{import} os}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00015}00015 \textcolor{keyword}{import} getopt}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00016}00016 \textcolor{keyword}{import} json}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00017}00017 \textcolor{keyword}{import} re}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00019}00019 \textcolor{keyword}{class }MemberType:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00020}00020     Define=\textcolor{stringliteral}{"{}macro definition"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00021}00021     Function=\textcolor{stringliteral}{"{}function"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00022}00022     Variable=\textcolor{stringliteral}{"{}variable"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00023}00023     Typedef=\textcolor{stringliteral}{"{}typedef"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00024}00024     Enumeration=\textcolor{stringliteral}{"{}enumeration"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00025}00025     EnumValue=\textcolor{stringliteral}{"{}enumvalue"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00026}00026     Signal=\textcolor{stringliteral}{"{}signal"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00027}00027     Slot=\textcolor{stringliteral}{"{}slot"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00028}00028     Friend=\textcolor{stringliteral}{"{}friend"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00029}00029     DCOP=\textcolor{stringliteral}{"{}dcop"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00030}00030     Property=\textcolor{stringliteral}{"{}property"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00031}00031     Event=\textcolor{stringliteral}{"{}event"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00032}00032     File=\textcolor{stringliteral}{"{}file"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00034}00034 \textcolor{keyword}{class }RequestType:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00035}00035     References=\textcolor{stringliteral}{"{}9901"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00036}00036     Struct=\textcolor{stringliteral}{"{}9902"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00037}00037     Includers=\textcolor{stringliteral}{"{}9903"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00038}00038     Includees=\textcolor{stringliteral}{"{}9904"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00039}00039     Members=\textcolor{stringliteral}{"{}9905"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00040}00040     BaseClasses=\textcolor{stringliteral}{"{}9906"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00041}00041     SubClasses=\textcolor{stringliteral}{"{}9907"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00043}00043 g\_use\_regexp=\textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00046}00046 \textcolor{comment}{\# case-\/insensitive sqlite regexp function}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00047}00047 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesearch_aeaa86bd02e92ec85ecd1712220b4948e}{re\_fn}}(expr, item):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00048}00048     reg = re.compile(expr, re.I)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00049}00049     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacereg_a66de3a25d4b9ff13d33f4d3e416fb948}{reg.search}}(item) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00051}00051 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesearch_a8963cec524fa68841571068fda9b5edc}{openDb}}(dbname):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00052}00052     \textcolor{keywordflow}{if} dbname == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00053}00053         dbname = \textcolor{stringliteral}{"{}doxygen\_sqlite3.db"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00055}00055     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} os.path.isfile(dbname):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00056}00056         \textcolor{keywordflow}{raise} BaseException(\textcolor{stringliteral}{"{}No such file \%s"{}} \% dbname )}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00058}00058     conn = sqlite3.connect(dbname)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00059}00059     conn.execute(\textcolor{stringliteral}{'PRAGMA temp\_store = MEMORY;'})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00060}00060     conn.row\_factory = sqlite3.Row}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00061}00061     conn.create\_function(\textcolor{stringliteral}{"{}REGEXP"{}}, 2, re\_fn)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00062}00062     \textcolor{keywordflow}{return} conn}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00064}00064 \textcolor{keyword}{class }Finder:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00065}\mbox{\hyperlink{classsearch_1_1_finder_a54f54234162c6279079510026cfd3883}{00065}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a54f54234162c6279079510026cfd3883}{\_\_init\_\_}}(self,cn,name,row\_type=str):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00066}00066         self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}=cn}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00067}00067         self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}=name}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00068}00068         self.\mbox{\hyperlink{classsearch_1_1_finder_a4dcf196b0e5483688388226f8bdff332}{row\_type}}=row\_type}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00070}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{00070}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(self,row):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00071}00071         \textcolor{keywordflow}{if} self.\mbox{\hyperlink{classsearch_1_1_finder_a4dcf196b0e5483688388226f8bdff332}{row\_type}} \textcolor{keywordflow}{is} int:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00072}00072             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} rowid=?"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00073}00073         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00074}00074             \textcolor{keywordflow}{if} g\_use\_regexp == \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00075}00075                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} REGEXP (?,\%s)"{}} \%row}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00076}00076             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00077}00077                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} \%s=?"{}} \%row}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00079}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{00079}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(self,file\_id):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00080}00080         \textcolor{keywordflow}{if} self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{"{}SELECT COUNT(*) FROM path WHERE rowid=?"{}},[file\_id]).fetchone()[0] > 1:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00081}00081             sys.stderr.write(\textcolor{stringliteral}{"{}WARNING: non-\/uniq fileid [\%s]. Considering only the first match."{}} \% file\_id)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00083}00083         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{"{}SELECT * FROM path WHERE rowid=?"{}},[file\_id]).fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00084}00084                 \textcolor{keywordflow}{return} r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00086}00086         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00088}\mbox{\hyperlink{classsearch_1_1_finder_a16764f7db3ba8dbff218800bcd3e7457}{00088}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a16764f7db3ba8dbff218800bcd3e7457}{fileId}}(self,name):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00089}00089         \textcolor{keywordflow}{if} self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{"{}SELECT COUNT(*) FROM path WHERE"{}}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}}),[name]).fetchone()[0] > 1:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00090}00090             sys.stderr.write(\textcolor{stringliteral}{"{}WARNING: non-\/uniq file name [\%s]. Considering only the first match."{}} \% name)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00092}00092         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{"{}SELECT rowid FROM path WHERE"{}}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}}),[name]).fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00093}00093                 \textcolor{keywordflow}{return} r[0]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00095}00095         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00097}\mbox{\hyperlink{classsearch_1_1_finder_a1ba7217e487291653b53c0d164a5fe30}{00097}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a1ba7217e487291653b53c0d164a5fe30}{references}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00098}00098         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00099}00099         cur = self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.cursor()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00100}00100         cur.execute(\textcolor{stringliteral}{"{}SELECT rowid FROM memberdef WHERE"{}}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}}),[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00101}00101         rowids = cur.fetchall()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00103}00103         \textcolor{keywordflow}{if} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(rowids) == 0:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00104}00104             \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00106}00106         rowid = rowids[0][\textcolor{stringliteral}{'rowid'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00107}00107         cur = self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.cursor()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00108}00108         \textcolor{comment}{\#TODO:SELECT rowid from refid where refid=refid}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00109}00109         \textcolor{keywordflow}{for} info \textcolor{keywordflow}{in} cur.execute(\textcolor{stringliteral}{"{}SELECT * FROM xrefs WHERE dst\_rowid=?"{}}, [rowid]):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00110}00110             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00111}00111             cur = self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.cursor()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00112}00112             \textcolor{keywordflow}{for} i2 \textcolor{keywordflow}{in} cur.execute(\textcolor{stringliteral}{"{}SELECT * FROM memberdef WHERE rowid=?"{}},[info[\textcolor{stringliteral}{'src\_rowid'}]]):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00113}00113                 item[\textcolor{stringliteral}{'name'}]=i2[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00114}00114                 item[\textcolor{stringliteral}{'src'}]=info[\textcolor{stringliteral}{'src\_rowid'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00115}00115                 \textcolor{comment}{\# Below no longer directly supported on this entry; can be found from either memberdef}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00116}00116                 \textcolor{comment}{\#item['file']=self.fileName(info['file\_id'])}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00117}00117                 \textcolor{comment}{\#item['line']=info['line']}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00119}00119             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00120}00120         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00122}\mbox{\hyperlink{classsearch_1_1_finder_ab68fc36a6e6a691759dda9f014f18065}{00122}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_ab68fc36a6e6a691759dda9f014f18065}{function}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00123}00123         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00124}00124         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM memberdef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}})+\textcolor{stringliteral}{' AND kind=?'},[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}},MemberType.Function])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00125}00125         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00126}00126             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00127}00127             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00128}00128             item[\textcolor{stringliteral}{'definition'}] = r[\textcolor{stringliteral}{'definition'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00129}00129             item[\textcolor{stringliteral}{'argsstring'}] = r[\textcolor{stringliteral}{'argsstring'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00130}00130             item[\textcolor{stringliteral}{'file'}] = self.\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(r[\textcolor{stringliteral}{'file\_id'}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00131}00131             item[\textcolor{stringliteral}{'line'}] = r[\textcolor{stringliteral}{'line'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00132}00132             item[\textcolor{stringliteral}{'detaileddescription'}] = r[\textcolor{stringliteral}{'detaileddescription'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00133}00133             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00134}00134         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00136}\mbox{\hyperlink{classsearch_1_1_finder_a0dba4813703f4b5d9a0b0d7e91551922}{00136}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a0dba4813703f4b5d9a0b0d7e91551922}{file}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00137}00137         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00138}00138         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{"{}SELECT rowid,name FROM local\_file WHERE"{}}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}}),[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}]).fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00139}00139             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00140}00140             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00141}00141             item[\textcolor{stringliteral}{'id'}] =   r[\textcolor{stringliteral}{'rowid'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00142}00142             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00143}00143         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00146}\mbox{\hyperlink{classsearch_1_1_finder_a670a8def838c4293c9bf7acac0b51957}{00146}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a670a8def838c4293c9bf7acac0b51957}{macro}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00147}00147         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00148}00148         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM memberdef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}})+\textcolor{stringliteral}{' AND kind=?'},[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}},MemberType.Define])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00149}00149         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00150}00150             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00151}00151             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00152}00152             \textcolor{keywordflow}{if} r[\textcolor{stringliteral}{'argsstring'}]:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00153}00153                 item[\textcolor{stringliteral}{'argsstring'}] = r[\textcolor{stringliteral}{'argsstring'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00154}00154             item[\textcolor{stringliteral}{'definition'}] = r[\textcolor{stringliteral}{'initializer'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00155}00155             item[\textcolor{stringliteral}{'file'}] = self.\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(r[\textcolor{stringliteral}{'file\_id'}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00156}00156             item[\textcolor{stringliteral}{'line'}] = r[\textcolor{stringliteral}{'line'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00157}00157             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00158}00158         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00160}\mbox{\hyperlink{classsearch_1_1_finder_afc6c5605780194c21442e7bfa8863d74}{00160}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_afc6c5605780194c21442e7bfa8863d74}{typedef}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00161}00161         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00162}00162         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM memberdef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}})+\textcolor{stringliteral}{' AND kind=?'},[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}},MemberType.Typedef])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00163}00163         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00164}00164             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00165}00165             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00166}00166             item[\textcolor{stringliteral}{'definition'}] = r[\textcolor{stringliteral}{'definition'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00167}00167             item[\textcolor{stringliteral}{'file'}] = self.\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(r[\textcolor{stringliteral}{'file\_id'}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00168}00168             item[\textcolor{stringliteral}{'line'}] = r[\textcolor{stringliteral}{'line'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00169}00169             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00170}00170         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00172}\mbox{\hyperlink{classsearch_1_1_finder_a5020818024b6b57996d00916a3988fa4}{00172}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a5020818024b6b57996d00916a3988fa4}{variable}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00173}00173         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00174}00174         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM memberdef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}})+\textcolor{stringliteral}{' AND kind=?'},[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}},MemberType.Variable])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00175}00175         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00176}00176             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00177}00177             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00178}00178             item[\textcolor{stringliteral}{'definition'}] = r[\textcolor{stringliteral}{'definition'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00179}00179             item[\textcolor{stringliteral}{'file'}] = self.\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(r[\textcolor{stringliteral}{'file\_id'}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00180}00180             item[\textcolor{stringliteral}{'line'}] = r[\textcolor{stringliteral}{'line'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00181}00181             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00182}00182         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00184}\mbox{\hyperlink{classsearch_1_1_finder_a4411ca41245350dcc2d15f557207d158}{00184}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a4411ca41245350dcc2d15f557207d158}{params}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00185}00185         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00186}00186         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT rowid FROM memberdef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}}),[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00187}00187         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00188}00188             \textcolor{comment}{\#a=("{}SELECT * FROM param where id=(SELECT param\_id FROM memberdef\_param where memberdef\_id=?"{},[memberdef\_id])}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00189}00189             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00190}00190             item[\textcolor{stringliteral}{'id'}] = r[\textcolor{stringliteral}{'id'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00191}00191             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00192}00192         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00193}00193 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00194}\mbox{\hyperlink{classsearch_1_1_finder_ae046264300f10978b47e3bee2f045def}{00194}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_ae046264300f10978b47e3bee2f045def}{struct}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00195}00195         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00196}00196         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM compounddef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}}),[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00197}00197         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00198}00198             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00199}00199             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00200}00200             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00201}00201         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00202}00202 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00203}\mbox{\hyperlink{classsearch_1_1_finder_af94d5fa88039afea407be1dd16494202}{00203}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_af94d5fa88039afea407be1dd16494202}{includers}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00204}00204         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00205}00205         fid = self.\mbox{\hyperlink{classsearch_1_1_finder_a16764f7db3ba8dbff218800bcd3e7457}{fileId}}\mbox{\hyperlink{classsearch_1_1_finder_a16764f7db3ba8dbff218800bcd3e7457}{fileId}}(self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00206}00206         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM includes WHERE dst\_id=?'},[fid])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00207}00207         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00208}00208             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00209}00209             item[\textcolor{stringliteral}{'name'}] = self.\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(r[\textcolor{stringliteral}{'src\_id'}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00210}00210             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00211}00211         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00212}00212 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00213}\mbox{\hyperlink{classsearch_1_1_finder_a299475bb87c0430d8dbe5210cdfc8e50}{00213}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a299475bb87c0430d8dbe5210cdfc8e50}{includees}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00214}00214         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00215}00215         fid = self.\mbox{\hyperlink{classsearch_1_1_finder_a16764f7db3ba8dbff218800bcd3e7457}{fileId}}\mbox{\hyperlink{classsearch_1_1_finder_a16764f7db3ba8dbff218800bcd3e7457}{fileId}}(self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00216}00216         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM includes WHERE src\_id=?'},[fid])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00217}00217         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00218}00218             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00219}00219             item[\textcolor{stringliteral}{'name'}] = self.\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(r[\textcolor{stringliteral}{'dst\_id'}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00220}00220             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00221}00221         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00222}00222 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00223}\mbox{\hyperlink{classsearch_1_1_finder_a05dfcc9ef6fcb4a9803bcb5c3c721724}{00223}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a05dfcc9ef6fcb4a9803bcb5c3c721724}{members}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00224}00224         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00225}00225         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT * FROM memberdef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}scope"{}}),[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00226}00226         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00227}00227             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00228}00228             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00229}00229             item[\textcolor{stringliteral}{'definition'}] = r[\textcolor{stringliteral}{'definition'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00230}00230             item[\textcolor{stringliteral}{'argsstring'}] = r[\textcolor{stringliteral}{'argsstring'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00231}00231             item[\textcolor{stringliteral}{'file'}] = self.\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}\mbox{\hyperlink{classsearch_1_1_finder_a1b96962b3a26241daf7a3b6ffc0feb3e}{fileName}}(r[\textcolor{stringliteral}{'file\_id'}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00232}00232             item[\textcolor{stringliteral}{'line'}] = r[\textcolor{stringliteral}{'line'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00233}00233             \textcolor{comment}{\#item['documentation'] = r['documentation']}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00234}00234             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00235}00235         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00236}00236 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00237}\mbox{\hyperlink{classsearch_1_1_finder_a09653f41757950301ab0bcc79b38a13c}{00237}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a09653f41757950301ab0bcc79b38a13c}{baseClasses}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00238}00238         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00239}00239         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT compounddef.name FROM compounddef JOIN compoundref ON compounddef.rowid=compoundref.base\_rowid WHERE compoundref.derived\_rowid IN (SELECT rowid FROM compounddef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}})+\textcolor{stringliteral}{')'},[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00240}00240         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00241}00241             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00242}00242             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00243}00243             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00244}00244         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00245}00245 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00246}\mbox{\hyperlink{classsearch_1_1_finder_a03dab536e0a659c517c9b631f2a91ed8}{00246}}     \textcolor{keyword}{def }\mbox{\hyperlink{classsearch_1_1_finder_a03dab536e0a659c517c9b631f2a91ed8}{subClasses}}(self):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00247}00247         o=[]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00248}00248         c=self.\mbox{\hyperlink{classsearch_1_1_finder_ac6a8b17c71b98598243ff34d7a4b33ba}{cn}}.execute(\textcolor{stringliteral}{'SELECT compounddef.name FROM compounddef JOIN compoundref ON compounddef.rowid=compoundref.derived\_rowid WHERE compoundref.base\_rowid IN (SELECT rowid FROM compounddef WHERE'}+self.\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}\mbox{\hyperlink{classsearch_1_1_finder_a74fd15ad555dd92e01905b9320b703fd}{match}}(\textcolor{stringliteral}{"{}name"{}})+\textcolor{stringliteral}{')'},[self.\mbox{\hyperlink{classsearch_1_1_finder_a9c38c51eda604105c8886598d3f66671}{name}}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00249}00249         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} c.fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00250}00250             item=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00251}00251             item[\textcolor{stringliteral}{'name'}] = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00252}00252             o.append(item)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00253}00253         \textcolor{keywordflow}{return} o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00254}00254 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00255}00255 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesearch_ab1aaf0b3caf9d452fca5cb41884b72c0}{process}}(f,kind):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00256}00256     request\_processors = \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00257}00257         MemberType.Function: f.function,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00258}00258         MemberType.File: f.file,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00259}00259         MemberType.Define:   f.macro,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00260}00260         MemberType.Variable: f.variable,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00261}00261         MemberType.Typedef:  f.typedef,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00262}00262         RequestType.References: f.references,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00263}00263         RequestType.Struct: f.struct,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00264}00264         RequestType.Includers: f.includers,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00265}00265         RequestType.Includees: f.includees,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00266}00266         RequestType.Members: f.members,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00267}00267         RequestType.BaseClasses: f.baseClasses,}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00268}00268         RequestType.SubClasses: f.subClasses}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00269}00269     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00270}00270     \textcolor{keywordflow}{return} request\_processors[kind]()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00271}00271 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00272}00272 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00273}00273 \textcolor{comment}{\# the -\/H option isn't documented. It's one of the more recent additions, but it's treating refids as if they would be a string. I'm just taking a stab at updating it for now, converting to use rowid, and making other edits necessary to get it to run.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00274}00274 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesearch_a560d12322f3dbb3bfbd08953074077ec}{processHref}}(cn,ref):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00275}00275     j=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00277}00277     \textcolor{comment}{\# is it in memberdef ?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00278}00278     table=\textcolor{stringliteral}{"{}memberdef"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00279}00279     \textcolor{keywordflow}{if} ( cn.execute(\textcolor{stringliteral}{"{}SELECT count(*) from \%s WHERE rowid=?"{}}\%table,[ref] ).fetchone()[0] > 0 ):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00280}00280         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} cn.execute(\textcolor{stringliteral}{"{}SELECT kind,rowid FROM \%s WHERE rowid=?"{}} \% table,[ref]).fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00281}00281             f=\mbox{\hyperlink{classsearch_1_1_finder}{Finder}}(cn,r[\textcolor{stringliteral}{'rowid'}],int)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00282}00282             j=\mbox{\hyperlink{namespacesearch_ab1aaf0b3caf9d452fca5cb41884b72c0}{process}}(f,str(r[\textcolor{stringliteral}{'kind'}]))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00283}00283 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00284}00284     \textcolor{comment}{\# is it in compounddef ?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00285}00285     table=\textcolor{stringliteral}{"{}compounddef"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00286}00286     \textcolor{keywordflow}{if} ( cn.execute(\textcolor{stringliteral}{"{}SELECT count(*) from \%s WHERE rowid=?"{}}\%table,[ref]).fetchone()[0] > 0 ):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00287}00287         \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} cn.execute(\textcolor{stringliteral}{"{}SELECT rowid FROM \%s WHERE rowid=?"{}}\%table,[ref] ).fetchall():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00288}00288             f=\mbox{\hyperlink{classsearch_1_1_finder}{Finder}}(cn,r[0],int)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00289}00289             j=\mbox{\hyperlink{namespacesearch_ab1aaf0b3caf9d452fca5cb41884b72c0}{process}}(f,RequestType.Struct)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00290}00290 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00291}00291     \textcolor{keywordflow}{return} j}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00292}00292 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00293}00293 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesearch_a4a1799a1918c3437f3e60b6d34bbd2bb}{serveCgi}}():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00294}00294     \textcolor{keyword}{import} cgi}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00295}00295 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00296}00296     \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{'Content-\/Type: application/json\(\backslash\)n'})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00297}00297 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00298}00298     fieldStorage = cgi.FieldStorage()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00299}00299     form = dict((key, fieldStorage.getvalue(key)) \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} fieldStorage.keys())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00300}00300 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00301}00301     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'href'} \textcolor{keywordflow}{in} form:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00302}00302         ref = form[\textcolor{stringliteral}{'href'}]}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00303}00303     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00304}00304         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{'\{"{}result"{}: null, "{}error"{}: "{}no refid given"{}\}'})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00305}00305         sys.exit(0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00306}00306 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00307}00307     cn=\mbox{\hyperlink{namespacesearch_a8963cec524fa68841571068fda9b5edc}{openDb}}(\textcolor{stringliteral}{'doxygen\_sqlite3.db'})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00308}00308 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00309}00309     j = \mbox{\hyperlink{namespacesearch_a560d12322f3dbb3bfbd08953074077ec}{processHref}}(cn,ref)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00310}00310 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00311}00311     \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(json.dumps(\{\textcolor{stringliteral}{"{}result"{}}:j,\textcolor{stringliteral}{"{}error"{}}:\textcolor{keywordtype}{None}\}))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00312}00312 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00313}00313 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesearch_ae422fd1ac935a2964dea5f7e83a042ae}{usage}}():}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00314}00314     sys.stderr.write(\textcolor{stringliteral}{"{}"{}"{}Usage: search.py [Options]}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00315}00315 \textcolor{stringliteral}{Options:}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00316}00316 \textcolor{stringliteral}{    -\/h, -\/-\/help}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00317}00317 \textcolor{stringliteral}{    -\/d <D>    Use database <D> }\textcolor{keywordflow}{for} queries.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00318}00318     -\/f <F>    Search \textcolor{keywordflow}{for} definition of function <F>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00319}00319     -\/m <M>    Search \textcolor{keywordflow}{for} definition of macro <M>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00320}00320     -\/r <F>    Search \textcolor{keywordflow}{for} references to function <F>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00321}00321     -\/t <T>    Search \textcolor{keywordflow}{for} definition of type <T>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00322}00322     -\/v <V>    Search \textcolor{keywordflow}{for} definition of variable <V>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00323}00323     -\/I <I>    What files are including <I>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00324}00324     -\/i <i>    What files are included by <i>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00325}00325     -\/B <C>    Get the base classes of \textcolor{keyword}{class }<C>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00326}00326     -\/M <C>    Get all members of \textcolor{keyword}{class }<C>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00327}00327     -\/S <C>    Get the sub classes of \textcolor{keyword}{class }<C>.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00328}00328     -\/R        Consider the search <term> to be a regex.}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00329}00329 \textcolor{stringliteral}{"{}"{}"{})}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00330}00330 \textcolor{stringliteral}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00331}00331 \textcolor{stringliteral}{def serveCli(argv):}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00332}00332 \textcolor{stringliteral}{    }\textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00333}00333         opts, args = getopt.getopt(argv, \textcolor{stringliteral}{"{}hr:RI:i:d:f:m:t:v:H:M:B:S:F:"{}},[\textcolor{stringliteral}{"{}help"{}}])}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00334}00334     \textcolor{keywordflow}{except} getopt.GetoptError:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00335}00335         \mbox{\hyperlink{namespacesearch_ae422fd1ac935a2964dea5f7e83a042ae}{usage}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00336}00336         sys.exit(1)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00337}00337 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00338}00338     ref=\textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00339}00339     dbname=\textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00340}00340     j=\{\}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00341}00341     \textcolor{keyword}{global} g\_use\_regexp}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00342}00342 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00343}00343     \textcolor{keywordflow}{for} a, o \textcolor{keywordflow}{in} opts:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00344}00344         \textcolor{keywordflow}{if} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/h'}, \textcolor{stringliteral}{'-\/-\/help'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00345}00345             \mbox{\hyperlink{namespacesearch_ae422fd1ac935a2964dea5f7e83a042ae}{usage}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00346}00346             sys.exit(0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00347}00347         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/d'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00348}00348             dbname=o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00349}00349             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00350}00350         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/r'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00351}00351             kind=RequestType.References}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00352}00352         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/R'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00353}00353             g\_use\_regexp=\textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00354}00354             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00355}00355         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/I'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00356}00356             kind=RequestType.Includers}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00357}00357         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/i'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00358}00358             kind=RequestType.Includees}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00359}00359         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/M'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00360}00360             kind=RequestType.Members}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00361}00361         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/B'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00362}00362             kind=RequestType.BaseClasses}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00363}00363         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/S'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00364}00364             kind=RequestType.SubClasses}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00365}00365         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/f'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00366}00366             kind=MemberType.Function}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00367}00367         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/F'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00368}00368             \textcolor{comment}{\# undocumented}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00369}00369             \textcolor{comment}{\# seems to fit with the lower case "{}search"{} patterns?}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00370}00370             kind=MemberType.File}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00371}00371         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/m'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00372}00372             kind=MemberType.Define}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00373}00373         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/t'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00374}00374             kind=MemberType.Typedef}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00375}00375         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/v'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00376}00376             kind=MemberType.Variable}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00377}00377         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/H'}):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00378}00378             \textcolor{comment}{\# undocumented}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00379}00379             ref = o}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00380}00380 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00381}00381         cn=\mbox{\hyperlink{namespacesearch_a8963cec524fa68841571068fda9b5edc}{openDb}}(dbname)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00382}00382         f=\mbox{\hyperlink{classsearch_1_1_finder}{Finder}}(cn,o)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00383}00383         \textcolor{keywordflow}{if} ref != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00384}00384             j=\mbox{\hyperlink{namespacesearch_a560d12322f3dbb3bfbd08953074077ec}{processHref}}(cn,ref)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00385}00385         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00386}00386             j=\mbox{\hyperlink{namespacesearch_ab1aaf0b3caf9d452fca5cb41884b72c0}{process}}(f,kind)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00387}00387         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(json.dumps(j,indent=4))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00388}00388 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00389}00389 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00390}00390 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesearch_a02b0409ab58b56478eaa201abb5a7000}{main}}(argv):}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00391}00391     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'REQUEST\_METHOD'} \textcolor{keywordflow}{in} os.environ:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00392}00392         \mbox{\hyperlink{namespacesearch_a4a1799a1918c3437f3e60b6d34bbd2bb}{serveCgi}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00393}00393     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00394}00394         \mbox{\hyperlink{namespacesearch_aef0277641d2d0db0081cadf2e149d08e}{serveCli}}(argv)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00395}00395 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00396}00396 \textcolor{keywordflow}{if} \_\_name\_\_ == \textcolor{stringliteral}{'\_\_main\_\_'}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2addon_2doxypysql_2search_8py_source_l00397}00397     \mbox{\hyperlink{namespacesearch_a02b0409ab58b56478eaa201abb5a7000}{main}}(sys.argv[1:])}
+
+\end{DoxyCode}

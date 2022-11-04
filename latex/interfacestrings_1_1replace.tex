@@ -1,0 +1,128 @@
+\hypertarget{interfacestrings_1_1replace}{}\doxysection{strings\+::replace Interface Reference}
+\label{interfacestrings_1_1replace}\index{strings::replace@{strings::replace}}
+
+
+Replace an item with other items.  
+
+
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1replace_a3ceb8762d0b595befcf04f01874caebd}{replace\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, idx, insert\+\_\+items)
+\begin{DoxyCompactList}\small\item\em Replace an item in a vector by one or more items. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1replace_a3ceb8762d0b595befcf04f01874caebd}{replace\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, idx, insert\+\_\+items)
+\begin{DoxyCompactList}\small\item\em Replace an item in a vector by one or more items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Replace an item with other items. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00109}{109}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+
+\doxysubsection{Member Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{interfacestrings_1_1replace_a3ceb8762d0b595befcf04f01874caebd}\label{interfacestrings_1_1replace_a3ceb8762d0b595befcf04f01874caebd}} 
+\index{strings::replace@{strings::replace}!replace\_@{replace\_}}
+\index{replace\_@{replace\_}!strings::replace@{strings::replace}}
+\doxysubsubsection{\texorpdfstring{replace\_()}{replace\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine strings\+::replace\+::replace\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{integer, intent(in)}]{idx,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{insert\+\_\+items }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Replace an item in a vector by one or more items. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em vector} & The vector of Strings to operate on.\\
+\hline
+\mbox{\texttt{ in}}  & {\em idx} & The index of the item to replace.\\
+\hline
+\mbox{\texttt{ in}}  & {\em insert\+\_\+items} & The vector of items to insert. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00635}{635}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00636     }
+\DoxyCodeLine{00637     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00638     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00639     }
+\DoxyCodeLine{00640     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00641     \textcolor{keywordtype}{INTEGER}, \textcolor{keywordtype}{INTENT(IN)} :: idx}
+\DoxyCodeLine{00642     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: insert\_items(:)}
+\DoxyCodeLine{00643     }
+\DoxyCodeLine{00644     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/!}}
+\DoxyCodeLine{00645     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00646     }
+\DoxyCodeLine{00647     \textcolor{comment}{! Temporary for changing the size of vector.}}
+\DoxyCodeLine{00648     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00649     }
+\DoxyCodeLine{00650     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00651     }
+\DoxyCodeLine{00652     \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}}) -\/ 1 + \textcolor{keyword}{SIZE}(insert\_items)))}
+\DoxyCodeLine{00653     }
+\DoxyCodeLine{00654     tmp(:idx-\/1) = \mbox{\hyperlink{structvector}{vector}}(:idx-\/1)}
+\DoxyCodeLine{00655     tmp(idx:idx+\textcolor{keyword}{SIZE}(insert\_items)-\/1) = insert\_items}
+\DoxyCodeLine{00656     tmp(idx+\textcolor{keyword}{SIZE}(insert\_items):) = \mbox{\hyperlink{structvector}{vector}}(idx:)}
+\DoxyCodeLine{00657     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1replace_a3ceb8762d0b595befcf04f01874caebd}\label{interfacestrings_1_1replace_a3ceb8762d0b595befcf04f01874caebd}} 
+\index{strings::replace@{strings::replace}!replace\_@{replace\_}}
+\index{replace\_@{replace\_}!strings::replace@{strings::replace}}
+\doxysubsubsection{\texorpdfstring{replace\_()}{replace\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine strings\+::replace\+::replace\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{integer, intent(in)}]{idx,  }\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(in)}]{insert\+\_\+items }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Replace an item in a vector by one or more items. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em vector} & The vector of Strings to operate on.\\
+\hline
+\mbox{\texttt{ in}}  & {\em idx} & The index of the item to replace.\\
+\hline
+\mbox{\texttt{ in}}  & {\em insert\+\_\+items} & The vector of items to insert. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00635}{635}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00636     }
+\DoxyCodeLine{00637     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00638     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00639     }
+\DoxyCodeLine{00640     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00641     \textcolor{keywordtype}{INTEGER}, \textcolor{keywordtype}{INTENT(IN)} :: idx}
+\DoxyCodeLine{00642     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(IN)} :: insert\_items(:)}
+\DoxyCodeLine{00643     }
+\DoxyCodeLine{00644     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/!}}
+\DoxyCodeLine{00645     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00646     }
+\DoxyCodeLine{00647     \textcolor{comment}{! Temporary for changing the size of vector.}}
+\DoxyCodeLine{00648     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00649     }
+\DoxyCodeLine{00650     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00651     }
+\DoxyCodeLine{00652     \textcolor{keyword}{ALLOCATE}(tmp(\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}}) -\/ 1 + \textcolor{keyword}{SIZE}(insert\_items)))}
+\DoxyCodeLine{00653     }
+\DoxyCodeLine{00654     tmp(:idx-\/1) = \mbox{\hyperlink{structvector}{vector}}(:idx-\/1)}
+\DoxyCodeLine{00655     tmp(idx:idx+\textcolor{keyword}{SIZE}(insert\_items)-\/1) = insert\_items}
+\DoxyCodeLine{00656     tmp(idx+\textcolor{keyword}{SIZE}(insert\_items):) = \mbox{\hyperlink{structvector}{vector}}(idx:)}
+\DoxyCodeLine{00657     }
+
+\end{DoxyCode}
+
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/testing/\mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\item 
+doxygen/testing/\mbox{\hyperlink{testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\end{DoxyCompactItemize}

@@ -1,0 +1,375 @@
+\hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source}{}\doxysection{doxyindexer.\+cpp}
+\label{addon_2doxysearch_2doxyindexer_8cpp_source}\index{doxygen/addon/doxysearch/doxyindexer.cpp@{doxygen/addon/doxysearch/doxyindexer.cpp}}
+\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00016}00016 \textcolor{comment}{// STL includes}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00025}00025 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00027}00027 \textcolor{preprocessor}{\#include <sys/stat.h>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00029}00029 \textcolor{comment}{// Xapian include}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00030}00030 \textcolor{preprocessor}{\#include <xapian.h>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00032}00032 \textcolor{preprocessor}{\#include "{}version.h"{}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00033}00033 \textcolor{preprocessor}{\#include "{}xml.h"{}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00035}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a52fe06bd5f4d5f59cb53425c80c2410a}{00035}} \textcolor{preprocessor}{\#define MAX\_TERM\_LENGTH 245}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00037}00037 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00038}00038 \textcolor{keyword}{static} \textcolor{keywordtype}{char} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}} = \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00039}00039 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00040}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{00040}} \textcolor{keyword}{static} \textcolor{keywordtype}{char} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}} = \textcolor{charliteral}{'/'};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00041}00041 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00043}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{00043}} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}},Xapian::Document \&doc,\textcolor{keywordtype}{int} wfd)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00044}00044 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00045}00045   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}}.length()<=\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a52fe06bd5f4d5f59cb53425c80c2410a}{MAX\_TERM\_LENGTH}}) doc.add\_term(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}},wfd);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00046}00046 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00049}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_aa854c0e655aa9a94910bd1fa1e19bc3a}{00049}} \textcolor{keyword}{static} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_aa854c0e655aa9a94910bd1fa1e19bc3a}{trim}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& str,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00050}00050                         \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& whitespace = \textcolor{stringliteral}{"{} \(\backslash\)t"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00051}00051 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00052}00052   \textcolor{keywordtype}{size\_t} strBegin = str.find\_first\_not\_of(whitespace);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00053}00053   \textcolor{keywordflow}{if} (strBegin == std::string::npos)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00054}00054     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}}; \textcolor{comment}{// no content}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00056}00056   \textcolor{keywordtype}{size\_t} strEnd = str.find\_last\_not\_of(whitespace);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00057}00057   \textcolor{keywordtype}{size\_t} strRange = strEnd -\/ strBegin + 1;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00059}00059   \textcolor{keywordflow}{return} str.substr(strBegin, strRange);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00060}00060 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00065}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a7240c29f4d797a469751c5c5f2cccb7e}{00065}} \textcolor{keyword}{static} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a7240c29f4d797a469751c5c5f2cccb7e}{reduce}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& str,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00066}00066     \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& \mbox{\hyperlink{namespacetranslator_af1e1a3f2b1f208a4a94f4c03372cc879}{fill}} = \textcolor{stringliteral}{"{} "{}},}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00067}00067     \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& whitespace = \textcolor{stringliteral}{"{} \(\backslash\)t"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00068}00068 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00069}00069   \textcolor{comment}{// trim first}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00070}00070   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} result = \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_aa854c0e655aa9a94910bd1fa1e19bc3a}{trim}}(str, whitespace);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00072}00072   \textcolor{comment}{// replace sub ranges}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00073}00073   \textcolor{keywordtype}{size\_t} beginSpace = result.find\_first\_of(whitespace);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00074}00074   \textcolor{keywordflow}{while} (beginSpace != std::string::npos)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00075}00075   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00076}00076     \textcolor{keywordtype}{size\_t} endSpace = result.find\_first\_not\_of(whitespace, beginSpace);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00077}00077     \textcolor{keywordtype}{size\_t} range = endSpace -\/ beginSpace;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00079}00079     result.replace(beginSpace, range, \mbox{\hyperlink{namespacetranslator_af1e1a3f2b1f208a4a94f4c03372cc879}{fill}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00081}00081     \textcolor{keywordtype}{size\_t} newStart = beginSpace + \mbox{\hyperlink{namespacetranslator_af1e1a3f2b1f208a4a94f4c03372cc879}{fill}}.length();}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00082}00082     beginSpace = result.find\_first\_of(whitespace, newStart);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00083}00083   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00085}00085   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00089}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a8c5e08fb676b0e833c9715e2ccd2612a}{00089}} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a8c5e08fb676b0e833c9715e2ccd2612a}{addWords}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},Xapian::Document \&doc,\textcolor{keywordtype}{int} wfd)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00090}00090 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00091}00091   std::istringstream iss(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00092}00092   std::istream\_iterator<std::string> \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}}(iss),\mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}},it;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00093}00093   \textcolor{keywordflow}{for} (it=\mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{begin}};it!=\mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{end}};++it)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00094}00094   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00095}00095     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}} = *it;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00096}00096     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} lword = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00097}00097     std::transform(lword.begin(), lword.end(), lword.begin(), \mbox{\hyperlink{namespacecaseconvert_aa56276fe8a71fb57ef0c49fbad9d036f}{::tolower}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00098}00098     \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}},doc,wfd);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00099}00099     \textcolor{keywordflow}{if} (lword!=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00100}00100     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00101}00101       \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(lword,doc,wfd);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00102}00102     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00103}00103   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00104}00104 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00107}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abdcee090c7e2e397aaea178e899310b0}{00107}} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abdcee090c7e2e397aaea178e899310b0}{addIdentifiers}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},Xapian::Document \&doc,\textcolor{keywordtype}{int} wfd)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00108}00108 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00109}00109   std::regex id\_re(\textcolor{stringliteral}{"{}[A-\/Z\_a-\/z][A-\/Z\_a-\/z0-\/9]*"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00110}00110   \textcolor{keyword}{auto} id\_begin = std::sregex\_iterator(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.begin(), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.end(), id\_re);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00111}00111   \textcolor{keyword}{auto} id\_end   = std::sregex\_iterator();}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00113}00113   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = id\_begin; i!=id\_end; ++i)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00114}00114   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00115}00115     std::smatch \mbox{\hyperlink{namespacereg_a1a29dcc7e2ccf462503adc5d496881ae}{match}} = *i;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00116}00116     \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(\mbox{\hyperlink{namespacereg_a1a29dcc7e2ccf462503adc5d496881ae}{match}}.str(),doc,wfd);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00117}00117   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00118}00118 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00121}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a347e03f0971162019ab40865acf72b00}{00121}} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a347e03f0971162019ab40865acf72b00}{replace\_all}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& str, \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& old, \textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& repl)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00122}00122 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00123}00123   \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00124}00124   \textcolor{keywordflow}{while} ((pos = str.find(old, pos)) != std::string::npos)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00125}00125   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00126}00126     str.replace(pos, old.length(), repl);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00127}00127     pos += repl.length();}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00128}00128   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00129}00129 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00132}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_aa5be2226a237e0a866ddc10950a349f7}{00132}} \textcolor{keyword}{static} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_aa5be2226a237e0a866ddc10950a349f7}{unescapeXmlEntities}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00133}00133 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00134}00134   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} result=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00135}00135   \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a347e03f0971162019ab40865acf72b00}{replace\_all}}(result,\textcolor{stringliteral}{"{}\&gt;"{}},\textcolor{stringliteral}{"{}>"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00136}00136   \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a347e03f0971162019ab40865acf72b00}{replace\_all}}(result,\textcolor{stringliteral}{"{}\&lt;"{}},\textcolor{stringliteral}{"{}<"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00137}00137   \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a347e03f0971162019ab40865acf72b00}{replace\_all}}(result,\textcolor{stringliteral}{"{}\&apos;"{}},\textcolor{stringliteral}{"{}'"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00138}00138   \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a347e03f0971162019ab40865acf72b00}{replace\_all}}(result,\textcolor{stringliteral}{"{}\&quot;"{}},\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00139}00139   \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a347e03f0971162019ab40865acf72b00}{replace\_all}}(result,\textcolor{stringliteral}{"{}\&amp;"{}},\textcolor{stringliteral}{"{}\&"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00140}00140   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00141}00141 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00142}00142 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00146}\mbox{\hyperlink{class_x_m_l_content_handler}{00146}} \textcolor{keyword}{class }\mbox{\hyperlink{class_x_m_l_content_handler}{XMLContentHandler}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00147}00147 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00148}00148   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00150}\mbox{\hyperlink{class_x_m_l_content_handler_a188fb8fabeb1549a881865742a8bae9f}{00150}}     \mbox{\hyperlink{class_x_m_l_content_handler_a188fb8fabeb1549a881865742a8bae9f}{XMLContentHandler}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&path)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00151}00151       : \mbox{\hyperlink{class_x_m_l_content_handler_a254c0207c59d139eb626c2445bdd5c8f}{m\_db}}(path+\textcolor{stringliteral}{"{}doxysearch.db"{}},Xapian::DB\_CREATE\_OR\_OVERWRITE),}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00152}00152         \mbox{\hyperlink{class_x_m_l_content_handler_abccddcb1066fb133dca98088f9166f8c}{m\_stemmer}}(\textcolor{stringliteral}{"{}english"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00153}00153     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00154}00154       \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}} = \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a61df78f2436b496d05ef6e26f9e0c550}{UnknownField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00155}00155       \mbox{\hyperlink{class_x_m_l_content_handler_a9b38e9e81ccbe0f2301b311c8fc59481}{m\_indexer}}.set\_stemmer(\mbox{\hyperlink{class_x_m_l_content_handler_abccddcb1066fb133dca98088f9166f8c}{m\_stemmer}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00156}00156       \mbox{\hyperlink{class_x_m_l_content_handler_a9b38e9e81ccbe0f2301b311c8fc59481}{m\_indexer}}.set\_document(\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00160}\mbox{\hyperlink{class_x_m_l_content_handler_aab56a9676e4ac4502553a00b750018a0}{00160}}    \mbox{\hyperlink{class_x_m_l_content_handler_aab56a9676e4ac4502553a00b750018a0}{\string~XMLContentHandler}}()}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00161}00161     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00162}00162       \mbox{\hyperlink{class_x_m_l_content_handler_a254c0207c59d139eb626c2445bdd5c8f}{m\_db}}.commit();}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00163}00163     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00164}00164 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00165}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011}{00165}}     \textcolor{keyword}{enum} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011}{FieldNames}}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00166}00166     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00167}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a61df78f2436b496d05ef6e26f9e0c550}{00167}}       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a61df78f2436b496d05ef6e26f9e0c550}{UnknownField}} = 0,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00168}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a87eadb6ec8387dd3fc3c00bca19bf211}{00168}}       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a87eadb6ec8387dd3fc3c00bca19bf211}{TypeField}}    = 1,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00169}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a77159f637c58651afd488eb06cc4fb81}{00169}}       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a77159f637c58651afd488eb06cc4fb81}{NameField}}    = 2,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00170}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9bb6ceb43ca1990492913a86480da2f5}{00170}}       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9bb6ceb43ca1990492913a86480da2f5}{ArgsField}}    = 3,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00171}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011acb83d7c53e077265f58b24902fd9f674}{00171}}       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011acb83d7c53e077265f58b24902fd9f674}{TagField}}     = 4,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00172}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011afce8aa7e73f3c914b87a230c79df7fa2}{00172}}       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011afce8aa7e73f3c914b87a230c79df7fa2}{UrlField}}     = 5,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00173}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a6f1983e5e22d87e156163ce7fbb51bf1}{00173}}       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a6f1983e5e22d87e156163ce7fbb51bf1}{KeywordField}} = 6,}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00174}00174       \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9f43692dcc3bb72b2be21edd1c0ca71d}{TextField}}    = 7}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00175}\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9f43692dcc3bb72b2be21edd1c0ca71d}{00175}}     \};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00178}\mbox{\hyperlink{class_x_m_l_content_handler_aea7108fddd7f5f5baa986c5f80456780}{00178}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_x_m_l_content_handler_aea7108fddd7f5f5baa986c5f80456780}{startElement}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}, \textcolor{keyword}{const} \mbox{\hyperlink{class_x_m_l_handlers_a15cedeea046e36465580e5654121387e}{XMLHandlers::Attributes}} \&attrib)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00179}00179     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00180}00180       \mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00181}00181       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}field"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00182}00182       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00183}00183         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} fieldName = \mbox{\hyperlink{class_x_m_l_handlers_ad2d3b265aa5d98961404eb3ebd539921}{XMLHandlers::value}}(attrib,\textcolor{stringliteral}{"{}name"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00184}00184         \textcolor{keywordflow}{if}      (fieldName==\textcolor{stringliteral}{"{}type"{}})     \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a87eadb6ec8387dd3fc3c00bca19bf211}{TypeField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00185}00185         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fieldName==\textcolor{stringliteral}{"{}name"{}})     \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a77159f637c58651afd488eb06cc4fb81}{NameField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00186}00186         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fieldName==\textcolor{stringliteral}{"{}args"{}})     \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9bb6ceb43ca1990492913a86480da2f5}{ArgsField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00187}00187         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fieldName==\textcolor{stringliteral}{"{}tag"{}})      \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011acb83d7c53e077265f58b24902fd9f674}{TagField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00188}00188         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fieldName==\textcolor{stringliteral}{"{}url"{}})      \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011afce8aa7e73f3c914b87a230c79df7fa2}{UrlField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00189}00189         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fieldName==\textcolor{stringliteral}{"{}keywords"{}}) \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a6f1983e5e22d87e156163ce7fbb51bf1}{KeywordField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00190}00190         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fieldName==\textcolor{stringliteral}{"{}text"{}})     \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9f43692dcc3bb72b2be21edd1c0ca71d}{TextField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00191}00191         \textcolor{keywordflow}{else} \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a61df78f2436b496d05ef6e26f9e0c550}{UnknownField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00192}00192       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00193}00193     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00194}00194 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00196}\mbox{\hyperlink{class_x_m_l_content_handler_a73cca57ee5d4d033fd6cb4f1fa636e6e}{00196}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_x_m_l_content_handler_a73cca57ee5d4d033fd6cb4f1fa636e6e}{endElement}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00197}00197     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00198}00198       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}doc"{}}) \textcolor{comment}{// </doc>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00199}00199       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00200}00200         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}} = \mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.get\_value(\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a77159f637c58651afd488eb06cc4fb81}{NameField}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00201}00201         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} partTerm;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00202}00202         \textcolor{keywordtype}{size\_t} pos = \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}}.rfind(\textcolor{stringliteral}{"{}::"{}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00203}00203         \textcolor{keywordflow}{if} (pos!=std::string::npos)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00204}00204         \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00205}00205           partTerm = \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}}.substr(pos+2);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00206}00206         \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00207}00207         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.get\_value(\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a87eadb6ec8387dd3fc3c00bca19bf211}{TypeField}})==\textcolor{stringliteral}{"{}class"{}} ||}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00208}00208             \mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.get\_value(\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a87eadb6ec8387dd3fc3c00bca19bf211}{TypeField}})==\textcolor{stringliteral}{"{}file"{}} ||}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00209}00209             \mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.get\_value(\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a87eadb6ec8387dd3fc3c00bca19bf211}{TypeField}})==\textcolor{stringliteral}{"{}namespace"{}}) \textcolor{comment}{// containers get highest prio}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00210}00210         \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00211}00211           \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_ad8f29ff28015ffeb164a592dd68f89c7}{term}},\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}},1000);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00212}00212           \textcolor{keywordflow}{if} (!partTerm.empty())}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00213}00213           \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00214}00214             \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(partTerm,\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}},500);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00215}00215           \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00216}00216         \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00217}00217         \textcolor{keywordflow}{else} \textcolor{comment}{// members and others get lower prio}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00218}00218         \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00219}00219           \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.get\_value(\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a77159f637c58651afd488eb06cc4fb81}{NameField}}),\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}},100);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00220}00220           \textcolor{keywordflow}{if} (!partTerm.empty())}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00221}00221           \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00222}00222             \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1a7b8a62b35fcc24d3db84c2b1b4b6c1}{safeAddTerm}}(partTerm,\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}},50);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00223}00223           \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00224}00224         \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00225}00225         \mbox{\hyperlink{class_x_m_l_content_handler_a254c0207c59d139eb626c2445bdd5c8f}{m\_db}}.add\_document(\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00226}00226         \mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.clear\_values();}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00227}00227         \mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.clear\_terms();}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00228}00228       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00229}00229       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}==\textcolor{stringliteral}{"{}field"{}} \&\& \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}!=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a61df78f2436b496d05ef6e26f9e0c550}{UnknownField}}) \textcolor{comment}{// </field>}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00230}00230       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00231}00231         \textcolor{comment}{// strip whitespace from m\_data}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00232}00232         \mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}} = \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a7240c29f4d797a469751c5c5f2cccb7e}{reduce}}(\mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00233}00233         \textcolor{comment}{// replace XML entities}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00234}00234         \mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}} = \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_aa5be2226a237e0a866ddc10950a349f7}{unescapeXmlEntities}}(\mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00235}00235         \textcolor{comment}{// add data to the document}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00236}00236         \mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}}.add\_value(\mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}},\mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00237}00237         \textcolor{keywordflow}{switch} (\mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00238}00238         \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00239}00239           \textcolor{keywordflow}{case} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a87eadb6ec8387dd3fc3c00bca19bf211}{TypeField}}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00240}00240           \textcolor{keywordflow}{case} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a77159f637c58651afd488eb06cc4fb81}{NameField}}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00241}00241           \textcolor{keywordflow}{case} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011acb83d7c53e077265f58b24902fd9f674}{TagField}}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00242}00242           \textcolor{keywordflow}{case} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011afce8aa7e73f3c914b87a230c79df7fa2}{UrlField}}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00243}00243             \textcolor{comment}{// meta data that is not searchable}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00244}00244             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00245}00245           \textcolor{keywordflow}{case} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a6f1983e5e22d87e156163ce7fbb51bf1}{KeywordField}}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00246}00246             \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a8c5e08fb676b0e833c9715e2ccd2612a}{addWords}}(\mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}},\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}},50);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00247}00247             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00248}00248           \textcolor{keywordflow}{case} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9bb6ceb43ca1990492913a86480da2f5}{ArgsField}}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00249}00249             \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abdcee090c7e2e397aaea178e899310b0}{addIdentifiers}}(\mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}},\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}},10);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00250}00250             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00251}00251           \textcolor{keywordflow}{case} \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a9f43692dcc3bb72b2be21edd1c0ca71d}{TextField}}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00252}00252             \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a8c5e08fb676b0e833c9715e2ccd2612a}{addWords}}(\mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}},\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}},2);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00253}00253             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00254}00254           \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00255}00255             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00256}00256         \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00257}00257         \mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00258}00258         \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}}=\mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011a61df78f2436b496d05ef6e26f9e0c550}{UnknownField}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00259}00259       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00260}00260       \textcolor{comment}{// reset m\_data}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00261}00261     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00262}00262 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00264}\mbox{\hyperlink{class_x_m_l_content_handler_a5d6cc42aca872a71e6bc1741249b4b20}{00264}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_x_m_l_content_handler_a5d6cc42aca872a71e6bc1741249b4b20}{characters}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}\& ch)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00265}00265     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00266}00266       \mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}} += ch;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00267}00267     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00268}00268 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00269}\mbox{\hyperlink{class_x_m_l_content_handler_a89ea3a1a85367288ebda30700af5ea1b}{00269}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_x_m_l_content_handler_a89ea3a1a85367288ebda30700af5ea1b}{error}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&fileName,\textcolor{keywordtype}{int} lineNr,\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00270}00270     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00271}00271       std::cerr << \textcolor{stringliteral}{"{}Fatal error at "{}} << fileName << \textcolor{stringliteral}{"{}:"{}} << lineNr << \textcolor{stringliteral}{"{}: "{}} << \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00272}00272     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00273}00273 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00274}00274   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00275}00275 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00276}00276     \textcolor{comment}{// internal state}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00277}\mbox{\hyperlink{class_x_m_l_content_handler_a254c0207c59d139eb626c2445bdd5c8f}{00277}}     Xapian::WritableDatabase \mbox{\hyperlink{class_x_m_l_content_handler_a254c0207c59d139eb626c2445bdd5c8f}{m\_db}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00278}\mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{00278}}     Xapian::Document \mbox{\hyperlink{class_x_m_l_content_handler_aceae6f2455f5f3fd70087482b7c6473a}{m\_doc}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00279}\mbox{\hyperlink{class_x_m_l_content_handler_a9b38e9e81ccbe0f2301b311c8fc59481}{00279}}     Xapian::TermGenerator \mbox{\hyperlink{class_x_m_l_content_handler_a9b38e9e81ccbe0f2301b311c8fc59481}{m\_indexer}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00280}\mbox{\hyperlink{class_x_m_l_content_handler_abccddcb1066fb133dca98088f9166f8c}{00280}}     Xapian::Stem \mbox{\hyperlink{class_x_m_l_content_handler_abccddcb1066fb133dca98088f9166f8c}{m\_stemmer}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00281}\mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{00281}}     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{class_x_m_l_content_handler_a6ec5da652bc0a37c4e1144ff3f3e9615}{m\_data}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00282}\mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{00282}}     \mbox{\hyperlink{class_x_m_l_content_handler_a133202dc3c1642cafa7278d3dc89e011}{FieldNames}} \mbox{\hyperlink{class_x_m_l_content_handler_a83b73fc4faa6be58b5c7c9cb1e273f2f}{m\_curFieldName}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00283}00283 \};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00284}00284 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00285}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_ae8e4fee8e8b57d0d61448b58021f7744}{00285}} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_ae8e4fee8e8b57d0d61448b58021f7744}{usage}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}, \textcolor{keywordtype}{int} exitVal = 1)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00286}00286 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00287}00287   std::cerr << \textcolor{stringliteral}{"{}Usage: "{}} << \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} << \textcolor{stringliteral}{"{} [-\/o output\_dir] searchdata.xml [searchdata2.xml ...]"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00288}00288   exit(exitVal);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00289}00289 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00290}00290 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00291}00291 \textcolor{comment}{// return the contents of a file as a string}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00292}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{00292}} \textcolor{keyword}{inline} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{fileToString}}(\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&fileName)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00293}00293 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00294}00294   \mbox{\hyperlink{namespaceghc_1_1filesystem_ac5ce4cc34ef910b06b64f6110c866e2e}{std::ifstream}} t(fileName);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00295}00295   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} result;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00296}00296   t.seekg(0, \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{std::ios::end}});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00297}00297   result.reserve(t.tellg());}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00298}00298   t.seekg(0, std::ios::beg);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00299}00299   result.assign(std::istreambuf\_iterator<char>(t),}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00300}00300                 std::istreambuf\_iterator<char>());}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00301}00301   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00302}00302 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00303}00303 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00304}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1e39e609056197e88ccb4327fd7a07ba}{00304}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1e39e609056197e88ccb4327fd7a07ba}{dirExists}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *path)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00305}00305 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00306}00306   \textcolor{keyword}{struct }stat info = \{\};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00307}00307   \textcolor{keywordflow}{return} stat(path,\&info)==0 \&\& (info.st\_mode\&S\_IFDIR);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00308}00308 \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00309}00309 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00311}\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a217dbf8b442f20279ea00b898af96f52}{00311}} \textcolor{keywordtype}{int} \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a217dbf8b442f20279ea00b898af96f52}{main}}(\textcolor{keywordtype}{int} argc,\textcolor{keyword}{const} \textcolor{keywordtype}{char} **argv)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00312}00312 \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00313}00313   \textcolor{keywordflow}{if} (argc<2)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00314}00314   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00315}00315     \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_ae8e4fee8e8b57d0d61448b58021f7744}{usage}}(argv[0]);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00316}00316   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00317}00317   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} outputDir;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00318}00318   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=1;i<argc;i++)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00319}00319   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00320}00320     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(argv[i])==\textcolor{stringliteral}{"{}-\/o"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00321}00321     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00322}00322       \textcolor{keywordflow}{if} (i>=argc-\/1)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00323}00323       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00324}00324         std::cerr << \textcolor{stringliteral}{"{}Error: missing parameter for -\/o option"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00325}00325         \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_ae8e4fee8e8b57d0d61448b58021f7744}{usage}}(argv[0]);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00326}00326       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00327}00327       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00328}00328       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00329}00329         i++;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00330}00330         outputDir=argv[i];}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00331}00331         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a1e39e609056197e88ccb4327fd7a07ba}{dirExists}}(outputDir.c\_str()))}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00332}00332         \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00333}00333           std::cerr << \textcolor{stringliteral}{"{}Error: specified output directory does not exist!"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00334}00334           \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_ae8e4fee8e8b57d0d61448b58021f7744}{usage}}(argv[0]);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00335}00335         \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00336}00336       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00337}00337     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00338}00338     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(argv[i])==\textcolor{stringliteral}{"{}-\/h"{}} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(argv[i])==\textcolor{stringliteral}{"{}-\/-\/help"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00339}00339     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00340}00340       \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_ae8e4fee8e8b57d0d61448b58021f7744}{usage}}(argv[0],0);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00341}00341     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00342}00342     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(argv[i])==\textcolor{stringliteral}{"{}-\/v"{}} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(argv[i])==\textcolor{stringliteral}{"{}-\/-\/version"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00343}00343     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00344}00344       std::cerr << argv[0] << \textcolor{stringliteral}{"{} version: "{}} << \mbox{\hyperlink{build_2doxygen_2libversion_2fullversion_8cpp_a0dc4fbac53e7f3128f3d6501edf4f263}{getFullVersion}}() << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00345}00345       exit(0);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00346}00346     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00347}00347   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00348}00348 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00349}00349   \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00350}00350   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00351}00351     \textcolor{keywordflow}{if} (!outputDir.empty() \&\& outputDir.at(outputDir.length()-\/1)!=\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00352}00352     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00353}00353       outputDir+=\mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_abcca888c0d6a274bb1668719bed4da58}{pathSep}};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00354}00354     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00355}00355     \mbox{\hyperlink{class_x_m_l_content_handler}{XMLContentHandler}} contentHandler(outputDir);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00356}00356     \mbox{\hyperlink{class_x_m_l_handlers}{XMLHandlers}} handlers;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00357}00357     handlers.\mbox{\hyperlink{class_x_m_l_handlers_a945909036791f9ab9b57ae6de8533c70}{startElement}} = [\&contentHandler](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\textcolor{keyword}{const} \mbox{\hyperlink{class_x_m_l_handlers_a15cedeea046e36465580e5654121387e}{XMLHandlers::Attributes}} \&attrs)  \{ contentHandler.\mbox{\hyperlink{class_x_m_l_content_handler_aea7108fddd7f5f5baa986c5f80456780}{startElement}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},attrs);   \};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00358}00358     handlers.\mbox{\hyperlink{class_x_m_l_handlers_a2c85948a865bc625f1445766d8756691}{endElement}}   = [\&contentHandler](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})                                       \{ contentHandler.\mbox{\hyperlink{class_x_m_l_content_handler_a73cca57ee5d4d033fd6cb4f1fa636e6e}{endElement}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});           \};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00359}00359     handlers.\mbox{\hyperlink{class_x_m_l_handlers_a5559e63579f11525d00371e448805fa2}{characters}}   = [\&contentHandler](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&chars)                                      \{ contentHandler.\mbox{\hyperlink{class_x_m_l_content_handler_a5d6cc42aca872a71e6bc1741249b4b20}{characters}}(chars);          \};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00360}00360     handlers.\mbox{\hyperlink{class_x_m_l_handlers_ab6441d4f863d7bbc0da013e4eae77f3d}{error}}        = [\&contentHandler](\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&fileName,\textcolor{keywordtype}{int} lineNr,\textcolor{keyword}{const} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \&\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}}) \{ contentHandler.\mbox{\hyperlink{class_x_m_l_content_handler_a89ea3a1a85367288ebda30700af5ea1b}{error}}(fileName,lineNr,\mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aba549a028419cd48a3f373037c2c57eb}{msg}}); \};}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00361}00361     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=1;i<argc;i++)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00362}00362     \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00363}00363       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}(argv[i])==\textcolor{stringliteral}{"{}-\/o"{}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00364}00364       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00365}00365         i++;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00366}00366       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00367}00367       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00368}00368       \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00369}00369         std::cout << \textcolor{stringliteral}{"{}Processing "{}} << argv[i] << \textcolor{stringliteral}{"{}..."{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00370}00370         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} inputStr = \mbox{\hyperlink{addon_2doxysearch_2doxyindexer_8cpp_a3aeabebeacfe1261741df6083720583f}{fileToString}}(argv[i]);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00371}00371         \mbox{\hyperlink{class_x_m_l_parser}{XMLParser}} parser(handlers);}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00372}00372         parser.\mbox{\hyperlink{class_x_m_l_parser_ac9822f941d0e7686a4cf45af2a31bbf1}{parse}}(argv[i],inputStr.c\_str(),\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00373}00373       \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00374}00374     \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00375}00375   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00376}00376   \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} Xapian::Error \&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}})}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00377}00377   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00378}00378     std::cerr << \textcolor{stringliteral}{"{}Caught exception: "{}} << \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}.get\_description() << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00379}00379   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00380}00380   \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00381}00381   \{}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00382}00382     std::cerr << \textcolor{stringliteral}{"{}Caught an unknown exception"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00383}00383   \}}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00384}00384 }
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00385}00385   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{addon_2doxysearch_2doxyindexer_8cpp_source_l00386}00386 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,134 @@
+\hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source}{}\doxysection{search\+\_\+opensearch.\+php}
+\label{build_2doxygen_2templates_2html_2search__opensearch_8php_source}\index{doxygen/build/doxygen/templates/html/search\_opensearch.php@{doxygen/build/doxygen/templates/html/search\_opensearch.php}}
+\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00001}00001 <?php}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00002}00002 require \textcolor{stringliteral}{"{}search\_functions.php"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00004}\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a3aaf40baac36e278c7d7c9139df1750c}{00004}} \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a3aaf40baac36e278c7d7c9139df1750c}{\$mode}} = array\_key\_exists(\textcolor{charliteral}{'v'}, \$\_GET)?\$\_GET[\textcolor{charliteral}{'v'}]:\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00005}\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{00005}} \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}} = array\_key\_exists(\textcolor{stringliteral}{'query'}, \$\_GET)?\$\_GET[\textcolor{stringliteral}{'query'}]:\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00006}00006 \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}} = preg\_replace(\textcolor{stringliteral}{"{}/[\string^a-\/zA-\/Z0-\/9\(\backslash\)-\/\(\backslash\)\_\(\backslash\).\(\backslash\)x80-\/\(\backslash\)xFF]/i"{}}, \textcolor{stringliteral}{"{} "{}}, \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}} );}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00008}\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a13caef56b465ebd21f033497f40b5b85}{00008}} \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a13caef56b465ebd21f033497f40b5b85}{\$query\_results}} = \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__functions_8php_a96f249e14a4fe57b0c6cc9b9620f39c8}{run\_query}}(\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00010}00010 \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a3aaf40baac36e278c7d7c9139df1750c}{\$mode}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00011}00011 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00012}00012   \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}opensearch.xml"{}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00013}00013     \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a636d3b1f5e25698d5e9939ab4efb03ca}{opensearch\_description}}();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00014}00014     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00015}00015   \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}json"{}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00016}00016     \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_ae2bf3060e481a6013d938c13eab3e791}{opensearch\_json\_results}}(\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}}, \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a13caef56b465ebd21f033497f40b5b85}{\$query\_results}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00017}00017     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00018}00018   \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}xml"{}}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00019}00019     \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a199311b321d5d0f239e83c11bfed253a}{opensearch\_xml\_results}}(\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}}, \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a13caef56b465ebd21f033497f40b5b85}{\$query\_results}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00020}00020     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00021}00021   \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00022}00022     \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_aeff5624010b13b8ddc6c47ad727a6d85}{invalid\_format}}(\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}}, \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a13caef56b465ebd21f033497f40b5b85}{\$query\_results}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00023}00023     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00024}00024 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00026}\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a636d3b1f5e25698d5e9939ab4efb03ca}{00026}} \textcolor{keyword}{function} \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a636d3b1f5e25698d5e9939ab4efb03ca}{opensearch\_description}}()}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00027}00027 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00028}00028   global \$config;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00029}00029   global \$translator;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00031}00031   \$shortname = \$translator[\textcolor{stringliteral}{'search'}].\textcolor{stringliteral}{"{} "{}}.\$config[\textcolor{stringliteral}{'PROJECT\_NAME'}];}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00032}00032   \$link = \textcolor{stringliteral}{"{}http://"{}}.\$\_SERVER[\textcolor{stringliteral}{'HTTP\_HOST'}].dirname(\$\_SERVER[\textcolor{stringliteral}{'SCRIPT\_NAME'}]);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00033}00033   header(\textcolor{stringliteral}{"{}Content-\/Type: application/xml"{}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00034}00034   echo <<<END\_OPENSEARCH}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00035}00035 <?xml \mbox{\hyperlink{namespacesetup_a2aa722b36a933088812b50ea79b97a5c}{version}}=\textcolor{stringliteral}{"{}1.0"{}} encoding=\textcolor{stringliteral}{"{}UTF-\/8"{}}?>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00036}00036 <OpenSearchDescription xmlns=\textcolor{stringliteral}{"{}http://a9.com/-\//spec/opensearch/1.1/"{}}>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00037}00037 <ShortName>\$shortname</ShortName>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00038}00038 <Description>\mbox{\hyperlink{class_doxygen}{Doxygen}} Search</Description>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00039}00039 <InputEncoding>UTF-\/8</InputEncoding>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00040}00040 <!-\/-\/}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00041}00041 <\mbox{\hyperlink{class_image}{Image}} height=\textcolor{stringliteral}{"{}16"{}} width=\textcolor{stringliteral}{"{}16"{}} type=\textcolor{stringliteral}{"{}image/x-\/icon"{}}>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00042}00042 http:\textcolor{comment}{//dev.squello.com/doc/html/favicon.ico</Image>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00043}00043 -\/-\/>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00044}00044 <Url type=\textcolor{stringliteral}{"{}text/html"{}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adcc9a19ad3119f823a658f6a49a24e64}{method}}=\textcolor{stringliteral}{"{}GET"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00045}00045 \textcolor{keyword}{template}=\textcolor{stringliteral}{"{}\$link/search.php?query=\{searchTerms\}"{}} />}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00046}00046 <Url type=\textcolor{stringliteral}{"{}application/x-\/suggestions+json"{}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adcc9a19ad3119f823a658f6a49a24e64}{method}}=\textcolor{stringliteral}{"{}GET"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00047}00047 \textcolor{keyword}{template}=\textcolor{stringliteral}{"{}\$link/search\_opensearch.php?v=json\&amp;query=\{searchTerms\}"{}} />}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00048}00048 <Url type=\textcolor{stringliteral}{"{}application/x-\/suggestions+xml"{}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_adcc9a19ad3119f823a658f6a49a24e64}{method}}=\textcolor{stringliteral}{"{}GET"{}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00049}00049 \textcolor{keyword}{template}=\textcolor{stringliteral}{"{}\$link/search\_opensearch.php?v=xml\&amp;query=\{searchTerms\}"{}} />}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00050}00050 </OpenSearchDescription>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00051}00051 END\_OPENSEARCH;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00052}00052 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00054}\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a199311b321d5d0f239e83c11bfed253a}{00054}} \textcolor{keyword}{function} \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_a199311b321d5d0f239e83c11bfed253a}{opensearch\_xml\_results}}(\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}}, array \$results)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00055}00055 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00056}00056   \textcolor{comment}{// Much as I hate copy'n'paste code re-\/use, this is for testing;}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00057}00057   \textcolor{comment}{// I expect a richer version to come soon.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00058}00058   \textcolor{comment}{// Although I hate that IE does this richer than FF more...}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00059}00059   \$qs\_results = array();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00060}00060   \textcolor{keywordflow}{foreach} (\$results as \$i => \$val)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00061}00061   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00062}00062     \textcolor{keywordflow}{foreach} (\$val[\textcolor{stringliteral}{'words'}] as \$j => \$word)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00063}00063     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00064}00064       \textcolor{keywordflow}{if} (array\_key\_exists(\$word, \$qs\_results))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00065}00065         \$qs\_results[\$word[\textcolor{stringliteral}{'match'}]]++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00066}00066       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00067}00067         \$qs\_results[\$word[\textcolor{stringliteral}{'match'}]] = 1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00068}00068     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00069}00069   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00070}00070   \$result = <<<END\_FRAG}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00071}00071 <?xml \mbox{\hyperlink{namespacesetup_a2aa722b36a933088812b50ea79b97a5c}{version}}=\textcolor{stringliteral}{"{}1.0"{}}?>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00072}00072 <SearchSuggestion xmlns=\textcolor{stringliteral}{"{}http://schemas.microsoft.com/Search/2008/suggestions"{}}>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00073}00073 <Query>\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}}</Query>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00074}00074 <\mbox{\hyperlink{build_2doxygen_2src_2section_8h_a25c82173ed332876ea7c76359befda30ad2c24d59e0baff4d0155fbdf62590867}{Section}}>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00075}00075 END\_FRAG;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00076}00076   \textcolor{keywordflow}{foreach} (\$qs\_results as \$word => \$count)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00077}00077   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00078}00078     \$result .= <<<END\_FRAG}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00079}00079 <Item>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00080}00080 <Text>\$word</Text>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00081}00081 <Description>\$count results</Description>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00082}00082 </Item>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00083}00083 END\_FRAG;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00084}00084   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00085}00085   \$result .= <<<END\_FRAG}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00086}00086 </\mbox{\hyperlink{build_2doxygen_2src_2section_8h_a25c82173ed332876ea7c76359befda30ad2c24d59e0baff4d0155fbdf62590867}{Section}}>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00087}00087 </SearchSuggestion>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00088}00088 END\_FRAG;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00089}00089   echo \$result;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00090}00090 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00092}\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_ae2bf3060e481a6013d938c13eab3e791}{00092}} \textcolor{keyword}{function} \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_ae2bf3060e481a6013d938c13eab3e791}{opensearch\_json\_results}}(\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}}, array \$results)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00093}00093 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00094}00094   \$qs\_results = array();}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00095}00095   \textcolor{keywordflow}{foreach} (\$results as \$i => \$val)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00096}00096   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00097}00097     \textcolor{keywordflow}{foreach} (\$val[\textcolor{stringliteral}{'words'}] as \$j => \$word)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00098}00098     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00099}00099       \textcolor{keywordflow}{if} (array\_key\_exists(\$word, \$qs\_results))}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00100}00100         \$qs\_results[\$word[\textcolor{stringliteral}{'match'}]]++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00101}00101       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00102}00102         \$qs\_results[\$word[\textcolor{stringliteral}{'match'}]] = 1;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00103}00103     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00104}00104   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00105}00105   \$result = \textcolor{stringliteral}{'["{}'}.\$query.\textcolor{stringliteral}{'"{}, ['};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00106}00106   \$json\_words = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00107}00107   \$json\_descriptions = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00108}00108   \$i = 0;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00109}00109   \textcolor{keywordflow}{foreach} (\$qs\_results as \$word => \$count)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00110}00110   \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00111}00111     \textcolor{keywordflow}{if} (\$i != 0)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00112}00112     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00113}00113       \$json\_words .= \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00114}00114       \$json\_descriptions .= \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00115}00115     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00116}00116     \$json\_words .= \textcolor{charliteral}{'"{}'}.\$word.\textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00117}00117     \$json\_descriptions .= \textcolor{charliteral}{'"{}'}.\$count.\textcolor{stringliteral}{' result'}.(\$count==1?\textcolor{stringliteral}{''}:\textcolor{charliteral}{'s'}).\textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00118}00118     \$i++;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00119}00119   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00120}00120   \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}} \textcolor{stringliteral}{"{}[\(\backslash\)"{}\$query\(\backslash\)"{}, [\$json\_words],[\$json\_descriptions]]"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00121}00121 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00123}\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_aeff5624010b13b8ddc6c47ad727a6d85}{00123}} \textcolor{keyword}{function} \mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_aeff5624010b13b8ddc6c47ad727a6d85}{invalid\_format}}(\mbox{\hyperlink{build_2doxygen_2templates_2html_2search__opensearch_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}}, array \$results)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00124}00124 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00125}00125   \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}} \textcolor{stringliteral}{"{}Search results for '\$query':\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00126}00126   print\_r(\$results);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00127}00127 \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2templates_2html_2search__opensearch_8php_source_l00128}00128 ?>}
+
+\end{DoxyCode}

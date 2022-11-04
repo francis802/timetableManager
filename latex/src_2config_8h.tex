@@ -1,0 +1,194 @@
+\hypertarget{src_2config_8h}{}\doxysection{doxygen/src/config.h File Reference}
+\label{src_2config_8h}\index{doxygen/src/config.h@{doxygen/src/config.h}}
+{\ttfamily \#include \char`\"{}configvalues.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_config}{Config}}
+\begin{DoxyCompactList}\small\item\em Public function to deal with the configuration file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}(name)~(Config\+Values\+::instance().name())
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}(name)~(Config\+Values\+::instance().name())
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a06b59c3720174e9078f613095a89b295}{Config\+\_\+get\+Int}}(name)~(Config\+Values\+::instance().name())
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_afe899eec751dfb75a60c37ec3840e288}{Config\+\_\+get\+Enum}}(name)~(Config\+Values\+::instance().name())
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a251399cde30dd4c356bbd5634c6eb472}{Config\+\_\+get\+Enum\+As\+String}}(name)~(Config\+Values\+::instance().name\#\#\+\_\+str())
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\+\_\+get\+List}}(name)~(Config\+Values\+::instance().name())
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a168f2876d56397a94af9140753974f38}{Config\+\_\+update\+String}}(name,  value)~(Config\+Values\+::instance().update\+\_\+\#\#name(value));
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}{Config\+\_\+update\+Bool}}(name,  value)~(Config\+Values\+::instance().update\+\_\+\#\#name(value));
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a24f565457c1536240757e5c8ebbf2e97}{Config\+\_\+update\+Int}}(name,  value)~(Config\+Values\+::instance().update\+\_\+\#\#name(value));
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a8c58e5a30ece3e745e1561edd00f6c68}{Config\+\_\+update\+Enum}}(name,  value)~(Config\+Values\+::instance().update\+\_\+\#\#name(value));
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a77eefd6119ed441632a00d7d274184af}{Config\+\_\+update\+List}}(name, ...)~(Config\+Values\+::instance().update\+\_\+\#\#name(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));
+\item 
+\#define \mbox{\hyperlink{src_2config_8h_a6f9c44a0d76faf919b0517a9931d6817}{Config\+\_\+is\+Available\+Enum}}(name,  value)~(Config\+Values\+::instance().is\+Available\+\_\+\#\#name(value))
+\end{DoxyCompactItemize}
+
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940}{Config\+::\+Compare\+Mode}} \{ \newline
+\mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940abbd47109890259c0127154db1af26c75}{Config\+::\+Full}}
+, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940a4d602abc0c0f2f7c1a5156d964517e4e}{Config\+::\+Compressed}}
+, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940aa0ba248fb99f2c67cce98a6822482fba}{Config\+::\+Compressed\+No\+Env}}
+, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940abbd47109890259c0127154db1af26c75}{Config\+::\+Full}}
+, \newline
+\mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940a4d602abc0c0f2f7c1a5156d964517e4e}{Config\+::\+Compressed}}
+, \mbox{\hyperlink{namespace_config_a098ed7e63f2ba437f0e540316e6cd940aa0ba248fb99f2c67cce98a6822482fba}{Config\+::\+Compressed\+No\+Env}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_config_a91bcb187ed95ec673137e413a4d77203}{Config\+::init}} ()
+\item 
+void \mbox{\hyperlink{namespace_config_a98dcadaa623b84d8929dc38239f31cb2}{Config\+::write\+Template}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, bool short\+List, bool update\+Only=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}})
+\item 
+void \mbox{\hyperlink{namespace_config_a6cc61dde8935f986295262513d2feb2d}{Config\+::compare\+Doxyfile}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, Compare\+Mode compare\+Mode)
+\item 
+void \mbox{\hyperlink{namespace_config_a5744a411e57f8a3a18ce6569e843b11e}{Config\+::write\+XMLDoxyfile}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t)
+\item 
+bool \mbox{\hyperlink{namespace_config_a88ed583dc36b1439108163403cc4224f}{Config\+::parse}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name, bool update=\mbox{\hyperlink{libmscgen_2mscgen__bool_8h_ae7d38601dfbd73adbe5c1b3ec34e0e13aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}, Compare\+Mode compare\+Mode=Compare\+Mode\+::\+Full)
+\item 
+void \mbox{\hyperlink{namespace_config_a04731f96560c04835ce340aa776251cb}{Config\+::post\+Process}} (bool clear\+Header\+And\+Footer, Compare\+Mode compare\+Mode=Compare\+Mode\+::\+Full)
+\item 
+void \mbox{\hyperlink{namespace_config_a43f9512cdb148a0f68a30519debac43f}{Config\+::check\+And\+Correct}} (bool quiet, const bool check)
+\item 
+void \mbox{\hyperlink{namespace_config_ad27e22c157d0c2d33414923d0a41c200}{Config\+::update\+Obsolete}} ()
+\item 
+void \mbox{\hyperlink{namespace_config_a7b3346b2e70cc73d231d540df5d67e57}{Config\+::deinit}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}\label{src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}} 
+\index{config.h@{config.h}!Config\_getBool@{Config\_getBool}}
+\index{Config\_getBool@{Config\_getBool}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_getBool}{Config\_getBool}}
+{\footnotesize\ttfamily \#define Config\+\_\+get\+Bool(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~(Config\+Values\+::instance().name())}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00033}{33}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_afe899eec751dfb75a60c37ec3840e288}\label{src_2config_8h_afe899eec751dfb75a60c37ec3840e288}} 
+\index{config.h@{config.h}!Config\_getEnum@{Config\_getEnum}}
+\index{Config\_getEnum@{Config\_getEnum}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_getEnum}{Config\_getEnum}}
+{\footnotesize\ttfamily \#define Config\+\_\+get\+Enum(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~(Config\+Values\+::instance().name())}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00035}{35}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a251399cde30dd4c356bbd5634c6eb472}\label{src_2config_8h_a251399cde30dd4c356bbd5634c6eb472}} 
+\index{config.h@{config.h}!Config\_getEnumAsString@{Config\_getEnumAsString}}
+\index{Config\_getEnumAsString@{Config\_getEnumAsString}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_getEnumAsString}{Config\_getEnumAsString}}
+{\footnotesize\ttfamily \#define Config\+\_\+get\+Enum\+As\+String(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~(Config\+Values\+::instance().name\#\#\+\_\+str())}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00036}{36}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a06b59c3720174e9078f613095a89b295}\label{src_2config_8h_a06b59c3720174e9078f613095a89b295}} 
+\index{config.h@{config.h}!Config\_getInt@{Config\_getInt}}
+\index{Config\_getInt@{Config\_getInt}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_getInt}{Config\_getInt}}
+{\footnotesize\ttfamily \#define Config\+\_\+get\+Int(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~(Config\+Values\+::instance().name())}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00034}{34}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a15e896ce0b99792d1344b66af98928e7}\label{src_2config_8h_a15e896ce0b99792d1344b66af98928e7}} 
+\index{config.h@{config.h}!Config\_getList@{Config\_getList}}
+\index{Config\_getList@{Config\_getList}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_getList}{Config\_getList}}
+{\footnotesize\ttfamily \#define Config\+\_\+get\+List(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~(Config\+Values\+::instance().name())}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00037}{37}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a737741e6991bdb5694a50075437a9d89}\label{src_2config_8h_a737741e6991bdb5694a50075437a9d89}} 
+\index{config.h@{config.h}!Config\_getString@{Config\_getString}}
+\index{Config\_getString@{Config\_getString}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_getString}{Config\_getString}}
+{\footnotesize\ttfamily \#define Config\+\_\+get\+String(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~(Config\+Values\+::instance().name())}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00032}{32}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a6f9c44a0d76faf919b0517a9931d6817}\label{src_2config_8h_a6f9c44a0d76faf919b0517a9931d6817}} 
+\index{config.h@{config.h}!Config\_isAvailableEnum@{Config\_isAvailableEnum}}
+\index{Config\_isAvailableEnum@{Config\_isAvailableEnum}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_isAvailableEnum}{Config\_isAvailableEnum}}
+{\footnotesize\ttfamily \#define Config\+\_\+is\+Available\+Enum(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})~(Config\+Values\+::instance().is\+Available\+\_\+\#\#name(value))}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00044}{44}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}\label{src_2config_8h_a252335f9ceadbd28f4394ec14a7f2777}} 
+\index{config.h@{config.h}!Config\_updateBool@{Config\_updateBool}}
+\index{Config\_updateBool@{Config\_updateBool}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_updateBool}{Config\_updateBool}}
+{\footnotesize\ttfamily \#define Config\+\_\+update\+Bool(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})~(Config\+Values\+::instance().update\+\_\+\#\#name(value));}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00039}{39}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a8c58e5a30ece3e745e1561edd00f6c68}\label{src_2config_8h_a8c58e5a30ece3e745e1561edd00f6c68}} 
+\index{config.h@{config.h}!Config\_updateEnum@{Config\_updateEnum}}
+\index{Config\_updateEnum@{Config\_updateEnum}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_updateEnum}{Config\_updateEnum}}
+{\footnotesize\ttfamily \#define Config\+\_\+update\+Enum(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})~(Config\+Values\+::instance().update\+\_\+\#\#name(value));}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00041}{41}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a24f565457c1536240757e5c8ebbf2e97}\label{src_2config_8h_a24f565457c1536240757e5c8ebbf2e97}} 
+\index{config.h@{config.h}!Config\_updateInt@{Config\_updateInt}}
+\index{Config\_updateInt@{Config\_updateInt}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_updateInt}{Config\_updateInt}}
+{\footnotesize\ttfamily \#define Config\+\_\+update\+Int(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})~(Config\+Values\+::instance().update\+\_\+\#\#name(value));}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00040}{40}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a77eefd6119ed441632a00d7d274184af}\label{src_2config_8h_a77eefd6119ed441632a00d7d274184af}} 
+\index{config.h@{config.h}!Config\_updateList@{Config\_updateList}}
+\index{Config\_updateList@{Config\_updateList}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_updateList}{Config\_updateList}}
+{\footnotesize\ttfamily \#define Config\+\_\+update\+List(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{... }\end{DoxyParamCaption})~(Config\+Values\+::instance().update\+\_\+\#\#name(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00042}{42}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{src_2config_8h_a168f2876d56397a94af9140753974f38}\label{src_2config_8h_a168f2876d56397a94af9140753974f38}} 
+\index{config.h@{config.h}!Config\_updateString@{Config\_updateString}}
+\index{Config\_updateString@{Config\_updateString}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{Config\_updateString}{Config\_updateString}}
+{\footnotesize\ttfamily \#define Config\+\_\+update\+String(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})~(Config\+Values\+::instance().update\+\_\+\#\#name(value));}
+
+some convenience macros for accessing the config options mainly done like this for backward compatibility 
+
+Definition at line \mbox{\hyperlink{src_2config_8h_source_l00038}{38}} of file \mbox{\hyperlink{src_2config_8h_source}{config.\+h}}.
+

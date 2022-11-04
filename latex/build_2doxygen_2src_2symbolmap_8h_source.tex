@@ -1,0 +1,91 @@
+\hypertarget{build_2doxygen_2src_2symbolmap_8h_source}{}\doxysection{symbolmap.\+h}
+\label{build_2doxygen_2src_2symbolmap_8h_source}\index{doxygen/build/doxygen/src/symbolmap.h@{doxygen/build/doxygen/src/symbolmap.h}}
+\mbox{\hyperlink{build_2doxygen_2src_2symbolmap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00016}00016 \textcolor{preprocessor}{\#ifndef SYMBOLMAP\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00017}00017 \textcolor{preprocessor}{\#define SYMBOLMAP\_H}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00019}00019 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00021}00021 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00022}00022 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00023}00023 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00029}00029 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00030}\mbox{\hyperlink{class_symbol_map}{00030}} \textcolor{keyword}{class }\mbox{\hyperlink{class_symbol_map}{SymbolMap}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00031}00031 \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00032}00032   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00033}\mbox{\hyperlink{class_symbol_map_af163fde1625af00fe48af2a874b29204}{00033}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_symbol_map_af163fde1625af00fe48af2a874b29204}{Ptr}} = T *;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00034}\mbox{\hyperlink{class_symbol_map_a9051b6931ae769df892b5755f5c0a0e7}{00034}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_symbol_map_a9051b6931ae769df892b5755f5c0a0e7}{VectorPtr}} = std::vector<Ptr>;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00035}\mbox{\hyperlink{class_symbol_map_ad455155d32de992ca2ef948290d2797d}{00035}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_symbol_map_ad455155d32de992ca2ef948290d2797d}{Map}} = std::unordered\_map<std::string,VectorPtr>;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00036}\mbox{\hyperlink{class_symbol_map_a908627b07109135e822be81c8cd570e9}{00036}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_symbol_map_a908627b07109135e822be81c8cd570e9}{iterator}} = \textcolor{keyword}{typename} Map::iterator;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00037}\mbox{\hyperlink{class_symbol_map_a53fbe4b99c651adaaf27f506450a9a1d}{00037}}     \textcolor{keyword}{using} \mbox{\hyperlink{class_symbol_map_a53fbe4b99c651adaaf27f506450a9a1d}{const\_iterator}} = \textcolor{keyword}{typename} Map::const\_iterator;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00040}\mbox{\hyperlink{class_symbol_map_a5ee5036f5adbd147a02e4aa476fc8b72}{00040}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_symbol_map_a5ee5036f5adbd147a02e4aa476fc8b72}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\mbox{\hyperlink{class_symbol_map_af163fde1625af00fe48af2a874b29204}{Ptr}} def)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00041}00041     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00042}00042       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00043}00043       \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.end())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00044}00044       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00045}00045         it-\/>second.push\_back(def);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00046}00046       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00047}00047       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00048}00048       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00049}00049         \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.emplace(std::make\_pair(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str(),\mbox{\hyperlink{class_symbol_map_a9051b6931ae769df892b5755f5c0a0e7}{VectorPtr}}(\{def\})));}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00050}00050       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00051}00051     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00054}\mbox{\hyperlink{class_symbol_map_a36b000d1d74ec4820b0d1c3a57dd645c}{00054}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_symbol_map_a36b000d1d74ec4820b0d1c3a57dd645c}{remove}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},\mbox{\hyperlink{class_symbol_map_af163fde1625af00fe48af2a874b29204}{Ptr}} def)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00055}00055     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00056}00056       \mbox{\hyperlink{class_symbol_map_a9051b6931ae769df892b5755f5c0a0e7}{VectorPtr}} \&v = \mbox{\hyperlink{class_symbol_map_a7f278648058288ad501bdb8d6d10c223}{find}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00057}00057       \textcolor{keyword}{auto} it = std::find(v.begin(),v.end(),def);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00058}00058       \textcolor{keywordflow}{if} (it!=v.end())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00059}00059       \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00060}00060         v.erase(it);}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00061}00061         \textcolor{keywordflow}{if} (v.empty())}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00062}00062         \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00063}00063           \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.erase(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00064}00064         \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00065}00065       \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00066}00066     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00070}\mbox{\hyperlink{class_symbol_map_a7f278648058288ad501bdb8d6d10c223}{00070}}     \textcolor{keyword}{const} \mbox{\hyperlink{class_symbol_map_a9051b6931ae769df892b5755f5c0a0e7}{VectorPtr}} \&\mbox{\hyperlink{class_symbol_map_a7f278648058288ad501bdb8d6d10c223}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00071}00071 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00072}00072       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00073}00073       \textcolor{keywordflow}{return} it==\mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.end() ? \mbox{\hyperlink{class_symbol_map_a44148f88041734dd12f69521dc25e174}{m\_noMatch}} : it-\/>second;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00078}\mbox{\hyperlink{class_symbol_map_a637346949a5475847d84c522a7a0ef10}{00078}}     \mbox{\hyperlink{class_symbol_map_a9051b6931ae769df892b5755f5c0a0e7}{VectorPtr}} \&\mbox{\hyperlink{class_symbol_map_a637346949a5475847d84c522a7a0ef10}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}})}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00079}00079     \{}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00080}00080       \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.find(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00081}00081       \textcolor{keywordflow}{return} it==\mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.end() ? \mbox{\hyperlink{class_symbol_map_a44148f88041734dd12f69521dc25e174}{m\_noMatch}} : it-\/>second;}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00082}00082     \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00084}\mbox{\hyperlink{class_symbol_map_ab9cd4fa2b43e0199d4cef45ff3cbb37e}{00084}}     \mbox{\hyperlink{class_symbol_map_a908627b07109135e822be81c8cd570e9}{iterator}} \mbox{\hyperlink{class_symbol_map_ab9cd4fa2b43e0199d4cef45ff3cbb37e}{begin}}()             \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.begin();  \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00085}\mbox{\hyperlink{class_symbol_map_a6069b0857a4c760cefa51b569820156c}{00085}}     \mbox{\hyperlink{class_symbol_map_a908627b07109135e822be81c8cd570e9}{iterator}} \mbox{\hyperlink{class_symbol_map_a6069b0857a4c760cefa51b569820156c}{end}}()               \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.end();    \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00086}\mbox{\hyperlink{class_symbol_map_a740d72033e533f71065ea8cf3b3f3d2a}{00086}}     \mbox{\hyperlink{class_symbol_map_a53fbe4b99c651adaaf27f506450a9a1d}{const\_iterator}} \mbox{\hyperlink{class_symbol_map_a740d72033e533f71065ea8cf3b3f3d2a}{begin}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.cbegin(); \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00087}\mbox{\hyperlink{class_symbol_map_ad5f1eb80c8797531fa0421d9bf68e8dd}{00087}}     \mbox{\hyperlink{class_symbol_map_a53fbe4b99c651adaaf27f506450a9a1d}{const\_iterator}} \mbox{\hyperlink{class_symbol_map_ad5f1eb80c8797531fa0421d9bf68e8dd}{end}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.cend();   \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00088}\mbox{\hyperlink{class_symbol_map_aeed554c8b958d2b8c6dcba5611d2b8cf}{00088}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_symbol_map_aeed554c8b958d2b8c6dcba5611d2b8cf}{empty}}()\textcolor{keyword}{ const           }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}}.empty();  \}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00090}00090   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00091}\mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{00091}}     \mbox{\hyperlink{class_symbol_map_ad455155d32de992ca2ef948290d2797d}{Map}} \mbox{\hyperlink{class_symbol_map_adb4e4e42ab3d988f61ab9e6a3f057bcf}{m\_map}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00092}\mbox{\hyperlink{class_symbol_map_a44148f88041734dd12f69521dc25e174}{00092}}     \mbox{\hyperlink{class_symbol_map_a9051b6931ae769df892b5755f5c0a0e7}{VectorPtr}} \mbox{\hyperlink{class_symbol_map_a44148f88041734dd12f69521dc25e174}{m\_noMatch}};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00093}00093 \};}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2src_2symbolmap_8h_source_l00095}00095 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

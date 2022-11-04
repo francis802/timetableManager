@@ -1,0 +1,76 @@
+\hypertarget{build_2doxygen_2src_2symbolresolver_8cpp}{}\doxysection{doxygen/build/doxygen/src/symbolresolver.cpp File Reference}
+\label{build_2doxygen_2src_2symbolresolver_8cpp}\index{doxygen/build/doxygen/src/symbolresolver.cpp@{doxygen/build/doxygen/src/symbolresolver.cpp}}
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}symbolresolver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_access_stack}{Access\+Stack}}
+\item 
+struct \mbox{\hyperlink{struct_access_stack_1_1_access_elem}{Access\+Stack\+::\+Access\+Elem}}
+\item 
+struct \mbox{\hyperlink{struct_symbol_resolver_1_1_private}{Symbol\+Resolver\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_a589f084c907127f8eb7da515347f2bc4}{Visited\+Namespaces}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, const \mbox{\hyperlink{class_definition}{Definition}} $\ast$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::mutex \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_abf10ed4dca35ec7b624c1aa7cd018327}{g\+\_\+cache\+Mutex}}
+\item 
+static std\+::recursive\+\_\+mutex \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_a1a8971085fc5238a1829570b5ca71aab}{g\+\_\+cache\+Typedef\+Mutex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2symbolresolver_8cpp_a589f084c907127f8eb7da515347f2bc4}\label{build_2doxygen_2src_2symbolresolver_8cpp_a589f084c907127f8eb7da515347f2bc4}} 
+\index{symbolresolver.cpp@{symbolresolver.cpp}!VisitedNamespaces@{VisitedNamespaces}}
+\index{VisitedNamespaces@{VisitedNamespaces}!symbolresolver.cpp@{symbolresolver.cpp}}
+\doxysubsubsection{\texorpdfstring{VisitedNamespaces}{VisitedNamespaces}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_a589f084c907127f8eb7da515347f2bc4}{Visited\+Namespaces}} =  std\+::unordered\+\_\+map$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}},const \mbox{\hyperlink{class_definition}{Definition}} $\ast$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_source}{symbolresolver.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2symbolresolver_8cpp_abf10ed4dca35ec7b624c1aa7cd018327}\label{build_2doxygen_2src_2symbolresolver_8cpp_abf10ed4dca35ec7b624c1aa7cd018327}} 
+\index{symbolresolver.cpp@{symbolresolver.cpp}!g\_cacheMutex@{g\_cacheMutex}}
+\index{g\_cacheMutex@{g\_cacheMutex}!symbolresolver.cpp@{symbolresolver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_cacheMutex}{g\_cacheMutex}}
+{\footnotesize\ttfamily std\+::mutex g\+\_\+cache\+Mutex\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_source}{symbolresolver.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_symbol_resolver_1_1_private_a1b353e10f16e1e03de54bdbc90c284b0}{Symbol\+Resolver\+::\+Private\+::get\+Resolved\+Symbol\+Rec()}}, and \mbox{\hyperlink{struct_symbol_resolver_1_1_private_a4b1064343083d6422f200e907d7fea1f}{Symbol\+Resolver\+::\+Private\+::get\+Resolved\+Type\+Rec()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2symbolresolver_8cpp_a1a8971085fc5238a1829570b5ca71aab}\label{build_2doxygen_2src_2symbolresolver_8cpp_a1a8971085fc5238a1829570b5ca71aab}} 
+\index{symbolresolver.cpp@{symbolresolver.cpp}!g\_cacheTypedefMutex@{g\_cacheTypedefMutex}}
+\index{g\_cacheTypedefMutex@{g\_cacheTypedefMutex}!symbolresolver.cpp@{symbolresolver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_cacheTypedefMutex}{g\_cacheTypedefMutex}}
+{\footnotesize\ttfamily std\+::recursive\+\_\+mutex g\+\_\+cache\+Typedef\+Mutex\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{build_2doxygen_2src_2symbolresolver_8cpp_source}{symbolresolver.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{struct_symbol_resolver_1_1_private_a0156c26365a13a5ad6c5ad5ffc2d8f47}{Symbol\+Resolver\+::\+Private\+::new\+Resolve\+Typedef()}}.
+

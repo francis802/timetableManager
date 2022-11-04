@@ -1,0 +1,303 @@
+\hypertarget{src_2docnode_8cpp}{}\doxysection{doxygen/src/docnode.cpp File Reference}
+\label{src_2docnode_8cpp}\index{doxygen/src/docnode.cpp@{doxygen/src/docnode.cpp}}
+{\ttfamily \#include \char`\"{}docnode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser\+\_\+p.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlentity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}emoji.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}formula.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}markdown.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmdmapper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doctokenizer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plantuml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}datetime.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_active_row_span}{Active\+Row\+Span}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8cpp_a32adf79142f0a426b5e782fb7cd4cad3}{DBG}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~do \{\} while(0)
+\item 
+\#define \mbox{\hyperlink{src_2docnode_8cpp_a70e94735e6ecdae48725e0c4254a2689}{INTERNAL\+\_\+\+ASSERT}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~do \{\} while(0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$ \mbox{\hyperlink{struct_active_row_span}{Active\+Row\+Span}} $>$ \mbox{\hyperlink{src_2docnode_8cpp_a8ebd411a505f41da49085559bdc9685e}{Row\+Span\+List}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{src_2docnode_8cpp_a2769e7f4b078110dae0ca454481d5e41}{unescape\+CRef}} (\mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2docnode_8cpp_a232984936769698de5f6d1ffaabf12a6}{strip\+Known\+Extensions}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static void \mbox{\hyperlink{src_2docnode_8cpp_a91f244300da7fd232ca1e4a858c12df3}{set\+Parent}} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, \mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$new\+Parent)
+\item 
+static void \mbox{\hyperlink{src_2docnode_8cpp_a71dd66dcbef8ad6aa74feb1e87e2a06b}{flatten\+Paragraphs}} (\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$root, \mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&children)
+\item 
+static bool \mbox{\hyperlink{src_2docnode_8cpp_a89a9f35c62c2ef88e116f4edea12c038}{find\+Attribute}} (const \mbox{\hyperlink{class_html_attrib_list}{Html\+Attrib\+List}} \&tag\+Html\+Attribs, const char $\ast$attr\+Name, \mbox{\hyperlink{class_q_c_string}{QCString}} $\ast$result)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{src_2docnode_8cpp_a06f93ac679cfacdfe2439e33520d54a4}{g\+\_\+section\+Level\+To\+Name}} \mbox{[}$\,$\mbox{]}
+\item 
+static const std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ \mbox{\hyperlink{src_2docnode_8cpp_a850e01f11f62a01a24b37fb5d5ce1448}{g\+\_\+plantuml\+Engine}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2docnode_8cpp_a32adf79142f0a426b5e782fb7cd4cad3}\label{src_2docnode_8cpp_a32adf79142f0a426b5e782fb7cd4cad3}} 
+\index{docnode.cpp@{docnode.cpp}!DBG@{DBG}}
+\index{DBG@{DBG}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{DBG}{DBG}}
+{\footnotesize\ttfamily \#define DBG(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~do \{\} while(0)}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+\mbox{\Hypertarget{src_2docnode_8cpp_a70e94735e6ecdae48725e0c4254a2689}\label{src_2docnode_8cpp_a70e94735e6ecdae48725e0c4254a2689}} 
+\index{docnode.cpp@{docnode.cpp}!INTERNAL\_ASSERT@{INTERNAL\_ASSERT}}
+\index{INTERNAL\_ASSERT@{INTERNAL\_ASSERT}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_ASSERT}{INTERNAL\_ASSERT}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~do \{\} while(0)}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{src_2docnode_8cpp_a8ebd411a505f41da49085559bdc9685e}\label{src_2docnode_8cpp_a8ebd411a505f41da49085559bdc9685e}} 
+\index{docnode.cpp@{docnode.cpp}!RowSpanList@{RowSpanList}}
+\index{RowSpanList@{RowSpanList}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{RowSpanList}{RowSpanList}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{std\+::vector}}$<$\mbox{\hyperlink{struct_active_row_span}{Active\+Row\+Span}}$>$ \mbox{\hyperlink{build_2doxygen_2src_2docnode_8cpp_a8ebd411a505f41da49085559bdc9685e}{Row\+Span\+List}}}
+
+List of \mbox{\hyperlink{struct_active_row_span}{Active\+Row\+Span}} classes. 
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l02063}{2063}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2docnode_8cpp_a89a9f35c62c2ef88e116f4edea12c038}\label{src_2docnode_8cpp_a89a9f35c62c2ef88e116f4edea12c038}} 
+\index{docnode.cpp@{docnode.cpp}!findAttribute@{findAttribute}}
+\index{findAttribute@{findAttribute}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{findAttribute()}{findAttribute()}}
+{\footnotesize\ttfamily static bool find\+Attribute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_html_attrib_list}{Html\+Attrib\+List}} \&}]{tag\+Html\+Attribs,  }\item[{const char $\ast$}]{attr\+Name,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} $\ast$}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l04404}{4404}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{04407 \{}
+\DoxyCodeLine{04408 }
+\DoxyCodeLine{04409   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&opt : tagHtmlAttribs)}
+\DoxyCodeLine{04410   \{}
+\DoxyCodeLine{04411     \textcolor{keywordflow}{if} (opt.name==attrName)}
+\DoxyCodeLine{04412     \{}
+\DoxyCodeLine{04413       *result = opt.value;}
+\DoxyCodeLine{04414       \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{04415     \}}
+\DoxyCodeLine{04416   \}}
+\DoxyCodeLine{04417   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{04418 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}.
+
+\mbox{\Hypertarget{src_2docnode_8cpp_a71dd66dcbef8ad6aa74feb1e87e2a06b}\label{src_2docnode_8cpp_a71dd66dcbef8ad6aa74feb1e87e2a06b}} 
+\index{docnode.cpp@{docnode.cpp}!flattenParagraphs@{flattenParagraphs}}
+\index{flattenParagraphs@{flattenParagraphs}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{flattenParagraphs()}{flattenParagraphs()}}
+{\footnotesize\ttfamily static void flatten\+Paragraphs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{root,  }\item[{\mbox{\hyperlink{struct_doc_node_list}{Doc\+Node\+List}} \&}]{children }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00785}{785}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00786 \{}
+\DoxyCodeLine{00787   \mbox{\hyperlink{struct_doc_node_list}{DocNodeList}} newChildren;}
+\DoxyCodeLine{00788   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&dn : children)}
+\DoxyCodeLine{00789   \{}
+\DoxyCodeLine{00790     \mbox{\hyperlink{class_doc_para}{DocPara}} *para = std::get\_if<DocPara>(\&dn);}
+\DoxyCodeLine{00791     \textcolor{keywordflow}{if} (para)}
+\DoxyCodeLine{00792     \{}
+\DoxyCodeLine{00794       newChildren.\mbox{\hyperlink{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}{move\_append}}(para-\/>\mbox{\hyperlink{class_doc_compound_node_aca6bc953ffff9a8773c2b4b0a866442c}{children}}());}
+\DoxyCodeLine{00795     \}}
+\DoxyCodeLine{00796   \}}
+\DoxyCodeLine{00797 }
+\DoxyCodeLine{00798   \textcolor{comment}{// replace the children list by the newChildren list}}
+\DoxyCodeLine{00799   children.clear();}
+\DoxyCodeLine{00800   children.move\_append(newChildren);}
+\DoxyCodeLine{00801   \textcolor{comment}{// reparent the children}}
+\DoxyCodeLine{00802   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&cn : children)}
+\DoxyCodeLine{00803   \{}
+\DoxyCodeLine{00804     \mbox{\hyperlink{src_2docnode_8cpp_a91f244300da7fd232ca1e4a858c12df3}{setParent}}(\&cn,root);}
+\DoxyCodeLine{00805   \}}
+\DoxyCodeLine{00806 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_doc_compound_node_aca6bc953ffff9a8773c2b4b0a866442c}{Doc\+Compound\+Node\+::children()}}, \mbox{\hyperlink{class_grow_vector_a198715b8f95bc34cb020ae11170470f7}{Grow\+Vector$<$ T $>$\+::clear()}}, \mbox{\hyperlink{struct_doc_node_list_a6bb13c84c8ad84d77584f6a3ec24a2a9}{Doc\+Node\+List\+::move\+\_\+append()}}, and \mbox{\hyperlink{src_2docnode_8cpp_a91f244300da7fd232ca1e4a858c12df3}{set\+Parent()}}.
+
+\mbox{\Hypertarget{src_2docnode_8cpp_a91f244300da7fd232ca1e4a858c12df3}\label{src_2docnode_8cpp_a91f244300da7fd232ca1e4a858c12df3}} 
+\index{docnode.cpp@{docnode.cpp}!setParent@{setParent}}
+\index{setParent@{setParent}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{setParent()}{setParent()}}
+{\footnotesize\ttfamily static void set\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{build_2doxygen_2src_2docnode_8h_a50a8832c21dd4d026a4ca85c1efb57ec}{Doc\+Node\+Variant}} $\ast$}]{new\+Parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114 \{}
+\DoxyCodeLine{00115   std::visit([\&](\textcolor{keyword}{auto} \&\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})-\/>\textcolor{keyword}{decltype}(\textcolor{keyword}{auto}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}.setParent(newParent); \}, *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}});}
+\DoxyCodeLine{00116 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a8ef4377a30bce9268290ef06c7f501f8}{n}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2docnode_8cpp_a71dd66dcbef8ad6aa74feb1e87e2a06b}{flatten\+Paragraphs()}}.
+
+\mbox{\Hypertarget{src_2docnode_8cpp_a232984936769698de5f6d1ffaabf12a6}\label{src_2docnode_8cpp_a232984936769698de5f6d1ffaabf12a6}} 
+\index{docnode.cpp@{docnode.cpp}!stripKnownExtensions@{stripKnownExtensions}}
+\index{stripKnownExtensions@{stripKnownExtensions}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{stripKnownExtensions()}{stripKnownExtensions()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} strip\+Known\+Extensions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Strips known html and tex extensions from {\itshape text}. 
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099 \{}
+\DoxyCodeLine{00100   \mbox{\hyperlink{class_q_c_string}{QCString}} result=text;}
+\DoxyCodeLine{00101   \textcolor{keywordflow}{if} (result.\mbox{\hyperlink{class_q_c_string_a419394d9b5a9a18d4465ce4017f646d0}{endsWith}}(\textcolor{stringliteral}{"{}.tex"{}}))}
+\DoxyCodeLine{00102   \{}
+\DoxyCodeLine{00103     result=result.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(result.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()-\/4);}
+\DoxyCodeLine{00104   \}}
+\DoxyCodeLine{00105   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (result.\mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{right}}(\mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen::htmlFileExtension}}.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}())==}
+\DoxyCodeLine{00106          \mbox{\hyperlink{class_q_c_string}{QCString}}(\mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen::htmlFileExtension}}))}
+\DoxyCodeLine{00107   \{}
+\DoxyCodeLine{00108     result=result.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(result.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()-\/\mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen::htmlFileExtension}}.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}());}
+\DoxyCodeLine{00109   \}}
+\DoxyCodeLine{00110   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00111 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_a419394d9b5a9a18d4465ce4017f646d0}{QCString\+::ends\+With()}}, \mbox{\hyperlink{class_doxygen_a2f266d89c48b606c9436b85e97da114a}{Doxygen\+::html\+File\+Extension}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, and \mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{QCString\+::right()}}.
+
+\mbox{\Hypertarget{src_2docnode_8cpp_a2769e7f4b078110dae0ca454481d5e41}\label{src_2docnode_8cpp_a2769e7f4b078110dae0ca454481d5e41}} 
+\index{docnode.cpp@{docnode.cpp}!unescapeCRef@{unescapeCRef}}
+\index{unescapeCRef@{unescapeCRef}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{unescapeCRef()}{unescapeCRef()}}
+{\footnotesize\ttfamily static void unescape\+CRef (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077 \{}
+\DoxyCodeLine{00078   \mbox{\hyperlink{class_q_c_string}{QCString}} result;}
+\DoxyCodeLine{00079   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.\mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{data}}();}
+\DoxyCodeLine{00080   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}})}
+\DoxyCodeLine{00081   \{}
+\DoxyCodeLine{00082     \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++))}
+\DoxyCodeLine{00084     \{}
+\DoxyCodeLine{00085       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\{'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=\textcolor{charliteral}{'<'}; \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\}'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=\textcolor{charliteral}{'>'};}
+\DoxyCodeLine{00086       result+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00087     \}}
+\DoxyCodeLine{00088   \}}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090   result=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\&lt;"{}},\textcolor{stringliteral}{"{}<"{}});}
+\DoxyCodeLine{00091   result=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\&gt;"{}},\textcolor{stringliteral}{"{}>"{}});}
+\DoxyCodeLine{00092   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = result;}
+\DoxyCodeLine{00093 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{structgd_font_aac916221c07017a15ab510d29a3cf6b8}{gd\+Font\+::data}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, and \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{src_2docnode_8cpp_a850e01f11f62a01a24b37fb5d5ce1448}\label{src_2docnode_8cpp_a850e01f11f62a01a24b37fb5d5ce1448}} 
+\index{docnode.cpp@{docnode.cpp}!g\_plantumlEngine@{g\_plantumlEngine}}
+\index{g\_plantumlEngine@{g\_plantumlEngine}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_plantumlEngine}{g\_plantumlEngine}}
+{\footnotesize\ttfamily const std\+::set$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}$>$ g\+\_\+plantuml\+Engine\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}uml"{}}, \textcolor{stringliteral}{"{}bpm"{}}, \textcolor{stringliteral}{"{}wire"{}}, \textcolor{stringliteral}{"{}dot"{}}, \textcolor{stringliteral}{"{}ditaa"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}salt"{}}, \textcolor{stringliteral}{"{}math"{}}, \textcolor{stringliteral}{"{}latex"{}}, \textcolor{stringliteral}{"{}gantt"{}}, \textcolor{stringliteral}{"{}mindmap"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}wbs"{}}, \textcolor{stringliteral}{"{}yaml"{}}, \textcolor{stringliteral}{"{}creole"{}}, \textcolor{stringliteral}{"{}json"{}}, \textcolor{stringliteral}{"{}flow"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}board"{}}, \textcolor{stringliteral}{"{}git"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+
+\mbox{\Hypertarget{src_2docnode_8cpp_a06f93ac679cfacdfe2439e33520d54a4}\label{src_2docnode_8cpp_a06f93ac679cfacdfe2439e33520d54a4}} 
+\index{docnode.cpp@{docnode.cpp}!g\_sectionLevelToName@{g\_sectionLevelToName}}
+\index{g\_sectionLevelToName@{g\_sectionLevelToName}!docnode.cpp@{docnode.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_sectionLevelToName}{g\_sectionLevelToName}}
+{\footnotesize\ttfamily const char$\ast$ g\+\_\+section\+Level\+To\+Name\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}page"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}section"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}subsection"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}subsubsection"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}paragraph"{}},}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}subparagraph"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{src_2docnode_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{src_2docnode_8cpp_source}{docnode.\+cpp}}.
+

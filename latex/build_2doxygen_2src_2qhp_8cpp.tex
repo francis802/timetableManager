@@ -1,0 +1,163 @@
+\hypertarget{build_2doxygen_2src_2qhp_8cpp}{}\doxysection{doxygen/build/doxygen/src/qhp.cpp File Reference}
+\label{build_2doxygen_2src_2qhp_8cpp}\index{doxygen/build/doxygen/src/qhp.cpp@{doxygen/build/doxygen/src/qhp.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memberdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}qhp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}textstream.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_qhp_section_tree}{Qhp\+Section\+Tree}}
+\item 
+struct \mbox{\hyperlink{struct_qhp_section_tree_1_1_node}{Qhp\+Section\+Tree\+::\+Node}}
+\item 
+class \mbox{\hyperlink{class_qhp_1_1_private}{Qhp\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_aded82e3cc34ae902387a6b62a97616b7}{write\+Indent}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, int indent)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_ae5b0b50b8f76945a89b6ef8761a332ce}{get\+Full\+Project\+Name}} ()
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_accfbeaf0954a9bf961a17b0c7e243763}{make\+File\+Name}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&without\+Extension)
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_a1ed13b7ecf64ac700cd4249371fb1165}{make\+Ref}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&without\+Extension, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&anchor)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2qhp_8cpp_ae5b0b50b8f76945a89b6ef8761a332ce}\label{build_2doxygen_2src_2qhp_8cpp_ae5b0b50b8f76945a89b6ef8761a332ce}} 
+\index{qhp.cpp@{qhp.cpp}!getFullProjectName@{getFullProjectName}}
+\index{getFullProjectName@{getFullProjectName}!qhp.cpp@{qhp.cpp}}
+\doxysubsubsection{\texorpdfstring{getFullProjectName()}{getFullProjectName()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} get\+Full\+Project\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source_l00155}{155}} of file \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source}{qhp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156 \{}
+\DoxyCodeLine{00157   \mbox{\hyperlink{class_q_c_string}{QCString}} projectName = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_NAME);}
+\DoxyCodeLine{00158   \mbox{\hyperlink{class_q_c_string}{QCString}} versionText = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(PROJECT\_NUMBER);}
+\DoxyCodeLine{00159   \textcolor{keywordflow}{if} (projectName.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) projectName=\textcolor{stringliteral}{"{}Root"{}};}
+\DoxyCodeLine{00160   \textcolor{keywordflow}{if} (!versionText.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) projectName+=\textcolor{stringliteral}{"{} "{}}+versionText;}
+\DoxyCodeLine{00161   \textcolor{keywordflow}{return} projectName;}
+\DoxyCodeLine{00162 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, and \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_qhp_a7ee6480507e32d9142ec04d4e499ae7e}{Qhp\+::initialize()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2qhp_8cpp_accfbeaf0954a9bf961a17b0c7e243763}\label{build_2doxygen_2src_2qhp_8cpp_accfbeaf0954a9bf961a17b0c7e243763}} 
+\index{qhp.cpp@{qhp.cpp}!makeFileName@{makeFileName}}
+\index{makeFileName@{makeFileName}!qhp.cpp@{qhp.cpp}}
+\doxysubsubsection{\texorpdfstring{makeFileName()}{makeFileName()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} make\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{without\+Extension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source_l00164}{164}} of file \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source}{qhp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165 \{}
+\DoxyCodeLine{00166   \mbox{\hyperlink{class_q_c_string}{QCString}} result=withoutExtension;}
+\DoxyCodeLine{00167   \textcolor{keywordflow}{if} (!result.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00168   \{}
+\DoxyCodeLine{00169     \textcolor{keywordflow}{if} (result.\mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(0)==\textcolor{charliteral}{'!'}) \textcolor{comment}{// relative URL -\/> strip marker}}
+\DoxyCodeLine{00170     \{}
+\DoxyCodeLine{00171       result=result.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(1);}
+\DoxyCodeLine{00172     \}}
+\DoxyCodeLine{00173     \textcolor{keywordflow}{else} \textcolor{comment}{// add specified HTML extension}}
+\DoxyCodeLine{00174     \{}
+\DoxyCodeLine{00175       result = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(result);}
+\DoxyCodeLine{00176     \}}
+\DoxyCodeLine{00177   \}}
+\DoxyCodeLine{00178   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00179 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{add\+Html\+Extension\+If\+Missing()}}, \mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{QCString\+::at()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, and \mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{QCString\+::mid()}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_a1ed13b7ecf64ac700cd4249371fb1165}{make\+Ref()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2qhp_8cpp_a1ed13b7ecf64ac700cd4249371fb1165}\label{build_2doxygen_2src_2qhp_8cpp_a1ed13b7ecf64ac700cd4249371fb1165}} 
+\index{qhp.cpp@{qhp.cpp}!makeRef@{makeRef}}
+\index{makeRef@{makeRef}!qhp.cpp@{qhp.cpp}}
+\doxysubsubsection{\texorpdfstring{makeRef()}{makeRef()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} make\+Ref (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{without\+Extension,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{anchor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source}{qhp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182 \{}
+\DoxyCodeLine{00183   \textcolor{comment}{//printf("{}QHP::makeRef(\%s,\%s)\(\backslash\)n"{},withoutExtension,anchor);}}
+\DoxyCodeLine{00184   \textcolor{keywordflow}{if} (withoutExtension.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return} \mbox{\hyperlink{class_q_c_string}{QCString}}();}
+\DoxyCodeLine{00185   \mbox{\hyperlink{class_q_c_string}{QCString}} result = \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_accfbeaf0954a9bf961a17b0c7e243763}{makeFileName}}(withoutExtension);}
+\DoxyCodeLine{00186   \textcolor{keywordflow}{if} (anchor.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00187   \textcolor{keywordflow}{return} result+\textcolor{stringliteral}{"{}\#"{}}+anchor;}
+\DoxyCodeLine{00188 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, and \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_accfbeaf0954a9bf961a17b0c7e243763}{make\+File\+Name()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_qhp_a97250a0c6a30c1007fe57e472900fd97}{Qhp\+::add\+Contents\+Item()}}, and \mbox{\hyperlink{class_qhp_afdd0e586dc670e184d23bf80c880f0cf}{Qhp\+::add\+Index\+Item()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2qhp_8cpp_aded82e3cc34ae902387a6b62a97616b7}\label{build_2doxygen_2src_2qhp_8cpp_aded82e3cc34ae902387a6b62a97616b7}} 
+\index{qhp.cpp@{qhp.cpp}!writeIndent@{writeIndent}}
+\index{writeIndent@{writeIndent}!qhp.cpp@{qhp.cpp}}
+\doxysubsubsection{\texorpdfstring{writeIndent()}{writeIndent()}}
+{\footnotesize\ttfamily static void write\+Indent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{int}]{indent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{build_2doxygen_2src_2qhp_8cpp_source}{qhp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \{}
+\DoxyCodeLine{00033   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug::isFlagSet}}(\mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}{Debug::Qhp}}))}
+\DoxyCodeLine{00034   \{}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0;i<indent;i++) t << \textcolor{stringliteral}{"{}  "{}};}
+\DoxyCodeLine{00036   \}}
+\DoxyCodeLine{00037 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_debug_a92b0668ebfb43903d82ad112bf6c84e1}{Debug\+::is\+Flag\+Set()}}, and \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}{Debug\+::\+Qhp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_qhp_afdd0e586dc670e184d23bf80c880f0cf}{Qhp\+::add\+Index\+Item()}}, \mbox{\hyperlink{class_qhp_a89942e1d21257702167ab30834b991cd}{Qhp\+::finalize()}}, \mbox{\hyperlink{class_qhp_a7ee6480507e32d9142ec04d4e499ae7e}{Qhp\+::initialize()}}, \mbox{\hyperlink{class_qhp_section_tree_a9a072680707ccb788470b5463a984c38}{Qhp\+Section\+Tree\+::traverse()}}, and \mbox{\hyperlink{class_qhp_section_tree_a6e807fd7b2edf13ef2d02669c2b61569}{Qhp\+Section\+Tree\+::write\+Toc()}}.
+

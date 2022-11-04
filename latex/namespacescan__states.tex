@@ -1,0 +1,60 @@
+\hypertarget{namespacescan__states}{}\doxysection{scan\+\_\+states Namespace Reference}
+\label{namespacescan__states}\index{scan\_states@{scan\_states}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacescan__states_a2cd63dc2b220183e40b003e8569d25cd}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacescan__states_a2cd63dc2b220183e40b003e8569d25cd}\label{namespacescan__states_a2cd63dc2b220183e40b003e8569d25cd}} 
+\index{scan\_states@{scan\_states}!main@{main}}
+\index{main@{main}!scan\_states@{scan\_states}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def scan\+\_\+states.\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2scan__states_8py_source_l00020}{20}} of file \mbox{\hyperlink{build_2doxygen_2src_2scan__states_8py_source}{scan\+\_\+states.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \textcolor{keyword}{def }\mbox{\hyperlink{namespacescan__states_a2cd63dc2b220183e40b003e8569d25cd}{main}}():}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{if} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(sys.argv)!=2:}
+\DoxyCodeLine{00022         sys.exit(\textcolor{stringliteral}{'Usage: \%s <lex\_file>'} \% sys.argv[0])}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024     lex\_file = sys.argv[1]}
+\DoxyCodeLine{00025     \textcolor{keywordflow}{if} (os.path.exists(lex\_file)):}
+\DoxyCodeLine{00026         \textcolor{comment}{\#write preamble}}
+\DoxyCodeLine{00027         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}static const char *stateToString(int state)"{}})}
+\DoxyCodeLine{00028         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}\{"{}})}
+\DoxyCodeLine{00029         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}  switch(state)"{}})}
+\DoxyCodeLine{00030         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}  \{"{}})}
+\DoxyCodeLine{00031         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}    case INITIAL: return \(\backslash\)"{}INITIAL\(\backslash\)"{};"{}})}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033         \textcolor{keyword}{with} \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open}}(lex\_file) \textcolor{keyword}{as} f:}
+\DoxyCodeLine{00034             \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} f:}
+\DoxyCodeLine{00035                 \textcolor{keywordflow}{if} re.search(\textcolor{stringliteral}{r'\string^\%x'}, line) \textcolor{keywordflow}{or}  re.search(\textcolor{stringliteral}{r'\string^\%s'}, line):}
+\DoxyCodeLine{00036                     state = line.split()[1]}
+\DoxyCodeLine{00037                     \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}    case \%s: return \(\backslash\)"{}\%s\(\backslash\)"{};"{}} \% (state,state))}
+\DoxyCodeLine{00038                 \textcolor{keywordflow}{elif} re.search(\textcolor{stringliteral}{r'\string^\%\%'}, line):}
+\DoxyCodeLine{00039                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{00040                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00041                     \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{00042             f.close()}
+\DoxyCodeLine{00043         \textcolor{comment}{\#write post}}
+\DoxyCodeLine{00044         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}  \}"{}})}
+\DoxyCodeLine{00045         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}  return \(\backslash\)"{}Unknown\(\backslash\)"{};"{}})}
+\DoxyCodeLine{00046         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}\}"{}})}
+\DoxyCodeLine{00047 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{namespacescan__states_a2cd63dc2b220183e40b003e8569d25cd}{main()}}, \mbox{\hyperlink{build_2doxygen_2examples_2structcmd_8h_a2c4414339f388561554c2deab11a1a07}{open()}}, and \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacescan__states_a2cd63dc2b220183e40b003e8569d25cd}{main()}}.
+

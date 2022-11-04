@@ -1,0 +1,114 @@
+\hypertarget{class_symbol_group_list_context_1_1_private}{}\doxysection{Symbol\+Group\+List\+Context\+::Private Class Reference}
+\label{class_symbol_group_list_context_1_1_private}\index{SymbolGroupListContext::Private@{SymbolGroupListContext::Private}}
+Inheritance diagram for Symbol\+Group\+List\+Context\+::Private\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.068965cm]{class_symbol_group_list_context_1_1_private}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_symbol_group_list_context_1_1_private_a4abcebaa512a9c9aea292663f403fb83}{Private}} (const \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{Search\+Index\+List}} \&sil)
+\item 
+\mbox{\hyperlink{class_symbol_group_list_context_1_1_private_a4abcebaa512a9c9aea292663f403fb83}{Private}} (const \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{Search\+Index\+List}} \&sil)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l08605}{8605}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_symbol_group_list_context_1_1_private_a4abcebaa512a9c9aea292663f403fb83}\label{class_symbol_group_list_context_1_1_private_a4abcebaa512a9c9aea292663f403fb83}} 
+\index{SymbolGroupListContext::Private@{SymbolGroupListContext::Private}!Private@{Private}}
+\index{Private@{Private}!SymbolGroupListContext::Private@{SymbolGroupListContext::Private}}
+\doxysubsubsection{\texorpdfstring{Private()}{Private()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Symbol\+Group\+List\+Context\+::\+Private\+::\+Private (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{Search\+Index\+List}} \&}]{sil }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source_l08608}{8608}} of file \mbox{\hyperlink{build_2doxygen_2src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{08609     \{}
+\DoxyCodeLine{08610       \mbox{\hyperlink{class_q_c_string}{QCString}} lastName;}
+\DoxyCodeLine{08611       \textcolor{keyword}{auto} it = sil.begin();}
+\DoxyCodeLine{08612       \textcolor{keyword}{auto} it\_begin = it;}
+\DoxyCodeLine{08613       \textcolor{keywordflow}{while} (it!=sil.end())}
+\DoxyCodeLine{08614       \{}
+\DoxyCodeLine{08615         \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} = \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8cpp_a7e794d97a0a811825266445c5220d294}{searchName}}(*it);}
+\DoxyCodeLine{08616         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}!=lastName)}
+\DoxyCodeLine{08617         \{}
+\DoxyCodeLine{08618           \textcolor{keywordflow}{if} (it!=it\_begin)}
+\DoxyCodeLine{08619           \{}
+\DoxyCodeLine{08620             \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_symbol_group_context_acacc7a81540160892799f9da49a0ea5b}{SymbolGroupContext::alloc}}(it\_begin,it));}
+\DoxyCodeLine{08621           \}}
+\DoxyCodeLine{08622           it\_begin = it;}
+\DoxyCodeLine{08623           lastName = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{08624         \}}
+\DoxyCodeLine{08625         ++it;}
+\DoxyCodeLine{08626       \}}
+\DoxyCodeLine{08627       \textcolor{keywordflow}{if} (it\_begin!=sil.end())}
+\DoxyCodeLine{08628       \{}
+\DoxyCodeLine{08629         \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_symbol_group_context_acacc7a81540160892799f9da49a0ea5b}{SymbolGroupContext::alloc}}(it\_begin,sil.end()));}
+\DoxyCodeLine{08630       \}}
+\DoxyCodeLine{08631     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_symbol_group_context_acacc7a81540160892799f9da49a0ea5b}{Symbol\+Group\+Context\+::alloc()}}, \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{Generic\+Node\+List\+Context\+::append()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8cpp_a7e794d97a0a811825266445c5220d294}{search\+Name()}}.
+
+\mbox{\Hypertarget{class_symbol_group_list_context_1_1_private_a4abcebaa512a9c9aea292663f403fb83}\label{class_symbol_group_list_context_1_1_private_a4abcebaa512a9c9aea292663f403fb83}} 
+\index{SymbolGroupListContext::Private@{SymbolGroupListContext::Private}!Private@{Private}}
+\index{Private@{Private}!SymbolGroupListContext::Private@{SymbolGroupListContext::Private}}
+\doxysubsubsection{\texorpdfstring{Private()}{Private()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Symbol\+Group\+List\+Context\+::\+Private\+::\+Private (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{Search\+Index\+List}} \&}]{sil }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2context_8cpp_source_l08608}{8608}} of file \mbox{\hyperlink{src_2context_8cpp_source}{context.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{08609     \{}
+\DoxyCodeLine{08610       \mbox{\hyperlink{class_q_c_string}{QCString}} lastName;}
+\DoxyCodeLine{08611       \textcolor{keyword}{auto} it = sil.begin();}
+\DoxyCodeLine{08612       \textcolor{keyword}{auto} it\_begin = it;}
+\DoxyCodeLine{08613       \textcolor{keywordflow}{while} (it!=sil.end())}
+\DoxyCodeLine{08614       \{}
+\DoxyCodeLine{08615         \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}} = \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8cpp_a7e794d97a0a811825266445c5220d294}{searchName}}(*it);}
+\DoxyCodeLine{08616         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}!=lastName)}
+\DoxyCodeLine{08617         \{}
+\DoxyCodeLine{08618           \textcolor{keywordflow}{if} (it!=it\_begin)}
+\DoxyCodeLine{08619           \{}
+\DoxyCodeLine{08620             \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_symbol_group_context_acacc7a81540160892799f9da49a0ea5b}{SymbolGroupContext::alloc}}(it\_begin,it));}
+\DoxyCodeLine{08621           \}}
+\DoxyCodeLine{08622           it\_begin = it;}
+\DoxyCodeLine{08623           lastName = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{08624         \}}
+\DoxyCodeLine{08625         ++it;}
+\DoxyCodeLine{08626       \}}
+\DoxyCodeLine{08627       \textcolor{keywordflow}{if} (it\_begin!=sil.end())}
+\DoxyCodeLine{08628       \{}
+\DoxyCodeLine{08629         \mbox{\hyperlink{class_generic_node_list_context_a1e3defa7bc050ae33e2fbabba7a20643}{append}}(\mbox{\hyperlink{class_symbol_group_context_acacc7a81540160892799f9da49a0ea5b}{SymbolGroupContext::alloc}}(it\_begin,sil.end()));}
+\DoxyCodeLine{08630       \}}
+\DoxyCodeLine{08631     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_symbol_group_context_acacc7a81540160892799f9da49a0ea5b}{Symbol\+Group\+Context\+::alloc()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{build_2doxygen_2src_2searchindex__js_8cpp_a7e794d97a0a811825266445c5220d294}{search\+Name()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2context_8cpp}{context.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2context_8cpp}{context.\+cpp}}\end{DoxyCompactItemize}

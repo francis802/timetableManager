@@ -1,0 +1,64 @@
+\hypertarget{src_2markdown_8h}{}\doxysection{doxygen/src/markdown.h File Reference}
+\label{src_2markdown_8h}\index{doxygen/src/markdown.h@{doxygen/src/markdown.h}}
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}growbuf.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_markdown}{Markdown}}
+\begin{DoxyCompactList}\small\item\em Helper class to process markdown formatted text. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_markdown_1_1_link_ref}{Markdown\+::\+Link\+Ref}}
+\item 
+class \mbox{\hyperlink{class_markdown_outline_parser}{Markdown\+Outline\+Parser}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2markdown_8h_a0a158f67dd586087dac0e968ea384f09}{markdown\+File\+Name\+To\+Id}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&file\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2markdown_8h_a0a158f67dd586087dac0e968ea384f09}\label{src_2markdown_8h_a0a158f67dd586087dac0e968ea384f09}} 
+\index{markdown.h@{markdown.h}!markdownFileNameToId@{markdownFileNameToId}}
+\index{markdownFileNameToId@{markdownFileNameToId}!markdown.h@{markdown.h}}
+\doxysubsubsection{\texorpdfstring{markdownFileNameToId()}{markdownFileNameToId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}} markdown\+File\+Name\+To\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{file\+Name }\end{DoxyParamCaption})}
+
+processes string {\itshape s} and converts markdown into doxygen/html commands. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_source_l03461}{3461}} of file \mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_source}{markdown.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03462 \{}
+\DoxyCodeLine{03463   \mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_a9f1e2fd281728ca4f1a8875f8d10b603}{TRACE}}(fileName);}
+\DoxyCodeLine{03464   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} absFileName = \mbox{\hyperlink{class_file_info}{FileInfo}}(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()).\mbox{\hyperlink{class_file_info_af69e3949475014dcdbd504d742bdf270}{absFilePath}}();}
+\DoxyCodeLine{03465   \mbox{\hyperlink{class_q_c_string}{QCString}} baseFn  = \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a18b9d603e23c950eaa22e7c625ef0f00}{stripFromPath}}(absFileName.c\_str());}
+\DoxyCodeLine{03466   \textcolor{keywordtype}{int} i = baseFn.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'.'});}
+\DoxyCodeLine{03467   \textcolor{keywordflow}{if} (i!=-\/1) baseFn = baseFn.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(i);}
+\DoxyCodeLine{03468   \mbox{\hyperlink{class_q_c_string}{QCString}} baseName = baseFn;}
+\DoxyCodeLine{03469   \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = baseName.\mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{rawData}}();}
+\DoxyCodeLine{03470   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{03471   \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}))}
+\DoxyCodeLine{03472   \{}
+\DoxyCodeLine{03473     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2util_8h_ae320c88a8522836f00095d566529046f}{isId}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})) *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\textcolor{charliteral}{'\_'}; \textcolor{comment}{// escape characters that do not yield an identifier by underscores}}
+\DoxyCodeLine{03474     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{03475   \}}
+\DoxyCodeLine{03476   \textcolor{comment}{//printf("{}markdownFileNameToId(\%s)=md\_\%s\(\backslash\)n"{},qPrint(fileName),qPrint(baseName));}}
+\DoxyCodeLine{03477   \mbox{\hyperlink{class_q_c_string}{QCString}} res = \textcolor{stringliteral}{"{}md\_"{}}+baseName;}
+\DoxyCodeLine{03478   \mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_a2ab6e5971f341977a6e1781d5ffeeb75}{TRACE\_RESULT}}(res);}
+\DoxyCodeLine{03479   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{03480 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_file_info_af69e3949475014dcdbd504d742bdf270}{File\+Info\+::abs\+File\+Path()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{QCString\+::find\+Rev()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8h_ae320c88a8522836f00095d566529046f}{is\+Id()}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, \mbox{\hyperlink{class_q_c_string_a5f5c9dc172d638c8d7b07010d100117a}{QCString\+::raw\+Data()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a18b9d603e23c950eaa22e7c625ef0f00}{strip\+From\+Path()}}, \mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_a9f1e2fd281728ca4f1a8875f8d10b603}{TRACE}}, and \mbox{\hyperlink{build_2doxygen_2src_2markdown_8cpp_a2ab6e5971f341977a6e1781d5ffeeb75}{TRACE\+\_\+\+RESULT}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_doc_ref_acb234cd7235b7c61a4c6f9dfd0cd586b}{Doc\+Ref\+::\+Doc\+Ref()}}, \mbox{\hyperlink{class_doc_sec_ref_item_a5b8477d356c7ac29bb540b6079f3da35}{Doc\+Sec\+Ref\+Item\+::parse()}}, and \mbox{\hyperlink{class_markdown_outline_parser_ae79ada0ff9463982c79972d65e3328e3}{Markdown\+Outline\+Parser\+::parse\+Input()}}.
+

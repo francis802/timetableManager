@@ -1,0 +1,66 @@
+\hypertarget{build_2doxygen_2src_2portable__c_8c}{}\doxysection{doxygen/build/doxygen/src/portable\+\_\+c.c File Reference}
+\label{build_2doxygen_2src_2portable__c_8c}\index{doxygen/build/doxygen/src/portable\_c.c@{doxygen/build/doxygen/src/portable\_c.c}}
+{\ttfamily \#include $<$iconv.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_a7bc4daae6d2c3e89837c44e2c3d4dac6}{portable\+\_\+iconv\+\_\+open}} (const char $\ast$tocode, const char $\ast$fromcode)
+\item 
+size\+\_\+t \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_a5fc5ec1eedfa06b27448863f69ee2e1d}{portable\+\_\+iconv}} (void $\ast$cd, const char $\ast$$\ast$inbuf, size\+\_\+t $\ast$inbytesleft, char $\ast$$\ast$outbuf, size\+\_\+t $\ast$outbytesleft)
+\item 
+int \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_a3f98144680118aada1a93d2d4ba6173b}{portable\+\_\+iconv\+\_\+close}} (void $\ast$cd)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2portable__c_8c_a5fc5ec1eedfa06b27448863f69ee2e1d}\label{build_2doxygen_2src_2portable__c_8c_a5fc5ec1eedfa06b27448863f69ee2e1d}} 
+\index{portable\_c.c@{portable\_c.c}!portable\_iconv@{portable\_iconv}}
+\index{portable\_iconv@{portable\_iconv}!portable\_c.c@{portable\_c.c}}
+\doxysubsubsection{\texorpdfstring{portable\_iconv()}{portable\_iconv()}}
+{\footnotesize\ttfamily size\+\_\+t portable\+\_\+iconv (\begin{DoxyParamCaption}\item[{void $\ast$}]{cd,  }\item[{const char $\ast$$\ast$}]{inbuf,  }\item[{size\+\_\+t $\ast$}]{inbytesleft,  }\item[{char $\ast$$\ast$}]{outbuf,  }\item[{size\+\_\+t $\ast$}]{outbytesleft }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source_l00024}{24}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source}{portable\+\_\+c.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026 \{}
+\DoxyCodeLine{00027   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a44c0f9426dd91c55d783618e535404b7}{iconv}}((\mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a72517f6ffadddaafa9d51dee9b535c9f}{iconv\_t}})cd,(\textcolor{keywordtype}{char}**)inbuf,inbytesleft,outbuf,outbytesleft);}
+\DoxyCodeLine{00028 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2src_2portable__c_8c_a3f98144680118aada1a93d2d4ba6173b}\label{build_2doxygen_2src_2portable__c_8c_a3f98144680118aada1a93d2d4ba6173b}} 
+\index{portable\_c.c@{portable\_c.c}!portable\_iconv\_close@{portable\_iconv\_close}}
+\index{portable\_iconv\_close@{portable\_iconv\_close}!portable\_c.c@{portable\_c.c}}
+\doxysubsubsection{\texorpdfstring{portable\_iconv\_close()}{portable\_iconv\_close()}}
+{\footnotesize\ttfamily int portable\+\_\+iconv\+\_\+close (\begin{DoxyParamCaption}\item[{void $\ast$}]{cd }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source_l00030}{30}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source}{portable\+\_\+c.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{}
+\DoxyCodeLine{00032   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a0c4ff4bdefbf1576f3e7bab5fbc5ec89}{iconv\_close}}((\mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_a72517f6ffadddaafa9d51dee9b535c9f}{iconv\_t}})cd);}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{build_2doxygen_2src_2portable__c_8c_a7bc4daae6d2c3e89837c44e2c3d4dac6}\label{build_2doxygen_2src_2portable__c_8c_a7bc4daae6d2c3e89837c44e2c3d4dac6}} 
+\index{portable\_c.c@{portable\_c.c}!portable\_iconv\_open@{portable\_iconv\_open}}
+\index{portable\_iconv\_open@{portable\_iconv\_open}!portable\_c.c@{portable\_c.c}}
+\doxysubsubsection{\texorpdfstring{portable\_iconv\_open()}{portable\_iconv\_open()}}
+{\footnotesize\ttfamily void $\ast$ portable\+\_\+iconv\+\_\+open (\begin{DoxyParamCaption}\item[{const char $\ast$}]{tocode,  }\item[{const char $\ast$}]{fromcode }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source_l00019}{19}} of file \mbox{\hyperlink{build_2doxygen_2src_2portable__c_8c_source}{portable\+\_\+c.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{}
+\DoxyCodeLine{00021   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2winbuild_2iconv_8h_abc93f77b3b8b5891765c9f3c483ec013}{iconv\_open}}(tocode,fromcode);}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,327 @@
+\hypertarget{src_2dotgroupcollaboration_8cpp_source}{}\doxysection{dotgroupcollaboration.\+cpp}
+\label{src_2dotgroupcollaboration_8cpp_source}\index{doxygen/src/dotgroupcollaboration.cpp@{doxygen/src/dotgroupcollaboration.cpp}}
+\mbox{\hyperlink{src_2dotgroupcollaboration_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00002}00002 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00003}00003 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00004}00004 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00005}00005 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00006}00006 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00007}00007 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00008}00008 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00009}00009 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00010}00010 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00011}00011 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00012}00012 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00013}00013 \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00014}00014 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2dotgroupcollaboration_8h}{dotgroupcollaboration.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2classlist_8h}{classlist.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2doxygen_8h}{doxygen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2namespacedef_8h}{namespacedef.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2pagedef_8h}{pagedef.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2util_8h}{util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2textstream_8h}{textstream.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00025}00025 \mbox{\hyperlink{class_dot_group_collaboration_a20ec74da8ed6727681b3ba3c61fffb42}{DotGroupCollaboration::DotGroupCollaboration}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_group_def}{GroupDef}}* gd)}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00026}00026 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00027}00027   \mbox{\hyperlink{class_q_c_string}{QCString}} tmp\_url = gd-\/>\mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{getReference}}()+\textcolor{stringliteral}{"{}\$"{}}+gd-\/>\mbox{\hyperlink{class_group_def_a3115ed4515dd434a3471cfae8a92d432}{getOutputFileBase}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00028}00028   \mbox{\hyperlink{class_q_c_string}{QCString}} tooltip = gd-\/>\mbox{\hyperlink{class_definition_a5915353219702c6ea73cc1476bda793a}{briefDescriptionAsTooltip}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00029}00029   \mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_node}{DotNode}}(\mbox{\hyperlink{class_dot_graph_ab7a96017fa2549a34f15ad4705480952}{getNextNodeNumber}}(), gd-\/>\mbox{\hyperlink{class_group_def_a2caedefd187d92eb8c4afe01d403456e}{groupTitle}}(), tooltip, tmp\_url, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00030}00030   \mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}}-\/>\mbox{\hyperlink{class_dot_node_a2592b8669b2aba1c2f0476e1011d48cd}{markAsVisible}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00031}00031   \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.insert(std::make\_pair(gd-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}().\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(), \mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}}));}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00033}00033   \mbox{\hyperlink{class_dot_group_collaboration_adb242ac701301dbd4beb2ba011af5e43}{m\_diskName}} = gd-\/>\mbox{\hyperlink{class_group_def_a3115ed4515dd434a3471cfae8a92d432}{getOutputFileBase}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00035}00035   \mbox{\hyperlink{class_dot_group_collaboration_aec9c9ed7417986a64b442811c1fccd9f}{buildGraph}}( gd );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00036}00036 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00038}00038 \mbox{\hyperlink{class_dot_group_collaboration_a12add4fb219d598569440c259239263b}{DotGroupCollaboration::\string~DotGroupCollaboration}}()}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00039}00039 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00040}00040   \textcolor{comment}{// delete all created Nodes saved in m\_usedNodes map}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00041}00041   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&kv : \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}})}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00042}00042   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00043}00043     \textcolor{keyword}{delete} kv.second;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00044}00044   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00045}00045 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00047}00047 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_group_collaboration_aec9c9ed7417986a64b442811c1fccd9f}{DotGroupCollaboration::buildGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_group_def}{GroupDef}}* gd)}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00048}00048 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00049}00049   \mbox{\hyperlink{class_q_c_string}{QCString}} tmp\_url;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00050}00050   \textcolor{comment}{//===========================}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00051}00051   \textcolor{comment}{// hierarchy.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00053}00053   \textcolor{comment}{// Write parents}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00054}00054   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&d : gd-\/>\mbox{\hyperlink{class_definition_ab91d34cb9d5a993d3cae3356bc97232e}{partOfGroups}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00055}00055   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00056}00056     \mbox{\hyperlink{class_dot_node}{DotNode}} *nnode = 0;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00057}00057     \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.find(d-\/>name().str());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00058}00058     \textcolor{keywordflow}{if} ( it==\mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.end())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00059}00059     \{ \textcolor{comment}{// add node}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00060}00060       tmp\_url = d-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+d-\/>getOutputFileBase();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00061}00061       \mbox{\hyperlink{class_q_c_string}{QCString}} tooltip = d-\/>briefDescriptionAsTooltip();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00062}00062       nnode = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_node}{DotNode}}(\mbox{\hyperlink{class_dot_graph_ab7a96017fa2549a34f15ad4705480952}{getNextNodeNumber}}(), d-\/>groupTitle(), tooltip, tmp\_url );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00063}00063       nnode-\/>\mbox{\hyperlink{class_dot_node_a2592b8669b2aba1c2f0476e1011d48cd}{markAsVisible}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00064}00064       \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.insert(std::make\_pair(d-\/>name().str(), nnode));}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00065}00065     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00066}00066     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00067}00067     \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00068}00068       nnode = it-\/>second;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00070}00070     tmp\_url = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00071}00071     \mbox{\hyperlink{class_dot_group_collaboration_abf63a5af48b746aaa8638bfbb8d787b0}{addEdge}}( nnode, \mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}}, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624ab291a4d3e136ac28b7e0919c67464a9f}{DotGroupCollaboration::thierarchy}}, tmp\_url, tmp\_url );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00072}00072   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00074}00074   \textcolor{comment}{// Add subgroups}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00075}00075   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&def : gd-\/>\mbox{\hyperlink{class_group_def_a29954976b38072020da6c0c0dbde6520}{getSubGroups}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00076}00076   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00077}00077     \mbox{\hyperlink{class_dot_node}{DotNode}} *nnode = 0;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00078}00078     \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.find(def-\/>name().str());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00079}00079     \textcolor{keywordflow}{if} ( it==\mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.end())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00080}00080     \{ \textcolor{comment}{// add node}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00081}00081       tmp\_url = def-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+def-\/>getOutputFileBase();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00082}00082       \mbox{\hyperlink{class_q_c_string}{QCString}} tooltip = def-\/>briefDescriptionAsTooltip();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00083}00083       nnode = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_node}{DotNode}}(\mbox{\hyperlink{class_dot_graph_ab7a96017fa2549a34f15ad4705480952}{getNextNodeNumber}}(), def-\/>groupTitle(), tooltip, tmp\_url );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00084}00084       nnode-\/>\mbox{\hyperlink{class_dot_node_a2592b8669b2aba1c2f0476e1011d48cd}{markAsVisible}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00085}00085       \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.insert(std::make\_pair(def-\/>name().str(), nnode));}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00086}00086     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00087}00087     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00088}00088     \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00089}00089       nnode = it-\/>second;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00090}00090     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00091}00091     tmp\_url = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00092}00092     \mbox{\hyperlink{class_dot_group_collaboration_abf63a5af48b746aaa8638bfbb8d787b0}{addEdge}}( \mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}}, nnode, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624ab291a4d3e136ac28b7e0919c67464a9f}{DotGroupCollaboration::thierarchy}}, tmp\_url, tmp\_url );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00093}00093   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00095}00095   \textcolor{comment}{//=======================}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00096}00096   \textcolor{comment}{// Write collaboration}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00098}00098   \textcolor{comment}{// Add members}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00099}00099   \mbox{\hyperlink{class_dot_group_collaboration_a2cc4fd1745dd5af379937db46ac15761}{addMemberList}}( gd-\/>\mbox{\hyperlink{class_group_def_ae1e55ed1172103ac1072cde37b3fd578}{getMemberList}}(\mbox{\hyperlink{build_2doxygen_2src_2types_8h_abe8ad5992f8938a28f918f51b199aa19ae5d8c38233229e4c743976f97728a19e}{MemberListType\_allMembersList}}) );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00101}00101   \textcolor{comment}{// Add classes}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00102}00102   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&def : gd-\/>\mbox{\hyperlink{class_group_def_adc93620cc6002b6e7919565cb32b29ed}{getClasses}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00103}00103   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00104}00104     tmp\_url = def-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(def-\/>getOutputFileBase());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00105}00105     \textcolor{keywordflow}{if} (!def-\/>anchor().isEmpty())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00106}00106     \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00107}00107       tmp\_url+=\textcolor{stringliteral}{"{}\#"{}}+def-\/>anchor();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00108}00108     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00109}00109     \mbox{\hyperlink{class_dot_group_collaboration_ab6cc9aafe7eb910bca59ef9cea2dff14}{addCollaborationMember}}( def, tmp\_url, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624ad46454b953aa5bd39d857b143d31108e}{DotGroupCollaboration::tclass}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00110}00110   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00112}00112   \textcolor{comment}{// Add namespaces}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00113}00113   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&def : gd-\/>\mbox{\hyperlink{class_group_def_a9ac892052b696a7c561f7dfa7be68f72}{getNamespaces}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00114}00114   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00115}00115     tmp\_url = def-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(def-\/>getOutputFileBase());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00116}00116     \mbox{\hyperlink{class_dot_group_collaboration_ab6cc9aafe7eb910bca59ef9cea2dff14}{addCollaborationMember}}( def, tmp\_url, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624a66b64ea0d272949f9af69778a52af87f}{DotGroupCollaboration::tnamespace}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00117}00117   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00119}00119   \textcolor{comment}{// Add files}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00120}00120   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&def : gd-\/>\mbox{\hyperlink{class_group_def_a2cb0a3622503ad4232eabc2b7ff86753}{getFiles}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00121}00121   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00122}00122     tmp\_url = def-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(def-\/>getOutputFileBase());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00123}00123     \mbox{\hyperlink{class_dot_group_collaboration_ab6cc9aafe7eb910bca59ef9cea2dff14}{addCollaborationMember}}( def, tmp\_url, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624acdfa7418d6b359c069244028f8021cb1}{DotGroupCollaboration::tfile}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00124}00124   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00126}00126   \textcolor{comment}{// Add pages}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00127}00127   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&def : gd-\/>\mbox{\hyperlink{class_group_def_a97d9ddba395f4c011a01966dc7a61568}{getPages}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00128}00128   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00129}00129     tmp\_url = def-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(def-\/>getOutputFileBase());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00130}00130     \mbox{\hyperlink{class_dot_group_collaboration_ab6cc9aafe7eb910bca59ef9cea2dff14}{addCollaborationMember}}( def, tmp\_url, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624a6dd338c32204894cdade61c3a529c372}{DotGroupCollaboration::tpages}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00131}00131   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00133}00133   \textcolor{comment}{// Add directories}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00134}00134   \textcolor{keywordflow}{if} ( !gd-\/>\mbox{\hyperlink{class_group_def_a25362a91e571718de606e663975c6a1b}{getDirs}}().empty() )}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00135}00135   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00136}00136     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto} def : gd-\/>\mbox{\hyperlink{class_group_def_a25362a91e571718de606e663975c6a1b}{getDirs}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00137}00137     \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00138}00138       tmp\_url = def-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(def-\/>getOutputFileBase());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00139}00139       \mbox{\hyperlink{class_dot_group_collaboration_ab6cc9aafe7eb910bca59ef9cea2dff14}{addCollaborationMember}}( def, tmp\_url, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624abe73e86c8960d0adcfca64069097d19c}{DotGroupCollaboration::tdir}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00140}00140     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00141}00141   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00142}00142 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00144}00144 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_group_collaboration_a2cc4fd1745dd5af379937db46ac15761}{DotGroupCollaboration::addMemberList}}( \mbox{\hyperlink{class_member_list}{MemberList}}* ml )}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00145}00145 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00146}00146   \textcolor{keywordflow}{if} ( ml==0 || ml-\/>\mbox{\hyperlink{class_member_vector_a185e78d7a138a4cf598ab0c564f59341}{empty}}() ) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00147}00147   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&def : *ml)}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00148}00148   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00149}00149     \mbox{\hyperlink{class_q_c_string}{QCString}} tmp\_url = def-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{addHtmlExtensionIfMissing}}(def-\/>getOutputFileBase());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00150}00150       +\textcolor{stringliteral}{"{}\#"{}}+def-\/>anchor();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00151}00151     \mbox{\hyperlink{class_dot_group_collaboration_ab6cc9aafe7eb910bca59ef9cea2dff14}{addCollaborationMember}}( def, tmp\_url, \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624a70f4cabcff644f966c987492c444e1a4}{DotGroupCollaboration::tmember}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00152}00152   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00153}00153 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00155}00155 \mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge}{DotGroupCollaboration::Edge}}* \mbox{\hyperlink{class_dot_group_collaboration_abf63a5af48b746aaa8638bfbb8d787b0}{DotGroupCollaboration::addEdge}}(}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00156}00156   \mbox{\hyperlink{class_dot_node}{DotNode}}* \_pNStart, \mbox{\hyperlink{class_dot_node}{DotNode}}* \_pNEnd, EdgeType \_eType,}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00157}00157   \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}}\& \_label, \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}}\& \_url )}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00158}00158 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00159}00159   \textcolor{comment}{// search a existing link.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00160}00160   \textcolor{keyword}{auto} it = std::find\_if(\mbox{\hyperlink{class_dot_group_collaboration_acf15bb123d569cc29f56a994939b183c}{m\_edges}}.begin(),\mbox{\hyperlink{class_dot_group_collaboration_acf15bb123d569cc29f56a994939b183c}{m\_edges}}.end(),}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00161}00161       [\&\_pNStart,\&\_pNEnd,\&\_eType](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&edge)}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00162}00162       \{ return edge-\/>pNStart==\_pNStart \&\& edge-\/>pNEnd==\_pNEnd \&\& edge-\/>eType==\_eType; \});}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00164}00164   \textcolor{keywordflow}{if} (it==\mbox{\hyperlink{class_dot_group_collaboration_acf15bb123d569cc29f56a994939b183c}{m\_edges}}.end()) \textcolor{comment}{// new link}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00165}00165   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00166}00166     \mbox{\hyperlink{class_dot_group_collaboration_acf15bb123d569cc29f56a994939b183c}{m\_edges}}.emplace\_back(std::make\_unique<Edge>(\_pNStart,\_pNEnd,\_eType));}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00167}00167     it = \mbox{\hyperlink{class_dot_group_collaboration_acf15bb123d569cc29f56a994939b183c}{m\_edges}}.end()-\/1;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00168}00168   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00169}00169 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00170}00170   \textcolor{keywordflow}{if} (!\_label.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{comment}{// add label}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00171}00171   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00172}00172     (*it)-\/>links.emplace\_back(\_label,\_url);}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00173}00173   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00175}00175   \textcolor{comment}{// return found or added edge}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00176}00176   \textcolor{keywordflow}{return} (*it).get();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00177}00177 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00179}00179 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_group_collaboration_ab6cc9aafe7eb910bca59ef9cea2dff14}{DotGroupCollaboration::addCollaborationMember}}(}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00180}00180   \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}}* def, \mbox{\hyperlink{class_q_c_string}{QCString}}\& \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}}, EdgeType eType )}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00181}00181 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00182}00182   \textcolor{comment}{// Create group nodes}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00183}00183   \mbox{\hyperlink{class_q_c_string}{QCString}} tmp\_str;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00184}00184   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&d : def-\/>\mbox{\hyperlink{class_definition_ab91d34cb9d5a993d3cae3356bc97232e}{partOfGroups}}())}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00185}00185   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00186}00186     \textcolor{keyword}{auto} it = \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.find(d-\/>name().str());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00187}00187     \mbox{\hyperlink{class_dot_node}{DotNode}}* nnode = it!=\mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.end() ? it-\/>second : 0;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00188}00188     \textcolor{keywordflow}{if} ( nnode != \mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}} )}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00189}00189     \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00190}00190       \textcolor{keywordflow}{if} ( nnode==0 )}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00191}00191       \{ \textcolor{comment}{// add node}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00192}00192         tmp\_str = d-\/>getReference()+\textcolor{stringliteral}{"{}\$"{}}+d-\/>getOutputFileBase();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00193}00193         \mbox{\hyperlink{class_q_c_string}{QCString}} tooltip = d-\/>briefDescriptionAsTooltip();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00194}00194         nnode = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_node}{DotNode}}(\mbox{\hyperlink{class_dot_graph_ab7a96017fa2549a34f15ad4705480952}{getNextNodeNumber}}(), d-\/>groupTitle(), tooltip, tmp\_str );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00195}00195         nnode-\/>\mbox{\hyperlink{class_dot_node_a2592b8669b2aba1c2f0476e1011d48cd}{markAsVisible}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00196}00196         \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.insert(std::make\_pair(d-\/>name().str(), nnode));}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00197}00197       \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00198}00198       tmp\_str = def-\/>\mbox{\hyperlink{class_definition_ac3bc44bb9d5b4c8d1957f06222a5e0d7}{qualifiedName}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00199}00199       \mbox{\hyperlink{class_dot_group_collaboration_abf63a5af48b746aaa8638bfbb8d787b0}{addEdge}}( \mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}}, nnode, eType, tmp\_str, \mbox{\hyperlink{namespacesetup_afc13124aa5c0124e84e1d965e3f4b0fb}{url}} );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00200}00200     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00201}00201   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00202}00202 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00203}00203 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00204}00204 \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_dot_group_collaboration_a74d64ef96e3256c6724f923cb34c48eb}{DotGroupCollaboration::getBaseName}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00205}00205 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00206}00206   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dot_group_collaboration_adb242ac701301dbd4beb2ba011af5e43}{m\_diskName}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00207}00207 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00208}00208 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00209}00209 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_group_collaboration_a6a369ead778d33c7211fb1ca01ec8d4b}{DotGroupCollaboration::computeTheGraph}}()}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00210}00210 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00211}00211   \mbox{\hyperlink{class_text_stream}{TextStream}} md5stream;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00212}00212   \mbox{\hyperlink{class_dot_group_collaboration_a60113bd74bebf89e32507a8e5a303715}{writeGraphHeader}}(md5stream,\mbox{\hyperlink{class_dot_group_collaboration_a9ce788bd836f506af62e967282460a69}{m\_rootNode}}-\/>\mbox{\hyperlink{class_dot_node_aead1705f4e6586bd7ba613fdda2e7241}{label}}());}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00213}00213 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00214}00214   \textcolor{comment}{// clean write flags}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00215}00215   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&kv : \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}})}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00216}00216   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00217}00217     kv.second-\/>clearWriteFlag();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00218}00218   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00219}00219 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00220}00220   \textcolor{comment}{// write other nodes.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00221}00221   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&kv : \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}})}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00222}00222   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00223}00223     kv.second-\/>write(md5stream,\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a0c7c85309652245e03563b127f451f72a527d7a3655e0c23a6c43fcdc6d9f1100}{Inheritance}},\mbox{\hyperlink{class_dot_graph_a352bf93d2d15ed13d368233c85892a9f}{m\_graphFormat}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00224}00224   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00225}00225 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00226}00226   \textcolor{comment}{// write edges}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00227}00227   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&edge : \mbox{\hyperlink{class_dot_group_collaboration_acf15bb123d569cc29f56a994939b183c}{m\_edges}})}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00228}00228   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00229}00229     edge-\/>write( md5stream );}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00230}00230   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00231}00231 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00232}00232   \mbox{\hyperlink{class_dot_graph_a256ce4336c69cbb9b15e473afc456805}{writeGraphFooter}}(md5stream);}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00233}00233 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00234}00234   \mbox{\hyperlink{class_dot_graph_ab5e616cb48fb662c41e80b713792bc58}{m\_theGraph}} = md5stream.\mbox{\hyperlink{class_text_stream_aca8457da22d874f4eb30b35ffe87ebd0}{str}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00235}00235 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00236}00236 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00237}00237 \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_dot_group_collaboration_a2ca4f613e0fc5014b659f3d71c93e6ac}{DotGroupCollaboration::getMapLabel}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00238}00238 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00239}00239   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a588c599deed30414ade1ed583a11827d}{escapeCharsInString}}(\mbox{\hyperlink{class_dot_graph_ab85aa68cac9a9551d8076146f358355e}{m\_baseName}}, \mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00240}00240 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00241}00241 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00242}00242 \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{class_dot_group_collaboration_a1e26ce5a2563ee5144ef66ff9cf88461}{DotGroupCollaboration::writeGraph}}( \mbox{\hyperlink{class_text_stream}{TextStream}} \&t,}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00243}00243   \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523f}{GraphOutputFormat}} graphFormat, \mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a8680135da08a5ef57cebe20060912dcc}{EmbeddedOutputFormat}} textFormat,}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00244}00244   \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&path, \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName, \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&relPath,}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00245}00245   \textcolor{keywordtype}{bool} generateImageMap,\textcolor{keywordtype}{int} graphId)}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00246}00246 \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00247}00247   \mbox{\hyperlink{class_dot_graph_a8e161ad6a2fe2bb4cd58fccb1338f304}{m\_doNotAddImageToIndex}} = textFormat!=\mbox{\hyperlink{build_2doxygen_2src_2dotgraph_8h_a8680135da08a5ef57cebe20060912dccab182cf71eb4350296dd0fc42756ae743}{EOF\_Html}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00248}00248 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00249}00249   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dot_graph_ae6cbbb6ad88d59dec93692d8c6f70a07}{DotGraph::writeGraph}}(t, graphFormat, textFormat, path, fileName, relPath, generateImageMap, graphId);}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00250}00250 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00251}00251 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00252}00252 \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge_a1f4c832d9b0e56ecdf8f164784623354}{DotGroupCollaboration::Edge::write}}( \mbox{\hyperlink{class_text_stream}{TextStream}} \&t )\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00253}00253 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00254}00254   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* linkTypeColor[] = \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00255}00255     \textcolor{stringliteral}{"{}darkorchid3"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00256}00256     ,\textcolor{stringliteral}{"{}orange"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00257}00257     ,\textcolor{stringliteral}{"{}blueviolet"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00258}00258     ,\textcolor{stringliteral}{"{}darkgreen"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00259}00259     ,\textcolor{stringliteral}{"{}firebrick4"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00260}00260     ,\textcolor{stringliteral}{"{}grey75"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00261}00261     ,\textcolor{stringliteral}{"{}midnightblue"{}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00262}00262   \};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00263}00263   \mbox{\hyperlink{class_q_c_string}{QCString}} arrowStyle = \textcolor{stringliteral}{"{}dir=\(\backslash\)"{}none\(\backslash\)"{}, style=\(\backslash\)"{}dashed\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00264}00264   t << \textcolor{stringliteral}{"{}  Node"{}} << \mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge_ad35588652598536acbcd25fb8bea83c5}{pNStart}}-\/>\mbox{\hyperlink{class_dot_node_a3c08a5ee367bbf4c58c719ff7f8e0fc7}{number}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00265}00265   t << \textcolor{stringliteral}{"{}-\/>"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00266}00266   t << \textcolor{stringliteral}{"{}Node"{}} << \mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge_af7caf7430bdbc174dcd608418ccddebd}{pNEnd}}-\/>\mbox{\hyperlink{class_dot_node_a3c08a5ee367bbf4c58c719ff7f8e0fc7}{number}}();}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00267}00267 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00268}00268   t << \textcolor{stringliteral}{"{} [shape=plaintext"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00269}00269   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge_a4126bf1c5e5f8e70682ed85fc3b20c29}{links}}.empty()) \textcolor{comment}{// there are links}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00270}00270   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00271}00271     t << \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00272}00272     \textcolor{comment}{// HTML-\/like edge labels crash on my Mac with Graphviz 2.0! and}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00273}00273     \textcolor{comment}{// are not supported by older version of dot.}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00274}00274     \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00275}00275     \textcolor{comment}{//t << label=<<TABLE BORDER=\(\backslash\)"{}0\(\backslash\)"{} CELLBORDER=\(\backslash\)"{}0\(\backslash\)"{}>"{};}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00276}00276     \textcolor{comment}{//for (const auto \&link : links)}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00277}00277     \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00278}00278     \textcolor{comment}{//  t << "{}<TR><TD"{};}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00279}00279     \textcolor{comment}{//  if ( !link.url.isEmpty() )}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00280}00280     \textcolor{comment}{//    t << "{} HREF=\(\backslash\)"{}"{} << link.url << "{}\(\backslash\)"{}"{};}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00281}00281     \textcolor{comment}{//  t << "{}>"{} << DotNode::convertLabel(link-\/>label) << "{}</TD></TR>"{};}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00282}00282     \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00283}00283     \textcolor{comment}{//t << "{}</TABLE>>"{};}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00284}00284 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00285}00285     t << \textcolor{stringliteral}{"{}label=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00286}00286     \textcolor{keywordtype}{bool} first=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00287}00287     \textcolor{keywordtype}{int} count=0;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00288}00288     \textcolor{keyword}{const} \textcolor{keywordtype}{int} maxLabels = 10;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00289}00289     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&link : \mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge_a4126bf1c5e5f8e70682ed85fc3b20c29}{links}})}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00290}00290     \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00291}00291       \textcolor{keywordflow}{if} (first) first=\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}; \textcolor{keywordflow}{else} t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00292}00292       t << \mbox{\hyperlink{class_dot_node_a34866577b6876d091e384863cf5eec85}{DotNode::convertLabel}}(link.label);}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00293}00293       count++;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00294}00294     \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00295}00295     \textcolor{keywordflow}{if} (count==maxLabels) t << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)n..."{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00296}00296     t << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00297}00297 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00298}00298   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00299}00299   \textcolor{keywordflow}{switch}( \mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge_a76a2ba25cd605e65eece591f41706626}{eType}} )}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00300}00300   \{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00301}00301     \textcolor{keywordflow}{case} \mbox{\hyperlink{class_dot_group_collaboration_ab83aa11b8617398a50923c04c2541624ab291a4d3e136ac28b7e0919c67464a9f}{thierarchy}}:}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00302}00302       arrowStyle = \textcolor{stringliteral}{"{}dir=\(\backslash\)"{}back\(\backslash\)"{}, style=\(\backslash\)"{}solid\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00303}00303       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00304}00304     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00305}00305       t << \textcolor{stringliteral}{"{}, color=\(\backslash\)"{}"{}} << linkTypeColor[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{struct_dot_group_collaboration_1_1_edge_a76a2ba25cd605e65eece591f41706626}{eType}})] << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00306}00306       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00307}00307   \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00308}00308   t << \textcolor{stringliteral}{"{}, "{}} << arrowStyle;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00309}00309   t << \textcolor{stringliteral}{"{}];\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00310}00310 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00311}00311 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00312}00312 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_dot_group_collaboration_aff85d0009e3f7499e83ec7c346025a9e}{DotGroupCollaboration::isTrivial}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00313}00313 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00314}00314   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_dot_group_collaboration_a56c5879b481a9e2df4bce580767176ee}{m\_usedNodes}}.size() <= 1;}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00315}00315 \}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00316}00316 }
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00317}00317 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_group_collaboration_a60113bd74bebf89e32507a8e5a303715}{DotGroupCollaboration::writeGraphHeader}}(\mbox{\hyperlink{class_text_stream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&title)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00318}00318 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00319}00319   \mbox{\hyperlink{class_dot_graph_a4e1ec8b0e7ecc8e0d27c869e43d75640}{DotGraph::writeGraphHeader}}(t, title);}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00320}00320   t << \textcolor{stringliteral}{"{}  rankdir=LR;\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{src_2dotgroupcollaboration_8cpp_source_l00321}00321 \}}
+
+\end{DoxyCode}

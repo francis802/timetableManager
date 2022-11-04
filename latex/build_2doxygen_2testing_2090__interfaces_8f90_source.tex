@@ -1,0 +1,82 @@
+\hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source}{}\doxysection{090\+\_\+interfaces.\+f90}
+\label{build_2doxygen_2testing_2090__interfaces_8f90_source}\index{doxygen/build/doxygen/testing/090\_interfaces.f90@{doxygen/build/doxygen/testing/090\_interfaces.f90}}
+\mbox{\hyperlink{build_2doxygen_2testing_2090__interfaces_8f90}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00001}00001 \textcolor{comment}{!// objective: test different variants of interfaces in Fortran}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00002}00002 \textcolor{comment}{!// check: namespacemymodule.xml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00003}00003 \textcolor{comment}{!// check: interfacemymodule\_1\_1genericproc.xml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00004}00004 \textcolor{comment}{!// check: interfacemymodule\_1\_1externalproc.xml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00005}00005 \textcolor{comment}{!// check: interfacemymodule\_1\_1abstractproc.xml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00006}00006 \textcolor{comment}{!// check: interfacemymodule\_1\_1operator\_07\_8cross\_8\_08.xml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00007}00007 \textcolor{comment}{!// check: interfacemymodule\_1\_1operator\_07\_2\_2\_08.xml}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00008}00008 \textcolor{comment}{!// config: OPTIMIZE\_FOR\_FORTRAN=YES}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00009}00009 \textcolor{comment}{!// config: WARN\_IF\_UNDOCUMENTED=NO}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00010}00010 \textcolor{keyword}{module} \mbox{\hyperlink{namespacemymodule}{mymodule}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00011}00011   \textcolor{keywordtype}{implicit none}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00012}00012   \textcolor{keywordtype}{private}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00014}00014   \textcolor{keywordtype}{public} :: \mbox{\hyperlink{interfacemymodule_1_1genericproc}{genericproc}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00015}00015   \textcolor{keywordtype}{public} :: externalproc}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00016}00016   \textcolor{keywordtype}{public} :: abstractproc}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00018}00018   \textcolor{comment}{! meaning 1: interface declaration for external proc, e.g. function declaration}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00019}00019   \textcolor{comment}{! (the target is obviosly not in this module, so somewhere outside a module}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00020}00020   \textcolor{comment}{!  there is a function we want to use)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00021}00021   \textcolor{keyword}{interface}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00022}\mbox{\hyperlink{interfacemymodule_1_1external_proc_aa02464ae12d3a6a37758977bfd5f6f42}{00022}} \textcolor{keywordtype}{    real} \mbox{\hyperlink{build_2doxygen_2testing_2054__parblock_8cpp_a2dd0ac47f42a9994b91d34403be05fe9}{function}} externalproc(r)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00023}00023 \textcolor{keywordtype}{      real}, \textcolor{keywordtype}{intent(in)} :: r}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00024}00024     \textcolor{keyword}{end function}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00025}00025   \textcolor{keyword}{end interface}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00026}00026   }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00027}00027   \textcolor{comment}{! meaning 2: generic interface, e.g. function overloading}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00028}00028   \textcolor{comment}{! (can be mixed with 1)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00029}\mbox{\hyperlink{interfacemymodule_1_1genericproc}{00029}}   \textcolor{keyword}{interface} \mbox{\hyperlink{interfacemymodule_1_1genericproc}{genericproc}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00030}00030     \textcolor{keyword}{module procedure} \mbox{\hyperlink{namespacemymodule_ac4fecdb729ae02a9b45e07b39a06bd4a}{firstproc}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00031}00031     \textcolor{keyword}{module procedure} \mbox{\hyperlink{namespacemymodule_ac7b19d3c9d79ad88b61d5a303e4d0cb1}{otherproc}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00032}\mbox{\hyperlink{interfacemymodule_1_1genericproc_a92cbc79d158eaa86f5a43f0f00af8a12}{00032}}     \textcolor{keyword}{subroutine }externalproc2(r)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00033}00033 \textcolor{keywordtype}{      real}, \textcolor{keywordtype}{intent(out)} :: r}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00034}00034     \textcolor{keyword}{end subroutine}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00035}00035   \textcolor{keyword}{end interface}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00037}00037   \textcolor{comment}{! meaning 3: abstract interface, e.g. for function pointers, deferred methods}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00038}00038   \textcolor{comment}{! (this is more like a typedef, but needs to be handled similarly to a function definition)}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00039}00039   abstract \textcolor{keyword}{interface}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00040}\mbox{\hyperlink{interfacemymodule_1_1abstract_proc_ada978ca63f3595a1288034e1e1dedf6d}{00040}}     \textcolor{keyword}{subroutine }abstractproc(logicalArg)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00041}00041       \textcolor{keywordtype}{logical}, \textcolor{keywordtype}{intent(out)} :: logicalArg}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00042}00042     \textcolor{keyword}{end subroutine}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00043}00043   \textcolor{keyword}{end interface}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00045}00045   \textcolor{comment}{! meaning 2 again, this time as user defined operator}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00046}\mbox{\hyperlink{interfacemymodule_1_1operator_07_8cross_8_08}{00046}}   \textcolor{keyword}{interface} \textcolor{keyword}{operator}(.cross.)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00047}00047     \textcolor{keyword}{module procedure} \mbox{\hyperlink{namespacemymodule_a4c2aa3cb114644b49099023a681ac49b}{cross\_product}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00048}00048   \textcolor{keyword}{end interface}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00050}00050   \textcolor{comment}{! meaning 2 again, this time for overloading an existing operator}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00051}\mbox{\hyperlink{interfacemymodule_1_1operator_07_2_2_08}{00051}}   \textcolor{keyword}{interface} \textcolor{keyword}{operator}(//)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00052}00052     \textcolor{keyword}{module procedure} \mbox{\hyperlink{namespacemymodule_a4c2aa3cb114644b49099023a681ac49b}{cross\_product}}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00053}00053   \textcolor{keyword}{end interface}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00055}00055 \textcolor{keyword}{contains}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00058}\mbox{\hyperlink{interfacemymodule_1_1genericproc_a29212dbf2b36be4ef4bb185a8fac345f}{00058}}   \textcolor{keyword}{subroutine }\mbox{\hyperlink{namespacemymodule_ac4fecdb729ae02a9b45e07b39a06bd4a}{firstproc}}(i)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00059}00059     \textcolor{keywordtype}{integer}, \textcolor{keywordtype}{intent(in)} :: i}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00060}00060   \textcolor{keyword}{end subroutine}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00062}\mbox{\hyperlink{namespacemymodule_ad9576415f0501f163aba191413e7ec8f}{00062}}   \textcolor{keyword}{subroutine }\mbox{\hyperlink{namespacemymodule_ad9576415f0501f163aba191413e7ec8f}{secondproc}}(r)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00063}00063 \textcolor{keywordtype}{    real}, \textcolor{keywordtype}{intent(out)} :: r}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00064}00064   \textcolor{keyword}{end subroutine}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00066}\mbox{\hyperlink{interfacemymodule_1_1genericproc_ad29fdcc5c1c64ee2005a36bb349d2c00}{00066}}   \textcolor{keyword}{subroutine }\mbox{\hyperlink{namespacemymodule_ac7b19d3c9d79ad88b61d5a303e4d0cb1}{otherproc}}(someArg)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00067}00067     \textcolor{keywordtype}{character(len=*)}, \textcolor{keywordtype}{intent(in)} :: someArg}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00068}00068   \textcolor{keyword}{end subroutine}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00070}\mbox{\hyperlink{interfacemymodule_1_1operator_07_8cross_8_08_a92631761f85d36400e715360969f0c3b}{00070}}   \textcolor{keywordtype}{pure} \textcolor{keyword}{function }\mbox{\hyperlink{namespacemymodule_a4c2aa3cb114644b49099023a681ac49b}{cross\_product}}(v, w)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00071}00071 \textcolor{keywordtype}{    real}, \textcolor{keywordtype}{intent(in)} :: v(3), w(3)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00072}00072 \textcolor{keywordtype}{    real} :: \mbox{\hyperlink{namespacemymodule_a4c2aa3cb114644b49099023a681ac49b}{cross\_product}}(3)}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00074}00074     \textcolor{comment}{!cross\_product = ...}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00075}00075   \textcolor{keyword}{end function}}
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{build_2doxygen_2testing_2090__interfaces_8f90_source_l00077}00077 \textcolor{keyword}{end module }\mbox{\hyperlink{namespacemymodule}{mymodule}}}
+
+\end{DoxyCode}

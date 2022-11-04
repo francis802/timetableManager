@@ -1,0 +1,1918 @@
+\hypertarget{src_2vhdlcode_8l}{}\doxysection{doxygen/src/vhdlcode.l File Reference}
+\label{src_2vhdlcode_8l}\index{doxygen/src/vhdlcode.l@{doxygen/src/vhdlcode.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}vhdlcode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membername.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tooltip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvhdlcode_y_y__state}{vhdlcode\+YY\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{struct_v_h_d_l_code_parser_1_1_private}{VHDLCode\+Parser\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{src_2vhdlcode_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{src_2vhdlcode_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{src_2vhdlcode_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{src_2vhdlcode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{src_2vhdlcode_8l_a234e2efe67eececd88b140b46ea37463}{DBG\+\_\+\+CTX}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~do \{ \} while(0)
+\item 
+\#define \mbox{\hyperlink{src_2vhdlcode_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=\mbox{\hyperlink{src_2xmlcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}{yyread}}(yyscanner,buf,max\+\_\+size);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{src_2vhdlcode_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{write\+Font}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generate\+Mem\+Link}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, \mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, \mbox{\hyperlink{class_q_c_string}{QCString}} \&cl\+Name, \mbox{\hyperlink{class_q_c_string}{QCString}} \&member\+Name)
+\item 
+static bool \mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{write\+Colored\+Word}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}})
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generate\+Class\+Or\+Global\+Link}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, \mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&cl\+Name, bool type\+Only=false, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&curr\+\_\+class=\mbox{\hyperlink{class_q_c_string}{QCString}}())
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_adbfcafb48c794e6885763cd94da51375}{set\+Current\+Doc}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&anchor)
+\item 
+static bool \mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{check\+Vhdl\+String}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, \mbox{\hyperlink{class_q_c_string}{QCString}} \&name)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{add\+To\+Search\+Index}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{start\+Code\+Line}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{end\+Code\+Line}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}}, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&curr\+\_\+class=\mbox{\hyperlink{class_q_c_string}{QCString}}(), bool class\+Link=false)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&cl=\mbox{\hyperlink{class_q_c_string}{QCString}}(), bool classlink=false, bool \mbox{\hyperlink{src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}{comment}}=false)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{write\+Multi\+Line\+Code\+Link}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, \mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_definition}{Definition}} $\ast$d, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}{generate\+Func\+Link}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, \mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$mdef)
+\item 
+static int \mbox{\hyperlink{src_2vhdlcode_8l_a635b111e9953d65f6353bf0d7eb9fb1f}{count\+Lines}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{start\+Font\+Class}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{app\+String\+Lower}} (\mbox{\hyperlink{class_q_c_string}{QCString}} \&qcs, const char $\ast$text)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_aaf9011f7d4c2a48af197236c52d0a95d}{codify\+Map\+Lines}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{class_q_c_string}{QCString}} \&text)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_adb5cfe08b5887df4a026299543638531}{write\+Func\+Proto}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static void \mbox{\hyperlink{src_2vhdlcode_8l_aaa2a9bf9c82c212c9ce347be10e77899}{write\+Process\+Proto}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+static int \mbox{\hyperlink{src_2vhdlcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}{yyread}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, char $\ast$buf, int max\+\_\+size)
+\item 
+static const char $\ast$ \mbox{\hyperlink{src_2vhdlcode_8l_acb5f8818546103e3b804ab8606b52c4a}{get\+Lexer\+FILE}} ()
+\item 
+int \mbox{\hyperlink{src_2vhdlcode_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2vhdlcode_8l_a234e2efe67eececd88b140b46ea37463}\label{src_2vhdlcode_8l_a234e2efe67eececd88b140b46ea37463}} 
+\index{vhdlcode.l@{vhdlcode.l}!DBG\_CTX@{DBG\_CTX}}
+\index{DBG\_CTX@{DBG\_CTX}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{DBG\_CTX}{DBG\_CTX}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+CTX(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~do \{ \} while(0)}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00068}{68}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{src_2vhdlcode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{vhdlcode.l@{vhdlcode.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00064}{64}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_aacfdca45fa4beb8b06172525a53c424a}\label{src_2vhdlcode_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{vhdlcode.l@{vhdlcode.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=\mbox{\hyperlink{src_2xmlcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}{yyread}}(yyscanner,buf,max\+\_\+size);}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00150}{150}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a85523a0c7d95c059d251b4e9829947aa}\label{src_2vhdlcode_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{vhdlcode.l@{vhdlcode.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00061}{61}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_ae78ac56cd1f29572e967ed7636952d15}\label{src_2vhdlcode_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{vhdlcode.l@{vhdlcode.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00062}{62}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{src_2vhdlcode_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{vhdlcode.l@{vhdlcode.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00028}{28}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{src_2vhdlcode_8l_a9484188abbc459dafcbd4c96425fa70b}\label{src_2vhdlcode_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{vhdlcode.l@{vhdlcode.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00030}{30}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}\label{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}} 
+\index{vhdlcode.l@{vhdlcode.l}!addToSearchIndex@{addToSearchIndex}}
+\index{addToSearchIndex@{addToSearchIndex}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{addToSearchIndex()}{addToSearchIndex()}}
+{\footnotesize\ttfamily static void add\+To\+Search\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00993}{993}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00994 \{}
+\DoxyCodeLine{00995   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{00996   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen::searchIndex}})}
+\DoxyCodeLine{00997   \{}
+\DoxyCodeLine{00998     yyextra-\/>code-\/>addWord(text,\textcolor{keyword}{false});}
+\DoxyCodeLine{00999   \}}
+\DoxyCodeLine{01000 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen\+::search\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generate\+Class\+Or\+Global\+Link()}}, \mbox{\hyperlink{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}{generate\+Func\+Link()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generate\+Mem\+Link()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}\label{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}} 
+\index{vhdlcode.l@{vhdlcode.l}!appStringLower@{appStringLower}}
+\index{appStringLower@{appStringLower}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{appStringLower()}{appStringLower()}}
+{\footnotesize\ttfamily static void app\+String\+Lower (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{qcs,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01433}{1433}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01434 \{}
+\DoxyCodeLine{01435   qcs.\mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{01436   qcs.\mbox{\hyperlink{class_q_c_string_a8f0a381fdae1427b1182baf0abde21e7}{append}}(text);}
+\DoxyCodeLine{01437   qcs=qcs.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{01438 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_a8f0a381fdae1427b1182baf0abde21e7}{QCString\+::append()}}, \mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{QCString\+::resize()}}, and \mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{QCString\+::strip\+White\+Space()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}\label{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}} 
+\index{vhdlcode.l@{vhdlcode.l}!checkVhdlString@{checkVhdlString}}
+\index{checkVhdlString@{checkVhdlString}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{checkVhdlString()}{checkVhdlString()}}
+{\footnotesize\ttfamily static bool check\+Vhdl\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00955}{955}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00956 \{}
+\DoxyCodeLine{00957   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{00958   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.isEmpty()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00959 }
+\DoxyCodeLine{00960   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.length();}
+\DoxyCodeLine{00961   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.at(0)==\textcolor{charliteral}{'"{}'} \&\& \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.at(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/1)==\textcolor{charliteral}{'"{}'} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}} > 2)}
+\DoxyCodeLine{00962   \{}
+\DoxyCodeLine{00963     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} inside = \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str().substr(1,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}-\/2);}
+\DoxyCodeLine{00964     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classreg_1_1_ex}{reg::Ex}} regg(R\textcolor{stringliteral}{"{}(\(\backslash\)s+)"{}); }\textcolor{comment}{// any number of whitespace}}
+\DoxyCodeLine{00965     \textcolor{keyword}{auto} qrl=\mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}(inside,regg);}
+\DoxyCodeLine{00966     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{VhdlDocGen::isNumber}}(qrl[0]))}
+\DoxyCodeLine{00967     \{}
+\DoxyCodeLine{00968       yyextra-\/>code-\/>codify(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{00969       \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}});}
+\DoxyCodeLine{00970       yyextra-\/>code-\/>codify(inside.c\_str());}
+\DoxyCodeLine{00971       \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00972       yyextra-\/>code-\/>codify(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{00973     \}}
+\DoxyCodeLine{00974     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00975     \{}
+\DoxyCodeLine{00976       \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}keyword"{}});}
+\DoxyCodeLine{00977       yyextra-\/>code-\/>codify(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00978       \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00979     \}}
+\DoxyCodeLine{00980     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00981   \}}
+\DoxyCodeLine{00982 }
+\DoxyCodeLine{00983   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{VhdlDocGen::isNumber}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str()))}
+\DoxyCodeLine{00984   \{}
+\DoxyCodeLine{00985     \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}});}
+\DoxyCodeLine{00986     yyextra-\/>code-\/>codify(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00987     \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00988     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00989   \}}
+\DoxyCodeLine{00990   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00991 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{Vhdl\+Doc\+Gen\+::is\+Number()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{start\+Font\+Class()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}\label{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}} 
+\index{vhdlcode.l@{vhdlcode.l}!codifyLines@{codifyLines}}
+\index{codifyLines@{codifyLines}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{codifyLines()}{codifyLines()}}
+{\footnotesize\ttfamily static void codify\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{cl,  }\item[{bool}]{classlink,  }\item[{bool}]{comment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+write a code fragment \textquotesingle{}text\textquotesingle{} that may span multiple lines, inserting line numbers for each line. 
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01188}{1188}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01189 \{}
+\DoxyCodeLine{01190   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01191   \textcolor{keywordflow}{if} (text.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01192   \textcolor{comment}{//printf("{}codifyLines(\%d,\(\backslash\)"{}\%s\(\backslash\)"{})\(\backslash\)n"{},yyextra-\/>yyLineNr,text);}}
+\DoxyCodeLine{01193   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=text.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),*sp=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01194   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01195   \textcolor{keywordtype}{bool} done=\textcolor{keyword}{false};}
+\DoxyCodeLine{01196   \textcolor{keywordflow}{while} (!done)}
+\DoxyCodeLine{01197   \{}
+\DoxyCodeLine{01198     sp=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01199     \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++) \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)n'}) \{\}}
+\DoxyCodeLine{01200     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01201     \{}
+\DoxyCodeLine{01202       yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{01203       \mbox{\hyperlink{class_q_c_string}{QCString}} line = sp;}
+\DoxyCodeLine{01204       line = line.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}((\textcolor{keywordtype}{int})(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/sp)-\/1);}
+\DoxyCodeLine{01205       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}{comment}})}
+\DoxyCodeLine{01206       \{}
+\DoxyCodeLine{01207         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}comment"{}},line);}
+\DoxyCodeLine{01208       \}}
+\DoxyCodeLine{01209       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01210       \{}
+\DoxyCodeLine{01211         \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{writeWord}}(yyscanner,line,cl,classlink);}
+\DoxyCodeLine{01212       \}}
+\DoxyCodeLine{01213       \mbox{\hyperlink{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}{nextCodeLine}}(yyscanner);}
+\DoxyCodeLine{01214     \}}
+\DoxyCodeLine{01215     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01216     \{}
+\DoxyCodeLine{01217       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}{comment}})}
+\DoxyCodeLine{01218       \{}
+\DoxyCodeLine{01219         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}comment"{}},sp);}
+\DoxyCodeLine{01220       \}}
+\DoxyCodeLine{01221       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01222       \{}
+\DoxyCodeLine{01223         \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{writeWord}}(yyscanner,sp,cl,classlink);}
+\DoxyCodeLine{01224       \}}
+\DoxyCodeLine{01225       done=\textcolor{keyword}{true};}
+\DoxyCodeLine{01226     \}}
+\DoxyCodeLine{01227   \}}
+\DoxyCodeLine{01228 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{build_2doxygen_2src_2vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}{comment}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{QCString\+::left()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{write\+Font()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_aaf9011f7d4c2a48af197236c52d0a95d}{codify\+Map\+Lines()}}, \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generate\+Class\+Or\+Global\+Link()}}, \mbox{\hyperlink{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}{generate\+Func\+Link()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generate\+Mem\+Link()}}, \mbox{\hyperlink{src_2vhdlcode_8l_adb5cfe08b5887df4a026299543638531}{write\+Func\+Proto()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_aaa2a9bf9c82c212c9ce347be10e77899}{write\+Process\+Proto()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_aaf9011f7d4c2a48af197236c52d0a95d}\label{src_2vhdlcode_8l_aaf9011f7d4c2a48af197236c52d0a95d}} 
+\index{vhdlcode.l@{vhdlcode.l}!codifyMapLines@{codifyMapLines}}
+\index{codifyMapLines@{codifyMapLines}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{codifyMapLines()}{codifyMapLines()}}
+{\footnotesize\ttfamily static void codify\+Map\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01441}{1441}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01442 \{}
+\DoxyCodeLine{01443   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01444   \textcolor{keywordflow}{if} (text.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01445   \mbox{\hyperlink{class_q_c_string}{QCString}} temp;}
+\DoxyCodeLine{01446   \textcolor{comment}{//bool dot=false;}}
+\DoxyCodeLine{01447   \textcolor{keywordtype}{int} wordCounter=0;}
+\DoxyCodeLine{01448   \mbox{\hyperlink{class_q_c_string}{QCString}} ctemp;}
+\DoxyCodeLine{01449   \textcolor{comment}{//printf("{}codifyMapLines(\%d,\(\backslash\)"{}\%s\(\backslash\)"{})\(\backslash\)n"{},yyextra-\/>yyLineNr,qPrint(text));}}
+\DoxyCodeLine{01450   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=text.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{01451   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01452   \textcolor{keywordtype}{bool} done=\textcolor{keyword}{false};}
+\DoxyCodeLine{01453   \textcolor{keywordflow}{while} (!done)}
+\DoxyCodeLine{01454   \{}
+\DoxyCodeLine{01455     \textcolor{comment}{//sp=p;}}
+\DoxyCodeLine{01456     \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++) \&\&  \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)n'} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{':'} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} != \textcolor{charliteral}{' '} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} != \textcolor{charliteral}{'('} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)0'} \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)t'})}
+\DoxyCodeLine{01457     \{}
+\DoxyCodeLine{01458       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=0x9)}
+\DoxyCodeLine{01459         temp+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01460     \}}
+\DoxyCodeLine{01461     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)0'}) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01462     \textcolor{keywordflow}{if} (!temp.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) wordCounter++;}
+\DoxyCodeLine{01463 }
+\DoxyCodeLine{01464     \textcolor{keywordflow}{if} (!temp.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{01465     \{}
+\DoxyCodeLine{01466       \textcolor{comment}{// different kinds of component instantiations}}
+\DoxyCodeLine{01467       \textcolor{comment}{// xxx:yyy (generic/port) map(}}
+\DoxyCodeLine{01468       \textcolor{comment}{// xxx:(entity/component/configuration) yyy (generic/port) map(}}
+\DoxyCodeLine{01469       \textcolor{comment}{// xxx: entity yyy(zzz) (generic/port) map(}}
+\DoxyCodeLine{01470       \textcolor{keywordflow}{if} (wordCounter==2 || wordCounter==3)}
+\DoxyCodeLine{01471       \{}
+\DoxyCodeLine{01472         \mbox{\hyperlink{class_q_c_string}{QCString}} q=temp.\mbox{\hyperlink{class_q_c_string_a33688239622e659cfb469fbd62c9cccb}{lower}}(); \textcolor{comment}{// consider (upper/lower) cases}}
+\DoxyCodeLine{01473         \textcolor{keywordflow}{if} (q==\textcolor{stringliteral}{"{}entity"{}} || q==\textcolor{stringliteral}{"{}component"{}} || q==\textcolor{stringliteral}{"{}configuration"{}} || q==\textcolor{stringliteral}{"{}port"{}} || q==\textcolor{stringliteral}{"{}generic"{}})}
+\DoxyCodeLine{01474         \{}
+\DoxyCodeLine{01475           \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>currClass,temp);}
+\DoxyCodeLine{01476         \}}
+\DoxyCodeLine{01477         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01478         \{}
+\DoxyCodeLine{01479           yyextra-\/>PortMapComp=temp;}
+\DoxyCodeLine{01480           \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,temp);}
+\DoxyCodeLine{01481         \}}
+\DoxyCodeLine{01482       \}}
+\DoxyCodeLine{01483       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01484       \{}
+\DoxyCodeLine{01485         \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>currClass,temp);}
+\DoxyCodeLine{01486       \}}
+\DoxyCodeLine{01487     \}}
+\DoxyCodeLine{01488     ctemp.\mbox{\hyperlink{class_q_c_string_a2061c09e8d70cd279d9cc9feef33d2bb}{fill}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}},1);}
+\DoxyCodeLine{01489     \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,ctemp);}
+\DoxyCodeLine{01490     ctemp.\mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{01491     temp.\mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{01492   \}\textcolor{comment}{//while}}
+\DoxyCodeLine{01493 \}//codifyMapLines}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{class_q_c_string_a2061c09e8d70cd279d9cc9feef33d2bb}{QCString\+::fill()}}, \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generate\+Class\+Or\+Global\+Link()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generate\+Mem\+Link()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_q_c_string_a33688239622e659cfb469fbd62c9cccb}{QCString\+::lower()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, and \mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{QCString\+::resize()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a635b111e9953d65f6353bf0d7eb9fb1f}\label{src_2vhdlcode_8l_a635b111e9953d65f6353bf0d7eb9fb1f}} 
+\index{vhdlcode.l@{vhdlcode.l}!countLines@{countLines}}
+\index{countLines@{countLines}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{countLines()}{countLines()}}
+{\footnotesize\ttfamily static int count\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+counts the number of lines in the input 
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01383}{1383}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01384 \{}
+\DoxyCodeLine{01385   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01386   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=yyextra-\/>inputString;}
+\DoxyCodeLine{01387   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01388   \textcolor{keywordtype}{int} count=1;}
+\DoxyCodeLine{01389   \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}))}
+\DoxyCodeLine{01390   \{}
+\DoxyCodeLine{01391     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++ ;}
+\DoxyCodeLine{01392     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'}) count++;}
+\DoxyCodeLine{01393   \}}
+\DoxyCodeLine{01394   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}>yyextra-\/>inputString \&\& *(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/1)!=\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01395   \{ \textcolor{comment}{// last line does not end with a \(\backslash\)n, so we add an extra}}
+\DoxyCodeLine{01396     \textcolor{comment}{// line and explicitly terminate the line after parsing.}}
+\DoxyCodeLine{01397     count++;}
+\DoxyCodeLine{01398   \}}
+\DoxyCodeLine{01399   \textcolor{keywordflow}{return} count;}
+\DoxyCodeLine{01400 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a22b46d1ae6472d2565e3bd435f982d16}\label{src_2vhdlcode_8l_a22b46d1ae6472d2565e3bd435f982d16}} 
+\index{vhdlcode.l@{vhdlcode.l}!endCodeLine@{endCodeLine}}
+\index{endCodeLine@{endCodeLine}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{endCodeLine()}{endCodeLine()}}
+{\footnotesize\ttfamily static void end\+Code\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01068}{1068}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01069 \{}
+\DoxyCodeLine{01070   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01071   \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{01072   yyextra-\/>code-\/>endCodeLine();}
+\DoxyCodeLine{01073   yyextra-\/>insideCodeLine=\textcolor{keyword}{false};}
+\DoxyCodeLine{01074 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}\label{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}} 
+\index{vhdlcode.l@{vhdlcode.l}!endFontClass@{endFontClass}}
+\index{endFontClass@{endFontClass}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{endFontClass()}{endFontClass()}}
+{\footnotesize\ttfamily static void end\+Font\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01402}{1402}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01403 \{}
+\DoxyCodeLine{01404   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01405   \textcolor{keywordflow}{if} (yyextra-\/>currentFontClass)}
+\DoxyCodeLine{01406   \{}
+\DoxyCodeLine{01407     yyextra-\/>code-\/>endFontClass();}
+\DoxyCodeLine{01408     yyextra-\/>currentFontClass=0;}
+\DoxyCodeLine{01409   \}}
+\DoxyCodeLine{01410 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{check\+Vhdl\+String()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{end\+Code\+Line()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{start\+Font\+Class()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}\label{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}} 
+\index{vhdlcode.l@{vhdlcode.l}!generateClassOrGlobalLink@{generateClassOrGlobalLink}}
+\index{generateClassOrGlobalLink@{generateClassOrGlobalLink}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{generateClassOrGlobalLink()}{generateClassOrGlobalLink()}}
+{\footnotesize\ttfamily static void generate\+Class\+Or\+Global\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{cl\+Name,  }\item[{bool}]{type\+Only = {\ttfamily false},  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{curr\+\_\+class = {\ttfamily \mbox{\hyperlink{class_q_c_string}{QCString}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01327}{1327}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01329 \{}
+\DoxyCodeLine{01330   \mbox{\hyperlink{class_q_c_string}{QCString}} className=clName;}
+\DoxyCodeLine{01331 }
+\DoxyCodeLine{01332   \textcolor{keywordflow}{if} (className.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01333 }
+\DoxyCodeLine{01334   \mbox{\hyperlink{class_class_def}{ClassDef}} *cd=0;}
+\DoxyCodeLine{01335   \textcolor{comment}{//MemberDef *md=0;}}
+\DoxyCodeLine{01336   \textcolor{comment}{//bool isLocal=false;}}
+\DoxyCodeLine{01337   className.\mbox{\hyperlink{class_q_c_string_af363dfe85e56f873aa3a373c70a33b24}{stripPrefix}}(\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{01338   cd = \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_a9682735bd2cf0656eaa944f8b3e364a2}{getClass}}(className);}
+\DoxyCodeLine{01339   \textcolor{keywordflow}{if} (!cd \&\& !curr\_class.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{01340   \{}
+\DoxyCodeLine{01341     \mbox{\hyperlink{class_q_c_string}{QCString}} cls = curr\_class;}
+\DoxyCodeLine{01342     \mbox{\hyperlink{class_q_c_string}{QCString}} suffix = \textcolor{stringliteral}{"{}::"{}};}
+\DoxyCodeLine{01343     suffix+=clName;}
+\DoxyCodeLine{01344     \textcolor{keywordflow}{if} (cls.\mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{right}}(suffix.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}())==suffix)}
+\DoxyCodeLine{01345     \{}
+\DoxyCodeLine{01346       cd = \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_a9682735bd2cf0656eaa944f8b3e364a2}{getClass}}(curr\_class);}
+\DoxyCodeLine{01347     \}}
+\DoxyCodeLine{01348   \}}
+\DoxyCodeLine{01349 }
+\DoxyCodeLine{01350   \textcolor{keywordflow}{while} (cd)}
+\DoxyCodeLine{01351   \{}
+\DoxyCodeLine{01352     \textcolor{comment}{//className.stripPrefix("{}\_"{});}}
+\DoxyCodeLine{01353     \mbox{\hyperlink{class_q_c_string}{QCString}} temp(clName);}
+\DoxyCodeLine{01354     temp.stripPrefix(\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{01355     \textcolor{keywordflow}{if} (cd \&\& cd-\/>\mbox{\hyperlink{class_class_def_a659ebf886a21ea56b51354c22b91b0dc}{isLinkable}}()) \textcolor{comment}{// is it a linkable class}}
+\DoxyCodeLine{01356     \{}
+\DoxyCodeLine{01357       \textcolor{comment}{//if ((VhdlDocGen::VhdlClasses)cd-\/>protection()==VhdlDocGen::ARCHITECTURECLASS)}}
+\DoxyCodeLine{01358       \textcolor{comment}{//\{}}
+\DoxyCodeLine{01359       \textcolor{comment}{//  temp=VhdlDocGen::getClassName(cd);}}
+\DoxyCodeLine{01360       \textcolor{comment}{//\}}}
+\DoxyCodeLine{01361       \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{writeMultiLineCodeLink}}(yyscanner,ol,cd,temp);}
+\DoxyCodeLine{01362       \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{addToSearchIndex}}(yyscanner,className);}
+\DoxyCodeLine{01363       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01364     \}}
+\DoxyCodeLine{01365     \mbox{\hyperlink{class_definition}{Definition}} *d = cd-\/>\mbox{\hyperlink{class_definition_acabf5ee4ca8de43bbcc5cd5736f150e5}{getOuterScope}}();}
+\DoxyCodeLine{01366     \textcolor{keywordflow}{if} (d \&\& d-\/>\mbox{\hyperlink{class_definition_a526c39074637d4b17a3f67df56d961ff}{definitionType}}()==\mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8ea0e0e4d8769ab0441dd65c7ad89225bc7}{Definition::TypeClass}})}
+\DoxyCodeLine{01367     \{}
+\DoxyCodeLine{01368       cd = \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_ac7e9d22a4c24e745c1ab16d0af527da2}{toClassDef}}(d);}
+\DoxyCodeLine{01369     \}}
+\DoxyCodeLine{01370     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01371     \{}
+\DoxyCodeLine{01372       cd = 0;}
+\DoxyCodeLine{01373     \}}
+\DoxyCodeLine{01374   \}}
+\DoxyCodeLine{01375 }
+\DoxyCodeLine{01376   \textcolor{comment}{// nothing found, just write out the word}}
+\DoxyCodeLine{01377   \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,clName);}
+\DoxyCodeLine{01378   \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{addToSearchIndex}}(yyscanner,clName);}
+\DoxyCodeLine{01379 \}// generateClasss or global link}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{add\+To\+Search\+Index()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, \mbox{\hyperlink{class_definition_a526c39074637d4b17a3f67df56d961ff}{Definition\+::definition\+Type()}}, \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_a9682735bd2cf0656eaa944f8b3e364a2}{get\+Class()}}, \mbox{\hyperlink{class_definition_acabf5ee4ca8de43bbcc5cd5736f150e5}{Definition\+::get\+Outer\+Scope()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_class_def_a659ebf886a21ea56b51354c22b91b0dc}{Class\+Def\+::is\+Linkable()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{QCString\+::right()}}, \mbox{\hyperlink{class_q_c_string_af363dfe85e56f873aa3a373c70a33b24}{QCString\+::strip\+Prefix()}}, \mbox{\hyperlink{build_2doxygen_2src_2classdef_8cpp_ac7e9d22a4c24e745c1ab16d0af527da2}{to\+Class\+Def()}}, \mbox{\hyperlink{class_definition_aa41b6bc53dcf93ecf745698aaf15ef8ea0e0e4d8769ab0441dd65c7ad89225bc7}{Definition\+::\+Type\+Class}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{write\+Multi\+Line\+Code\+Link()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_aaf9011f7d4c2a48af197236c52d0a95d}{codify\+Map\+Lines()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}\label{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}} 
+\index{vhdlcode.l@{vhdlcode.l}!generateFuncLink@{generateFuncLink}}
+\index{generateFuncLink@{generateFuncLink}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{generateFuncLink()}{generateFuncLink()}}
+{\footnotesize\ttfamily static void generate\+Func\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_member_def}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a link to a function or procedure 
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01274}{1274}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01275 \{}
+\DoxyCodeLine{01276   \textcolor{comment}{//printf("{}generateFuncLink(FuncName=\%s)\(\backslash\)n"{},qPrint(mdef-\/>name()));}}
+\DoxyCodeLine{01277   \mbox{\hyperlink{class_q_c_string}{QCString}} memberName=mdef-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{01278 }
+\DoxyCodeLine{01279   \textcolor{keywordflow}{if} (mdef-\/>\mbox{\hyperlink{class_member_def_aa0a9d4db2b1fbdd5c728f4b2e4c2694d}{isLinkable}}()) \textcolor{comment}{// is it a linkable class}}
+\DoxyCodeLine{01280   \{}
+\DoxyCodeLine{01281     \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{writeMultiLineCodeLink}}(yyscanner,ol,mdef,mdef-\/>\mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}());}
+\DoxyCodeLine{01282     \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{addToSearchIndex}}(yyscanner,memberName);}
+\DoxyCodeLine{01283     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01284   \}}
+\DoxyCodeLine{01285   \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,memberName);}
+\DoxyCodeLine{01286   \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{addToSearchIndex}}(yyscanner,memberName);}
+\DoxyCodeLine{01287 \} // generateFuncLink}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{add\+To\+Search\+Index()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, \mbox{\hyperlink{class_member_def_aa0a9d4db2b1fbdd5c728f4b2e4c2694d}{Member\+Def\+::is\+Linkable()}}, \mbox{\hyperlink{class_definition_a9374fedd7f64fea7e0e164302d1a9e61}{Definition\+::name()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{write\+Multi\+Line\+Code\+Link()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_adb5cfe08b5887df4a026299543638531}{write\+Func\+Proto()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}\label{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}} 
+\index{vhdlcode.l@{vhdlcode.l}!generateMemLink@{generateMemLink}}
+\index{generateMemLink@{generateMemLink}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{generateMemLink()}{generateMemLink()}}
+{\footnotesize\ttfamily static void generate\+Mem\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{cl\+Name,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{member\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01290}{1290}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01291 \{}
+\DoxyCodeLine{01292   \textcolor{keywordflow}{if} (memberName.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01293   \textcolor{keywordflow}{if} (clName.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{01294   \{}
+\DoxyCodeLine{01295     \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,memberName);}
+\DoxyCodeLine{01296 }
+\DoxyCodeLine{01297    \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01298   \}}
+\DoxyCodeLine{01299 }
+\DoxyCodeLine{01300   \mbox{\hyperlink{class_q_c_string}{QCString}} className=clName;}
+\DoxyCodeLine{01301 }
+\DoxyCodeLine{01302   \textcolor{comment}{//MemberDef *comp=0;}}
+\DoxyCodeLine{01303   \textcolor{comment}{//bool isLocal=false;}}
+\DoxyCodeLine{01304 }
+\DoxyCodeLine{01305   \textcolor{keyword}{const} \mbox{\hyperlink{class_member_def}{MemberDef}} *md=\mbox{\hyperlink{class_vhdl_doc_gen_ab6898e9270508ce95ad8ebb5ecbedaa6}{VhdlDocGen::findMember}}(className,memberName);}
+\DoxyCodeLine{01306   \mbox{\hyperlink{class_class_def}{ClassDef}} *po=\mbox{\hyperlink{class_vhdl_doc_gen_aa09142ff1ca07603f8bb2150ce9ceab5}{VhdlDocGen::getClass}}(className);}
+\DoxyCodeLine{01307 }
+\DoxyCodeLine{01308   \textcolor{keywordflow}{if} (md==0 \&\& po \&\& (\mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0}{VhdlDocGen::VhdlClasses}})po-\/>\mbox{\hyperlink{class_class_def_a759c68ae0af03a49aff1a86d383af68d}{protection}}()==\mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0ab6185d1953b5fa93457bfcfbde2ce911}{VhdlDocGen::PACKBODYCLASS}})}
+\DoxyCodeLine{01309   \{}
+\DoxyCodeLine{01310     \mbox{\hyperlink{class_q_c_string}{QCString}} temp=className;\textcolor{comment}{//.stripPrefix("{}\_"{});}}
+\DoxyCodeLine{01311     temp.\mbox{\hyperlink{class_q_c_string_af363dfe85e56f873aa3a373c70a33b24}{stripPrefix}}(\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{01312     md=\mbox{\hyperlink{class_vhdl_doc_gen_ab6898e9270508ce95ad8ebb5ecbedaa6}{VhdlDocGen::findMember}}(temp,memberName);}
+\DoxyCodeLine{01313   \}}
+\DoxyCodeLine{01314 }
+\DoxyCodeLine{01315   \textcolor{keywordflow}{if} (md \&\& md-\/>\mbox{\hyperlink{class_member_def_aa0a9d4db2b1fbdd5c728f4b2e4c2694d}{isLinkable}}()) \textcolor{comment}{// is it a linkable class}}
+\DoxyCodeLine{01316   \{}
+\DoxyCodeLine{01317     \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{writeMultiLineCodeLink}}(yyscanner,ol,md,memberName);}
+\DoxyCodeLine{01318     \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{addToSearchIndex}}(yyscanner,memberName);}
+\DoxyCodeLine{01319     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01320   \}}
+\DoxyCodeLine{01321   \textcolor{comment}{// nothing found, just write out the word}}
+\DoxyCodeLine{01322   \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,memberName);}
+\DoxyCodeLine{01323   \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{addToSearchIndex}}(yyscanner,memberName);}
+\DoxyCodeLine{01324 \}// generateMemLink}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_a63736112eb4c63a80176566049bbea24}{add\+To\+Search\+Index()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, \mbox{\hyperlink{class_vhdl_doc_gen_ab6898e9270508ce95ad8ebb5ecbedaa6}{Vhdl\+Doc\+Gen\+::find\+Member()}}, \mbox{\hyperlink{class_vhdl_doc_gen_aa09142ff1ca07603f8bb2150ce9ceab5}{Vhdl\+Doc\+Gen\+::get\+Class()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_member_def_aa0a9d4db2b1fbdd5c728f4b2e4c2694d}{Member\+Def\+::is\+Linkable()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a010ab08982f29df8c0f3d3f0f642f0f0ab6185d1953b5fa93457bfcfbde2ce911}{Vhdl\+Doc\+Gen\+::\+PACKBODYCLASS}}, \mbox{\hyperlink{class_class_def_a759c68ae0af03a49aff1a86d383af68d}{Class\+Def\+::protection()}}, \mbox{\hyperlink{class_q_c_string_af363dfe85e56f873aa3a373c70a33b24}{QCString\+::strip\+Prefix()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{write\+Multi\+Line\+Code\+Link()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_aaf9011f7d4c2a48af197236c52d0a95d}{codify\+Map\+Lines()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_acb5f8818546103e3b804ab8606b52c4a}\label{src_2vhdlcode_8l_acb5f8818546103e3b804ab8606b52c4a}} 
+\index{vhdlcode.l@{vhdlcode.l}!getLexerFILE@{getLexerFILE}}
+\index{getLexerFILE@{getLexerFILE}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{getLexerFILE()}{getLexerFILE()}}
+{\footnotesize\ttfamily static const char $\ast$ get\+Lexer\+FILE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00153}{153}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153 \{return \_\_FILE\_\_;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}\label{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}} 
+\index{vhdlcode.l@{vhdlcode.l}!nextCodeLine@{nextCodeLine}}
+\index{nextCodeLine@{nextCodeLine}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{nextCodeLine()}{nextCodeLine()}}
+{\footnotesize\ttfamily static void next\+Code\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01076}{1076}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01077 \{}
+\DoxyCodeLine{01078   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01079   \textcolor{keywordflow}{if} (yyextra-\/>insideCodeLine)}
+\DoxyCodeLine{01080   \{}
+\DoxyCodeLine{01081     \mbox{\hyperlink{src_2vhdlcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{endCodeLine}}(yyscanner);    \textcolor{comment}{// </div>}}
+\DoxyCodeLine{01082   \}}
+\DoxyCodeLine{01083   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fc = yyextra-\/>currentFontClass;}
+\DoxyCodeLine{01084   \textcolor{keywordflow}{if} (yyextra-\/>yyLineNr<yyextra-\/>inputLines)}
+\DoxyCodeLine{01085   \{}
+\DoxyCodeLine{01086     yyextra-\/>currentFontClass = fc;}
+\DoxyCodeLine{01087     \mbox{\hyperlink{src_2vhdlcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{startCodeLine}}(yyscanner);  \textcolor{comment}{//<div>}}
+\DoxyCodeLine{01088   \}}
+\DoxyCodeLine{01089 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_a22b46d1ae6472d2565e3bd435f982d16}{end\+Code\+Line()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{start\+Code\+Line()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}{write\+Multi\+Line\+Code\+Link()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_adbfcafb48c794e6885763cd94da51375}\label{src_2vhdlcode_8l_adbfcafb48c794e6885763cd94da51375}} 
+\index{vhdlcode.l@{vhdlcode.l}!setCurrentDoc@{setCurrentDoc}}
+\index{setCurrentDoc@{setCurrentDoc}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{setCurrentDoc()}{setCurrentDoc()}}
+{\footnotesize\ttfamily static void set\+Current\+Doc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{anchor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00939}{939}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00940 \{}
+\DoxyCodeLine{00941   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{00942   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen::searchIndex}})}
+\DoxyCodeLine{00943   \{}
+\DoxyCodeLine{00944     \textcolor{keywordflow}{if} (yyextra-\/>searchCtx)}
+\DoxyCodeLine{00945     \{}
+\DoxyCodeLine{00946       yyextra-\/>code-\/>setCurrentDoc(yyextra-\/>searchCtx,yyextra-\/>searchCtx-\/>anchor(),\textcolor{keyword}{false});}
+\DoxyCodeLine{00947     \}}
+\DoxyCodeLine{00948     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00949     \{}
+\DoxyCodeLine{00950       yyextra-\/>code-\/>setCurrentDoc(yyextra-\/>sourceFileDef,anchor,\textcolor{keyword}{true});}
+\DoxyCodeLine{00951     \}}
+\DoxyCodeLine{00952   \}}
+\DoxyCodeLine{00953 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_doxygen_adb9c80170cb2ed29ea6424b2e58fb46f}{Doxygen\+::search\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}{start\+Code\+Line()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}\label{src_2vhdlcode_8l_a47b0cd13a509f44e1a1032cbf4ad69ed}} 
+\index{vhdlcode.l@{vhdlcode.l}!startCodeLine@{startCodeLine}}
+\index{startCodeLine@{startCodeLine}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{startCodeLine()}{startCodeLine()}}
+{\footnotesize\ttfamily static void start\+Code\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+start a new line of code, inserting a line number if yyextra-\/\texorpdfstring{$>$}{>}source\+File\+Def is true. If a definition starts at the current line, then the line number is linked to the documentation of that definition. 
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01007}{1007}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01008 \{}
+\DoxyCodeLine{01009   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01010   \textcolor{comment}{//if (yyextra-\/>currentFontClass) \{ yyextra-\/>code-\/>endFontClass(); \}}}
+\DoxyCodeLine{01011   \textcolor{keywordflow}{if} (yyextra-\/>sourceFileDef)}
+\DoxyCodeLine{01012   \{}
+\DoxyCodeLine{01013     \textcolor{comment}{//QCString lineNumber,lineAnchor;}}
+\DoxyCodeLine{01014     \textcolor{comment}{//lineNumber.sprintf("{}\%05d"{},yyextra-\/>yyLineNr);}}
+\DoxyCodeLine{01015     \textcolor{comment}{//lineAnchor.sprintf("{}l\%05d"{},yyextra-\/>yyLineNr);}}
+\DoxyCodeLine{01016     \textcolor{comment}{//  if ((yyextra-\/>yyLineNr \% 500) == 0)}}
+\DoxyCodeLine{01017     \textcolor{comment}{//         fprintf(stderr,"{}\(\backslash\)n starting Line \%d:"{},yyextra-\/>yyLineNr);}}
+\DoxyCodeLine{01018     \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *d = yyextra-\/>sourceFileDef-\/>getSourceDefinition(yyextra-\/>yyLineNr);}
+\DoxyCodeLine{01019     \textcolor{comment}{//printf("{}startCodeLine \%d d=\%s\(\backslash\)n"{}, yyextra-\/>yyLineNr,qPrint(d ? d-\/>name()) : "{}<null>"{});}}
+\DoxyCodeLine{01020     \textcolor{keywordflow}{if} (!yyextra-\/>includeCodeFragment \&\& d)}
+\DoxyCodeLine{01021     \{}
+\DoxyCodeLine{01022       yyextra-\/>currentDefinition = d;}
+\DoxyCodeLine{01023       yyextra-\/>currentMemberDef = yyextra-\/>sourceFileDef-\/>getSourceMember(yyextra-\/>yyLineNr);}
+\DoxyCodeLine{01024       \textcolor{keywordflow}{if} (!yyextra-\/>tempComp.isEmpty() \&\& yyextra-\/>currentMemberDef )}
+\DoxyCodeLine{01025       \{}
+\DoxyCodeLine{01026         \textcolor{comment}{//ClassDef *cf=VhdlDocGen::getClass(yyextra-\/>tempComp);}}
+\DoxyCodeLine{01027         \mbox{\hyperlink{class_q_c_string}{QCString}} nn=yyextra-\/>currentMemberDef-\/>name();}
+\DoxyCodeLine{01028         \textcolor{keyword}{const} \mbox{\hyperlink{class_member_def}{MemberDef}}* mdeff=\mbox{\hyperlink{class_vhdl_doc_gen_ab6898e9270508ce95ad8ebb5ecbedaa6}{VhdlDocGen::findMember}}(yyextra-\/>tempComp,nn);}
+\DoxyCodeLine{01029         \textcolor{keywordflow}{if} (mdeff)}
+\DoxyCodeLine{01030         \{}
+\DoxyCodeLine{01031           yyextra-\/>currentMemberDef=mdeff;}
+\DoxyCodeLine{01032         \}}
+\DoxyCodeLine{01033       \}}
+\DoxyCodeLine{01034 }
+\DoxyCodeLine{01035       \mbox{\hyperlink{class_q_c_string}{QCString}} lineAnchor;}
+\DoxyCodeLine{01036       lineAnchor.\mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}l\%05d"{}},yyextra-\/>yyLineNr);}
+\DoxyCodeLine{01037       \textcolor{keywordflow}{if} (yyextra-\/>currentMemberDef)}
+\DoxyCodeLine{01038       \{}
+\DoxyCodeLine{01039         yyextra-\/>code-\/>writeLineNumber(yyextra-\/>currentMemberDef-\/>getReference(),}
+\DoxyCodeLine{01040                                 yyextra-\/>currentMemberDef-\/>getOutputFileBase(),}
+\DoxyCodeLine{01041                                 yyextra-\/>currentMemberDef-\/>anchor(),yyextra-\/>yyLineNr,}
+\DoxyCodeLine{01042                                 !yyextra-\/>includeCodeFragment);}
+\DoxyCodeLine{01043         \mbox{\hyperlink{src_2vhdlcode_8l_adbfcafb48c794e6885763cd94da51375}{setCurrentDoc}}(yyscanner,lineAnchor);}
+\DoxyCodeLine{01044       \}}
+\DoxyCodeLine{01045       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (d-\/>\mbox{\hyperlink{class_definition_a845891c7206d40c3664b562636cdf9fc}{isLinkableInProject}}())}
+\DoxyCodeLine{01046       \{}
+\DoxyCodeLine{01047         yyextra-\/>code-\/>writeLineNumber(d-\/>\mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{getReference}}(),}
+\DoxyCodeLine{01048                                 d-\/>\mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{getOutputFileBase}}(),}
+\DoxyCodeLine{01049                                 \mbox{\hyperlink{class_q_c_string}{QCString}}(),yyextra-\/>yyLineNr,}
+\DoxyCodeLine{01050                                 !yyextra-\/>includeCodeFragment);}
+\DoxyCodeLine{01051         \mbox{\hyperlink{src_2vhdlcode_8l_adbfcafb48c794e6885763cd94da51375}{setCurrentDoc}}(yyscanner,lineAnchor);}
+\DoxyCodeLine{01052       \}}
+\DoxyCodeLine{01053     \}}
+\DoxyCodeLine{01054     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01055     \{}
+\DoxyCodeLine{01056       yyextra-\/>code-\/>writeLineNumber(\mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),\mbox{\hyperlink{class_q_c_string}{QCString}}(),yyextra-\/>yyLineNr,}
+\DoxyCodeLine{01057                                      !yyextra-\/>includeCodeFragment);}
+\DoxyCodeLine{01058     \}}
+\DoxyCodeLine{01059   \}}
+\DoxyCodeLine{01060   yyextra-\/>code-\/>startCodeLine(yyextra-\/>sourceFileDef);}
+\DoxyCodeLine{01061   yyextra-\/>insideCodeLine=\textcolor{keyword}{true};}
+\DoxyCodeLine{01062   \textcolor{keywordflow}{if} (yyextra-\/>currentFontClass)}
+\DoxyCodeLine{01063   \{}
+\DoxyCodeLine{01064     yyextra-\/>code-\/>startFontClass(yyextra-\/>currentFontClass);}
+\DoxyCodeLine{01065   \}}
+\DoxyCodeLine{01066 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_vhdl_doc_gen_ab6898e9270508ce95ad8ebb5ecbedaa6}{Vhdl\+Doc\+Gen\+::find\+Member()}}, \mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{Definition\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{Definition\+::get\+Reference()}}, \mbox{\hyperlink{class_definition_a845891c7206d40c3664b562636cdf9fc}{Definition\+::is\+Linkable\+In\+Project()}}, \mbox{\hyperlink{src_2vhdlcode_8l_adbfcafb48c794e6885763cd94da51375}{set\+Current\+Doc()}}, and \mbox{\hyperlink{class_q_c_string_aa2dccf89cb25346c3ee81d75aa5859da}{QCString\+::sprintf()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}\label{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}} 
+\index{vhdlcode.l@{vhdlcode.l}!startFontClass@{startFontClass}}
+\index{startFontClass@{startFontClass}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{startFontClass()}{startFontClass()}}
+{\footnotesize\ttfamily static void start\+Font\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const char $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01412}{1412}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01413 \{}
+\DoxyCodeLine{01414   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01415   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==0) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01416   \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{01417   yyextra-\/>code-\/>startFontClass(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{01418   yyextra-\/>currentFontClass=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{01419 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{check\+Vhdl\+String()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}\label{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}} 
+\index{vhdlcode.l@{vhdlcode.l}!writeColoredWord@{writeColoredWord}}
+\index{writeColoredWord@{writeColoredWord}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{writeColoredWord()}{writeColoredWord()}}
+{\footnotesize\ttfamily static bool write\+Colored\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{\mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01545}{1545}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01546 \{}
+\DoxyCodeLine{01547   \mbox{\hyperlink{class_q_c_string}{QCString}} qcs=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}}.lower();}
+\DoxyCodeLine{01548   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ss=\mbox{\hyperlink{class_vhdl_doc_gen_af24155445ad4e0328e60f78bf4a4a41f}{VhdlDocGen::findKeyWord}}(qcs);}
+\DoxyCodeLine{01549   \textcolor{keywordflow}{if} (ss)}
+\DoxyCodeLine{01550   \{}
+\DoxyCodeLine{01551     \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,ss,\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}});}
+\DoxyCodeLine{01552     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{01553   \}}
+\DoxyCodeLine{01554   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{01555 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_vhdl_doc_gen_af24155445ad4e0328e60f78bf4a4a41f}{Vhdl\+Doc\+Gen\+::find\+Key\+Word()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{write\+Font()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{write\+Word()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}\label{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}} 
+\index{vhdlcode.l@{vhdlcode.l}!writeFont@{writeFont}}
+\index{writeFont@{writeFont}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{writeFont()}{writeFont()}}
+{\footnotesize\ttfamily static void write\+Font (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const char $\ast$}]{s,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01421}{1421}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01422 \{}
+\DoxyCodeLine{01423   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01424   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==0 || text.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01425   \textcolor{comment}{//printf("{}writeFont(yyscanner,\%d,\(\backslash\)"{}\%s\(\backslash\)"{})\(\backslash\)n"{},yyextra-\/>yyLineNr,text);}}
+\DoxyCodeLine{01426   yyextra-\/>code-\/>startFontClass(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{01427   yyextra-\/>code-\/>codify(text);}
+\DoxyCodeLine{01428   yyextra-\/>code-\/>endFontClass();}
+\DoxyCodeLine{01429 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{write\+Colored\+Word()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_adb5cfe08b5887df4a026299543638531}\label{src_2vhdlcode_8l_adb5cfe08b5887df4a026299543638531}} 
+\index{vhdlcode.l@{vhdlcode.l}!writeFuncProto@{writeFuncProto}}
+\index{writeFuncProto@{writeFuncProto}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{writeFuncProto()}{writeFuncProto()}}
+{\footnotesize\ttfamily static void write\+Func\+Proto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01499}{1499}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01500 \{}
+\DoxyCodeLine{01501   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01502   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},ret;}
+\DoxyCodeLine{01503   \mbox{\hyperlink{class_vhdl_doc_gen_a9f4758858cac73d07721ea31f42bea8e}{VhdlDocGen::parseFuncProto}}(yyextra-\/>funcProto,\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},ret,\textcolor{keyword}{false});}
+\DoxyCodeLine{01504 }
+\DoxyCodeLine{01505   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.isEmpty())}
+\DoxyCodeLine{01506   \{}
+\DoxyCodeLine{01507     \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yyextra-\/>funcProto,yyextra-\/>currClass);}
+\DoxyCodeLine{01508     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01509   \}}
+\DoxyCodeLine{01510   \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} qlist=\mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}(yyextra-\/>funcProto.str(),\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.str());}
+\DoxyCodeLine{01511   \mbox{\hyperlink{class_q_c_string}{QCString}} temp(qlist[0]);}
+\DoxyCodeLine{01512   \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,temp,yyextra-\/>currClass);}
+\DoxyCodeLine{01513   yyextra-\/>funcProto.stripPrefix(temp);}
+\DoxyCodeLine{01514   temp.resize(0);}
+\DoxyCodeLine{01515   temp=yyextra-\/>currClass;}
+\DoxyCodeLine{01516   \textcolor{keywordflow}{if} (yyextra-\/>isPackageBody)}
+\DoxyCodeLine{01517   \{}
+\DoxyCodeLine{01518     temp.stripPrefix(\textcolor{stringliteral}{"{}\_"{}});\textcolor{comment}{// \_\{package body name\}}}
+\DoxyCodeLine{01519   \}}
+\DoxyCodeLine{01520   \textcolor{keyword}{const} \mbox{\hyperlink{class_member_def}{MemberDef}} *mdef=\mbox{\hyperlink{class_vhdl_doc_gen_a765683cbd1cf5a8e7374b64a9ac37d98}{VhdlDocGen::findFunction}}(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}},temp);}
+\DoxyCodeLine{01521 }
+\DoxyCodeLine{01522   \textcolor{keywordflow}{if} (mdef)}
+\DoxyCodeLine{01523   \{}
+\DoxyCodeLine{01524     \mbox{\hyperlink{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}{generateFuncLink}}(yyscanner,*yyextra-\/>code,mdef);}
+\DoxyCodeLine{01525     yyextra-\/>funcProto.stripPrefix(\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{01526     \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yyextra-\/>funcProto,yyextra-\/>currClass);}
+\DoxyCodeLine{01527   \}}
+\DoxyCodeLine{01528   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01529   \{}
+\DoxyCodeLine{01530     \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yyextra-\/>funcProto,yyextra-\/>currClass);}
+\DoxyCodeLine{01531   \}}
+\DoxyCodeLine{01532 \}// writeFuncProto}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a765683cbd1cf5a8e7374b64a9ac37d98}{Vhdl\+Doc\+Gen\+::find\+Function()}}, \mbox{\hyperlink{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}{generate\+Func\+Link()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{class_vhdl_doc_gen_a9f4758858cac73d07721ea31f42bea8e}{Vhdl\+Doc\+Gen\+::parse\+Func\+Proto()}}, \mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{QCString\+::resize()}}, \mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split()}}, and \mbox{\hyperlink{class_q_c_string_af363dfe85e56f873aa3a373c70a33b24}{QCString\+::strip\+Prefix()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}\label{src_2vhdlcode_8l_a6e655bf7e63cc49ecd79d0e5272310a2}} 
+\index{vhdlcode.l@{vhdlcode.l}!writeMultiLineCodeLink@{writeMultiLineCodeLink}}
+\index{writeMultiLineCodeLink@{writeMultiLineCodeLink}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{writeMultiLineCodeLink()}{writeMultiLineCodeLink()}}
+{\footnotesize\ttfamily static void write\+Multi\+Line\+Code\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{\mbox{\hyperlink{class_code_output_interface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{class_definition}{Definition}} $\ast$}]{d,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a link to a fragment {\itshape text} that may span multiple lines, inserting line numbers for each line. If {\itshape text} contains newlines, the link will be split into multiple links with the same destination, one for each line. 
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01234}{1234}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01237 \{}
+\DoxyCodeLine{01238   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01239   \textcolor{keywordflow}{if} (text.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01240   \textcolor{keywordtype}{bool} sourceTooltips = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(SOURCE\_TOOLTIPS);}
+\DoxyCodeLine{01241   yyextra-\/>tooltipManager.addTooltip(ol,d);}
+\DoxyCodeLine{01242   \mbox{\hyperlink{class_q_c_string}{QCString}} ref  = d-\/>\mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{getReference}}();}
+\DoxyCodeLine{01243   \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}} = d-\/>\mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{getOutputFileBase}}();}
+\DoxyCodeLine{01244   \mbox{\hyperlink{class_q_c_string}{QCString}} anchor = d-\/>\mbox{\hyperlink{class_definition_a56e91f9b76f41208a22cfb2336871604}{anchor}}();}
+\DoxyCodeLine{01245   \mbox{\hyperlink{class_q_c_string}{QCString}} tooltip;}
+\DoxyCodeLine{01246   \textcolor{keywordflow}{if} (!sourceTooltips) \textcolor{comment}{// fall back to simple "{}title"{} tooltips}}
+\DoxyCodeLine{01247   \{}
+\DoxyCodeLine{01248     tooltip = d-\/>\mbox{\hyperlink{class_definition_a5915353219702c6ea73cc1476bda793a}{briefDescriptionAsTooltip}}();}
+\DoxyCodeLine{01249   \}}
+\DoxyCodeLine{01250   \textcolor{keywordtype}{bool} done=\textcolor{keyword}{false};}
+\DoxyCodeLine{01251   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=text.\mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{01252   \textcolor{keywordflow}{while} (!done)}
+\DoxyCodeLine{01253   \{}
+\DoxyCodeLine{01254     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sp=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}};}
+\DoxyCodeLine{01255     \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01256     \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++) \&\& \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}!=\textcolor{charliteral}{'\(\backslash\)n'}) \{\}}
+\DoxyCodeLine{01257     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01258     \{}
+\DoxyCodeLine{01259       yyextra-\/>yyLineNr++;}
+\DoxyCodeLine{01260       \textcolor{comment}{// printf("{}writeCodeLink(\%s,\%s,\%s,\%s)\(\backslash\)n"{},ref,file,anchor,sp);}}
+\DoxyCodeLine{01261       ol.\mbox{\hyperlink{class_code_output_interface_a13a6b8760052adea7080330705d4a020}{writeCodeLink}}(d-\/>\mbox{\hyperlink{class_definition_ac94212137110d5ca75eabad07e8ebed6}{codeSymbolType}}(),ref,\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},anchor,\mbox{\hyperlink{class_q_c_string}{QCString}}(sp,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}-\/sp-\/1),tooltip);}
+\DoxyCodeLine{01262       \mbox{\hyperlink{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}{nextCodeLine}}(yyscanner);}
+\DoxyCodeLine{01263     \}}
+\DoxyCodeLine{01264     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01265     \{}
+\DoxyCodeLine{01266       ol.\mbox{\hyperlink{class_code_output_interface_a13a6b8760052adea7080330705d4a020}{writeCodeLink}}(d-\/>\mbox{\hyperlink{class_definition_ac94212137110d5ca75eabad07e8ebed6}{codeSymbolType}}(),ref,\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},anchor,sp,tooltip);}
+\DoxyCodeLine{01267       done=\textcolor{keyword}{true};}
+\DoxyCodeLine{01268     \}}
+\DoxyCodeLine{01269   \}}
+\DoxyCodeLine{01270 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_definition_a56e91f9b76f41208a22cfb2336871604}{Definition\+::anchor()}}, \mbox{\hyperlink{class_definition_a5915353219702c6ea73cc1476bda793a}{Definition\+::brief\+Description\+As\+Tooltip()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{class_definition_ac94212137110d5ca75eabad07e8ebed6}{Definition\+::code\+Symbol\+Type()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool}}, \mbox{\hyperlink{class_q_c_string_ac3aa3ac1a1c36d3305eba22a2eb0d098}{QCString\+::data()}}, \mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{caseconvert\+::file}}, \mbox{\hyperlink{class_definition_acabecdc6bfda2015811eed5f3436322d}{Definition\+::get\+Output\+File\+Base()}}, \mbox{\hyperlink{class_definition_aab5f8631606d43a73f371833eb6425ee}{Definition\+::get\+Reference()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a3b060f853a2545afc385b18ecc734473}{next\+Code\+Line()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, and \mbox{\hyperlink{class_code_output_interface_a13a6b8760052adea7080330705d4a020}{Code\+Output\+Interface\+::write\+Code\+Link()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generate\+Class\+Or\+Global\+Link()}}, \mbox{\hyperlink{src_2vhdlcode_8l_ae96d89c9fc248f622ee43c8035c63f43}{generate\+Func\+Link()}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generate\+Mem\+Link()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_aaa2a9bf9c82c212c9ce347be10e77899}\label{src_2vhdlcode_8l_aaa2a9bf9c82c212c9ce347be10e77899}} 
+\index{vhdlcode.l@{vhdlcode.l}!writeProcessProto@{writeProcessProto}}
+\index{writeProcessProto@{writeProcessProto}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{writeProcessProto()}{writeProcessProto()}}
+{\footnotesize\ttfamily static void write\+Process\+Proto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01536}{1536}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01537 \{}
+\DoxyCodeLine{01538   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01539   \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yyextra-\/>funcProto,yyextra-\/>currClass);}
+\DoxyCodeLine{01540   yyextra-\/>vhdlKeyDict.clear();}
+\DoxyCodeLine{01541 \}// writeProcessProto}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}\label{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}} 
+\index{vhdlcode.l@{vhdlcode.l}!writeWord@{writeWord}}
+\index{writeWord@{writeWord}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{writeWord()}{writeWord()}}
+{\footnotesize\ttfamily static void write\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{word,  }\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{curr\+\_\+class,  }\item[{bool}]{class\+Link }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a word to the output. If curr\+\_\+class is defined, the word belongs to a class and will be linked. 
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l01096}{1096}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01097 \{}
+\DoxyCodeLine{01098   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{01099   \textcolor{keywordtype}{bool} \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{01100   \mbox{\hyperlink{class_q_c_string}{QCString}} temp;}
+\DoxyCodeLine{01101   \mbox{\hyperlink{class_q_c_string}{QCString}} tclass(curr\_class);}
+\DoxyCodeLine{01102   \mbox{\hyperlink{class_q_c_string}{QCString}} ttt(\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}});}
+\DoxyCodeLine{01103   \textcolor{keywordflow}{if} (ttt.isEmpty()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01104   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j=0;j<ttt.length();j++)}
+\DoxyCodeLine{01105   \{}
+\DoxyCodeLine{01106     \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=ttt.at(j);}
+\DoxyCodeLine{01107     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{' '}|| \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{','} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{';'} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{':'} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'('} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{')'} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)r'} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'\(\backslash\)t'} || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}==\textcolor{charliteral}{'.'})}
+\DoxyCodeLine{01108     \{}
+\DoxyCodeLine{01109       \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}})}
+\DoxyCodeLine{01110       \{}
+\DoxyCodeLine{01111         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,temp)) \textcolor{comment}{// is it a keyword ?}}
+\DoxyCodeLine{01112         \{}
+\DoxyCodeLine{01113           \textcolor{comment}{//if (VhdlDocGen::findKeyWord(temp))}}
+\DoxyCodeLine{01114           \textcolor{comment}{// writeFont(yyscanner,"{}vhdlkeyword"{},temp);}}
+\DoxyCodeLine{01115           \textcolor{comment}{//printf("{}writeWord: \%s\(\backslash\)n"{},qPrint(temp));}}
+\DoxyCodeLine{01116           \textcolor{keywordflow}{if} (!tclass.isEmpty())}
+\DoxyCodeLine{01117           \{}
+\DoxyCodeLine{01118             \textcolor{keywordflow}{if} (!classLink)}
+\DoxyCodeLine{01119             \{}
+\DoxyCodeLine{01120               \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,tclass,temp);}
+\DoxyCodeLine{01121             \}}
+\DoxyCodeLine{01122             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01123             \{}
+\DoxyCodeLine{01124               \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,temp,\textcolor{keyword}{false},curr\_class);}
+\DoxyCodeLine{01125             \}}
+\DoxyCodeLine{01126           \}}
+\DoxyCodeLine{01127           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01128           \{}
+\DoxyCodeLine{01129             \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{checkVhdlString}}(yyscanner,temp))}
+\DoxyCodeLine{01130             \{}
+\DoxyCodeLine{01131               yyextra-\/>code-\/>codify(temp);}
+\DoxyCodeLine{01132             \}}
+\DoxyCodeLine{01133           \}}
+\DoxyCodeLine{01134         \}}
+\DoxyCodeLine{01135         temp.\mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{01136         \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{01137       \}}
+\DoxyCodeLine{01138 }
+\DoxyCodeLine{01139       \textcolor{keywordtype}{char} cc[2];}
+\DoxyCodeLine{01140       cc[0]=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01141       cc[1]=0;}
+\DoxyCodeLine{01142       yyextra-\/>code-\/>codify(cc);}
+\DoxyCodeLine{01143     \}}
+\DoxyCodeLine{01144     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01145     \{}
+\DoxyCodeLine{01146       \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{01147       temp+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{01148     \}}
+\DoxyCodeLine{01149   \} \textcolor{comment}{// for}}
+\DoxyCodeLine{01150 }
+\DoxyCodeLine{01151   \textcolor{keywordflow}{if} (!temp.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{01152   \{}
+\DoxyCodeLine{01153     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,temp))}
+\DoxyCodeLine{01154     \{}
+\DoxyCodeLine{01155       \textcolor{keywordflow}{if} (!tclass.isEmpty())}
+\DoxyCodeLine{01156       \{}
+\DoxyCodeLine{01157         \textcolor{keywordflow}{if} (!classLink)}
+\DoxyCodeLine{01158         \{}
+\DoxyCodeLine{01159           \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,tclass,temp); \textcolor{comment}{// generateMemLink(yyscanner,*yyextra-\/>code,yyextra-\/>currClass,left);}}
+\DoxyCodeLine{01160         \}}
+\DoxyCodeLine{01161         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01162         \{}
+\DoxyCodeLine{01163           \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,temp,\textcolor{keyword}{false},curr\_class);}
+\DoxyCodeLine{01164         \}}
+\DoxyCodeLine{01165       \}}
+\DoxyCodeLine{01166       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01167       \{}
+\DoxyCodeLine{01168          \mbox{\hyperlink{class_q_c_string}{QCString}} qc(temp);}
+\DoxyCodeLine{01169          \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{VhdlDocGen::isNumber}}(qc.str()))}
+\DoxyCodeLine{01170          \{}
+\DoxyCodeLine{01171            \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}});}
+\DoxyCodeLine{01172            yyextra-\/>code-\/>codify(temp);}
+\DoxyCodeLine{01173            \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{01174          \}}
+\DoxyCodeLine{01175          \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01176          \{}
+\DoxyCodeLine{01177            yyextra-\/>code-\/>codify(temp);}
+\DoxyCodeLine{01178          \}}
+\DoxyCodeLine{01179       \}}
+\DoxyCodeLine{01180     \}}
+\DoxyCodeLine{01181   \}}
+\DoxyCodeLine{01182 \}// writeWord}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{QCString\+::at()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{check\+Vhdl\+String()}}, \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{end\+Font\+Class()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a7141f237b2648c631ce5b73215683565}{found}}, \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generate\+Class\+Or\+Global\+Link()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generate\+Mem\+Link()}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{Vhdl\+Doc\+Gen\+::is\+Number()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_q_c_string_a993474e2da59141336e6105b8e154f2b}{QCString\+::resize()}}, \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{start\+Font\+Class()}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a5ee566002626114272def590e5eecf76}{word}}, and \mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{write\+Colored\+Word()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codify\+Lines()}}.
+
+\mbox{\Hypertarget{src_2vhdlcode_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{src_2vhdlcode_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{vhdlcode.l@{vhdlcode.l}!yylex@{yylex}}
+\index{yylex@{yylex}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily int yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00217}{217}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00219                                     \{}
+\DoxyCodeLine{00220                                       BEGIN(Bases);}
+\DoxyCodeLine{00221                                     \}}
+\DoxyCodeLine{00222 }
+\DoxyCodeLine{00223 <Map>\{BRACEOPEN\}                    \{}
+\DoxyCodeLine{00224                                       yyextra-\/>braceCount++;}
+\DoxyCodeLine{00225                                       \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}},yytext);}
+\DoxyCodeLine{00226                                       BEGIN(Map);}
+\DoxyCodeLine{00227                                     \}}
+\DoxyCodeLine{00228 }
+\DoxyCodeLine{00229 <Map>[\string^()\(\backslash\)n,-\/-\/]*                    \{ /* write and link a port map lines */}
+\DoxyCodeLine{00230                                       \mbox{\hyperlink{class_q_c_string}{QCString}} tt(yytext);}
+\DoxyCodeLine{00231                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(tt,\textcolor{charliteral}{','});}
+\DoxyCodeLine{00232                                       \textcolor{keyword}{auto} ql = \mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}(tt.str(),\textcolor{stringliteral}{"{}=>"{}});}
+\DoxyCodeLine{00233                                       \textcolor{keywordflow}{if} (ql.size()>=2)}
+\DoxyCodeLine{00234                                       \{}
+\DoxyCodeLine{00235                                         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index=0;}
+\DoxyCodeLine{00236                                         \mbox{\hyperlink{class_q_c_string}{QCString}} t1(ql[0]);}
+\DoxyCodeLine{00237                                         \textcolor{keywordtype}{char} cc=t1.at(index);}
+\DoxyCodeLine{00238                                         \textcolor{keywordflow}{while} (cc==\textcolor{charliteral}{' '} || cc==\textcolor{charliteral}{'\(\backslash\)t'})}
+\DoxyCodeLine{00239                                         \{}
+\DoxyCodeLine{00240                                           \textcolor{keywordtype}{char} c2[2];}
+\DoxyCodeLine{00241                                           c2[0]=cc;}
+\DoxyCodeLine{00242                                           c2[1]=0;}
+\DoxyCodeLine{00243                                           yyextra-\/>code-\/>codify(c2);}
+\DoxyCodeLine{00244                                           index++;}
+\DoxyCodeLine{00245                                           \textcolor{keywordflow}{if} (index>=t1.size()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00246                                           cc=t1.at(index);}
+\DoxyCodeLine{00247                                         \}}
+\DoxyCodeLine{00248 }
+\DoxyCodeLine{00249                                         \mbox{\hyperlink{class_q_c_string}{QCString}} s1=t1;}
+\DoxyCodeLine{00250                                         s1=s1.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{00251 }
+\DoxyCodeLine{00252                                         \textcolor{comment}{//         if (!yyextra-\/>PortMapComp.isEmpty())}}
+\DoxyCodeLine{00253                                         \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>PortMapComp,s1);}
+\DoxyCodeLine{00254                                         \textcolor{keywordflow}{while} (index++<t1.size())}
+\DoxyCodeLine{00255                                         \{}
+\DoxyCodeLine{00256                                           cc=t1.at(index);}
+\DoxyCodeLine{00257                                           \textcolor{keywordflow}{if} (cc==\textcolor{charliteral}{' '} || cc==\textcolor{charliteral}{'\(\backslash\)t'})}
+\DoxyCodeLine{00258                                           \{}
+\DoxyCodeLine{00259                                             \textcolor{keywordtype}{char} c2[2];}
+\DoxyCodeLine{00260                                             c2[0]=cc;}
+\DoxyCodeLine{00261                                             c2[1]=0;}
+\DoxyCodeLine{00262                                             yyextra-\/>code-\/>codify(c2);}
+\DoxyCodeLine{00263                                           \}}
+\DoxyCodeLine{00264                                         \}}
+\DoxyCodeLine{00265                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,\textcolor{stringliteral}{"{}=>"{}});}
+\DoxyCodeLine{00266                                         index=0;}
+\DoxyCodeLine{00267                                         \mbox{\hyperlink{class_q_c_string}{QCString}} s2(ql[1]);}
+\DoxyCodeLine{00268                                         t1=s2;}
+\DoxyCodeLine{00269                                         cc=t1.at(index);}
+\DoxyCodeLine{00270                                         \textcolor{keywordflow}{while} (cc==\textcolor{charliteral}{' '} || cc==\textcolor{charliteral}{'\(\backslash\)t'})}
+\DoxyCodeLine{00271                                         \{}
+\DoxyCodeLine{00272                                           \textcolor{keywordtype}{char} c2[2];}
+\DoxyCodeLine{00273                                           c2[0]=cc;}
+\DoxyCodeLine{00274                                           c2[1]=0;}
+\DoxyCodeLine{00275                                           yyextra-\/>code-\/>codify(c2);}
+\DoxyCodeLine{00276                                           index++;}
+\DoxyCodeLine{00277                                           \textcolor{keywordflow}{if} (index>=t1.size()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00278                                           cc=t1.at(index);}
+\DoxyCodeLine{00279                                         \}}
+\DoxyCodeLine{00280                                         s2=s2.stripWhiteSpace();}
+\DoxyCodeLine{00281                                         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{checkVhdlString}}(yyscanner,s2))}
+\DoxyCodeLine{00282                                         \{}
+\DoxyCodeLine{00283                                           \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>currClass,s2);}
+\DoxyCodeLine{00284                                         \}}
+\DoxyCodeLine{00285                                         \textcolor{keywordflow}{while} (index++<t1.size())}
+\DoxyCodeLine{00286                                         \{}
+\DoxyCodeLine{00287                                           \textcolor{keywordflow}{if} (t1.at(index)==\textcolor{charliteral}{' '})}
+\DoxyCodeLine{00288                                           \{}
+\DoxyCodeLine{00289                                             yyextra-\/>code-\/>codify(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00290                                           \}}
+\DoxyCodeLine{00291                                         \}}
+\DoxyCodeLine{00292                                       \}}
+\DoxyCodeLine{00293                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00294                                       \{}
+\DoxyCodeLine{00295                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass);}
+\DoxyCodeLine{00296                                       \}}
+\DoxyCodeLine{00297                                       BEGIN(Map);}
+\DoxyCodeLine{00298                                     \}}
+\DoxyCodeLine{00299 }
+\DoxyCodeLine{00300 <Map>"{}\(\backslash\)n"{}|"{},"{}                       \{}
+\DoxyCodeLine{00301                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00302                                       BEGIN(Map);}
+\DoxyCodeLine{00303                                     \}}
+\DoxyCodeLine{00304 }
+\DoxyCodeLine{00305 <Map>\{BRACECLOSE\}                   \{}
+\DoxyCodeLine{00306                                       yyextra-\/>braceCount-\/-\/;}
+\DoxyCodeLine{00307                                       \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}},yytext);}
+\DoxyCodeLine{00308                                       \textcolor{keywordflow}{if} (yyextra-\/>braceCount==0)}
+\DoxyCodeLine{00309                                       \{}
+\DoxyCodeLine{00310                                         BEGIN(Bases);}
+\DoxyCodeLine{00311                                       \}}
+\DoxyCodeLine{00312                                     \}}
+\DoxyCodeLine{00313 }
+\DoxyCodeLine{00314 <ParseFuncProto>\{NAME\}              \{}
+\DoxyCodeLine{00315                                       \mbox{\hyperlink{class_q_c_string}{QCString}} tmp(yytext);}
+\DoxyCodeLine{00316                                       tmp=tmp.stripWhiteSpace();}
+\DoxyCodeLine{00317                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00318                                       yyextra-\/>vhdlKeyDict.insert(yyextra-\/>prevString.str());}
+\DoxyCodeLine{00319                                       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,tmp))}
+\DoxyCodeLine{00320                                       \{}
+\DoxyCodeLine{00321                                         \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>currClass,tmp);}
+\DoxyCodeLine{00322                                       \}}
+\DoxyCodeLine{00323                                       BEGIN(Bases);}
+\DoxyCodeLine{00324                                     \}}
+\DoxyCodeLine{00325 }
+\DoxyCodeLine{00326 <ParseType>\{STRING\}                 \{}
+\DoxyCodeLine{00327                                       \mbox{\hyperlink{class_q_c_string}{QCString}} qcs(yytext);}
+\DoxyCodeLine{00328                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(qcs,\textcolor{charliteral}{'"{}'});}
+\DoxyCodeLine{00329                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(qcs,\textcolor{charliteral}{' '});}
+\DoxyCodeLine{00330                                       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{VhdlDocGen::isNumber}}(qcs.str()))}
+\DoxyCodeLine{00331                                       \{}
+\DoxyCodeLine{00332                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}},yytext);}
+\DoxyCodeLine{00333                                       \}}
+\DoxyCodeLine{00334                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00335                                       \{}
+\DoxyCodeLine{00336                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}keyword"{}},yytext);}
+\DoxyCodeLine{00337                                       \}}
+\DoxyCodeLine{00338                                     \}}
+\DoxyCodeLine{00339 }
+\DoxyCodeLine{00340 <ParseType>"{}\(\backslash\)n"{}                     \{}
+\DoxyCodeLine{00341                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00342                                       \textcolor{keywordflow}{if} (yyextra-\/>isProto)}
+\DoxyCodeLine{00343                                       \{}
+\DoxyCodeLine{00344                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00345                                       \}}
+\DoxyCodeLine{00346                                       BEGIN(ParseType);}
+\DoxyCodeLine{00347                                     \}}
+\DoxyCodeLine{00348 }
+\DoxyCodeLine{00349 }
+\DoxyCodeLine{00350 <ParseType>\{TEXTT\}                  \{}
+\DoxyCodeLine{00351                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00352                                       \textcolor{keywordflow}{if} (yyextra-\/>isProto)}
+\DoxyCodeLine{00353                                       \{}
+\DoxyCodeLine{00354                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}keyword"{}},yytext);}
+\DoxyCodeLine{00355                                       \}}
+\DoxyCodeLine{00356                                       BEGIN(ParseType);}
+\DoxyCodeLine{00357                                     \}}
+\DoxyCodeLine{00358 }
+\DoxyCodeLine{00359 <ParseType>\{ENDEFUNC\}               \{}
+\DoxyCodeLine{00360                                       \mbox{\hyperlink{class_q_c_string}{QCString}} tt(yytext);}
+\DoxyCodeLine{00361                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass);}
+\DoxyCodeLine{00362                                       tt=tt.lower();}
+\DoxyCodeLine{00363                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(tt,\textcolor{charliteral}{';'});}
+\DoxyCodeLine{00364                                       tt.stripWhiteSpace();}
+\DoxyCodeLine{00365                                       \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classreg_1_1_ex}{reg::Ex}} regg(R\textcolor{stringliteral}{"{}(\(\backslash\)s+)"{}); }\textcolor{comment}{// any number of whitespace}}
+\DoxyCodeLine{00366                                       \textcolor{keyword}{auto} ql = \mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}(tt.str(),regg);}
+\DoxyCodeLine{00367                                       \textcolor{keywordtype}{int} index=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa148f513c64eba8bfd7f3e775c711514}{findIndex}}(ql,\textcolor{stringliteral}{"{}if"{}})+1;}
+\DoxyCodeLine{00368                                       index+=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa148f513c64eba8bfd7f3e775c711514}{findIndex}}(ql,\textcolor{stringliteral}{"{}case"{}})+1;}
+\DoxyCodeLine{00369                                       index+=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa148f513c64eba8bfd7f3e775c711514}{findIndex}}(ql,\textcolor{stringliteral}{"{}loop"{}})+1;}
+\DoxyCodeLine{00370                                       index+=\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa148f513c64eba8bfd7f3e775c711514}{findIndex}}(ql,\textcolor{stringliteral}{"{}generate"{}})+1;}
+\DoxyCodeLine{00371                                       \textcolor{keywordflow}{if} (index==0)}
+\DoxyCodeLine{00372                                       \{}
+\DoxyCodeLine{00373                                         BEGIN(Bases);}
+\DoxyCodeLine{00374                                       \}}
+\DoxyCodeLine{00375                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00376                                       \{}
+\DoxyCodeLine{00377                                         BEGIN(ParseType);}
+\DoxyCodeLine{00378                                       \}}
+\DoxyCodeLine{00379                                     \}}
+\DoxyCodeLine{00380 }
+\DoxyCodeLine{00381 <ParseType>\{END1\}                   \{}
+\DoxyCodeLine{00382                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass);}
+\DoxyCodeLine{00383                                       yyextra-\/>vhdlKeyDict.clear();}
+\DoxyCodeLine{00384                                     \}}
+\DoxyCodeLine{00385 }
+\DoxyCodeLine{00386 <ParseType>\string^\{B\}*("{}begin "{}|"{}begin"{})  \{}
+\DoxyCodeLine{00387                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass);}
+\DoxyCodeLine{00388                                       yyextra-\/>isFuncProto=\textcolor{keyword}{false};}
+\DoxyCodeLine{00389                                     \}}
+\DoxyCodeLine{00390 }
+\DoxyCodeLine{00391 <ParseType>\{SPECSIGN\}               \{}
+\DoxyCodeLine{00392                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00393                                       \textcolor{keywordflow}{if} (yyextra-\/>isProto)}
+\DoxyCodeLine{00394                                       \{}
+\DoxyCodeLine{00395                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass);}
+\DoxyCodeLine{00396                                       \}}
+\DoxyCodeLine{00397                                     \}}
+\DoxyCodeLine{00398 }
+\DoxyCodeLine{00399 <ParseType>["{}\_a-\/zA-\/Z0-\/9]*           \{}
+\DoxyCodeLine{00400                                       \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}}(yytext);}
+\DoxyCodeLine{00401                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00402                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00403 }
+\DoxyCodeLine{00404                                       \textcolor{keywordflow}{if} (yyextra-\/>isFuncProto \&\& yyextra-\/>braceCount==0)}
+\DoxyCodeLine{00405                                       \{}
+\DoxyCodeLine{00406                                         yyextra-\/>vhdlKeyDict.insert(yyextra-\/>prevString.str());}
+\DoxyCodeLine{00407                                       \}}
+\DoxyCodeLine{00408 }
+\DoxyCodeLine{00409                                       \textcolor{keywordflow}{if} (yyextra-\/>isProto)}
+\DoxyCodeLine{00410                                       \{}
+\DoxyCodeLine{00411                                         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}}))}
+\DoxyCodeLine{00412                                         \{}
+\DoxyCodeLine{00413                                           \textcolor{keywordflow}{if} (!yyextra-\/>isFuncProto \&\&}
+\DoxyCodeLine{00414                                               yyextra-\/>vhdlKeyDict.find(yyextra-\/>prevString.str())==yyextra-\/>vhdlKeyDict.end())}
+\DoxyCodeLine{00415                                           \{}
+\DoxyCodeLine{00416                                             \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}}=\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}}.stripWhiteSpace();}
+\DoxyCodeLine{00417                                             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{VhdlDocGen::isNumber}}(\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}}.str()))}
+\DoxyCodeLine{00418                                             \{}
+\DoxyCodeLine{00419                                               \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}});}
+\DoxyCodeLine{00420                                               \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass);}
+\DoxyCodeLine{00421                                               \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00422                                             \}}
+\DoxyCodeLine{00423                                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00424                                             \{}
+\DoxyCodeLine{00425                                               \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>currClass,\mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}});}
+\DoxyCodeLine{00426                                             \}}
+\DoxyCodeLine{00427                                           \}}
+\DoxyCodeLine{00428                                           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00429                                           \{}
+\DoxyCodeLine{00430                                             \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass);}
+\DoxyCodeLine{00431                                           \}}
+\DoxyCodeLine{00432                                         \}}
+\DoxyCodeLine{00433                                       \}}
+\DoxyCodeLine{00434                                       BEGIN(ParseType);}
+\DoxyCodeLine{00435                                     \}}
+\DoxyCodeLine{00436 }
+\DoxyCodeLine{00437 <ParseType>\{BRACEOPEN\}              \{}
+\DoxyCodeLine{00438                                       yyextra-\/>braceCount++;}
+\DoxyCodeLine{00439                                       yyextra-\/>funcProto+=\textcolor{charliteral}{'('};}
+\DoxyCodeLine{00440                                       \textcolor{keywordflow}{if} (yyextra-\/>isProto)}
+\DoxyCodeLine{00441                                       \{}
+\DoxyCodeLine{00442                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}},yytext);}
+\DoxyCodeLine{00443                                       \}}
+\DoxyCodeLine{00444                                       BEGIN(ParseType);}
+\DoxyCodeLine{00445                                     \}}
+\DoxyCodeLine{00446 }
+\DoxyCodeLine{00447 <ParseType>\{BRACECLOSE\}             \{}
+\DoxyCodeLine{00448                                       yyextra-\/>braceCount-\/-\/;}
+\DoxyCodeLine{00449                                       yyextra-\/>funcProto+=\textcolor{charliteral}{')'};}
+\DoxyCodeLine{00450                                       \textcolor{keywordflow}{if} (yyextra-\/>isProto)}
+\DoxyCodeLine{00451                                       \{}
+\DoxyCodeLine{00452                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}},yytext);}
+\DoxyCodeLine{00453                                       \}}
+\DoxyCodeLine{00454                                       \textcolor{keywordflow}{if} (yyextra-\/>braceCount==0 \&\& !yyextra-\/>isProto)\textcolor{comment}{// \&\& !yyextra-\/>isPackageBody)}}
+\DoxyCodeLine{00455                                       \{}
+\DoxyCodeLine{00456                                         yyextra-\/>isProto=\textcolor{keyword}{true};}
+\DoxyCodeLine{00457                                         \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00458                                         \mbox{\hyperlink{src_2vhdlcode_8l_adb5cfe08b5887df4a026299543638531}{writeFuncProto}}(yyscanner);}
+\DoxyCodeLine{00459                                         BEGIN(Bases);}
+\DoxyCodeLine{00460                                       \}}
+\DoxyCodeLine{00461                                       \textcolor{keywordflow}{if} (yyextra-\/>isPackageBody)}
+\DoxyCodeLine{00462                                       \{}
+\DoxyCodeLine{00463                                         BEGIN(ParseType);}
+\DoxyCodeLine{00464                                       \}}
+\DoxyCodeLine{00465                                     \}}
+\DoxyCodeLine{00466 }
+\DoxyCodeLine{00467 }
+\DoxyCodeLine{00468 <ClassesName>\{FUNCNAME\}             \{}
+\DoxyCodeLine{00469                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00470                                       yyextra-\/>currClass.resize(0);}
+\DoxyCodeLine{00471                                       yyextra-\/>currClass.append(yytext);}
+\DoxyCodeLine{00472                                       yyextra-\/>currClass=yyextra-\/>currClass.stripWhiteSpace();}
+\DoxyCodeLine{00473 }
+\DoxyCodeLine{00474                                       \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,yytext);}
+\DoxyCodeLine{00475                                       BEGIN(Bases);}
+\DoxyCodeLine{00476                                     \}}
+\DoxyCodeLine{00477 }
+\DoxyCodeLine{00478 }
+\DoxyCodeLine{00479 <ParseComponent>\{BRACEOPEN\}         \{}
+\DoxyCodeLine{00480                                       yyextra-\/>braceCount++;}
+\DoxyCodeLine{00481                                       yyextra-\/>code-\/>codify(yytext);}
+\DoxyCodeLine{00482                                     \}}
+\DoxyCodeLine{00483 }
+\DoxyCodeLine{00484 }
+\DoxyCodeLine{00485 <ParseComponent>\{BRACECLOSE\}        \{}
+\DoxyCodeLine{00486                                       yyextra-\/>braceCount-\/-\/;}
+\DoxyCodeLine{00487                                       yyextra-\/>code-\/>codify(yytext);}
+\DoxyCodeLine{00488                                       \textcolor{keywordflow}{if} (yyextra-\/>braceCount==0 \&\& !yyextra-\/>isComponent)}
+\DoxyCodeLine{00489                                       \{}
+\DoxyCodeLine{00490                                         yyextra-\/>tempComp.resize(0);}
+\DoxyCodeLine{00491                                         BEGIN(Bases);}
+\DoxyCodeLine{00492                                       \}}
+\DoxyCodeLine{00493                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00494                                       \{}
+\DoxyCodeLine{00495                                         BEGIN(ParseComponent);}
+\DoxyCodeLine{00496                                       \}}
+\DoxyCodeLine{00497                                     \}}
+\DoxyCodeLine{00498 }
+\DoxyCodeLine{00499 <ParseComponent>\{B\}*"{}-\/"{}             \{}
+\DoxyCodeLine{00500                                       \textcolor{keywordflow}{if} (strlen(yytext)>=2) \textcolor{comment}{// found text ?}}
+\DoxyCodeLine{00501                                       \{}
+\DoxyCodeLine{00502                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}keyword"{}},yytext);}
+\DoxyCodeLine{00503                                       \}}
+\DoxyCodeLine{00504                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00505                                       \{}
+\DoxyCodeLine{00506                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}},yytext);}
+\DoxyCodeLine{00507                                       \}}
+\DoxyCodeLine{00508                                     \}}
+\DoxyCodeLine{00509 }
+\DoxyCodeLine{00510 <ParseComponent>\{SPECSIGN\}          \{}
+\DoxyCodeLine{00511                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00512                                     \}}
+\DoxyCodeLine{00513 }
+\DoxyCodeLine{00514 }
+\DoxyCodeLine{00515 }
+\DoxyCodeLine{00516 <ParseComponent>"{}\(\backslash\)n"{}|"{} "{}            \{}
+\DoxyCodeLine{00517                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00518                                     \}}
+\DoxyCodeLine{00519 }
+\DoxyCodeLine{00520 <ParseComponent>\{DIGITSS\}           \{}
+\DoxyCodeLine{00521                                       \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}});}
+\DoxyCodeLine{00522                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00523                                       \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00524                                     \}}
+\DoxyCodeLine{00525 }
+\DoxyCodeLine{00526 <ParseComponent>\{PORT\}              \{}
+\DoxyCodeLine{00527                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00528                                       yyextra-\/>braceCount=1;}
+\DoxyCodeLine{00529                                       yyextra-\/>isComponent=\textcolor{keyword}{false};}
+\DoxyCodeLine{00530                                     \}}
+\DoxyCodeLine{00531 }
+\DoxyCodeLine{00532 <ParseComponent>\{GENERIC\}           \{}
+\DoxyCodeLine{00533                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00534                                       yyextra-\/>braceCount=1;}
+\DoxyCodeLine{00535                                     \}}
+\DoxyCodeLine{00536 }
+\DoxyCodeLine{00537 <ParseComponent>[\_a-\/zA\_Z][\_a-\/zA-\/Z0-\/9]*  \{}
+\DoxyCodeLine{00538                                       \mbox{\hyperlink{class_q_c_string}{QCString}} temp(yytext);}
+\DoxyCodeLine{00539                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00540                                       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{checkVhdlString}}(yyscanner,temp))}
+\DoxyCodeLine{00541                                       \{}
+\DoxyCodeLine{00542                                         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,yyextra-\/>prevString))}
+\DoxyCodeLine{00543                                         \{}
+\DoxyCodeLine{00544                                           \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>tempComp,temp);}
+\DoxyCodeLine{00545                                         \}}
+\DoxyCodeLine{00546                                       \}}
+\DoxyCodeLine{00547                                     \}}
+\DoxyCodeLine{00548 }
+\DoxyCodeLine{00549 <ParseComponent>\{STRING\}            \{}
+\DoxyCodeLine{00550                                       \mbox{\hyperlink{class_q_c_string}{QCString}} temp(yytext);}
+\DoxyCodeLine{00551                                       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_ab09e45c115a5beefe878b915613bd3a3}{checkVhdlString}}(yyscanner,temp))}
+\DoxyCodeLine{00552                                       \{}
+\DoxyCodeLine{00553                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00554                                       \}}
+\DoxyCodeLine{00555                                     \}}
+\DoxyCodeLine{00556 }
+\DoxyCodeLine{00557 }
+\DoxyCodeLine{00558 <ParseProcessProto>[\string^()]*           \{}
+\DoxyCodeLine{00559                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00560                                     \}}
+\DoxyCodeLine{00561 }
+\DoxyCodeLine{00562 }
+\DoxyCodeLine{00563 }
+\DoxyCodeLine{00564 <ParseProcessProto>\{BRACEOPEN\}      \{}
+\DoxyCodeLine{00565                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00566                                       yyextra-\/>braceCount++;}
+\DoxyCodeLine{00567                                     \}}
+\DoxyCodeLine{00568 }
+\DoxyCodeLine{00569 <ParseProcessProto>\{BRACECLOSE\}     \{}
+\DoxyCodeLine{00570                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00571                                       yyextra-\/>braceCount-\/-\/;}
+\DoxyCodeLine{00572                                       \textcolor{keywordflow}{if} (yyextra-\/>braceCount==0)}
+\DoxyCodeLine{00573                                       \{}
+\DoxyCodeLine{00574                                         \mbox{\hyperlink{src_2vhdlcode_8l_aaa2a9bf9c82c212c9ce347be10e77899}{writeProcessProto}}(yyscanner);}
+\DoxyCodeLine{00575                                         BEGIN(Bases);}
+\DoxyCodeLine{00576                                       \}}
+\DoxyCodeLine{00577                                     \}}
+\DoxyCodeLine{00578 }
+\DoxyCodeLine{00579 <ParsePackage>[\string^:;]*                \{ //found package}
+\DoxyCodeLine{00580                                       \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} strl=\mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}(yytext,\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00581                                       \textcolor{keywordflow}{if} (strl.size()>2)}
+\DoxyCodeLine{00582                                       \{}
+\DoxyCodeLine{00583                                         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} s1=strl[0];}
+\DoxyCodeLine{00584                                         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} s2=strl[1];}
+\DoxyCodeLine{00585                                         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} s3=strl[2];}
+\DoxyCodeLine{00586                                         s1.append(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00587                                         s3.insert(0,\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00588                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,s1.c\_str(),yyextra-\/>currClass);}
+\DoxyCodeLine{00589                                         \mbox{\hyperlink{class_class_def}{ClassDef}} *cd=\mbox{\hyperlink{class_vhdl_doc_gen_ad890048820909df255f6ee3f95d6ed80}{VhdlDocGen::getPackageName}}(s2.c\_str());}
+\DoxyCodeLine{00590                                         \textcolor{keywordflow}{if} (cd)}
+\DoxyCodeLine{00591                                         \{}
+\DoxyCodeLine{00592                                           \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,s2.c\_str());}
+\DoxyCodeLine{00593                                         \}}
+\DoxyCodeLine{00594                                         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00595                                         \{}
+\DoxyCodeLine{00596                                           \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,s2.c\_str());}
+\DoxyCodeLine{00597                                         \}}
+\DoxyCodeLine{00598                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,s3.c\_str());}
+\DoxyCodeLine{00599                                       \}}
+\DoxyCodeLine{00600                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00601                                       \{}
+\DoxyCodeLine{00602                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}keywordflow"{}},yytext);}
+\DoxyCodeLine{00603                                       \}}
+\DoxyCodeLine{00604                                       BEGIN(Bases);}
+\DoxyCodeLine{00605                                     \}}
+\DoxyCodeLine{00606 }
+\DoxyCodeLine{00607 <Bases>\{MAPCOMPONENT1\}|\{MAPCOMPONENT2\}|\{MAPCOMPONENT3\}|\{MAPCOMPONENT4\}  \{ // found port or generic map}
+\DoxyCodeLine{00608                                       \mbox{\hyperlink{class_q_c_string}{QCString}} tt(yytext);}
+\DoxyCodeLine{00609                                       \textcolor{keywordtype}{int} j=tt.find(\textcolor{charliteral}{'.'});}
+\DoxyCodeLine{00610 }
+\DoxyCodeLine{00611                                       \textcolor{keywordflow}{if} (j>0)}
+\DoxyCodeLine{00612                                       \{}
+\DoxyCodeLine{00613                                         \mbox{\hyperlink{class_q_c_string}{QCString}} left=tt.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(j+1);}
+\DoxyCodeLine{00614                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,left);}
+\DoxyCodeLine{00615                                         tt=tt.right(tt.length()-\/j-\/1);}
+\DoxyCodeLine{00616                                         left=\mbox{\hyperlink{class_vhdl_doc_gen_ae1c14782849e08d5ef42d9ae8290c18b}{VhdlDocGen::getIndexWord}}(tt,0);}
+\DoxyCodeLine{00617                                         \textcolor{keywordflow}{if} (!left.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00618                                         \{}
+\DoxyCodeLine{00619                                           j=left.\mbox{\hyperlink{class_q_c_string_a0182ece6b76dad6475dafb53e2faaf10}{find}}(\textcolor{charliteral}{'('},\textcolor{keyword}{false});}
+\DoxyCodeLine{00620                                           \textcolor{keywordflow}{if} (j>=0)}
+\DoxyCodeLine{00621                                           \{}
+\DoxyCodeLine{00622                                             \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}=left.\mbox{\hyperlink{class_q_c_string_aecf8b66312c4e97333219cc344c11a4f}{left}}(j);}
+\DoxyCodeLine{00623                                             \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00624                                             yyextra-\/>PortMapComp=\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}};}
+\DoxyCodeLine{00625                                             \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}=tt.right(tt.length()-\/\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.length());}
+\DoxyCodeLine{00626                                             \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}});}
+\DoxyCodeLine{00627                                           \}}
+\DoxyCodeLine{00628                                           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00629                                           \{}
+\DoxyCodeLine{00630                                             \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,left);}
+\DoxyCodeLine{00631                                             tt.stripPrefix(left); \textcolor{comment}{//=tt.right(tt.length()-\/left.length()-\/1);}}
+\DoxyCodeLine{00632 }
+\DoxyCodeLine{00633                                             yyextra-\/>PortMapComp=left;}
+\DoxyCodeLine{00634                                             \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,tt);}
+\DoxyCodeLine{00635                                           \}}
+\DoxyCodeLine{00636                                         \}}
+\DoxyCodeLine{00637                                       \}}
+\DoxyCodeLine{00638                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00639                                       \{}
+\DoxyCodeLine{00640                                         \textcolor{keywordflow}{if} (tt.contains(\textcolor{charliteral}{':'},\textcolor{keyword}{false}))}
+\DoxyCodeLine{00641                                         \{}
+\DoxyCodeLine{00642                                           \mbox{\hyperlink{src_2vhdlcode_8l_aaf9011f7d4c2a48af197236c52d0a95d}{codifyMapLines}}(yyscanner,tt);}
+\DoxyCodeLine{00643                                         \}}
+\DoxyCodeLine{00644                                         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00645                                         \{}
+\DoxyCodeLine{00646                                           \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,tt);}
+\DoxyCodeLine{00647                                         \}}
+\DoxyCodeLine{00648                                       \}}
+\DoxyCodeLine{00649                                       yyextra-\/>braceCount=1;}
+\DoxyCodeLine{00650                                       BEGIN(Map);}
+\DoxyCodeLine{00651                                     \}}
+\DoxyCodeLine{00652 }
+\DoxyCodeLine{00653 <Bases>\string^\{B\}*("{}component"{})\{BN\}+\{FUNCNAME\}  \{ // found component}
+\DoxyCodeLine{00654                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00655                                       \mbox{\hyperlink{class_q_c_string}{QCString}} temp=\mbox{\hyperlink{class_vhdl_doc_gen_ae1c14782849e08d5ef42d9ae8290c18b}{VhdlDocGen::getIndexWord}}(yytext,1);}
+\DoxyCodeLine{00656                                       temp=temp.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{00657                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(temp,\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00658                                       yyextra-\/>tempComp=temp;}
+\DoxyCodeLine{00659                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,temp,\textcolor{keyword}{true});}
+\DoxyCodeLine{00660                                       yyextra-\/>braceCount=0;}
+\DoxyCodeLine{00661                                       yyextra-\/>isComponent=\textcolor{keyword}{true};}
+\DoxyCodeLine{00662                                       BEGIN(ParseComponent);}
+\DoxyCodeLine{00663                                     \}}
+\DoxyCodeLine{00664 }
+\DoxyCodeLine{00665 }
+\DoxyCodeLine{00666 }
+\DoxyCodeLine{00667 <Bases>\{ARCHITECTURE\}               \{ // found architecture}
+\DoxyCodeLine{00668                                       yyextra-\/>PortMapComp.resize(0);}
+\DoxyCodeLine{00669                                       \mbox{\hyperlink{class_q_c_string}{QCString}} temp = \mbox{\hyperlink{class_vhdl_doc_gen_ae1c14782849e08d5ef42d9ae8290c18b}{VhdlDocGen::getIndexWord}}(yytext,3);}
+\DoxyCodeLine{00670                                       yyextra-\/>currArch = \textcolor{keyword}{true};}
+\DoxyCodeLine{00671                                       temp+=\textcolor{stringliteral}{"{}::"{}};}
+\DoxyCodeLine{00672                                       temp+=\mbox{\hyperlink{class_vhdl_doc_gen_ae1c14782849e08d5ef42d9ae8290c18b}{VhdlDocGen::getIndexWord}}(yytext,1);}
+\DoxyCodeLine{00673                                       yyextra-\/>currClass=temp;}
+\DoxyCodeLine{00674                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(temp,\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00675                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,temp,\textcolor{keyword}{true});}
+\DoxyCodeLine{00676                                       yyextra-\/>isPackageBody=\textcolor{keyword}{false};}
+\DoxyCodeLine{00677                                     \}}
+\DoxyCodeLine{00678 }
+\DoxyCodeLine{00679 }
+\DoxyCodeLine{00680 <Bases>\string^\{B\}*("{}package "{})\{BN\}*("{}body"{})\{BN\}*\{FUNCNAME\}  \{ // found package body}
+\DoxyCodeLine{00681                                       \mbox{\hyperlink{class_q_c_string}{QCString}} ss(yytext);}
+\DoxyCodeLine{00682                                       \mbox{\hyperlink{class_q_c_string}{QCString}} temp=\mbox{\hyperlink{class_vhdl_doc_gen_ae1c14782849e08d5ef42d9ae8290c18b}{VhdlDocGen::getIndexWord}}(yytext,2);}
+\DoxyCodeLine{00683                                       \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} ql=\mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_aa6f7e18ec85e917d5f3972835cab1d51}{split}}(yytext,temp.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00684                                       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} ll=ql[0];}
+\DoxyCodeLine{00685                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,ll.c\_str(),yyextra-\/>currClass);}
+\DoxyCodeLine{00686                                       temp=temp.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{00687                                       temp.\mbox{\hyperlink{class_q_c_string_a0a6a8fe99e596b149ee15138fa8dcf0c}{prepend}}(\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{00688                                       \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,temp);}
+\DoxyCodeLine{00689                                       yyextra-\/>currClass.resize(0);}
+\DoxyCodeLine{00690                                       yyextra-\/>currClass=temp;}
+\DoxyCodeLine{00691                                       yyextra-\/>isProto=\textcolor{keyword}{false};}
+\DoxyCodeLine{00692                                       yyextra-\/>isPackageBody=\textcolor{keyword}{true};}
+\DoxyCodeLine{00693                                     \}}
+\DoxyCodeLine{00694 }
+\DoxyCodeLine{00695 <Bases>\{PROCESS\}                    \{ // found process}
+\DoxyCodeLine{00696                                       yyextra-\/>isFuncProto=\textcolor{keyword}{true};}
+\DoxyCodeLine{00697                                       yyextra-\/>funcProto.resize(0);}
+\DoxyCodeLine{00698                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00699                                       yyextra-\/>vhdlKeyDict.clear();}
+\DoxyCodeLine{00700                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00701                                       \textcolor{keywordflow}{if} (yyextra-\/>prevString.contains(\textcolor{charliteral}{'('}))}
+\DoxyCodeLine{00702                                       \{}
+\DoxyCodeLine{00703                                         yyextra-\/>braceCount=1;}
+\DoxyCodeLine{00704                                         BEGIN(ParseProcessProto);}
+\DoxyCodeLine{00705                                       \}}
+\DoxyCodeLine{00706                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00707                                       \{}
+\DoxyCodeLine{00708                                         \mbox{\hyperlink{src_2vhdlcode_8l_aaa2a9bf9c82c212c9ce347be10e77899}{writeProcessProto}}(yyscanner);}
+\DoxyCodeLine{00709                                       \}}
+\DoxyCodeLine{00710                                     \}}
+\DoxyCodeLine{00711 }
+\DoxyCodeLine{00712 <Bases>("{}end"{})\{BN\}+("{}process"{})      \{ // end of process}
+\DoxyCodeLine{00713                                       yyextra-\/>isFuncProto=\textcolor{keyword}{false};}
+\DoxyCodeLine{00714                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00715                                       BEGIN(Bases);}
+\DoxyCodeLine{00716                                     \}}
+\DoxyCodeLine{00717 }
+\DoxyCodeLine{00718 }
+\DoxyCodeLine{00719 <Bases>\string^\{B\}*("{}begin "{}|"{}begin"{})      \{}
+\DoxyCodeLine{00720                                       yyextra-\/>isFuncProto=\textcolor{keyword}{false};}
+\DoxyCodeLine{00721                                       \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdlkeyword"{}},yytext);}
+\DoxyCodeLine{00722                                     \}}
+\DoxyCodeLine{00723 }
+\DoxyCodeLine{00724 <Bases>\string^\{B\}*("{}use"{}|"{}library"{})\{BN\}+  \{ //found package or library}
+\DoxyCodeLine{00725                                       \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdlkeyword"{}},yytext);}
+\DoxyCodeLine{00726                                       BEGIN(ParsePackage);}
+\DoxyCodeLine{00727                                     \}}
+\DoxyCodeLine{00728 }
+\DoxyCodeLine{00729 }
+\DoxyCodeLine{00730 <Bases>\string^\{B\}*("{}use"{})\{BN\}+("{}configuration"{})[\string^\(\backslash\)n]* \{}
+\DoxyCodeLine{00731                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00732                                     \}}
+\DoxyCodeLine{00733 }
+\DoxyCodeLine{00734 <Bases>\{FUNC\}                       \{  // found function|procedure}
+\DoxyCodeLine{00735                                       yyextra-\/>vhdlKeyDict.clear();}
+\DoxyCodeLine{00736                                       yyextra-\/>funcProto.resize(0);}
+\DoxyCodeLine{00737                                       yyextra-\/>isProto=\textcolor{keyword}{false};}
+\DoxyCodeLine{00738                                       yyextra-\/>funcProto.append(yytext);}
+\DoxyCodeLine{00739                                       yyextra-\/>braceCount=1;}
+\DoxyCodeLine{00740                                       BEGIN(ParseType);}
+\DoxyCodeLine{00741                                     \}}
+\DoxyCodeLine{00742 }
+\DoxyCodeLine{00743 <Bases>\string^\{B\}*("{}entity"{}|"{}package"{})\{BN\}+ \{}
+\DoxyCodeLine{00744                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00745                                       \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}keywordflow"{}},yytext);}
+\DoxyCodeLine{00746                                       yyextra-\/>isPackageBody=\textcolor{keyword}{false};}
+\DoxyCodeLine{00747                                       BEGIN(ClassesName);}
+\DoxyCodeLine{00748                                     \}}
+\DoxyCodeLine{00749 }
+\DoxyCodeLine{00750 <Bases>"{}end"{}\{BN\}+"{}architecture"{}\{BN\}+\{FUNCNAME\} \{}
+\DoxyCodeLine{00751                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass,\textcolor{keyword}{true});}
+\DoxyCodeLine{00752                                       yyextra-\/>currArch = \textcolor{keyword}{false};}
+\DoxyCodeLine{00753                                     \}}
+\DoxyCodeLine{00754 <Bases>"{}end"{}\{BN\}+\{FUNCNAME\}         \{}
+\DoxyCodeLine{00755                                       \textcolor{keywordflow}{if} (yyextra-\/>currArch)}
+\DoxyCodeLine{00756                                       \{}
+\DoxyCodeLine{00757                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass,\textcolor{keyword}{true});}
+\DoxyCodeLine{00758                                         yyextra-\/>currArch = \textcolor{keyword}{false};}
+\DoxyCodeLine{00759                                       \}}
+\DoxyCodeLine{00760                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00761                                       \{}
+\DoxyCodeLine{00762                                         REJECT;}
+\DoxyCodeLine{00763                                       \}}
+\DoxyCodeLine{00764                                     \}}
+\DoxyCodeLine{00765 <Bases>"{}end"{}                        \{}
+\DoxyCodeLine{00766                                        \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00767                                        \mbox{\hyperlink{class_q_c_string}{QCString}} temp(yytext);}
+\DoxyCodeLine{00768                                        temp=temp.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{00769 }
+\DoxyCodeLine{00770                                        \mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,temp);}
+\DoxyCodeLine{00771                                        BEGIN(End);}
+\DoxyCodeLine{00772                                     \}}
+\DoxyCodeLine{00773 <End>\{ID\}                           \{}
+\DoxyCodeLine{00774                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00775                                       \mbox{\hyperlink{class_q_c_string}{QCString}} temp(yytext);}
+\DoxyCodeLine{00776                                       temp=temp.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{00777 }
+\DoxyCodeLine{00778                                       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,temp))}
+\DoxyCodeLine{00779                                       \{}
+\DoxyCodeLine{00780                                         \mbox{\hyperlink{src_2vhdlcode_8l_ac97bcbb92461b7fea04875ace99b4885}{generateClassOrGlobalLink}}(yyscanner,*yyextra-\/>code,temp);}
+\DoxyCodeLine{00781                                       \}}
+\DoxyCodeLine{00782                                     \}}
+\DoxyCodeLine{00783 <End>"{};"{}                            \{}
+\DoxyCodeLine{00784                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00785                                       BEGIN(Bases);}
+\DoxyCodeLine{00786                                     \}}
+\DoxyCodeLine{00787 <Bases>\{KEYWORD\}                    \{ // found keyword}
+\DoxyCodeLine{00788                                       \mbox{\hyperlink{class_q_c_string}{QCString}} qcs(yytext);}
+\DoxyCodeLine{00789                                       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,qcs))}
+\DoxyCodeLine{00790                                       \{}
+\DoxyCodeLine{00791                                         \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}});}
+\DoxyCodeLine{00792                                         yyextra-\/>code-\/>codify(yytext);}
+\DoxyCodeLine{00793                                         \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00794                                       \}}
+\DoxyCodeLine{00795                                     \}}
+\DoxyCodeLine{00796 }
+\DoxyCodeLine{00797 }
+\DoxyCodeLine{00798 <Bases>\{ID\}                         \{}
+\DoxyCodeLine{00799                                       \mbox{\hyperlink{src_2vhdlcode_8l_a38b6783aaabbed92ec114e917385f739}{appStringLower}}(yyextra-\/>prevString,yytext);}
+\DoxyCodeLine{00800                                       \mbox{\hyperlink{class_q_c_string}{QCString}} temp(yytext);}
+\DoxyCodeLine{00801                                       temp=temp.\mbox{\hyperlink{class_q_c_string_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}();}
+\DoxyCodeLine{00802 }
+\DoxyCodeLine{00803                                       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{src_2vhdlcode_8l_a64ea38c6553eebe39c034c704bcc2eeb}{writeColoredWord}}(yyscanner,temp))}
+\DoxyCodeLine{00804                                       \{}
+\DoxyCodeLine{00805                                         \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}});}
+\DoxyCodeLine{00806                                         \mbox{\hyperlink{src_2vhdlcode_8l_a479e2556c7f98068d65134b82cfd5653}{generateMemLink}}(yyscanner,*yyextra-\/>code,yyextra-\/>currClass,temp);}
+\DoxyCodeLine{00807                                         \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00808                                       \}}
+\DoxyCodeLine{00809                                     \}}
+\DoxyCodeLine{00810 }
+\DoxyCodeLine{00811 <Bases,ParseComponent>\{DIGITSS\}     \{}
+\DoxyCodeLine{00812                                       \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}});}
+\DoxyCodeLine{00813                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00814                                       \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00815                                     \}}
+\DoxyCodeLine{00816 }
+\DoxyCodeLine{00817 <Bases>\string^\{B\}*("{}use"{})\{BN\}+("{}entity"{}|"{}component"{})[\string^\(\backslash\)n]* \{}
+\DoxyCodeLine{00818                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext,yyextra-\/>currClass,\textcolor{keyword}{true});}
+\DoxyCodeLine{00819                                     \}}
+\DoxyCodeLine{00820 }
+\DoxyCodeLine{00821 }
+\DoxyCodeLine{00822 <Bases>\{TYPEKW\}                     \{}
+\DoxyCodeLine{00823                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00824                                       \textcolor{keywordflow}{if} (yyextra-\/>isFuncProto)}
+\DoxyCodeLine{00825                                       \{}
+\DoxyCodeLine{00826                                         BEGIN(ParseFuncProto);}
+\DoxyCodeLine{00827                                       \}}
+\DoxyCodeLine{00828                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00829                                       \{}
+\DoxyCodeLine{00830                                         BEGIN(Bases);}
+\DoxyCodeLine{00831                                       \}}
+\DoxyCodeLine{00832                                     \}}
+\DoxyCodeLine{00833 }
+\DoxyCodeLine{00834 <Bases>\{OPERATOR\}                   \{}
+\DoxyCodeLine{00835                                       \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}});}
+\DoxyCodeLine{00836                                       yyextra-\/>code-\/>codify(yytext);}
+\DoxyCodeLine{00837                                       \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00838                                     \}}
+\DoxyCodeLine{00839 }
+\DoxyCodeLine{00840 <Bases>"{},"{}|"{}."{}|"{}:"{}|"{}'"{}|"{}("{}|"{})"{}      \{}
+\DoxyCodeLine{00841                                       \mbox{\hyperlink{src_2vhdlcode_8l_a774297aa5d69086827360d6f0ab535fa}{startFontClass}}(yyscanner,\textcolor{stringliteral}{"{}vhdlchar"{}});}
+\DoxyCodeLine{00842                                       yyextra-\/>code-\/>codify(yytext);}
+\DoxyCodeLine{00843                                       \mbox{\hyperlink{src_2vhdlcode_8l_af7af0722d394ed17bb2a672320b85c7c}{endFontClass}}(yyscanner);}
+\DoxyCodeLine{00844                                     \}}
+\DoxyCodeLine{00845 }
+\DoxyCodeLine{00846 <Bases>\{STRING\}                     \{}
+\DoxyCodeLine{00847                                       \mbox{\hyperlink{class_q_c_string}{QCString}} qcs(yytext);}
+\DoxyCodeLine{00848                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(qcs,\textcolor{charliteral}{'"{}'});}
+\DoxyCodeLine{00849                                       \mbox{\hyperlink{class_vhdl_doc_gen_ae4bf0d0561d8ef807b56c1f29765713e}{VhdlDocGen::deleteAllChars}}(qcs,\textcolor{charliteral}{' '});}
+\DoxyCodeLine{00850 }
+\DoxyCodeLine{00851                                       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_vhdl_doc_gen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{VhdlDocGen::isNumber}}(qcs.str()))}
+\DoxyCodeLine{00852                                       \{}
+\DoxyCodeLine{00853                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}vhdllogic"{}},yytext);}
+\DoxyCodeLine{00854                                       \}}
+\DoxyCodeLine{00855                                       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00856                                       \{}
+\DoxyCodeLine{00857                                         \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}keyword"{}},yytext);}
+\DoxyCodeLine{00858                                       \}}
+\DoxyCodeLine{00859                                     \}}
+\DoxyCodeLine{00860 }
+\DoxyCodeLine{00861 <Bases>\{B\}*"{}\#"{}[\string^\(\backslash\)n]*                \{}
+\DoxyCodeLine{00862                                       \mbox{\hyperlink{src_2vhdlcode_8l_a0b383c51c34a9021c909c10b848f0ca1}{writeFont}}(yyscanner,\textcolor{stringliteral}{"{}keyword"{}},yytext);}
+\DoxyCodeLine{00863                                     \}}
+\DoxyCodeLine{00864 }
+\DoxyCodeLine{00865 <Bases>\string^\{B\}*\{XILINX\}/[\string^a-\/zA-\/Z0-\/9\_]  \{}
+\DoxyCodeLine{00866                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{writeWord}}(yyscanner,yytext);}
+\DoxyCodeLine{00867                                       \textcolor{comment}{//codifyLines(yyscanner,yytext,yyextra-\/>currClass,true);}}
+\DoxyCodeLine{00868                                     \}}
+\DoxyCodeLine{00869 }
+\DoxyCodeLine{00870 <Bases>\string^\{B\}*"{}set\_"{}[\string^\(\backslash\)n]*            \{}
+\DoxyCodeLine{00871                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5ab4cb556cb2bcbce39b40bbe297fd1d}{writeWord}}(yyscanner,yytext);}
+\DoxyCodeLine{00872                                     \}}
+\DoxyCodeLine{00873 }
+\DoxyCodeLine{00874 <*>\(\backslash\)n                               \{}
+\DoxyCodeLine{00875                                       \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,yytext);}
+\DoxyCodeLine{00876                                       BEGIN(Bases);}
+\DoxyCodeLine{00877                                     \}}
+\DoxyCodeLine{00878 }
+\DoxyCodeLine{00879 <*>[\(\backslash\)x80-\/\(\backslash\)xFF]*                     \{ // keep utf8 characters together...}
+\DoxyCodeLine{00880                                       yyextra-\/>code-\/>codify(yytext);}
+\DoxyCodeLine{00881                                     \}}
+\DoxyCodeLine{00882 <*>.                                \{}
+\DoxyCodeLine{00883                                       yyextra-\/>code-\/>codify(yytext);}
+\DoxyCodeLine{00884                                     \}}
+\DoxyCodeLine{00885 }
+\DoxyCodeLine{00886 <*>\(\backslash\)n\{TEXTT\}                        \{ // found normal or special comment on its own line}
+\DoxyCodeLine{00887                                       \mbox{\hyperlink{class_q_c_string}{QCString}} text(yytext);}
+\DoxyCodeLine{00888                                       \textcolor{keywordtype}{int} i=text.find(\textcolor{stringliteral}{"{}-\/-\/"{}});}
+\DoxyCodeLine{00889                                       \textcolor{keywordflow}{if} (text.mid(i,3)==\textcolor{stringliteral}{"{}-\/-\/!"{}}) \textcolor{comment}{// \&\& // hide special comment}}
+\DoxyCodeLine{00890                                       \{}
+\DoxyCodeLine{00891                                         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(STRIP\_CODE\_COMMENTS))}
+\DoxyCodeLine{00892                                         \{}
+\DoxyCodeLine{00893                                           \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,text,0,\textcolor{keyword}{false},\textcolor{keyword}{true});}
+\DoxyCodeLine{00894                                         \}}
+\DoxyCodeLine{00895                                         \textcolor{keywordflow}{else} yyextra-\/>yyLineNr++; \textcolor{comment}{// skip complete line, but count line}}
+\DoxyCodeLine{00896                                       \}}
+\DoxyCodeLine{00897                                       \textcolor{keywordflow}{else} \textcolor{comment}{// normal comment}}
+\DoxyCodeLine{00898                                       \{}
+\DoxyCodeLine{00899                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,text,0,\textcolor{keyword}{false},\textcolor{keyword}{true});}
+\DoxyCodeLine{00900                                       \}}
+\DoxyCodeLine{00901                                     \}}
+\DoxyCodeLine{00902 <*>\{TEXTT\}                          \{ // found normal or special comment after something}
+\DoxyCodeLine{00903                                       \mbox{\hyperlink{class_q_c_string}{QCString}} text(yytext);}
+\DoxyCodeLine{00904                                       \textcolor{keywordtype}{int} i=text.find(\textcolor{stringliteral}{"{}-\/-\/"{}});}
+\DoxyCodeLine{00905                                       \textcolor{keywordflow}{if} (text.mid(i,3)==\textcolor{stringliteral}{"{}-\/-\/!"{}})}
+\DoxyCodeLine{00906                                       \{}
+\DoxyCodeLine{00907                                         \textcolor{comment}{// hide special comment}}
+\DoxyCodeLine{00908                                         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(STRIP\_CODE\_COMMENTS))}
+\DoxyCodeLine{00909                                         \{}
+\DoxyCodeLine{00910                                           \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,text,0,\textcolor{keyword}{false},\textcolor{keyword}{true});}
+\DoxyCodeLine{00911                                         \}}
+\DoxyCodeLine{00912                                       \}}
+\DoxyCodeLine{00913                                       \textcolor{keywordflow}{else} \textcolor{comment}{// normal comment}}
+\DoxyCodeLine{00914                                       \{}
+\DoxyCodeLine{00915                                         \mbox{\hyperlink{src_2vhdlcode_8l_a5a47760391ae7b0e270bd1de323be1e0}{codifyLines}}(yyscanner,text,0,\textcolor{keyword}{false},\textcolor{keyword}{true});}
+\DoxyCodeLine{00916                                       \}}
+\DoxyCodeLine{00917                                     \}}
+\DoxyCodeLine{00918 }
+\DoxyCodeLine{00919 \%\%}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2vhdlcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}\label{src_2vhdlcode_8l_a5edfc25f0c460f3263fdb340f7a02b03}} 
+\index{vhdlcode.l@{vhdlcode.l}!yyread@{yyread}}
+\index{yyread@{yyread}!vhdlcode.l@{vhdlcode.l}}
+\doxysubsubsection{\texorpdfstring{yyread()}{yyread()}}
+{\footnotesize\ttfamily static int yyread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{build_2doxygen_2src_2code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner,  }\item[{char $\ast$}]{buf,  }\item[{int}]{max\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2vhdlcode_8l_source_l00924}{924}} of file \mbox{\hyperlink{src_2vhdlcode_8l_source}{vhdlcode.\+l}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00925 \{}
+\DoxyCodeLine{00926   \textcolor{keyword}{struct }yyguts\_t *yyg = (\textcolor{keyword}{struct }yyguts\_t*)yyscanner;}
+\DoxyCodeLine{00927   \textcolor{keywordtype}{int} inputPosition = yyextra-\/>inputPosition;}
+\DoxyCodeLine{00928   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = yyextra-\/>inputString + inputPosition;}
+\DoxyCodeLine{00929   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=0;}
+\DoxyCodeLine{00930   \textcolor{keywordflow}{while}( \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} < max\_size \&\& *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{00931   \{}
+\DoxyCodeLine{00932     *buf++ = *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}++;}
+\DoxyCodeLine{00933     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}++;}
+\DoxyCodeLine{00934   \}}
+\DoxyCodeLine{00935   yyextra-\/>inputPosition += \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00936   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00937 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+

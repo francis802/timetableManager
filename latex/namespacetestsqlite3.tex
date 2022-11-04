@@ -1,0 +1,333 @@
+\hypertarget{namespacetestsqlite3}{}\doxysection{testsqlite3 Namespace Reference}
+\label{namespacetestsqlite3}\index{testsqlite3@{testsqlite3}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetestsqlite3_aa9f9b537c619feb5b453e1242642b380}{print\+\_\+unprocessed\+\_\+attributes}} (node)
+\item 
+def \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\+\_\+attribute}} (node, attribute, pnl)
+\item 
+def \mbox{\hyperlink{namespacetestsqlite3_a4b69210c6c0cc8279e900d4895d4fa98}{extract\+\_\+element}} (node, chld, pnl)
+\item 
+def \mbox{\hyperlink{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}{process\+\_\+memberdef}} (node)
+\item 
+def \mbox{\hyperlink{namespacetestsqlite3_a81d7871803911754320674374384ed90}{load\+\_\+xml}} (name)
+\item 
+def \mbox{\hyperlink{namespacetestsqlite3_a18502e85d0c262f04fda5e421982aab7}{open\+\_\+db}} (dbname)
+\item 
+def \mbox{\hyperlink{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}{main}} (argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetestsqlite3_a8e888724f88a8a5e14814854881d3b62}{g\+\_\+conn}} = None
+\item 
+list \mbox{\hyperlink{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}{val}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}\label{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}} 
+\index{testsqlite3@{testsqlite3}!extract\_attribute@{extract\_attribute}}
+\index{extract\_attribute@{extract\_attribute}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{extract\_attribute()}{extract\_attribute()}}
+{\footnotesize\ttfamily def testsqlite3.\+extract\+\_\+attribute (\begin{DoxyParamCaption}\item[{}]{node,  }\item[{}]{attribute,  }\item[{}]{pnl }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00018}{18}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,attribute,pnl):}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} attribute \textcolor{keywordflow}{in} node.attrib:}
+\DoxyCodeLine{00020         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{00021     pnl.append(\textcolor{stringliteral}{"{}\%s = ?"{}} \% attribute)}
+\DoxyCodeLine{00022     val.append(node.attrib[attribute])}
+\DoxyCodeLine{00023     node.attrib.pop(attribute)}
+\DoxyCodeLine{00024 }
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}{process\+\_\+memberdef()}}.
+
+\mbox{\Hypertarget{namespacetestsqlite3_a4b69210c6c0cc8279e900d4895d4fa98}\label{namespacetestsqlite3_a4b69210c6c0cc8279e900d4895d4fa98}} 
+\index{testsqlite3@{testsqlite3}!extract\_element@{extract\_element}}
+\index{extract\_element@{extract\_element}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{extract\_element()}{extract\_element()}}
+{\footnotesize\ttfamily def testsqlite3.\+extract\+\_\+element (\begin{DoxyParamCaption}\item[{}]{node,  }\item[{}]{chld,  }\item[{}]{pnl }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00025}{25}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetestsqlite3_a4b69210c6c0cc8279e900d4895d4fa98}{extract\_element}}(node,chld,pnl):}
+\DoxyCodeLine{00026     \textcolor{comment}{\# deal with <tag />}}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{if} chld.text == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00028         \textcolor{keywordflow}{if} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(chld.attrib)==0:}
+\DoxyCodeLine{00029             node.remove(chld)}
+\DoxyCodeLine{00030         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032     a=chld.text.strip()}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} a == \textcolor{stringliteral}{"{}"{}}:}
+\DoxyCodeLine{00034         pnl.append(\textcolor{stringliteral}{"{}\%s =?"{}} \% chld.tag)}
+\DoxyCodeLine{00035         val.append(chld.text.strip())}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00037         pnl.append(\textcolor{stringliteral}{"{}\%s IS NULL OR \%s = ''"{}} \% (chld.tag,chld.tag))}
+\DoxyCodeLine{00038     node.remove(chld)}
+\DoxyCodeLine{00039 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}{process\+\_\+memberdef()}}.
+
+\mbox{\Hypertarget{namespacetestsqlite3_a81d7871803911754320674374384ed90}\label{namespacetestsqlite3_a81d7871803911754320674374384ed90}} 
+\index{testsqlite3@{testsqlite3}!load\_xml@{load\_xml}}
+\index{load\_xml@{load\_xml}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{load\_xml()}{load\_xml()}}
+{\footnotesize\ttfamily def testsqlite3.\+load\+\_\+xml (\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00101}{101}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetestsqlite3_a81d7871803911754320674374384ed90}{load\_xml}}(name):}
+\DoxyCodeLine{00102     context = ET.iterparse(name, events=(\textcolor{stringliteral}{"{}start"{}}, \textcolor{stringliteral}{"{}end"{}}))}
+\DoxyCodeLine{00103     event, root = context.next()}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{for} event, elem \textcolor{keywordflow}{in} context:}
+\DoxyCodeLine{00105         \textcolor{keywordflow}{if} event == \textcolor{stringliteral}{"{}end"{}} \textcolor{keywordflow}{and} elem.tag == \textcolor{stringliteral}{"{}memberdef"{}}:}
+\DoxyCodeLine{00106             \mbox{\hyperlink{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}{process\_memberdef}}(elem)}
+\DoxyCodeLine{00107     \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}\(\backslash\)n== Unprocessed XML =="{}})}
+\DoxyCodeLine{00108 \textcolor{comment}{\#    ET.dump(root)}}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print()}}, and \mbox{\hyperlink{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}{process\+\_\+memberdef()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}{main()}}.
+
+\mbox{\Hypertarget{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}\label{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}} 
+\index{testsqlite3@{testsqlite3}!main@{main}}
+\index{main@{main}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def testsqlite3.\+main (\begin{DoxyParamCaption}\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00124}{124}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}{main}}(argv):}
+\DoxyCodeLine{00125     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00126         opts, args = getopt.getopt(argv, \textcolor{stringliteral}{"{}hd:x:"{}},[\textcolor{stringliteral}{"{}help"{}}])}
+\DoxyCodeLine{00127     \textcolor{keywordflow}{except} getopt.GetoptError:}
+\DoxyCodeLine{00128         sys.exit(1)}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130     dbname=\textcolor{keywordtype}{None}}
+\DoxyCodeLine{00131     xmlfile=\textcolor{keywordtype}{None}}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00133     \textcolor{keywordflow}{for} a, o \textcolor{keywordflow}{in} opts:}
+\DoxyCodeLine{00134         \textcolor{keywordflow}{if} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/h'}, \textcolor{stringliteral}{'-\/-\/help'}):}
+\DoxyCodeLine{00135             sys.exit(0)}
+\DoxyCodeLine{00136         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/d'}):}
+\DoxyCodeLine{00137             dbname=o}
+\DoxyCodeLine{00138             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{00139         \textcolor{keywordflow}{elif} a \textcolor{keywordflow}{in} (\textcolor{stringliteral}{'-\/x'}):}
+\DoxyCodeLine{00140             xmlfile=o}
+\DoxyCodeLine{00141             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{00142     \mbox{\hyperlink{namespacetestsqlite3_a18502e85d0c262f04fda5e421982aab7}{open\_db}}(dbname)}
+\DoxyCodeLine{00143     \mbox{\hyperlink{namespacetestsqlite3_a81d7871803911754320674374384ed90}{load\_xml}}(xmlfile)}
+\DoxyCodeLine{00144 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacetestsqlite3_a81d7871803911754320674374384ed90}{load\+\_\+xml()}}, \mbox{\hyperlink{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}{main()}}, and \mbox{\hyperlink{namespacetestsqlite3_a18502e85d0c262f04fda5e421982aab7}{open\+\_\+db()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}{main()}}.
+
+\mbox{\Hypertarget{namespacetestsqlite3_a18502e85d0c262f04fda5e421982aab7}\label{namespacetestsqlite3_a18502e85d0c262f04fda5e421982aab7}} 
+\index{testsqlite3@{testsqlite3}!open\_db@{open\_db}}
+\index{open\_db@{open\_db}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{open\_db()}{open\_db()}}
+{\footnotesize\ttfamily def testsqlite3.\+open\+\_\+db (\begin{DoxyParamCaption}\item[{}]{dbname }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00111}{111}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetestsqlite3_a18502e85d0c262f04fda5e421982aab7}{open\_db}}(dbname):}
+\DoxyCodeLine{00112     \textcolor{keyword}{global} g\_conn}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114     \textcolor{keywordflow}{if} dbname == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00115         dbname = \textcolor{stringliteral}{"{}doxygen\_sqlite3.db"{}}}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} os.path.isfile(dbname):}
+\DoxyCodeLine{00118         \textcolor{keywordflow}{raise} BaseException(\textcolor{stringliteral}{"{}No such file \%s"{}} \% dbname )}
+\DoxyCodeLine{00119 }
+\DoxyCodeLine{00120     g\_conn = sqlite3.connect(dbname)}
+\DoxyCodeLine{00121     g\_conn.execute(\textcolor{stringliteral}{'PRAGMA temp\_store = MEMORY;'})}
+\DoxyCodeLine{00122     g\_conn.row\_factory = sqlite3.Row}
+\DoxyCodeLine{00123 }
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{namespacetestsqlite3_ab7b2083fdd0b56aad9fba467de717ac7}{main()}}.
+
+\mbox{\Hypertarget{namespacetestsqlite3_aa9f9b537c619feb5b453e1242642b380}\label{namespacetestsqlite3_aa9f9b537c619feb5b453e1242642b380}} 
+\index{testsqlite3@{testsqlite3}!print\_unprocessed\_attributes@{print\_unprocessed\_attributes}}
+\index{print\_unprocessed\_attributes@{print\_unprocessed\_attributes}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{print\_unprocessed\_attributes()}{print\_unprocessed\_attributes()}}
+{\footnotesize\ttfamily def testsqlite3.\+print\+\_\+unprocessed\+\_\+attributes (\begin{DoxyParamCaption}\item[{}]{node }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00014}{14}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetestsqlite3_aa9f9b537c619feb5b453e1242642b380}{print\_unprocessed\_attributes}}(node):}
+\DoxyCodeLine{00015     \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} node.attrib:}
+\DoxyCodeLine{00016         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}WARNING: '\%s' has unprocessed attr '\%s'"{}} \% (node.tag,key))}
+\DoxyCodeLine{00017 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}{process\+\_\+memberdef()}}.
+
+\mbox{\Hypertarget{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}\label{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}} 
+\index{testsqlite3@{testsqlite3}!process\_memberdef@{process\_memberdef}}
+\index{process\_memberdef@{process\_memberdef}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{process\_memberdef()}{process\_memberdef()}}
+{\footnotesize\ttfamily def testsqlite3.\+process\+\_\+memberdef (\begin{DoxyParamCaption}\item[{}]{node }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00040}{40}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetestsqlite3_a74afed448b1665480f54c56b4d6da9e0}{process\_memberdef}}(node):}
+\DoxyCodeLine{00041     q=[]}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{for} chld \textcolor{keywordflow}{in} node.getchildren():}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{if} chld.tag == \textcolor{stringliteral}{"{}referencedby"{}}:}
+\DoxyCodeLine{00044             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{00045         \textcolor{keywordflow}{if} chld.tag == \textcolor{stringliteral}{"{}references"{}}:}
+\DoxyCodeLine{00046             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{00047         \textcolor{keywordflow}{if} chld.tag == \textcolor{stringliteral}{"{}param"{}}:}
+\DoxyCodeLine{00048             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{00049         \textcolor{keywordflow}{if} chld.tag == \textcolor{stringliteral}{"{}type"{}}:}
+\DoxyCodeLine{00050             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{00051         \textcolor{keywordflow}{if} chld.tag == \textcolor{stringliteral}{"{}location"{}}:}
+\DoxyCodeLine{00052             \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(chld,\textcolor{stringliteral}{"{}line"{}},q)}
+\DoxyCodeLine{00053             \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(chld,\textcolor{stringliteral}{"{}column"{}},q)}
+\DoxyCodeLine{00054             \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(chld,\textcolor{stringliteral}{"{}bodystart"{}},q)}
+\DoxyCodeLine{00055             \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(chld,\textcolor{stringliteral}{"{}bodyend"{}},q)}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057             q.append(\textcolor{stringliteral}{"{}id\_bodyfile=(select id from files where name=?)"{}})}
+\DoxyCodeLine{00058             val.append(chld.attrib[\textcolor{stringliteral}{"{}bodyfile"{}}])}
+\DoxyCodeLine{00059             chld.attrib.pop(\textcolor{stringliteral}{"{}bodyfile"{}})}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061             q.append(\textcolor{stringliteral}{"{}id\_file=(select id from files where name=?)"{}})}
+\DoxyCodeLine{00062             val.append(chld.attrib[\textcolor{stringliteral}{"{}file"{}}])}
+\DoxyCodeLine{00063             chld.attrib.pop(\textcolor{stringliteral}{"{}file"{}})}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065             \mbox{\hyperlink{namespacetestsqlite3_aa9f9b537c619feb5b453e1242642b380}{print\_unprocessed\_attributes}}(chld)}
+\DoxyCodeLine{00066             \textcolor{keywordflow}{if} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(chld.attrib) == 0:}
+\DoxyCodeLine{00067                 node.remove(chld)}
+\DoxyCodeLine{00068         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00069             \mbox{\hyperlink{namespacetestsqlite3_a4b69210c6c0cc8279e900d4895d4fa98}{extract\_element}}(node,chld,q)}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071     \textcolor{keywordflow}{for} chld \textcolor{keywordflow}{in} node.getchildren():}
+\DoxyCodeLine{00072         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}WARNING: '\%s' has unprocessed child elem '\%s'"{}} \% (node.tag,chld.tag))}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}kind"{}},q)}
+\DoxyCodeLine{00075     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}prot"{}},q)}
+\DoxyCodeLine{00076     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}static"{}},q)}
+\DoxyCodeLine{00077     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}mutable"{}},q)}
+\DoxyCodeLine{00078     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}const"{}},q)}
+\DoxyCodeLine{00079     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}virt"{}},q)}
+\DoxyCodeLine{00080     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}explicit"{}},q)}
+\DoxyCodeLine{00081     \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\_attribute}}(node,\textcolor{stringliteral}{"{}inline"{}},q)}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083     q.append(\textcolor{stringliteral}{"{}refid=?"{}})}
+\DoxyCodeLine{00084     val.append(node.attrib[\textcolor{stringliteral}{'id'}])}
+\DoxyCodeLine{00085     node.attrib.pop(\textcolor{stringliteral}{'id'})}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087     \mbox{\hyperlink{namespacetestsqlite3_aa9f9b537c619feb5b453e1242642b380}{print\_unprocessed\_attributes}}(node)}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089     query=\textcolor{stringliteral}{"{}SELECT * FROM memberdef WHERE \%s"{}} \% \textcolor{stringliteral}{"{} AND "{}}.\mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a27784840caff3a70e6dfa44f5341553b}{join}}(q)}
+\DoxyCodeLine{00090     r=[]}
+\DoxyCodeLine{00091     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00092         r = g\_conn.execute(query,val).fetchall()}
+\DoxyCodeLine{00093     except(sqlite3.OperationalError,e):}
+\DoxyCodeLine{00094         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}SQL\_ERROR:\%s"{}}\%e)}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096     del val[:]}
+\DoxyCodeLine{00097     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}(r) > 0:}
+\DoxyCodeLine{00098         \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print}}(\textcolor{stringliteral}{"{}TEST\_ERROR: Member not found in SQL DB"{}})}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100 }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacetestsqlite3_aa3b248d761e4febed7a6962dcfac7ebf}{extract\+\_\+attribute()}}, \mbox{\hyperlink{namespacetestsqlite3_a4b69210c6c0cc8279e900d4895d4fa98}{extract\+\_\+element()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_a27784840caff3a70e6dfa44f5341553b}{join()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{build_2doxygen_2src_2plantuml_8cpp_aaa383e6d12f58596fe30c0de9a8d82b1}{print()}}, and \mbox{\hyperlink{namespacetestsqlite3_aa9f9b537c619feb5b453e1242642b380}{print\+\_\+unprocessed\+\_\+attributes()}}.
+
+
+
+Referenced by \mbox{\hyperlink{namespacetestsqlite3_a81d7871803911754320674374384ed90}{load\+\_\+xml()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetestsqlite3_a8e888724f88a8a5e14814854881d3b62}\label{namespacetestsqlite3_a8e888724f88a8a5e14814854881d3b62}} 
+\index{testsqlite3@{testsqlite3}!g\_conn@{g\_conn}}
+\index{g\_conn@{g\_conn}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{g\_conn}{g\_conn}}
+{\footnotesize\ttfamily testsqlite3.\+g\+\_\+conn = None}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00012}{12}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+\mbox{\Hypertarget{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}\label{namespacetestsqlite3_aaf1f002c93e5808e18b0a59e3b1691d9}} 
+\index{testsqlite3@{testsqlite3}!val@{val}}
+\index{val@{val}!testsqlite3@{testsqlite3}}
+\doxysubsubsection{\texorpdfstring{val}{val}}
+{\footnotesize\ttfamily list testsqlite3.\+val = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source_l00013}{13}} of file \mbox{\hyperlink{build_2doxygen_2testing_2testsqlite3_8py_source}{testsqlite3.\+py}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_member_def_impl_a45ea6e3f3f15d35bf7f0fbbbaeffc826}{Member\+Def\+Impl.\+cache\+Typedef\+Val()}}, \mbox{\hyperlink{class_input_string_a293cb8ac915a6429adc4ff42df1f1e3a}{Input\+String.\+check\+Enum\+Val()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_ac191ad1786e980d514c4535505cf99d6}{check\+File\+Name()}}, \mbox{\hyperlink{class_v_h_d_l_outline_parser_a18ea453a7fdcb15b665135112de6ff06}{VHDLOutline\+Parser.\+check\+Inline\+Code()}}, \mbox{\hyperlink{build_2doxygen_2src_2configimpl_8l_a7b04c2a27074eeeccf2fadb03b80fc42}{convert\+String\+To\+Bool()}}, \mbox{\hyperlink{class_config_enum_acfbc67fa3f8d4968a69310624ae64ceb}{Config\+Enum.\+convert\+Str\+To\+Val()}}, \mbox{\hyperlink{class_config_int_ab951fd849425becf82506b4736ae6bbf}{Config\+Int.\+convert\+Str\+To\+Val()}}, \mbox{\hyperlink{class_c_p_p_value_ae973cc2789cb6245795c2e1887b658ab}{CPPValue.\+CPPValue()}}, \mbox{\hyperlink{class_filter_list_sort_afdfafc5be4ba71c2cb1749e1113be278}{Filter\+List\+Sort.\+determine\+Sort\+Key()}}, \mbox{\hyperlink{build_2doxygen_2src_2util_8cpp_aa33d444e6400c3a793bcd6f69e79fb33}{expand\+Alias\+Rec()}}, \mbox{\hyperlink{class_v_h_d_l_outline_parser_aefcc1d2dbf645f02721318d6026855a3}{VHDLOutline\+Parser.\+get\+Line()}}, \mbox{\hyperlink{build_2doxygen_2src_2htmldocvisitor_8cpp_aae7f2f75c9734a361d01219eb092830d}{holds\+\_\+value()}}, \mbox{\hyperlink{addon_2doxysearch_2doxysearch_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}}, \mbox{\hyperlink{class_r_t_f_doc_visitor_adc374c79a2895d83e349ffc76358209e}{RTFDoc\+Visitor.\+operator()()}}, \mbox{\hyperlink{class_latex_doc_visitor_aeabfb2614e026a7579c5dadeb5c328c3}{Latex\+Doc\+Visitor.\+operator()()}}, \mbox{\hyperlink{class_man_doc_visitor_aef0c0f7241f4095ca450dc4b56554a86}{Man\+Doc\+Visitor.\+operator()()}}, \mbox{\hyperlink{class_docbook_doc_visitor_ab3dc4aca49387c2801b733951162e52c}{Docbook\+Doc\+Visitor.\+operator()()}}, \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_a4e8e0fd1100eff385193ecad6e488cf7}{parse\+Binary()}}, \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_aaf83bb946f86a51dc6a6ece7cfb8e742}{parse\+Decimal()}}, \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_aab39c139578670ef7a53f073b76168e2}{parse\+Hexadecimal()}}, \mbox{\hyperlink{build_2doxygen_2src_2cppvalue_8cpp_af83ee648a93647134a0632a75ef296d0}{parse\+Octal()}}, \mbox{\hyperlink{class_v_h_d_l_outline_parser_aa6252fa90e33ae2f5a1a58b1ccf2c2f5}{VHDLOutline\+Parser.\+push\+Label()}}, \mbox{\hyperlink{class_image_a2cf00201a01a7abead6f33b923afd1ca}{Image.\+set\+Pixel()}}, \mbox{\hyperlink{classvhdl_1_1parser_1_1_char_stream_a12712c9866fb3495782fc0f28994d4d9}{vhdl\+::parser\+::\+Char\+Stream.\+set\+Track\+Line\+Column()}}, \mbox{\hyperlink{class_input_int_a4386dcb463dfa2448ff149151e28c1cf}{Input\+Int.\+set\+Value()}}, \mbox{\hyperlink{class_q_c_string_adcc23d02d312491717f846354404fd92}{QCString.\+to\+Long()}}, \mbox{\hyperlink{class_q_c_string_a09bcf9ec923139a3b26dd45c9b0b8341}{QCString.\+to\+UInt64()}}, \mbox{\hyperlink{class_q_c_string_a183b7ad64166a12bf3e0f21631b69d28}{QCString.\+to\+ULong()}}, \mbox{\hyperlink{classvhdl_1_1parser_1_1_vhdl_parser_a2e4c819dc6a446b3b78c20f3c073e5ef}{vhdl\+::parser\+::\+Vhdl\+Parser.\+variable\+\_\+declaration()}}, \mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_ad4fe7843fd0159f6b632aa41826132ec}{write\+LZ77data()}}, and \mbox{\hyperlink{class_flow_chart_a8dce4c5ff38314428145e71a788e5331}{Flow\+Chart.\+write\+Shape()}}.
+

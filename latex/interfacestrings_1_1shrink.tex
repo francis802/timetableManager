@@ -1,0 +1,184 @@
+\hypertarget{interfacestrings_1_1shrink}{}\doxysection{strings\+::shrink Interface Reference}
+\label{interfacestrings_1_1shrink}\index{strings::shrink@{strings::shrink}}
+
+
+Remove items from the end of the vector.  
+
+
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1shrink_a1e7360878c1b67365fa27cb3e41d9c0b}{shrink\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, count)
+\begin{DoxyCompactList}\small\item\em Shrinks a vector of Strings by removing items from the end. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{interfacestrings_1_1shrink_a1e7360878c1b67365fa27cb3e41d9c0b}{shrink\+\_\+}} (\mbox{\hyperlink{structvector}{vector}}, count)
+\begin{DoxyCompactList}\small\item\em Shrinks a vector of Strings by removing items from the end. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Remove items from the end of the vector. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00114}{114}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+
+\doxysubsection{Member Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{interfacestrings_1_1shrink_a1e7360878c1b67365fa27cb3e41d9c0b}\label{interfacestrings_1_1shrink_a1e7360878c1b67365fa27cb3e41d9c0b}} 
+\index{strings::shrink@{strings::shrink}!shrink\_@{shrink\_}}
+\index{shrink\_@{shrink\_}!strings::shrink@{strings::shrink}}
+\doxysubsubsection{\texorpdfstring{shrink\_()}{shrink\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine strings\+::shrink\+::shrink\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{integer, intent(in), optional}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Shrinks a vector of Strings by removing items from the end. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector to expand.\\
+\hline
+\mbox{\texttt{ in}}  & {\em count} & Optional number of items to shrink by. ~\newline
+ If not present, the vector is shrunk by one item. If negative, the vector will grow.\\
+\hline
+\end{DoxyParams}
+This is perhaps a more performance way of going\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structvector}{vector}} = \mbox{\hyperlink{structvector}{vector}}(:\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})-\/count)}
+
+\end{DoxyCode}
+
+
+though it handles some edge cases nicely too. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source_l00210}{210}} of file \mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00211     }
+\DoxyCodeLine{00212     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00213     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00214     }
+\DoxyCodeLine{00215     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00216     \textcolor{keywordtype}{INTEGER}, \textcolor{keywordtype}{INTENT(IN)}, \textcolor{keywordtype}{OPTIONAL} :: count}
+\DoxyCodeLine{00217     }
+\DoxyCodeLine{00218     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00219     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00220     }
+\DoxyCodeLine{00221     \textcolor{keywordtype}{INTEGER} :: local\_count    \textcolor{comment}{! Local copy of count}}
+\DoxyCodeLine{00222     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00223     }
+\DoxyCodeLine{00224     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00225     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00226     }
+\DoxyCodeLine{00227     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00228     }
+\DoxyCodeLine{00229     \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(count)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00230       local\_count = count}
+\DoxyCodeLine{00231     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00232       local\_count = 1}
+\DoxyCodeLine{00233 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00234     }
+\DoxyCodeLine{00235     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00236     }
+\DoxyCodeLine{00237     \textcolor{keywordflow}{IF} (local\_count < 0) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00238       \textcolor{keyword}{CALL }grow(\mbox{\hyperlink{structvector}{vector}}, local\_count)}
+\DoxyCodeLine{00239       \textcolor{keywordflow}{RETURN}}
+\DoxyCodeLine{00240 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00241     }
+\DoxyCodeLine{00242     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00243       \textcolor{comment}{! Vector is already empty -\/ leave it that way.}}
+\DoxyCodeLine{00244       \textcolor{keywordflow}{RETURN}}
+\DoxyCodeLine{00245     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00246       \textcolor{comment}{! Copy across existing items}}
+\DoxyCodeLine{00247       \textcolor{keyword}{ALLOCATE}(tmp(max(0,\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})-\/local\_count)))}
+\DoxyCodeLine{00248       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(tmp)}
+\DoxyCodeLine{00249         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00250 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00251 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00252     }
+\DoxyCodeLine{00253     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00254     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacestrings_1_1shrink_a1e7360878c1b67365fa27cb3e41d9c0b}\label{interfacestrings_1_1shrink_a1e7360878c1b67365fa27cb3e41d9c0b}} 
+\index{strings::shrink@{strings::shrink}!shrink\_@{shrink\_}}
+\index{shrink\_@{shrink\_}!strings::shrink@{strings::shrink}}
+\doxysubsubsection{\texorpdfstring{shrink\_()}{shrink\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine strings\+::shrink\+::shrink\+\_\+ (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structstrings_1_1string}{string}}), dimension(\+:), intent(inout), allocatable}]{vector,  }\item[{integer, intent(in), optional}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Shrinks a vector of Strings by removing items from the end. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vector} & The vector to expand.\\
+\hline
+\mbox{\texttt{ in}}  & {\em count} & Optional number of items to shrink by. ~\newline
+ If not present, the vector is shrunk by one item. If negative, the vector will grow.\\
+\hline
+\end{DoxyParams}
+This is perhaps a more performance way of going\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structvector}{vector}} = \mbox{\hyperlink{structvector}{vector}}(:\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})-\/count)}
+
+\end{DoxyCode}
+
+
+though it handles some edge cases nicely too. 
+
+Definition at line \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source_l00210}{210}} of file \mbox{\hyperlink{testing_2092__more__interfaces_8f90_source}{092\+\_\+more\+\_\+interfaces.\+f90}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00211     }
+\DoxyCodeLine{00212     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00213     \textcolor{comment}{! Arguments}}
+\DoxyCodeLine{00214     }
+\DoxyCodeLine{00215     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{INTENT(INOUT)}, \textcolor{keywordtype}{ALLOCATABLE} :: vector(:)}
+\DoxyCodeLine{00216     \textcolor{keywordtype}{INTEGER}, \textcolor{keywordtype}{INTENT(IN)}, \textcolor{keywordtype}{OPTIONAL} :: count}
+\DoxyCodeLine{00217     }
+\DoxyCodeLine{00218     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00219     \textcolor{comment}{! Local variables}}
+\DoxyCodeLine{00220     }
+\DoxyCodeLine{00221     \textcolor{keywordtype}{INTEGER} :: local\_count    \textcolor{comment}{! Local copy of count}}
+\DoxyCodeLine{00222     \textcolor{keywordtype}{INTEGER} :: i              \textcolor{comment}{! Vector index.}}
+\DoxyCodeLine{00223     }
+\DoxyCodeLine{00224     \textcolor{comment}{! Temporary for size change.}}
+\DoxyCodeLine{00225     \textcolor{keywordtype}{TYPE}(String), \textcolor{keywordtype}{ALLOCATABLE} :: tmp(:)}
+\DoxyCodeLine{00226     }
+\DoxyCodeLine{00227     \textcolor{comment}{!***************************************************************************}}
+\DoxyCodeLine{00228     }
+\DoxyCodeLine{00229     \textcolor{keywordflow}{IF} (\textcolor{keyword}{PRESENT}(count)) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00230       local\_count = count}
+\DoxyCodeLine{00231     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00232       local\_count = 1}
+\DoxyCodeLine{00233 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00234     }
+\DoxyCodeLine{00235     \textcolor{comment}{!-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00236     }
+\DoxyCodeLine{00237     \textcolor{keywordflow}{IF} (local\_count < 0) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00238       \textcolor{keyword}{CALL }grow(\mbox{\hyperlink{structvector}{vector}}, local\_count)}
+\DoxyCodeLine{00239       \textcolor{keywordflow}{RETURN}}
+\DoxyCodeLine{00240 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00241     }
+\DoxyCodeLine{00242     \textcolor{keywordflow}{IF} (.NOT. \textcolor{keyword}{ALLOCATED}(\mbox{\hyperlink{structvector}{vector}})) \textcolor{keywordflow}{THEN}}
+\DoxyCodeLine{00243       \textcolor{comment}{! Vector is already empty -\/ leave it that way.}}
+\DoxyCodeLine{00244       \textcolor{keywordflow}{RETURN}}
+\DoxyCodeLine{00245     \textcolor{keywordflow}{ELSE}}
+\DoxyCodeLine{00246       \textcolor{comment}{! Copy across existing items}}
+\DoxyCodeLine{00247       \textcolor{keyword}{ALLOCATE}(tmp(max(0,\textcolor{keyword}{SIZE}(\mbox{\hyperlink{structvector}{vector}})-\/local\_count)))}
+\DoxyCodeLine{00248       \textcolor{keywordflow}{DO} i = 1, \textcolor{keyword}{SIZE}(tmp)}
+\DoxyCodeLine{00249         \textcolor{keyword}{CALL }move\_alloc(\mbox{\hyperlink{structvector}{vector}}(i)\%item, tmp(i)\%item)}
+\DoxyCodeLine{00250 \textcolor{keywordflow}{      END DO}}
+\DoxyCodeLine{00251 \textcolor{keywordflow}{    END IF}}
+\DoxyCodeLine{00252     }
+\DoxyCodeLine{00253     \textcolor{keyword}{CALL }move\_alloc(tmp, \mbox{\hyperlink{structvector}{vector}})}
+\DoxyCodeLine{00254     }
+
+\end{DoxyCode}
+
+
+The documentation for this interface was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/testing/\mbox{\hyperlink{build_2doxygen_2testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\item 
+doxygen/testing/\mbox{\hyperlink{testing_2092__more__interfaces_8f90}{092\+\_\+more\+\_\+interfaces.\+f90}}\end{DoxyCompactItemize}

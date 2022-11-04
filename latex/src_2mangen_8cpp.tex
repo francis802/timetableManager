@@ -1,0 +1,162 @@
+\hypertarget{src_2mangen_8cpp}{}\doxysection{doxygen/src/mangen.cpp File Reference}
+\label{src_2mangen_8cpp}\index{doxygen/src/mangen.cpp@{doxygen/src/mangen.cpp}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mangen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mandocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2mangen_8cpp_ad3269d7d65675a5e83889f4a98f5610b}{get\+Extension}} ()
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2mangen_8cpp_a5ea636b28660e85fc0dc3b8d9b6daf2c}{get\+Subdir}} ()
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{src_2mangen_8cpp_af6acf966d7ed7500f4ab36fbdce70db0}{build\+File\+Name}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2mangen_8cpp_af6acf966d7ed7500f4ab36fbdce70db0}\label{src_2mangen_8cpp_af6acf966d7ed7500f4ab36fbdce70db0}} 
+\index{mangen.cpp@{mangen.cpp}!buildFileName@{buildFileName}}
+\index{buildFileName@{buildFileName}!mangen.cpp@{mangen.cpp}}
+\doxysubsubsection{\texorpdfstring{buildFileName()}{buildFileName()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} build\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2mangen_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{src_2mangen_8cpp_source}{mangen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126 \{}
+\DoxyCodeLine{00127   \mbox{\hyperlink{class_q_c_string}{QCString}} fileName;}
+\DoxyCodeLine{00128   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.isEmpty()) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}noname"{}};}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}=\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}.data();}
+\DoxyCodeLine{00131   \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00132   \textcolor{keywordflow}{while} ((\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}=*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++))}
+\DoxyCodeLine{00133   \{}
+\DoxyCodeLine{00134     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})}
+\DoxyCodeLine{00135     \{}
+\DoxyCodeLine{00136       \textcolor{keywordflow}{case} \textcolor{charliteral}{':'}:}
+\DoxyCodeLine{00137         fileName+=\textcolor{stringliteral}{"{}\_"{}};}
+\DoxyCodeLine{00138         \textcolor{keywordflow}{if} (*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}==\textcolor{charliteral}{':'}) \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}++;}
+\DoxyCodeLine{00139         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00140       \textcolor{keywordflow}{case} \textcolor{charliteral}{'<'}:}
+\DoxyCodeLine{00141       \textcolor{keywordflow}{case} \textcolor{charliteral}{'>'}:}
+\DoxyCodeLine{00142       \textcolor{keywordflow}{case} \textcolor{charliteral}{'\&'}:}
+\DoxyCodeLine{00143       \textcolor{keywordflow}{case} \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{00144       \textcolor{keywordflow}{case} \textcolor{charliteral}{'!'}:}
+\DoxyCodeLine{00145       \textcolor{keywordflow}{case} \textcolor{charliteral}{'\string^'}:}
+\DoxyCodeLine{00146       \textcolor{keywordflow}{case} \textcolor{charliteral}{'\string~'}:}
+\DoxyCodeLine{00147       \textcolor{keywordflow}{case} \textcolor{charliteral}{'\%'}:}
+\DoxyCodeLine{00148       \textcolor{keywordflow}{case} \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{00149       \textcolor{keywordflow}{case} \textcolor{charliteral}{'/'}:}
+\DoxyCodeLine{00150         fileName+=\textcolor{stringliteral}{"{}\_"{}};}
+\DoxyCodeLine{00151         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00152       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00153         fileName+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00154     \}}
+\DoxyCodeLine{00155   \}}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157   \mbox{\hyperlink{class_q_c_string}{QCString}} manExtension = \textcolor{stringliteral}{"{}."{}} + \mbox{\hyperlink{src_2mangen_8cpp_ad3269d7d65675a5e83889f4a98f5610b}{getExtension}}();}
+\DoxyCodeLine{00158   \textcolor{keywordflow}{if} (fileName.\mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{right}}(manExtension.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}())!=manExtension)}
+\DoxyCodeLine{00159   \{}
+\DoxyCodeLine{00160     fileName+=manExtension;}
+\DoxyCodeLine{00161   \}}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163   \textcolor{keywordflow}{return} fileName;}
+\DoxyCodeLine{00164 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{src_2mangen_8cpp_ad3269d7d65675a5e83889f4a98f5610b}{get\+Extension()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, and \mbox{\hyperlink{class_q_c_string_a8f4aa5417f6a834f28c7148a1fe262d5}{QCString\+::right()}}.
+
+\mbox{\Hypertarget{src_2mangen_8cpp_ad3269d7d65675a5e83889f4a98f5610b}\label{src_2mangen_8cpp_ad3269d7d65675a5e83889f4a98f5610b}} 
+\index{mangen.cpp@{mangen.cpp}!getExtension@{getExtension}}
+\index{getExtension@{getExtension}!mangen.cpp@{mangen.cpp}}
+\doxysubsubsection{\texorpdfstring{getExtension()}{getExtension()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} get\+Extension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2mangen_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{src_2mangen_8cpp_source}{mangen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036 \{}
+\DoxyCodeLine{00037   \textcolor{comment}{/*}}
+\DoxyCodeLine{00038 \textcolor{comment}{   * [.][number][rest]}}
+\DoxyCodeLine{00039 \textcolor{comment}{   * in case of . missing, just ignore it}}
+\DoxyCodeLine{00040 \textcolor{comment}{   * in case number missing, just place a 3 in front of it}}
+\DoxyCodeLine{00041 \textcolor{comment}{   */}}
+\DoxyCodeLine{00042   \mbox{\hyperlink{class_q_c_string}{QCString}} ext = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(MAN\_EXTENSION);}
+\DoxyCodeLine{00043   \textcolor{keywordflow}{if} (ext.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00044   \{}
+\DoxyCodeLine{00045     ext = \textcolor{stringliteral}{"{}3"{}};}
+\DoxyCodeLine{00046   \}}
+\DoxyCodeLine{00047   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00048   \{}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{if} (ext.\mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(0)==\textcolor{charliteral}{'.'})}
+\DoxyCodeLine{00050     \{}
+\DoxyCodeLine{00051       \textcolor{keywordflow}{if} (ext.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}()==1)}
+\DoxyCodeLine{00052       \{}
+\DoxyCodeLine{00053         ext = \textcolor{stringliteral}{"{}3"{}};}
+\DoxyCodeLine{00054       \}}
+\DoxyCodeLine{00055       \textcolor{keywordflow}{else} \textcolor{comment}{// strip .}}
+\DoxyCodeLine{00056       \{}
+\DoxyCodeLine{00057         ext = ext.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(1);}
+\DoxyCodeLine{00058       \}}
+\DoxyCodeLine{00059     \}}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{if} (ext.\mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(0)<\textcolor{charliteral}{'0'} || ext.\mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(0)>\textcolor{charliteral}{'9'})}
+\DoxyCodeLine{00061     \{}
+\DoxyCodeLine{00062       ext.\mbox{\hyperlink{class_q_c_string_a0a6a8fe99e596b149ee15138fa8dcf0c}{prepend}}(\textcolor{stringliteral}{"{}3"{}});}
+\DoxyCodeLine{00063     \}}
+\DoxyCodeLine{00064   \}}
+\DoxyCodeLine{00065   \textcolor{keywordflow}{return} ext;}
+\DoxyCodeLine{00066 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_a4c8be5d062cc14919b53ff0a3c8f9a4f}{QCString\+::at()}}, \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, \mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{QCString\+::mid()}}, and \mbox{\hyperlink{class_q_c_string_a0a6a8fe99e596b149ee15138fa8dcf0c}{QCString\+::prepend()}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2mangen_8cpp_af6acf966d7ed7500f4ab36fbdce70db0}{build\+File\+Name()}}, and \mbox{\hyperlink{src_2mangen_8cpp_a5ea636b28660e85fc0dc3b8d9b6daf2c}{get\+Subdir()}}.
+
+\mbox{\Hypertarget{src_2mangen_8cpp_a5ea636b28660e85fc0dc3b8d9b6daf2c}\label{src_2mangen_8cpp_a5ea636b28660e85fc0dc3b8d9b6daf2c}} 
+\index{mangen.cpp@{mangen.cpp}!getSubdir@{getSubdir}}
+\index{getSubdir@{getSubdir}!mangen.cpp@{mangen.cpp}}
+\doxysubsubsection{\texorpdfstring{getSubdir()}{getSubdir()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} get\+Subdir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2mangen_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{src_2mangen_8cpp_source}{mangen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069 \{}
+\DoxyCodeLine{00070   \mbox{\hyperlink{class_q_c_string}{QCString}} dir = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(MAN\_SUBDIR);}
+\DoxyCodeLine{00071   \textcolor{keywordflow}{if} (dir.\mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}())}
+\DoxyCodeLine{00072   \{}
+\DoxyCodeLine{00073     dir = \textcolor{stringliteral}{"{}man"{}} + \mbox{\hyperlink{src_2mangen_8cpp_ad3269d7d65675a5e83889f4a98f5610b}{getExtension}}();}
+\DoxyCodeLine{00074   \}}
+\DoxyCodeLine{00075   \textcolor{keywordflow}{return} dir;}
+\DoxyCodeLine{00076 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String}}, \mbox{\hyperlink{src_2mangen_8cpp_ad3269d7d65675a5e83889f4a98f5610b}{get\+Extension()}}, and \mbox{\hyperlink{class_q_c_string_a621c4090d69ad7d05ef8e5234376c3d8}{QCString\+::is\+Empty()}}.
+

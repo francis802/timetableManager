@@ -1,0 +1,56 @@
+\hypertarget{build_2doxygen_2src_2dotclassgraph_8cpp}{}\doxysection{doxygen/build/doxygen/src/dotclassgraph.cpp File Reference}
+\label{build_2doxygen_2src_2dotclassgraph_8cpp}\index{doxygen/build/doxygen/src/dotclassgraph.cpp@{doxygen/build/doxygen/src/dotclassgraph.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}containers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotclassgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotnode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}textstream.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2dotclassgraph_8cpp_a9b738281c92e78cd8587d510108f1556}{join\+Labels}} (const \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{String\+Set}} \&ss)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2dotclassgraph_8cpp_a9b738281c92e78cd8587d510108f1556}\label{build_2doxygen_2src_2dotclassgraph_8cpp_a9b738281c92e78cd8587d510108f1556}} 
+\index{dotclassgraph.cpp@{dotclassgraph.cpp}!joinLabels@{joinLabels}}
+\index{joinLabels@{joinLabels}!dotclassgraph.cpp@{dotclassgraph.cpp}}
+\doxysubsubsection{\texorpdfstring{joinLabels()}{joinLabels()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} join\+Labels (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{build_2doxygen_2src_2containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{String\+Set}} \&}]{ss }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2dotclassgraph_8cpp_source_l00230}{230}} of file \mbox{\hyperlink{build_2doxygen_2src_2dotclassgraph_8cpp_source}{dotclassgraph.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00231 \{}
+\DoxyCodeLine{00232   \mbox{\hyperlink{class_q_c_string}{QCString}} label;}
+\DoxyCodeLine{00233   \textcolor{keywordtype}{int} count=1;}
+\DoxyCodeLine{00234   \textcolor{keywordtype}{int} maxLabels=10;}
+\DoxyCodeLine{00235   \textcolor{keyword}{auto} it = \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{std::begin}}(ss), \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}} = \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{std::end}}(ss);}
+\DoxyCodeLine{00236   \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}) \textcolor{comment}{// set not empty}}
+\DoxyCodeLine{00237   \{}
+\DoxyCodeLine{00238     label += (*it++).c\_str();}
+\DoxyCodeLine{00239     \textcolor{keywordflow}{for} (; it!=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}} \&\& count < maxLabels ; ++it,++count)}
+\DoxyCodeLine{00240     \{}
+\DoxyCodeLine{00241       label += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00242       label += (*it).c\_str();}
+\DoxyCodeLine{00243     \}}
+\DoxyCodeLine{00244     \textcolor{keywordflow}{if} (count==maxLabels) label+=\textcolor{stringliteral}{"{}\(\backslash\)n..."{}};}
+\DoxyCodeLine{00245   \}}
+\DoxyCodeLine{00246   \textcolor{keywordflow}{return} label;}
+\DoxyCodeLine{00247 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespaceghc_1_1filesystem_a5f795790830f15b8959bdf1af7b2dbad}{ghc\+::filesystem\+::begin()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_abe319c426eff62b76ddf28e9a9c984df}{e}}, and \mbox{\hyperlink{namespaceghc_1_1filesystem_a63487ee6c6fdcf0f985d8d6464df0528}{ghc\+::filesystem\+::end()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_dot_class_graph_acda218b5772f482d137ab17020b96431}{Dot\+Class\+Graph\+::build\+Graph()}}.
+

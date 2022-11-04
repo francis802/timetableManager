@@ -1,0 +1,92 @@
+\hypertarget{build_2doxygen_2src_2tooltip_8cpp}{}\doxysection{doxygen/build/doxygen/src/tooltip.cpp File Reference}
+\label{build_2doxygen_2src_2tooltip_8cpp}\index{doxygen/build/doxygen/src/tooltip.cpp@{doxygen/build/doxygen/src/tooltip.cpp}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include \char`\"{}tooltip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definition.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_tooltip_manager_1_1_private}{Tooltip\+Manager\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_a618f6f860ec6268437b3e44d313d1f87}{escape\+Id}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::mutex \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_ac39140b7246324a2c16d63034cb3b73a}{g\+\_\+tooltips\+Mutex}}
+\item 
+static std\+::unordered\+\_\+map$<$ int, std\+::set$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} $>$ $>$ \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_a1b6ee15a2d73a3a68f4a9a8e9369d1a2}{g\+\_\+tooltips\+Written\+Per\+File}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2tooltip_8cpp_a618f6f860ec6268437b3e44d313d1f87}\label{build_2doxygen_2src_2tooltip_8cpp_a618f6f860ec6268437b3e44d313d1f87}} 
+\index{tooltip.cpp@{tooltip.cpp}!escapeId@{escapeId}}
+\index{escapeId@{escapeId}!tooltip.cpp@{tooltip.cpp}}
+\doxysubsubsection{\texorpdfstring{escapeId()}{escapeId()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} escape\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_source}{tooltip.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00049   \mbox{\hyperlink{class_q_c_string}{QCString}} res=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{00050   \textcolor{keywordflow}{for} (\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} i=0;i<res.\mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{length}}();i++) \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2src_2util_8h_ae320c88a8522836f00095d566529046f}{isId}}(res[i])) res[i]=\textcolor{charliteral}{'\_'};}
+\DoxyCodeLine{00051   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2util_8h_ae320c88a8522836f00095d566529046f}{is\+Id()}}, \mbox{\hyperlink{class_q_c_string_ac52596733e9110b778019946d73fb268}{QCString\+::length()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_tooltip_manager_a9c55ca469f6c0fc6cbea4bcbf96aef92}{Tooltip\+Manager\+::add\+Tooltip()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2tooltip_8cpp_ac39140b7246324a2c16d63034cb3b73a}\label{build_2doxygen_2src_2tooltip_8cpp_ac39140b7246324a2c16d63034cb3b73a}} 
+\index{tooltip.cpp@{tooltip.cpp}!g\_tooltipsMutex@{g\_tooltipsMutex}}
+\index{g\_tooltipsMutex@{g\_tooltipsMutex}!tooltip.cpp@{tooltip.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_tooltipsMutex}{g\_tooltipsMutex}}
+{\footnotesize\ttfamily std\+::mutex g\+\_\+tooltips\+Mutex\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_source}{tooltip.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_tooltip_manager_a48d73e6c7d74b366a7370df036846a51}{Tooltip\+Manager\+::write\+Tooltips()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2tooltip_8cpp_a1b6ee15a2d73a3a68f4a9a8e9369d1a2}\label{build_2doxygen_2src_2tooltip_8cpp_a1b6ee15a2d73a3a68f4a9a8e9369d1a2}} 
+\index{tooltip.cpp@{tooltip.cpp}!g\_tooltipsWrittenPerFile@{g\_tooltipsWrittenPerFile}}
+\index{g\_tooltipsWrittenPerFile@{g\_tooltipsWrittenPerFile}!tooltip.cpp@{tooltip.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_tooltipsWrittenPerFile}{g\_tooltipsWrittenPerFile}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$int, std\+::set$<$\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}$>$ $>$ g\+\_\+tooltips\+Written\+Per\+File\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{build_2doxygen_2src_2tooltip_8cpp_source}{tooltip.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_tooltip_manager_a48d73e6c7d74b366a7370df036846a51}{Tooltip\+Manager\+::write\+Tooltips()}}.
+

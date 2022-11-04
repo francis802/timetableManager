@@ -1,0 +1,476 @@
+\hypertarget{src_2utf8_8cpp}{}\doxysection{doxygen/src/utf8.cpp File Reference}
+\label{src_2utf8_8cpp}\index{doxygen/src/utf8.cpp@{doxygen/src/utf8.cpp}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}utf8.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}caseconvert.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}textstream.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{get\+UTF8\+Char\+Num\+Bytes}} (char \mbox{\hyperlink{libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}})
+\item 
+static uint32\+\_\+t \mbox{\hyperlink{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\+\_\+utf8}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_a735984d41155bc1032e09bece8f8d66d}{data}}, int num\+Bytes) noexcept
+\item 
+static uint32\+\_\+t \mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convert\+UTF8\+Char\+To\+Unicode}} (const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, size\+\_\+t bytes\+Left, int \&\mbox{\hyperlink{libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}})
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{get\+UTF8\+Char\+At}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&input, size\+\_\+t pos)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{src_2utf8_8cpp_a83a5739b379d70400986a723aefd42b0}{get\+Unicode\+For\+UTF8\+Char\+At}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&input, size\+\_\+t pos)
+\item 
+static char \mbox{\hyperlink{src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}{ascii\+To\+Lower}} (uint32\+\_\+t code)
+\item 
+static char \mbox{\hyperlink{src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}{ascii\+To\+Upper}} (uint32\+\_\+t code)
+\item 
+static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{case\+Convert}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&input, char($\ast$ascii\+Conversion\+Func)(uint32\+\_\+t code), const char $\ast$($\ast$conversion\+Func)(uint32\+\_\+t code))
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{src_2utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{convert\+UTF8\+To\+Lower}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&input)
+\item 
+\mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \mbox{\hyperlink{src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convert\+UTF8\+To\+Upper}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&input)
+\item 
+const char $\ast$ \mbox{\hyperlink{src_2utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}{write\+UTF8\+Char}} (\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&t, const char $\ast$\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+bool \mbox{\hyperlink{src_2utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}{last\+UTF8\+Char\+Is\+Multibyte}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&input)
+\item 
+bool \mbox{\hyperlink{src_2utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}{is\+UTF8\+Char\+Upper\+Case}} (const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&input, size\+\_\+t pos)
+\item 
+int \mbox{\hyperlink{src_2utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}{is\+UTF8\+Non\+Breakable\+Space}} (const char $\ast$input)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}\label{src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}} 
+\index{utf8.cpp@{utf8.cpp}!asciiToLower@{asciiToLower}}
+\index{asciiToLower@{asciiToLower}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{asciiToLower()}{asciiToLower()}}
+{\footnotesize\ttfamily static char ascii\+To\+Lower (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00142}{142}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143 \{}
+\DoxyCodeLine{00144   \textcolor{keywordflow}{return} code>=\textcolor{charliteral}{'A'} \&\& code<='Z' ? static\_cast<char>(code+\textcolor{charliteral}{'a'}-\/\textcolor{charliteral}{'A'}) : static\_cast<char>(code);}
+\DoxyCodeLine{00145 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{src_2utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{convert\+UTF8\+To\+Lower()}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}\label{src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}} 
+\index{utf8.cpp@{utf8.cpp}!asciiToUpper@{asciiToUpper}}
+\index{asciiToUpper@{asciiToUpper}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{asciiToUpper()}{asciiToUpper()}}
+{\footnotesize\ttfamily static char ascii\+To\+Upper (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00147}{147}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148 \{}
+\DoxyCodeLine{00149   \textcolor{keywordflow}{return} code>=\textcolor{charliteral}{'a'} \&\& code<='z' ? static\_cast<char>(code+\textcolor{charliteral}{'A'}-\/\textcolor{charliteral}{'a'}) : static\_cast<char>(code);}
+\DoxyCodeLine{00150 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convert\+UTF8\+To\+Upper()}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}\label{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}} 
+\index{utf8.cpp@{utf8.cpp}!caseConvert@{caseConvert}}
+\index{caseConvert@{caseConvert}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{caseConvert()}{caseConvert()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} case\+Convert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{input,  }\item[{char($\ast$)(uint32\+\_\+t code)}]{ascii\+Conversion\+Func,  }\item[{const char $\ast$($\ast$)(uint32\+\_\+t code)}]{conversion\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00152}{152}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155 \{}
+\DoxyCodeLine{00156   uint32\_t code;}
+\DoxyCodeLine{00157   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} result;}
+\DoxyCodeLine{00158   result.reserve(input.length()); \textcolor{comment}{// assume all ASCII characters}}
+\DoxyCodeLine{00159   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{00160   \textcolor{keywordtype}{size\_t} bytesLeft = input.length();}
+\DoxyCodeLine{00161   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}} = input.c\_str();}
+\DoxyCodeLine{00162   \textcolor{keywordflow}{while} ((code=\mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convertUTF8CharToUnicode}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}},bytesLeft,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}})))}
+\DoxyCodeLine{00163   \{}
+\DoxyCodeLine{00164     \textcolor{keywordflow}{if} (code<128) \textcolor{comment}{// ASCII case}}
+\DoxyCodeLine{00165     \{}
+\DoxyCodeLine{00166       \textcolor{keywordtype}{char} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}} = asciiConversionFunc(code);}
+\DoxyCodeLine{00167       result+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}};}
+\DoxyCodeLine{00168     \}}
+\DoxyCodeLine{00169     \textcolor{keywordflow}{else} \textcolor{comment}{// generic case}}
+\DoxyCodeLine{00170     \{}
+\DoxyCodeLine{00171       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *conv = conversionFunc(code);}
+\DoxyCodeLine{00172       \textcolor{keywordflow}{if} (conv==\textcolor{keyword}{nullptr}) \textcolor{comment}{// no difference between lower and upper case}}
+\DoxyCodeLine{00173       \{}
+\DoxyCodeLine{00174         result.append(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00175       \}}
+\DoxyCodeLine{00176       \textcolor{keywordflow}{else} \textcolor{comment}{// replace the input character with the conversion result}}
+\DoxyCodeLine{00177       \{}
+\DoxyCodeLine{00178         result.append(conv);}
+\DoxyCodeLine{00179       \}}
+\DoxyCodeLine{00180     \}}
+\DoxyCodeLine{00181     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}+=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{00182     bytesLeft-\/=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{00183   \}}
+\DoxyCodeLine{00184   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00185 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}, \mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convert\+UTF8\+Char\+To\+Unicode()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab5a2e47807ddbc8459ae782c1274e78b}{p}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{convert\+UTF8\+To\+Lower()}}, and \mbox{\hyperlink{src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convert\+UTF8\+To\+Upper()}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}\label{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}} 
+\index{utf8.cpp@{utf8.cpp}!convertUTF8CharToUnicode@{convertUTF8CharToUnicode}}
+\index{convertUTF8CharToUnicode@{convertUTF8CharToUnicode}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{convertUTF8CharToUnicode()}{convertUTF8CharToUnicode()}}
+{\footnotesize\ttfamily static uint32\+\_\+t convert\+UTF8\+Char\+To\+Unicode (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{size\+\_\+t}]{bytes\+Left,  }\item[{int \&}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070 \{}
+\DoxyCodeLine{00071   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==0 || bytesLeft==0)}
+\DoxyCodeLine{00072   \{}
+\DoxyCodeLine{00073     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=0;}
+\DoxyCodeLine{00074     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00075   \}}
+\DoxyCodeLine{00076   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} uc = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(*s);}
+\DoxyCodeLine{00077   \textcolor{keywordflow}{if} (uc<128) \textcolor{comment}{// ASCII case}}
+\DoxyCodeLine{00078   \{}
+\DoxyCodeLine{00079     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=1;}
+\DoxyCodeLine{00080     \textcolor{keywordflow}{return} uc;}
+\DoxyCodeLine{00081   \}}
+\DoxyCodeLine{00082   \textcolor{keywordflow}{switch} (bytesLeft)}
+\DoxyCodeLine{00083   \{}
+\DoxyCodeLine{00084     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00085       \textcolor{keywordflow}{if} ((uc\&0xFEu)==0xFCu)\textcolor{comment}{// 1111110X six bytes}}
+\DoxyCodeLine{00086       \{}
+\DoxyCodeLine{00087         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=6;}
+\DoxyCodeLine{00088         \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00089       \}}
+\DoxyCodeLine{00090       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00091     \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00092       \textcolor{keywordflow}{if} ((uc\&0xFCu)==0xF8u) \textcolor{comment}{// 111110XX five bytes}}
+\DoxyCodeLine{00093       \{}
+\DoxyCodeLine{00094         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=5;}
+\DoxyCodeLine{00095         \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00096       \}}
+\DoxyCodeLine{00097       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00099       \textcolor{keywordflow}{if} ((uc\&0xF8u)==0xF0u) \textcolor{comment}{// 11110XXX four bytes}}
+\DoxyCodeLine{00100       \{}
+\DoxyCodeLine{00101         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=4;}
+\DoxyCodeLine{00102         \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00103       \}}
+\DoxyCodeLine{00104       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00105     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00106       \textcolor{keywordflow}{if} ((uc\&0xF0u)==0xE0u) \textcolor{comment}{// 1110XXXX three bytes}}
+\DoxyCodeLine{00107       \{}
+\DoxyCodeLine{00108         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=3;}
+\DoxyCodeLine{00109         \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00110       \}}
+\DoxyCodeLine{00111       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00112     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00113       \textcolor{keywordflow}{if} ((uc\&0xE0u)==0xC0u) \textcolor{comment}{// 110XXXXX two bytes}}
+\DoxyCodeLine{00114       \{}
+\DoxyCodeLine{00115         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=2;}
+\DoxyCodeLine{00116         \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\_utf8}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00117       \}}
+\DoxyCodeLine{00118       \textcolor{comment}{// fall through}}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00120       \{}
+\DoxyCodeLine{00121         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=1;}
+\DoxyCodeLine{00122         \textcolor{keywordflow}{return} uc;}
+\DoxyCodeLine{00123       \}}
+\DoxyCodeLine{00124   \}}
+\DoxyCodeLine{00125 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}{decode\+\_\+utf8()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{case\+Convert()}}, \mbox{\hyperlink{src_2utf8_8cpp_a83a5739b379d70400986a723aefd42b0}{get\+Unicode\+For\+UTF8\+Char\+At()}}, and \mbox{\hyperlink{src_2utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}{is\+UTF8\+Char\+Upper\+Case()}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}\label{src_2utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}} 
+\index{utf8.cpp@{utf8.cpp}!convertUTF8ToLower@{convertUTF8ToLower}}
+\index{convertUTF8ToLower@{convertUTF8ToLower}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{convertUTF8ToLower()}{convertUTF8ToLower()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} convert\+UTF8\+To\+Lower (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{input }\end{DoxyParamCaption})}
+
+Converts the input string into a lower case version, also taking into account non-\/\+ASCII characters that has a lower case variant. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00187}{187}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188 \{}
+\DoxyCodeLine{00189   \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{caseConvert}}(input,\mbox{\hyperlink{src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}{asciiToLower}},\mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a639df87d0846c7b6b01b931a51f06df2}{convertUnicodeToLower}});}
+\DoxyCodeLine{00190 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2utf8_8cpp_a28d834f2d420c5a850aa095413d0d4b5}{ascii\+To\+Lower()}}, \mbox{\hyperlink{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{case\+Convert()}}, and \mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a639df87d0846c7b6b01b931a51f06df2}{convert\+Unicode\+To\+Lower()}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}\label{src_2utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}} 
+\index{utf8.cpp@{utf8.cpp}!convertUTF8ToUpper@{convertUTF8ToUpper}}
+\index{convertUTF8ToUpper@{convertUTF8ToUpper}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{convertUTF8ToUpper()}{convertUTF8ToUpper()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} convert\+UTF8\+To\+Upper (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{input }\end{DoxyParamCaption})}
+
+Converts the input string into a upper case version, also taking into account non-\/\+ASCII characters that has a upper case variant. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193 \{}
+\DoxyCodeLine{00194   \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{caseConvert}}(input,\mbox{\hyperlink{src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}{asciiToUpper}},\mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a45451c516f2c29857ee914a24f0d098a}{convertUnicodeToUpper}});}
+\DoxyCodeLine{00195 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2utf8_8cpp_a6f2cbdfe21c54dae5ec48e71d7009c4d}{ascii\+To\+Upper()}}, \mbox{\hyperlink{src_2utf8_8cpp_a7cbb154918671e6150695e6ea1bbcf6e}{case\+Convert()}}, and \mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a45451c516f2c29857ee914a24f0d098a}{convert\+Unicode\+To\+Upper()}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}\label{src_2utf8_8cpp_a623576f190ae0899718fedadfd1342a8}} 
+\index{utf8.cpp@{utf8.cpp}!decode\_utf8@{decode\_utf8}}
+\index{decode\_utf8@{decode\_utf8}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{decode\_utf8()}{decode\_utf8()}}
+{\footnotesize\ttfamily static uint32\+\_\+t decode\+\_\+utf8 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data,  }\item[{int}]{num\+Bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Decodes a given input of utf8 data to a unicode code point given the number of bytes it\textquotesingle{}s made of 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056 \{}
+\DoxyCodeLine{00057   uint32\_t cp = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(*data);}
+\DoxyCodeLine{00058   \textcolor{keywordflow}{if} (numBytes>1)}
+\DoxyCodeLine{00059   \{}
+\DoxyCodeLine{00060     cp \&= 0x7F >> numBytes; \textcolor{comment}{// Mask out the header bits}}
+\DoxyCodeLine{00061     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=1 ; i<numBytes ; i++)}
+\DoxyCodeLine{00062     \{}
+\DoxyCodeLine{00063       cp = (cp<<6) | (static\_cast<unsigned char>(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}[i])\&0x3F);}
+\DoxyCodeLine{00064     \}}
+\DoxyCodeLine{00065   \}}
+\DoxyCodeLine{00066   \textcolor{keywordflow}{return} cp;}
+\DoxyCodeLine{00067 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ac5c5967f62e5c3601479be651a8ed76c}{data}}.
+
+
+
+Referenced by \mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convert\+UTF8\+Char\+To\+Unicode()}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a83a5739b379d70400986a723aefd42b0}\label{src_2utf8_8cpp_a83a5739b379d70400986a723aefd42b0}} 
+\index{utf8.cpp@{utf8.cpp}!getUnicodeForUTF8CharAt@{getUnicodeForUTF8CharAt}}
+\index{getUnicodeForUTF8CharAt@{getUnicodeForUTF8CharAt}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{getUnicodeForUTF8CharAt()}{getUnicodeForUTF8CharAt()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+Unicode\+For\+UTF8\+Char\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{input,  }\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Returns the 32bit Unicode value matching character at byte position pos in the UTF8 encoded input. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136 \{}
+\DoxyCodeLine{00137   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} charS = \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{getUTF8CharAt}}(input,pos);}
+\DoxyCodeLine{00138   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{00139   \textcolor{keywordflow}{return} \mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convertUTF8CharToUnicode}}(charS.c\_str(),charS.length(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00140 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convert\+UTF8\+Char\+To\+Unicode()}}, \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{get\+UTF8\+Char\+At()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}\label{src_2utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}} 
+\index{utf8.cpp@{utf8.cpp}!getUTF8CharAt@{getUTF8CharAt}}
+\index{getUTF8CharAt@{getUTF8CharAt}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{getUTF8CharAt()}{getUTF8CharAt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} get\+UTF8\+Char\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{input,  }\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Returns the UTF8 character found at byte position pos in the input string. The resulting string can be a multi byte sequence. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128 \{}
+\DoxyCodeLine{00129   \textcolor{keywordflow}{if} (input.length()<=pos) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}();}
+\DoxyCodeLine{00130   \textcolor{keywordtype}{int} numBytes=\mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{getUTF8CharNumBytes}}(input[pos]);}
+\DoxyCodeLine{00131   \textcolor{keywordflow}{if} (input.length()<pos+numBytes) \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}}();}
+\DoxyCodeLine{00132   \textcolor{keywordflow}{return} input.substr(pos,pos+numBytes);}
+\DoxyCodeLine{00133 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{get\+UTF8\+Char\+Num\+Bytes()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}\label{src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}} 
+\index{utf8.cpp@{utf8.cpp}!getUTF8CharNumBytes@{getUTF8CharNumBytes}}
+\index{getUTF8CharNumBytes@{getUTF8CharNumBytes}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{getUTF8CharNumBytes()}{getUTF8CharNumBytes()}}
+{\footnotesize\ttfamily uint8\+\_\+t get\+UTF8\+Char\+Num\+Bytes (\begin{DoxyParamCaption}\item[{char}]{first\+Byte }\end{DoxyParamCaption})}
+
+Returns the number of bytes making up a single UTF8 character given the first byte in the sequence. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024 \{}
+\DoxyCodeLine{00025   uint8\_t num=1;}
+\DoxyCodeLine{00026   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} uc = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}});}
+\DoxyCodeLine{00027   \textcolor{keywordflow}{if} (uc>=0x80u) \textcolor{comment}{// multibyte character}}
+\DoxyCodeLine{00028   \{}
+\DoxyCodeLine{00029     \textcolor{keywordflow}{if} ((uc\&0xE0u)==0xC0u)}
+\DoxyCodeLine{00030     \{}
+\DoxyCodeLine{00031       num=2; \textcolor{comment}{// 110x.xxxx: 2 byte character}}
+\DoxyCodeLine{00032     \}}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{if} ((uc\&0xF0u)==0xE0u)}
+\DoxyCodeLine{00034     \{}
+\DoxyCodeLine{00035       num=3; \textcolor{comment}{// 1110.xxxx: 3 byte character}}
+\DoxyCodeLine{00036     \}}
+\DoxyCodeLine{00037     \textcolor{keywordflow}{if} ((uc\&0xF8u)==0xF0u)}
+\DoxyCodeLine{00038     \{}
+\DoxyCodeLine{00039       num=4; \textcolor{comment}{// 1111.0xxx: 4 byte character}}
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{if} ((uc\&0xFCu)==0xF8u)}
+\DoxyCodeLine{00042     \{}
+\DoxyCodeLine{00043       num=5; \textcolor{comment}{// 1111.10xx: 5 byte character}}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{if} ((uc\&0xFEu)==0xFCu)}
+\DoxyCodeLine{00046     \{}
+\DoxyCodeLine{00047       num=6; \textcolor{comment}{// 1111.110x: 6 byte character}}
+\DoxyCodeLine{00048     \}}
+\DoxyCodeLine{00049   \}}
+\DoxyCodeLine{00050   \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a4e1e0e72dd773439e333c84dd762a9c3}{c}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}\label{src_2utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}} 
+\index{utf8.cpp@{utf8.cpp}!isUTF8CharUpperCase@{isUTF8CharUpperCase}}
+\index{isUTF8CharUpperCase@{isUTF8CharUpperCase}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{isUTF8CharUpperCase()}{isUTF8CharUpperCase()}}
+{\footnotesize\ttfamily bool is\+UTF8\+Char\+Upper\+Case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{input,  }\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Returns true iff the input string at byte position pos holds an upper case character. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00218}{218}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00219 \{}
+\DoxyCodeLine{00220   \textcolor{keywordflow}{if} (input.length()<=pos) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00221   \textcolor{keywordtype}{int} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{00222   \textcolor{comment}{// turn the UTF8 character at position pos into a unicode value}}
+\DoxyCodeLine{00223   uint32\_t code = \mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convertUTF8CharToUnicode}}(input.c\_str()+pos,input.length()-\/pos,\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00224   \textcolor{comment}{// check if the character can be converted to lower case, if so it was an upper case character}}
+\DoxyCodeLine{00225   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a639df87d0846c7b6b01b931a51f06df2}{convertUnicodeToLower}}(code)!=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00226 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2caseconvert_8h_a639df87d0846c7b6b01b931a51f06df2}{convert\+Unicode\+To\+Lower()}}, \mbox{\hyperlink{src_2utf8_8cpp_a62db715498978c35a035b241e6ebdafb}{convert\+UTF8\+Char\+To\+Unicode()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}.
+
+\mbox{\Hypertarget{src_2utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}\label{src_2utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}} 
+\index{utf8.cpp@{utf8.cpp}!isUTF8NonBreakableSpace@{isUTF8NonBreakableSpace}}
+\index{isUTF8NonBreakableSpace@{isUTF8NonBreakableSpace}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{isUTF8NonBreakableSpace()}{isUTF8NonBreakableSpace()}}
+{\footnotesize\ttfamily int is\+UTF8\+Non\+Breakable\+Space (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input }\end{DoxyParamCaption})}
+
+Check if the first character pointed at by input is a non-\/breakable whitespace character. Returns the byte size of the character if there is match or 0 if not. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00228}{228}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00229 \{}
+\DoxyCodeLine{00230   \textcolor{keywordflow}{return} (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(input[0])==0xC2 \&\&}
+\DoxyCodeLine{00231           \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(input[1])==0xA0) ? 2 : 0;}
+\DoxyCodeLine{00232 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}\label{src_2utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}} 
+\index{utf8.cpp@{utf8.cpp}!lastUTF8CharIsMultibyte@{lastUTF8CharIsMultibyte}}
+\index{lastUTF8CharIsMultibyte@{lastUTF8CharIsMultibyte}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{lastUTF8CharIsMultibyte()}{lastUTF8CharIsMultibyte()}}
+{\footnotesize\ttfamily bool last\+UTF8\+Char\+Is\+Multibyte (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}} \&}]{input }\end{DoxyParamCaption})}
+
+Returns true iff the last character in input is a multibyte character. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00212}{212}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00213 \{}
+\DoxyCodeLine{00214   \textcolor{comment}{// last byte is part of a multibyte UTF8 char if bit 8 is set and bit 7 is not}}
+\DoxyCodeLine{00215   \textcolor{keywordflow}{return} !input.empty() \&\& (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(input[input.length()-\/1])\&0xC0)==0x80;}
+\DoxyCodeLine{00216 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{src_2utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}\label{src_2utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}} 
+\index{utf8.cpp@{utf8.cpp}!writeUTF8Char@{writeUTF8Char}}
+\index{writeUTF8Char@{writeUTF8Char}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{writeUTF8Char()}{writeUTF8Char()}}
+{\footnotesize\ttfamily const char $\ast$ write\+UTF8\+Char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_stream}{Text\+Stream}} \&}]{t,  }\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+Writes the UTF8 character pointed to by s to stream t and returns a pointer to the next character. 
+
+Definition at line \mbox{\hyperlink{src_2utf8_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{src_2utf8_8cpp_source}{utf8.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198 \{}
+\DoxyCodeLine{00199   \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00200   uint8\_t \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}} = \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{getUTF8CharNumBytes}}(*\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{00201   \textcolor{keywordflow}{for} (uint8\_t i=0;i<\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};i++)}
+\DoxyCodeLine{00202   \{}
+\DoxyCodeLine{00203     \textcolor{keywordflow}{if} (\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}[i]==0) \textcolor{comment}{// detect premature end of string (due to invalid UTF8 char)}}
+\DoxyCodeLine{00204     \{}
+\DoxyCodeLine{00205       \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}=i;}
+\DoxyCodeLine{00206     \}}
+\DoxyCodeLine{00207   \}}
+\DoxyCodeLine{00208   t.\mbox{\hyperlink{class_text_stream_aaa78941b7f04d95ca3be7d11073828f0}{write}}(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}});}
+\DoxyCodeLine{00209   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}+\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}};}
+\DoxyCodeLine{00210 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{get\+UTF8\+Char\+Num\+Bytes()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_afed088663f8704004425cdae2120b9b3}{len}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, and \mbox{\hyperlink{class_text_stream_aaa78941b7f04d95ca3be7d11073828f0}{Text\+Stream\+::write()}}.
+

@@ -1,0 +1,74 @@
+\hypertarget{src_2docparser_8h_source}{}\doxysection{docparser.\+h}
+\label{src_2docparser_8h_source}\index{doxygen/src/docparser.h@{doxygen/src/docparser.h}}
+\mbox{\hyperlink{src_2docparser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00001}00001 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00002}00002 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 1997-\/2022 by Dimitri van Heesch.}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00005}00005 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00006}00006 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00007}00007 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00008}00008 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00009}00009 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00011}00011 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00012}00012 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00013}00013 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00014}00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00016}00016 \textcolor{preprocessor}{\#ifndef DOCPARSER\_H}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00017}00017 \textcolor{preprocessor}{\#define DOCPARSER\_H}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00019}00019 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2growvector_8h}{growvector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00025}00025 \textcolor{keyword}{class }\mbox{\hyperlink{class_member_def}{MemberDef}};}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00026}00026 \textcolor{keyword}{class }\mbox{\hyperlink{class_definition}{Definition}};}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00028}00028 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00031}00031 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_doc_parser}{IDocParser}}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00032}00032 \{}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00033}00033   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00034}\mbox{\hyperlink{class_i_doc_parser_aac875beb9efb20ab875ef7fed74fc1e8}{00034}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_i_doc_parser_aac875beb9efb20ab875ef7fed74fc1e8}{\string~IDocParser}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00035}00035 \};}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00038}\mbox{\hyperlink{src_2docparser_8h_a46dd0a995d5a164236b9264a86758622}{00038}} \textcolor{keyword}{using} \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a46dd0a995d5a164236b9264a86758622}{IDocParserPtr}} = std::unique\_ptr<IDocParser>;}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00041}00041 \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a46dd0a995d5a164236b9264a86758622}{IDocParserPtr}} \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a7a169cbf0edeed85c90868675799b875}{createDocParser}}();}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00043}00043 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00046}00046 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_doc_node_a_s_t}{IDocNodeAST}}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00047}00047 \{}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00048}00048   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00049}\mbox{\hyperlink{class_i_doc_node_a_s_t_a4ac872b730e0fbf14fd649672dca9f2e}{00049}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_i_doc_node_a_s_t_a4ac872b730e0fbf14fd649672dca9f2e}{\string~IDocNodeAST}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00050}\mbox{\hyperlink{class_i_doc_node_a_s_t_a503794169201cea4f02e4281b79b7ddb}{00050}}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_i_doc_node_a_s_t_a503794169201cea4f02e4281b79b7ddb}{isEmpty}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00051}00051 \};}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00053}\mbox{\hyperlink{src_2docparser_8h_a03066f1adfa357c8a7fa806069caa6ed}{00053}} \textcolor{keyword}{using} \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a03066f1adfa357c8a7fa806069caa6ed}{IDocNodeASTPtr}} = std::unique\_ptr<IDocNodeAST>;}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00078}00078 \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a03066f1adfa357c8a7fa806069caa6ed}{IDocNodeASTPtr}} \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a5dfb72e79916df690eb9c6649ffb792d}{validatingParseDoc}}(\mbox{\hyperlink{class_i_doc_parser}{IDocParser}} \&parser,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName,\textcolor{keywordtype}{int} startLine,}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00079}00079                             \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *context, \textcolor{keyword}{const} \mbox{\hyperlink{class_member_def}{MemberDef}} *md,}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00080}00080                             \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&input,\textcolor{keywordtype}{bool} indexWords,}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00081}00081                             \textcolor{keywordtype}{bool} isExample,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&exampleName,}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00082}00082                             \textcolor{keywordtype}{bool} singleLine,\textcolor{keywordtype}{bool} linkFromIndex,}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00083}00083                             \textcolor{keywordtype}{bool} markdownSupport);}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00088}00088 \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a03066f1adfa357c8a7fa806069caa6ed}{IDocNodeASTPtr}} \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_afd6219ce4bc112d331cd21cb79aefac7}{validatingParseText}}(\mbox{\hyperlink{class_i_doc_parser}{IDocParser}} \&parser,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&input);}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00090}00090 \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a03066f1adfa357c8a7fa806069caa6ed}{IDocNodeASTPtr}} \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_ab2412def53ded0489897b64746be2045}{createRef}}(\mbox{\hyperlink{class_i_doc_parser}{IDocParser}} \&parser,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&target,\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&context);}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00092}00092 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00097}00097 \textcolor{keywordtype}{void} \mbox{\hyperlink{build_2doxygen_2src_2docparser_8h_a0fc0d3e4ca95dd0dc254d0efb1fd045a}{docFindSections}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&input,}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00098}00098                      \textcolor{keyword}{const} \mbox{\hyperlink{class_definition}{Definition}} *d,}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00099}00099                      \textcolor{keyword}{const} \mbox{\hyperlink{class_q_c_string}{QCString}} \&fileName);}
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{src_2docparser_8h_source_l00101}00101 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

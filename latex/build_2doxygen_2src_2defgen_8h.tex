@@ -1,0 +1,68 @@
+\hypertarget{build_2doxygen_2src_2defgen_8h}{}\doxysection{doxygen/build/doxygen/src/defgen.h File Reference}
+\label{build_2doxygen_2src_2defgen_8h}\index{doxygen/build/doxygen/src/defgen.h@{doxygen/build/doxygen/src/defgen.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{build_2doxygen_2src_2defgen_8h_a39444ed87f324cf10eca40dca31c8bf9}{generate\+DEF}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2defgen_8h_a39444ed87f324cf10eca40dca31c8bf9}\label{build_2doxygen_2src_2defgen_8h_a39444ed87f324cf10eca40dca31c8bf9}} 
+\index{defgen.h@{defgen.h}!generateDEF@{generateDEF}}
+\index{generateDEF@{generateDEF}!defgen.h@{defgen.h}}
+\doxysubsubsection{\texorpdfstring{generateDEF()}{generateDEF()}}
+{\footnotesize\ttfamily void generate\+DEF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2defgen_8cpp_source_l00526}{526}} of file \mbox{\hyperlink{build_2doxygen_2src_2defgen_8cpp_source}{defgen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00527 \{}
+\DoxyCodeLine{00528   \mbox{\hyperlink{class_q_c_string}{QCString}} outputDirectory = \mbox{\hyperlink{build_2doxygen_2src_2config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(OUTPUT\_DIRECTORY)+\textcolor{stringliteral}{"{}/def"{}};}
+\DoxyCodeLine{00529   \mbox{\hyperlink{class_dir}{Dir}} defDir(outputDirectory.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}());}
+\DoxyCodeLine{00530   \textcolor{keywordflow}{if} (!defDir.exists() \&\& !defDir.mkdir(outputDirectory.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}()))}
+\DoxyCodeLine{00531   \{}
+\DoxyCodeLine{00532     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Could not create def directory in \%s\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(outputDirectory));}
+\DoxyCodeLine{00533     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00534   \}}
+\DoxyCodeLine{00535 }
+\DoxyCodeLine{00536   \mbox{\hyperlink{class_q_c_string}{QCString}} fileName=outputDirectory+\textcolor{stringliteral}{"{}/doxygen.def"{}};}
+\DoxyCodeLine{00537   \mbox{\hyperlink{namespaceghc_1_1filesystem_a5a9df37f9ba2cf3b2dabb4a221b71b09}{std::ofstream}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}(fileName.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a48bc11919b2752df9d14ce89557cfb25}{std::ostream::out}} | std::ostream::binary);}
+\DoxyCodeLine{00538   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}}.is\_open())}
+\DoxyCodeLine{00539   \{}
+\DoxyCodeLine{00540     \mbox{\hyperlink{build_2doxygen_2src_2message_8cpp_aede5746344fdce99647541101eaa7f06}{err}}(\textcolor{stringliteral}{"{}Cannot open file \%s for writing!\(\backslash\)n"{}},\mbox{\hyperlink{build_2doxygen_2src_2qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(fileName));}
+\DoxyCodeLine{00541     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00542   \}}
+\DoxyCodeLine{00543   \mbox{\hyperlink{class_text_stream}{TextStream}} t(\&\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a26bd95fde4dbe225dd861231581fc268}{f}});}
+\DoxyCodeLine{00544   t << \textcolor{stringliteral}{"{}AutoGen Definitions dummy;\(\backslash\)n"{}};}
+\DoxyCodeLine{00545 }
+\DoxyCodeLine{00546   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_doxygen_a549365d995b90c3796241ca9b6880d1c}{Doxygen::classLinkedMap}}-\/>\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}()+}
+\DoxyCodeLine{00547       \mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen::inputNameLinkedMap}}-\/>\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}()+}
+\DoxyCodeLine{00548       \mbox{\hyperlink{class_doxygen_a36479e3920938e0c1253c688b300bec4}{Doxygen::namespaceLinkedMap}}-\/>\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a1e79fade784ffb450b103ad42e120fa0}{size}}()>0)}
+\DoxyCodeLine{00549   \{}
+\DoxyCodeLine{00550     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&cd : *\mbox{\hyperlink{class_doxygen_a549365d995b90c3796241ca9b6880d1c}{Doxygen::classLinkedMap}})}
+\DoxyCodeLine{00551     \{}
+\DoxyCodeLine{00552       \mbox{\hyperlink{build_2doxygen_2src_2defgen_8cpp_a3dbc9c08f8cf61bdd6a98fce028ae320}{generateDEFForClass}}(cd.get(),t);}
+\DoxyCodeLine{00553     \}}
+\DoxyCodeLine{00554     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fn : *\mbox{\hyperlink{class_doxygen_a6917fd10e9455b4de1fcfc4c475ebcb5}{Doxygen::inputNameLinkedMap}})}
+\DoxyCodeLine{00555     \{}
+\DoxyCodeLine{00556       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&fd : *fn)}
+\DoxyCodeLine{00557       \{}
+\DoxyCodeLine{00558         \mbox{\hyperlink{build_2doxygen_2src_2defgen_8cpp_ae1923bdab69f09adecb356bed8d869f0}{generateDEFForFile}}(fd.get(),t);}
+\DoxyCodeLine{00559       \}}
+\DoxyCodeLine{00560     \}}
+\DoxyCodeLine{00561     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&nd : *\mbox{\hyperlink{class_doxygen_a36479e3920938e0c1253c688b300bec4}{Doxygen::namespaceLinkedMap}})}
+\DoxyCodeLine{00562     \{}
+\DoxyCodeLine{00563       \mbox{\hyperlink{build_2doxygen_2src_2defgen_8cpp_af7618d7d3aeddf3aae435cd00b9293e9}{generateDEFForNamespace}}(nd.get(),t);}
+\DoxyCodeLine{00564     \}}
+\DoxyCodeLine{00565   \}}
+\DoxyCodeLine{00566   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00567   \{}
+\DoxyCodeLine{00568     t << \textcolor{stringliteral}{"{}dummy\_value = true;\(\backslash\)n"{}};}
+\DoxyCodeLine{00569   \}}
+\DoxyCodeLine{00570 \}}
+
+\end{DoxyCode}

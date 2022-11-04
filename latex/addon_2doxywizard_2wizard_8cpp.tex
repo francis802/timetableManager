@@ -1,0 +1,867 @@
+\hypertarget{addon_2doxywizard_2wizard_8cpp}{}\doxysection{doxygen/addon/doxywizard/wizard.cpp File Reference}
+\label{addon_2doxywizard_2wizard_8cpp}\index{doxygen/addon/doxywizard/wizard.cpp@{doxygen/addon/doxywizard/wizard.cpp}}
+{\ttfamily \#include \char`\"{}wizard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}input.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxywizard.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$QGrid\+Layout$>$}\newline
+{\ttfamily \#include $<$QImage$>$}\newline
+{\ttfamily \#include $<$QLabel$>$}\newline
+{\ttfamily \#include $<$QHBox\+Layout$>$}\newline
+{\ttfamily \#include $<$QPush\+Button$>$}\newline
+{\ttfamily \#include $<$QPixmap$>$}\newline
+{\ttfamily \#include $<$QPainter$>$}\newline
+{\ttfamily \#include $<$QMouse\+Event$>$}\newline
+{\ttfamily \#include $<$QLine\+Edit$>$}\newline
+{\ttfamily \#include $<$QCheck\+Box$>$}\newline
+{\ttfamily \#include $<$QFile\+Info$>$}\newline
+{\ttfamily \#include $<$QFile\+Dialog$>$}\newline
+{\ttfamily \#include $<$QButton\+Group$>$}\newline
+{\ttfamily \#include $<$QGroup\+Box$>$}\newline
+{\ttfamily \#include $<$QRadio\+Button$>$}\newline
+{\ttfamily \#include $<$QTree\+Widget$>$}\newline
+{\ttfamily \#include $<$QStacked\+Widget$>$}\newline
+{\ttfamily \#include $<$qdrawutil.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a24fad0f1f0bfa5a2c5bb7cf1bd679ac8}{STR\+\_\+\+PROJECT\+\_\+\+NAME}}~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+NAME\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a81cc78a48a1980e7dc94a15ebd504141}{STR\+\_\+\+PROJECT\+\_\+\+LOGO}}~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+LOGO\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a66319a4fa4b25e7c2ccd699f8bf3a972}{STR\+\_\+\+PROJECT\+\_\+\+BRIEF}}~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+BRIEF\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a997723c281c58abbf347ed3e6f400ce7}{STR\+\_\+\+INPUT}}~QString\+::from\+Latin1(\char`\"{}INPUT\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a06383b7e390c278836986e252821a3cc}{STR\+\_\+\+OUTPUT\+\_\+\+DIRECTORY}}~QString\+::from\+Latin1(\char`\"{}OUTPUT\+\_\+\+DIRECTORY\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_ad5ab128343b49b8bc3d502ad6e40ce1a}{STR\+\_\+\+PROJECT\+\_\+\+NUMBER}}~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+NUMBER\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a0886ceb8caadec11eeb99799f26f7142}{STR\+\_\+\+RECURSIVE}}~QString\+::from\+Latin1(\char`\"{}RECURSIVE\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a8e7923ef2641da5b0e0e07bc0ba19478}{STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+FOR\+\_\+C}}~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+FOR\+\_\+C\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a955a315801fe14e72a856538c5180be7}{STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+JAVA}}~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+JAVA\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_af2d79011169086f7a73b3c8293ad691a}{STR\+\_\+\+OPTIMIZE\+\_\+\+FOR\+\_\+\+FORTRAN}}~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+FOR\+\_\+\+FORTRAN\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_ab12b2a5be9ca551bbecf2958551f577f}{STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+VHDL}}~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+VHDL\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a0cf16a9e30521d02da671f310c87316c}{STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+SLICE}}~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+SLICE\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a6b8ef69747d99819f31d7f9eb561f590}{STR\+\_\+\+CPP\+\_\+\+CLI\+\_\+\+SUPPORT}}~QString\+::from\+Latin1(\char`\"{}CPP\+\_\+\+CLI\+\_\+\+SUPPORT\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a1c5e0ce992fb9c1393bae70d28c12491}{STR\+\_\+\+HIDE\+\_\+\+SCOPE\+\_\+\+NAMES}}~QString\+::from\+Latin1(\char`\"{}HIDE\+\_\+\+SCOPE\+\_\+\+NAMES\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a60a41ae50b25adf99cd505d039ca1df7}{STR\+\_\+\+EXTRACT\+\_\+\+ALL}}~QString\+::from\+Latin1(\char`\"{}EXTRACT\+\_\+\+ALL\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a9df2d0e30b1a0828b6dc8d8f00b4408b}{STR\+\_\+\+SOURCE\+\_\+\+BROWSER}}~QString\+::from\+Latin1(\char`\"{}SOURCE\+\_\+\+BROWSER\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_ad93f73d1d46d2fa3da32e4ac670c1944}{STR\+\_\+\+GENERATE\+\_\+\+HTML}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+HTML\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a7dfc6d7cec2cfffaf06983396581b245}{STR\+\_\+\+GENERATE\+\_\+\+LATEX}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+LATEX\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a2da08fdfc7f4ec386c51b98ab56aa4bb}{STR\+\_\+\+GENERATE\+\_\+\+MAN}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+MAN\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a28ce983d8468700307710e71b480b03a}{STR\+\_\+\+GENERATE\+\_\+\+RTF}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+RTF\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_acd1013215e266cab59bd77f88d40cf89}{STR\+\_\+\+GENERATE\+\_\+\+XML}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+XML\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a04ff9c5bd46fcd08ec4d31db34e74c21}{STR\+\_\+\+GENERATE\+\_\+\+DOCBOOK}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+DOCBOOK\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a2c800364cbf68fd7bcc893b6f65686b7}{STR\+\_\+\+GENERATE\+\_\+\+HTMLHELP}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+HTMLHELP\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a1c93f36d7dda930be9fc334aec1624d7}{STR\+\_\+\+GENERATE\+\_\+\+TREEVIEW}}~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+TREEVIEW\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aa4f2c6e59c7906713d932f476e197a35}{STR\+\_\+\+USE\+\_\+\+PDFLATEX}}~QString\+::from\+Latin1(\char`\"{}USE\+\_\+\+PDFLATEX\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a5e3088ce4df7118d0a2021a9c8ebd8c1}{STR\+\_\+\+PDF\+\_\+\+HYPERLINKS}}~QString\+::from\+Latin1(\char`\"{}PDF\+\_\+\+HYPERLINKS\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a78188bb2d8901780f56f5e49b1f5cfbf}{STR\+\_\+\+SEARCHENGINE}}~QString\+::from\+Latin1(\char`\"{}SEARCHENGINE\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a2997727c28fc9b2080a2bd55afc38172}{STR\+\_\+\+HAVE\+\_\+\+DOT}}~QString\+::from\+Latin1(\char`\"{}HAVE\+\_\+\+DOT\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_af7d33f8f7b551a92a162b700f70b3989}{STR\+\_\+\+CLASS\+\_\+\+GRAPH}}~QString\+::from\+Latin1(\char`\"{}CLASS\+\_\+\+GRAPH\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a2724ded291258cd6448c2b1efc259181}{STR\+\_\+\+COLLABORATION\+\_\+\+GRAPH}}~QString\+::from\+Latin1(\char`\"{}COLLABORATION\+\_\+\+GRAPH\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a1048ad8a06df032e539a435cd7514066}{STR\+\_\+\+GRAPHICAL\+\_\+\+HIERARCHY}}~QString\+::from\+Latin1(\char`\"{}GRAPHICAL\+\_\+\+HIERARCHY\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a45c35483efd4a758d748563825b0e5b1}{STR\+\_\+\+INCLUDE\+\_\+\+GRAPH}}~QString\+::from\+Latin1(\char`\"{}INCLUDE\+\_\+\+GRAPH\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aa5b5dc062f5d73d30d6d539b30e00e5c}{STR\+\_\+\+INCLUDED\+\_\+\+BY\+\_\+\+GRAPH}}~QString\+::from\+Latin1(\char`\"{}INCLUDED\+\_\+\+BY\+\_\+\+GRAPH\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a4b65960bdd97f0187718c91b77a5dbc1}{STR\+\_\+\+CALL\+\_\+\+GRAPH}}~QString\+::from\+Latin1(\char`\"{}CALL\+\_\+\+GRAPH\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a17c0b04646bbad80c833469bbdf7b9a8}{STR\+\_\+\+CALLER\+\_\+\+GRAPH}}~QString\+::from\+Latin1(\char`\"{}CALLER\+\_\+\+GRAPH\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_adc452e635d91624171d416e044426cb9}{STR\+\_\+\+HTML\+\_\+\+COLORSTYLE\+\_\+\+HUE}}~QString\+::from\+Latin1(\char`\"{}HTML\+\_\+\+COLORSTYLE\+\_\+\+HUE\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aef858cdcc8ccd1bf080ac67e9ef2c64c}{STR\+\_\+\+HTML\+\_\+\+COLORSTYLE\+\_\+\+SAT}}~QString\+::from\+Latin1(\char`\"{}HTML\+\_\+\+COLORSTYLE\+\_\+\+SAT\char`\"{})
+\item 
+\#define \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a13e467e2ddf03220b5a7a8e1b80561e1}{STR\+\_\+\+HTML\+\_\+\+COLORSTYLE\+\_\+\+GAMMA}}~QString\+::from\+Latin1(\char`\"{}HTML\+\_\+\+COLORSTYLE\+\_\+\+GAMMA\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aee36f54fda23aa3ddde686326e8e7cd3}{string\+Variant\+To\+Bool}} (const QVariant \&v)
+\item 
+static bool \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a4bbdddfecf1cf57c6ea202b19d90392d}{get\+Bool\+Option}} (const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&model, const QString \&name)
+\item 
+static int \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a0ee4641fcbfc4d7e381e28f0e3642ec8}{get\+Int\+Option}} (const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&model, const QString \&name)
+\item 
+static QString \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a07fcd156250f734ae644bff3f4cab7a0}{get\+String\+Option}} (const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&model, const QString \&name)
+\item 
+static void \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a9917665d4b0b7ad80fb2a5049281fa80}{update\+Bool\+Option}} (const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&model, const QString \&name, bool b\+New)
+\item 
+static void \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a5f8ba99eec5e3429afca2dd972a9d045}{update\+Int\+Option}} (const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&model, const QString \&name, int i\+New)
+\item 
+static void \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_ab590ee55cbe7e8dd042ffab4614b2e11}{update\+String\+Option}} (const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&model, const QString \&name, const QString \&\mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})
+\item 
+void \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a02b5f11d8528e76dedd4c01c692056b5}{hsl2rgb}} (double \mbox{\hyperlink{libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, double \mbox{\hyperlink{libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, double l, double $\ast$p\+Red, double $\ast$p\+Green, double $\ast$p\+Blue)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a5687975b13a6ad6f276c97f2d55b95cc}{g\+\_\+optimize\+Mapping}} \mbox{[}7\mbox{]}\mbox{[}7\mbox{]}
+\item 
+static QString \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aceb512e82170e6dacc1d291233dc5eb5}{g\+\_\+optimize\+Option\+Names}} \mbox{[}7\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a4b65960bdd97f0187718c91b77a5dbc1}\label{addon_2doxywizard_2wizard_8cpp_a4b65960bdd97f0187718c91b77a5dbc1}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_CALL\_GRAPH@{STR\_CALL\_GRAPH}}
+\index{STR\_CALL\_GRAPH@{STR\_CALL\_GRAPH}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_CALL\_GRAPH}{STR\_CALL\_GRAPH}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+CALL\+\_\+\+GRAPH~QString\+::from\+Latin1(\char`\"{}CALL\+\_\+\+GRAPH\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a17c0b04646bbad80c833469bbdf7b9a8}\label{addon_2doxywizard_2wizard_8cpp_a17c0b04646bbad80c833469bbdf7b9a8}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_CALLER\_GRAPH@{STR\_CALLER\_GRAPH}}
+\index{STR\_CALLER\_GRAPH@{STR\_CALLER\_GRAPH}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_CALLER\_GRAPH}{STR\_CALLER\_GRAPH}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+CALLER\+\_\+\+GRAPH~QString\+::from\+Latin1(\char`\"{}CALLER\+\_\+\+GRAPH\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_af7d33f8f7b551a92a162b700f70b3989}\label{addon_2doxywizard_2wizard_8cpp_af7d33f8f7b551a92a162b700f70b3989}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_CLASS\_GRAPH@{STR\_CLASS\_GRAPH}}
+\index{STR\_CLASS\_GRAPH@{STR\_CLASS\_GRAPH}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_CLASS\_GRAPH}{STR\_CLASS\_GRAPH}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+CLASS\+\_\+\+GRAPH~QString\+::from\+Latin1(\char`\"{}CLASS\+\_\+\+GRAPH\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a2724ded291258cd6448c2b1efc259181}\label{addon_2doxywizard_2wizard_8cpp_a2724ded291258cd6448c2b1efc259181}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_COLLABORATION\_GRAPH@{STR\_COLLABORATION\_GRAPH}}
+\index{STR\_COLLABORATION\_GRAPH@{STR\_COLLABORATION\_GRAPH}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_COLLABORATION\_GRAPH}{STR\_COLLABORATION\_GRAPH}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+COLLABORATION\+\_\+\+GRAPH~QString\+::from\+Latin1(\char`\"{}COLLABORATION\+\_\+\+GRAPH\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a6b8ef69747d99819f31d7f9eb561f590}\label{addon_2doxywizard_2wizard_8cpp_a6b8ef69747d99819f31d7f9eb561f590}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_CPP\_CLI\_SUPPORT@{STR\_CPP\_CLI\_SUPPORT}}
+\index{STR\_CPP\_CLI\_SUPPORT@{STR\_CPP\_CLI\_SUPPORT}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_CPP\_CLI\_SUPPORT}{STR\_CPP\_CLI\_SUPPORT}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+CPP\+\_\+\+CLI\+\_\+\+SUPPORT~QString\+::from\+Latin1(\char`\"{}CPP\+\_\+\+CLI\+\_\+\+SUPPORT\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a60a41ae50b25adf99cd505d039ca1df7}\label{addon_2doxywizard_2wizard_8cpp_a60a41ae50b25adf99cd505d039ca1df7}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_EXTRACT\_ALL@{STR\_EXTRACT\_ALL}}
+\index{STR\_EXTRACT\_ALL@{STR\_EXTRACT\_ALL}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_EXTRACT\_ALL}{STR\_EXTRACT\_ALL}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+EXTRACT\+\_\+\+ALL~QString\+::from\+Latin1(\char`\"{}EXTRACT\+\_\+\+ALL\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a04ff9c5bd46fcd08ec4d31db34e74c21}\label{addon_2doxywizard_2wizard_8cpp_a04ff9c5bd46fcd08ec4d31db34e74c21}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_DOCBOOK@{STR\_GENERATE\_DOCBOOK}}
+\index{STR\_GENERATE\_DOCBOOK@{STR\_GENERATE\_DOCBOOK}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_DOCBOOK}{STR\_GENERATE\_DOCBOOK}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+DOCBOOK~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+DOCBOOK\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_ad93f73d1d46d2fa3da32e4ac670c1944}\label{addon_2doxywizard_2wizard_8cpp_ad93f73d1d46d2fa3da32e4ac670c1944}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_HTML@{STR\_GENERATE\_HTML}}
+\index{STR\_GENERATE\_HTML@{STR\_GENERATE\_HTML}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_HTML}{STR\_GENERATE\_HTML}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+HTML~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+HTML\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a2c800364cbf68fd7bcc893b6f65686b7}\label{addon_2doxywizard_2wizard_8cpp_a2c800364cbf68fd7bcc893b6f65686b7}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_HTMLHELP@{STR\_GENERATE\_HTMLHELP}}
+\index{STR\_GENERATE\_HTMLHELP@{STR\_GENERATE\_HTMLHELP}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_HTMLHELP}{STR\_GENERATE\_HTMLHELP}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+HTMLHELP~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+HTMLHELP\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a7dfc6d7cec2cfffaf06983396581b245}\label{addon_2doxywizard_2wizard_8cpp_a7dfc6d7cec2cfffaf06983396581b245}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_LATEX@{STR\_GENERATE\_LATEX}}
+\index{STR\_GENERATE\_LATEX@{STR\_GENERATE\_LATEX}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_LATEX}{STR\_GENERATE\_LATEX}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+LATEX~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+LATEX\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a2da08fdfc7f4ec386c51b98ab56aa4bb}\label{addon_2doxywizard_2wizard_8cpp_a2da08fdfc7f4ec386c51b98ab56aa4bb}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_MAN@{STR\_GENERATE\_MAN}}
+\index{STR\_GENERATE\_MAN@{STR\_GENERATE\_MAN}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_MAN}{STR\_GENERATE\_MAN}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+MAN~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+MAN\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a28ce983d8468700307710e71b480b03a}\label{addon_2doxywizard_2wizard_8cpp_a28ce983d8468700307710e71b480b03a}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_RTF@{STR\_GENERATE\_RTF}}
+\index{STR\_GENERATE\_RTF@{STR\_GENERATE\_RTF}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_RTF}{STR\_GENERATE\_RTF}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+RTF~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+RTF\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a1c93f36d7dda930be9fc334aec1624d7}\label{addon_2doxywizard_2wizard_8cpp_a1c93f36d7dda930be9fc334aec1624d7}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_TREEVIEW@{STR\_GENERATE\_TREEVIEW}}
+\index{STR\_GENERATE\_TREEVIEW@{STR\_GENERATE\_TREEVIEW}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_TREEVIEW}{STR\_GENERATE\_TREEVIEW}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+TREEVIEW~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+TREEVIEW\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_acd1013215e266cab59bd77f88d40cf89}\label{addon_2doxywizard_2wizard_8cpp_acd1013215e266cab59bd77f88d40cf89}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GENERATE\_XML@{STR\_GENERATE\_XML}}
+\index{STR\_GENERATE\_XML@{STR\_GENERATE\_XML}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GENERATE\_XML}{STR\_GENERATE\_XML}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GENERATE\+\_\+\+XML~QString\+::from\+Latin1(\char`\"{}GENERATE\+\_\+\+XML\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a1048ad8a06df032e539a435cd7514066}\label{addon_2doxywizard_2wizard_8cpp_a1048ad8a06df032e539a435cd7514066}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_GRAPHICAL\_HIERARCHY@{STR\_GRAPHICAL\_HIERARCHY}}
+\index{STR\_GRAPHICAL\_HIERARCHY@{STR\_GRAPHICAL\_HIERARCHY}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_GRAPHICAL\_HIERARCHY}{STR\_GRAPHICAL\_HIERARCHY}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+GRAPHICAL\+\_\+\+HIERARCHY~QString\+::from\+Latin1(\char`\"{}GRAPHICAL\+\_\+\+HIERARCHY\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a2997727c28fc9b2080a2bd55afc38172}\label{addon_2doxywizard_2wizard_8cpp_a2997727c28fc9b2080a2bd55afc38172}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_HAVE\_DOT@{STR\_HAVE\_DOT}}
+\index{STR\_HAVE\_DOT@{STR\_HAVE\_DOT}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_HAVE\_DOT}{STR\_HAVE\_DOT}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+HAVE\+\_\+\+DOT~QString\+::from\+Latin1(\char`\"{}HAVE\+\_\+\+DOT\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a1c5e0ce992fb9c1393bae70d28c12491}\label{addon_2doxywizard_2wizard_8cpp_a1c5e0ce992fb9c1393bae70d28c12491}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_HIDE\_SCOPE\_NAMES@{STR\_HIDE\_SCOPE\_NAMES}}
+\index{STR\_HIDE\_SCOPE\_NAMES@{STR\_HIDE\_SCOPE\_NAMES}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_HIDE\_SCOPE\_NAMES}{STR\_HIDE\_SCOPE\_NAMES}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+HIDE\+\_\+\+SCOPE\+\_\+\+NAMES~QString\+::from\+Latin1(\char`\"{}HIDE\+\_\+\+SCOPE\+\_\+\+NAMES\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a13e467e2ddf03220b5a7a8e1b80561e1}\label{addon_2doxywizard_2wizard_8cpp_a13e467e2ddf03220b5a7a8e1b80561e1}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_HTML\_COLORSTYLE\_GAMMA@{STR\_HTML\_COLORSTYLE\_GAMMA}}
+\index{STR\_HTML\_COLORSTYLE\_GAMMA@{STR\_HTML\_COLORSTYLE\_GAMMA}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_HTML\_COLORSTYLE\_GAMMA}{STR\_HTML\_COLORSTYLE\_GAMMA}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+HTML\+\_\+\+COLORSTYLE\+\_\+\+GAMMA~QString\+::from\+Latin1(\char`\"{}HTML\+\_\+\+COLORSTYLE\+\_\+\+GAMMA\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_adc452e635d91624171d416e044426cb9}\label{addon_2doxywizard_2wizard_8cpp_adc452e635d91624171d416e044426cb9}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_HTML\_COLORSTYLE\_HUE@{STR\_HTML\_COLORSTYLE\_HUE}}
+\index{STR\_HTML\_COLORSTYLE\_HUE@{STR\_HTML\_COLORSTYLE\_HUE}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_HTML\_COLORSTYLE\_HUE}{STR\_HTML\_COLORSTYLE\_HUE}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+HTML\+\_\+\+COLORSTYLE\+\_\+\+HUE~QString\+::from\+Latin1(\char`\"{}HTML\+\_\+\+COLORSTYLE\+\_\+\+HUE\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_aef858cdcc8ccd1bf080ac67e9ef2c64c}\label{addon_2doxywizard_2wizard_8cpp_aef858cdcc8ccd1bf080ac67e9ef2c64c}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_HTML\_COLORSTYLE\_SAT@{STR\_HTML\_COLORSTYLE\_SAT}}
+\index{STR\_HTML\_COLORSTYLE\_SAT@{STR\_HTML\_COLORSTYLE\_SAT}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_HTML\_COLORSTYLE\_SAT}{STR\_HTML\_COLORSTYLE\_SAT}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+HTML\+\_\+\+COLORSTYLE\+\_\+\+SAT~QString\+::from\+Latin1(\char`\"{}HTML\+\_\+\+COLORSTYLE\+\_\+\+SAT\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a45c35483efd4a758d748563825b0e5b1}\label{addon_2doxywizard_2wizard_8cpp_a45c35483efd4a758d748563825b0e5b1}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_INCLUDE\_GRAPH@{STR\_INCLUDE\_GRAPH}}
+\index{STR\_INCLUDE\_GRAPH@{STR\_INCLUDE\_GRAPH}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_INCLUDE\_GRAPH}{STR\_INCLUDE\_GRAPH}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+INCLUDE\+\_\+\+GRAPH~QString\+::from\+Latin1(\char`\"{}INCLUDE\+\_\+\+GRAPH\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_aa5b5dc062f5d73d30d6d539b30e00e5c}\label{addon_2doxywizard_2wizard_8cpp_aa5b5dc062f5d73d30d6d539b30e00e5c}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_INCLUDED\_BY\_GRAPH@{STR\_INCLUDED\_BY\_GRAPH}}
+\index{STR\_INCLUDED\_BY\_GRAPH@{STR\_INCLUDED\_BY\_GRAPH}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_INCLUDED\_BY\_GRAPH}{STR\_INCLUDED\_BY\_GRAPH}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+INCLUDED\+\_\+\+BY\+\_\+\+GRAPH~QString\+::from\+Latin1(\char`\"{}INCLUDED\+\_\+\+BY\+\_\+\+GRAPH\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a997723c281c58abbf347ed3e6f400ce7}\label{addon_2doxywizard_2wizard_8cpp_a997723c281c58abbf347ed3e6f400ce7}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_INPUT@{STR\_INPUT}}
+\index{STR\_INPUT@{STR\_INPUT}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_INPUT}{STR\_INPUT}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+INPUT~QString\+::from\+Latin1(\char`\"{}INPUT\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_af2d79011169086f7a73b3c8293ad691a}\label{addon_2doxywizard_2wizard_8cpp_af2d79011169086f7a73b3c8293ad691a}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_OPTIMIZE\_FOR\_FORTRAN@{STR\_OPTIMIZE\_FOR\_FORTRAN}}
+\index{STR\_OPTIMIZE\_FOR\_FORTRAN@{STR\_OPTIMIZE\_FOR\_FORTRAN}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_OPTIMIZE\_FOR\_FORTRAN}{STR\_OPTIMIZE\_FOR\_FORTRAN}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+OPTIMIZE\+\_\+\+FOR\+\_\+\+FORTRAN~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+FOR\+\_\+\+FORTRAN\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a8e7923ef2641da5b0e0e07bc0ba19478}\label{addon_2doxywizard_2wizard_8cpp_a8e7923ef2641da5b0e0e07bc0ba19478}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_OPTIMIZE\_OUTPUT\_FOR\_C@{STR\_OPTIMIZE\_OUTPUT\_FOR\_C}}
+\index{STR\_OPTIMIZE\_OUTPUT\_FOR\_C@{STR\_OPTIMIZE\_OUTPUT\_FOR\_C}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_OPTIMIZE\_OUTPUT\_FOR\_C}{STR\_OPTIMIZE\_OUTPUT\_FOR\_C}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+FOR\+\_\+C~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+FOR\+\_\+C\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a955a315801fe14e72a856538c5180be7}\label{addon_2doxywizard_2wizard_8cpp_a955a315801fe14e72a856538c5180be7}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_OPTIMIZE\_OUTPUT\_JAVA@{STR\_OPTIMIZE\_OUTPUT\_JAVA}}
+\index{STR\_OPTIMIZE\_OUTPUT\_JAVA@{STR\_OPTIMIZE\_OUTPUT\_JAVA}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_OPTIMIZE\_OUTPUT\_JAVA}{STR\_OPTIMIZE\_OUTPUT\_JAVA}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+JAVA~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+JAVA\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a0cf16a9e30521d02da671f310c87316c}\label{addon_2doxywizard_2wizard_8cpp_a0cf16a9e30521d02da671f310c87316c}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_OPTIMIZE\_OUTPUT\_SLICE@{STR\_OPTIMIZE\_OUTPUT\_SLICE}}
+\index{STR\_OPTIMIZE\_OUTPUT\_SLICE@{STR\_OPTIMIZE\_OUTPUT\_SLICE}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_OPTIMIZE\_OUTPUT\_SLICE}{STR\_OPTIMIZE\_OUTPUT\_SLICE}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+SLICE~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+SLICE\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_ab12b2a5be9ca551bbecf2958551f577f}\label{addon_2doxywizard_2wizard_8cpp_ab12b2a5be9ca551bbecf2958551f577f}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_OPTIMIZE\_OUTPUT\_VHDL@{STR\_OPTIMIZE\_OUTPUT\_VHDL}}
+\index{STR\_OPTIMIZE\_OUTPUT\_VHDL@{STR\_OPTIMIZE\_OUTPUT\_VHDL}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_OPTIMIZE\_OUTPUT\_VHDL}{STR\_OPTIMIZE\_OUTPUT\_VHDL}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+VHDL~QString\+::from\+Latin1(\char`\"{}OPTIMIZE\+\_\+\+OUTPUT\+\_\+\+VHDL\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a06383b7e390c278836986e252821a3cc}\label{addon_2doxywizard_2wizard_8cpp_a06383b7e390c278836986e252821a3cc}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_OUTPUT\_DIRECTORY@{STR\_OUTPUT\_DIRECTORY}}
+\index{STR\_OUTPUT\_DIRECTORY@{STR\_OUTPUT\_DIRECTORY}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_OUTPUT\_DIRECTORY}{STR\_OUTPUT\_DIRECTORY}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+OUTPUT\+\_\+\+DIRECTORY~QString\+::from\+Latin1(\char`\"{}OUTPUT\+\_\+\+DIRECTORY\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a5e3088ce4df7118d0a2021a9c8ebd8c1}\label{addon_2doxywizard_2wizard_8cpp_a5e3088ce4df7118d0a2021a9c8ebd8c1}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_PDF\_HYPERLINKS@{STR\_PDF\_HYPERLINKS}}
+\index{STR\_PDF\_HYPERLINKS@{STR\_PDF\_HYPERLINKS}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_PDF\_HYPERLINKS}{STR\_PDF\_HYPERLINKS}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+PDF\+\_\+\+HYPERLINKS~QString\+::from\+Latin1(\char`\"{}PDF\+\_\+\+HYPERLINKS\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a66319a4fa4b25e7c2ccd699f8bf3a972}\label{addon_2doxywizard_2wizard_8cpp_a66319a4fa4b25e7c2ccd699f8bf3a972}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_PROJECT\_BRIEF@{STR\_PROJECT\_BRIEF}}
+\index{STR\_PROJECT\_BRIEF@{STR\_PROJECT\_BRIEF}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_PROJECT\_BRIEF}{STR\_PROJECT\_BRIEF}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+PROJECT\+\_\+\+BRIEF~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+BRIEF\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a81cc78a48a1980e7dc94a15ebd504141}\label{addon_2doxywizard_2wizard_8cpp_a81cc78a48a1980e7dc94a15ebd504141}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_PROJECT\_LOGO@{STR\_PROJECT\_LOGO}}
+\index{STR\_PROJECT\_LOGO@{STR\_PROJECT\_LOGO}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_PROJECT\_LOGO}{STR\_PROJECT\_LOGO}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+PROJECT\+\_\+\+LOGO~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+LOGO\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a24fad0f1f0bfa5a2c5bb7cf1bd679ac8}\label{addon_2doxywizard_2wizard_8cpp_a24fad0f1f0bfa5a2c5bb7cf1bd679ac8}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_PROJECT\_NAME@{STR\_PROJECT\_NAME}}
+\index{STR\_PROJECT\_NAME@{STR\_PROJECT\_NAME}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_PROJECT\_NAME}{STR\_PROJECT\_NAME}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+PROJECT\+\_\+\+NAME~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+NAME\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_ad5ab128343b49b8bc3d502ad6e40ce1a}\label{addon_2doxywizard_2wizard_8cpp_ad5ab128343b49b8bc3d502ad6e40ce1a}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_PROJECT\_NUMBER@{STR\_PROJECT\_NUMBER}}
+\index{STR\_PROJECT\_NUMBER@{STR\_PROJECT\_NUMBER}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_PROJECT\_NUMBER}{STR\_PROJECT\_NUMBER}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+PROJECT\+\_\+\+NUMBER~QString\+::from\+Latin1(\char`\"{}PROJECT\+\_\+\+NUMBER\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a0886ceb8caadec11eeb99799f26f7142}\label{addon_2doxywizard_2wizard_8cpp_a0886ceb8caadec11eeb99799f26f7142}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_RECURSIVE@{STR\_RECURSIVE}}
+\index{STR\_RECURSIVE@{STR\_RECURSIVE}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_RECURSIVE}{STR\_RECURSIVE}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+RECURSIVE~QString\+::from\+Latin1(\char`\"{}RECURSIVE\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a78188bb2d8901780f56f5e49b1f5cfbf}\label{addon_2doxywizard_2wizard_8cpp_a78188bb2d8901780f56f5e49b1f5cfbf}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_SEARCHENGINE@{STR\_SEARCHENGINE}}
+\index{STR\_SEARCHENGINE@{STR\_SEARCHENGINE}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_SEARCHENGINE}{STR\_SEARCHENGINE}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+SEARCHENGINE~QString\+::from\+Latin1(\char`\"{}SEARCHENGINE\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a9df2d0e30b1a0828b6dc8d8f00b4408b}\label{addon_2doxywizard_2wizard_8cpp_a9df2d0e30b1a0828b6dc8d8f00b4408b}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_SOURCE\_BROWSER@{STR\_SOURCE\_BROWSER}}
+\index{STR\_SOURCE\_BROWSER@{STR\_SOURCE\_BROWSER}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_SOURCE\_BROWSER}{STR\_SOURCE\_BROWSER}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+SOURCE\+\_\+\+BROWSER~QString\+::from\+Latin1(\char`\"{}SOURCE\+\_\+\+BROWSER\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_aa4f2c6e59c7906713d932f476e197a35}\label{addon_2doxywizard_2wizard_8cpp_aa4f2c6e59c7906713d932f476e197a35}} 
+\index{wizard.cpp@{wizard.cpp}!STR\_USE\_PDFLATEX@{STR\_USE\_PDFLATEX}}
+\index{STR\_USE\_PDFLATEX@{STR\_USE\_PDFLATEX}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{STR\_USE\_PDFLATEX}{STR\_USE\_PDFLATEX}}
+{\footnotesize\ttfamily \#define STR\+\_\+\+USE\+\_\+\+PDFLATEX~QString\+::from\+Latin1(\char`\"{}USE\+\_\+\+PDFLATEX\char`\"{})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a4bbdddfecf1cf57c6ea202b19d90392d}\label{addon_2doxywizard_2wizard_8cpp_a4bbdddfecf1cf57c6ea202b19d90392d}} 
+\index{wizard.cpp@{wizard.cpp}!getBoolOption@{getBoolOption}}
+\index{getBoolOption@{getBoolOption}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{getBoolOption()}{getBoolOption()}}
+{\footnotesize\ttfamily static bool get\+Bool\+Option (\begin{DoxyParamCaption}\item[{const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&}]{model,  }\item[{const QString \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119 \{}
+\DoxyCodeLine{00120   \mbox{\hyperlink{class_input}{Input}} *option = model[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}];}
+\DoxyCodeLine{00121   Q\_ASSERT(option!=0);}
+\DoxyCodeLine{00122   \textcolor{keywordflow}{return} \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aee36f54fda23aa3ddde686326e8e7cd3}{stringVariantToBool}}(option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}());}
+\DoxyCodeLine{00123 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aee36f54fda23aa3ddde686326e8e7cd3}{string\+Variant\+To\+Bool()}}, and \mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{Input\+::value()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step1_a5465f7a369f398f13c1fb7ee0588f5b1}{Step1\+::init()}}, \mbox{\hyperlink{class_step2_a3765417a8be2d29748fe77b02f3d6c76}{Step2\+::init()}}, \mbox{\hyperlink{class_step3_a50d6bc75c36b723d22a02e6c7f220198}{Step3\+::init()}}, and \mbox{\hyperlink{class_step4_ad17bd327339d9accbce940ce99c0915a}{Step4\+::init()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a0ee4641fcbfc4d7e381e28f0e3642ec8}\label{addon_2doxywizard_2wizard_8cpp_a0ee4641fcbfc4d7e381e28f0e3642ec8}} 
+\index{wizard.cpp@{wizard.cpp}!getIntOption@{getIntOption}}
+\index{getIntOption@{getIntOption}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{getIntOption()}{getIntOption()}}
+{\footnotesize\ttfamily static int get\+Int\+Option (\begin{DoxyParamCaption}\item[{const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&}]{model,  }\item[{const QString \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127 \{}
+\DoxyCodeLine{00128   \mbox{\hyperlink{class_input}{Input}} *option = model[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}];}
+\DoxyCodeLine{00129   Q\_ASSERT(option!=0);}
+\DoxyCodeLine{00130   \textcolor{keywordflow}{return} option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}().toInt();}
+\DoxyCodeLine{00131 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{Input\+::value()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step3_a74b4d5441258d0062ba83cadf84c1409}{Step3\+::tune\+Color\+Dialog()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a07fcd156250f734ae644bff3f4cab7a0}\label{addon_2doxywizard_2wizard_8cpp_a07fcd156250f734ae644bff3f4cab7a0}} 
+\index{wizard.cpp@{wizard.cpp}!getStringOption@{getStringOption}}
+\index{getStringOption@{getStringOption}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{getStringOption()}{getStringOption()}}
+{\footnotesize\ttfamily static QString get\+String\+Option (\begin{DoxyParamCaption}\item[{const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&}]{model,  }\item[{const QString \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135 \{}
+\DoxyCodeLine{00136   \mbox{\hyperlink{class_input}{Input}} *option = model[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}];}
+\DoxyCodeLine{00137   Q\_ASSERT(option!=0);}
+\DoxyCodeLine{00138   \textcolor{keywordflow}{return} option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}().toString();}
+\DoxyCodeLine{00139 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, and \mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{Input\+::value()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step1_a5465f7a369f398f13c1fb7ee0588f5b1}{Step1\+::init()}}, \mbox{\hyperlink{class_step4_ad17bd327339d9accbce940ce99c0915a}{Step4\+::init()}}, and \mbox{\hyperlink{class_step4_a1e9bd29ca697df0985fd70d0934a7ccd}{Step4\+::set\+Class\+Graph\+Enabled()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a02b5f11d8528e76dedd4c01c692056b5}\label{addon_2doxywizard_2wizard_8cpp_a02b5f11d8528e76dedd4c01c692056b5}} 
+\index{wizard.cpp@{wizard.cpp}!hsl2rgb@{hsl2rgb}}
+\index{hsl2rgb@{hsl2rgb}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{hsl2rgb()}{hsl2rgb()}}
+{\footnotesize\ttfamily void hsl2rgb (\begin{DoxyParamCaption}\item[{double}]{h,  }\item[{double}]{s,  }\item[{double}]{l,  }\item[{double $\ast$}]{p\+Red,  }\item[{double $\ast$}]{p\+Green,  }\item[{double $\ast$}]{p\+Blue }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00228}{228}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00230 \{}
+\DoxyCodeLine{00231   \textcolor{keywordtype}{double} v;}
+\DoxyCodeLine{00232   \textcolor{keywordtype}{double} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}},\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}};}
+\DoxyCodeLine{00233 }
+\DoxyCodeLine{00234   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = l;   \textcolor{comment}{// default to gray}}
+\DoxyCodeLine{00235   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}} = l;}
+\DoxyCodeLine{00236   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = l;}
+\DoxyCodeLine{00237   v = (l <= 0.5) ? (l * (1.0 + \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})) : (l + \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} -\/ l * \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{00238   \textcolor{keywordflow}{if} (v > 0)}
+\DoxyCodeLine{00239   \{}
+\DoxyCodeLine{00240     \textcolor{keywordtype}{double} m;}
+\DoxyCodeLine{00241     \textcolor{keywordtype}{double} sv;}
+\DoxyCodeLine{00242     \textcolor{keywordtype}{int} sextant;}
+\DoxyCodeLine{00243     \textcolor{keywordtype}{double} fract, vsf, mid1, mid2;}
+\DoxyCodeLine{00244 }
+\DoxyCodeLine{00245     m       = l + l -\/ v;}
+\DoxyCodeLine{00246     sv      = (v -\/ m ) / v;}
+\DoxyCodeLine{00247     \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}      *= 6.0;}
+\DoxyCodeLine{00248     sextant = (int)\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}};}
+\DoxyCodeLine{00249     fract   = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}} -\/ sextant;}
+\DoxyCodeLine{00250     vsf     = v * sv * fract;}
+\DoxyCodeLine{00251     mid1    = m + vsf;}
+\DoxyCodeLine{00252     mid2    = v -\/ vsf;}
+\DoxyCodeLine{00253     \textcolor{keywordflow}{switch} (sextant)}
+\DoxyCodeLine{00254     \{}
+\DoxyCodeLine{00255       \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00256         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = v;}
+\DoxyCodeLine{00257         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}} = mid1;}
+\DoxyCodeLine{00258         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = m;}
+\DoxyCodeLine{00259         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00260       \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00261         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = mid2;}
+\DoxyCodeLine{00262         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}} = v;}
+\DoxyCodeLine{00263         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = m;}
+\DoxyCodeLine{00264         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00265       \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00266         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = m;}
+\DoxyCodeLine{00267         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}} = v;}
+\DoxyCodeLine{00268         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = mid1;}
+\DoxyCodeLine{00269         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00270       \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00271         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = m;}
+\DoxyCodeLine{00272         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}} = mid2;}
+\DoxyCodeLine{00273         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = v;}
+\DoxyCodeLine{00274         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00275       \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00276         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = mid1;}
+\DoxyCodeLine{00277         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}} = m;}
+\DoxyCodeLine{00278         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = v;}
+\DoxyCodeLine{00279         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00280       \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00281         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}} = v;}
+\DoxyCodeLine{00282         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}} = m;}
+\DoxyCodeLine{00283         \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}} = mid2;}
+\DoxyCodeLine{00284         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00285     \}}
+\DoxyCodeLine{00286   \}}
+\DoxyCodeLine{00287   *pRed   = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}};}
+\DoxyCodeLine{00288   *pGreen = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}};}
+\DoxyCodeLine{00289   *pBlue  = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}};}
+\DoxyCodeLine{00290 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_aadf2a4297af25f4a140ea29500e8d47d}{b}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a16304bc747437a168e633f9186eed1bf}{g}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acfbdb216bf2d5701c935da2190f4629a}{h}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_acab531abaa74a7e664e3986f2522b33a}{r}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_tune_color_dialog_abd36d7a15b4a21c0a40641f42ebf39c3}{Tune\+Color\+Dialog\+::update\+Image()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_aee36f54fda23aa3ddde686326e8e7cd3}\label{addon_2doxywizard_2wizard_8cpp_aee36f54fda23aa3ddde686326e8e7cd3}} 
+\index{wizard.cpp@{wizard.cpp}!stringVariantToBool@{stringVariantToBool}}
+\index{stringVariantToBool@{stringVariantToBool}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{stringVariantToBool()}{stringVariantToBool()}}
+{\footnotesize\ttfamily static bool string\+Variant\+To\+Bool (\begin{DoxyParamCaption}\item[{const QVariant \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112 \{}
+\DoxyCodeLine{00113   QString \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = v.toString().toLower();}
+\DoxyCodeLine{00114   \textcolor{keywordflow}{return} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==QString::fromLatin1(\textcolor{stringliteral}{"{}yes"{}}) || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==QString::fromLatin1(\textcolor{stringliteral}{"{}true"{}}) || \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}==QString::fromLatin1(\textcolor{stringliteral}{"{}1"{}});}
+\DoxyCodeLine{00115 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.
+
+
+
+Referenced by \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a4bbdddfecf1cf57c6ea202b19d90392d}{get\+Bool\+Option()}}, and \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a9917665d4b0b7ad80fb2a5049281fa80}{update\+Bool\+Option()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a9917665d4b0b7ad80fb2a5049281fa80}\label{addon_2doxywizard_2wizard_8cpp_a9917665d4b0b7ad80fb2a5049281fa80}} 
+\index{wizard.cpp@{wizard.cpp}!updateBoolOption@{updateBoolOption}}
+\index{updateBoolOption@{updateBoolOption}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{updateBoolOption()}{updateBoolOption()}}
+{\footnotesize\ttfamily static void update\+Bool\+Option (\begin{DoxyParamCaption}\item[{const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&}]{model,  }\item[{const QString \&}]{name,  }\item[{bool}]{b\+New }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143 \{}
+\DoxyCodeLine{00144   \mbox{\hyperlink{class_input}{Input}} *option = model[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}];}
+\DoxyCodeLine{00145   Q\_ASSERT(option!=0);}
+\DoxyCodeLine{00146   \textcolor{keywordtype}{bool} bOld = \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aee36f54fda23aa3ddde686326e8e7cd3}{stringVariantToBool}}(option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}());}
+\DoxyCodeLine{00147   \textcolor{keywordflow}{if} (bOld!=bNew)}
+\DoxyCodeLine{00148   \{}
+\DoxyCodeLine{00149     option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}()=QString::fromLatin1(bNew ? \textcolor{stringliteral}{"{}true"{}} : \textcolor{stringliteral}{"{}false"{}});}
+\DoxyCodeLine{00150     option-\/>\mbox{\hyperlink{class_input_a0436098ba644b5a7f643dd0c2d33d26a}{update}}();}
+\DoxyCodeLine{00151   \}}
+\DoxyCodeLine{00152 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_aee36f54fda23aa3ddde686326e8e7cd3}{string\+Variant\+To\+Bool()}}, \mbox{\hyperlink{class_input_a0436098ba644b5a7f643dd0c2d33d26a}{Input\+::update()}}, and \mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{Input\+::value()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step2_a288166ba2e09477ae9231609761232d2}{Step2\+::change\+Cross\+Ref\+State()}}, \mbox{\hyperlink{class_step4_ae96734d0882d73c47bbc6dffd660b654}{Step4\+::diagram\+Mode\+Changed()}}, \mbox{\hyperlink{class_step2_ab025e8b5f4f90238c4fcc4c395c6b766}{Step2\+::extract\+Mode()}}, \mbox{\hyperlink{class_step2_a48f89a350f4240a7874bcb99e3be0100}{Step2\+::optimize\+For()}}, \mbox{\hyperlink{class_step4_a0daa0e83e35134777d4a6208eddc816c}{Step4\+::set\+Caller\+Graph\+Enabled()}}, \mbox{\hyperlink{class_step4_a441c1cf7c711a6d06289304b3c94ef2c}{Step4\+::set\+Call\+Graph\+Enabled()}}, \mbox{\hyperlink{class_step4_a29b1d4921c4115dc236a310fe5aa2497}{Step4\+::set\+Collaboration\+Graph\+Enabled()}}, \mbox{\hyperlink{class_step3_a79db0fcfc38daf8d4230bcd769cc5abf}{Step3\+::set\+Docbook\+Enabled()}}, \mbox{\hyperlink{class_step4_ab422da04dce374fc15c033fb40ff929f}{Step4\+::set\+Graphical\+Hierarchy\+Enabled()}}, \mbox{\hyperlink{class_step3_aadebf3fd5358a6023ca7cc7c950ed303}{Step3\+::set\+Html\+Enabled()}}, \mbox{\hyperlink{class_step3_ad8a1f441cb448b584e24a9cbe9fa8d1b}{Step3\+::set\+Html\+Options()}}, \mbox{\hyperlink{class_step4_a8fdc6fa2855378b9901b7c995d72dc2e}{Step4\+::set\+Included\+By\+Graph\+Enabled()}}, \mbox{\hyperlink{class_step4_a710e16252d00e92b2a19bbc45df66d04}{Step4\+::set\+Include\+Graph\+Enabled()}}, \mbox{\hyperlink{class_step3_a5e0c7e80bbb4873dc61044b7e6c60fb1}{Step3\+::set\+Latex\+Enabled()}}, \mbox{\hyperlink{class_step3_afdbf3a9e039a8feaa217845f3be0f0a8}{Step3\+::set\+Latex\+Options()}}, \mbox{\hyperlink{class_step3_a90eb4539ba5a7f063f8c5445c80513db}{Step3\+::set\+Man\+Enabled()}}, \mbox{\hyperlink{class_step1_a1ad1d72b2036017453433cc25b1021c4}{Step1\+::set\+Recursive\+Scan()}}, \mbox{\hyperlink{class_step3_a7d1fd6c2270b4dde2005a9a14b716f29}{Step3\+::set\+Rtf\+Enabled()}}, \mbox{\hyperlink{class_step3_a760fbd4b18a7233592d53f4e5e470f83}{Step3\+::set\+Search\+Enabled()}}, and \mbox{\hyperlink{class_step3_a48dce71e0f124a2313ed3b56b66d1af7}{Step3\+::set\+Xml\+Enabled()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a5f8ba99eec5e3429afca2dd972a9d045}\label{addon_2doxywizard_2wizard_8cpp_a5f8ba99eec5e3429afca2dd972a9d045}} 
+\index{wizard.cpp@{wizard.cpp}!updateIntOption@{updateIntOption}}
+\index{updateIntOption@{updateIntOption}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{updateIntOption()}{updateIntOption()}}
+{\footnotesize\ttfamily static void update\+Int\+Option (\begin{DoxyParamCaption}\item[{const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&}]{model,  }\item[{const QString \&}]{name,  }\item[{int}]{i\+New }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156 \{}
+\DoxyCodeLine{00157   \mbox{\hyperlink{class_input}{Input}} *option = model[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}];}
+\DoxyCodeLine{00158   Q\_ASSERT(option!=0);}
+\DoxyCodeLine{00159   \textcolor{keywordtype}{int} iOld = option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}().toInt();}
+\DoxyCodeLine{00160   \textcolor{keywordflow}{if} (iOld!=iNew)}
+\DoxyCodeLine{00161   \{}
+\DoxyCodeLine{00162     option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}()=QString::fromLatin1(\textcolor{stringliteral}{"{}\%1"{}}).arg(iNew);}
+\DoxyCodeLine{00163     option-\/>\mbox{\hyperlink{class_input_a0436098ba644b5a7f643dd0c2d33d26a}{update}}();}
+\DoxyCodeLine{00164   \}}
+\DoxyCodeLine{00165 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{class_input_a0436098ba644b5a7f643dd0c2d33d26a}{Input\+::update()}}, and \mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{Input\+::value()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step3_a74b4d5441258d0062ba83cadf84c1409}{Step3\+::tune\+Color\+Dialog()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_ab590ee55cbe7e8dd042ffab4614b2e11}\label{addon_2doxywizard_2wizard_8cpp_ab590ee55cbe7e8dd042ffab4614b2e11}} 
+\index{wizard.cpp@{wizard.cpp}!updateStringOption@{updateStringOption}}
+\index{updateStringOption@{updateStringOption}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{updateStringOption()}{updateStringOption()}}
+{\footnotesize\ttfamily static void update\+String\+Option (\begin{DoxyParamCaption}\item[{const QHash$<$ QString, \mbox{\hyperlink{class_input}{Input}} $\ast$ $>$ \&}]{model,  }\item[{const QString \&}]{name,  }\item[{const QString \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170 \{}
+\DoxyCodeLine{00171   \mbox{\hyperlink{class_input}{Input}} *option = model[\mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{name}}];}
+\DoxyCodeLine{00172   Q\_ASSERT(option!=0);}
+\DoxyCodeLine{00173   \textcolor{keywordflow}{if} (option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}().toString()!=\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}})}
+\DoxyCodeLine{00174   \{}
+\DoxyCodeLine{00175     option-\/>\mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{value}}() = \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}};}
+\DoxyCodeLine{00176     option-\/>\mbox{\hyperlink{class_input_a0436098ba644b5a7f643dd0c2d33d26a}{update}}();}
+\DoxyCodeLine{00177   \}}
+\DoxyCodeLine{00178 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacesetup_ab3a7a0638d76a01367c5bc3cc699447f}{setup\+::name}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{class_input_a0436098ba644b5a7f643dd0c2d33d26a}{Input\+::update()}}, and \mbox{\hyperlink{class_input_a85a83041c5559e1aacff29d839537b64}{Input\+::value()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step4_ae96734d0882d73c47bbc6dffd660b654}{Step4\+::diagram\+Mode\+Changed()}}, \mbox{\hyperlink{class_step1_a13985352ae55a9166c3140932fb18ee0}{Step1\+::select\+Project\+Icon()}}, \mbox{\hyperlink{class_step4_a1e9bd29ca697df0985fd70d0934a7ccd}{Step4\+::set\+Class\+Graph\+Enabled()}}, \mbox{\hyperlink{class_step1_ab01778fa2301f8c63d0218e9dbfd798d}{Step1\+::set\+Destination\+Dir()}}, \mbox{\hyperlink{class_step1_a5e63e70a3dffa7956d3d6746fbef2ccd}{Step1\+::set\+Project\+Brief()}}, \mbox{\hyperlink{class_step1_a44248162485f815163f3720d82a5bb16}{Step1\+::set\+Project\+Name()}}, and \mbox{\hyperlink{class_step1_a7e065bf16bb48ac0a289d291edfc94db}{Step1\+::set\+Project\+Number()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_a5687975b13a6ad6f276c97f2d55b95cc}\label{addon_2doxywizard_2wizard_8cpp_a5687975b13a6ad6f276c97f2d55b95cc}} 
+\index{wizard.cpp@{wizard.cpp}!g\_optimizeMapping@{g\_optimizeMapping}}
+\index{g\_optimizeMapping@{g\_optimizeMapping}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_optimizeMapping}{g\_optimizeMapping}}
+{\footnotesize\ttfamily bool g\+\_\+optimize\+Mapping\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  \{ \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false} \}, }
+\DoxyCodeLine{  \{ \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{true}, \textcolor{keyword}{false},\textcolor{keyword}{false} \}, }
+\DoxyCodeLine{  \{ \textcolor{keyword}{false},\textcolor{keyword}{true}, \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false} \}, }
+\DoxyCodeLine{  \{ \textcolor{keyword}{true}, \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{true}, \textcolor{keyword}{false} \}, }
+\DoxyCodeLine{  \{ \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{true}, \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false} \}, }
+\DoxyCodeLine{  \{ \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{true}, \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false} \}, }
+\DoxyCodeLine{  \{ \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{true}  \}, }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step2_a48f89a350f4240a7874bcb99e3be0100}{Step2\+::optimize\+For()}}.
+
+\mbox{\Hypertarget{addon_2doxywizard_2wizard_8cpp_aceb512e82170e6dacc1d291233dc5eb5}\label{addon_2doxywizard_2wizard_8cpp_aceb512e82170e6dacc1d291233dc5eb5}} 
+\index{wizard.cpp@{wizard.cpp}!g\_optimizeOptionNames@{g\_optimizeOptionNames}}
+\index{g\_optimizeOptionNames@{g\_optimizeOptionNames}!wizard.cpp@{wizard.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_optimizeOptionNames}{g\_optimizeOptionNames}}
+{\footnotesize\ttfamily QString g\+\_\+optimize\+Option\+Names\mbox{[}7\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a8e7923ef2641da5b0e0e07bc0ba19478}{STR\_OPTIMIZE\_OUTPUT\_FOR\_C}},}
+\DoxyCodeLine{  \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a955a315801fe14e72a856538c5180be7}{STR\_OPTIMIZE\_OUTPUT\_JAVA}},}
+\DoxyCodeLine{  \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_af2d79011169086f7a73b3c8293ad691a}{STR\_OPTIMIZE\_FOR\_FORTRAN}},}
+\DoxyCodeLine{  \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_ab12b2a5be9ca551bbecf2958551f577f}{STR\_OPTIMIZE\_OUTPUT\_VHDL}},}
+\DoxyCodeLine{  \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a6b8ef69747d99819f31d7f9eb561f590}{STR\_CPP\_CLI\_SUPPORT}},}
+\DoxyCodeLine{  \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a1c5e0ce992fb9c1393bae70d28c12491}{STR\_HIDE\_SCOPE\_NAMES}},}
+\DoxyCodeLine{  \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_a0cf16a9e30521d02da671f310c87316c}{STR\_OPTIMIZE\_OUTPUT\_SLICE}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{addon_2doxywizard_2wizard_8cpp_source}{wizard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_step2_a48f89a350f4240a7874bcb99e3be0100}{Step2\+::optimize\+For()}}.
+

@@ -1,0 +1,102 @@
+\hypertarget{class_filter_strip_path}{}\doxysection{Filter\+Strip\+Path Class Reference}
+\label{class_filter_strip_path}\index{FilterStripPath@{FilterStripPath}}
+
+
+The implementation of the \char`\"{}default\char`\"{} filter.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_strip_path_ad5008a4cd7b84d95bcaa92c267e7d17a}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&)
+\item 
+static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \mbox{\hyperlink{class_filter_strip_path_ad5008a4cd7b84d95bcaa92c267e7d17a}{apply}} (const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&v, const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The implementation of the \char`\"{}default\char`\"{} filter. 
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01382}{1382}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_filter_strip_path_ad5008a4cd7b84d95bcaa92c267e7d17a}\label{class_filter_strip_path_ad5008a4cd7b84d95bcaa92c267e7d17a}} 
+\index{FilterStripPath@{FilterStripPath}!apply@{apply}}
+\index{apply@{apply}!FilterStripPath@{FilterStripPath}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Strip\+Path\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source_l01385}{1385}} of file \mbox{\hyperlink{build_2doxygen_2src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01386     \{}
+\DoxyCodeLine{01387       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() || !v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{01388       \{}
+\DoxyCodeLine{01389         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{01390       \}}
+\DoxyCodeLine{01391       \mbox{\hyperlink{class_q_c_string}{QCString}} result = v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}();}
+\DoxyCodeLine{01392       \textcolor{keywordtype}{int} i=result.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'/'});}
+\DoxyCodeLine{01393       \textcolor{keywordflow}{if} (i!=-\/1)}
+\DoxyCodeLine{01394       \{}
+\DoxyCodeLine{01395         result=result.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(i+1);}
+\DoxyCodeLine{01396       \}}
+\DoxyCodeLine{01397       i=result.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'});}
+\DoxyCodeLine{01398       \textcolor{keywordflow}{if} (i!=-\/1)}
+\DoxyCodeLine{01399       \{}
+\DoxyCodeLine{01400         result=result.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(i+1);}
+\DoxyCodeLine{01401       \}}
+\DoxyCodeLine{01402       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{01403     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{QCString\+::find\+Rev()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{QCString\+::mid()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+\mbox{\Hypertarget{class_filter_strip_path_ad5008a4cd7b84d95bcaa92c267e7d17a}\label{class_filter_strip_path_ad5008a4cd7b84d95bcaa92c267e7d17a}} 
+\index{FilterStripPath@{FilterStripPath}!apply@{apply}}
+\index{apply@{apply}!FilterStripPath@{FilterStripPath}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_template_variant}{Template\+Variant}} Filter\+Strip\+Path\+::apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{v,  }\item[{const \mbox{\hyperlink{class_template_variant}{Template\+Variant}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{src_2template_8cpp_source_l01385}{1385}} of file \mbox{\hyperlink{src_2template_8cpp_source}{template.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01386     \{}
+\DoxyCodeLine{01387       \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{isValid}}() || !v.\mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{isString}}())}
+\DoxyCodeLine{01388       \{}
+\DoxyCodeLine{01389         \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{01390       \}}
+\DoxyCodeLine{01391       \mbox{\hyperlink{class_q_c_string}{QCString}} result = v.\mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{toString}}();}
+\DoxyCodeLine{01392       \textcolor{keywordtype}{int} i=result.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'/'});}
+\DoxyCodeLine{01393       \textcolor{keywordflow}{if} (i!=-\/1)}
+\DoxyCodeLine{01394       \{}
+\DoxyCodeLine{01395         result=result.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(i+1);}
+\DoxyCodeLine{01396       \}}
+\DoxyCodeLine{01397       i=result.\mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}(\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'});}
+\DoxyCodeLine{01398       \textcolor{keywordflow}{if} (i!=-\/1)}
+\DoxyCodeLine{01399       \{}
+\DoxyCodeLine{01400         result=result.\mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{mid}}(i+1);}
+\DoxyCodeLine{01401       \}}
+\DoxyCodeLine{01402       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{01403     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_q_c_string_ab47a6435c16d61d04fb448f1080b4e26}{QCString\+::find\+Rev()}}, \mbox{\hyperlink{class_template_variant_a58289f012fe2d5afa506ed4ce14e2b41}{Template\+Variant\+::is\+String()}}, \mbox{\hyperlink{class_template_variant_a0c6e3f3e625ca22ed2c567cf1ea98bdd}{Template\+Variant\+::is\+Valid()}}, \mbox{\hyperlink{class_q_c_string_a27136caf9c0bc4daca574cda6f113551}{QCString\+::mid()}}, and \mbox{\hyperlink{class_template_variant_ab03869d8a226d83614fca23902b0facd}{Template\+Variant\+::to\+String()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+doxygen/build/doxygen/src/\mbox{\hyperlink{build_2doxygen_2src_2template_8cpp}{template.\+cpp}}\item 
+doxygen/src/\mbox{\hyperlink{src_2template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

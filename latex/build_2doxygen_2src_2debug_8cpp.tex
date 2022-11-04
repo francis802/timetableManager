@@ -1,0 +1,142 @@
+\hypertarget{build_2doxygen_2src_2debug_8cpp}{}\doxysection{doxygen/build/doxygen/src/debug.cpp File Reference}
+\label{build_2doxygen_2src_2debug_8cpp}\index{doxygen/build/doxygen/src/debug.cpp@{doxygen/build/doxygen/src/debug.cpp}}
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_timer}{Timer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static char \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_af99cca26392cb3f3834262a20381e399}{ascii\+To\+Lower}} (char in)
+\item 
+static int \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a8f21b2ecd7820f4f4fbef6f41698a818}{label\+To\+Enum\+Value}} (const \mbox{\hyperlink{class_q_c_string}{QCString}} \&l)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+::\+Debug\+Mask}} $>$ \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}{s\+\_\+labels}}
+\item 
+static \mbox{\hyperlink{class_timer}{Timer}} \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a3e85396212eb9f0ea3bc706daf150cdd}{g\+\_\+running\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2debug_8cpp_af99cca26392cb3f3834262a20381e399}\label{build_2doxygen_2src_2debug_8cpp_af99cca26392cb3f3834262a20381e399}} 
+\index{debug.cpp@{debug.cpp}!asciiToLower@{asciiToLower}}
+\index{asciiToLower@{asciiToLower}!debug.cpp@{debug.cpp}}
+\doxysubsubsection{\texorpdfstring{asciiToLower()}{asciiToLower()}}
+{\footnotesize\ttfamily static char ascii\+To\+Lower (\begin{DoxyParamCaption}\item[{char}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069                                   \{}
+\DoxyCodeLine{00070     \textcolor{keywordflow}{if} (in <= 'Z' \&\& in >= \textcolor{charliteral}{'A'})}
+\DoxyCodeLine{00071         \textcolor{keywordflow}{return} in -\/ (\textcolor{charliteral}{'Z'} -\/ \textcolor{charliteral}{'z'});}
+\DoxyCodeLine{00072     \textcolor{keywordflow}{return} in;}
+\DoxyCodeLine{00073 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a8f21b2ecd7820f4f4fbef6f41698a818}{label\+To\+Enum\+Value()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2debug_8cpp_a8f21b2ecd7820f4f4fbef6f41698a818}\label{build_2doxygen_2src_2debug_8cpp_a8f21b2ecd7820f4f4fbef6f41698a818}} 
+\index{debug.cpp@{debug.cpp}!labelToEnumValue@{labelToEnumValue}}
+\index{labelToEnumValue@{labelToEnumValue}!debug.cpp@{debug.cpp}}
+\doxysubsubsection{\texorpdfstring{labelToEnumValue()}{labelToEnumValue()}}
+{\footnotesize\ttfamily static int label\+To\+Enum\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_c_string}{QCString}} \&}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076 \{}
+\DoxyCodeLine{00077   \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{std::string}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}} = l.\mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{str}}();}
+\DoxyCodeLine{00078   std::transform(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.begin(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.end(),\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}.begin(),\mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_af99cca26392cb3f3834262a20381e399}{asciiToLower}});}
+\DoxyCodeLine{00079   \textcolor{keyword}{auto} it = \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}{s\_labels}}.find(\mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
+\DoxyCodeLine{00080   \textcolor{keywordflow}{return} (it!=\mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}{s\_labels}}.end()) ? it-\/>second : 0;}
+\DoxyCodeLine{00081 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_af99cca26392cb3f3834262a20381e399}{ascii\+To\+Lower()}}, \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}}, \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}{s\+\_\+labels}}, \mbox{\hyperlink{class_q_c_string_a875e9ad762554ef12f3ed69b015bb245}{QCString\+::str()}}, and \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ab316628fa3d58332c1756353c49316c1}{string}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_debug_a3a7f45cdbb37ba05e88fc17a4017f29b}{Debug\+::set\+Flag()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2debug_8cpp_a3e85396212eb9f0ea3bc706daf150cdd}\label{build_2doxygen_2src_2debug_8cpp_a3e85396212eb9f0ea3bc706daf150cdd}} 
+\index{debug.cpp@{debug.cpp}!g\_runningTime@{g\_runningTime}}
+\index{g\_runningTime@{g\_runningTime}!debug.cpp@{debug.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_runningTime}{g\_runningTime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_timer}{Timer}} g\+\_\+running\+Time\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_debug_accc1a68a6e51b015caee0ab90ddb6e87}{Debug\+::elapsed\+Time()}}, and \mbox{\hyperlink{class_debug_ad34e8ad3d814a4cf8b29ce98fd7a96f5}{Debug\+::start\+Timer()}}.
+
+\mbox{\Hypertarget{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}\label{build_2doxygen_2src_2debug_8cpp_ab76040705893c60ac02bcca04c9aba5f}} 
+\index{debug.cpp@{debug.cpp}!s\_labels@{s\_labels}}
+\index{s\_labels@{s\_labels}!debug.cpp@{debug.cpp}}
+\doxysubsubsection{\texorpdfstring{s\_labels}{s\_labels}}
+{\footnotesize\ttfamily std\+::map$<$ \mbox{\hyperlink{libmscgen_2gd_8h_a13690c1a2aacb1c8261e3be3c4a4f4b2}{std\+::string}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96}{Debug\+::\+Debug\+Mask}} $>$ s\+\_\+labels\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}findmembers"{}},       \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a319755b52b5c266df165b0fd48261a85}{Debug::FindMembers}}       \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}functions"{}},         \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a031581770ddc7c853dfae57e7091ab4c}{Debug::Functions}}         \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}variables"{}},         \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a2352d0c3a94e8a18ea4bbe71db28386d}{Debug::Variables}}         \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}preprocessor"{}},      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aae1261000fff12461a187ff262af5bbe}{Debug::Preprocessor}}      \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}nolineno"{}},          \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ab9879ac16dc3554dbfbedc57e49fac88}{Debug::NoLineNo}}          \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}classes"{}},           \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad7c002df3a2396af1accb676e7054275}{Debug::Classes}}           \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}commentcnv"{}},        \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96afa35075444c932d2659bfe10e959e6b5}{Debug::CommentCnv}}        \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}commentscan"{}},       \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3c112984067285cecaee818f669ee103}{Debug::CommentScan}}       \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}printtree"{}},         \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a1dfb9b1108c3436d9267366494547155}{Debug::PrintTree}}         \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}time"{}},              \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96af0ac3327fa4e38f78157479a475683fe}{Debug::Time}}              \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}extcmd"{}},            \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ae0f271a190b409433daefa05343c9eee}{Debug::ExtCmd}}            \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}markdown"{}},          \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a6b8e39f76fee2c097a090393de72c349}{Debug::Markdown}}          \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}filteroutput"{}},      \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96adeaa5931452b9cc0cbfad497d71c093b}{Debug::FilterOutput}}      \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}lex"{}},               \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a79fc19fde70dec859e83d94e7de6443c}{Debug::Lex}}               \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}plantuml"{}},          \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a80f0f579934c09dee1f8d20bc3232e7c}{Debug::Plantuml}}          \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}fortranfixed2free"{}}, \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a3171bd01490426aa05a042f63060c05e}{Debug::FortranFixed2Free}} \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}cite"{}},              \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ada9d42761399440123d7823164376bd7}{Debug::Cite}}              \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}rtf"{}},               \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96aea6bace429d9fc7d77655de2a8297755}{Debug::Rtf}}               \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}qhp"{}},               \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96ad6161091a91739c168ad9b6654e2b22f}{Debug::Qhp}}               \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}tag"{}},               \mbox{\hyperlink{class_debug_a9e0b892a8030a4f64076850777991c96a04904fed8715650fe1b547436815d57d}{Debug::Tag}}               \},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_source}{debug.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{build_2doxygen_2src_2debug_8cpp_a8f21b2ecd7820f4f4fbef6f41698a818}{label\+To\+Enum\+Value()}}, and \mbox{\hyperlink{class_debug_a2d8ac411144a380f838a1766118c6a03}{Debug\+::print\+Flags()}}.
+

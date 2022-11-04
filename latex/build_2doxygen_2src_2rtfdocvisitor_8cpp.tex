@@ -1,0 +1,81 @@
+\hypertarget{build_2doxygen_2src_2rtfdocvisitor_8cpp}{}\doxysection{doxygen/build/doxygen/src/rtfdocvisitor.cpp File Reference}
+\label{build_2doxygen_2src_2rtfdocvisitor_8cpp}\index{doxygen/build/doxygen/src/rtfdocvisitor.cpp@{doxygen/build/doxygen/src/rtfdocvisitor.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}rtfdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}msc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtfstyle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dia.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlentity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}emoji.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plantuml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{build_2doxygen_2src_2rtfdocvisitor_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}{DBG\+\_\+\+RTF}}(\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}})~do \{\} while(0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_q_c_string}{QCString}} \mbox{\hyperlink{build_2doxygen_2src_2rtfdocvisitor_8cpp_a1c683042be29f8f10d539f4a01a03237}{align}} (const \mbox{\hyperlink{class_doc_html_cell}{Doc\+Html\+Cell}} \&cell)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2rtfdocvisitor_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}\label{build_2doxygen_2src_2rtfdocvisitor_8cpp_a8e937453cd49cd7e753fa4e9d77d3c38}} 
+\index{rtfdocvisitor.cpp@{rtfdocvisitor.cpp}!DBG\_RTF@{DBG\_RTF}}
+\index{DBG\_RTF@{DBG\_RTF}!rtfdocvisitor.cpp@{rtfdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{DBG\_RTF}{DBG\_RTF}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+RTF(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{libmscgen_2gd_8h_a6150e0515f7202e2fb518f7206ed97dc}{x}} }\end{DoxyParamCaption})~do \{\} while(0)}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2rtfdocvisitor_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{build_2doxygen_2src_2rtfdocvisitor_8cpp_source}{rtfdocvisitor.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{build_2doxygen_2src_2rtfdocvisitor_8cpp_a1c683042be29f8f10d539f4a01a03237}\label{build_2doxygen_2src_2rtfdocvisitor_8cpp_a1c683042be29f8f10d539f4a01a03237}} 
+\index{rtfdocvisitor.cpp@{rtfdocvisitor.cpp}!align@{align}}
+\index{align@{align}!rtfdocvisitor.cpp@{rtfdocvisitor.cpp}}
+\doxysubsubsection{\texorpdfstring{align()}{align()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_q_c_string}{QCString}} align (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_doc_html_cell}{Doc\+Html\+Cell}} \&}]{cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{build_2doxygen_2src_2rtfdocvisitor_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{build_2doxygen_2src_2rtfdocvisitor_8cpp_source}{rtfdocvisitor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046   \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&attr : cell.\mbox{\hyperlink{class_doc_html_cell_ad42711394b311bbb450073c2206da8c8}{attribs}}())}
+\DoxyCodeLine{00047   \{}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{if} (attr.name.lower()==\textcolor{stringliteral}{"{}align"{}})}
+\DoxyCodeLine{00049     \{}
+\DoxyCodeLine{00050       \textcolor{keywordflow}{if} (attr.value.lower()==\textcolor{stringliteral}{"{}center"{}})     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)qc "{}};}
+\DoxyCodeLine{00051       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (attr.value.lower()==\textcolor{stringliteral}{"{}right"{}}) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)qr "{}};}
+\DoxyCodeLine{00052       \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00053     \}}
+\DoxyCodeLine{00054   \}}
+\DoxyCodeLine{00055   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00056 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{class_doc_html_cell_ad42711394b311bbb450073c2206da8c8}{Doc\+Html\+Cell\+::attribs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_r_t_f_doc_visitor_a70c61ff58fa9f747fc2b971c689a09ff}{RTFDoc\+Visitor\+::operator()()}}, and \mbox{\hyperlink{class_output_list_a0b9d56f0ab609c25ba0b449e4d977f80}{Output\+List\+::start\+Member\+Doc\+Name()}}.
+
