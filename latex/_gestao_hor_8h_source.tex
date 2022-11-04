@@ -1,52 +1,52 @@
 \hypertarget{_gestao_hor_8h_source}{}\doxysection{Gestao\+Hor.\+h}
-\mbox{\hyperlink{_gestao_hor_8h}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef PROJECT\_AED\_GESTAOHOR\_H}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00002}00002 \textcolor{preprocessor}{\#define PROJECT\_AED\_GESTAOHOR\_H}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <set>}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <fstream>}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <sstream>}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <queue>}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_estudante_8h}{Estudante.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pedido_8h}{Pedido.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00011}00011 \textcolor{keyword}{using namespace }std;}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00012}00012 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00013}\mbox{\hyperlink{class_gestao_hor}{00013}} \textcolor{keyword}{class }\mbox{\hyperlink{class_gestao_hor}{GestaoHor}}\{}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00014}00014 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00015}00015     \mbox{\hyperlink{class_gestao_hor_a12fd264b4d8b074eb4e4c0971504840a}{GestaoHor}}();}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00017}\mbox{\hyperlink{struct_gestao_hor_1_1cmp}{00017}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_gestao_hor_1_1cmp}{cmp}} \{}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00018}\mbox{\hyperlink{struct_gestao_hor_1_1cmp_a9002c29c96015e86d3cf43b65dffb730}{00018}}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_gestao_hor_1_1cmp_a9002c29c96015e86d3cf43b65dffb730}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_estudante}{Estudante}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_estudante}{Estudante}} rhs)\textcolor{keyword}{ const}\{}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00019}00019             \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{class_estudante_abc7ee9ef81b2201ac1a7d9a3431f3ebc}{getName}}() < rhs.\mbox{\hyperlink{class_estudante_abc7ee9ef81b2201ac1a7d9a3431f3ebc}{getName}}();}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00020}00020         \}}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00021}00021     \};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00022}00022     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gestao_hor_ad9d0d5965377e67d55bac29d505f51aa}{addStudent}}(\mbox{\hyperlink{class_estudante}{Estudante}} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_ae3e86dd318726ad9c3c9874dd2a7cfc1}{s}});}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00023}00023     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gestao_hor_a0f4558ee79c9f96ec3d0aaa443c36fd7}{getDataStudent}}(\textcolor{keywordtype}{string} filename1, \textcolor{keywordtype}{string} filename2);}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00024}00024     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gestao_hor_a9c80ad7f5a19cc5cc8e82d620bdde732}{getDataAula}}(\textcolor{keywordtype}{string} \mbox{\hyperlink{build_2doxygen_2libmscgen_2gd_8h_a7efa5e9c7494c7d4586359300221aa5d}{filename}});}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00025}00025     \textcolor{keyword}{const} set<Estudante> \&\mbox{\hyperlink{class_gestao_hor_ab13c8fdffb91b27bdb1e7d229834eaf2}{getStudents}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00027}00027     \textcolor{keyword}{const} set<Estudante, cmp> \&\mbox{\hyperlink{class_gestao_hor_a238cfbf75a19789120e68a9aa2168095}{getStudentsByname}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00029}00029     vector<pair<int,string>> \mbox{\hyperlink{class_gestao_hor_aadaad9010c07a488b445ce5f13c036ec}{ocupacaoTurmasUC}}(\textcolor{keywordtype}{string} uc);}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00030}00030     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gestao_hor_a5ebc7ec0265bb67a8b432f958163e9b1}{addPedidos}}(\mbox{\hyperlink{build_2doxygen_2liblodepng_2lodepng_8cpp_ac8c5476186a019b60cc8fd4cc6ea41a1}{vector}}<pair<char,Pedido>> pedido);}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00031}00031     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gestao_hor_ad7e897f4c9584fa5990686daf0152ca7}{processPedidos}}();}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00033}00033     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_gestao_hor_aca65cae895b05f1ac8efbc90f3b138b7}{classConflict}}(\mbox{\hyperlink{class_estudante}{Estudante}} estudante, \mbox{\hyperlink{class_u_c_turma}{UCTurma}} new\_uct);}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00035}00035     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gestao_hor_aeb38dd003b200458cbb355cedf94daac}{removeStudentUCClass}}(\mbox{\hyperlink{class_pedido}{Pedido}} pedido);}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00036}00036     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_gestao_hor_aba60b91eaf172b0ccee4a03a01a2de3a}{addStudentUCClass}}(\mbox{\hyperlink{class_pedido}{Pedido}} pedido);}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00037}00037 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00038}\mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{00038}}     set<UCTurma> \mbox{\hyperlink{class_gestao_hor_a90d391be98311b3bbf54bee7d8479210}{aulas}};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00039}\mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{00039}}     set<Estudante> \mbox{\hyperlink{class_gestao_hor_a8f06e1b160ed24fe72e7f9408adf1c08}{students}};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00040}\mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{00040}}     set<Estudante, cmp>\mbox{\hyperlink{class_gestao_hor_a81804ac681c826ff5356830ac83635c9}{students\_byname}};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00041}\mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{00041}}     queue<vector<pair<char,Pedido>>> \mbox{\hyperlink{class_gestao_hor_acab190fdf4968a5fdd963a148128543b}{pedidos}};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00042}\mbox{\hyperlink{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}{00042}}     list<vector<pair<char,Pedido>>> \mbox{\hyperlink{class_gestao_hor_ac629aecc0872bca30751240157bb25ce}{failed}};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00043}\mbox{\hyperlink{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}{00043}}     \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_gestao_hor_ac649b916ab050635b00407369bb3dc92}{cap}} = 30;}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00045}00045 \};}
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{_gestao_hor_8h_source_l00047}00047 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJECT\_AED\_GESTHOR\_H}}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJECT\_AED\_GESTAOHOR\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJECT\_AED\_GESTAOHOR\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Estudante.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Pedido.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_gestao_hor}{GestaoHor}}\{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_gestao_hor}{GestaoHor}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_gestao_hor_1_1cmp}{cmp}} \{}
+\DoxyCodeLine{18         \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{class_estudante}{Estudante}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_estudante}{Estudante}} rhs)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{19             \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{class_estudante_abc7ee9ef81b2201ac1a7d9a3431f3ebc}{getName}}() < rhs.\mbox{\hyperlink{class_estudante_abc7ee9ef81b2201ac1a7d9a3431f3ebc}{getName}}();}
+\DoxyCodeLine{20         \}}
+\DoxyCodeLine{21     \};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} addStudent(\mbox{\hyperlink{class_estudante}{Estudante}} s);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} getDataStudent(\textcolor{keywordtype}{string} filename1, \textcolor{keywordtype}{string} filename2);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} getDataAula(\textcolor{keywordtype}{string} filename);}
+\DoxyCodeLine{25     \textcolor{keyword}{const} set<Estudante> \&getStudents() \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{const} set<Estudante, cmp> \&getStudentsByname() \textcolor{keyword}{const};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     vector<pair<int,string>> ocupacaoTurmasUC(\textcolor{keywordtype}{string} uc);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} addPedidos(vector<pair<char,Pedido>> pedido);}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} processPedidos();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} classConflict(\mbox{\hyperlink{class_estudante}{Estudante}} estudante, \mbox{\hyperlink{class_u_c_turma}{UCTurma}} new\_uct);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} removeStudentUCClass(\mbox{\hyperlink{class_pedido}{Pedido}} pedido);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} addStudentUCClass(\mbox{\hyperlink{class_pedido}{Pedido}} pedido);}
+\DoxyCodeLine{37 \textcolor{keyword}{private}:}
+\DoxyCodeLine{38     set<UCTurma> aulas;}
+\DoxyCodeLine{39     set<Estudante> students;}
+\DoxyCodeLine{40     set<Estudante, cmp>students\_byname;}
+\DoxyCodeLine{41     queue<vector<pair<char,Pedido>>> pedidos;}
+\DoxyCodeLine{42     list<vector<pair<char,Pedido>>> failed;}
+\DoxyCodeLine{43     \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} cap = 30;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJECT\_AED\_GESTHOR\_H}}
 
 \end{DoxyCode}

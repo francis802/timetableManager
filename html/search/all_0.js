@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_24mode_0',['$mode',['../build_2doxygen_2templates_2html_2search__opensearch_8php.html#a3aaf40baac36e278c7d7c9139df1750c',1,'$mode():&#160;search_opensearch.php'],['../templates_2html_2search__opensearch_8php.html#a3aaf40baac36e278c7d7c9139df1750c',1,'$mode():&#160;search_opensearch.php']]],
-  ['_24query_1',['$query',['../build_2doxygen_2templates_2html_2search__opensearch_8php.html#af59a5f7cd609e592c41dc3643efd3c98',1,'$query():&#160;search_opensearch.php'],['../templates_2html_2search__opensearch_8php.html#af59a5f7cd609e592c41dc3643efd3c98',1,'$query():&#160;search_opensearch.php']]],
-  ['_24query_5fresults_2',['$query_results',['../build_2doxygen_2templates_2html_2search__opensearch_8php.html#a13caef56b465ebd21f033497f40b5b85',1,'$query_results():&#160;search_opensearch.php'],['../templates_2html_2search__opensearch_8php.html#a13caef56b465ebd21f033497f40b5b85',1,'$query_results():&#160;search_opensearch.php']]]
+  ['addaula_0',['addAula',['../class_u_c_turma.html#a5da3d9006eb721003c0b579428b1fc3d',1,'UCTurma']]],
+  ['addturma_1',['addTurma',['../class_estudante.html#a0d37885b414b302226ad22656453e226',1,'Estudante']]],
+  ['aula_2',['Aula',['../class_aula.html',1,'Aula'],['../class_aula.html#a15e29d11a72f19a4b23153964968b39e',1,'Aula::Aula()']]]
 ];
