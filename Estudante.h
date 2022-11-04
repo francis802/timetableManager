@@ -65,7 +65,7 @@ public:
      *
      * @return Nome do estudante.
      */
-    const string &getName() const;
+    const string getName() const;
 
     /**
      * \brief Accessor do atributo "turmas".
@@ -93,6 +93,8 @@ public:
      * @return Código UP do estudante.
      */
     int getCode() const;
+
+    void setName(const string &name);
 
 private:
     int code;

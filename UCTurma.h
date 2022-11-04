@@ -32,12 +32,21 @@ public:
     UCTurma();
 
     /**
-     * \brief Modifier do atributo "timetable".
+     * \brief Overloader do operator "<".
      *
-     * Complexidade O(1).
-     *
-     * @param aula Aula a adicionar ao horário.
+     * Retorna "true" se o código da UC da primeira turma for menor que o da segunda, se forem iguais, retorna "true" se o código da turma da primeira turma for menor do que o da segunda, em qualquer outra situação retorna "false". Complexidade O(1).
+     * @param s Segunda turma.
+     * @return
      */
+    bool operator<(const UCTurma &s) const;
+
+    /**
+    * \brief Modifier do atributo "timetable".
+    *
+    * Complexidade O(1).
+    *
+    * @param aula Aula a adicionar ao horário.
+    */
     void addAula(Aula aula);
 
     /**
