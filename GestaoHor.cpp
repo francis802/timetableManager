@@ -163,12 +163,17 @@ void GestaoHor::processPedidos() {
                         Estudante del = Estudante();
                         del.setCode(stuCode);
                         auto it_del = students.find(del);
-                        del = *it_del;
-                        auto it_del_name = students_byname.find(del);
-                        students.erase(it_del);
-                        students_byname.erase(it_del_name);
-                        students.insert(backup);
-                        students_byname.insert(backup);
+                        if (it_del == students.end()){
+                            students.insert(backup);
+                            students_byname.insert(backup);
+                        } else {
+                            del = *it_del;
+                            auto it_del_name = students_byname.find(del);
+                            students.erase(it_del);
+                            students_byname.erase(it_del_name);
+                            students.insert(backup);
+                            students_byname.insert(backup);
+                        }
                     }
                     break;
                 }
@@ -244,6 +249,18 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
     students_byname.erase(it2);
     UCTurma t = UCTurma(turma, uc);
     auto timetable = aulas.find(t);
+    if (timetable == aulas.end()){
+        ofstream out;
+        out.open("../log_failed_changes.txt",std::ios_base::app);
+        cout << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+        out << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+        cout << "\tMotivo: " << uc << " | " << turma << " não tem aulas associadas\n";
+        out << "\tMotivo: " << uc << " | " << turma << " não tem aulas associadas\n";
+        cout << "Não foram efetuadas mudanças no horário do estudante\n\n";
+        out << "Não foram efetuadas mudanças no horário do estudante\n\n\n";
+        out.close();
+        return false;
+    }
     for(Aula a : timetable->getTimetable()){
         t.addAula(a);
     }
@@ -256,8 +273,8 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
         out.open("../log_failed_changes.txt",std::ios_base::app);
         cout << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
         out << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
-        cout << "\tMotivo: " << uc << " | " << turma << "causa sobreposição de aulas\n";
-        out << "\tMotivo: " << uc << " | " << turma << "causa sobreposição de aulas\n";
+        cout << "\tMotivo: " << uc << " | " << turma << " causa sobreposição de aulas\n";
+        out << "\tMotivo: " << uc << " | " << turma << " causa sobreposição de aulas\n";
         cout << "Não foram efetuadas mudanças no horário do estudante\n\n";
         out << "Não foram efetuadas mudanças no horário do estudante\n\n\n";
         out.close();
