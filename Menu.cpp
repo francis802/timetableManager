@@ -96,6 +96,10 @@ bool Menu::ocupacaoTurmasMenu(){
         else if (option1 == "2"){
             cout << "UC: ";
             getline(cin, option2);
+            if (option2.size() != 8){
+                cout << "invalid input\n\n";
+                continue;
+            }
             printOcupacaoTurmasUC(gestao.ocupacaoTurmasUC(option2),option2);
         }
         else if (option1 == "q") return true;
@@ -170,7 +174,7 @@ void Menu::ocupacaoDeterminadaUC(string codUC) {
 
 void Menu::printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out){
     string option;
-    cout << "Ordenação: 1) Turma, 2) Crescente, 3) Decrescente\n";
+    cout << "Ordenação: 1) UC, 2) Crescente, 3) Decrescente\n";
     getline(cin, option);
     switch (option[0]) {
         case '2':
@@ -346,7 +350,12 @@ void Menu::searchHorarioByNum(){
     cout << "Número de Estudante: ";
     getline(cin, num);
     Estudante temp = Estudante();
-    temp.setCode(stoi(num));
+    try {
+        temp.setCode(stoi(num));
+    } catch (invalid_argument) {
+        cout << "invalid input\n\n";
+        return;
+    }
     auto student = gestao.getStudents().find(temp);
     if (student == gestao.getStudents().end()){
         cout << "Student not found\n";
@@ -433,10 +442,6 @@ void Menu::estudantesTurmaUC(string turma, string uc, char sort) {
 }
 
 void Menu::estudantesAno(string ano, char sort) {
-    if (ano.size() != 1){
-        cout << "invalid input\n";
-        return;
-    }
     string s = "../estudantes_" + ano + "ano.txt";
     ofstream out(s);
     bool found = false;
@@ -511,7 +516,13 @@ void Menu::estudantesUC(string codUC, char sort) {
 }
 
 void Menu::estudantesMaisDeNUCs(std::string n, char sort) {
-    int num = stoi(n);
+    int num;
+    try {
+        num = stoi(n);
+    } catch (invalid_argument) {
+        cout << "invalid input\n\n";
+        return;
+    }
     string s = "../estudantes_mais_de_" + n + "_ucs.txt";
     ofstream out(s);
     bool found = false;
@@ -598,6 +609,10 @@ bool Menu::estudantesMenu(){
         else if (option1 == "2") {
             cout << "Ano: ";
             getline(cin, option2);
+            if (option2.size() != 1){
+                cout << "invalid input\n\n";
+                continue;
+            }
             cout << "Ordenação: 1) Nº Estudante, 2) Alfabética\n";
             getline(cin, sorting);
             estudantesAno(option2, sorting[0]);
@@ -657,14 +672,25 @@ bool Menu::alterarMenu() {
             getline(cin, classStudent);
             cout << "Código UC:";
             getline(cin, codUCStudent);
-            pedido.setCode(stoi(numStudent)); pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
+            try {
+                pedido.setCode(stoi(numStudent));
+            }catch (invalid_argument){
+                cout << "invalid input\n\n";
+                continue;
+            }
+            pedido.setCodTurma(classStudent); pedido.setCodUc(codUCStudent);
             waiting.push_back({'a',pedido});
             gestao.addPedidos(waiting);
         }
         else if (option1 == "3"){
             cout << "Nºestudante:";
             getline(cin, numStudent);
-            pedido.setCode(stoi(numStudent));
+            try {
+                pedido.setCode(stoi(numStudent));
+            } catch (invalid_argument) {
+                cout << "invalid input\n\n";
+                continue;
+            }
             cout << "Turma/UC a remover:\n";
             cout << "\tTurma:";
             getline(cin, classStudent);
@@ -684,7 +710,12 @@ bool Menu::alterarMenu() {
         else if (option1 == "4"){
             cout << "Nºestudante:";
             getline(cin, numStudent);
-            pedido.setCode(stoi(numStudent));
+            try {
+                pedido.setCode(stoi(numStudent));
+            } catch (invalid_argument) {
+                cout << "invalid input\n\n";
+                continue;
+            }
             while (true){
                 cout << "Turma/UC a remover (Press Enter to continue):\n";
                 cout << "\tTurma:";

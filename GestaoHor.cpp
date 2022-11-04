@@ -148,6 +148,17 @@ void GestaoHor::processPedidos() {
         Estudante backup = Estudante();
         backup.setCode(stuCode);
         auto it1 = students.find(backup);
+        if (it1 == students.end()){
+            ofstream out;
+            out.open("../log_failed_changes.txt",std::ios_base::app);
+            cout << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << stuCode << endl;
+            out << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << stuCode << endl;
+            cout << "\tMotivo: estudante não encontrado\n\n";
+            out << "\tMotivo: estudante não encontrado\n\n\n";
+            out.close();
+            pedidos.pop();
+            continue;
+        }
         backup = *it1;
         bool stopLoop = false;
 
