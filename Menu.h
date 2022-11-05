@@ -17,13 +17,6 @@ public:
 
     void start();
 
-    //TODO ESTUDANTES MENU
-    bool estudantesMenu();
-        void estudantesTurmaUC(string turma, string uc, char sort);
-        void estudantesAno(string ano, char sort);
-        void estudantesUC(string codUC, char sort);
-        void estudantesMaisDeNUCs(string n, char sort);
-
     //TODO ALTERAR MENU
     bool alterarMenu();
 };
