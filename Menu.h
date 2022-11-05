@@ -17,14 +17,6 @@ public:
 
     void start();
 
-
-    //TODO HORÁRIO MENU
-    bool horarioMenu();
-        void searchHorarioByNum();
-        void searchHorarioByName();
-        void searchHorarioTurma();
-        void printHorario(Estudante student);
-
     //TODO ESTUDANTES MENU
     bool estudantesMenu();
         void estudantesTurmaUC(string turma, string uc, char sort);
