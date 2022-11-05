@@ -17,27 +17,35 @@ public:
 
     void start();
 
-    int ocupacaoDeterminadaTurmaUC(string turma, string uc);
-    void printOcupacaoTurmasUC(vector<pair<int,string>> ocupacao, string uc);
-    bool ocupacaoTurmasMenu();
-    void ocupacaoDeterminadoAno(string ano);
-    void ocupacaoAnos();
-    bool ocupacaoAnosMenu();
-    void ocupacaoDeterminadaUC(std::string codUC);
-    void printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out);
-    vector<pair<int,string>> ocupacaoUCsAno(std::string ano);
-    void ocupacaoUCs();
-    bool ocupacaoUCMenu();
+    //TODO OCUPAÇÃO MENU
     bool ocupacaoMenu();
-    void printHorario(Estudante student);
-    void searchHorarioByNum();
-    void searchHorarioByName();
+    bool ocupacaoTurmasMenu();
+        int ocupacaoDeterminadaTurmaUC(string turma, string uc);
+        void printOcupacaoTurmasUC(vector<pair<int,string>> ocupacao, string uc);
+    bool ocupacaoAnosMenu();
+        void ocupacaoDeterminadoAno(string ano);
+        void ocupacaoAnos();
+    bool ocupacaoUCMenu();
+        void ocupacaoDeterminadaUC(std::string codUC);
+        void printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out);
+        void ocupacaoUCs();
+    vector<pair<int,string>> ocupacaoUCsAno(std::string ano);
+
+
+    //TODO HORÁRIO MENU
     bool horarioMenu();
-    void estudantesTurmaUC(string turma, string uc, char sort);
-    void estudantesAno(string ano, char sort);
-    void estudantesUC(string codUC, char sort);
-    void estudantesMaisDeNUCs(string n, char sort);
+        void searchHorarioByNum();
+        void searchHorarioByName();
+        void printHorario(Estudante student);
+
+    //TODO ESTUDANTES MENU
     bool estudantesMenu();
+        void estudantesTurmaUC(string turma, string uc, char sort);
+        void estudantesAno(string ano, char sort);
+        void estudantesUC(string codUC, char sort);
+        void estudantesMaisDeNUCs(string n, char sort);
+
+    //TODO ALTERAR MENU
     bool alterarMenu();
 };
 
