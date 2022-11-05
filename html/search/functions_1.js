@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['estudante_0',['Estudante',['../class_estudante.html#a566c050a0653aa7ec4230eace8610963',1,'Estudante::Estudante(int code, const string &amp;name)'],['../class_estudante.html#a26aa38bfd58015ae22b711f3be27aa22',1,'Estudante::Estudante()']]]
+  ['classconflict_0',['classConflict',['../class_gestao_hor.html#aca65cae895b05f1ac8efbc90f3b138b7',1,'GestaoHor']]]
 ];

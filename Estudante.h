@@ -41,8 +41,6 @@ public:
     bool operator<(const Estudante &s) const;
 
     /**
-     * \brief Modifier do atributo "turmas".
-     *
      * Adiciona uma turma à lista de turmas em que o estudante está inscrito. Complexidade O(1).
      *
      * @param turma Turma a adicionar.
@@ -50,8 +48,6 @@ public:
     void addTurma(UCTurma turma);
 
     /**
-     * \brief Modifier do atributo "turmas".
-     *
      * Remove uma turma da lista de turmas em que o estudante está inscrito. Complexidade O(n).
      *
      * @param turma Turma a remover.
@@ -94,6 +90,13 @@ public:
      */
     int getCode() const;
 
+    /**
+     * \brief Modifier do atrivuto "name".
+     *
+     * Complexidade O(1).
+     *
+     * @param name Nome do estudante.
+     */
     void setName(const string &name);
 
 private:

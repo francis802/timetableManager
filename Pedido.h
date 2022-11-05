@@ -8,7 +8,7 @@
 /**
  * \brief Classe Pedido
  *
- * Classe utilizada para criar um objeto "Pedido" que contém x parâmetros, de forma a organizar e armazenar a informação de forma mais elegante.
+ * Classe utilizada para criar um objeto "Pedido" que contém n parâmetros, de forma a organizar e armazenar a informação de forma mais elegante na alteração de horários.
  */
 class Pedido {
 private:
