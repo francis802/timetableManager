@@ -9,27 +9,13 @@
 #include <iostream>
 
 class Menu {
-private:
+protected:
     GestaoHor gestao;
 
 public:
     explicit Menu(const GestaoHor &gestao);
 
     void start();
-
-    //TODO OCUPAÇÃO MENU
-    bool ocupacaoMenu();
-    bool ocupacaoTurmasMenu();
-        int ocupacaoDeterminadaTurmaUC(string turma, string uc);
-        void printOcupacaoTurmasUC(vector<pair<int,string>> ocupacao, string uc);
-    bool ocupacaoAnosMenu();
-        void ocupacaoDeterminadoAno(string ano);
-        void ocupacaoAnos();
-    bool ocupacaoUCMenu();
-        void ocupacaoDeterminadaUC(std::string codUC);
-        void printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out);
-        void ocupacaoUCs();
-    vector<pair<int,string>> ocupacaoUCsAno(std::string ano);
 
 
     //TODO HORÁRIO MENU
