@@ -10,9 +10,6 @@
 void Menu::start() {
     //! Inicializar menu
     bool exit = false;
-    MenuOcupacao menu1 = MenuOcupacao(gestao);
-    MenuHorario menu2 = MenuHorario(gestao);
-    MenuEstudantes menu3 = MenuEstudantes(gestao);
     string option;
     while (!exit) {
         std::cout << "====================VISUALIZAR====================\n";
@@ -25,9 +22,18 @@ void Menu::start() {
         cout << "==================================================\n";
 
         getline(cin, option);
-        if (option == "1") exit = menu1.ocupacaoMenu();
-        else if (option == "2") exit = menu2.horarioMenu();
-        else if (option == "3") exit = menu3.estudantesMenu();
+        if (option == "1"){
+            MenuOcupacao menu1 = MenuOcupacao(gestao);
+            exit = menu1.ocupacaoMenu();
+        }
+        else if (option == "2"){
+            MenuHorario menu2 = MenuHorario(gestao);
+            exit = menu2.horarioMenu();
+        }
+        else if (option == "3"){
+            MenuEstudantes menu3 = MenuEstudantes(gestao);
+            exit = menu3.estudantesMenu();
+        }
         else if (option == "4") exit = alterarMenu();
         else if (option == "q") break;
         else cout << "invalid input\n\n";
