@@ -23,8 +23,10 @@ public:
     void getDataStudent(string filename1, string filename2);
     void getDataAula(string filename);
     const set<Estudante> &getStudents() const;
-
     const set<Estudante, cmp> &getStudentsByname() const;
+    const set<UCTurma> &getAulas() const;
+
+    void setAulas(const set<UCTurma> &aulas);
 
     vector<pair<int,string>> ocupacaoTurmasUC(string uc);
     void addPedidos(vector<pair<char,Pedido>> pedido);
