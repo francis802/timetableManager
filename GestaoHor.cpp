@@ -203,6 +203,9 @@ const set<Estudante, GestaoHor::cmp> &GestaoHor::getStudentsByname() const {
     return students_byname;
 }
 
+const set<UCTurma> &GestaoHor::getAulas() const {
+    return aulas;
+}
 
 //TODO Em princípio está tudo bem, mas fazer mais testes
 bool GestaoHor::classConflict(Estudante estudante, UCTurma new_uct) {

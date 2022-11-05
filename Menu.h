@@ -36,6 +36,7 @@ public:
     bool horarioMenu();
         void searchHorarioByNum();
         void searchHorarioByName();
+        void searchHorarioTurma();
         void printHorario(Estudante student);
 
     //TODO ESTUDANTES MENU
