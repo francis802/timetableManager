@@ -32,6 +32,7 @@ public:
     void printHorario(Estudante student);
     void searchHorarioByNum();
     void searchHorarioByName();
+    void searchHorarioTurma();
     bool horarioMenu();
     void estudantesTurmaUC(string turma, string uc, char sort);
     void estudantesAno(string ano, char sort);
