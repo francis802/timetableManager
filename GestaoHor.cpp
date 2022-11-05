@@ -258,6 +258,24 @@ bool GestaoHor::addStudentUCClass(Pedido pedido) {
     auto it2 = students_byname.find(temp);
     students.erase(it1);
     students_byname.erase(it2);
+
+    for (UCTurma u: temp.getTurmas()){
+        if (u.getCodUc() == uc){
+            ofstream out;
+            out.open("../log_failed_changes.txt",std::ios_base::app);
+            cout << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+            out << "Erro: Não é possível efetuar as mudanças desejadas ao estudante " << temp.getCode() << endl;
+            cout << "\tMotivo: Não é possível estar em 2 turmas da mesma UC\n";
+            out << "\tMotivo: Não é possível estar em 2 turmas da mesma UC\n";
+            cout <<"\tEstudante da UC " << uc << ", na turma [" << u.getCodTurma() << "] quer entrar noutra turma da UC: [" << turma << "]\n";
+            out <<"\tEstudante da UC " << uc << ", na turma [" << u.getCodTurma() << "] quer entrar noutra turma da UC: [" << turma << "]\n";
+            cout << "Não foram efetuadas mudanças no horário do estudante\n\n";
+            out << "Não foram efetuadas mudanças no horário do estudante\n\n\n";
+            out.close();
+            return false;
+        }
+    }
+
     UCTurma t = UCTurma(turma, uc);
     auto timetable = aulas.find(t);
     if (timetable == aulas.end()){
