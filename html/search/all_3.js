@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gestaohor_0',['GestaoHor',['../class_gestao_hor.html',1,'GestaoHor'],['../class_gestao_hor.html#a12fd264b4d8b074eb4e4c0971504840a',1,'GestaoHor::GestaoHor()']]],
+  ['gestaohor_0',['GestaoHor',['../class_gestao_hor.html#a12fd264b4d8b074eb4e4c0971504840a',1,'GestaoHor::GestaoHor()'],['../class_gestao_hor.html',1,'GestaoHor']]],
   ['getaulas_1',['getAulas',['../class_gestao_hor.html#a5b75e08da4a1851b3e40b14e6611e64e',1,'GestaoHor']]],
   ['getcode_2',['getCode',['../class_estudante.html#a2d65f92ad96060d1830eb648729cfa78',1,'Estudante::getCode()'],['../class_pedido.html#afa8da0a8f51b6cd9d95818c186022607',1,'Pedido::getCode() const']]],
   ['getcodturma_3',['getCodTurma',['../class_pedido.html#a7bc169b1e2b08756e54a4234ca77d0b1',1,'Pedido::getCodTurma()'],['../class_u_c_turma.html#a510e93fbb2f17ae6c6ef34791c58be40',1,'UCTurma::getCodTurma()']]],
