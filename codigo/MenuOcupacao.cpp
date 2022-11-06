@@ -80,7 +80,7 @@ int MenuOcupacao::ocupacaoDeterminadaTurmaUC(string turma, string uc){
 }
 
 void MenuOcupacao::printOcupacaoTurmasUC(vector<pair<int, string>> ocupacao, string uc){
-    string s = "../" + uc + "_ocupacao_turmas.txt";
+    string s = "../ficheiros/" + uc + "_ocupacao_turmas.txt";
     ofstream out(s);
     cout << uc << endl;
     out << uc << endl;
@@ -180,7 +180,7 @@ bool MenuOcupacao::ocupacaoUCMenu(){
         else if (option1 == "2") {
             cout << "Ano: ";
             getline(cin, option2);
-            string s = "../ocupacao_ucs_" + option2 + "_ano.txt";
+            string s = "../ficheiros/ocupacao_ucs_" + option2 + "_ano.txt";
             ofstream out(s);
             out << option2 << "ª ano:\n";
             printOcupacaoUCs(ocupacaoUCsAno(option2),out);
@@ -232,7 +232,7 @@ void MenuOcupacao::printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream&
 }
 
 void MenuOcupacao::ocupacaoUCs() {
-    string s = "../ocupacao_uc.txt", option;
+    string s = "../ficheiros/ocupacao_uc.txt", option;
     ofstream out(s);
     cout << "Ordenação:\n";
     cout << "\t1 - Geral\n";

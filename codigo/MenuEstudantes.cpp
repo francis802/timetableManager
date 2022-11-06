@@ -62,7 +62,7 @@ bool MenuEstudantes::estudantesMenu(){
 }
 
 void MenuEstudantes::estudantesTurmaUC(string turma, string uc, char sort) {
-    string s = "../estudantes" + turma + "_" + uc + ".txt";
+    string s = "../ficheiros/estudantes" + turma + "_" + uc + ".txt";
     ofstream out(s);
     cout << uc << " | " << turma << '\n';
     out << uc << " | " << turma << '\n';
@@ -102,7 +102,7 @@ void MenuEstudantes::estudantesTurmaUC(string turma, string uc, char sort) {
 }
 
 void MenuEstudantes::estudantesAno(string ano, char sort) {
-    string s = "../estudantes_" + ano + "ano.txt";
+    string s = "../ficheiros/estudantes_" + ano + "ano.txt";
     ofstream out(s);
     bool found = false;
     switch (sort) {
@@ -139,7 +139,7 @@ void MenuEstudantes::estudantesAno(string ano, char sort) {
 }
 
 void MenuEstudantes::estudantesUC(string codUC, char sort) {
-    string s = "../estudantes_" + codUC + ".txt";
+    string s = "../ficheiros/estudantes_" + codUC + ".txt";
     ofstream out(s);
     bool found = false;
     switch (sort) {
@@ -183,7 +183,7 @@ void MenuEstudantes::estudantesMaisDeNUCs(std::string n, char sort) {
         cout << "invalid input\n\n";
         return;
     }
-    string s = "../estudantes_mais_de_" + n + "_ucs.txt";
+    string s = "../ficheiros/estudantes_mais_de_" + n + "_ucs.txt";
     ofstream out(s);
     bool found = false;
     switch (sort) {

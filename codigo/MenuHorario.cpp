@@ -68,7 +68,7 @@ void MenuHorario::searchHorarioTurma() {
     string turma;
     cout << "Turma: ";
     getline(cin, turma);
-    string s = "../" + turma + "_horario.txt";
+    string s = "../ficheiros/" + turma + "_horario.txt";
     ofstream out(s);
     cout << turma << endl;
     out << turma << endl;
@@ -93,7 +93,7 @@ void MenuHorario::searchHorarioTurma() {
 }
 
 void MenuHorario::printHorario(Estudante student){
-    string s = "../" + student.getName() + "_horario.txt";
+    string s = "../ficheiros/" + student.getName() + "_horario.txt";
     ofstream out(s);
     for (UCTurma turma : student.getTurmas()){
         cout << "UC: " << turma.getCodUc() << " | Turma: " << turma.getCodTurma() << endl;
