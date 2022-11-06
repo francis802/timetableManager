@@ -1,6 +1,6 @@
 #include <iostream>
-#include "GestaoHor.h"
-#include "Menu.h"
+#include "codigo/GestaoHor.h"
+#include "codigo/Menu.h"
 #include <fstream>
 
 using namespace std;
