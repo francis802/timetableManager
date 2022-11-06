@@ -60,42 +60,6 @@ public:
      */
     const string &getType() const;
 
-    /**
-     * \brief Modifier do atributo "weekday"
-     *
-     * Complexidade O(1).
-     *
-     * @param weekday Dia da semana em que é realizada a aula.
-     */
-    void setWeekday(const string &weekday);
-
-    /**
-     * \brief Modifier do atributo "startHour"
-     *
-     * Complexidade O(1).
-     *
-     * @param startHour Hora de começo da aula.
-     */
-    void setStartHour(float startHour);
-
-    /**
-     * \brief Modifier do atributo "duration"
-     *
-     * Complexidade O(1).
-     *
-     * @param duration Duração da aula (em horas).
-     */
-    void setDuration(float duration);
-
-    /**
-     * \brief Modifier do atributo "type"
-     *
-     * Complexidade O(1).
-     *
-     * @param type Tipo de aula (T, TP ou PL).
-     */
-    void setType(const string &type);
-
 private:
     string weekday;
     float startHour;

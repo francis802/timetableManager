@@ -33,13 +33,6 @@ public:
     };
 
     /**
-     * Adiciona um estudante ao set de estudantes do atributo "students". Complexidade O(1).
-     *
-     * @param s Estudante a adicionar.
-     */
-    void addStudent(Estudante s);
-
-    /**
      * Recolher os dados dos estudantes a partir de um ficheiro. Complexidade O(n^2).
      *
      * @param filename1 Nome do ficheiro com os dados dos estudantes.
