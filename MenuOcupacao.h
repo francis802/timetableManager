@@ -87,13 +87,14 @@ public:
      */
     void ocupacaoDeterminadaUC(std::string codUC);
 
-    /**
-     * Imprime a ocupação de um determinado conjunto de UCs. Complexidade O(n).
-     *
-     * @param ocupacao Vetor de pares constituídos pela ocupação de uma UC e o seu código.
-     * @param out Stream onde vai ser colocado o resultado a imprimir.
-     */
-    void printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out);
+     /**
+      * Imprime a ocupação de um determinado conjunto de UCs. Complexidade O(n).
+      *
+      * @param ocupacao Vetor de pares constituídos pela ocupação de uma UC e o seu código.
+      * @param out Stream onde vai ser colocado o resultado a imprimir.
+      * @param sorting Modo de ordenação dos resultados
+      */
+    void printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out, string sorting="");
 
     /**
      * Determina a ocupação de cada UC. Complexidade O(n)

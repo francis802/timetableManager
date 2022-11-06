@@ -208,10 +208,13 @@ void MenuOcupacao::ocupacaoDeterminadaUC(string codUC) {
     cout << codUC << ": " << ocupacao << " alunos\n";
 }
 
-void MenuOcupacao::printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out){
+void MenuOcupacao::printOcupacaoUCs(vector<pair<int,string>> ocupacao, ofstream& out, string sorting){
     string option;
-    cout << "Ordenação: 1) UC, 2) Crescente, 3) Decrescente\n";
-    getline(cin, option);
+    if (sorting != "") option = sorting;
+    else {
+        cout << "Ordenação: 1) UC, 2) Crescente, 3) Decrescente\n";
+        getline(cin, option);
+    }
     switch (option[0]) {
         case '2':
             sort(ocupacao.begin(),ocupacao.end());
@@ -260,10 +263,12 @@ void MenuOcupacao::ocupacaoUCs() {
         }
 
     } else if (option == "2") {
+        cout << "Ordenação: 1) Turma, 2) Crescente, 3) Decrescente\n";
+        getline(cin, option);
         for (int i = 1; i <= 3; i++) {
             cout << i << "º ano\n";
             out << i << "º ano\n";
-            printOcupacaoUCs(ocupacaoUCsAno(to_string(i)), out);
+            printOcupacaoUCs(ocupacaoUCsAno(to_string(i)), out, option);
         }
     } else cout << "invalid input\n\n";
     out.close();
